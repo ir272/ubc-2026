@@ -90,7 +90,24 @@ export class Hub {
     const rt = this.channels.get(id);
     if (!rt) throw new Error('unknown channel');
     rt.listeners.add(l);
-    return () => rt.listeners.delete(l);
+    this.viewersChanged(id);
+    return () => {
+      rt.listeners.delete(l);
+      this.viewersChanged(id);
+    };
+  }
+
+  private viewerTimers = new Map<string, ReturnType<typeof setTimeout>>();
+  /** Tells the channel how many are watching, at most once a second (joins and leaves come in bursts). */
+  private viewersChanged(id: string) {
+    if (this.viewerTimers.has(id)) return;
+    const t = setTimeout(() => {
+      this.viewerTimers.delete(id);
+      const rt = this.channels.get(id);
+      if (rt) this.broadcast(id, 'viewers', { viewers: rt.listeners.size }); // EXTRA message
+    }, 1000);
+    t.unref?.();
+    this.viewerTimers.set(id, t);
   }
 
   broadcast(id: string, type: string, body: Record<string, unknown> = {}) {
@@ -278,6 +295,7 @@ export class Hub {
       serverNow: Date.now(),
       recentChat: opts.events === false ? [] : rt.chat,
       bots: this.bots,
+      viewers: rt.listeners.size,
     };
   }
 }

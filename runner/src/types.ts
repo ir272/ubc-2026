@@ -39,6 +39,8 @@ export interface ChainAdapter {
   getPosition(market: string, owner: string): Promise<{ amounts: number[]; claimed: boolean } | null>;
   /** Optional batch reads (one RPC call instead of one per account); callers fall back to the single reads. */
   getMarkets?(markets: string[]): Promise<({ pools: number[]; state: string } | null)[]>;
+  /** Solana: RPC requests sent since start, total and per method (for watching a provider's quota). */
+  rpcUsage?(): { since: number; total: number; byMethod: Record<string, number> };
   getPositions?(markets: string[], owner: string): Promise<({ amounts: number[]; claimed: boolean } | null)[]>;
   /** Normalises/validates an owner string (throws if invalid). */
   parseOwner(owner: string): string;
@@ -212,6 +214,8 @@ export interface Snapshot {
   serverNow: number;
   recentChat: ChatMsg[]; // EXTRA
   bots: { owner: string; name: string }[]; // EXTRA
+  /** EXTRA: live WebSocket connections on this channel right now (real viewers). */
+  viewers: number;
 }
 
 export interface ChatMsg {

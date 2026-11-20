@@ -33,7 +33,9 @@ odds / events / chat, get a key + faucet, place bets).
 | `ADMIN_KEYPAIR` | `../program/.keys/admin.json` | solana only: admin/fee-payer keypair (solana-keygen JSON) |
 | `DEPLOYED_PATH` | `../program/DEPLOYED.json` | solana only |
 | `SOLANA_RPC` | public endpoint for the cluster in DEPLOYED.json | solana only. The public devnet endpoint rate-limits a runner with several channels; put a private devnet URL (e.g. a free Helius key) in `runner/.env` as `SOLANA_RPC=...` (gitignored; `npm start` loads it) |
-| `RPC_STATS` | off | solana only: `1` logs RPC requests per method every 30 s |
+| `RPC_STATS` | off | solana only: `1` logs RPC requests per method every 30 s (totals since start are always in `GET /health` as `rpc`) |
+| `TX_PER_SEC` | `1` | solana only: most transactions sent per second (Helius free tier allows 1) |
+| `POOL_POLL_MS` | `2000` memory, `5000` solana | how often open windows' pools are re-read |
 | `BOT_KEYS` | `.keys/house-bots.json` | solana only: where bot keypairs are kept (gitignored) |
 | `RECLAIM` | on | solana only: `0` turns off closing finished markets (rent stays locked) |
 | `RECLAIM_DELAY_MS` | `20000` | solana only: wait after a window is paid before closing its accounts |
@@ -68,7 +70,8 @@ Details and additions:
   Web: build `place_bet` with `feePayer` as fee payer, sign with the silent key, `POST /relay`.
 - Chat: clients send `{ type: 'chat', name, text }`; text ≤ 280 chars, name ≤ 24, 5-message burst then
   1 per 2 s per connection; names starting with "HouseBot" are reserved.
-- `GET /health`.
+- `GET /health`. On Solana it includes `rpc: { since, total, byMethod }`, the RPC requests sent since start.
+- Snapshots carry `viewers` (open WebSocket connections on that channel) and the feed sends `{ type: 'viewers', viewers }` when it changes (at most once a second).
 - Play-dollar transfers (the wallet's Withdraw): on Solana, `POST /relay` also accepts a transaction made
   of an optional ATA `CreateIdempotent` (payer = fee payer, recipient's PLAY account) plus one SPL
   `TransferChecked` of PLAY signed by the sender; the fee payer may never appear in the transfer. On

@@ -141,3 +141,33 @@ test('memory chain: POST /dev/transfer moves play dollars and refuses bad reques
     await app.stop();
   }
 });
+
+test('viewers: snapshots and the feed carry the real number of open connections', async () => {
+  const { default: WebSocket } = await import('ws');
+  const app = createApp({ chain: new MemoryChain(), channels: [coinflipChannel()], historyDir: null });
+  const port = await app.start(0, '127.0.0.1');
+  const open = () =>
+    new Promise<{ ws: InstanceType<typeof WebSocket>; msgs: any[] }>((resolve) => {
+      const ws = new WebSocket(`ws://127.0.0.1:${port}/ws?channel=coinflip`);
+      const msgs: any[] = [];
+      ws.on('message', (raw) => msgs.push(JSON.parse(String(raw))));
+      ws.on('open', () => resolve({ ws, msgs }));
+    });
+  try {
+    const a = await open();
+    await new Promise((r) => setTimeout(r, 100));
+    assert.equal(a.msgs.find((m) => m.type === 'snapshot').viewers, 1);
+    const b = await open();
+    await new Promise((r) => setTimeout(r, 1300));
+    assert.equal(b.msgs.find((m) => m.type === 'snapshot').viewers, 2);
+    assert.equal(a.msgs.filter((m) => m.type === 'viewers').at(-1).viewers, 2);
+    b.ws.close();
+    await new Promise((r) => setTimeout(r, 1300));
+    assert.equal(a.msgs.filter((m) => m.type === 'viewers').at(-1).viewers, 1);
+    const snap = (await (await fetch(`http://127.0.0.1:${port}/channels/coinflip`)).json()) as any;
+    assert.equal(snap.viewers, 1);
+    a.ws.close();
+  } finally {
+    await app.stop();
+  }
+});

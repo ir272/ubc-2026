@@ -15,7 +15,8 @@ const CHAT_MAX_LEN = 280;
 const NAME_MAX_LEN = 24;
 const CHAT_BURST = 5; // messages
 const CHAT_REFILL_MS = 2000; // one message back every 2 s
-const POOL_POLL_MS = 2000;
+/** Pool refresh: every 2 s on memory; on Solana every 5 s (env POOL_POLL_MS) to spare the RPC quota. */
+const POOL_POLL_MS = Number(process.env.POOL_POLL_MS) || 0;
 
 export interface AppOpts {
   chain: ChainAdapter;
@@ -70,7 +71,7 @@ export function createApp(o: AppOpts) {
   const ac = new AbortController();
   const faucetGranted = new Set<string>();
   const meCache = new Map<string, { at: number; body: Promise<{ balance: number; positions: unknown[] }> }>();
-  const ME_CACHE_MS = chain.kind === 'solana' ? 3000 : 0;
+  const ME_CACHE_MS = chain.kind === 'solana' ? 5000 : 0;
   const ipBuckets = new Map<string, Bucket>();
   const devHtml = () => readFileSync(new URL('../public/dev.html', import.meta.url));
   let loops: Promise<void>[] = [];
@@ -141,7 +142,7 @@ export function createApp(o: AppOpts) {
       res.end(JSON.stringify(body));
     };
 
-    if (m === 'GET' && (p === '/' || p === '/health')) return json(200, { ok: true, chain: chain.kind, channels: hub.channels.size, reclaim: { pending: hub.reclaimer.pending, ...hub.reclaimer.stats } });
+    if (m === 'GET' && (p === '/' || p === '/health')) return json(200, { ok: true, chain: chain.kind, channels: hub.channels.size, reclaim: { pending: hub.reclaimer.pending, ...hub.reclaimer.stats }, ...(chain.rpcUsage ? { rpc: chain.rpcUsage() } : {}) });
     if (m === 'GET' && p === '/config')
       return json(200, { ...chain.info(), decimals: DECIMALS, unit: UNIT, faucetAmount: FAUCET_AMOUNT, houseBots: hub.bots.length > 0 });
     if (m === 'GET' && p === '/dev') {
@@ -290,8 +291,9 @@ export function createApp(o: AppOpts) {
     const send = (json: string) => {
       if (ws.readyState === WebSocket.OPEN && ws.bufferedAmount < 1 << 20) ws.send(json);
     };
-    send(JSON.stringify({ type: 'snapshot', t: Date.now(), ...hub.snapshot(channel) }));
+    // Subscribe first so the snapshot's viewer count includes this connection.
     const unsub = hub.subscribe(channel, (_msg, json) => send(json));
+    send(JSON.stringify({ type: 'snapshot', t: Date.now(), ...hub.snapshot(channel) }));
     const bucket = new Bucket(CHAT_BURST, CHAT_REFILL_MS);
     let alive = true;
     ws.on('pong', () => (alive = true));
@@ -333,7 +335,7 @@ export function createApp(o: AppOpts) {
       const actual = typeof addr === 'object' && addr ? addr.port : port;
       if (o.houseBots) await startHouseBots(hub, ac.signal, o.houseBots === true ? {} : o.houseBots);
       loops = o.channels.map((def) => runChannelLoop(hub, def, ac.signal, o.loop));
-      const poll = setInterval(() => void hub.refreshAllOpen(), POOL_POLL_MS);
+      const poll = setInterval(() => void hub.refreshAllOpen(), POOL_POLL_MS || (chain.kind === 'solana' ? 5000 : 2000));
       ac.signal.addEventListener('abort', () => clearInterval(poll), { once: true });
       return actual;
     },

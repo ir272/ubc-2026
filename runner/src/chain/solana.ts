@@ -47,6 +47,31 @@ async function loadWeb3(): Promise<typeof Web3> {
   }
 }
 
+/** Every RPC request sent since start (GET /health shows it), and RPC_STATS=1 logs them every 30 s. */
+export const rpcUsage = { since: Date.now(), total: 0, byMethod: {} as Record<string, number> };
+const recent = new Map<string, number>();
+export function countRpc(body: unknown) {
+  if (typeof body !== 'string') return;
+  try {
+    const b = JSON.parse(body);
+    for (const r of Array.isArray(b) ? b : [b]) {
+      const m = String(r?.method ?? '?');
+      rpcUsage.total++;
+      rpcUsage.byMethod[m] = (rpcUsage.byMethod[m] ?? 0) + 1;
+      recent.set(m, (recent.get(m) ?? 0) + 1);
+    }
+  } catch {
+    /* not JSON-RPC */
+  }
+}
+if (process.env.RPC_STATS === '1') {
+  setInterval(() => {
+    if (!recent.size) return;
+    log.info(`rpc/30s ${[...recent].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}=${v}`).join(' ')}`);
+    recent.clear();
+  }, 30_000).unref();
+}
+
 /**
  * A fetch for web3.js that sends every RPC request over a few kept-alive connections.
  * Node's own fetch opens a new connection for each concurrent request, and the public RPC
@@ -81,25 +106,9 @@ function pooledFetch(maxSockets: number) {
       if (init.body) req.write(init.body);
       req.end();
     });
-  // RPC_STATS=1: log how many requests of each method were sent in the last 30 s (finding rate-limit leaks).
-  const counts = new Map<string, number>();
-  if (process.env.RPC_STATS === '1') {
-    setInterval(() => {
-      if (!counts.size) return;
-      log.info(`rpc/30s ${[...counts].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}=${v}`).join(' ')}`);
-      counts.clear();
-    }, 30_000).unref();
-  }
   return (input: unknown, init: unknown = {}) => {
     const i = init as Parameters<typeof once>[1];
-    if (process.env.RPC_STATS === '1' && i.body) {
-      try {
-        const b = JSON.parse(i.body);
-        for (const r of Array.isArray(b) ? b : [b]) counts.set(r.method, (counts.get(r.method) ?? 0) + 1);
-      } catch {
-        /* not JSON */
-      }
-    }
+    countRpc(i.body);
     return once(new URL(String(input)), i, false);
   };
 }
@@ -209,7 +218,22 @@ export class SolanaChain implements ChainAdapter {
     }
   }
 
+  /** Earliest time the next transaction may be sent: TX_PER_SEC (default 1, Helius free tier's cap). */
+  private nextSendAt = 0;
+  private readonly sendGapMs = 1000 / Math.max(0.1, Number(process.env.TX_PER_SEC) || 1);
+  private async sendTurn() {
+    const now = Date.now();
+    const at = Math.max(now, this.nextSendAt);
+    this.nextSendAt = at + this.sendGapMs;
+    if (at > now) await new Promise((r) => setTimeout(r, at - now));
+  }
+
+  rpcUsage() {
+    return { since: rpcUsage.since, total: rpcUsage.total, byMethod: { ...rpcUsage.byMethod } };
+  }
+
   private async send(ixs: Web3.TransactionInstruction[], extraSigners: Web3.Keypair[] = []): Promise<string> {
+    await this.sendTurn();
     const tx = new this.web3.Transaction().add(...ixs);
     tx.feePayer = this.admin.publicKey;
     return this.web3.sendAndConfirmTransaction(this.connection, tx, [this.admin, ...extraSigners], {
@@ -385,6 +409,7 @@ export class SolanaChain implements ChainAdapter {
     if (tx.instructions.length > MAX_RELAY_IXS) throw new Error('relay: too many instructions');
     tx.partialSign(this.admin);
     const raw = tx.serialize(); // verifies every required signature is present
+    await this.sendTurn();
     const sig = await this.connection.sendRawTransaction(raw, { skipPreflight: false, preflightCommitment: 'confirmed' });
     const res = await this.connection.confirmTransaction(sig, 'confirmed');
     // Only a transaction that succeeded is reported as a bet (a failed one still has a signature).
