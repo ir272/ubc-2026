@@ -13,6 +13,7 @@ import { channelPath } from '../lib/router';
 import { Button } from '../ui';
 import { currentWindow, useChannelState, useFeed } from '../lib/feed';
 import { useWallet } from '../lib/wallet';
+import { useAnnouncer } from '../announcer/useAnnouncer';
 
 export function ChannelPage({ id }: { id: string }) {
   const { channels } = useChannels();
@@ -36,6 +37,7 @@ function Channel({ id }: { id: string }) {
   const feed = useFeed(id);
   const s = useChannelState(feed);
   const wallet = useWallet();
+  useAnnouncer(s);
   const [cams, setCams] = useState<string[]>([]);
   const [cam, setCam] = useState<string | null>(null);
   const [chatOpen, setChatOpen] = useState(true);

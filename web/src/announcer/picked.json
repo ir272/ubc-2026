@@ -1,0 +1,182 @@
+{
+  "bets-open": [
+    [
+      "bets-open-s5404.mp3",
+      "Place your bets!",
+      2.02
+    ],
+    [
+      "bets-open-s5505.mp3",
+      "Bets are open!",
+      2.02
+    ]
+  ],
+  "last-call": [
+    [
+      "last-call-2.mp3",
+      "Last call!",
+      1.41
+    ],
+    [
+      "last-call-s5101.mp3",
+      "Last call!",
+      1.03
+    ]
+  ],
+  "bets-closed": [
+    [
+      "bets-closed-s5101.mp3",
+      "Bets are closed!",
+      1.58
+    ],
+    [
+      "bets-closed-s5505.mp3",
+      "Bets are closed!",
+      1.76
+    ]
+  ],
+  "winner": [
+    [
+      "winner-2.mp3",
+      "We have a winner!",
+      2.01
+    ],
+    [
+      "winner-s5202.mp3",
+      "We have a winner!",
+      2.6
+    ]
+  ],
+  "brawl-fight": [
+    [
+      "brawl-fight-2.mp3",
+      "Fight!",
+      0.59
+    ],
+    [
+      "brawl-fight-s5101.mp3",
+      "Fight!",
+      0.57
+    ]
+  ],
+  "brawl-knockout": [
+    [
+      "brawl-knockout-s5101.mp3",
+      "Knockout!",
+      0.96
+    ],
+    [
+      "brawl-knockout-s5202.mp3",
+      "Knockout!",
+      0.71
+    ]
+  ],
+  "brawl-sudden-death": [
+    [
+      "brawl-sudden-death-1.mp3",
+      "Sudden death!",
+      1.3
+    ],
+    [
+      "brawl-sudden-death-2.mp3",
+      "Sudden death!",
+      1.36
+    ]
+  ],
+  "brawl-game-over": [
+    [
+      "brawl-game-over-s5101.mp3",
+      "Game Over!",
+      1.85
+    ],
+    [
+      "brawl-game-over-s5303.mp3",
+      "Game Over!",
+      1.62
+    ]
+  ],
+  "goober-round-one": [
+    [
+      "goober-round-one-2.mp3",
+      "Round One!",
+      0.66
+    ],
+    [
+      "goober-round-one-s5101.mp3",
+      "Round One!",
+      1.51
+    ]
+  ],
+  "goober-round-two": [
+    [
+      "goober-round-two-2.mp3",
+      "Round Two!",
+      1.27
+    ],
+    [
+      "goober-round-two-s5101.mp3",
+      "Round Two!",
+      1.52
+    ]
+  ],
+  "goober-final-round": [
+    [
+      "goober-final-round-1.mp3",
+      "Final Round!",
+      1.37
+    ],
+    [
+      "goober-final-round-s5101.mp3",
+      "Final Round!",
+      1.62
+    ]
+  ],
+  "goober-eight-remain": [
+    [
+      "goober-eight-remain-s5101.mp3",
+      "Eight remain!",
+      2.07
+    ],
+    [
+      "goober-eight-remain-s5303.mp3",
+      "Eight remain!",
+      1.3
+    ]
+  ],
+  "goober-four-remain": [
+    [
+      "goober-four-remain-s5101.mp3",
+      "Four remain!",
+      1.44
+    ],
+    [
+      "goober-four-remain-s5707.mp3",
+      "Four remain!",
+      1.4
+    ]
+  ],
+  "inkelton-fight": [
+    [
+      "inkelton-fight-2.mp3",
+      "Fight the Inkelton!",
+      2.21
+    ],
+    [
+      "inkelton-fight-s5101.mp3",
+      "Fight the Inkelton!",
+      1.9
+    ]
+  ],
+  "inkelton-duel-over": [
+    [
+      "inkelton-duel-over-1.mp3",
+      "The duel is over!",
+      2.02
+    ],
+    [
+      "inkelton-duel-over-2.mp3",
+      "The duel is over!",
+      3.07
+    ]
+  ]
+}
