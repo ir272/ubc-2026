@@ -36,8 +36,8 @@ export const useRailOpen = (defaultOpen = false) => {
 
 /** "12.4K" above a thousand, the plain number below */
 export const shortCount = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}K` : String(n));
-/** People watching a channel as the list endpoint knows it (the channel page has the live figure). */
-export const listViewers = (c: Snapshot) => (c as Snapshot & { viewers?: number }).viewers ?? (c.bots?.length ?? 0) + 1;
+/** People watching a channel, as the runner counts them in the channel list. Never padded. */
+export const listViewers = (c: Snapshot) => c.viewers ?? 0;
 /** "A vs B" for two, "16 contestants" for more */
 export const matchLine = (c: Pick<Snapshot, 'match'>) => {
   const es = c.match?.entrants ?? [];

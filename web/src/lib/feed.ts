@@ -29,7 +29,7 @@ export interface ChannelState {
   connected: boolean;
   /** serverNow - Date.now() at snapshot time */
   offset: number;
-  /** names seen in chat this session (for the watching count) */
+  /** names seen in chat this session (not the watching count: that is `viewers`, from the runner) */
   seen: number;
   lastError: string | null;
   /** a snapshot has arrived at least once */
@@ -172,10 +172,13 @@ export class FeedClient {
           events: (snap.recentEvents ?? []).slice(-MAX_EVENTS), bots: snap.bots ?? [],
           chat: (snap.recentChat ?? []).map((c) => this.line(c)),
           connected: true, offset: snap.serverNow - Date.now(), seen: this.names.size, lastError: null,
-          ready: true,
+          ready: true, viewers: typeof snap.viewers === 'number' ? snap.viewers : null,
         });
         break;
       }
+      case 'viewers':
+        if (typeof m.viewers === 'number') this.set({ viewers: m.viewers });
+        break;
       case 'phase':
         this.set({ phase: m.phase });
         break;

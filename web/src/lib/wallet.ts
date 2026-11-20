@@ -148,7 +148,11 @@ class Wallet {
     this.emit();
   }
 
+  private refreshing = false;
   async refresh() {
+    // One lookup at a time: on a slow runner these would otherwise pile up and starve the rest of the page.
+    if (this.refreshing) return null;
+    this.refreshing = true;
     try {
       const me = await api.me(this.owner);
       this.serverBalance = me.balance;
@@ -162,6 +166,8 @@ class Wallet {
       return me;
     } catch {
       return null;
+    } finally {
+      this.refreshing = false;
     }
   }
 

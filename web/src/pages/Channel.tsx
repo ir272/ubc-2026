@@ -29,7 +29,8 @@ export function ChannelPage({ id }: { id: string }) {
   return <Channel key={id} id={id} />;
 }
 
-export const viewersOf = (s: { viewers: number | null; seen: number; bots: unknown[] }) => s.viewers ?? s.seen + s.bots.length + 1;
+/** People watching right now, as the runner counts them. Never padded: 0 until the runner says otherwise. */
+export const viewersOf = (s: { viewers: number | null }) => s.viewers ?? 0;
 
 function Channel({ id }: { id: string }) {
   const feed = useFeed(id);

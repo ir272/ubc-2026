@@ -40,6 +40,8 @@ export interface ChatMsg { from: string; text: string; bot?: boolean; t?: number
 export interface Snapshot {
   channel: string; title: string; phase: Phase; match: MatchView | null; windows: WindowView[];
   recentEvents: GameEvent[]; serverNow: number; recentChat: ChatMsg[]; bots: { owner: string; name: string }[];
+  /** people with this channel open right now, counted by the runner */
+  viewers?: number;
 }
 export interface Config {
   chain: 'memory' | 'solana'; decimals: number; unit: number; faucetAmount: number; houseBots: boolean;
@@ -79,12 +81,14 @@ export interface ChannelForm {
   entrants: EntrantForm[];
 }
 
-async function req<T>(path: string, body?: unknown): Promise<T> {
+/** `ms`: give up after this long, so a slow runner cannot tie up the browser's few connections to it. */
+async function req<T>(path: string, body?: unknown, ms?: number): Promise<T> {
+  const signal = ms ? AbortSignal.timeout(ms) : undefined;
   const r = await fetch(
     RUNNER_URL + path,
     body === undefined
-      ? undefined
-      : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) },
+      ? { signal }
+      : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body), signal },
   );
   let j: any = null;
   try {
@@ -103,8 +107,8 @@ export const api = {
   history: (id: string, limit = 20) =>
     req<{ channel: string; chain: string; matches: HistoryMatch[] }>(`/channels/${encodeURIComponent(id)}/history?limit=${limit}`),
   form: (id: string) => req<ChannelForm>(`/channels/${encodeURIComponent(id)}/form`),
-  me: (owner: string) => req<{ balance: number; positions: Position[] }>('/me/' + owner),
-  faucet: (owner: string) => req<{ granted: number; balance: number; already?: boolean }>('/faucet', { owner }),
+  me: (owner: string) => req<{ balance: number; positions: Position[] }>('/me/' + owner, undefined, 6000),
+  faucet: (owner: string) => req<{ granted: number; balance: number; already?: boolean }>('/faucet', { owner }, 30000),
   devBet: (b: { owner: string; windowId: string; outcomeId: string; amount: number }) =>
     req<{ ok: true; pools: number[]; total: number; balance: number }>('/dev/bet', b),
   relay: (tx: string) => req<{ signature: string }>('/relay', { tx }),
