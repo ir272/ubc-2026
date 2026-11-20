@@ -101,7 +101,7 @@ function Channel({ id }: { id: string }) {
                   <span className="side-a">{es[0]!.name}</span> <span className="vs">vs</span> <span className="side-b">{es[1]!.name}</span>
                 </span>
               )}
-              {es.length > 2 && <span>{es.length} contestants</span>}
+              {es.length > 2 && <span>Free For All</span>}
             </div>
             <div className="ch-tags">
               <span className="ch-kind">{kindFor(id)}</span>

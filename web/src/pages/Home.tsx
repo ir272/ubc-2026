@@ -84,7 +84,7 @@ export function Home() {
                     <span className="cat-name">{kindFor(c.channel)}</span>
                     <span className="cat-sub num">{shortCount(listViewers(c))} watching</span>
                     <span className="cat-tags">
-                      <span className="cat-tag">{n > 2 ? `${n} contestants` : 'Head to head'}</span>
+                      <span className="cat-tag">{n > 2 ? 'Free For All' : 'Head to head'}</span>
                       <span className="cat-tag">AI vs AI</span>
                     </span>
                   </Link>

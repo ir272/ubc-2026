@@ -72,7 +72,7 @@ export function useForms(channels: string[]) {
 
 /** "Red vs Blue" for two entrants, else the match title. */
 export function matchup(m: HistoryMatch): string {
-  return m.entrants.length === 2 ? `${m.entrants[0]!.name} vs ${m.entrants[1]!.name}` : m.title || `${m.entrants.length} contestants`;
+  return m.entrants.length === 2 ? `${m.entrants[0]!.name} vs ${m.entrants[1]!.name}` : m.title || 'Free For All';
 }
 
 /** Who won, as shown in a results row: an entrant's name, the deciding outcome's label (a tie), or null when void. */

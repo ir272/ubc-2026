@@ -253,7 +253,7 @@ export function fxSnapshot(id: string): Snapshot & { viewers: number } {
     phase: m.phase,
     match: {
       matchId: `${c.id}-m42`,
-      title: c.entrants.length > 2 ? `${c.entrants.length} contestants` : c.entrants.map((e) => e.name).join(' vs '),
+      title: c.entrants.length > 2 ? 'Free For All' : c.entrants.map((e) => e.name).join(' vs '),
       entrants: c.entrants,
       startedAt: NOW - 3 * min,
     },

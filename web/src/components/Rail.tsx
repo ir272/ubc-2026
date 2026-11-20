@@ -40,10 +40,10 @@ export const useRailOpen = (defaultOpen = false) => {
 export const shortCount = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}K` : String(n));
 /** People watching a channel, as the runner counts them in the channel list. Never padded. */
 export const listViewers = (c: Snapshot) => c.viewers ?? 0;
-/** "A vs B" for two, "16 contestants" for more */
+/** "A vs B" for two, "Free For All" for more */
 export const matchLine = (c: Pick<Snapshot, 'match'>) => {
   const es = c.match?.entrants ?? [];
-  return es.length === 2 ? `${es[0]!.name} vs ${es[1]!.name}` : es.length > 2 ? `${es.length} contestants` : '';
+  return es.length === 2 ? `${es[0]!.name} vs ${es[1]!.name}` : es.length > 2 ? 'Free For All' : '';
 };
 
 export function thumbFor(channel: string): string | null {
