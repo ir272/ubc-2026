@@ -5,7 +5,7 @@
 //                      score (0..1 share of the boss's health removed, 1 on a kill),
 //                      hpLeft (0..1 of the petitioner's own health), strokes, taken }
 
-export const MAX_ATTEMPTS_EACH = 3;
+export const MAX_ATTEMPTS_EACH = 1; // one go each (Ian, 2026-11-20); the rest of the rules still read for any number
 export const STROKES = 6;
 
 export const QUARTILES = [

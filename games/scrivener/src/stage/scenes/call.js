@@ -150,7 +150,7 @@ export const callScene = {
 
     // masthead
     const a0 = prog(age, 200, 500);
-    title(ctx, 'THE SCRIVENER', W / 2, 132, 38, { color: CREAM, spacing: 15, alpha: a0, maxW: 470 });
+    title(ctx, 'INKELTON', W / 2, 132, 38, { color: CREAM, spacing: 15, alpha: a0, maxW: 470 });
 
     if (ia && ib) {
       // the cards wait for the phase's own title to clear

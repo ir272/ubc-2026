@@ -105,7 +105,7 @@ export default function scrivenerChannel(o: ScrivenerChannelOpts = {}): ChannelD
 
   return {
     id: o.id ?? 'scrivener',
-    title: o.title ?? 'The Scrivener',
+    title: o.title ?? 'Inkelton', // the name viewers see (Ian, 2026-11-20); the channel id stays `scrivener`
     intermissionMs: o.intermissionMs ?? 3000,
     async run(show: Show) {
       const matchNo = store.nextMatchNo();

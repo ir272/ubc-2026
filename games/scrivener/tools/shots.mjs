@@ -63,6 +63,7 @@ try {
     const qs = new URLSearchParams({ bare: '1', mute: '1' });
     if (!args.live) { qs.set('replay', job.feed || args.feed || 'latest'); if (job.at) qs.set('at', job.at); }
     if (job.pick || args.pick) qs.set('pick', job.pick || args.pick);
+    if (job.q) for (const [k, v] of Object.entries(job.q)) qs.set(k, v); // extra query values for one job
     await page.goto(`${BASE}/?${qs}`);
     await page.waitForFunction(() => window.__harness && window.__harness.ready, null, { timeout: 30000 });
     await page.waitForTimeout(parseInt(waitMs ?? '1400', 10));

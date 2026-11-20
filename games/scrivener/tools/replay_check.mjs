@@ -12,7 +12,9 @@ let attempts = 0, same = 0, seedsFromWindows = 0, feeds = 0;
 for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.jsonl'))) {
   const msgs = fs.readFileSync(path.join(dir, f), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l));
   const ev = (t) => msgs.filter((m) => m.type === 'event' && m.event.type === t).map((m) => m.event.data);
-  const seeds = new Set(msgs.filter((m) => m.type === 'window_locked' && m.seed).map((m) => parseInt(m.seed.slice(0, 8), 16) >>> 0));
+  // a go's seed is eight hex digits of a locked window's seed: the first eight in feeds recorded before
+  // 2026-11-20 (one window per go), the go's own slice of the match window's seed since
+  const seeds = new Set(msgs.filter((m) => m.type === 'window_locked' && m.seed).flatMap((m) => Array.from({ length: 8 }, (_, i) => m.seed.slice(i * 8, i * 8 + 8)).filter((h) => h.length === 8).map((h) => parseInt(h, 16) >>> 0)));
   const ends = ev('attempt.end');
   feeds += 1;
   for (const s of ev('attempt.start')) {

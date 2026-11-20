@@ -560,3 +560,87 @@ Checks on the round 10 build
 - A whole 499 s match with console capture: no errors (before and after the sound pass).
 - Dead air 2.25 s worst (bar 2.5 s). Replay 550 of 550. Runner and site typechecks clean for
   this game. Hooks tried live with sound on: locked to running, music playing, volume applied.
+
+Round 11, Fri Nov 20, about 03:00 to 05:00 CST: Ian's edits, decided with him by question and still
+
+Ian's words (relayed, then direct): the boss bar "starts from 0 for some reason. it should be the
+opposite and start at 100%. also, the health bar should be red"; "clarify/revise/remove all the
+text. ex: strokes, ledgers, second try"; "remove moves bro wtf. also, make it 1 round only"; the
+end card "is super confusing"; the per-go prediction is "horrendously worded. and plus, i dont
+even like this prediction"; of the phase bands, "matchup and winner are unnecessary"; the music
+fits, keep it.
+
+Built 11
+- Format: one go each (`MAX_ATTEMPTS_EACH = 1`). No per-go prediction and no window between
+  pairs: the match has one prediction, "Who wins the match?", at the tape. That window is now
+  seeded, and each go's seed is cut from its lock seed. Walk-on is 3.5 s.
+- Fight screen: the boss's bar is red, full at the start and drains; its health left is the one
+  figure beside it. No round text, no move count, no pips, no quarter ticks. The rival's result
+  is a tick on the bar. The score strip shows a figure only for a finished go.
+- Every score on screen is the boss's health left (lowest wins): end card (name, the bar draining
+  to where the go left it, the figure or KILL), score strip, verdict rows.
+- Phase bands: THE FIGHTERS, LOADOUTS, FIGHT. None for the tape or the verdict. The tape page has
+  no title. Waiting card: "Next match soon".
+- Old feeds (three goes, per-go windows) still replay: their prediction block and scores page draw.
+
+Checks 11: see REPORT.md.
+
+## Round 12 to 14, Fri Nov 20: HUD, move cards, end screen, cards for the picks
+
+Ian chose each of these today, from stills. This section says what the screens now show and
+what was measured on this build.
+
+What the screens show
+- **The call:** "INKELTON" at the head, the band THE FIGHTERS, the two fighters' cards.
+- **The choosing:** each fighter's name with four empty card slots under it. A paper plate
+  says "VESPER PICKS A CLASS", the name underlined in the fighter's colour. Three picture cards
+  are dealt, a cursor weighs them, the pick lifts and flies to its slot in the hand.
+- **The matchup:** the two names with a model line, each fighter's four cards (class, weapon,
+  spell, charm) framed in its colour, the temper card in the middle with its name in red, the
+  two figures facing each other, and the "PREDICTIONS OPEN" plate with its clock, then
+  "PREDICTIONS CLOSED". The hands are read slot by slot: both class cards lift, then both
+  weapons, and so on.
+- **The fight:** paper plates over the room. Top left, the fighter: name, a nib health bar in
+  its colour, its health as a figure. Top right, the two names; the one fighting is underlined.
+  Bottom, on its own plate, THE SCRIVENER with a red nib bar that starts full and drains, and
+  its health left as a percent. When a choice is open, a plate asks "WHAT WILL VESPER DO?" over
+  four picture move cards, two by two; the cards lift in turn and the pick is framed in the
+  fighter's colour.
+- **The end of a go:** the fighter, its name, the Scrivener's bar draining to where the go
+  left it, and the figure or KILL.
+- **The winner poster:** a red band, the winner drawn large on the left, the deciding moment
+  replayed in a frame, the winner's name very large with its result, the loser as one small
+  line, and the clock to the next match.
+
+Fixed in this check (one change, old recordings only)
+- `src/stage/fight_hud.js`, `readyCall`: on a feed recorded before today, the per-go
+  "PREDICTIONS OPEN" plate covered the top edge of the boss plate (its backing ran to y 648,
+  the boss plate starts at 642). It now sits 18 px higher (y 530), clear of the boss plate.
+  New matches never draw this plate.
+
+Checks on this build (all run today, in this order)
+- `node --check` on all 17 JS files in `src/stage` and `src/show`: no errors.
+- A fresh mock match: `scrivener-101-mwoufkxv.jsonl` (Vesper 23%, Ludo 46%, Vesper wins).
+- 100 mock matches: 100 finished, 0 stalls, 2 goes each match, 1 window each match. Length min
+  177 s, median 220 s, p90 233 s, max 244 s. Decided by damage 58, kill 36, both killed 6.
+- Whole match with console capture, 24 frames 9.5 s apart: `"errors": []` on the fresh feed and
+  on the real-model feed `scrivener-130-mwos644f.jsonl`. Every phase drew in both: the call, the
+  choosing with cards and the "PICKS A" plate, the matchup with two hands, both fights with the
+  plates, move cards and the red boss bar, both end cards, the winner poster. Strips:
+  `shots/r15/whole_match_strip.png`, `shots/r15/whole_match_strip_130.png`.
+- Full-size stills of the fresh feed (choosing, matchup, a move choice, an end card, the
+  poster): `"errors": []`, no overlap or clipped text seen. `shots/r15/fresh_*.png`.
+- Dead air on the fresh feed, 226 s watched: worst still 1250 ms, in the choosing (match second
+  15), between two offers. Bar 2500 ms: pass. Every other phase 0 ms.
+- Old three-go feed `scrivener-210-mwnofg5c.jsonl`, five stills (matchup, walk-on with its
+  per-go prediction, a move choice, the scores page between pairs, the poster): `"errors": []`
+  each, all draw. The walk-on still was taken again after the fix above. `shots/r15/old/`.
+- Replay: 158 feeds, 607 of 607 goes identical, 607 seeds traced to a locked window. Pass.
+- Real runner Show (`runner_check`): ok, 231 s, 2 goes, one window opened, locked and settled,
+  the snapshot holds the whole match, no error.
+- Runner and site typechecks: nothing reported for this game.
+- Screen text sweep for em dashes and middle dots in `src/stage`: none.
+
+Not checked
+- No person has watched a whole match with sound on this build.
+- No critic has judged rounds 12 to 14.

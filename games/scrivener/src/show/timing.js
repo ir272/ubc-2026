@@ -15,14 +15,15 @@ export const T = {
   tapeWindow: 30000,
   tapeAfterLock: 2800,  // "predictions closed", then the bell
 
-  attemptWindow: 12000, // "How far does X get?"
+  walkOn: 3500,         // the fighter stands before the boss, then the bell
+  attemptWindow: 12000, // old feeds only: the per-go prediction that no longer opens
   bell: 1700,           // lock -> first tick of the fight
   decideMin: 1600,      // shortest a decision is shown
   decideTarget: 6000,
   decideMax: 10000,     // then the default move
   decideStamp: 1350,    // the chosen move is struck in before time resumes
-  endHold: { death: 3200, kill: 5200, written: 3000 },
-  noteHold: 3800,       // the note to itself after a death
+  endHold: { death: 5200, kill: 6400, written: 4200 }, // the end card: the boss's bar drains to where the go left it
+  noteHold: 1500,       // after the note to itself comes back
   noteMax: 6000,        // longest wait for a model's note
 
   pairWindow: 15000,    // "Who wins the match?" after each undecided pair
@@ -36,9 +37,9 @@ export const T = {
 };
 
 // Rough length of a whole match, for the README and sanity checks.
-export function expectedMatchMs(attempts = 5, avgAttemptMs = 38000) {
+export function expectedMatchMs(attempts = 2, avgAttemptMs = 38000) {
   const choosing = T.temperReveal + 8 * (T.pickDeal + 3200 + T.pickHold) + T.choosingOut;
   const tape = T.tapeLead + T.tapeWindow + T.tapeAfterLock;
-  const fight = attempts * (T.attemptWindow + T.bell + avgAttemptMs + 3600 + T.noteHold) + Math.floor((attempts - 1) / 2) * (T.pairWindow + T.pairAfterLock);
+  const fight = attempts * (T.walkOn + T.bell + avgAttemptMs + 5200 + T.noteHold) + Math.floor((attempts - 1) / 2) * (T.pairWindow + T.pairAfterLock);
   return T.call + choosing + tape + fight + T.verdict;
 }

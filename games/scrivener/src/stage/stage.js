@@ -37,7 +37,7 @@ export function createStage(el, opts = {}) {
   wrap.style.cssText = 'position:relative;width:100%;height:100%;background:#070606;overflow:hidden;display:flex;align-items:center;justify-content:center;';
   const canvas = document.createElement('canvas');
   canvas.style.cssText = 'display:block;background:#0b0a09;';
-  canvas.setAttribute('aria-label', 'The Scrivener: two models take turns at an ink-drawn boss');
+  canvas.setAttribute('aria-label', 'Inkelton: two models take turns at an ink-drawn boss');
   wrap.appendChild(canvas);
   el.appendChild(wrap);
   const ctx = canvas.getContext('2d');
@@ -170,8 +170,8 @@ export function createStage(el, opts = {}) {
     ctx.save();
     nibEmblem(ctx, W / 2, 250, 0.6, { color: RED, bg: '#0b0a09' });
     ctx.restore();
-    title(ctx, 'THE SCRIVENER', W / 2, 420, 54, { color: CREAM, spacing: 20 });
-    text(ctx, 'The next petitioners are on their way.', W / 2, 474, ital(28), { color: '#9c9483', align: 'center' });
+    title(ctx, 'INKELTON', W / 2, 420, 54, { color: CREAM, spacing: 20 });
+    text(ctx, 'Next match soon', W / 2, 474, ital(28), { color: '#9c9483', align: 'center' });
   }
 
   function env() {

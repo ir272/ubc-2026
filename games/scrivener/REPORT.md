@@ -4,6 +4,56 @@ Thu 2026-11-19, 07:14 to 10:30 CST, then a ninth round from 12:55 to 14:00 at th
 request. Nine build-and-critic rounds. The round-by-round log with every critic's verdict is
 `ROUNDS.md`; `progress.html` is the same story with stills.
 
+## Round 12 to 14, in short: HUD, move cards, end screen, cards for the picks (Fri Nov 20)
+
+Chosen by Ian today, from stills:
+
+- **The fight HUD is paper plates.** Top left, the fighter's name, a nib health bar in its
+  colour and its health. Top right, the two names. Bottom, THE SCRIVENER and its red nib bar,
+  full at the start and draining, with the percent left.
+- **Move choices are picture cards**, four, two by two, under a plate "WHAT WILL VESPER DO?".
+- **The choosing and the matchup are cards.** A plate says "VESPER PICKS A CLASS"; three
+  picture cards are dealt and the pick flies to the hand. The matchup shows both hands of four
+  cards, the temper card between them and the prediction clock.
+- **The end screen is a winner poster:** a red band, the winner drawn large, the deciding
+  moment replayed in a frame, the name very large with its result, the loser on one small line.
+
+Checks on this build: 100 of 100 mock matches finish (median 220 s, 0 stalls, 2 goes and 1
+window each); whole matches with console capture have no errors on a fresh mock feed and on a
+real-model feed, and every phase drew; dead air 1250 ms worst, in the choosing (bar 2500 ms);
+replay 607 of 607 with every seed traced to a locked window; the real-runner check passes in
+231 s with one window; runner and site typechecks clean for this game; no em dashes or middle
+dots in stage code. Old three-go recordings still replay with no errors. One fix: on those old
+recordings the per-go prediction plate covered the boss plate's top edge; it now sits 18 px
+higher.
+
+Not checked: no person has watched a whole match with sound on this build. No critic has
+judged rounds 12 to 14.
+
+## Round 11, in short: Ian's edits on the morning of the deadline (Fri Nov 20)
+
+Decided by Ian, question by question, with stills in front of him:
+
+- **One go each.** Each AI fights the boss once; kill it and you win; if neither kills it, whoever
+  left it with less health wins. `MAX_ATTEMPTS_EACH = 1`. Matches run about 3 min 40 s.
+- **One prediction per match:** "Who wins the match?" before the fight. The per-go "How far" window
+  and the window between pairs are gone. The match window is seeded and each go's seed is cut from
+  its lock seed, so no go's dice exist while betting is open.
+- **The boss bar is a red health bar** that starts full and drains. Every figure on screen is the
+  boss's health left (lowest wins): beside the bar, on the end card, in the score strip, on the
+  verdict.
+- **No round text, no move count**, no pips, no quarter ticks. Phase bands only for THE FIGHTERS,
+  LOADOUTS and FIGHT.
+
+Checks on this build: 100 of 100 mock matches finish (median 219 s, no stalls); a whole match with
+console capture has no errors; dead air 1.5 s worst (bar 2.5 s); replay 599 of 599 with every seed
+traced to a locked window; the real-runner check passes with one window; runner and site
+typechecks clean for this game.
+
+Not judged by a critic: none of round 11. Not decided: the move menu stays (my reading of "remove
+moves" is the move count); the fighter's own health bar keeps its own colour; "scripted" still
+shows under a fighter with no model. Old recordings (three goes) still replay.
+
 ## Round 10, in short: the strict text rule, the site's sound hooks, sound
 
 The owner watched the games on the site and said of the stage text: "All that text is straight

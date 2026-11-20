@@ -322,7 +322,7 @@ export function candle(ctx, x, y, h, frac, t, { color = INK, flame = RED, wax = 
 }
 
 // ---- the phase title call ------------------------------------------------------------------
-export const PHASE_TITLES = { call: 'THE CALL', choosing: 'THE CHOOSING', tape: 'THE TAPE', fight: 'THE FIGHT', verdict: 'THE VERDICT' };
+export const PHASE_TITLES = { call: 'THE FIGHTERS', choosing: 'LOADOUTS', fight: 'FIGHT' };
 export const TITLE_CALL_MS = 1700;
 
 // A brush band crosses the screen carrying the phase's name. age in ms since the phase began.

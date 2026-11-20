@@ -15,7 +15,7 @@ A match is a show in five phases that cannot be mistaken for each other:
 | the call | 10 s | a dark ledger leaf | match number, the two names being written in, models, records, head to head |
 | the choosing | about 60 s | an open book | the boss's temper, then each model picks a class, a weapon, a spell and a charm from three plates, with a reason |
 | the tape | 35 s | a fight poster | both builds side by side, form, the temper; window A is open ("Who wins the match?") |
-| the fight | 3 to 6 min | the library | alternating attempts, three each at most; a 12 s window before each, a 15 s window after each undecided pair |
+| the fight | about 2 min | the library | one go each at the boss, one after the other; no window of its own |
 | the verdict | 21 s | oxblood | the winner, how it ended, the deciding moment again, the pay-out beat, a line from each, the count to the next call |
 
 ## Integration: the two lines
@@ -103,38 +103,22 @@ Events (`{ type, at, data }`, `at` = ms since the match began):
 | `next` | `{ ms }` the count to the next call |
 
 Windows:
-- **A**, at the tape: "Who wins the match?", two outcomes (the entrant ids), live. It opens only
-  after every pick is public and locks before the fight. Settled at the verdict.
-- **Before each attempt**: "How far does <name> get?", four outcomes `q1..q4` (under a quarter of
-  the boss's health, a quarter to half, half to three quarters, three quarters or a kill), 12 s,
-  **seeded**: the seed the runner derives at lock is the attempt's world seed, so the attempt does
-  not exist while the window is open. Settled the moment the attempt ends.
-- **After each undecided pair**: "Who wins the match?" again, 15 s, live. Settled at the verdict.
+- **A**, at the tape: "Who wins the match?", two outcomes (the entrant ids), 30 s, **seeded**. It
+  opens only after every pick is public and locks before the fight. Settled at the verdict. This is
+  the match's only window (since 2026-11-20; the per-go "How far" window and the window between
+  pairs are gone).
 
-Bets lock before the outcome exists: offers and the temper are drawn in the choosing, before any
-window; each attempt's seed is drawn after its own window locks; every model call that decides an
-open window happens after the lock.
-
-### Replaying an attempt
-
-`simulate({ seed, entrants, options: { entrantId, loadout, temper, handicap, slots } })` re-runs an
-attempt from its window's seed and the moves the model published (`decide.made.slot`, also
-`attempt.end.slots`) and returns the same result. It is pure and runs the same in node and the
-browser. `SIM_HASH` is the sha256 of the sim sources and is recorded in each seeded market.
-
-### How the stage stays in step
-
-The channel and the stage run the same deterministic sim. It freezes itself at every decision, so
-the stage needs only `attempt.start` and each `decide.made` to draw the same fight. A viewer who
-joins mid-attempt takes the frozen world from the latest `decide.open`. A stage that falls behind
-runs a little fast until it has caught up.
-
+Bets lock before the outcome exists: offers and the temper are drawn in the choosing, before the
+window; the seed of each go is cut from the seed the runner derives when window A locks (eight hex
+digits per go), so no go's dice exist while betting is open; every model call in the fight happens
+after the lock.
 ## Rules
 
-- Two entrants alternate attempts, three each at most. The opener alternates.
-- An attempt's score is the share of the boss's health removed, `1` on a kill.
+- Each entrant gets one go at the boss (`MAX_ATTEMPTS_EACH = 1` in `src/show/rules.js`). The opener alternates.
+- An attempt's score is the share of the boss's health removed, `1` on a kill. The stage shows the
+  other side of it everywhere: the boss's health left (lowest wins).
 - First to kill wins once both have had the same number of attempts. Both kill in the same pair:
-  the one with more of its own health left. Nobody kills in three each: the best single attempt.
+  the one with more of its own health left. Nobody kills: whoever left the boss with less health.
 - A fighter has four moves: two from its class, the weapon's strike, the spell. No flasks.
 - Classes, weapons, spells, charms and the boss's six tempers are listed in `DESIGN.md` and defined
   in `src/sim/loadout.js`.

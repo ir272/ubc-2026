@@ -10,7 +10,7 @@
 // }
 
 import { drawOffers, movesFor, CLASSES, WEAPONS, SPELLS, CHARMS, TEMPERS } from '../sim/loadout.js';
-import { standing, quartile, QUARTILES, STROKES } from './rules.js';
+import { standing, STROKES } from './rules.js';
 import { runAttemptLive } from './attempt.js';
 import { T } from './timing.js';
 
@@ -113,9 +113,16 @@ export async function runMatch(show, ctx) {
   phase('tape', T.tapeLead + T.tapeWindow + T.tapeAfterLock);
   await nap(T.tapeLead);
   const whoOutcomes = order.map((id) => ({ id, label: byId[id].name, entrantId: id }));
-  const winA = await show.openWindow({ question: WHO_WINS, outcomes: whoOutcomes, durationMs: live ? T.tapeWindow : 5, seeded: false });
+  // The one prediction of the match. It is seeded: the seed of every go comes out of this window's lock,
+  // so no go's dice exist until betting has closed.
+  const winA = await show.openWindow({ question: WHO_WINS, outcomes: whoOutcomes, durationMs: live ? T.tapeWindow : 5, seeded: true, simHash: ctx.simHash });
   const whoWins = [winA];
-  await show.lock(winA);
+  const { seed: matchSeed } = await show.lock(winA);
+  const seedFor = (index) => {
+    const at = ((index - 1) % 8) * 8;
+    const part = matchSeed ? matchSeed.slice(at, at + 8) : '';
+    return part.length === 8 ? parseInt(part, 16) >>> 0 : ctx.seedInt();
+  };
   await nap(T.tapeAfterLock);
 
   // ---- 4. the fight -------------------------------------------------------------------
@@ -127,14 +134,9 @@ export async function runMatch(show, ctx) {
     const bot = byId[turn.entrantId];
     state.current = turn;
     emit('attempt.ready', { ...turn });
-    const winQ = await show.openWindow({
-      question: `How far does ${bot.name} get?`,
-      outcomes: QUARTILES.map((q) => ({ id: q.id, label: q.label })),
-      durationMs: live ? T.attemptWindow : 5, seeded: true, simHash: ctx.simHash,
-    });
-    // The attempt's seed does not exist until this window has locked.
-    const { seed } = await show.lock(winQ);
-    const seedInt = seed ? parseInt(seed.slice(0, 8), 16) >>> 0 : ctx.seedInt();
+    // the walk-on: no prediction of its own (the match has one, before the fight)
+    await nap(T.walkOn);
+    const seedInt = seedFor(turn.index);
     const handicap = ctx.handicap && ctx.handicap.entrantId === turn.entrantId ? ctx.handicap.amount : 0;
     emit('attempt.start', { ...turn, seed: seedInt, loadout: state.loadouts[turn.entrantId], temper: state.temper, handicap });
     await nap(T.bell);
@@ -154,7 +156,7 @@ export async function runMatch(show, ctx) {
     const noteJob = wantNote
       ? withLimit(Promise.resolve().then(() => bot.brain.note({ world, record, notes: notes[turn.entrantId] })), limits ? T.noteMax : 0, () => ({ text: '' }))
       : Promise.resolve({ text: '' });
-    await Promise.all([show.settle(winQ, quartile(record.score, record.result)), nap(T.endHold[record.result])]);
+    await nap(T.endHold[record.result]);
     const note = await noteJob;
     if (note && note.text) {
       const text = clip(note.text, 18);
