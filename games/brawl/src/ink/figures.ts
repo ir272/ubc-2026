@@ -1,7 +1,7 @@
 // The two fighters: each posed figure drawn by its CharacterDef in the frame's ink mode, spun about
 // the hip, red-hot while post.fighterFlash is up, blinking while invulnerable, hidden while dead.
 // Also the projectiles (the owner's drawProjectile, or a short dart) and the shield (an arc of pen
-// strokes in front of the fighter that thins as the shield wears).
+// strokes in front of the fighter that thins and breaks as the shield wears).
 //
 // The helpers at the top (standState, extraFor, makeFigure, drawFigure) are shared with the
 // screens and the pose sheet.
@@ -9,7 +9,7 @@
 import type { CharacterDef, Figure, FigureExtra, InkFrame, InkModule, Joints } from './api.ts';
 import { UNITS_PER_M } from './api.ts';
 import type { FighterDef, FighterId, FighterState, Side } from '../sim/types.ts';
-import { arc, makeInk, TINTS, type InkMode, type Pt } from './pen.ts';
+import { makeInk, TINTS, type InkMode, type Pt } from './pen.ts';
 
 export function standState(fighter: FighterId, over: Partial<FighterState> = {}): FighterState {
   return {
@@ -93,11 +93,16 @@ export function createFigures(): InkModule {
     const g = f.g;
     const t = f.now / 1000;
     const x = extraFor(s, f.fighterDefs[s.fighter], t, f.sideTints[fig.side]);
-    const blink = s.invuln > 0 && Math.floor(f.now / 70) % 2 === 1;
-    g.globalAlpha = blink ? 0.35 : 1;
+    // invulnerable: a quick blink (one short faint beat in three), not a long grey ghost; dodges,
+    // ledge options and moves with their own look (Mist Step) are drawn solid
+    const dodge = s.action === 'airdodge' || s.action === 'roll' || s.action === 'spotdodge' || s.action === 'getup' ||
+      s.action === 'ledgeclimb' || s.action === 'ledgehang' || s.action === 'attack';
+    const blink = s.invuln > 0 && !dodge && Math.floor(f.now / 55) % 3 === 0;
+    g.globalAlpha = blink ? 0.4 : 1;
     drawFigure(g, ch, fig.joints, x, fig.x, fig.y, fig.s, fig.facing, f.mode);
     g.globalAlpha = 1;
     if (s.action === 'shield' || s.action === 'shieldstun') drawShield(f, fig);
+    if ((s.rooted ?? 0) > 0) drawStagger(f, fig);
     const hot = f.post.fighterFlash[fig.side];
     if (hot > 0.01) drawHot(f, fig, ch, x, hot);
   }
@@ -141,24 +146,77 @@ export function createFigures(): InkModule {
     g.restore();
   }
 
+  /** the guard: a short bowed wall of upright pen strokes in front of the fighter, in the side tint;
+   *  four heavy strokes when the shield is full, fewer, thinner and broken as it wears, pushed out
+   *  with a flick for the first frames of a block */
   function drawShield(f: InkFrame, fig: Figure): void {
     const s = fig.state;
-    const h = (f.fighterDefs[s.fighter]?.height ?? 2) * UNITS_PER_M;
+    const def = f.fighterDefs[s.fighter];
+    const h = (def?.height ?? 2) * UNITS_PER_M;
+    const hw = (def?.width ?? 1) * UNITS_PER_M * 0.5;
     const hp = Math.max(0, Math.min(1, s.shield / 100));
+    const stun = s.action === 'shieldstun' ? Math.max(0, 1 - (s.actionFrame - 1) / 8) : 0;
     const g = f.g;
     g.save();
     g.translate(fig.x, fig.y);
     g.scale(fig.facing * fig.s, fig.s);
     const ink = makeInk(g, 'line');
-    const cx = h * 0.08, cy = -h * 0.5, R = h * 0.56;
-    const n = 2 + Math.round(hp * 3);
+    const tint = f.sideTints[fig.side];
+    const n = hp > 0.7 ? 4 : hp > 0.35 ? 3 : 2;
+    const front = hw + 22 + stun * 14;
+    const cy = -h * 0.5;
+    const bow = h * 0.11;
+    const pieces = hp > 0.6 ? 1 : hp > 0.3 ? 2 : 3;
     for (let i = 0; i < n; i++) {
-      const rr = R + i * 7 - n * 3;
-      const span = 0.75 + 0.25 * hp;
-      const pts = arc(cx, cy, rr, -Math.PI / 2 * span + i * 0.05, Math.PI / 2 * span - i * 0.04, 16, rr * 1.04);
-      ink.line(pts, { w: 1.4 + hp * 2.6 - i * 0.3, tint: f.sideTints[fig.side], seed: 900 + i + fig.side * 10, taper: 0.8, alpha: 0.55 + 0.4 * hp });
+      const c = i - (n - 1) / 2;
+      const span = h * (0.78 - 0.1 * Math.abs(c)) * (0.75 + 0.25 * hp);
+      const x0 = front + c * 9;
+      const pts: Pt[] = [];
+      for (let j = 0; j <= 8; j++) {
+        const t = j / 8 - 0.5;
+        pts.push([x0 + bow * (1 - 4 * t * t) - stun * 10 * (1 - 4 * t * t) * (i % 2 ? 0.6 : 1), cy + t * span]);
+      }
+      // broken into pieces as the shield wears: drop a short gap between them
+      for (let k = 0; k < pieces; k++) {
+        const g0 = Math.floor((k * 9) / pieces) + (k ? 1 : 0);
+        const g1 = Math.floor(((k + 1) * 9) / pieces) - (k < pieces - 1 ? 1 : 0);
+        const seg = pts.slice(g0, Math.max(g0 + 2, g1 + 1));
+        if (seg.length < 2) continue;
+        ink.line(seg, { w: 1.6 + hp * 3.4 - Math.abs(c) * 0.6, tint, seed: 900 + i * 7 + k + fig.side * 40, taper: 0.7, alpha: 0.6 + 0.4 * hp });
+      }
+    }
+    // the hit: a quick flick off the top and the bottom of the wall
+    if (stun > 0) {
+      const tx = front + bow * 0.4 + 8;
+      const l = 26 * stun + 8;
+      ink.line([[tx, cy - h * 0.3], [tx + l, cy - h * 0.3 - l * 0.6]], { w: 2.4, tint, seed: 960 + fig.side, taper: 0.9, alpha: stun });
+      ink.line([[tx, cy + h * 0.28], [tx + l * 0.8, cy + h * 0.28 + l * 0.5]], { w: 2, tint, seed: 970 + fig.side, taper: 0.9, alpha: stun });
     }
     g.restore();
+  }
+
+  /** staggered (rooted by the Howl): three wavering upright strokes over the head, in the howler's
+   *  tint, for as long as it lasts */
+  function drawStagger(f: InkFrame, fig: Figure): void {
+    const s = fig.state;
+    const h = (f.fighterDefs[s.fighter]?.height ?? 2) * UNITS_PER_M * fig.s;
+    const head = fig.point('head');
+    const ink = makeInk(f.g, 'line');
+    const tint = f.sideTints[fig.side === 0 ? 1 : 0];
+    const t = f.now / 1000;
+    const u = Math.max(0.7, fig.s);
+    const top = Math.min(head[1], fig.y - h * 0.95) - h * 0.12;
+    for (let i = 0; i < 3; i++) {
+      const c = i - 1;
+      const bx = head[0] + c * h * 0.16;
+      const l = h * (0.24 - 0.04 * Math.abs(c));
+      const pts: Pt[] = [];
+      for (let j = 0; j <= 6; j++) {
+        const y = top - (l * j) / 6 - Math.abs(c) * h * 0.02;
+        pts.push([bx + Math.sin(t * 11 + j * 1.25 + i * 2) * h * 0.035 + c * j * 1.2 * u, y]);
+      }
+      ink.line(pts, { w: 4 * u, taper: 0.7, tint: i === 1 ? 'ink' : tint, seed: 940 + i + fig.side * 5 });
+    }
   }
 
   function drawProjectiles(f: InkFrame): void {

@@ -700,7 +700,7 @@ function sheets(o) {
 
 /** every looping bed and the loop length the code plays it at (s) */
 const LOOPS = [
-  ['music-fight', 51.2], ['music-bed', 34.909093], ['crowd-bed', 17.0], ['crowd-cheer-bed', 25.0],
+  ['music-danse-fight', 90.585], ['music-danse-opening', 20.75], ['night-bed', 20.0],
 ];
 
 function loops(o) {

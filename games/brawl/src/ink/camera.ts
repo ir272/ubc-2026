@@ -8,6 +8,12 @@
 //   follow  one side, close
 // In 'frozen' playback the frame holds where it is. shake() is a decaying trauma squared offset
 // along the hit; punch() a brief push in toward a point.
+//
+// The safe box: every fighter alive and inside the blast zone is kept fully in the picture, at least
+// 90 px from the sides, 70 px under the top (the clock) and, where it stands over a HUD plate (the
+// outer 480 px of each side), with its feet 140 px above the bottom (36 px between the plates). The
+// target is solved to keep it, and the eased view is pulled into it by a fast correction (no pop on
+// a respawn or a launch). Only past the widest view may a fighter leave; fx.ts then draws a pointer.
 
 import type { CameraRig2D, InkFrame, View } from './api.ts';
 import { W, H } from './api.ts';
@@ -30,6 +36,98 @@ function spring(s: [number, number], target: number, omega: number, dt: number):
 
 const alive = (f: FighterState) => f.action !== 'dead';
 
+/** safe box margins in stage px */
+const SAFE_X = 90;
+const SAFE_TOP = 70;
+const PLATE_W = 480;
+const PLATE_FEET = 140;
+const OPEN_FEET = 36;
+
+/** a fighter's extent in world metres: x0..x1, feet y0, top y1 */
+export interface SubjectBox { x0: number; x1: number; y0: number; y1: number }
+
+/** the boxes the safe box keeps: alive fighters inside the blast zone */
+export function subjectBoxes(f: InkFrame): SubjectBox[] {
+  const out: SubjectBox[] = [];
+  const fight = f.fight;
+  if (!fight) return out;
+  const b = f.arena.blast;
+  for (const side of [0, 1] as Side[]) {
+    const s = fight.state.fighters[side];
+    if (!alive(s)) continue;
+    if (s.x < b.left || s.x > b.right || s.y < b.bottom || s.y > b.top) continue;
+    out.push(fighterBox(f, s));
+  }
+  return out;
+}
+
+export function fighterBox(f: InkFrame, s: FighterState): SubjectBox {
+  const h = f.fighterDefs[s.fighter]?.height ?? 2;
+  const wd = f.fighterDefs[s.fighter]?.width ?? 1;
+  if (s.tumble || s.action === 'hitstun' || s.action === 'knockdown' || !s.grounded) {
+    // spun about the hip or stretched in the air: a square around the hip
+    const r = h * 0.62;
+    const hy = s.y + h * 0.5;
+    return { x0: s.x - r, x1: s.x + r, y0: Math.min(s.y, hy - r), y1: hy + r };
+  }
+  const hw = Math.max(0.55, wd * 0.5 + 0.2, h * 0.3);
+  return { x0: s.x - hw, x1: s.x + hw, y0: s.y, y1: s.y + h * 1.1 };
+}
+
+/** the view nearest (cx, cy, w) that keeps every box in the safe box, up to maxW wide; when even
+ *  maxW cannot hold them all, the box nearest the arena centre is kept and the other may leave */
+export function solveSafe(boxes: SubjectBox[], cx: number, cy: number, w: number, maxW: number): [number, number, number] {
+  if (!boxes.length) return [cx, cy, w];
+  const ax = 0.5 - SAFE_X / W;
+  // horizontal
+  let lo = 1e9, hi = -1e9;
+  for (const b of boxes) { lo = Math.min(lo, b.x0); hi = Math.max(hi, b.x1); }
+  let keep = boxes;
+  if ((hi - lo) / (2 * ax) > maxW && boxes.length > 1) {
+    const mid = (b: SubjectBox) => Math.abs((b.x0 + b.x1) / 2);
+    keep = [boxes.reduce((a, b) => (mid(b) < mid(a) ? b : a))];
+    lo = keep[0]!.x0;
+    hi = keep[0]!.x1;
+  }
+  w = Math.max(w, Math.min(maxW, (hi - lo) / (2 * ax)));
+  let a = ax * w;
+  cx = hi - lo <= 2 * a ? Math.max(hi - a, Math.min(lo + a, cx)) : (lo + hi) / 2;
+  // vertical: the feet margin depends on whether the box stands over a plate (screen x at this cx)
+  for (let pass = 0; pass < 2; pass++) {
+    const k = w / W;
+    const plateL = cx - w / 2 + PLATE_W * k;
+    const plateR = cx + w / 2 - PLATE_W * k;
+    const feet = (b: SubjectBox) => (b.x0 < plateL || b.x1 > plateR ? PLATE_FEET : OPEN_FEET);
+    const need = (b: SubjectBox, top: number) => (top - b.y0) / (ASPECT - (SAFE_TOP + feet(b)) / W);
+    let top = -1e9;
+    for (const b of keep) top = Math.max(top, b.y1);
+    let wv = 0;
+    for (const b of keep) wv = Math.max(wv, need(b, top));
+    let vk = keep;
+    if (wv > maxW && keep.length > 1) {
+      const mid = (b: SubjectBox) => Math.hypot((b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2 - 3);
+      vk = [keep.reduce((p, q) => (mid(q) < mid(p) ? q : p))];
+      top = vk[0]!.y1;
+      wv = need(vk[0]!, top);
+    }
+    const nw = Math.max(w, Math.min(maxW, wv));
+    if (nw > w + 1e-6) {
+      w = nw;
+      a = ax * w;
+      cx = hi - lo <= 2 * a ? Math.max(hi - a, Math.min(lo + a, cx)) : (lo + hi) / 2;
+      if (pass === 0) continue;
+    }
+    const k2 = w / W;
+    const hh = (w * ASPECT) / 2;
+    const cyLo = top - hh + SAFE_TOP * k2;
+    let cyHi = 1e9;
+    for (const b of vk) cyHi = Math.min(cyHi, b.y0 + hh - feet(b) * k2);
+    cy = cyLo <= cyHi ? Math.max(cyLo, Math.min(cyHi, cy)) : (cyLo + cyHi) / 2;
+    break;
+  }
+  return [cx, cy, w];
+}
+
 export function createCamera2D(): CameraRig2D {
   const sx: [number, number] = [0, 0];
   const sy: [number, number] = [3, 0];
@@ -38,6 +136,8 @@ export function createCamera2D(): CameraRig2D {
   let ty = 3;
   let tw = 20;
   let first = true;
+  /** the safe-box correction on top of the springs: dx, dy, dlog(w) */
+  const corr: [number, number, number] = [0, 0, 0];
   let mode = 'auto';
   let followSide: Side = 0;
 
@@ -126,9 +226,8 @@ export function createCamera2D(): CameraRig2D {
     const hw = w / 2;
     if (hi - lo <= w) cx = (lo + hi) / 2;
     else cx = Math.max(lo + hw, Math.min(hi - hw, cx));
-    tx = cx;
-    ty = cy;
-    tw = w;
+    // the safe box wins over the framing taste above
+    [tx, ty, tw] = solveSafe(subjectBoxes(f), cx, cy, w, MAX_W);
   }
 
   return {
@@ -138,6 +237,7 @@ export function createCamera2D(): CameraRig2D {
       // frozen in the fight or break (the knockout beat): hold the frame; elsewhere frame what stands there
       const frozen = f.fight?.mode === 'frozen' && (f.show.phase === 'fight' || f.show.phase === 'break');
       if (!frozen || first) target(f);
+      const justStarted = first;
       if (first) {
         sx[0] = tx;
         sy[0] = ty;
@@ -151,6 +251,7 @@ export function createCamera2D(): CameraRig2D {
       let w = Math.exp(sw[0]);
       let cx = sx[0];
       let cy = sy[0];
+      const boxes = frozen ? [] : subjectBoxes(f);
       // punch: hold, then ease out
       punchAge += dt * 1000;
       if (punchAmt > 0) {
@@ -162,6 +263,16 @@ export function createCamera2D(): CameraRig2D {
         cy += (py - cy) * 0.35 * k;
         if (env <= 0 && punchAge > punchHold) punchAmt = 0;
       }
+      // the safe box on the eased (and punched) view: a fast eased correction, so the springs' lag
+      // never lets a fighter slide under a plate or off the side, and a respawn never pops
+      const [scx, scy, sw2] = solveSafe(boxes, cx, cy, w, MAX_W);
+      const kc = justStarted ? 1 : frozen ? 0 : 1 - Math.exp(-dt * 16);
+      corr[0] += (scx - cx - corr[0]) * kc;
+      corr[1] += (scy - cy - corr[1]) * kc;
+      corr[2] += (Math.log(sw2 / w) - corr[2]) * kc;
+      cx += corr[0];
+      cy += corr[1];
+      w *= Math.exp(corr[2]);
       view.cx = cx;
       view.cy = cy;
       view.scale = W / w;

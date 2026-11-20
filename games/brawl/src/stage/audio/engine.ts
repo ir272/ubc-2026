@@ -1,4 +1,4 @@
-// Ringout sound engine: buses, the master limiter, sample bank, synth primitives and the voice cap.
+// Blood Moon sound engine: buses, the master limiter, sample bank, synth primitives and the voice cap.
 // Works on a live AudioContext and on an OfflineAudioContext alike (the harness renders through the
 // same code), so everything is scheduled at explicit context times and nothing reads a wall clock.
 
@@ -6,33 +6,36 @@ export type BusName = 'sfx' | 'ui' | 'crowd' | 'music';
 
 /**
  * Every sample the show uses, decoded once at unlock. Missing files are fine: that layer is skipped.
- * Recorded, CC0 or CC-BY (ASSETS.md). Impacts are punches, thuds and low cinematic hits, not metal
- * only, so the set still fits if the cast stops being robots.
+ * Recorded, CC0 or CC-BY (ASSETS.md): the Blood Moon set (cloth, claws, jaws, bats, a breath, a
+ * wolf, a candle, a bell, a quill, a night wind) and the two Danse Macabre stings.
  */
 export const SAMPLE_NAMES = [
-  // hits, by class: light punches, body punches with a crack, heavy thuds, deep impacts, a drum
+  // body hits, by class: light smacks, body punches, heavy thuds, low impacts, one bone crack
   'p-light-1', 'p-light-2', 'p-light-3', 'p-light-4',
   'p-med-1', 'p-med-2', 'p-med-3', 'p-med-4',
   'p-heavy-1', 'p-heavy-2', 'p-heavy-3', 'p-heavy-4',
-  'impact-low', 'impact-big', 'impact-cine', 'kick',
-  // the knockout: two explosions with tails, a low boom
-  'ko-blast-1', 'ko-blast-2', 'ko-boom',
-  // a small colour per fighter (heat, ratchet, air, press)
-  'kiln-hiss', 'tick-ratchet', 'gantry-air', 'vise-press',
+  'impact-low', 'impact-big', 'crack-lethal',
+  // claws and jaws on top of a strike
+  'claw-1', 'claw-2', 'bite-1', 'bite-2',
+  // cloth and cloak: swings, jumps, dodges, throws
+  'cloak-1', 'cloak-2', 'cloak-3', 'cloak-4', 'cloak-big-1', 'cloak-big-2', 'swoosh-long',
+  // the Count and the Wolf
+  'bats-1', 'bats-2', 'bat-squeak', 'mist', 'snarl-1', 'snarl-2', 'howl',
   // movement
-  'step-a', 'step-b', 'step-c', 'step-d', 'land-1',
-  'swing-1', 'swing-2', 'swing-3', 'swing-4', 'swoosh-long', 'shield-1', 'grab-1',
+  'step-a', 'step-b', 'step-c', 'step-d', 'land-1', 'grab-1',
+  // the knockout: a bell and a candle
+  'bell-toll', 'candle-snuff',
   // the show
-  'show-horns', 'clock-tick', 'lock-1',
-  // the room
-  'crowd-bed', 'crowd-cheer-bed', 'crowd-cheer', 'crowd-ooh', 'crowd-ooh2', 'crowd-roar',
+  'quill-1', 'quill-2', 'clock-tick', 'lock-1', 'sting-danse-finale', 'sting-danse-hit',
+  // the night under the fight
+  'night-bed',
 ] as const;
 export type SampleName = (typeof SAMPLE_NAMES)[number];
 
 /** loops and long beds: never trimmed or faded at load */
-const RAW = ['crowd-bed', 'crowd-cheer-bed', 'music-fight', 'music-bed'];
-/** fetched first at unlock, so the room is heard at once */
-export const BED_NAMES: readonly string[] = ['crowd-bed', 'crowd-cheer-bed'];
+const RAW = ['night-bed', 'music-danse-fight', 'music-danse-opening'];
+/** fetched first at unlock, so the night is heard at once */
+export const BED_NAMES: readonly string[] = ['night-bed'];
 
 // ------------------------------------------------------------------------------------------------
 // Sample bank: decoded once per page, shared by every context (AudioBuffers are context-free).
@@ -363,12 +366,13 @@ export class Engine {
     const mshelf = ctx.createBiquadFilter();
     mshelf.type = 'lowshelf';
     mshelf.frequency.value = 160;
-    mshelf.gain.value = -6;
-    // and a little air on top so the bed is full band, not a dark pad
+    mshelf.gain.value = -3;
+    // the score is already rolled off above about 5 kHz (the files): nothing added on top, so it
+    // sits behind the hits
     const mair = ctx.createBiquadFilter();
     mair.type = 'highshelf';
     mair.frequency.value = 3000;
-    mair.gain.value = 3;
+    mair.gain.value = 0;
     music.disconnect();
     music.connect(mhp);
     mhp.connect(mshelf);
@@ -376,7 +380,7 @@ export class Engine {
     mair.connect(dmusic);
     this.duck = { sfx: dsfx, ui: dui, crowd: dcrowd, music: dmusic };
 
-    // a steel hall: generated impulse response, bright early, dark late
+    // a stone hall: generated impulse response, bright early, dark late
     const sr = ctx.sampleRate;
     const len = Math.floor(sr * 2.6);
     const ir = ctx.createBuffer(2, len, sr);

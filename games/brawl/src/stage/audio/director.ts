@@ -1,4 +1,4 @@
-// Ringout sound director: turns each Frame into sounds. Reads only frame.fight.events, the fight
+// Blood Moon sound director: turns each Frame into sounds. Reads only frame.fight.events, the fight
 // state (for footsteps and the launch after the hit pause) and frame.show changes. The same code
 // runs live (audio.ts) and offline (offline.ts renders the measured captures through it).
 //
@@ -25,17 +25,17 @@ const KO_HOLD_MS = 9600;
 const CUE_LOOKAHEAD = 70;
 
 /**
- * The two crowd beds' gains for an excitement x (0..1), in the fight (or the break) or between
- * phases (`live` false), or silent (`base` 0, idle). Measured (tools/audio.mjs, crowd-*.wav):
- * the room sits about 7 dB under the fight music in a normal exchange, swells to the music's level
- * when the excitement is up, and murmurs about 9 dB under the calmer bed between phases.
+ * The night under the fight: a soft low wind on the 'crowd' bus, at a level you can barely notice
+ * (about 15 dB under the fight music), only in the fight and the break. Silent between phases.
  */
-export function crowdGains(x: number, live: boolean, base = 1): { murmur: number; cheer: number } {
-  return {
-    murmur: base * Math.pow(10, -2.6 / 20),
-    cheer: (live ? 1 : 0.4) * base * Math.pow(10, (-30 + 18 * x) / 20) * 5.6,
-  };
+export function nightGain(phase: string): number {
+  return phase === 'fight' || phase === 'break' ? Math.pow(10, -22 / 20) : 0.0001;
 }
+/** seconds the wolf's voice rests after a snarl or a full howl (repeats are shorter or silent) */
+const SNARL_REST = 8;
+const HOWL_REST = 18;
+/** the finale sting's length (s): the opening comes back after it */
+const FINALE_S = 10.5;
 
 export interface Director {
   update(frame: Frame): void;
@@ -54,7 +54,7 @@ interface Cue {
   play(t: number): void;
 }
 
-export type MoveDefs = Partial<Record<FighterId, { moves: Record<string, { startup: number }> }>>;
+export type MoveDefs = Partial<Record<FighterId, { moves: Record<string, { startup: number; blink?: { frame: number } }> }>>;
 
 /** the music steps back under a show slam and comes straight back */
 function dip(e: Engine, t: number, level = 0.55, hold = 0.12, release = 0.5): void {
@@ -69,12 +69,12 @@ function phaseCues(e: Engine, s: ShowState): Cue[] {
       // blue band 2680, cut to the roster 6000, robots land at 6110 + 150 i, the stinger at the end
       const end = s.phaseDurationMs > 0 ? s.phaseDurationMs : 10_000;
       const cues: Cue[] = [
-        { at: 0, play: (t) => { S.callOpen(e, t, 0.17); dip(e, t + 0.17, 0.4, 0.3, 0.8); } },
-        { at: 610, play: (t) => { S.cardHit(e, t, 0.6); dip(e, t, 0.7); } },
-        { at: 2300, play: (t) => { S.cardHit(e, t, 0.45); dip(e, t, 0.6, 0.05, 0.3); } },
-        { at: 2500, play: (t) => { S.cardHit(e, t, 0.9, -0.6); dip(e, t, 0.55, 0.3, 0.5); } },
+        { at: 0, play: (t) => { S.callOpen(e, t, 0.17); dip(e, t + 0.17, 0.6, 0.3, 0.8); } },
+        { at: 610, play: (t) => S.cardHit(e, t, 0.6) },
+        { at: 2300, play: (t) => S.cardHit(e, t, 0.45) },
+        { at: 2500, play: (t) => S.cardHit(e, t, 0.9, -0.6) },
         { at: 2680, play: (t) => S.cardHit(e, t, 0.9, 0.6) },
-        { at: 6000, play: (t) => { S.cardHit(e, t, 0.5); dip(e, t, 0.5, 0.6, 0.6); } },
+        { at: 6000, play: (t) => S.cardHit(e, t, 0.5) },
         { at: end - 240, play: (t) => S.sting(e, t) },
       ];
       for (let i = 0; i < 4; i++) cues.push({ at: 6110 + 150 * i, play: (t) => S.rosterLand(e, t, i) });
@@ -85,31 +85,24 @@ function phaseCues(e: Engine, s: ShowState): Cue[] {
     case 'versus':
       // versus.ts: the halves slam at 150, the flash at 820, the mark at 1120
       return [
-        { at: 0, play: (t) => { S.versusSlam(e, t, 0.15); dip(e, t + 0.15, 0.4, 0.3, 0.9); } },
+        { at: 0, play: (t) => { S.versusSlam(e, t, 0.15); dip(e, t + 0.15, 0.6, 0.3, 0.9); } },
         { at: 820, play: (t) => S.cardHit(e, t, 0.7) },
         { at: 1120, play: (t) => S.cardHit(e, t, 0.5) },
       ];
     case 'predictions':
       // predictions.ts: the title slams at 150
       return [
-        { at: 150, play: (t) => { S.wordSlam(e, t, 0.9); dip(e, t, 0.5, 0.2, 0.6); } },
+        { at: 150, play: (t) => { S.wordSlam(e, t, 0.9); dip(e, t, 0.7, 0.2, 0.6); } },
         { at: 170, play: (t) => S.windowOpen(e, t) },
       ];
     case 'verdict': {
       // verdict.ts: the burst at 0, WINS at 220, the payout freeze 1500 to 1950 and its hit,
-      // the hard cut to the results at 3400
+      // the hard cut to the results at 3400. The strings sting and the Wolf's howl are started by
+      // the director (they hold the opening loop off while they play).
       const side = s.result?.winner ?? 0;
       return [
-        { at: 0, play: (t) => { S.winner(e, t, side); dip(e, t, 0.45, 0.4, 0.8); } },
-        { at: 220, play: (t) => S.cardHit(e, t, 0.6, side === 0 ? -0.3 : 0.3) },
-        // the freeze: the music and the room drop away under a held tone, the hit brings them back
-        {
-          at: 1500, play: (t) => {
-            S.payoutHold(e, t, 0.45);
-            e.duckBus('music', t, 0.2, 0.06, 0.39, 0.25);
-            e.duckBus('crowd', t, 0.35, 0.06, 0.39, 0.25);
-          },
-        },
+        { at: 0, play: (t) => S.winner(e, t, side) },
+        { at: 1500, play: (t) => S.payoutHold(e, t, 0.45) },
         { at: 1950, play: (t) => S.payoutHit(e, t) },
         { at: 3400, play: (t) => S.cardHit(e, t, 0.6) },
       ];
@@ -139,14 +132,17 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
   /** the break: true once the bed has taken over from the fight music */
   let breakBed = false;
   let lockSlamDone = false;
-  let crowdVerdict = false;
+  let verdictDone = false;
+  /** context time when the opening may come back after the finale sting (0: not held) */
+  let bedHeldUntil = 0;
   const lastStep: [number, number] = [-999, -999];
   const pendingLaunch: ({ kb: number; lethal: boolean; armedAt: number; tick: number } | null)[] = [null, null];
-  /** 0..1 crowd excitement: hits push it up, quiet lets it fall */
-  let excite = 0.15;
-  let lastExciteT = 0;
-  let crowd: Loop | null = null;
-  let cheer: Loop | null = null;
+  /** the wolf's voice: when it last snarled and last howled in full (context time) */
+  let lastSnarl = -999;
+  let lastHowl = -999;
+  /** the last bat of each side's swarm (tick): one flutter per swarm of three */
+  const lastBat: [number, number] = [-999, -999];
+  let night: Loop | null = null;
   let mus: Loop | null = null;
   let wantMusic: 'fight' | 'bed' | null = null;
   let musicLoading: string | null = null;
@@ -158,36 +154,24 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
   const now = () => e.ctx.currentTime;
   const panOf = (x: number) => Math.max(-0.8, Math.min(0.8, x / 14));
   const fighterOf = (frame: Frame, side: Side): FighterId =>
-    frame.fight?.state.fighters[side].fighter ?? frame.show.ctx?.picks?.[side] ?? 'kiln';
+    frame.fight?.state.fighters[side].fighter ?? frame.show.ctx?.picks?.[side] ?? 'gantry';
 
-  // ---- loops ----
-  // two recorded crowd beds: a murmur under everything and a cheering crowd whose level follows
-  // the excitement (hits swell it, a knockout throws it up, quiet lets it fall back)
-  const CROWD_LEN: Record<string, number> = { 'crowd-bed': 17.0, 'crowd-cheer-bed': 25.0 };
-  function loopOf(name: string, t: number, offset: number): Loop | null {
-    const b = sample(name);
-    if (!b) return null;
+  // ---- the night: one soft wind loop (20 s, seamless) on the 'crowd' bus ----
+  const NIGHT_LEN = 20.0;
+  function startNight(t: number): void {
+    if (night) return;
+    const b = sample('night-bed');
+    if (!b) return;
     const src = e.ctx.createBufferSource();
     src.buffer = b;
     src.loop = true;
-    const le = CROWD_LEN[name];
-    if (le && le < b.duration) src.loopEnd = le;
+    if (NIGHT_LEN < b.duration) src.loopEnd = NIGHT_LEN;
     const g = e.ctx.createGain();
     g.gain.value = 0.0001;
     src.connect(g);
     g.connect(e.bus.crowd);
-    src.start(t, offset % (le ?? b.duration));
-    return { src, gain: g, kind: name };
-  }
-
-  function startCrowd(t: number): void {
-    if (!crowd) crowd = loopOf('crowd-bed', t, opts.live ? t * 7.3 : 3);
-    if (!cheer) cheer = loopOf('crowd-cheer-bed', t, opts.live ? t * 5.1 : 6);
-  }
-
-  function setCrowd(t: number, murmur: number, roar: number, tc: number): void {
-    crowd?.gain.gain.setTargetAtTime(Math.max(0.0001, murmur), t, 0.5);
-    cheer?.gain.gain.setTargetAtTime(Math.max(0.0001, roar), t, tc);
+    src.start(t, (opts.live ? t * 7.3 : 3) % Math.min(NIGHT_LEN, b.duration));
+    night = { src, gain: g, kind: 'night-bed' };
   }
 
   function startMusic(kind: 'fight' | 'bed', t: number, fade = 0.6): void {
@@ -222,8 +206,8 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
       g.gain.setTargetAtTime(musicTrim(kind), at, fade / 3);
       src.connect(g);
       g.connect(e.bus.music);
-      // the fight loop starts on its downbeat; the bed picks up somewhere new each time
-      src.start(at, kind === 'bed' && opts.live ? (at * 13.7) % 60 : 0);
+      // the fight loop starts on its first bar; the opening picks up somewhere new each time
+      src.start(at, kind === 'bed' && opts.live ? (at * 13.7) % Math.max(1, le > 0 ? le : buf.duration) : 0);
       mus = { src, gain: g, kind };
     }).catch(() => { musicLoading = null; });
   }
@@ -239,43 +223,52 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
     m.src.stop(t + fade + 0.05);
   }
 
-  function bump(amount: number): void {
-    excite = Math.min(1, excite + amount);
+  /** the strings sting at the verdict: the opening steps aside for it and comes back after */
+  function verdictSting(frame: Frame, t: number): void {
+    const side = frame.show.result!.winner;
+    stopMusic(t, 0.5);
+    S.stingFinale(e, t + 0.05);
+    bedHeldUntil = t + FINALE_S - 1.0;
+    // the Wolf's win: the one howl, in full, a moment after the strings begin
+    if (fighterOf(frame, side) === 'vise') {
+      S.howl(e, t + 1.1, true, side === 0 ? -0.3 : 0.3);
+      lastHowl = t;
+    }
   }
 
   // ---- fight events ----
-  function onEvent(frame: Frame, ev: SimEvent, t: number): void {
+  /** the move that landed a hit (a projectile's own move when the sim says which) */
+  function hitMove(ev: Extract<SimEvent, { t: 'hit' }>): string | undefined {
+    const via = (ev as { via?: string }).via;
+    return ev.move === 'projectile' ? via : ev.move;
+  }
+
+  function onEvent(frame: Frame, ev: SimEvent, t: number, evs: readonly SimEvent[]): void {
     const st = frame.fight!.state;
     const side = (s: Side) => st.fighters[s];
     switch (ev.t) {
       case 'hit': {
-        const a = { strength: ev.strength, by: fighterOf(frame, ev.by), to: fighterOf(frame, ev.to), damage: ev.damage, kb: ev.kb, pan: panOf(ev.x), combo: ev.combo };
+        // the Howl's stagger lands as a hit with no knockback and a snare: the howl is its sound
+        if (ev.kb === 0 && evs.some((x) => x.t === 'snare' && x.to === ev.to)) break;
+        const a = { strength: ev.strength, by: fighterOf(frame, ev.by), to: fighterOf(frame, ev.to), damage: ev.damage, kb: ev.kb, pan: panOf(ev.x), combo: ev.combo, move: hitMove(ev) };
         S.hit(e, t, a);
         if (ev.strength === 'lethal') {
-          // a beat of near silence before the big one: the music and the room drop away for the
+          // a beat of near silence before the big one: the music and the night drop away for the
           // ~110 ms between the contact tick and the impact, then come back under its tail
-          e.duckBus('music', t, 0.08, 0.012, 0.1, 0.9);
-          e.duckBus('crowd', t, 0.15, 0.012, 0.1, 0.6);
-          e.smp('crowd-ooh', t + 0.3, { gain: 0.45, bus: 'crowd', fadeIn: 0.06, dur: 2.2 });
-          bump(0.55);
+          e.duckBus('music', t, 0.1, 0.012, 0.1, 0.9);
+          e.duckBus('crowd', t, 0.2, 0.012, 0.1, 0.6);
         } else if (ev.strength === 'heavy') {
-          e.duckBus('music', t, 0.55, 0.01, 0.1, 0.5);
-          bump(0.35);
-          if (opts.live ? e.rng.next() < 0.5 : true) e.smp(e.rng.next() < 0.5 ? 'crowd-ooh' : 'crowd-ooh2', t + 0.12, { gain: 0.32, bus: 'crowd', fadeIn: 0.05, dur: 2.2 });
-        } else if (ev.strength === 'medium') {
-          e.duckBus('music', t, 0.78, 0.01, 0.05, 0.25);
-          bump(0.14);
-        } else bump(0.03);
+          // a small step back, no pumping on the smaller hits
+          e.duckBus('music', t, 0.7, 0.01, 0.08, 0.45);
+        }
         if (ev.strength !== 'light') pendingLaunch[ev.to] = { kb: ev.kb, lethal: ev.strength === 'lethal', armedAt: t, tick: ev.tick };
         break;
       }
       case 'shield_hit':
         S.shieldHit(e, t, ev.perfect, Math.max(0, 1 - ev.shield / 100) * 0.5 + 0.5, panOf(ev.x));
-        bump(0.02);
         break;
       case 'shield_break':
         S.shieldBreak(e, t, panOf(side(ev.side).x));
-        bump(0.35);
         break;
       case 'clank':
         S.clank(e, t, panOf(ev.x));
@@ -292,12 +285,39 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         const def = defs?.[f]?.moves[ev.move];
         const startup = def ? def.startup : 6;
         const speed = Math.max(0.2, frame.fight!.speed);
-        S.swing(e, t, f, ev.move, (startup * TICK_S) / speed, panOf(side(ev.side).x));
+        const pan = panOf(side(ev.side).x);
+        // the Count's Mist Step: a breath that swells to where he re-forms
+        if (f === 'gantry' && ev.move === 'special2') {
+          const reform = def?.blink ? def.blink.frame : startup;
+          S.mist(e, t, (reform * TICK_S) / speed, pan);
+          break;
+        }
+        // the Wolf's Pounce: a snarl (when the voice has rested) and the leap
+        if (f === 'vise' && ev.move === 'special') {
+          const voice = t - lastSnarl >= SNARL_REST;
+          if (voice) lastSnarl = t;
+          S.pounce(e, t, f, voice, pan);
+          break;
+        }
+        // the Wolf's Howl: the one recording, in full when it has rested, short and further back if not
+        if (f === 'vise' && ev.move === 'special2') {
+          const full = t - lastHowl >= HOWL_REST;
+          if (full) lastHowl = t;
+          S.howl(e, t, full, pan);
+          break;
+        }
+        S.swing(e, t, f, ev.move, (startup * TICK_S) / speed, pan);
         break;
       }
-      case 'projectile':
-        S.projectile(e, t, fighterOf(frame, ev.side), panOf(ev.x));
+      case 'projectile': {
+        // the Count's swarm is three bats a few ticks apart: one flutter for the three
+        if (ev.kind === 'bat') {
+          if (ev.tick - lastBat[ev.side] < 20 && ev.tick >= lastBat[ev.side]) break;
+          lastBat[ev.side] = ev.tick;
+        }
+        S.projectile(e, t, fighterOf(frame, ev.side), ev.kind, panOf(ev.x));
         break;
+      }
       case 'jump':
         S.jump(e, t, fighterOf(frame, ev.side), ev.air, panOf(ev.x));
         break;
@@ -323,19 +343,19 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         break;
       case 'ko': {
         const pan = ev.edge === 'left' ? -0.8 : ev.edge === 'right' ? 0.8 : 0;
-        S.koBlast(e, t, pan);
-        // the call lands with the word (ko/call.ts: RINGOUT at frame 9, LIGHTS OUT at frame 14)
         const final = ev.livesLeft <= 0;
-        S.koCall(e, t + (final ? 0.233 : 0.15), final);
-        // the music dips under the blast and climbs back under the roar: no hole, no wall
-        e.duckBus('music', t, 0.35, 0.01, 0.45, 2.0);
-        // the room goes up with the blast and falls back within about three seconds
-        if (!e.smp('crowd-roar', t + 0.04, { gain: 1.0, bus: 'crowd', fadeIn: 0.1, hold: 1.0, tc: 0.55, hp: 200, lp: 9000, pan: pan * 0.3 })) {
-          e.smp('crowd-cheer', t + 0.08, { gain: 0.8, bus: 'crowd', fadeIn: 0.12, hold: 0.9, tc: 0.55, hp: 260, lp: 4000 });
+        if (final) {
+          // the last life: the orchestra's big hit, then the bell rings under its tail
+          S.stingHit(e, t);
+          S.koBlast(e, t + 0.9, pan);
+          e.duckBus('music', t, 0.12, 0.01, 2.6, 2.0);
+        } else {
+          // a life lost: one bell toll and the candle; the music steps back and climbs back
+          S.koBlast(e, t, pan);
+          e.duckBus('music', t, 0.4, 0.01, 0.6, 2.0);
         }
-        e.smp('crowd-cheer', t + 0.3, { gain: 0.45, bus: 'crowd', fadeIn: 0.25, hold: 1.0, tc: 0.6, hp: 300, lp: 5000, pan: -pan * 0.3 });
+        S.koCall(e, t + (final ? 0.233 : 0.15), final);
         pendingLaunch[ev.side] = null;
-        excite = 1;
         break;
       }
       case 'respawn':
@@ -343,7 +363,6 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         break;
       case 'sudden_death':
         S.suddenDeath(e, t);
-        bump(0.5);
         break;
       case 'order':
         S.planTick(e, t, ev.side, true);
@@ -415,7 +434,7 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         cueHorizon = s.phaseMs;
         lockSlamDone = true;
         breakBed = s.phase === 'break' && s.phaseMs >= KO_HOLD_MS;
-        startCrowd(t);
+        startNight(t);
         if (s.phase === 'fight' || (s.phase === 'break' && !breakBed)) startMusic('fight', t, 1);
         else if (s.phase !== 'idle') startMusic('bed', t, 1.5);
         return;
@@ -426,7 +445,7 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         const prev = phase;
         phase = s.phase;
         watched = fresh;
-        startCrowd(t);
+        startNight(t);
         cues = phaseCues(e, s);
         // a fresh phase plays its cues from the start; a late join only the ones still to come
         cueHorizon = fresh ? -1 : s.phaseMs;
@@ -450,14 +469,17 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         startMusic('bed', t, 1.8);
       }
       if (s.phase === 'verdict' && s.phaseMs < 400 && watched && s.result) {
-        // the burst: the room goes up with it
-        if (!crowdVerdict) {
-          crowdVerdict = true;
-          e.smp('crowd-roar', t + 0.05, { gain: 0.9, bus: 'crowd', fadeIn: 0.2, hold: 1.2, tc: 0.8, hp: 220 });
-          e.smp('crowd-cheer', t + 0.3, { gain: 0.45, bus: 'crowd', fadeIn: 0.4, hold: 1.2, tc: 0.9, hp: 260, lp: 3000 });
-          bump(0.6);
+        // the winner: the low strings finale (and the Wolf's howl), the opening held off under it
+        if (!verdictDone) {
+          verdictDone = true;
+          verdictSting(frame, t);
         }
-      } else if (s.phase !== 'verdict') crowdVerdict = false;
+      } else if (s.phase !== 'verdict') verdictDone = false;
+      // the opening comes back once the finale has rung down (if nothing else has taken over)
+      if (bedHeldUntil > 0 && t >= bedHeldUntil) {
+        bedHeldUntil = 0;
+        if (s.phase !== 'fight' && s.phase !== 'break' && s.phase !== 'idle' && !wantMusic) startMusic('bed', t, 2.5);
+      }
       runCues(s, t);
 
       // ---- the select reveal, taunts, plans, corner talk ----
@@ -471,7 +493,6 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
       }
       if (s.picksRevealed && !picksRevealed) {
         if (watched && (s.phase === 'select' || s.phase === 'versus')) S.pickReveal(e, t);
-        bump(0.4);
       }
       picksRevealed = s.picksRevealed;
       for (const side of [0, 1] as Side[]) {
@@ -535,8 +556,6 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         } else if (countStage > 0 && countStage <= 3) {
           countStage = 0;
           S.startCall(e, t + 0.08);
-          e.smp('crowd-roar', t + 0.12, { gain: 0.6, bus: 'crowd', fadeIn: 0.15, hold: 0.5, tc: 0.6, hp: 220 });
-          bump(0.5);
         }
         const evs = fv.events;
         // a seek, a join or a snap to a checkpoint can deliver a burst: never play a pile-up
@@ -552,11 +571,12 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
                 continue;
               }
               if (replay && ev.t === 'hit') {
-                S.hit(e, t, { strength: ev.strength, by: fighterOf(frame, ev.by), to: fighterOf(frame, ev.to), damage: ev.damage, kb: ev.kb, pan: panOf(ev.x), combo: ev.combo });
+                if (ev.kb === 0 && evs.some((x) => x.t === 'snare' && x.to === ev.to)) continue;
+                S.hit(e, t, { strength: ev.strength, by: fighterOf(frame, ev.by), to: fighterOf(frame, ev.to), damage: ev.damage, kb: ev.kb, pan: panOf(ev.x), combo: ev.combo, move: hitMove(ev) });
                 if (ev.strength !== 'light') pendingLaunch[ev.to] = { kb: ev.kb, lethal: false, armedAt: t, tick: ev.tick };
                 continue;
               }
-              onEvent(frame, ev, t);
+              onEvent(frame, ev, t, evs);
             }
           }
           if (fv.mode !== 'frozen' && !tickJump) {
@@ -569,34 +589,20 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         lastTick = fv.state.tick;
       } else lastTick = -1;
 
-      // ---- the crowd bed follows the action ----
+      // ---- the night: barely there under the fight and the break, gone between phases ----
       // (live, the bed may decode a moment after unlock: start it on the first frame it exists)
-      if (!crowd || !cheer) startCrowd(t);
-      const dt = Math.max(0, Math.min(0.1, frame.dt));
-      // after a knockout the room stays a little up through the hold and the replay
-      const floor = s.phase === 'break' ? 0.22 : s.phase === 'fight' ? 0.12 : 0.05;
-      excite = Math.max(floor, excite - dt * (excite > 0.45 ? 0.32 : 0.1));
-      if (t - lastExciteT > 0.05 || !opts.live) {
-        lastExciteT = t;
-        const live = s.phase === 'fight' || s.phase === 'break';
-        const base = live ? 1 : s.phase === 'idle' ? 0 : 0.75;
-        // the murmur: steady, quieter between phases; the cheering crowd follows the excitement
-        // (a swell on medium and heavy hits, the knockout on top)
-        const g = crowdGains(excite, live, base);
-        setCrowd(t, g.murmur, g.cheer, excite > 0.45 ? 0.08 : 0.35);
-      }
+      if (!night) startNight(t);
+      night?.gain.gain.setTargetAtTime(nightGain(s.phase), t, 1.2);
     },
     stop() {
       stopped = true;
       const t = now();
       stopMusic(t, 0.2);
-      for (const c of [crowd, cheer]) {
-        if (!c) continue;
-        c.gain.gain.setTargetAtTime(0.0001, t, 0.05);
-        c.src.stop(t + 0.3);
+      if (night) {
+        night.gain.gain.setTargetAtTime(0.0001, t, 0.05);
+        night.src.stop(t + 0.3);
       }
-      crowd = null;
-      cheer = null;
+      night = null;
     },
   };
 }

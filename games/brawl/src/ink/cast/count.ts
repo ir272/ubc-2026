@@ -242,13 +242,13 @@ function drawCount(ink: Pen, J0: Joints, x: FigureExtra, bat: boolean): void {
   const fwd = lose ? -1 : 1;
 
   // ---- the cloak's open state for this frame ----
-  let oF = 0, oB = 0, extF = 0, extB = 0, armsWide = 0, jaw = 0, wrap = 0, headBack = 0;
+  let oF = 0, oB = 0, extF = 0, extB = 0, armsWide = 0, armsUp = 0, jaw = 0, wrap = 0, headBack = 0;
   if (inMove && md && s.move) {
     const o = OPEN[s.move] ?? [0, 0, 0, 0];
     const e = envelope(md, f, s.action === 'charge');
     oF = o[0] * e; oB = o[1] * e; extF = o[2] * e; extB = o[3] * e;
     if (s.move === 'special') { armsWide = e; jaw = 7 * c01((f - md.startup + 2) / 3) * (1 - c01((f - md.startup - md.active) / 6)); headBack = 0.3 * e; }
-    if (s.move === 'upsmash') jaw = 5 * e;
+    if (s.move === 'upsmash') { jaw = 5 * e; armsUp = e; }
   } else if (s.action === 'holding' && md) {
     oF = 0.5; oB = 0.3;
   }
@@ -272,6 +272,15 @@ function drawCount(ink: Pen, J0: Joints, x: FigureExtra, bat: boolean): void {
     [eF, hF] = ik2(J.shoulderF, tF, BUILD.arm[0], BUILD.arm[1], [0.3, 1]);
     [eB, hB] = ik2(J.shoulderB, tB, BUILD.arm[0], BUILD.arm[1], [-0.3, 1]);
   }
+
+  if (armsUp > 0.01) {
+    // Spire Rise: both claws up, the back one out behind so the cloak opens in a V
+    const tB = mix(J.handB, add(J.shoulderB, dirA(-2.05), ARM * 0.95), armsUp);
+    [eB, hB] = ik2(J.shoulderB, tB, BUILD.arm[0], BUILD.arm[1], [-0.5, 1]);
+  }
+  // a wing only opens as far as its hand is out from the body
+  const reach = (h: Pt): number => c01((Math.hypot(h[0] - J.chest[0], h[1] - J.chest[1]) - 30) / 50);
+  oF *= reach(hF); oB *= reach(hB);
 
   // ---- the body frame ----
   const hip = J.hip, neck = J.neck, chest = J.chest;
@@ -358,21 +367,34 @@ function drawCount(ink: Pen, J0: Joints, x: FigureExtra, bat: boolean): void {
 
   // ---- Mist Step: breaking up into drifting strokes before the blink, re-forming after ----
   let ghost = 0;
+  let ghostAfter: (() => void) | null = null;
   if (inMove && md && s.move === 'special2') {
     const bf = blinkFrame(md);
     if (f < bf) ghost = ease((f - 2) / Math.max(1, bf - 2.5));
-    else ghost = 1 - ease((f - bf) / 2.2);
+    else ghost = 1 - ease((f - bf - 1) / 5); // hold the re-form a few frames so it reads
   }
-  if (ghost > 0.12) {
+  if (ghost > 0.02) {
     if (ghost > 0.96) return;
     const hs = headShapes(Hr, 0, 1);
-    drawGhost(ink, { backWing: back.poly, frontWing: front.poly, face: hs.face, hair: hs.hair, collar: hs.collar, legF, legB }, ghost, hip);
-    return;
+    const sh = { backWing: back.poly, frontWing: front.poly, face: hs.face, hair: hs.hair, collar: hs.collar, legF, legB };
+    if (ghost > 0.4) { drawGhost(ink, sh, ghost, hip); return; }
+    ghostAfter = (): void => drawGhost(ink, sh, 0.25 + ghost, hip);
   }
   if (bat) return;
 
   // ================================ the drawing, back to front ================================
-  // 1. the back wing
+  // the back arm in its sleeve, and the claw: inside a closed cloak (only what sticks out shows), over an open one
+  const backArm = (): void => {
+    const backOut = (hB[0] - chest[0]) * n[0] + (hB[1] - chest[1]) * n[1];
+    if (wrap < 0.5 && (oB > 0.15 || backOut > 24 || backOut < -30 || s.action === 'hitstun' || !s.grounded)) {
+      const slB = tube([sB, eB, add(hB, unit(sub(eB, hB)), 3)], 6.2, 5.2, 4);
+      ink.form(slB, { w: 2, seed: 41 });
+      ink.hatch(slB, { angle: 0.9, gap: 3.6, w: 0.9, seed: 42 });
+      claw(ink, hB, Math.atan2(hB[1] - eB[1], hB[0] - eB[0]), 43, { k: 0.85, side: fwd, curl: 0.5, spread: 0.7 + armsWide * 0.3 });
+    }
+  };
+  // 1. the back wing (the back arm under it while it is closed)
+  if (oB <= 0.3) backArm();
   ink.form(back.poly, { w: 3, seed: 21 });
   if (oB > 0.3) {
     // the red inside of the far wing, set in from its edge, and the bones fanning from the hand
@@ -388,19 +410,12 @@ function drawCount(ink: Pen, J0: Joints, x: FigureExtra, bat: boolean): void {
     ink.cut(smooth([st0, add(mix(st0, end, 0.5), n, -4 * (1 - oB)), end], 6), { w: 1.4, seed: 24 + i });
   }
 
+  if (oB > 0.3) backArm();
+
   // 2. the back leg (shaded) and boot
   ink.form(legB, { w: 2, seed: 31 });
   ink.hatch(legB, { angle: 1.1, gap: 3.6, w: 0.9, seed: 32 });
   boot(ink, J.kneeB, J.footB, fwd, 33);
-
-  // 3. the back arm in its sleeve, and the claw
-  const backOut = (hB[0] - chest[0]) * n[0] + (hB[1] - chest[1]) * n[1];
-  if (wrap < 0.5 && (oB > 0.15 || backOut > 24 || backOut < -30 || s.action === 'hitstun' || !s.grounded)) {
-    const slB = tube([sB, eB, add(hB, unit(sub(eB, hB)), 3)], 6.2, 5.2, 4);
-    ink.form(slB, { w: 2, seed: 41 });
-    ink.hatch(slB, { angle: 0.9, gap: 3.6, w: 0.9, seed: 42 });
-    claw(ink, hB, Math.atan2(hB[1] - eB[1], hB[0] - eB[0]), 43, { k: 0.85, side: fwd, curl: 0.5, spread: 0.7 + armsWide * 0.3 });
-  }
 
   // 4. the front leg and boot
   ink.form(legF, { w: 2.1, seed: 51 });
@@ -458,6 +473,7 @@ function drawCount(ink: Pen, J0: Joints, x: FigureExtra, bat: boolean): void {
   // 9. collar, neck, head
   ink.form(tube([add(neck, u, -2), Hr(1, 22)], 6, 6), { w: 2, seed: 91 });
   drawHead(ink, Hr, jaw, jaw > 2, lose ? 1.3 : 1, lose, 100);
+  if (ghostAfter) ghostAfter();
 }
 
 function mirrorJ(J: Joints): Joints {
@@ -482,8 +498,7 @@ function drawGhost(ink: Pen, sh: Shapes, k: number, hip: Pt): void {
       const c = seg[Math.floor(seg.length / 2)]!;
       const away = unit(sub(c, add(hip, [0, -40])));
       const drift: Pt = [away[0] * 30 * k + (h01(seed * 1.3) - 0.5) * 40 * k, away[1] * 18 * k - (16 + h01(seed * 2.7) * 34) * k];
-      const thin = 1 - 0.55 * k;
-      ink.line(seg.map((p) => add(mix(p, c, 0.35 * k), drift)), { w: 2.4 * thin, taper: 0.8, alpha: Math.max(0.1, 0.95 - k * 0.85), seed });
+      ink.line(seg.map((p) => add(mix(p, c, 0.35 * k), drift)), { w: 6.5 - 3.5 * k, taper: 0.85, alpha: Math.max(0.15, 1 - k * 0.7), seed });
     }
   }
 }
@@ -499,7 +514,7 @@ function drawBigBat(ink: Pen, J: Joints, x: FigureExtra): void {
   ink.form(all.map(P), { w: 3, seed: 201 });
   // the red under each wing, set in from the edge (more of it shows on the up-beat)
   const wingR = right.slice(5, right.length - 2);
-  const k = 0.22 - 0.08 * ph;
+  const k = 0.42 - 0.1 * ph;
   for (const sx of [1, -1]) {
     const pts = wingR.map(([px, py]): Pt => mix(P([px * sx, py]), P([0.2 * sx, -0.12]), k));
     ink.form(pts.concat([P([0.18 * sx, -0.05]), P([0.2 * sx, -0.22 - 0.1 * ph])]), { tint: 'red', w: 1.3, seed: 202 + (sx > 0 ? 0 : 1) });
@@ -542,17 +557,36 @@ export const COUNT: CharacterDef = {
     drawCount(ink, J, x, false);
   },
   drawProjectile(ink: Pen, p: Projectile, t: number) {
-    // a flapping bat, leaning into its travel; a spent one (cd 1) smaller and faint
+    // a small swarm: a lead bat about 0.9 m across, two smaller ones trailing behind it above and
+    // below, flutter strokes behind; a spent one (cd 1) thins to a single faint bat
     const spent = (p as Projectile & { cd?: number }).cd === 1;
-    const S = spent ? 17 : 25;
-    const sy = p.vx < 0 ? -1 : 1; // the stage turns the picture to the travel: keep the bat upright
-    const ph = Math.sin(t * 19 + p.id * 1.7);
-    const rot = 0.32;
+    const sy = p.vx < 0 ? -1 : 1; // the stage turns the picture to the travel: keep the bats upright
+    const rot = 0.22;
     const cr = Math.cos(rot), sr = Math.sin(rot);
-    const P = ([bx, by]: Pt): Pt => { const X = bx * S, Y = (by + 0.05) * S; return [X * cr - Y * sr, (X * sr + Y * cr) * sy]; };
-    const pts = batShape(ph).all.map(P);
-    if (spent) ink.line(pts, { closed: true, w: 1.2, alpha: 0.45, seed: 400 + (p.id % 40) });
-    else ink.form(pts, { w: 1.3, seed: 400 + (p.id % 40) });
+    const bat = (ox: number, oy: number, S: number, ph: number): Pt[] =>
+      batShape(ph).all.map(([bx, by]): Pt => {
+        const X = bx * S, Y = (by + 0.05) * S;
+        return [ox + X * cr - Y * sr, (oy + X * sr + Y * cr) * sy];
+      });
+    const seed = 400 + (p.id % 40) * 5;
+    if (spent) {
+      ink.line(bat(0, 0, 30, Math.sin(t * 15 + p.id * 1.7)), { closed: true, w: 1.4, alpha: 0.4, seed });
+      return;
+    }
+    // flutter strokes: short wavering dashes streaming off the back
+    for (let i = 0; i < 3; i++) {
+      const y = (i - 1) * 22 + Math.sin(t * 9 + i * 2.1) * 4;
+      const x0 = -62 - i * 14;
+      const pts: Pt[] = [];
+      for (let j = 0; j <= 4; j++) pts.push([x0 - j * 13, (y + Math.sin(t * 14 + j * 1.3 + i) * 4) * sy]);
+      ink.line(pts, { w: 2.4 - i * 0.4, taper: 0.9, alpha: 0.75, seed: seed + 10 + i });
+    }
+    ink.form(bat(-52, -30, 24, Math.sin(t * 21 + p.id * 1.7 + 2.1)), { w: 1.2, seed: seed + 1 });
+    ink.form(bat(-46, 30, 21, Math.sin(t * 23 + p.id * 1.7 + 4.2)), { w: 1.2, seed: seed + 2 });
+    const lead = bat(0, 0, 45, Math.sin(t * 19 + p.id * 1.7));
+    ink.form(lead, { w: 1.8, seed });
+    // the red of the cloak lining under the lead bat's body
+    ink.form(bat(0, 0, 14, 0).map(([x, y]): Pt => [x, y + 6 * sy]), { tint: 'red', w: 1, seed: seed + 3 });
   },
   portrait(ink, t) {
     void t;

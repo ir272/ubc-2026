@@ -3,15 +3,25 @@
 //   launch     drawn lines trailing a tumbling fighter
 //   land/dash  two or three short strokes at the feet
 //   knockout   long strokes flying inward from the blast edge, a flash, a shake
+//   blink      (Mist Step) drifting strokes of mist where he vanished and where he re-forms
+//   tell       the first frames of a special: a flourish around the caster in its own colour, so
+//              the eye goes there before the effect (the Count's cloak flaring, the Wolf's crouch)
+//   pointer    a fighter past the widest view (about to be knocked out): a small drawn arrowhead at
+//              the picture's edge in the side tint, pointing at him
 // Heavy and lethal hits raise post.dim and push the camera in; every hit flashes the fighter hit.
 
 import type { CameraRig2D, InkFrame, InkModule } from './api.ts';
 import type { Side, SimEvent } from '../sim/types.ts';
 import { W, H } from './api.ts';
 import { makeInk, type Pt } from './pen.ts';
+import { fighterBox } from './camera.ts';
 
 interface Mark {
-  kind: 'burst' | 'dust' | 'ko';
+  kind: 'burst' | 'dust' | 'ko' | 'mist' | 'tell';
+  /** tell: whose, and which */
+  side?: Side;
+  move?: string;
+  who?: string;
   /** world point and unit direction (y up) */
   x: number;
   y: number;
@@ -46,7 +56,21 @@ export function createFx(cam: CameraRig2D): InkModule {
   }
 
   function onEvent(f: InkFrame, e: SimEvent): void {
+    // the blink event is new in sim2 (not in the SimEvent union this stage compiles against yet)
+    const b = e as unknown as { t: string; fromX: number; fromY: number; toX: number; toY: number };
+    if (b.t === 'blink') {
+      add({ kind: 'mist', x: b.fromX, y: b.fromY + 1.0, dx: 0, dy: 1, life: 0.6, k: 1.2, tint: 'red' });
+      add({ kind: 'mist', x: b.toX, y: b.toY + 1.0, dx: 0, dy: 1, life: 0.7, k: 1.1, tint: 'red' });
+      return;
+    }
     switch (e.t) {
+      case 'move': {
+        if (e.move !== 'special' && e.move !== 'special2') break;
+        const s = f.fight?.state.fighters[e.side];
+        if (!s) break;
+        add({ kind: 'tell', x: s.x, y: s.y, dx: s.facing, dy: 0, life: 0.42, k: 1, tint: s.fighter === 'gantry' ? 'red' : f.sideTints[e.side], side: e.side, move: e.move, who: s.fighter });
+        break;
+      }
       case 'hit': {
         const k = STRENGTH[e.strength] ?? 0.5;
         const l = Math.hypot(e.dx, e.dy) || 1;
@@ -88,6 +112,92 @@ export function createFx(cam: CameraRig2D): InkModule {
       }
       default:
         break;
+    }
+  }
+
+  /** the first frames of a special: a flourish around the caster, following him */
+  function drawTell(f: InkFrame, m: Mark, p: number): void {
+    const fig = m.side === undefined ? null : f.figures[m.side];
+    if (!fig) return;
+    const ink = makeInk(f.g, 'line');
+    const h = (f.fighterDefs[fig.id]?.height ?? 2) * 100 * fig.s;
+    const u = Math.max(0.7, fig.s);
+    const grow = Math.min(1, p / 0.3);
+    const ease = 1 - (1 - grow) * (1 - grow);
+    const a = p < 0.55 ? 1 : 1 - (p - 0.55) / 0.45;
+    const fx = fig.facing;
+    const tint = m.tint;
+    const cx = fig.x, cy = fig.y - h * 0.62;
+    if (m.who === 'gantry' && m.move === 'special') {
+      // Bat Swarm: the cloak flares, strokes sweeping up and out from the shoulders
+      for (let i = 0; i < 6; i++) {
+        const side = i % 2 ? 1 : -1;
+        const ang = -Math.PI / 2 + side * (0.45 + 0.28 * Math.floor(i / 2));
+        const r0 = h * 0.3, r1 = r0 + h * (0.3 + 0.1 * (i % 3)) * ease;
+        const c = Math.cos(ang), s = Math.sin(ang);
+        const bend = side * 0.25;
+        const mid = (r0 + r1) / 2;
+        ink.line([[cx + c * r0, cy + s * r0], [cx + Math.cos(ang + bend) * mid, cy + Math.sin(ang + bend) * mid], [cx + Math.cos(ang + bend * 1.6) * r1, cy + Math.sin(ang + bend * 1.6) * r1]], { w: 4.2 * u, taper: 0.9, tint: i % 3 === 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+      }
+    } else if (m.who === 'gantry') {
+      // Mist Step: wisps drawn in toward the body from both sides
+      for (let i = 0; i < 6; i++) {
+        const side = i % 2 ? 1 : -1;
+        const y = cy - h * 0.35 + (i * h * 0.75) / 5;
+        const out = h * (0.75 - 0.4 * ease);
+        const l = h * 0.35;
+        const pts: Pt[] = [];
+        for (let j = 0; j <= 4; j++) pts.push([cx + side * (out - (l * j) / 4), y + Math.sin(j * 1.5 + i) * 4 * u]);
+        ink.line(pts, { w: 3.6 * u, taper: 0.85, tint: i % 3 === 2 ? 'ink' : tint, alpha: a * 0.9, seed: m.seed + i });
+      }
+    } else if (m.move === 'special') {
+      // Pounce: a burst of short strokes kicked back off the feet as he crouches
+      for (let i = 0; i < 7; i++) {
+        const ang = Math.PI + (i - 3) * 0.2 - 0.35;
+        const r0 = h * 0.12, r1 = r0 + h * (0.25 + 0.12 * (i % 3)) * ease;
+        const c = Math.cos(ang) * fx, s = Math.sin(ang);
+        ink.line([[fig.x + c * r0, fig.y - 4 + s * r0], [fig.x + c * r1, fig.y - 4 + s * r1]], { w: (i % 2 ? 3 : 4.4) * u, taper: 0.9, tint: i % 3 === 1 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+      }
+      ink.line([[fig.x - fx * h * 0.1, fig.y + 3], [fig.x + fx * h * (0.2 + 0.4 * ease), fig.y + 3]], { w: 3 * u, taper: 0.8, tint, alpha: a, seed: m.seed + 9 });
+    } else {
+      // Howl: the hackles rise, short upright strokes along the back and head
+      for (let i = 0; i < 6; i++) {
+        const t = i / 5;
+        const bx = fig.x - fx * h * (0.3 - 0.55 * t);
+        const by = fig.y - h * (0.62 + 0.28 * Math.sin(t * Math.PI));
+        const l = h * (0.16 + 0.1 * Math.sin(t * Math.PI)) * ease;
+        ink.line([[bx, by], [bx - fx * l * 0.25, by - l]], { w: 3.8 * u, taper: 0.9, tint: i % 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+      }
+    }
+  }
+
+  /** a fighter past the widest view: a small arrowhead at the picture's edge pointing at him */
+  function drawPointers(f: InkFrame): void {
+    const fight = f.fight;
+    if (!fight) return;
+    const ink = makeInk(f.g, 'line');
+    const b = f.arena.blast;
+    for (const side of [0, 1] as Side[]) {
+      const s = fight.state.fighters[side];
+      if (s.action === 'dead' || s.x < b.left || s.x > b.right || s.y < b.bottom || s.y > b.top) continue;
+      const bx = fighterBox(f, s);
+      const v = f.view;
+      const sx0 = v.x(bx.x0), sx1 = v.x(bx.x1), sy0 = v.y(bx.y1), sy1 = v.y(bx.y0);
+      if (sx1 > 0 && sx0 < W && sy1 > 0 && sy0 < H) continue;
+      const tx = (sx0 + sx1) / 2, ty = (sy0 + sy1) / 2;
+      const m = 30;
+      let px = Math.max(m, Math.min(W - m, tx));
+      let py = Math.max(m, Math.min(H - m, ty));
+      if ((px < 480 || px > W - 480) && py > H - 124) py = H - 124;
+      const dx = tx - px, dy = ty - py;
+      const l = Math.hypot(dx, dy) || 1;
+      const ux = dx / l, uy = dy / l;
+      const S = 17;
+      const tip: Pt = [px + ux * S * 0.6, py + uy * S * 0.6];
+      const back: Pt = [px - ux * S * 0.6, py - uy * S * 0.6];
+      const tri: Pt[] = [tip, [back[0] - uy * S * 0.55, back[1] + ux * S * 0.55], [back[0] + ux * 4, back[1] + uy * 4], [back[0] + uy * S * 0.55, back[1] - ux * S * 0.55]];
+      ink.form(tri, { tint: f.sideTints[side], w: 1.6, seed: 880 + side });
+      ink.line([[back[0] - ux * 4, back[1] - uy * 4], [back[0] - ux * 18, back[1] - uy * 18]], { tint: f.sideTints[side], w: 3, taper: 0.8, seed: 890 + side });
     }
   }
 
@@ -169,6 +279,23 @@ export function createFx(cam: CameraRig2D): InkModule {
           const l = 16 * u * m.k;
           const sx = m.both ? 0 : m.dx * 6 * u;
           ink.line([[cx + sx, cy - 4 * u], [cx + sx + (m.both ? 0.3 : m.dx) * l * 0.5, cy - 4 * u - l * (0.5 + p)]], { w: w * 0.85, seed: m.seed + 7, taper: 0.9, tint: m.tint, alpha: a * 0.8 });
+        } else if (m.kind === 'mist') {
+          // wavering strokes over the body's height, rising and spreading as they fade
+          const sc = v.scale;
+          const n = 9;
+          for (let i = 0; i < n; i++) {
+            const r1 = Math.sin(m.seed * 1.7 + i * 2.3), r2 = Math.sin(m.seed * 0.9 + i * 3.7);
+            const ox = (r1 * 0.5 + (i % 2 ? 0.14 : -0.14)) * (1 + p * 0.9) * sc;
+            const oy = ((i / (n - 1)) * 1.8 - 0.9 - p * 0.5) * sc;
+            const l = (0.42 + 0.16 * r2) * sc * m.k * (1 + p * 0.6);
+            const x0 = cx + ox - l * 0.5, y0 = cy - oy;
+            const pts: Pt[] = [];
+            for (let j = 0; j <= 5; j++) pts.push([x0 + (l * j) / 5, y0 + Math.sin(j * 1.4 + i + p * 6) * 0.05 * sc]);
+            const fade = p < 0.5 ? 1 : 1 - (p - 0.5) * 2;
+            ink.line(pts, { w: 3.8 * Math.max(0.7, u) * (1 - p * 0.4), seed: m.seed + i, taper: 0.85, tint: i % 3 === 1 ? 'ink' : 'red', alpha: (i % 3 === 1 ? 0.6 : 0.85) * fade });
+          }
+        } else if (m.kind === 'tell') {
+          drawTell(f, m, p);
         } else {
           // knockout: long strokes driving in from the edge
           const n = 7;
@@ -200,6 +327,7 @@ export function createFx(cam: CameraRig2D): InkModule {
           ink.line(sub, { w: (i === 0 ? 3 : 2) * Math.max(0.6, u), seed: 500 + side * 9 + i, taper: 0.95, tint: f.sideTints[side], alpha: i === 0 ? 0.9 : 0.6 });
         }
       }
+      drawPointers(f);
     },
     dispose() {
       marks.length = 0;

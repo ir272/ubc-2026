@@ -1,4 +1,4 @@
-// Offline renders of the Ringout sound for measurement (harness/audio.html, tools/audio.mjs).
+// Offline renders of the Blood Moon sound for measurement (harness/audio.html, tools/audio.mjs).
 // Every named sound, a 20 s fight timeline driven by real sim events through the real director,
 // and a 10 s mix of a knockout into the break, all through OfflineAudioContext.
 
@@ -6,7 +6,7 @@ import type { Frame, FightView, PostState, ShowState } from '../api.ts';
 import type { FightState, FighterId, Side, SimEvent } from '../../sim/types.ts';
 import { FIGHTERS, makeHeader, runFight } from '../../sim/index.ts';
 import { Engine, SAMPLE_NAMES, decodedBytes, loadSamples, missingSamples, sample } from './engine.ts';
-import { createDirector, crowdGains, type MoveDefs } from './director.ts';
+import { createDirector, nightGain, type MoveDefs } from './director.ts';
 import { loopEndOf, music, musicTrim } from './music.ts';
 import * as S from './sounds.ts';
 
@@ -24,12 +24,13 @@ interface Job {
 
 const startup = (f: FighterId, m: string) => (FIGHTERS[f].moves as Record<string, { startup: number }>)[m]?.startup ?? 6;
 
-/** the knockout exactly as the director plays it: the blast, the call on the word, the room */
+/** the knockout exactly as the director plays it: the bell and the candle (the big hit first on the last life) */
 function koMoment(e: Engine, t: number, final = false): void {
-  S.koBlast(e, t, 0);
+  if (final) {
+    S.stingHit(e, t);
+    S.koBlast(e, t + 0.9, 0);
+  } else S.koBlast(e, t, 0);
   S.koCall(e, t + (final ? 0.233 : 0.15), final);
-  e.smp('crowd-roar', t + 0.04, { gain: 1.0, bus: 'crowd', fadeIn: 0.1, hold: 1.0, tc: 0.55, hp: 200, lp: 9000 });
-  e.smp('crowd-cheer', t + 0.3, { gain: 0.45, bus: 'crowd', fadeIn: 0.25, hold: 1.0, tc: 0.6, hp: 300, lp: 5000 });
 }
 
 const JOBS: Record<string, Job> = {
@@ -60,7 +61,15 @@ const JOBS: Record<string, Job> = {
   'swing-smash': { len: 1.2, run: (e, t) => S.swing(e, t, 'kiln', 'smash', startup('kiln', 'smash') / 60, 0) },
   grab: { len: 1.0, run: (e, t) => S.grab(e, t, 'vise', 0) },
   throw: { len: 1.0, run: (e, t) => S.throwSound(e, t, 'vise', 0) },
-  projectile: { len: 1.0, run: (e, t) => S.projectile(e, t, 'gantry', 0) },
+  projectile: { len: 1.0, run: (e, t) => S.projectile(e, t, 'tick', 'knife', 0) },
+  'bat-swarm': { len: 1.8, run: (e, t) => S.projectile(e, t, 'gantry', 'bat', 0) },
+  'mist-step': { len: 1.4, run: (e, t) => S.mist(e, t, 9 / 60, 0) },
+  pounce: { len: 1.6, run: (e, t) => S.pounce(e, t, 'vise', true, 0) },
+  'howl-full': { len: 3.0, run: (e, t) => S.howl(e, t, true, 0) },
+  'howl-short': { len: 1.6, run: (e, t) => S.howl(e, t, false, 0) },
+  'hit-claw': { len: 1.2, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'vise', to: 'gantry', damage: 9, kb: 70, pan: 0, combo: 0, move: 'tilt' }); } },
+  'hit-bite': { len: 1.2, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'vise', to: 'gantry', damage: 9, kb: 70, pan: 0, combo: 0, move: 'jab' }); } },
+  'sting-finale': { len: 10.8, run: (e, t) => { S.stingFinale(e, t); } },
   ledge: { len: 0.8, run: (e, t) => S.ledge(e, t, 'vise', 0) },
   clank: { len: 0.8, run: (e, t) => S.clank(e, t, 0) },
   'ko-blast': { len: 4.4, run: (e, t) => koMoment(e, t) },
@@ -89,36 +98,30 @@ const JOBS: Record<string, Job> = {
   lock: { len: 1.2, run: (e, t) => S.lock(e, t) },
   'sudden-death': { len: 2.2, run: (e, t) => S.suddenDeath(e, t) },
   winner: {
-    len: 3.6, run: (e, t) => {
+    len: 10.8, run: (e, t) => {
       S.winner(e, t, 0);
-      e.smp('crowd-roar', t + 0.05, { gain: 0.9, bus: 'crowd', fadeIn: 0.2, hold: 1.2, tc: 0.8, hp: 220 });
-      e.smp('crowd-cheer', t + 0.3, { gain: 0.45, bus: 'crowd', fadeIn: 0.4, hold: 1.2, tc: 0.9, hp: 260, lp: 3000 });
+      S.stingFinale(e, t + 0.05);
     },
   },
   payout: { len: 1.6, eventAt: 0.1 + 0.45, run: (e, t) => { S.payoutHold(e, t, 0.45); S.payoutHit(e, t + 0.45); } },
 };
 
-/** the two crowd beds alone at the level the director gives them (excitement `x`, live or show phase) */
-function crowdAt(e: Engine, t: number, x: number, live: boolean, dur: number): void {
-  const cg = crowdGains(x, live, live ? 1 : 0.75);
-  for (const [name, g, off] of [['crowd-bed', cg.murmur, 3], ['crowd-cheer-bed', cg.cheer, 6]] as const) {
-    const b = sample(name);
-    if (!b) continue;
-    const src = e.ctx.createBufferSource();
-    src.buffer = b;
-    src.loop = true;
-    const gn = e.ctx.createGain();
-    gn.gain.value = g;
-    src.connect(gn);
-    gn.connect(e.bus.crowd);
-    src.start(t, off);
-    src.stop(t + dur);
-  }
+/** the night wind alone at the level the director gives it in the fight */
+function nightAt(e: Engine, t: number, dur: number): void {
+  const b = sample('night-bed');
+  if (!b) return;
+  const src = e.ctx.createBufferSource();
+  src.buffer = b;
+  src.loop = true;
+  src.loopEnd = Math.min(20, b.duration);
+  const gn = e.ctx.createGain();
+  gn.gain.value = nightGain('fight');
+  src.connect(gn);
+  gn.connect(e.bus.crowd);
+  src.start(t, 3);
+  src.stop(t + dur);
 }
-JOBS['crowd-fight'] = { len: 8, run: (e, t) => crowdAt(e, t, 0.25, true, 8) };
-JOBS['crowd-lull'] = { len: 8, run: (e, t) => crowdAt(e, t, 0.12, true, 8) };
-JOBS['crowd-show'] = { len: 8, run: (e, t) => crowdAt(e, t, 0.05, false, 8) };
-JOBS['crowd-swell'] = { len: 8, run: (e, t) => crowdAt(e, t, 0.7, true, 8) };
+JOBS['night'] = { len: 8, run: (e, t) => nightAt(e, t, 8) };
 
 // the same medium and heavy hit landed by each fighter: the attacker's family colours the hit
 for (const f of ['kiln', 'tick', 'gantry', 'vise'] as FighterId[]) {
@@ -187,7 +190,7 @@ async function renderMusicJob(kind: 'fight' | 'bed'): Promise<{ buf: AudioBuffer
 
 /** the sounds the critic sees in pairs, each also rendered over our own bed (music and crowd) */
 const PAIRED = ['hit-light', 'hit-medium', 'hit-heavy', 'hit-lethal', 'shield-hit', 'jump', 'land', 'dash', 'swing', 'grab',
-  'ko-blast', 'start-call', 'plan-tick', 'pick-reveal', 'versus-slam', 'winner'];
+  'ko-blast', 'start-call', 'plan-tick', 'pick-reveal', 'versus-slam', 'winner', 'bat-swarm', 'mist-step', 'pounce', 'howl-full', 'hit-claw', 'hit-bite'];
 const SHOW_SOUNDS = ['start-call', 'plan-tick', 'pick-reveal', 'versus-slam', 'winner'];
 
 async function renderInMix(name: string): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
@@ -206,28 +209,15 @@ async function renderInMix(name: string): Promise<{ buf: AudioBuffer; meta: Reco
   m.connect(mg);
   mg.connect(e.bus.music);
   m.start(0, 9.0);
-  // the crowd at a mid-fight level, as the director sets it (murmur and the cheering bed)
-  const cg = crowdGains(0.25, kind === 'fight', kind === 'fight' ? 1 : 0.75);
-  for (const [name, g, off] of [['crowd-bed', cg.murmur, 3], ['crowd-cheer-bed', cg.cheer, 6]] as const) {
-    const cb = sample(name);
-    if (!cb) continue;
-    const c = ctx.createBufferSource();
-    c.buffer = cb;
-    c.loop = true;
-    const gn = ctx.createGain();
-    gn.gain.value = g;
-    c.connect(gn);
-    gn.connect(e.bus.crowd);
-    c.start(0, off);
-  }
+  // the night under the fight, as the director sets it
+  if (kind === 'fight') nightAt(e, 0, ctx.length / SR);
   const t = lead;
   // the ducks exactly as the director sets them
   if (name === 'hit-lethal') {
-    e.duckBus('music', t, 0.08, 0.012, 0.1, 0.9);
-    e.duckBus('crowd', t, 0.15, 0.012, 0.1, 0.6);
-  } else if (name === 'hit-heavy') e.duckBus('music', t, 0.55, 0.01, 0.1, 0.5);
-  else if (name === 'hit-medium') e.duckBus('music', t, 0.78, 0.01, 0.05, 0.25);
-  else if (name === 'ko-blast') e.duckBus('music', t, 0.35, 0.01, 0.45, 2.0);
+    e.duckBus('music', t, 0.1, 0.012, 0.1, 0.9);
+    e.duckBus('crowd', t, 0.2, 0.012, 0.1, 0.6);
+  } else if (name === 'hit-heavy') e.duckBus('music', t, 0.7, 0.01, 0.08, 0.45);
+  else if (name === 'ko-blast') e.duckBus('music', t, 0.4, 0.01, 0.6, 2.0);
   j.run(e, t);
   return { buf: await ctx.startRendering(), meta: { lead, eventAt: (j.eventAt ?? 0.1) - 0.1 + lead } };
 }
@@ -248,7 +238,7 @@ const POST: PostState = { dim: 0, dimColor: '#000', flash: 0, fighterFlash: [0, 
 
 /** find a fight with a knockout and keep every tick from `before` seconds ahead of it to `after` past it */
 function fightAroundKo(before: number, after: number): { ticks: Tick[]; koIndex: number; fighters: [FighterId, FighterId] } {
-  const fighters: [FighterId, FighterId] = ['kiln', 'gantry'];
+  const fighters: [FighterId, FighterId] = ['gantry', 'vise'];
   for (let k = 2; k < 14; k++) {
     const header = makeHeader(`ringout-sound-${k}-4f1c9a2b7e3d5c6a8b9f0e1d2c3b4a59`, fighters, { lives: 2 });
     let ko = -1;
@@ -427,6 +417,107 @@ async function renderShow(kind: 'call' | 'countdown' | 'verdict'): Promise<{ buf
 }
 
 // ------------------------------------------------------------------------------------------------
+// The preview for ears: a little of the select music, a real stretch of the Count against the Wolf
+// with a bat swarm, a pounce and a howl, the knockout that ends it, then the verdict and its strings.
+// ------------------------------------------------------------------------------------------------
+
+type SimMod = { makeHeader: typeof makeHeader; runFight: typeof runFight; FIGHTERS: typeof FIGHTERS };
+
+/** the newest sim that is there (src/sim2 while it is being finished, else src/sim) */
+async function newestSim(): Promise<{ mod: SimMod; name: string }> {
+  const path = '/src/sim2/index.ts';
+  try {
+    const mod = (await import(/* @vite-ignore */ path)) as SimMod;
+    if (typeof (mod as { runFight?: unknown } | null)?.runFight === 'function') return { mod, name: 'src/sim2' };
+  } catch {
+    /* not there: the promoted sim has the abilities */
+  }
+  return { mod: { makeHeader, runFight, FIGHTERS }, name: 'src/sim' };
+}
+
+async function renderPreview(): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
+  const { mod, name } = await newestSim();
+  const fighters: [FighterId, FighterId] = ['gantry', 'vise'];
+  const WINDOW = 44; // seconds of fight before the knockout
+  const has = (ev: SimEvent[], f: (x: SimEvent) => boolean) => ev.some(f);
+  let pick: { ticks: Tick[]; ko: number; winner: Side; seed: string } | null = null;
+  for (let k = 0; k < 60 && !pick; k++) {
+    const seed = `blood-moon-preview-${k}-7d1e2a9c4b6f8e0d1c3a5b7e9f2d4c6a`;
+    const header = mod.makeHeader(seed, fighters, { lives: 1 });
+    let ko = -1;
+    let koSide: Side = 0;
+    const all: SimEvent[][] = [];
+    mod.runFight(header, { coaches: ['adaptive', 'rush'], onTick: (st, ev) => { all[st.tick] = ev.slice(); if (ko < 0) { const e2 = ev.find((x) => x.t === 'ko'); if (e2 && e2.t === 'ko') { ko = st.tick; koSide = e2.side; } } } });
+    if (ko < WINDOW * 60) continue;
+    const from = ko - WINDOW * 60;
+    const win = all.slice(from, ko + 1).flat();
+    const bat = has(win, (x) => x.t === 'projectile' && x.kind === 'bat');
+    const pounce = has(win, (x) => x.t === 'move' && x.side === 1 && x.move === 'special');
+    const howl = has(win, (x) => x.t === 'move' && x.side === 1 && x.move === 'special2');
+    if (!bat || !pounce || !howl) continue;
+    const ticks: Tick[] = [];
+    mod.runFight(header, { coaches: ['adaptive', 'rush'], onTick: (st, ev) => { if (st.tick >= from && st.tick <= ko + 1) ticks.push({ s: structuredClone(st), ev: ev.slice() }); } });
+    pick = { ticks, ko: ko - from, winner: (1 - koSide) as Side, seed };
+  }
+  if (!pick) throw new Error(`no fight in ${name} with a bat swarm, a pounce and a howl before its knockout`);
+  const ctxPicks = { picks: fighters } as unknown as ShowState['ctx'];
+  const frames: Frame[] = [];
+  const at = () => (frames.length * 1000) / 60;
+  const marks: Record<string, number> = {};
+  // a frame of idle, then 8 s of the select screen (the picks flip at 5 s)
+  frames.push({ dt: 1 / 60, now: 0, show: { ...blankShow('idle'), phaseMs: 9000 }, fight: null, post: POST, width: 1280, height: 720 });
+  marks.select = at() / 1000;
+  for (let i = 0; i < 8 * 60; i++) {
+    const ms = (i * 1000) / 60;
+    frames.push({ dt: 1 / 60, now: at(), show: { ...blankShow('select'), ctx: ctxPicks, phaseMs: ms, phaseDurationMs: 8000, picksRevealed: ms >= 5000, selectRevealMs: 5000 }, fight: null, post: POST, width: 1280, height: 720 });
+  }
+  // the fight: LOCKED, 3, 2, 1, then the real ticks
+  marks.fight = at() / 1000;
+  const t0 = pick.ticks[0];
+  const cdTotal = 3900;
+  let ms = 0;
+  for (; ms < cdTotal; ms += 1000 / 60) {
+    const f = frameOf({ ...blankShow('fight'), ctx: ctxPicks, phaseMs: ms }, t0, t0, [], 'frozen', 1, at());
+    f.fight!.countdownMs = Math.max(0, cdTotal - ms);
+    frames.push(f);
+  }
+  for (let i = 0; i < pick.ticks.length; i++) {
+    const cur = pick.ticks[i];
+    for (const ev of cur.ev) {
+      const key = ev.t === 'projectile' && ev.kind === 'bat' ? 'bats' : ev.t === 'move' && ev.side === 1 && ev.move === 'special' ? 'pounce'
+        : ev.t === 'move' && ev.side === 1 && ev.move === 'special2' ? 'howl' : ev.t === 'ko' ? 'ko' : ev.t === 'hit' && ev.strength === 'lethal' ? 'lethal' : null;
+      if (key) marks[key] ??= Math.round(at()) / 1000;
+    }
+    ms += 1000 / 60;
+    frames.push(frameOf({ ...blankShow('fight'), ctx: ctxPicks, phaseMs: ms }, cur, pick.ticks[Math.max(0, i - 1)], cur.ev, 'live', 1, at()));
+    if (cur.ev.some((ev) => ev.t === 'hit' && ev.strength === 'lethal')) {
+      for (let k = 0; k < 30; k++) { ms += 1000 / 60; frames.push(frameOf({ ...blankShow('fight'), ctx: ctxPicks, phaseMs: ms }, cur, cur, [], 'live', 1, at())); }
+    }
+  }
+  // the knockout holds 3 s, then the verdict
+  const last = pick.ticks[pick.ticks.length - 1];
+  for (let i = 0; i < 3 * 60; i++) frames.push(frameOf({ ...blankShow('break'), ctx: ctxPicks, phaseMs: (i * 1000) / 60 }, last, last, [], 'frozen', 1, at()));
+  marks.verdict = at() / 1000;
+  for (let i = 0; i < 13 * 60; i++) {
+    const show = { ...blankShow('verdict'), ctx: ctxPicks, phaseMs: (i * 1000) / 60, result: { winner: pick.winner, winnerId: 'a', lives: [1, 0] as [number, number], damage: [80, 140] as [number, number], nextInMs: 20000 } };
+    frames.push({ dt: 1 / 60, now: at(), show, fight: null, post: POST, width: 1280, height: 720 });
+  }
+  const ctx = new OfflineAudioContext(2, Math.ceil((frames.length / 60 + 0.5) * SR), SR);
+  const e = new Engine(ctx);
+  const dir = createDirector(e, { live: false, defs: mod.FIGHTERS as unknown as MoveDefs });
+  await music('fight', SR);
+  await music('bed', SR);
+  frames.forEach((f, i) => {
+    void ctx.suspend(i / 60 + 0.0005).then(() => {
+      dir.update(f);
+      void ctx.resume();
+    });
+  });
+  const buf = await ctx.startRendering();
+  return { buf, meta: { lead: 0, eventAt: 0, sim: name, seed: pick.seed, winner: pick.winner === 0 ? 'the Count' : 'the Wolf', marks } };
+}
+
+// ------------------------------------------------------------------------------------------------
 
 function b64(f: Float32Array): string {
   const u8 = new Uint8Array(f.buffer, f.byteOffset, f.byteLength);
@@ -452,7 +543,7 @@ async function liveSmoke(assetsBase: string): Promise<{ ok: boolean; state: stri
     const t0 = performance.now();
     rig.unlock();
     let bedsReadyMs = -1;
-    const poll = setInterval(() => { if (bedsReadyMs < 0 && sample('crowd-bed') && sample('crowd-cheer-bed')) bedsReadyMs = Math.round(performance.now() - t0); }, 10);
+    const poll = setInterval(() => { if (bedsReadyMs < 0 && sample('night-bed')) bedsReadyMs = Math.round(performance.now() - t0); }, 10);
     const { ticks } = fightAroundKo(1.5, 0.5);
     const show = blankShow('versus');
     show.phaseMs = 0;
@@ -488,12 +579,13 @@ export function installAudioHarness(assetsBase = '/'): void {
   const w = window as unknown as { __audio: Record<string, unknown> };
   const api = {
     ready: false,
-    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict'],
+    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict', 'preview'],
     missing: () => missingSamples(),
     liveSmoke: () => liveSmoke(assetsBase),
     async render(name: string) {
       let r: { buf: AudioBuffer; meta: Record<string, unknown> };
-      if (name === 'timeline' || name === 'ko-break' || name === 'ko-replay') r = await renderTimeline(name);
+      if (name === 'preview') r = await renderPreview();
+      else if (name === 'timeline' || name === 'ko-break' || name === 'ko-replay') r = await renderTimeline(name);
       else if (name.startsWith('show-')) r = await renderShow(name.slice(5) as 'call' | 'countdown' | 'verdict');
       else if (name === 'music-fight') r = await renderMusicJob('fight');
       else if (name === 'music-bed') r = await renderMusicJob('bed');
