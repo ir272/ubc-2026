@@ -430,6 +430,34 @@ export class SolanaChain implements ChainAdapter {
     return { pools: (m.pools as bigint[]).map(num), state: m.state as string };
   }
 
+  /** Many markets in one getMultipleAccountsInfo call (100 per call); null where an account is missing. */
+  async getMarkets(markets: string[]) {
+    const keys = markets.map((m) => new this.web3.PublicKey(m));
+    const infos = await this.multi(keys);
+    return infos.map((info, i) => {
+      if (!info) return null;
+      const m = this.sdk.decodeMarket(keys[i], info.data);
+      return { pools: (m.pools as bigint[]).map(num), state: m.state as string };
+    });
+  }
+
+  /** One owner's positions on many markets in one call; closed positions come from the reclaim cache. */
+  async getPositions(markets: string[], owner: string) {
+    const pdas = markets.map((m) => this.client.positionPda(m, owner) as Web3.PublicKey);
+    const infos = await this.multi(pdas);
+    return infos.map((info, i) => {
+      if (!info) return this.closed.get(`${markets[i]}:${owner}`) ?? null;
+      const p = this.sdk.decodePosition(pdas[i], info.data);
+      return { amounts: (p.amounts as bigint[]).map(num), claimed: !!p.claimed };
+    });
+  }
+
+  private async multi(keys: Web3.PublicKey[]) {
+    const out: (Web3.AccountInfo<Buffer> | null)[] = [];
+    for (let i = 0; i < keys.length; i += 100) out.push(...(await this.connection.getMultipleAccountsInfo(keys.slice(i, i + 100))));
+    return out;
+  }
+
   async getBalance(owner: string) {
     return num(await this.client.fetchPlayBalance(owner));
   }

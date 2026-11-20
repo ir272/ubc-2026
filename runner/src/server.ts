@@ -69,6 +69,8 @@ export function createApp(o: AppOpts) {
   }
   const ac = new AbortController();
   const faucetGranted = new Set<string>();
+  const meCache = new Map<string, { at: number; body: Promise<{ balance: number; positions: unknown[] }> }>();
+  const ME_CACHE_MS = chain.kind === 'solana' ? 3000 : 0;
   const ipBuckets = new Map<string, Bucket>();
   const devHtml = () => readFileSync(new URL('../public/dev.html', import.meta.url));
   let loops: Promise<void>[] = [];
@@ -106,9 +108,11 @@ export function createApp(o: AppOpts) {
 
   async function positionsOf(who: string) {
     const recent = [...hub.windows.values()].slice(-40);
+    // One batch call where the chain has it (Solana), else one read per window.
+    const batch = chain.getPositions ? await chain.getPositions(recent.map((w) => w.market), who).catch(() => null) : null;
     const rows = await Promise.all(
-      recent.map(async (w) => {
-        const p = await chain.getPosition(w.market, who).catch(() => null);
+      recent.map(async (w, i) => {
+        const p = batch ? batch[i] ?? null : await chain.getPosition(w.market, who).catch(() => null);
         if (!p) return null;
         return {
           channel: w.channel,
@@ -172,8 +176,18 @@ export function createApp(o: AppOpts) {
     }
     if (m === 'GET' && (mm = p.match(/^\/me\/([^/]+)$/))) {
       const who = owner(decodeURIComponent(mm[1]!));
-      const [balance, positions] = await Promise.all([chain.getBalance(who), positionsOf(who)]);
-      return json(200, { balance, positions });
+      // Every open tab polls this; a short cache keeps a public RPC under its rate limits.
+      const hit = meCache.get(who);
+      if (hit && Date.now() - hit.at < ME_CACHE_MS) return json(200, await hit.body);
+      const body = Promise.all([chain.getBalance(who), positionsOf(who)]).then(([balance, positions]) => ({ balance, positions }));
+      meCache.set(who, { at: Date.now(), body });
+      if (meCache.size > 5000) meCache.clear();
+      try {
+        return json(200, await body);
+      } catch (e) {
+        meCache.delete(who);
+        throw e;
+      }
     }
     if (m === 'POST' && p === '/faucet') {
       ipLimit(req, 'faucet', 5, 60_000);
@@ -187,6 +201,7 @@ export function createApp(o: AppOpts) {
         faucetGranted.delete(who);
         throw e;
       }
+      meCache.delete(who);
       log.info(`faucet → ${who}`);
       // `signature` only on Solana: the mint transaction that granted the play money
       return json(200, { granted: FAUCET_AMOUNT, balance: await chain.getBalance(who), ...(typeof sig === 'string' ? { signature: sig } : {}) });
@@ -201,6 +216,7 @@ export function createApp(o: AppOpts) {
       } catch (e) {
         throw new HttpError(400, (e as Error).message);
       }
+      meCache.clear(); // a bet or transfer just changed someone's balance
       void hub.refreshAllOpen();
       return json(200, { signature });
     }

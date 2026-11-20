@@ -37,6 +37,9 @@ export interface ChainAdapter {
   info(): Record<string, unknown>;
   /** One owner's stake in one market, or null if they have none. */
   getPosition(market: string, owner: string): Promise<{ amounts: number[]; claimed: boolean } | null>;
+  /** Optional batch reads (one RPC call instead of one per account); callers fall back to the single reads. */
+  getMarkets?(markets: string[]): Promise<({ pools: number[]; state: string } | null)[]>;
+  getPositions?(markets: string[], owner: string): Promise<({ amounts: number[]; claimed: boolean } | null)[]>;
   /** Normalises/validates an owner string (throws if invalid). */
   parseOwner(owner: string): string;
   /** Memory chain only: place a bet without a signed transaction (POST /dev/bet). */

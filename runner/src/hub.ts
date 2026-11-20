@@ -214,7 +214,30 @@ export class Hub {
   }
 
   async refreshAllOpen() {
-    await Promise.all(this.openWindows().map((w) => this.refreshPools(w)));
+    const open = this.openWindows();
+    if (!open.length) return;
+    if (!this.chain.getMarkets) {
+      await Promise.all(open.map((w) => this.refreshPools(w)));
+      return;
+    }
+    // One RPC call for every open window (public RPCs rate-limit per method).
+    try {
+      const ms = await this.chain.getMarkets(open.map((w) => w.market));
+      open.forEach((w, i) => {
+        const m = ms[i];
+        if (m) this.applyPools(w, m.pools);
+      });
+    } catch (e) {
+      log.warn(`refreshAllOpen failed: ${(e as Error).message}`);
+    }
+  }
+
+  private applyPools(w: WindowRec, pools: number[]) {
+    const total = pools.reduce((a, b) => a + b, 0);
+    if (total === w.total && pools.every((p, i) => p === w.pools[i])) return;
+    w.pools = pools;
+    w.total = total;
+    this.broadcast(w.channel, 'pools', { windowId: w.windowId, pools: w.pools, total });
   }
 
   publicWindow(w: WindowRec): WindowView {
