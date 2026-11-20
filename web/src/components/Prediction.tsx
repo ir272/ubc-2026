@@ -268,9 +268,10 @@ function Open(p: {
   const pick = ticket && staked > 0 ? mainPick(ticket) : null;
   const n = w.outcomes.length;
   const secs = Math.ceil(msLeft / 1000);
-  // the last ten seconds tick, but never from a background tab
+  // the last seconds tick, but never from a background tab. They start at 8, not 10: the announcer says its
+  // "last call" line at ten seconds (web/src/announcer), and the first two ticks would land on top of it.
   useEffect(() => {
-    if (secs > 0 && secs <= 10 && document.hasFocus()) sfx('tick');
+    if (secs > 0 && secs <= 8 && document.hasFocus()) sfx('tick');
   }, [secs]);
 
   return (
