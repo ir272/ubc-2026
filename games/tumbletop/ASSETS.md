@@ -4,33 +4,46 @@ Tumbletop draws the attic, the course, the obstacles, the Gumbles and the graphi
 
 ## Sound in the build (state on 2026-11-20)
 
-Four recorded hit sounds and nothing else: no music, no countdown, no jingles. The owner listened
-to the first set of recordings on 2026-11-19 and rejected the music and every effect except the
-hits (which he has not ruled on); those files were taken out. A sound with no file is silent: the
-synthesised stand-ins in `web/src/show/sound.js` are switched off. Nothing new goes into the build
-until the owner has approved it by ear.
+Four music tracks and four hit sounds, each approved by the owner by ear or (the hits) not yet
+ruled on. No countdown, bell, chime, jingle or applause yet: he rejected the first set of those and
+has not chosen from the second. A sound with no file is silent; the synthesised stand-ins in
+`web/src/show/sound.js` are switched off.
 
-| File here | From | Original file | Author | Licence | Source |
-|---|---|---|---|---|---|
-| `web/src/audio/hit-1.wav` | Impact Sounds 1.0 | `impactWood_medium_000.ogg` | Kenney | CC0 | https://kenney.nl/assets/impact-sounds |
-| `web/src/audio/hit-2.wav` | Impact Sounds 1.0 | `impactSoft_heavy_001.ogg` | Kenney | CC0 | same |
-| `web/src/audio/hit-3.wav` | Impact Sounds 1.0 | `impactPunch_medium_001.ogg` | Kenney | CC0 | same |
-| `web/src/audio/hit-4.wav` | Impact Sounds 1.0 | `impactWood_heavy_002.ogg` | Kenney | CC0 | same |
+### Music: Kevin MacLeod (incompetech.com), Creative Commons Attribution 4.0
 
-Converted with ffmpeg to mono 16-bit WAV, peak-normalised, otherwise untouched; played with no
-compressor, equaliser or pitch change.
+**The site must print this credit somewhere viewers can find it** (the licence requires it):
 
-## Candidates sent to the owner to listen to (not in the build, not in the repository)
+> "Adventures in Adventureland", "Heroic Age", "Five Armies" and "Winner Winner!" by Kevin MacLeod
+> (incompetech.com). Licensed under Creative Commons: By Attribution 4.0.
+> https://creativecommons.org/licenses/by/4.0/
 
-Audition clips are in `docs/` (git-ignored). Whatever he approves gets a row above with its credit.
+| File here | Plays during | Track | Cut | Source |
+|---|---|---|---|---|
+| `web/src/audio/music-lineup.m4a` | the call, the line-ups, the shelf after a round, between shows | Adventures in Adventureland | from 0:20, 80 s | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Adventures%20in%20Adventureland.mp3 |
+| `web/src/audio/music-race.m4a` | Rounds One and Two | Heroic Age | from 0:15, 72 s | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heroic%20Age.mp3 |
+| `web/src/audio/music-final.m4a` | the Final | Five Armies | from 0:30, 70 s | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3 |
+| `web/src/audio/music-win.m4a` | the winner | Winner Winner! | from 0:10, 45 s | https://incompetech.com/music/royalty-free/mp3-royaltyfree/Winner%20Winner!.mp3 |
 
-- Music: tracks by Kevin MacLeod (incompetech.com), Creative Commons Attribution 4.0. Using any of
-  them means printing this credit on the site: "<Title>" Kevin MacLeod (incompetech.com), Licensed
-  under Creative Commons: By Attribution 4.0, https://creativecommons.org/licenses/by/4.0/
-  Clips: `docs/music-by-phase/` (electronic and funk, 2026-11-19) and `docs/music-orchestral/`
-  (orchestral, 2026-11-20).
-- Effects: Mixkit sound effects (Mixkit Sound Effects Free License, which allows use in games) in
-  `docs/sounds-round2/`.
+Changes made (the licence asks that they be stated): each track is cut to the stretch above, its
+level lowered to about -20 LUFS, a 0.05 s fade in and 0.4 s fade out, encoded as AAC. No
+compressor, equaliser or pitch change. The owner chose them on 2026-11-20 from audition clips
+("line-up 4, race 7, and five armies are cool. win 1 is good").
+
+### Hits: Kenney, Impact Sounds 1.0, CC0 (https://kenney.nl/assets/impact-sounds)
+
+| File here | Original file |
+|---|---|
+| `web/src/audio/hit-1.wav` | `impactWood_medium_000.ogg` |
+| `web/src/audio/hit-2.wav` | `impactSoft_heavy_001.ogg` |
+| `web/src/audio/hit-3.wav` | `impactPunch_medium_001.ogg` |
+| `web/src/audio/hit-4.wav` | `impactWood_heavy_002.ogg` |
+
+Converted with ffmpeg to mono 16-bit WAV, peak-normalised, otherwise untouched.
+
+## Effect candidates still with the owner (not in the build, not in the repository)
+
+Mixkit sound effects (Mixkit Sound Effects Free License, which allows use in games), as audition
+clips in `docs/sounds-round2/` (git-ignored). Whatever he approves gets a row above.
 
 ## Type
 

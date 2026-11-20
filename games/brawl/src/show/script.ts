@@ -20,7 +20,7 @@ import { FIGHTERS, SIM_VERSION, coachView, createFight, hashFight, sanitizePlan,
 import { TIMING } from './events.ts';
 import type { BotCard, Ctx, FeedEventType, FeedEvents, FighterCard } from './events.ts';
 import type { BotConfig, Brains } from './brains.ts';
-import { modelLabel, safeLine } from './brains.ts';
+import { cleanStrikes, modelLabel, safeLine } from './brains.ts';
 import { airLine, checkLine } from './content.ts';
 
 export interface MatchDeps {
@@ -37,6 +37,9 @@ export interface MatchDeps {
     timeLimitTicks?: number;
     timing?: Partial<typeof TIMING>;
     picks?: [FighterId, FighterId];
+    /** the stages on offer and a forced stage (captures): the strikes then end on it. Default: STAGES, struck by the bots */
+    stages?: string[];
+    stage?: string;
     /** EXTRA: the channel's pause after the match, so match_end.nextInMs is right. Default 8000 */
     intermissionMs?: number;
   };
@@ -72,8 +75,41 @@ const REPLAY_BACK = 150; // replays start about this many ticks before the knock
 const REPLAY_SPEED = 0.5;
 const SAFETY_TICKS = 3 * 60 * TICK_HZ; // past regulation + this, the script calls the fight itself
 
+/** the fighters on offer. The owner is choosing the cast one at a time; ids not listed stay out of the select */
+export const ROSTER: FighterId[] = ['gantry', 'vise']; // the Count and the Wolf (the owner's picks so far)
+/** the stages on offer in the stage select (ids of the drawn sets in src/ink/sets). One platform layout for all. */
+export const STAGES: string[] = ['belfry', 'shelf', 'graveyard', 'ship', 'map', 'rooftops'];
+/** the stages' names, for the bots' strike prompt */
+export const STAGE_NAMES: Record<string, string> = {
+  belfry: 'The Belfry',
+  shelf: 'The Long Shelf',
+  graveyard: 'Gallows Hill',
+  ship: 'The Night Ship',
+  map: 'The Map Table',
+  rooftops: 'Lamp Street',
+};
+
+/**
+ * The stage strike: sides take turns, `first` striking first; on its turn a side crosses out the
+ * first stage in its own order that is still standing (any standing stage when its order has none
+ * left). One is left and that one is played. A forced stage is never struck, so the strikes end on it.
+ */
+export function resolveStrikes(stages: string[], orders: [string[], string[]], first: Side, forced?: string): { strikes: { by: Side; stage: string }[]; stage: string | undefined } {
+  const standing = [...new Set(stages)];
+  const keep = forced && standing.includes(forced) ? forced : undefined;
+  const strikes: { by: Side; stage: string }[] = [];
+  let side: Side = first;
+  while (standing.length > 1) {
+    const pick = orders[side].find((id) => id !== keep && standing.includes(id)) ?? standing.find((id) => id !== keep)!;
+    standing.splice(standing.indexOf(pick), 1);
+    strikes.push({ by: side, stage: pick });
+    side = side === 0 ? 1 : 0;
+  }
+  return { strikes, stage: standing[0] };
+}
+
 export function fighterCards(): FighterCard[] {
-  return FIGHTER_IDS.map((id) => {
+  return ROSTER.map((id) => {
     const f = FIGHTERS[id];
     return { id, name: f.name, role: f.role, blurb: f.blurb, stats: { ...f.stats } };
   });
@@ -147,6 +183,10 @@ async function run(show: Show, deps: MatchDeps, opened: Win[]): Promise<MatchRes
   ) as [BotCard, BotCard];
 
   const ctx: Ctx = { matchNo: deps.matchNo, bots: cards, roster };
+  // the stages on offer; the bots strike them down to one after the fighters flip (dressing only:
+  // every stage plays on one layout)
+  const stages = deps.options?.stages?.length ? deps.options.stages : STAGES;
+  ctx.stages = [...stages];
   let s: FightState | null = null;
   const snap = (): Ctx => {
     const c: Ctx = { ...ctx };
@@ -194,6 +234,23 @@ async function run(show: Show, deps: MatchDeps, opened: Win[]): Promise<MatchRes
   emit('select_open', { ctx: snap(), durationMs: T.select, revealInMs: T.selectReveal });
   let picks: [FighterId, FighterId];
   const forced = deps.options?.picks;
+  // the stage strike orders are asked now too, in parallel with the pick, with the same deadline
+  const stageInfo = stages.map((id) => ({ id, name: STAGE_NAMES[id] ?? id }));
+  const forcedOk = !!(forced && FIGHTER_IDS.includes(forced[0]) && FIGHTER_IDS.includes(forced[1]));
+  const askStrikes = (side: Side): Promise<string[] | undefined> => {
+    if (!brains.strikeStages) return Promise.resolve(undefined);
+    try {
+      return brains.strikeStages(bots[side], {
+        stages: stageInfo.map((x) => ({ ...x })),
+        ...(forcedOk ? { mine: forced![side], theirs: forced![other(side)] } : {}),
+        opponentName: bots[other(side)].name,
+      });
+    } catch {
+      return Promise.resolve(undefined);
+    }
+  };
+  const strikeP = [askStrikes(0), askStrikes(1)] as const;
+  const strikeDeadline = selAt + T.selectReveal - 250;
   if (forced && FIGHTER_IDS.includes(forced[0]) && FIGHTER_IDS.includes(forced[1])) {
     picks = [forced[0], forced[1]];
   } else {
@@ -208,11 +265,26 @@ async function run(show: Show, deps: MatchDeps, opened: Win[]): Promise<MatchRes
     const deadline = selAt + T.selectReveal - 250;
     const r0 = await raceUntil(p0, deadline);
     const r1 = await raceUntil(p1, deadline);
-    const valid = (f: unknown): f is FighterId => FIGHTER_IDS.includes(f as FighterId);
-    picks = [valid(r0) ? r0 : FIGHTER_IDS[Math.floor(rand() * 4)]!, valid(r1) ? r1 : FIGHTER_IDS[Math.floor(rand() * 4)]!];
+    const valid = (f: unknown): f is FighterId => ROSTER.includes(f as FighterId);
+    const any = () => ROSTER[Math.floor(rand() * ROSTER.length)]!;
+    picks = [valid(r0) ? r0 : any(), valid(r1) ? r1 : any()];
   }
+  const orders = [] as unknown as [string[], string[]];
+  for (const side of [0, 1] as Side[]) {
+    const got = cleanStrikes(await raceUntil(strikeP[side], strikeDeadline), stageInfo);
+    // a missing or partial answer is finished with a shuffle of the rest
+    const rest = stages.filter((id) => !got.includes(id));
+    for (let i = rest.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [rest[i], rest[j]] = [rest[j]!, rest[i]!];
+    }
+    orders[side] = [...got, ...rest];
+  }
+  const struck = resolveStrikes(stages, orders, (deps.matchNo % 2) as Side, deps.options?.stage);
   await sleepUntil(selAt + T.selectReveal);
   ctx.picks = picks;
+  ctx.strikes = struck.strikes;
+  if (struck.stage) ctx.stage = struck.stage;
   emit('picks', { ctx: snap() });
 
   // taunts are asked now so they are ready for the versus screen (they decide nothing)

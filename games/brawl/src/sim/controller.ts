@@ -2,7 +2,7 @@
 // Both sides run this exact code. It reads the opponent only through a delayed observation
 // (a human reaction time of 10 to 14 ticks), its own fighter directly, and keeps its memory in
 // s.ctl.hands[side] (plain JSON). Randomness comes from s.rng only.
-import type { Action, FightHeader, FightState, FighterDef, FighterState, MoveDef, MoveId, Plan, Side } from './types.ts';
+import type { Action, FightHeader, FightState, FighterDef, FighterId, FighterState, MoveDef, MoveId, Plan, Side } from './types.ts';
 import { MOVE_IDS } from './types.ts';
 import { ARENA, LEDGE_X } from './arena.ts';
 import { FIGHTERS, kbAt, moveExtra } from './fighters.ts';
@@ -75,6 +75,50 @@ for (const fid of Object.keys(FIGHTERS)) {
   THREAT[fid] = Math.max(I.tilt.reach, I.grab.reach + def.runSpeed * 6, I.dash.reach + I.dash.fwdDist * 0.7, I.fair.reach + def.airSpeed * 10);
 }
 
+/** the special tools, found from the move data: a damaging shot, a floor hazard, a blink, a tether (ranged grab) */
+export const SHOT: Record<string, MoveId | ''> = {};
+export const WARD: Record<string, MoveId | ''> = {};
+export const BLINK: Record<string, MoveId | ''> = {};
+export const TETHER: Record<string, MoveId | ''> = {};
+/** a travelling command grab (a pounce) and a stagger burst all round (a howl) */
+export const POUNCE: Record<string, MoveId | ''> = {};
+export const HOWL: Record<string, MoveId | ''> = {};
+/** where a lobbed hazard comes to rest (metres ahead of the thrower), and how far a tether reaches */
+const WARD_DIST: Record<string, number> = {};
+const TETHER_REACH: Record<string, number> = {};
+for (const fid of Object.keys(FIGHTERS)) {
+  const def = FIGHTERS[fid as FighterId];
+  SHOT[fid] = ''; WARD[fid] = ''; BLINK[fid] = ''; TETHER[fid] = ''; POUNCE[fid] = ''; HOWL[fid] = '';
+  for (const m of ['special', 'special2'] as MoveId[]) {
+    const md = def.moves[m];
+    if (md.blink) BLINK[fid] = m;
+    const ex = moveExtra(def.id, m);
+    if (ex.grabbing && ex.cmd && INFO[fid][m].fwdDist >= 2.5) POUNCE[fid] = m;
+    if (md.hitboxes.some((h) => h.effect)) HOWL[fid] = m;
+    const pr = md.projectile;
+    if (!pr) continue;
+    if (pr.effect === 'pull') {
+      TETHER[fid] = m;
+      TETHER_REACH[fid] = def.width * 0.5 + 0.4 + pr.vx * pr.life + pr.r;
+    } else if (pr.linger) {
+      WARD[fid] = m;
+      if (pr.place !== undefined) WARD_DIST[fid] = pr.place;
+      else {
+        let x = def.width * 0.5 + 0.4, y = pr.y !== undefined ? pr.y : def.height * 0.62, vy = pr.vy;
+        for (let t = 0; t < pr.life && y > 0; t++) { vy -= pr.gravity; x += pr.vx; y += vy; }
+        WARD_DIST[fid] = x;
+      }
+    } else if (!SHOT[fid]) SHOT[fid] = m;
+  }
+}
+
+/** a fresh floor hazard of mine is down (one at a time: an old one, down two seconds, may be replaced) or one is still flying */
+function myHazard(s: FightState, side: Side, m: MoveId): boolean {
+  const linger = FIGHTERS[s.fighters[side].fighter].moves[m].projectile!.linger || 0;
+  for (const p of s.projectiles) if (p.owner === side && (p.floor ? p.life > linger - 120 : (p.move || 'special') === m)) return true;
+  return false;
+}
+
 // ------------------------------------------------------------------------------------------------
 // Memory
 // ------------------------------------------------------------------------------------------------
@@ -86,7 +130,7 @@ export function newHand(): Record<string, any> {
     shieldT: 0, wait: 0, appr: '', apprT: 0, dashT: 0, dashDir: 0,
     rec: '', recT: 0, deepT: -999, blkTick: -1, blkEnd: -1, blkX: 0, ledgeWait: -1, getupWait: -1, padWait: -1, pummel: -1, kill: false, specialDone: false,
     order: '', orderAt: -1, lastPlanTick: -1, oos: 0, airPlan: '', ffAt: 0, killSaid: false, cool: 0, shotCd: 0, punishT: 0,
-    rd: '', rdUntil: 0, rdLast: -99, oGrab: 0, fStop: 0, intent: '', intentT: 0, band: '', danceDir: 1,
+    rd: '', rdUntil: 0, rdLast: -99, oGrab: 0, fStop: 0, intent: '', intentT: 0, band: '', danceDir: 1, abCd: 60,
   };
 }
 
@@ -326,6 +370,7 @@ export function think(s: FightState, side: Side, header: FightHeader, inp: Input
   const a = f.action;
   if (H.cool > 0) H.cool--;
   if (H.shotCd > 0) H.shotCd--;
+  if (H.abCd > 0) H.abCd--;
   if ((a === 'attack' || a === 'charge') && f.actionFrame === 1) H.cool = Math.floor((10 + rnd(s.rng) * 22) * (1.4 - plan.aggression * 0.8));
 
   switch (a) {
@@ -380,6 +425,7 @@ export function think(s: FightState, side: Side, header: FightHeader, inp: Input
       return;
     case 'idle': case 'walk': case 'run':
       groundLogic(s, side, f, def, O, odef, H, st, pl, inp, header);
+      if (!inp.act && !inp.jump && !inp.shield && Math.abs(inp.mx) > 0.15) avoidHazard(s, side, f, def, H, inp);
       return;
     default:
       return;
@@ -441,17 +487,37 @@ function threatened(O: Obs, odef: FighterDef, f: FighterState, def: FighterDef, 
   return f.y + def.height >= bottom && f.y <= top;
 }
 
-function projectileComing(s: FightState, side: Side, f: FighterState, def: FighterDef, delay: number): boolean {
+/** a shot flying at me, seen once it has flown for the reaction time: 1 a shot, 2 a tether (0 none) */
+function projectileComing(s: FightState, side: Side, f: FighterState, def: FighterDef, delay: number): number {
   for (const p of s.projectiles) {
-    if (p.owner === side) continue;
-    // only seen once it has flown for the reaction time
+    if (p.owner === side || p.floor || p.drag) continue;
+    const pr = FIGHTERS[s.fighters[p.owner].fighter].moves[p.move || 'special'].projectile;
+    if (!pr || pr.linger) continue;
     const px = p.x - p.vx * delay;
     const toward = (f.x - px) * p.vx > 0;
     if (!toward) continue;
     const dist = Math.abs(f.x - p.x);
-    if (dist < 4.5 && p.y > f.y - 0.3 && p.y < f.y + def.height + 0.3 && 42 - p.life >= delay) return true;
+    if (dist < 4.5 && p.y > f.y - 0.3 && p.y < f.y + def.height + 0.3 && pr.life - p.life >= delay) return p.tether ? 2 : 1;
   }
-  return false;
+  return 0;
+}
+
+/** an enemy hazard lying ahead on my floor (seen once it has lain there for the reaction time): jump it when running, else stop short */
+function avoidHazard(s: FightState, side: Side, f: FighterState, def: FighterDef, H: Record<string, any>, inp: Input): void {
+  const mv = inp.mx > 0 ? 1 : -1;
+  for (const p of s.projectiles) {
+    if (p.owner === side || !p.floor || Math.abs(p.y - f.y) > 0.2) continue;
+    const pr = FIGHTERS[s.fighters[p.owner].fighter].moves[p.move || 'special'].projectile;
+    if (!pr || (pr.linger || 0) - p.life < H.delay) continue;
+    const hw = def.width * 0.5;
+    if (Math.abs(p.x - f.x) < p.r + hw * 0.6) continue; // standing in it already: keep moving out
+    const near = (p.x - f.x) * mv - p.r - hw * 0.6;
+    const run = Math.abs(inp.mx) > 0.7;
+    if (near < 0 || near > (run ? 1.0 : 0.45)) continue;
+    if (run && Math.abs(f.x + mv * 4) < 8) { inp.jump = 1; return; }
+    inp.mx = 0;
+    return;
+  }
 }
 
 function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef, O: Obs, odef: FighterDef, H: Record<string, any>, st: Style, plan: Plan, inp: Input, header: FightHeader): void {
@@ -498,8 +564,11 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
   if (threatened(O, odef, f, def, H.delay)) {
     if (defend(s, side, f, def, O, odef, H, st, inp, dir)) return;
   }
-  if (projectileComing(s, side, f, def, H.delay)) {
+  const pcm = projectileComing(s, side, f, def, H.delay);
+  if (pcm) {
     const r = rnd(s.rng);
+    // a tether: shield it (the thrower is left open) or dodge through it and punish the whiff
+    if (pcm === 2 && r < 0.3) { inp.act = 'spot'; H.punishT = 40; return; }
     if (r < st.shield + 0.15) { inp.shield = true; H.shieldT = 12; return; }
     if (r < st.shield + 0.15 + 0.35 && plan.stance !== 'wall') { inp.jump = 2; inp.mx = dir; return; }
   }
@@ -508,6 +577,8 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
   if (H.punishT > 0) H.punishT--;
   const vul = oppVulnerableTicks(O, odef, H.delay, f, def);
   const comboing = O.act === 'hitstun';
+  // the special tools: shots, hazards, blinks and tethers, where the stance wants them
+  if (abilities(s, side, f, def, O, odef, P, H, st, plan, inp, adist, dir, vul)) return;
   // a planned return: having stepped or dodged out of a swing, come back in on timing and take what is there
   if (H.punishT > 0 && H.dashT <= 0) {
     if (vul > 0) {
@@ -550,6 +621,116 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
 
   // 6. neutral: an intent held for a few ticks, picked from the stance, the dials and the distance
   intentNeutral(s, side, f, def, O, odef, P, H, st, plan, inp, adist, dir, bored);
+}
+
+/**
+ * The special tools, reached for where each stance wants them, behind a cooldown so none is a free win:
+ * - a shot at range (keep-away most, the others now and then), and always on a stunned or rooted opponent out of reach;
+ * - a floor hazard lobbed at the opponent's feet (keep-away, bait), or between us to guard space (wall, keep-away);
+ * - a blink through and behind the opponent (rush), or to punish an opening from range (every stance);
+ * - a tether to drag the opponent in (rush, keep-away as a long poke), or to punish an opening from range (bait, wall).
+ */
+function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, O: Obs, odef: FighterDef, P: Pred, H: Record<string, any>, st: Style,
+  plan: Plan, inp: Input, adist: number, dir: number, vul: number): boolean {
+  if (O.act === 'dead' || O.act === 'respawn' || O.act === 'ledgehang' || O.act === 'ledgeclimb' || O.act === 'entrance' || O.act === 'held') return false;
+  if (f.platform !== -1 || !O.grounded && O.act !== 'hitstun') return false;
+  const id = def.id;
+  const stance = plan.stance;
+  const ag = plan.aggression;
+  const level = Math.abs(O.y - f.y) < 0.9;
+  const fire = (m: MoveId, cd: number, shot: boolean): boolean => {
+    inp.act = m; inp.face = dir;
+    if (shot) H.shotCd = cd; else H.abCd = Math.round(cd * (1.25 - ag * 0.5));
+    return true;
+  };
+  const r = rnd(s.rng);
+  const ready = H.cool <= 0;
+  const night = id === 'gantry' || id === 'vise'; // the Count and the Wolf lean on their specials harder than the round-3 cast
+  // a shot: from range at the same height
+  const S = SHOT[id];
+  if (S && H.shotCd <= 0 && level) {
+    const pr = def.moves[S].projectile!;
+    const lo = def.moves[S].startup > 16 ? 3.4 : 2.6;
+    const hi = Math.min(pr.vx * pr.life, 11);
+    if (adist > lo && adist < hi) {
+      const travel = def.moves[S].startup + adist / pr.vx;
+      if (O.act === 'hitstun' && vul > travel - 4 && adist > 2.8) return fire(S, 50, true); // sure hit on a stunned or rooted opponent
+      const rate = night
+        ? (stance === 'keepaway' ? 0.07 : stance === 'rush' ? 0.05 + (1 - ag) * 0.03 : stance === 'wall' ? 0.05 : 0.07)
+        : (stance === 'keepaway' ? 0.06 : stance === 'rush' ? 0.03 + (1 - ag) * 0.02 : stance === 'wall' ? 0.03 : 0.05);
+      const slow = def.moves[S].startup > 16;
+      if (ready && O.act !== 'shield' && r < rate) return fire(S, Math.round((slow ? 60 : 45) + rnd(s.rng) * (slow ? 60 : 55)), true);
+    }
+  }
+  if (H.abCd > 0) return false;
+  // a blink: through and behind it
+  const B = BLINK[id];
+  if (B && level && O.grounded) {
+    const into = adist > 1.6 && adist < def.moves[B].blink!.behind - 0.3;
+    if (into && vul > 9 && r < 0.5 * st.punish) return fire(B, 100, false);
+    const rate = night
+      ? (stance === 'rush' ? 0.07 + ag * 0.05 : stance === 'bait' ? 0.05 : 0.02)
+      : (stance === 'rush' ? 0.04 + ag * 0.04 : stance === 'bait' ? 0.03 : 0.012);
+    if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate) return fire(B, night ? 90 : 110, false);
+  }
+  // a tether: drag it in
+  const Tm = TETHER[id];
+  if (Tm && Math.abs(O.y - f.y) < 1.2) {
+    const reach = TETHER_REACH[id] + odef.width * 0.4;
+    const pr = def.moves[Tm].projectile!;
+    const travel = pr.frame + Math.max(0, adist - def.width * 0.5 - 0.4) / pr.vx;
+    const Q = predict(O, odef, H.delay + Math.round(travel * 0.6), { x: 0, y: 0 });
+    const qd = Math.abs(Q.x - f.x);
+    if (adist > 1.8 && qd < reach - 0.25 && O.act !== 'shield' && O.act !== 'shieldstun') {
+      if (vul > travel - 2 && r < st.punish * 0.75) return fire(Tm, 80, false);
+      const rate = stance === 'rush' ? 0.035 + plan.grabMix * 0.05 : stance === 'keepaway' ? 0.045 : stance === 'wall' ? 0.024 : 0.035;
+      if (ready && O.act !== 'attack' && r < rate) return fire(Tm, 100, false);
+    }
+  }
+  // a pounce: the long leap that seizes, to close and to punish at mid range (only a grounded opponent can be caught)
+  const Po = POUNCE[id];
+  if (Po && O.grounded && Math.abs(O.y - f.y) < 0.5) {
+    const I = INFO[id][Po];
+    const ex = moveExtra(id, Po);
+    const v = ex.fwd![2];
+    const reach = I.reach + I.fwdDist * 0.9;
+    const Q = predict(O, odef, H.delay + Math.round(I.first + Math.max(0, adist - I.reach) / v), { x: 0, y: 0 });
+    const qd = Math.abs(Q.x - f.x);
+    const tReach = ex.fwd![0] + Math.max(0, qd - I.reach - odef.width * 0.4) / v;
+    if (qd > 2.0 && qd < reach && O.act !== 'jumpsquat' && O.act !== 'spotdodge' && O.act !== 'roll') {
+      if (vul > tReach && r < st.punish * 0.8) return fire(Po, 70, false);
+      const rate = stance === 'rush' ? 0.08 + plan.grabMix * 0.06 : stance === 'keepaway' ? 0.06 : stance === 'wall' ? 0.04 : 0.06;
+      if (ready && O.act !== 'attack' && r < rate) return fire(Po, 60, false);
+    }
+  }
+  // a howl: when it is close and pressing, or right after a blocked string
+  const Hw = HOWL[id];
+  if (Hw && adist < 2.2 + odef.width * 0.3 && O.act !== 'shield' && O.act !== 'shieldstun') {
+    const pressing = O.act === 'attack' || O.act === 'run' || O.act === 'walk' || O.act === 'land' || O.act === 'getup';
+    const rate = pressing ? (stance === 'rush' ? 0.12 : 0.09) : 0.04;
+    if ((H.oos > 0 && r < 0.35) || r < rate) return fire(Hw, 70, false);
+  }
+  // a plain strike on the second special (an armoured blow, a spin): up close, where it reaches
+  const md2 = def.moves.special2;
+  if (!md2.projectile && !md2.blink && !HOWL[id] && md2.hitboxes.length && ready && O.act !== 'shield' && adist < 3.2) {
+    const I2 = INFO[id].special2;
+    const Q = predict(O, odef, H.delay + I2.first, { x: 0, y: 0 });
+    const rate = stance === 'rush' ? 0.04 : stance === 'wall' ? 0.015 : 0.01;
+    if ((vul > I2.first + 2 || r < rate) && moveReaches(def, 'special2', f.x, f.y, dir, Q.x + H.err * 0.5, Q.y, odef, -0.05)) return fire('special2', 90, false);
+  }
+  // a floor hazard: at its feet, or between us to guard the space
+  const W = WARD[id];
+  if (W && !myHazard(s, side, W) && level && O.grounded && Math.abs(f.x + dir * WARD_DIST[id]) < ARENA.main.x1 - 0.4) {
+    const pr = def.moves[W].projectile!;
+    const Q = predict(O, odef, H.delay + pr.frame + 30, { x: 0, y: 0 });
+    const ahead = (Q.x - f.x) * dir;
+    const land = WARD_DIST[id];
+    const atFeet = Math.abs(ahead - land) < 1.7;
+    const between = ahead > land + 0.9 && ahead < land + 4.5;
+    const rate = stance === 'keepaway' ? 0.08 : stance === 'wall' ? 0.07 : stance === 'bait' ? 0.06 : 0.05;
+    if ((atFeet || between) && ready && r < rate) return fire(W, 80, false);
+  }
+  return false;
 }
 
 /** the opponent's speed toward me, m/tick (from the delayed view) */
@@ -609,7 +790,7 @@ function readApproach(s: FightState, side: Side, f: FighterState, def: FighterDe
         if (!I.ground || I.dmg <= 0 || I.grab) continue;
         if (m === 'dash' && f.action !== 'run') continue;
         if (m === 'smash' && I.first > 14) continue;
-        if (m === 'special2' && (I.first > 14 || def.moves.special2.projectile)) continue;
+        if (m === 'special2' && (I.first > 14 || def.moves.special2.projectile || def.moves.special2.blink)) continue;
         const Q = predict(O, odef, H.delay + I.first, { x: 0, y: 0 });
         if (moveReaches(def, m, f.x, f.y, dir, Q.x + H.err * 0.5, Q.y, odef, -0.05)) {
           inp.act = m; inp.face = dir; H.rd = ''; H.cool = 6; H.punishT = 30; return true;
@@ -655,8 +836,9 @@ function readApproach(s: FightState, side: Side, f: FighterState, def: FighterDe
 function useSpecialOrder(s: FightState, side: Side, f: FighterState, def: FighterDef, O: Obs, odef: FighterDef, adist: number, dir: number, inp: Input): boolean {
   const H = hand(s, side);
   const I = INFO[def.id].special;
-  const shots = !!def.moves.special.projectile;
-  const ok = shots ? adist > 2.5 && Math.abs(O.y - f.y) < 1.5 : adist < I.reach + I.fwdDist + 0.6;
+  const shots = SHOT[def.id] === 'special' || WARD[def.id] === 'special';
+  const ok = shots ? adist > 2.5 && Math.abs(O.y - f.y) < 1.5 : TETHER[def.id] === 'special' ? adist > 1.8 && adist < TETHER_REACH[def.id] && Math.abs(O.y - f.y) < 1.2 :
+    adist < I.reach + I.fwdDist + 0.6;
   if (ok || s.tick - H.orderAt > 240) {
     inp.act = 'special'; inp.face = dir;
     H.order = 'special';
@@ -677,7 +859,9 @@ function pickGroundMove(s: FightState, f: FighterState, def: FighterDef, O: Obs,
   for (const m of moves) {
     const I = INFO[def.id][m];
     if (!I.ground) continue;
+    if (BLINK[def.id] === m || HOWL[def.id] === m) continue; // the blink and the howl are chosen by abilities()
     if (def.moves[m].projectile) {
+      if (SHOT[def.id] !== m) continue; // hazards and tethers are chosen by abilities()
       // shots: only from range, at about the same height, and not back to back
       const adist = Math.abs(P.x - f.x);
       if (H.shotCd > 0 || adist < 2.8 || Math.abs(O.y - f.y) > 1.0 || adist > 9.5 || !O.grounded || punishing && adist < 5) continue;
@@ -753,6 +937,8 @@ function defend(s: FightState, side: Side, f: FighterState, def: FighterDef, O: 
     if (r < 0.75 && Math.abs(f.x - dir * 1.5) < 7.2) { inp.mx = -dir; H.dashT = 8; H.dashDir = -dir; H.punishT = 40; return true; }
     inp.jump = 2; inp.mx = -dir; H.airPlan = 'retreat'; H.punishT = 40; return true;
   }
+  // a blinker can vanish through the swing and come out behind it
+  if (BLINK[def.id] && H.abCd <= 0 && f.grounded && rnd(s.rng) < 0.22) { inp.act = BLINK[def.id] as MoveId; inp.face = dir; H.abCd = 120; H.punishT = 30; return true; }
   let acc = st.shield;
   if (r < acc) { inp.shield = true; H.shieldT = 8 + Math.floor(rnd(s.rng) * 8); return true; }
   acc += st.backoff * 0.6;
@@ -800,7 +986,7 @@ function intentNeutral(s: FightState, side: Side, f: FighterState, def: FighterD
     if (plan.stance === 'keepaway') {
       // keep-away is the last to blink: it shoots if it can and otherwise waits, and only walks up to poke when the crowd is restless
       if (lull > 285) a = 'shield'; else if (lull > 255) a = pickApproach(s, def, plan, st, true);
-      else if (def.moves.special.projectile && H.shotCd <= 0) a = 'shot';
+      else if (SHOT[def.id] && H.shotCd <= 0) a = 'shot';
       else if (lull > 200) a = 'tip';
       else { H.lullNext = T + 20; a = ''; }
     } else if (lull > 285) a = 'shield'; // nothing for almost five seconds: walk in behind the shield and take the grab or the jab
@@ -808,7 +994,7 @@ function intentNeutral(s: FightState, side: Side, f: FighterState, def: FighterD
     else if (plan.stance === 'bait') a = r < 0.6 ? 'provoke' : pickApproach(s, def, plan, st, true);
     else if (plan.stance === 'wall') a = r < 0.65 ? 'tip' : 'shield';
     else a = pickApproach(s, def, plan, st, true);
-    if (a === 'shot') { if (adist > 2.6 && Math.abs(O.y - f.y) < 1) { inp.act = 'special'; inp.face = dir; H.shotCd = 50; return; } a = lull > 200 ? 'tip' : ''; }
+    if (a === 'shot') { if (adist > 2.6 && Math.abs(O.y - f.y) < 1) { inp.act = SHOT[def.id] as MoveId; inp.face = dir; H.shotCd = 50; return; } a = lull > 200 ? 'tip' : ''; }
     if (a) {
       H.appr = a; H.apprT = 0; H.fStop = 0;
       if (approach(s, side, f, def, O, odef, H, plan, st, inp, adist, dir)) return;
@@ -826,6 +1012,8 @@ function intentNeutral(s: FightState, side: Side, f: FighterState, def: FighterD
 function crossOver(s: FightState, f: FighterState, O: Obs, H: Record<string, any>, inp: Input, dir: number): void {
   // cornered: get past it over the top or with a roll behind, never while it is swinging
   if (O.act === 'attack' || O.act === 'charge') { inp.shield = true; H.shieldT = 6; return; }
+  const B = BLINK[FIGHTERS[f.fighter].id];
+  if (B && H.abCd <= 0 && f.grounded) { inp.act = B; inp.face = dir; H.abCd = 120; H.intentT = 14; return; }
   if (rnd(s.rng) < 0.3) { inp.jump = 1; inp.mx = dir; H.airPlan = 'cross'; }
   else inp.act = f.facing === dir ? 'roll_f' : 'roll_b';
   H.intentT = 14;
@@ -923,10 +1111,10 @@ function baitNeutral(s: FightState, side: Side, f: FighterState, def: FighterDef
 function keepNeutral(s: FightState, side: Side, f: FighterState, def: FighterDef, O: Obs, odef: FighterDef, P: Pred, H: Record<string, any>, st: Style,
   plan: Plan, inp: Input, adist: number, dir: number, room: number): void {
   const K = st.dist;
-  const shots = !!def.moves.special.projectile;
+  const shots = !!SHOT[def.id];
   // shoot whenever there is a lane
-  if (shots && H.shotCd <= 0 && adist > 2.6 && adist < 11 && Math.abs(O.y - f.y) < 1.0 && O.act !== 'hitstun') {
-    inp.act = 'special'; inp.face = dir; H.shotCd = Math.round((62 + Math.floor(rnd(s.rng) * 46)) * (1.3 - plan.aggression * 0.6)); return;
+  if (shots && H.shotCd <= 0 && adist > 2.6 && adist < Math.min(11, def.moves[SHOT[def.id] as MoveId].projectile!.vx * def.moves[SHOT[def.id] as MoveId].projectile!.life) && Math.abs(O.y - f.y) < 1.0 && O.act !== 'hitstun') {
+    inp.act = SHOT[def.id] as MoveId; inp.face = dir; H.shotCd = Math.round((62 + Math.floor(rnd(s.rng) * 46)) * (1.3 - plan.aggression * 0.6)); return;
   }
   if (adist < K - 0.5) {
     if (room > 2 && s.tick - (s.ctl as Ctl).lastExchange < 260) { inp.mx = -dir; return; }
@@ -989,9 +1177,9 @@ function pickApproach(s: FightState, def: FighterDef, plan: Plan, st: Style, lul
   const r = rnd(s.rng);
   if (r < plan.grabMix * 0.9) return 'grab';
   const q = rnd(s.rng);
-  if (q < 0.4) return 'air';
-  if (q < 0.62) return 'dash';
-  if (q < 0.8) return 'shield';
+  if (q < 0.34) return 'air';
+  if (q < 0.52) return 'dash';
+  if (q < 0.66) return 'shield';
   return 'special';
 }
 
@@ -1024,6 +1212,17 @@ function approach(s: FightState, side: Side, f: FighterState, def: FighterDef, O
     }
     case 'special': {
       const S = I.special;
+      const Bk = BLINK[def.id];
+      if (Bk && H.abCd <= 0 && Math.abs(O.y - f.y) < 0.9 && rnd(s.rng) < 0.5) {
+        // a blinker closes the last few metres by going through and behind
+        if (adist > 1.6 && adist < def.moves[Bk].blink!.behind - 0.3) { inp.act = Bk; inp.face = dir; H.abCd = 110; H.appr = ''; return true; }
+        if (adist >= def.moves[Bk].blink!.behind - 0.3) { inp.mx = dir; return true; }
+      }
+      if (TETHER[def.id] === 'special') {
+        if (adist < TETHER_REACH[def.id] - 0.3 && adist > 1.8 && Math.abs(O.y - f.y) < 1.2) { inp.act = 'special'; inp.face = dir; H.appr = ''; return true; }
+        if (adist <= 1.8) { H.appr = plan.grabMix > 0.5 ? 'grab' : 'dash'; return false; }
+        inp.mx = dir; return true;
+      }
       if (def.moves.special.projectile) {
         if (adist > 3 && Math.abs(O.y - f.y) < 1.3 && H.shotCd <= 0) { inp.act = 'special'; inp.face = dir; H.appr = 'air'; H.shotCd = 60; return true; }
         H.appr = 'air'; return false;

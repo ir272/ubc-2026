@@ -1,13 +1,14 @@
-# Tumbletop: report (Fri 2026-11-20, fourth edition, 04:30)
+# Tumbletop (Goober Guys): report (Fri 2026-11-20, fourth edition, 04:10)
 
-**Since the third edition.** The owner rejected the first recorded music and effects by ear, so
-the build now plays four hit sounds and nothing else. After each of Rounds One and Two the show
+**Since the third edition.** The owner rejected the first recorded music and effects by ear; he
+has since chosen four music tracks (in the build, CC BY, credit in `ASSETS.md`), and the effects
+other than hits are still silent until he chooses. After each of Rounds One and Two the show
 cuts to a shelf of all sixteen with shutters dropping on those knocked out, then "8 remain"
 (`web/src/world/rosterBoard.js`). The mixer plays a different track per part of the show. On
 2026-11-20 the owner called the display "trash", so the race display and every card are redrawn in
 the site's own look (ink line on dark paper, Shantell Sans; `web/src/show/ink.js`), and of three
 layouts he picked the table (stills in `docs/hud-options/`). The bets clock now says "Bets close in".
-Three sets of music candidates and one set of effects are with him to listen to. **None of this has
+One set of effects is with him to listen to. **None of this has
 been judged by a critic or re-tested for comprehension**, and everything below this paragraph
 describes the build as it was at 15:40 on 2026-11-19 (colours, fonts, sound and the recap have
 changed since). `ROUNDS.md` rounds 8 and 9 have the detail.

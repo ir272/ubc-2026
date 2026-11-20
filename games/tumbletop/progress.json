@@ -1,6 +1,6 @@
 {
- "updated": "Fri Nov 20, 05:10 CST",
- "now": "Round 9: the race display and every card redrawn in the site's ink look; of three layouts the owner picked the table. The show is called Goober Guys for viewers. Bets clock reworded. The build plays four hit sounds and no music until he picks by ear; a third set of music candidates (orchestral) is with him. Comprehension and mid-join not re-run on the new display.",
+ "updated": "Fri Nov 20, 04:10 CST",
+ "now": "The show is called Goober Guys for viewers. Race display and every card are in the site's ink look (the owner picked the table of three layouts). Music is in: four Kevin MacLeod tracks he chose by ear, one per part of the show (the site must print the credit in ASSETS.md). Effects other than hits are still silent until he picks. Comprehension and mid-join not re-run on the new display.",
  "steps": [
   {
    "name": "Roster of 24 with permanent names, looks, stats and records",

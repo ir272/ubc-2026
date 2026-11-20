@@ -34,8 +34,8 @@ test('four fighters, 18 moves each, named, with looks, bars 1..5', () => {
   assert.equal(names.size, 72, 'move names are unique');
   assert.equal(sim.FIGHTERS.kiln.name, 'Kiln');
   assert.equal(sim.FIGHTERS.tick.name, 'Tick');
-  assert.equal(sim.FIGHTERS.gantry.name, 'Gantry');
-  assert.equal(sim.FIGHTERS.vise.name, 'Vise');
+  assert.equal(sim.FIGHTERS.gantry.name, 'The Count');
+  assert.equal(sim.FIGHTERS.vise.name, 'The Wolf');
 });
 
 test('the sim source has no Math.random, Date, trig or pow', () => {

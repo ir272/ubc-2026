@@ -25,8 +25,8 @@ stays open; default 12 in dev, `0` for the real 40/30/30), `pick` (roster id to 
 platform: camera modes, the viewer's pick, and "Rejoin", which remounts the stage from a snapshot
 as a viewer joining mid-show would.
 
-No env vars. Tumbletop is seeded and calls no models. Sound in the build is four recorded hit sounds (CC0) in
-`web/src/audio/` and no music yet: the owner is choosing by ear, and a sound with no file is silent. `captures/` (stills and strips from the
+No env vars. Tumbletop is seeded and calls no models. Sound in the build is four music tracks by Kevin MacLeod
+(CC BY 4.0: **the site must print the credit in `ASSETS.md`**) and four hit sounds (CC0), in `web/src/audio/`; a sound with no file is silent. `captures/` (stills and strips from the
 tools) is gitignored.
 
 ## Plugging it into the platform

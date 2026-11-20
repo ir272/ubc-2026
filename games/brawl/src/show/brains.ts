@@ -23,17 +23,58 @@ export interface BotConfig {
   label?: string;
 }
 
+export interface StrikeInfo {
+  stages: { id: string; name: string }[];
+  mine?: FighterId;
+  theirs?: FighterId;
+  opponentName: string;
+}
+
+/** a stage strike order made safe: known ids only, each once, the missing ones left off */
+export function cleanStrikes(raw: unknown, stages: { id: string }[]): string[] {
+  const ids = new Set(stages.map((s) => s.id));
+  const out: string[] = [];
+  if (!Array.isArray(raw)) return out;
+  for (const v of raw) {
+    const id = String(typeof v === 'object' && v ? ((v as Record<string, unknown>).id ?? '') : v).toLowerCase().trim();
+    if (ids.has(id) && !out.includes(id)) out.push(id);
+  }
+  return out;
+}
+
+/** a mild taste for stages from a bot's instructions: higher = keeps it longer */
+const STAGE_TASTE: [RegExp, string][] = [
+  [/(bell|tower|church|loud)/i, 'belfry'],
+  [/(book|librar|read|shel|climb|ladder)/i, 'shelf'],
+  [/(grave|ghost|dead|spook|moon|night|dark)/i, 'graveyard'],
+  [/(sea|ship|sail|water|pirate|deck)/i, 'ship'],
+  [/(map|chart|plan|patient|zon|space)/i, 'map'],
+  [/(roof|street|town|city|lamp|chimney)/i, 'rooftops'],
+];
+
+/** a deterministic number 0..1 from a string */
+function hash01(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  h = Math.imul(h ^ (h >>> 15), 2246822507);
+  h = Math.imul(h ^ (h >>> 13), 3266489909);
+  return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+}
+
 export interface Brains {
   pickFighter(bot: BotConfig, info: { roster: FighterCard[]; opponent: { name: string; model: string }; memory: string[] }): Promise<FighterId>;
   taunt(bot: BotConfig, info: { mine: FighterId; theirs: FighterId; opponentName: string }): Promise<string>; // 10 words at most
   plan(bot: BotConfig, view: CoachView, prev: Plan): Promise<Plan>; // may be slow; the fight never waits
   corner(bot: BotConfig, info: { view: CoachView; lostLife: boolean; prev: Plan }): Promise<{ plan: Plan; talk: string }>; // talk 12 words at most
   remember(bot: BotConfig, info: { won: boolean; summary: string }): Promise<string>; // one memory line
+  /** optional: every stage id on offer in the order this bot would cross them out, most unwanted
+   *  first (the bots strike in turn until one is left). Asked as select opens, with the pick. */
+  strikeStages?(bot: BotConfig, info: StrikeInfo): Promise<string[]>;
   /** optional: the script calls this first with [side 0, side 1] so mock coaches know their side */
   startMatch?(bots: [BotConfig, BotConfig]): void;
 }
 
-const FIGHTER_NAMES: Record<FighterId, string> = { kiln: 'Kiln', tick: 'Tick', gantry: 'Gantry', vise: 'Vise' };
+const FIGHTER_NAMES: Record<FighterId, string> = { kiln: 'Kiln', tick: 'Tick', gantry: 'The Count', vise: 'The Wolf' };
 
 /** "anthropic/claude-haiku-5.5" -> "Claude Haiku 5.5" (HUD label, no provider) */
 export function modelLabel(model: string): string {
@@ -116,7 +157,7 @@ export const ORDER_READS: Record<'kill' | 'special', string[]> = {
 };
 
 export const TAUNTS: string[] = [
-  '{opp}, you picked the wrong robot.', '{mine} has been waiting all week for this.',
+  '{opp}, you picked the wrong monster.', '{mine} has been waiting all week for this.',
   'I hope {theirs} came with spare parts.', 'You will be off the deck in a minute.',
   'Tell {theirs} to say goodbye to the deck.', 'I read your last match. I took notes.',
   'Big crowd tonight. Shame you will leave early.', 'Fight me in the middle, if you can.',
@@ -126,9 +167,9 @@ export const TAUNTS: string[] = [
   'No hard feelings when you fly.', 'Nice paint job. It will scratch.', 'I already know your first move.',
   'Let us find out who thinks faster.', '{mine} does not lose twice.', 'You blink, you fly.',
   'Hope you like the view from the blast line.', 'I will keep this short.', 'Ready to see your record drop?',
-  'The ledge is mine tonight.', '{opp}, I have seen your habits. All of them.', 'One plan. One robot. One result.',
+  'The ledge is mine tonight.', '{opp}, I have seen your habits. All of them.', 'One plan. One fighter. One result.',
   'Do not worry, the replay will be quick.', 'Last time was a warm up.', 'Every percent counts. You will feel them all.',
-  'Good luck. You will need it.', 'Your robot looks nervous.', 'Step into my range. I dare you.',
+  'Good luck. You will need it.', 'Your fighter looks nervous.', 'Step into my range. I dare you.',
   'Keep running. The deck ends somewhere.', '{theirs} is fast. {mine} is faster where it counts.',
 ];
 
@@ -141,7 +182,7 @@ export const CORNER_LINES: Record<'lost' | 'took', string[]> = {
     'Reset. Breathe. Take the centre back.', 'We lost the life, not the match.', 'Make them come to us this time.',
     'Shield less, move more.', 'They punished the landing. Land somewhere else.',
     'Different angle now. They will not see it.', 'New life, clean slate, sharper plan.',
-    'We gave that away. Take it back.', 'Still two robots standing. Still our fight.', 'Time to stop being polite.',
+    'We gave that away. Take it back.', 'Still two of us standing. Still our fight.', 'Time to stop being polite.',
     'Back to the middle and hold it.', 'They are good at range. Get inside.',
     'Every grab they landed, we answer with distance.', 'We fought their fight. Now we fight ours.',
     'Slow hands lost that one. Faster now.', 'Stay on stage, no more deep chases.',
@@ -293,6 +334,18 @@ export function mockBrains(o: { rand: () => number; sleep: (ms: number) => Promi
       }
       return pool[pool.length - 1]!;
     },
+    async strikeStages(bot, info) {
+      // a shuffle of its own per bot and match-up (no draws from rand, so the rest of the show
+      // plays the same), leaning to keep the stages its instructions suggest
+      const key = `${bot.id}|${info.mine ?? ''}|${info.theirs ?? ''}|${info.opponentName}`;
+      await sleep(1500 + hash01(key + '|think') * 3500);
+      const score = (id: string) => {
+        let s = hash01(`${key}|${id}`);
+        for (const [re, st] of STAGE_TASTE) if (st === id && re.test(bot.instructions)) s -= 0.35;
+        return s;
+      };
+      return info.stages.map((s) => s.id).sort((a, b) => score(b) - score(a));
+    },
     async taunt(bot, info) {
       sideOf(bot);
       await sleep(between(800, 3000));
@@ -349,7 +402,7 @@ export function memoryLedger(): CostLedger & { entries: CostEntry[] } {
 }
 
 export const SYSTEM_PROMPT = [
-  'You coach a robot in Ringout, a side-on platform fighter. Damage is a percent: the higher it is, the further hits launch you. Knocked past the arena edge, you lose a life. Your robot plays every frame itself; you set its game plan about every 3 seconds, and a plan takes effect a moment after you answer, so think ahead.',
+  'You coach a monster in Blood Moon, a side-on platform fighter. Damage is a percent: the higher it is, the further hits launch you. Knocked past the arena edge, you lose a life. Your fighter plays every frame itself; you set its game plan about every 3 seconds, and a plan takes effect a moment after you answer, so think ahead.',
   'Stances: rush (close in, strings of strikes and grabs, pressure shields), keepaway (hold space, poke at range, shoot), bait (hover outside range, make them swing, punish whiffs), wall (hold the middle, shield, punish out of shield, do not chase).',
   'Counters: bait beats rush and grab-heavy play. Rush beats keepaway. Keepaway beats wall and bait. Wall beats strike-heavy rush but loses to grabs.',
   'Dials: aggression 0 to 1. range close, mid or far. grabMix 0 (strikes) to 1 (grabs). edge deep (chase off stage, beats low recovery, punished by high), ledge, or stage. recover high, low or mix. order none, special (signature move now) or kill (right when their damage is high, reckless early). High aggression is a mistake at high own damage.',
@@ -427,7 +480,7 @@ export interface OpenRouterOpts {
   mock: Brains;
   /** used instantly when a call fails or times out (no extra delay) */
   rand: () => number;
-  timeoutsMs?: Partial<{ plan: number; corner: number; pick: number; taunt: number; remember: number }>;
+  timeoutsMs?: Partial<{ plan: number; corner: number; pick: number; taunt: number; remember: number; strike: number }>;
   endpoint?: string;
   /** called once when the budget runs out */
   onBudgetSpent?: (spent: number) => void;
@@ -440,7 +493,7 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
   const doFetch = o.fetch ?? globalThis.fetch.bind(globalThis);
   const budget = o.budgetUsd ?? 1.5;
   const endpoint = o.endpoint ?? 'https://openrouter.ai/api/v1/chat/completions';
-  const T = { plan: 6000, corner: 9000, pick: 12000, taunt: 12000, remember: 12000, ...o.timeoutsMs };
+  const T = { plan: 6000, corner: 9000, pick: 12000, taunt: 12000, remember: 12000, strike: 12000, ...o.timeoutsMs };
   const instant = mockBrains({ rand: o.rand, sleep: async () => {} });
   let calls = 0;
   let warned = false;
@@ -556,7 +609,7 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
         bot,
         {
           you: you(bot),
-          task: 'Pick your robot. The opponent picks at the same time without seeing yours.',
+          task: 'Pick your fighter. The opponent picks at the same time without seeing yours.',
           roster: info.roster.map((r) => ({ id: r.id, role: r.role, blurb: r.blurb, stats: r.stats })),
           opponent: info.opponent,
           memory: info.memory.slice(-3),
@@ -568,6 +621,27 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
       const pick = String(ans?.pick ?? ans?.fighter ?? '').toLowerCase().trim() as FighterId;
       if (FIGHTER_IDS.includes(pick)) return pick;
       return instant.pickFighter(bot, info);
+    },
+    async strikeStages(bot, info) {
+      if (overBudget()) return (o.mock.strikeStages ?? instant.strikeStages!)(bot, info);
+      const ans = await call(
+        'strike',
+        bot,
+        {
+          you: you(bot),
+          task: 'Stage strike. You and your opponent take turns crossing out stages until one is left, and that one is played. List every stage id in the order you would cross them out, the one you want least first.',
+          stages: info.stages,
+          ...(info.mine ? { mine: FIGHTER_NAMES[info.mine] } : {}),
+          ...(info.theirs ? { theirs: FIGHTER_NAMES[info.theirs] } : {}),
+          opponent: info.opponentName,
+          answer: { strikes: info.stages.map((s) => s.id) },
+        },
+        80,
+        T.strike,
+      );
+      const order = cleanStrikes(ans?.strikes ?? ans?.order ?? ans?.stages, info.stages);
+      if (order.length) return order;
+      return instant.strikeStages!(bot, info);
     },
     async taunt(bot, info) {
       if (overBudget()) return o.mock.taunt(bot, info);
@@ -614,7 +688,7 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
             : 'You just took a life. Decide how to close out the match.',
           view: compactView(info.view),
           current: compactPlan(info.prev),
-          answer: { ...PLAN_FORMAT, talk: 'one line to your robot in the corner, 12 words max' },
+          answer: { ...PLAN_FORMAT, talk: 'one line to your fighter in the corner, 12 words max' },
         },
         170,
         T.corner,

@@ -4,7 +4,7 @@
 // mount() draws only from feed messages (snapshot first, then everything in order). No top-level
 // side effects: importing this module does nothing until mount() is called.
 
-import { createStage } from './src/stage/stage.ts';
+import { createInkStage } from './src/ink/stage.ts';
 import { sideOf } from './src/show/reduce.ts';
 
 export interface GameHandle {
@@ -20,7 +20,7 @@ export interface GameHandle {
 }
 
 export function mount(el: HTMLElement, opts: { assetsBase: string }): GameHandle {
-  const stage = createStage(el, { assetsBase: opts?.assetsBase ?? '/games/brawl/' });
+  const stage = createInkStage(el, { assetsBase: opts?.assetsBase ?? '/games/brawl/' });
   let alive = true;
   return {
     onFeed(msg: unknown) {

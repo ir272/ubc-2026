@@ -7,7 +7,8 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { runMatch } from '../src/show/script.ts';
+import { runMatch, resolveStrikes, STAGES, STAGE_NAMES } from '../src/show/script.ts';
+import { TIMING } from '../src/show/events.ts';
 import { createOpenRouterBrains, memoryLedger, mockBrains, SYSTEM_PROMPT, parseJsonLoose, READS, TAUNTS, CORNER_LINES } from '../src/show/brains.ts';
 import { fileLedger } from '../src/show/brains.node.ts';
 import { airLine, checkLine, cleanLine } from '../src/show/content.ts';
@@ -294,6 +295,64 @@ test('content check: dashes, emoji, limits, and blocked lines', async () => {
     assert.ok(c.ok, `${line}: ${c.reason}`);
     assert.equal(c.text.split(' ').length, filled.split(' ').length, `${line} is within the ${kind} limit`);
   }
+});
+
+test('stage strike: the bots cross stages out in turn until one is left, first shown with the picks', async () => {
+  const { feed } = await playMatch('strike-1');
+  const evs = events(feed);
+  const open = evs.find((e) => e.type === 'select_open');
+  assert.deepEqual(open.data.ctx.stages, STAGES);
+  assert.equal(open.data.ctx.stage, undefined, 'no stage before the picks');
+  assert.equal(open.data.ctx.strikes, undefined, 'no strikes before the picks');
+  assert.equal(open.data.durationMs, TIMING.select);
+  assert.equal(open.data.revealInMs, TIMING.selectReveal);
+  const before = evs.slice(0, evs.indexOf(evs.find((e) => e.type === 'picks')));
+  for (const e of before) assert.ok(!e.data?.ctx?.stage && !e.data?.ctx?.strikes, `${e.type} carries no stage`);
+  const picks = evs.find((e) => e.type === 'picks');
+  const { strikes, stage } = picks.data.ctx;
+  assert.equal(strikes.length, STAGES.length - 1);
+  // matchNo 7: side 1 strikes first, then they alternate
+  strikes.forEach((st, i) => assert.equal(st.by, (7 + i) % 2));
+  const struck = strikes.map((st) => st.stage);
+  assert.equal(new Set(struck).size, struck.length, 'each stage struck once');
+  assert.ok(STAGES.includes(stage) && !struck.includes(stage), 'the survivor is played');
+  for (const id of STAGES) assert.ok(STAGE_NAMES[id], `${id} has a name`);
+  // the stage stays in the ctx from then on
+  const vs = evs.find((e) => e.type === 'versus');
+  assert.equal(vs.data.ctx.stage, stage);
+  // a forced stage survives the strikes
+  const forced = await playMatch('strike-2', { options: { stage: 'ship' } });
+  const fp = events(forced.feed).find((e) => e.type === 'picks').data.ctx;
+  assert.equal(fp.stage, 'ship');
+  assert.equal(fp.strikes.length, STAGES.length - 1);
+  assert.ok(!fp.strikes.some((st) => st.stage === 'ship'));
+});
+
+test('stage strike: resolve takes the first standing stage in its own order', () => {
+  const r = resolveStrikes(['a', 'b', 'c', 'd'], [['a', 'b', 'c', 'd'], ['a', 'c', 'b', 'd']], 0);
+  assert.deepEqual(r.strikes, [{ by: 0, stage: 'a' }, { by: 1, stage: 'c' }, { by: 0, stage: 'b' }]);
+  assert.equal(r.stage, 'd');
+  const f = resolveStrikes(['a', 'b', 'c'], [['c', 'b', 'a'], ['c', 'b', 'a']], 1, 'c');
+  assert.equal(f.stage, 'c');
+  assert.equal(f.strikes.length, 2);
+  assert.equal(resolveStrikes(['a'], [[], []], 0).strikes.length, 0);
+});
+
+test('stage strike brains: mock is a deterministic order of every stage; OpenRouter answers are cleaned', async () => {
+  const stages = STAGES.map((id) => ({ id, name: STAGE_NAMES[id] }));
+  const mock = mockBrains({ rand: prng('s'), sleep: async () => {} });
+  const a = await mock.strikeStages(BOTS[0], { stages, opponentName: 'x' });
+  const b = await mock.strikeStages(BOTS[0], { stages, opponentName: 'x' });
+  assert.deepEqual(a, b);
+  assert.deepEqual([...a].sort(), [...STAGES].sort());
+  const answer = (content) => async () => new Response(JSON.stringify({ choices: [{ message: { content } }], usage: { prompt_tokens: 100, completion_tokens: 20, cost: 0.0001 } }), { status: 200 });
+  const ledger = memoryLedger();
+  const or = createOpenRouterBrains({ apiKey: 'k', fetch: answer('{"strikes":["SHIP","ship","nowhere","map"]}'), ledger, mock, rand: prng('o') });
+  assert.deepEqual(await or.strikeStages(BOTS[0], { stages, opponentName: 'x' }), ['ship', 'map']);
+  assert.equal(ledger.entries.at(-1).kind, 'strike');
+  const bad = createOpenRouterBrains({ apiKey: 'k', fetch: answer('no idea'), ledger: memoryLedger(), mock, rand: prng('o') });
+  const fb = await bad.strikeStages(BOTS[0], { stages, opponentName: 'x' });
+  assert.deepEqual([...fb].sort(), [...STAGES].sort());
 });
 
 test('OpenRouter brains (stubbed fetch): JSON repair, cost log, budget, timeouts', async () => {

@@ -107,7 +107,7 @@ export default function brawlChannel(o: BrawlChannelOpts = {}): ChannelDef {
 
   return {
     id: o.id ?? 'brawl',
-    title: o.title ?? 'Ringout',
+    title: o.title ?? 'Blood Moon',
     intermissionMs,
     async run(show: Show) {
       const picked = nextPair();

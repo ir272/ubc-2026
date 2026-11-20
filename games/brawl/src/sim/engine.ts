@@ -2,7 +2,7 @@
 // Pure and deterministic. Both sides' inputs are computed first, then applied, then hits are
 // resolved simultaneously, so there is no side bias.
 import type {
-  Action, FightHeader, FightState, FighterDef, FighterState, Hitbox, HitStrength, MoveDef, MoveId, Plan, PlanAt, Side, SimEvent,
+  Action, FightHeader, FightState, FighterDef, FighterState, Hitbox, HitStrength, MoveDef, MoveId, Plan, PlanAt, Projectile, Side, SimEvent,
 } from './types.ts';
 import { DEFAULT_PLAN } from './types.ts';
 import { ARENA, DECK_BOTTOM, LEDGE_X, PAD_STOP_Y } from './arena.ts';
@@ -82,6 +82,10 @@ export interface Eng {
   hsTotal: number; // hitstun of the last launch, for the air cancel
   pendGrab: number; // a grab out of a run: ticks of skid before the grab comes out
   stale: number[]; // the last 9 moves that landed (move codes, newest first): repeats deal less
+  drag: number; // >0 while being reeled in by the opponent's tether (ticks so far)
+  blinkTick: number; // the tick of the last blink (body order is taken from after it)
+  volley: number; // tick the current fan volley started (-1: blocked, one already in flight)
+  vHits: number; // shots of that volley landed or blocked
 }
 
 export interface Habits { approaches: number; retreats: number; strikes: number; grabs: number; shields: number; dodges: number; shots: number; jumps: number; recoveredHigh: number; recoveredLow: number }
@@ -125,6 +129,7 @@ function newEng(): Eng {
     lastHitBy: -1, lastHitTick: -9999, lastMove: '', ledgeInvUsed: false, ledgeCd: 0, airDodgeUsed: false, used2: false, used1: false,
     dropThrough: 0, shieldStart: -99, lock: 0, timer: 0, chargeTarget: 0, holdTimer: 0, cmd: false, aimX: 0, aimY: 1, tether: -1,
     doomed: false, ledgeAct: '', jumpKind: 1, rollDir: 1, techIntent: false, prevX: 0, hsTotal: 0, pendGrab: 0, stale: [],
+    drag: 0, blinkTick: -1, volley: -1, vHits: 0,
   };
 }
 
@@ -148,7 +153,7 @@ function newFighter(id: FighterDef, x: number, facing: 1 | -1, lives: number, da
   return {
     fighter: id.id, x, y: 0, vx: 0, vy: 0, facing, action: 'entrance', actionFrame: 0, move: null, charge: 0, grounded: true,
     platform: -1, ledge: -1, damage, lives, shield: 100, hitlag: 0, hitstun: 0, tumble: false, kbx: 0, kby: 0, invuln: 0,
-    armor: false, airJumpsLeft: id.airJumps, fastFall: false,
+    armor: false, airJumpsLeft: id.airJumps, fastFall: false, rooted: 0, pulled: false,
   };
 }
 
@@ -336,7 +341,9 @@ export function stepFight(s: FightState, header: FightHeader): SimEvent[] {
   // bodies push apart on the ground
   separate(s, ox0, ox1);
   // projectiles
-  stepProjectiles(s);
+  stepProjectiles(s, ev);
+  // tethers reel their catch in
+  stepDrag(s, ev);
   // held fighters follow their holders
   for (let i = 0; i < 2; i++) placeHeld(s, i as Side);
   // hits, simultaneously
@@ -396,6 +403,7 @@ function updateFighter(s: FightState, side: Side, inp: Input, ev: SimEvent[]): v
   const def = FIGHTERS[f.fighter];
   if (s.phase === 'over') return;
   if (f.hitlag > 0) { f.hitlag--; return; }
+  if (f.rooted) f.rooted = f.action === 'hitstun' ? Math.max(0, f.rooted - 1) : 0;
   f.actionFrame++;
   if (f.invuln > 0) f.invuln--;
   if (e.dropThrough > 0) e.dropThrough--;
@@ -848,17 +856,9 @@ function advanceMove(s: FightState, side: Side, f: FighterState, e: Eng, def: Fi
       }
     }
   }
-  if (md.projectile && fr === md.projectile.frame) {
-    let mine = 0;
-    for (const p of s.projectiles) if (p.owner === side) mine++;
-    if (mine < 1) {
-      const pr = md.projectile;
-      const id = (s.tick * 2 + side) % 1000000;
-      const px = f.x + f.facing * (def.width * 0.5 + 0.4), py = f.y + def.height * 0.62;
-      s.projectiles.push({ id, owner: side, kind: pr.kind, x: px, y: py, vx: pr.vx * f.facing, vy: pr.vy, r: pr.r, life: pr.life });
-      ev.push({ t: 'projectile', tick: s.tick, side, kind: pr.kind, x: px, y: py });
-    }
-  }
+  if (md.blink && fr === md.blink.invuln[0]) f.invuln = Math.max(f.invuln, md.blink.invuln[1] - md.blink.invuln[0] + 1);
+  if (md.blink && fr === md.blink.frame) doBlink(s, side, f, e, def, md.blink, ev);
+  if (md.projectile && fr >= md.projectile.frame) spawnProjectiles(s, side, f, e, def, m, md, ev, fr - md.projectile.frame);
   // whiff: all strike frames passed without a hit
   if (!e.whiffSent) {
     let last = 0;
@@ -885,6 +885,127 @@ function advanceMove(s: FightState, side: Side, f: FighterState, e: Eng, def: Fi
     f.move = null;
     if (f.grounded) setAction(f, 'idle');
     else setAction(f, ex.helpless ? 'helpless' : 'fall');
+  }
+}
+
+// ------------------------------------------------------------------------------------------------
+// Abilities: blink, shots (fans, lobs, placed hazards, tethers)
+// ------------------------------------------------------------------------------------------------
+
+/** vanish and reappear: dx ahead, or just behind an opponent standing within `behind` metres ahead; never further off the deck */
+function doBlink(s: FightState, side: Side, f: FighterState, e: Eng, def: FighterDef, b: NonNullable<MoveDef['blink']>, ev: SimEvent[]): void {
+  const o = s.fighters[1 - side];
+  const od = FIGHTERS[o.fighter];
+  const fromX = f.x, fromY = f.y;
+  let tx = f.x + f.facing * b.dx;
+  let behind = false;
+  const ahead = (o.x - f.x) * f.facing;
+  const live = o.action !== 'dead' && o.action !== 'respawn' && o.action !== 'entrance' && o.action !== 'ledgehang' && o.action !== 'ledgeclimb';
+  if (live && ahead > -0.2 && ahead < b.behind && Math.abs(o.y - f.y) < 1.5) {
+    tx = o.x + f.facing * (od.width * 0.5 + def.width * 0.5 + 0.25);
+    behind = true;
+  }
+  const m = ARENA.main;
+  if (f.grounded) {
+    const p = f.platform === -1 ? m : ARENA.soft[f.platform];
+    tx = clamp(tx, p.x0 + 0.3, p.x1 - 0.3);
+  } else {
+    // in the air: never end further out than it started or than just inside the ledge
+    tx = clamp(tx, Math.min(f.x, m.x0 + 0.4), Math.max(f.x, m.x1 - 0.4));
+  }
+  f.x = tx;
+  e.ovx = 0; e.kvx = 0;
+  if (behind) f.facing = (-f.facing) as 1 | -1;
+  e.blinkTick = s.tick;
+  ev.push({ t: 'blink', tick: s.tick, side, fromX, fromY, toX: f.x, toY: f.y, behind });
+}
+
+export function projDef(s: FightState, p: Projectile): NonNullable<MoveDef['projectile']> {
+  return FIGHTERS[s.fighters[p.owner].fighter].moves[p.move || 'special'].projectile!;
+}
+
+function spawnProjectiles(s: FightState, side: Side, f: FighterState, e: Eng, def: FighterDef, m: MoveId, md: MoveDef, ev: SimEvent[], dt: number): void {
+  const pr = md.projectile!;
+  const shots: { vx: number; vy: number; delay?: number }[] = pr.fan && pr.fan.length ? pr.fan : [{ vx: pr.vx, vy: pr.vy }];
+  let maxD = 0;
+  for (const sh of shots) if ((sh.delay || 0) > maxD) maxD = sh.delay || 0;
+  if (dt > maxD) return;
+  if (dt === 0) {
+    // one volley of each move in flight per fighter (a hazard lying on the floor does not count; a new one replaces it)
+    e.volley = s.tick; e.vHits = 0;
+    for (const p of s.projectiles) if (p.owner === side && (p.move || 'special') === m && !p.floor) { e.volley = -1; break; }
+  }
+  if (e.volley < 0) return;
+  for (let k = 0; k < shots.length; k++) {
+    if ((shots[k].delay || 0) !== dt) continue;
+    const id = (e.volley * 8 + side * 4 + k) % 1000000;
+    const px = f.x + f.facing * (def.width * 0.5 + 0.4), py = f.y + (pr.y !== undefined ? pr.y : def.height * 0.62);
+    const p: Projectile = { id, owner: side, kind: pr.kind, x: px, y: py, vx: shots[k].vx * f.facing, vy: shots[k].vy, r: pr.r, life: pr.life, move: m };
+    if (pr.gravity) p.g = pr.gravity;
+    if (pr.effect) p.effect = pr.effect; else if (pr.linger) p.effect = 'burn';
+    if (pr.tether) p.tether = true;
+    if (pr.fan && e.vHits > 0) { p.n = e.vHits; if (e.vHits >= (pr.fanHits || 1)) p.cd = 1; }
+    s.projectiles.push(p);
+    ev.push({ t: 'projectile', tick: s.tick, side, kind: pr.kind, x: px, y: py });
+    if (pr.place !== undefined && pr.linger) {
+      // placed: straight onto the floor ahead, if there is floor there (else it is lobbed from where it is)
+      const plat = f.grounded ? (f.platform === -1 ? ARENA.main : ARENA.soft[f.platform]) : null;
+      const x = f.x + f.facing * pr.place;
+      if (plat) { p.x = clamp(x, plat.x0 + 0.2, plat.x1 - 0.2); makeHazard(s, p, pr, f.y, ev); }
+    }
+  }
+}
+
+/** a projectile comes to rest on the floor as a hazard (one per owner: an older one is removed) */
+function makeHazard(s: FightState, p: Projectile, pr: NonNullable<MoveDef['projectile']>, y: number, ev: SimEvent[]): void {
+  for (const q of s.projectiles) {
+    if (q !== p && q.owner === p.owner && q.floor && q.life > 0) {
+      q.life = 0;
+      ev.push({ t: 'hazard', tick: s.tick, side: p.owner, id: q.id, kind: q.kind, x: q.x, y: q.y, r: q.r, state: 'replaced' });
+    }
+  }
+  p.floor = true; p.y = y; p.vx = 0; p.vy = 0; p.g = undefined; delete p.g;
+  p.r = pr.floorR || pr.r; p.life = pr.linger!; p.cd = 0;
+  ev.push({ t: 'hazard', tick: s.tick, side: p.owner, id: p.id, kind: p.kind, x: p.x, y: p.y, r: p.r, state: 'placed' });
+}
+
+/** a tether's catch is reeled in to the owner's front, then held (and slammed when the move has a command slam) */
+function stepDrag(s: FightState, ev: SimEvent[]): void {
+  const ctl = ctlOf(s);
+  for (let i = 0; i < 2; i++) {
+    const te = ctl.eng[i];
+    if (!te.drag) continue;
+    const t = s.fighters[i];
+    const by = (1 - i) as Side;
+    const o = s.fighters[by];
+    let tp: Projectile | null = null;
+    for (const p of s.projectiles) if (p.owner === by && p.tether && p.drag) tp = p;
+    const ownerOk = o.action !== 'hitstun' && o.action !== 'dead' && o.action !== 'respawn' && o.action !== 'held' && o.action !== 'knockdown' &&
+      o.action !== 'shieldbreak' && o.action !== 'ledgehang' && o.action !== 'ledgeclimb' && s.phase !== 'over';
+    if (!ownerOk || te.drag > 45 || t.action !== 'hitstun') {
+      te.drag = 0; t.pulled = false;
+      if (t.action === 'hitstun') t.hitstun = Math.min(t.hitstun, 6);
+      if (tp) tp.life = 0;
+      continue;
+    }
+    if (t.hitlag > 0) continue;
+    te.drag++;
+    const od = FIGHTERS[o.fighter], td = FIGHTERS[t.fighter];
+    const tx = o.x + o.facing * (od.width * 0.5 + td.width * 0.5 + 0.05), ty = o.y;
+    const dx = tx - t.x, dy = ty - t.y;
+    const d = Math.sqrt(dx * dx + dy * dy);
+    const sp = 0.42;
+    if (d <= sp) {
+      t.x = tx; t.y = ty;
+      te.drag = 0; t.pulled = false;
+      if (tp) tp.life = 0;
+      const mv = tp && tp.move ? tp.move : 'special';
+      doGrab(s, by, i as Side, moveExtra(o.fighter, mv).cmd ? 'special' : 'grab', ev);
+      continue;
+    }
+    t.x += (dx / d) * sp; t.y += (dy / d) * sp;
+    t.grounded = false; t.platform = -2;
+    if (tp) { tp.x = t.x; tp.y = t.y + td.height * 0.5; }
   }
 }
 
@@ -925,7 +1046,7 @@ function grabLedge(s: FightState, side: Side, f: FighterState, e: Eng, def: Figh
 
 function physics(s: FightState, side: Side, f: FighterState, e: Eng, def: FighterDef, inp: Input, ev: SimEvent[]): void {
   const a = f.action;
-  if (a === 'ledgehang' || a === 'ledgeclimb' || a === 'held' || a === 'dead' || a === 'respawn' || a === 'entrance') {
+  if (a === 'ledgehang' || a === 'ledgeclimb' || a === 'held' || a === 'dead' || a === 'respawn' || a === 'entrance' || e.drag > 0) {
     f.vx = 0; f.vy = 0;
     return;
   }
@@ -1060,9 +1181,12 @@ function separate(s: FightState, ox0: number, ox1: number): void {
   const busy = (f: FighterState) => f.action === 'held' || f.action === 'holding' || f.action === 'dead' || f.action === 'respawn' || f.action === 'roll' ||
     f.action === 'getup' || f.action === 'ledgeclimb' || f.action === 'spotdodge' && false;
   if (busy(a) || busy(b)) return;
+  const ea0 = ctlOf(s).eng[0], eb0 = ctlOf(s).eng[1];
+  if (ea0.drag || eb0.drag) return;
   const da = FIGHTERS[a.fighter], db = FIGHTERS[b.fighter];
   const minGap = (da.width + db.width) * 0.5;
-  // which side each was on before this tick's movement
+  // which side each was on before this tick's movement (after a blink: where it reappeared)
+  if (ea0.blinkTick === s.tick || eb0.blinkTick === s.tick) { ox0 = a.x; ox1 = b.x; }
   let dir = ox1 > ox0 ? 1 : ox1 < ox0 ? -1 : 0;
   if (dir === 0) dir = b.x > a.x ? 1 : b.x < a.x ? -1 : (a.facing > 0 ? 1 : -1);
   const sep = (b.x - a.x) * dir; // signed: negative means they passed through each other
@@ -1113,8 +1237,8 @@ function land(s: FightState, side: Side, f: FighterState, e: Eng, def: FighterDe
         ev.push({ t: 'bounce', tick: s.tick, side, x: f.x, y: f.y });
       }
     }
-    // landing out of a small launch ends the flinch almost at once
-    if (f.hitstun > 4) f.hitstun = 4;
+    // landing out of a small launch ends the flinch almost at once (a root runs its full length, even one caught in the air)
+    if (f.hitstun > 4 && !f.rooted) f.hitstun = 4;
     e.kvx *= 0.5;
     return;
   }
@@ -1169,16 +1293,41 @@ function tryLedge(s: FightState, side: Side, f: FighterState, e: Eng, def: Fight
 // Projectiles
 // ------------------------------------------------------------------------------------------------
 
-function stepProjectiles(s: FightState): void {
+function stepProjectiles(s: FightState, ev: SimEvent[]): void {
   const out: typeof s.projectiles = [];
+  const m = ARENA.main;
   for (const p of s.projectiles) {
+    if (p.life <= 0) continue; // replaced or spent
+    if (p.floor) {
+      p.life--;
+      if (p.cd) p.cd--;
+      if (p.life <= 0) { ev.push({ t: 'hazard', tick: s.tick, side: p.owner, id: p.id, kind: p.kind, x: p.x, y: p.y, r: p.r, state: 'expired' }); continue; }
+      out.push(p);
+      continue;
+    }
+    if (p.tether) {
+      if (p.drag) { out.push(p); continue; } // the tip rides on the catch (stepDrag)
+      const o = s.fighters[p.owner];
+      if (o.action !== 'attack' || o.move !== (p.move || 'special')) continue; // the owner's move is over: the line is gone
+    }
+    const py = p.y;
+    if (p.g) p.vy -= p.g;
     p.x += p.vx; p.y += p.vy;
     p.life--;
-    if (p.life <= 0 || outOfBlast(p.x, p.y)) continue;
-    if (p.y < 0 && p.y > DECK_BOTTOM && p.x > ARENA.main.x0 && p.x < ARENA.main.x1) continue;
+    if (outOfBlast(p.x, p.y)) continue;
+    const pr = projDef(s, p);
+    if (pr.linger && p.vy <= 0) {
+      // comes to rest on a floor: the deck top, or a soft platform crossed from above
+      let fy = NaN;
+      if (py >= 0 && p.y <= 0 && p.x >= m.x0 && p.x <= m.x1) fy = 0;
+      else for (const pl of ARENA.soft) if (py >= pl.y && p.y <= pl.y && p.x >= pl.x0 && p.x <= pl.x1) { fy = pl.y; break; }
+      if (fy === fy) { makeHazard(s, p, pr, fy, ev); out.push(p); continue; }
+    }
+    if (p.life <= 0) continue;
+    if (p.y < 0 && p.y > DECK_BOTTOM && p.x > m.x0 && p.x < m.x1) continue;
     out.push(p);
   }
-  s.projectiles = out;
+  s.projectiles = out.filter((p) => p.life > 0);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -1242,11 +1391,20 @@ function resolveHits(s: FightState, ev: SimEvent[]): void {
     const p = s.projectiles[k];
     const tside = (1 - p.owner) as Side;
     const t = s.fighters[tside];
-    if (!vulnerable(t) || pc[tside] || ctlOf(s).eng[tside].doomed) continue;
-    if (hitsBody(t, FIGHTERS[t.fighter], p.x, p.y, p.r)) {
-      const owner = s.fighters[p.owner];
-      const pr = FIGHTERS[owner.fighter].moves.special.projectile!;
-      pc[tside] = { by: p.owner, h: { from: 0, to: 0, x: 0, y: 0, r: p.r, damage: pr.damage, angle: pr.angle, bkb: pr.bkb, kbg: pr.kbg }, move: 'special', group: 0, dir: p.vx >= 0 ? 1 : -1, grab: false, proj: k, cx: p.x, cy: p.y };
+    if (!vulnerable(t) || pc[tside] || ctlOf(s).eng[tside].doomed || p.drag || p.life <= 0 || (!p.floor && p.cd)) continue;
+    const pr = projDef(s, p);
+    let touch: boolean;
+    if (p.floor) {
+      // a hazard on the floor: touches the feet of whoever stands (or lands) in it
+      if (p.cd && p.cd > 0) continue;
+      const hw = FIGHTERS[t.fighter].width * 0.5;
+      touch = Math.abs(t.x - p.x) <= p.r + hw * 0.6 && t.y >= p.y - 0.15 && t.y <= p.y + 0.45 && (p.effect !== 'snare' || t.grounded) &&
+        t.action !== 'held' && ctlOf(s).eng[tside].drag === 0;
+    } else if (pr.linger) touch = false; // a lobbed hazard only works once it lies on the floor
+    else touch = hitsBody(t, FIGHTERS[t.fighter], p.x, p.y, p.r) && !(p.tether && (t.action === 'held' || t.action === 'holding'));
+    if (touch) {
+      pc[tside] = { by: p.owner, h: { from: 0, to: 0, x: 0, y: 0, r: p.r, damage: pr.damage, angle: pr.angle, bkb: pr.bkb, kbg: pr.kbg }, move: p.move || 'special', group: 0,
+        dir: p.floor ? (t.x >= p.x ? 1 : -1) : p.vx >= 0 ? 1 : -1, grab: false, proj: k, cx: p.x, cy: p.floor ? t.y + 0.3 : p.y };
     }
   }
   const on: [HitCand | null, HitCand | null] = [c1, c0]; // on[i] = what hits fighter i
@@ -1277,13 +1435,26 @@ function resolveHits(s: FightState, ev: SimEvent[]): void {
   for (let i = 0; i < 2; i++) {
     const c = pc[i];
     if (!c || on[i]) continue;
-    strike(s, c, i as Side, ev);
+    const p = s.projectiles[c.proj];
+    const res = strike(s, c, i as Side, ev);
+    if (p.floor && p.effect === 'burn') { p.cd = projDef(s, p).every || 20; continue; }
+    if (p.tether && res === 'pull') { p.drag = true; continue; }
+    // a fan is coverage, not a multi-hit: once `fanHits` shots of the volley (default 1) have landed or been blocked, the rest are spent
+    const ppr = projDef(s, p);
+    if (!p.floor && ppr.fan) {
+      const v = Math.floor(p.id / 4);
+      const oe = ctlOf(s).eng[p.owner];
+      let n = (p.n || 0) + 1;
+      if (v === oe.volley * 2 + p.owner) { oe.vHits++; n = oe.vHits; }
+      for (const q of s.projectiles) if (q !== p && q.owner === p.owner && Math.floor(q.id / 4) === v) { q.n = n; if (n >= (ppr.fanHits || 1)) q.cd = 1; }
+    }
+    if (p.floor) ev.push({ t: 'hazard', tick: s.tick, side: p.owner, id: p.id, kind: p.kind, x: p.x, y: p.y, r: p.r, state: 'sprung' });
     doneProj.push(c.proj);
   }
   if (doneProj.length) s.projectiles = s.projectiles.filter((_, k) => doneProj.indexOf(k) < 0);
 }
 
-function strike(s: FightState, c: HitCand, to: Side, ev: SimEvent[]): void {
+function strike(s: FightState, c: HitCand, to: Side, ev: SimEvent[]): string {
   const t = s.fighters[to];
   const a = s.fighters[c.by];
   const ctl = ctlOf(s);
@@ -1298,12 +1469,18 @@ function strike(s: FightState, c: HitCand, to: Side, ev: SimEvent[]): void {
       t.shield -= d * 1.19 + 1;
     }
     const sx = isProj ? s.projectiles[c.proj].x : t.x - c.dir * 0.4;
-    const sy = isProj ? s.projectiles[c.proj].y : t.y + 1;
-    ev.push({ t: 'shield_hit', tick: s.tick, by: c.by, to, move: isProj ? 'projectile' : c.move, x: sx, y: sy, shield: Math.max(0, t.shield), perfect });
+    const sy = isProj ? (s.projectiles[c.proj].floor ? t.y + 0.3 : s.projectiles[c.proj].y) : t.y + 1;
+    if (isProj) ev.push({ t: 'shield_hit', tick: s.tick, by: c.by, to, move: 'projectile', x: sx, y: sy, shield: Math.max(0, t.shield), perfect, via: c.move });
+    else ev.push({ t: 'shield_hit', tick: s.tick, by: c.by, to, move: c.move, x: sx, y: sy, shield: Math.max(0, t.shield), perfect });
+    if (isProj && s.projectiles[c.proj].tether && a.action === 'attack' && a.move) {
+      // a tether that meets a shield recoils: the thrower is left open for a while after its move
+      const amd = FIGHTERS[a.fighter].moves[a.move];
+      ae.lock = Math.max(ae.lock, amd.startup + amd.active + amd.recovery - a.actionFrame + 18);
+    }
     s.stats[to].shieldsHeld++;
     ctl.track[c.by].since.shieldedByOpp++;
     ctl.lastExchange = s.tick;
-    if (t.shield <= 0) { breakShield(s, to, t, ctl.eng[to], ev); return; }
+    if (t.shield <= 0) { breakShield(s, to, t, ctl.eng[to], ev); return 'shield'; }
     t.hitlag = hl;
     if (!isProj) a.hitlag = hl + (perfect ? PARRY_FREEZE : 0); // a parry holds the attacker in place a moment longer
     if (!perfect) {
@@ -1312,10 +1489,14 @@ function strike(s: FightState, c: HitCand, to: Side, ev: SimEvent[]): void {
       ctl.eng[to].ovx = c.dir * Math.min(0.2, 0.012 * d + 0.02);
     }
     if (!isProj && a.grounded) ae.ovx = -c.dir * 0.05;
-    return;
+    return 'shield';
   }
   const charge = !isProj && a.move ? a.charge : 0;
-  applyHit(s, c.by, to, c.h, isProj ? 'projectile' : c.move, charge, c.dir, ev, !isProj);
+  if (!isProj && c.h.effect) return applyHit(s, c.by, to, c.h, c.move, 0, c.dir, ev, true, undefined, c.h.effect, c.h.effectTicks || 0);
+  if (!isProj) return applyHit(s, c.by, to, c.h, c.move, charge, c.dir, ev, true);
+  const p = s.projectiles[c.proj];
+  const pr = projDef(s, p);
+  return applyHit(s, c.by, to, c.h, 'projectile', 0, c.dir, ev, false, c.move, p.effect === 'pull' || p.effect === 'snare' ? p.effect : '', pr.effectTicks || 0);
 }
 
 function doGrab(s: FightState, by: Side, to: Side, move: MoveId, ev: SimEvent[]): void {
@@ -1330,7 +1511,7 @@ function doGrab(s: FightState, by: Side, to: Side, move: MoveId, ev: SimEvent[])
   ae.cmd = move === 'special';
   ae.ovx = 0; te.ovx = 0; te.kvx = 0; te.kvy = 0;
   setAction(t, 'held');
-  t.move = null; t.hitstun = 0; t.tumble = false;
+  t.move = null; t.hitstun = 0; t.tumble = false; t.rooted = 0; t.pulled = false; te.drag = 0;
   if (t.ledge >= 0) t.ledge = -1;
   s.stats[by].grabsLanded++;
   ctl.track[by].since.myGrabs++;
@@ -1368,7 +1549,8 @@ export function strengthOf(kb: number): HitStrength {
   return kb < 45 ? 'light' : kb < 90 ? 'medium' : 'heavy';
 }
 
-function applyHit(s: FightState, by: Side, to: Side, h: Hitbox, move: MoveId | 'projectile', charge: number, dir: number, ev: SimEvent[], frozeAttacker: boolean): void {
+function applyHit(s: FightState, by: Side, to: Side, h: Hitbox, move: MoveId | 'projectile', charge: number, dir: number, ev: SimEvent[], frozeAttacker: boolean,
+  via?: MoveId, effect: '' | 'pull' | 'snare' = '', effectTicks = 0): string {
   const ctl = ctlOf(s);
   const a = s.fighters[by], t = s.fighters[to];
   const te = ctl.eng[to];
@@ -1377,7 +1559,7 @@ function applyHit(s: FightState, by: Side, to: Side, h: Hitbox, move: MoveId | '
   const cm = md && md.maxCharge ? 1 + (0.4 * charge) / md.maxCharge : 1;
   // stale moves: a move that keeps landing does less (the genre's own rule), a fresh one a little more
   const ae = ctl.eng[by];
-  const code = move === 'projectile' ? MOVE_CODE.special : MOVE_CODE[move];
+  const code = move === 'projectile' ? MOVE_CODE[via || 'special'] : MOVE_CODE[move];
   let sm = 1.05;
   for (let i = 0; i < ae.stale.length; i++) if (ae.stale[i] === code) { if (sm > 1) sm = 1; sm -= STALE[i]; }
   ae.stale.unshift(code);
@@ -1407,12 +1589,38 @@ function applyHit(s: FightState, by: Side, to: Side, h: Hitbox, move: MoveId | '
   let ly = sinDeg(ang);
   const hl0 = hitlagFor(kb, md && move !== 'projectile' ? earlyHit(md, h) : false);
   const hx = t.x, hy = t.y + tdef.height * 0.5;
+  // a hit frees: no longer rooted or reeled in; a tether of the one hit is gone, and its catch is let go
+  t.rooted = 0; t.pulled = false; te.drag = 0;
+  for (const p of s.projectiles) if (p.owner === to && p.tether) p.life = 0;
+  {
+    const oe = ctl.eng[by];
+    if (oe.drag) { oe.drag = 0; a.pulled = false; if (a.action === 'hitstun') a.hitstun = Math.min(a.hitstun, 6); }
+  }
 
   if (t.armor && move !== 'projectile' && md && md.kind !== 'throw') {
     // super armour: damage, hit pause, no flinch
     t.hitlag = hl0; if (frozeAttacker) a.hitlag = hl0;
     ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: lx, dy: ly, kb: 0, hitlag: hl0, strength: 'light', combo: te.combo });
-    return;
+    return 'armor';
+  }
+  if (effect) {
+    // a pull or a snare: damage and a short hit pause, no launch
+    if (t.ledge >= 0) { t.ledge = -1; t.grounded = false; t.platform = -2; }
+    t.move = null; t.charge = 0; t.fastFall = false;
+    te.ovx = 0; te.ovy = 0; te.kvx = 0; te.kvy = 0; te.doomed = false;
+    te.airDodgeUsed = false; te.used1 = false; te.used2 = false;
+    setAction(t, 'hitstun');
+    t.tumble = false; t.kbx = 0; t.kby = 0;
+    const ticks = effect === 'pull' ? 90 : Math.max(1, effectTicks);
+    t.hitstun = ticks; te.hsTotal = ticks;
+    t.hitlag = 5;
+    if (frozeAttacker) a.hitlag = 5;
+    if (effect === 'pull') { te.drag = 1; t.pulled = true; } else t.rooted = ticks;
+    if (via) ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: 0, dy: 0, kb: 0, hitlag: 5, strength: 'light', combo: te.combo, via });
+    else ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: 0, dy: 0, kb: 0, hitlag: 5, strength: 'light', combo: te.combo });
+    if (effect === 'pull') ev.push({ t: 'pull', tick: s.tick, by, to, x: t.x, y: t.y });
+    else ev.push({ t: 'snare', tick: s.tick, by, to, x: t.x, y: t.y, ticks });
+    return effect;
   }
   // DI from the target's hands
   const di = chooseDI(s, to, lx, ly);
@@ -1465,7 +1673,9 @@ function applyHit(s: FightState, by: Side, to: Side, h: Hitbox, move: MoveId | '
   t.hitlag = hl;
   if ((strength === 'heavy' || strength === 'lethal') && s.plans[by].order === 'kill') s.plans[by].order = 'none';
   if (frozeAttacker) a.hitlag = hl;
-  ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: lx, dy: ly, kb: Math.round(kb * 10) / 10, hitlag: hl, strength, combo: te.combo });
+  if (via) ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: lx, dy: ly, kb: Math.round(kb * 10) / 10, hitlag: hl, strength, combo: te.combo, via });
+  else ev.push({ t: 'hit', tick: s.tick, by, to, move, damage: d, total: t.damage, x: hx, y: hy, dx: lx, dy: ly, kb: Math.round(kb * 10) / 10, hitlag: hl, strength, combo: te.combo });
+  return 'hit';
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -1522,8 +1732,9 @@ function track(s: FightState, ev: SimEvent[]): void {
       const h = ctl.track[e.side].cur;
       const kind = FIGHTERS[s.fighters[e.side].fighter].moves[e.move].kind;
       const ex = moveExtra(s.fighters[e.side].fighter, e.move);
-      if (kind === 'grab' || ex.grabbing) h.grabs++;
-      else if (e.move === 'special' && FIGHTERS[s.fighters[e.side].fighter].moves.special.projectile) h.shots++;
+      const pmd = FIGHTERS[s.fighters[e.side].fighter].moves[e.move].projectile;
+      if (kind === 'grab' || ex.grabbing || (pmd && pmd.effect === 'pull')) h.grabs++;
+      else if (pmd) h.shots++;
       else if (e.move !== 'recover') h.strikes++;
       if (e.move !== 'recover') {
         // swung into an opening, or swung first? (an opening: the opponent stuck in a move's end, a landing, a stun or a getup)

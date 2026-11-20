@@ -93,6 +93,9 @@ export interface Hitbox {
   /** base knockback and knockback growth (the usual platform fighter formula, see engine) */
   bkb: number;
   kbg: number;
+  /** a stagger instead of a launch: 'snare' roots the one hit for effectTicks (no knockback; a shield blocks it) */
+  effect?: 'snare';
+  effectTicks?: number;
 }
 
 export interface MoveDef {
@@ -112,7 +115,30 @@ export interface MoveDef {
   /** frames [from, to] with super armour (takes damage, no flinch) */
   armor?: [number, number];
   /** spawns a projectile on this frame */
-  projectile?: { frame: number; kind: string; vx: number; vy: number; gravity: number; life: number; r: number; damage: number; angle: number; bkb: number; kbg: number };
+  projectile?: {
+    frame: number; kind: string; vx: number; vy: number; gravity: number; life: number; r: number; damage: number; angle: number; bkb: number; kbg: number;
+    /** spawn height above the feet (default 0.62 of the body height); a floor wave spawns low */
+    y?: number;
+    /** a fan: several shots, one per velocity (+x along facing), `delay` ticks after `frame` (default 0); replaces vx and vy */
+    fan?: { vx: number; vy: number; delay?: number }[];
+    /** how many shots of one fan may land (default 1; the rest are spent once that many have landed or been blocked) */
+    fanHits?: number;
+    /** on hit: 'pull' drags the target to the owner and holds it (then the move's command slam); 'snare' roots it for effectTicks */
+    effect?: 'pull' | 'snare';
+    effectTicks?: number;
+    /** becomes a floor hazard when it touches a floor and stays `linger` ticks; a snare hazard springs once, a burn hazard hits every `every` ticks */
+    linger?: number;
+    every?: number;
+    /** half-width of the hazard on the floor (default r) */
+    floorR?: number;
+    /** placed: spawned already lying on the floor this many metres ahead (no flight) */
+    place?: number;
+    /** a tether (chain, tongue, vine): drawn from the owner's hand to the tip; gone when the owner's move ends or the owner is hit */
+    tether?: boolean;
+  };
+  /** blink: on `frame` the fighter vanishes and reappears `dx` ahead, or just behind the opponent when it stands within `behind` metres
+   * ahead; invulnerable on move frames [from, to]; never ends further off the deck than it started (no blink into a fall) */
+  blink?: { frame: number; dx: number; behind: number; invuln: [number, number] };
   /** free-form notes for the animator: what the move looks like */
   look: string;
 }
@@ -229,6 +255,10 @@ export interface FighterState {
   airJumpsLeft: number;
   /** true when the fast fall is on */
   fastFall: boolean;
+  /** ticks left rooted by a snare (cannot move or act, can be hit); 0 or absent when free */
+  rooted?: number;
+  /** true while being dragged in by the opponent's tether */
+  pulled?: boolean;
 }
 
 export interface Projectile {
@@ -241,6 +271,21 @@ export interface Projectile {
   vy: number;
   r: number;
   life: number;
+  /** the move that fired it (absent on old states: 'special') */
+  move?: MoveId;
+  /** gravity per tick (lobbed shots) */
+  g?: number;
+  /** lying on the floor as a hazard: `life` is the ticks it has left there; `r` is its half-width along the floor */
+  floor?: boolean;
+  /** what it does to who it touches: 'snare' roots, 'burn' hits repeatedly, 'pull' drags in */
+  effect?: 'pull' | 'snare' | 'burn';
+  /** a tether: draw a line from the owner's hand to (x, y); `drag` true while it is reeling the opponent in (the tip is on them) */
+  tether?: boolean;
+  drag?: boolean;
+  /** ticks until a burn hazard can hit again; on a flying shot, 1 means spent (its fan already landed as many as it may: draw it fading) */
+  cd?: number;
+  /** on a fan's shot: how many shots of its volley have landed or been blocked so far */
+  n?: number;
 }
 
 export interface FightHeader {
@@ -290,8 +335,8 @@ export interface SideStats {
 export type HitStrength = 'light' | 'medium' | 'heavy' | 'lethal';
 
 export type SimEvent =
-  | { t: 'hit'; tick: number; by: Side; to: Side; move: MoveId | 'projectile'; damage: number; total: number; x: number; y: number; dx: number; dy: number; kb: number; hitlag: number; strength: HitStrength; combo: number }
-  | { t: 'shield_hit'; tick: number; by: Side; to: Side; move: MoveId | 'projectile'; x: number; y: number; shield: number; perfect: boolean }
+  | { t: 'hit'; tick: number; by: Side; to: Side; move: MoveId | 'projectile'; damage: number; total: number; x: number; y: number; dx: number; dy: number; kb: number; hitlag: number; strength: HitStrength; combo: number; via?: MoveId }
+  | { t: 'shield_hit'; tick: number; by: Side; to: Side; move: MoveId | 'projectile'; x: number; y: number; shield: number; perfect: boolean; via?: MoveId }
   | { t: 'shield_break'; tick: number; side: Side }
   | { t: 'clank'; tick: number; x: number; y: number } // two attacks cancel
   | { t: 'grab'; tick: number; by: Side; to: Side }
@@ -310,6 +355,10 @@ export type SimEvent =
   | { t: 'respawn'; tick: number; side: Side }
   | { t: 'plan'; tick: number; side: Side; plan: Plan } // a scheduled plan took effect
   | { t: 'order'; tick: number; side: Side; order: 'special' | 'kill' } // a one-time order is being carried out
+  | { t: 'blink'; tick: number; side: Side; fromX: number; fromY: number; toX: number; toY: number; behind: boolean } // vanished and reappeared
+  | { t: 'snare'; tick: number; by: Side; to: Side; x: number; y: number; ticks: number } // rooted in place
+  | { t: 'pull'; tick: number; by: Side; to: Side; x: number; y: number } // a tether caught: the drag begins (a 'grab' event follows on arrival)
+  | { t: 'hazard'; tick: number; side: Side; id: number; kind: string; x: number; y: number; r: number; state: 'placed' | 'sprung' | 'expired' | 'replaced' }
   | { t: 'sudden_death'; tick: number }
   | { t: 'end'; tick: number; winner: Side };
 

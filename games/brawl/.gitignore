@@ -6,3 +6,4 @@ captures/
 .cache/
 .env
 *.log
+assets/vendor/music-candidates/

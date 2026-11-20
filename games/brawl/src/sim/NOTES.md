@@ -126,3 +126,135 @@ recoveries are fast and up specials armoured (Kiln) or hit (Vise). Next: aim the
 predicted path, give low recoveries a longer predictable ledge approach, and let `ledge` (hog) force low recoveries
 into the deck side. Aggression at high own damage and the kill order at high opponent damage barely move the life
 length because a fighter at 110% dies within about 20 s whatever the dials.
+
+## Round 3: abilities (`SIM_VERSION` `ringout-sim-3`)
+
+The owner: "all they do is melee + shield". Every fighter now has tools that are visibly not a punch, built as small
+data-driven engine features (`MoveDef.projectile` options and `MoveDef.blink`, all optional) and reached for by every
+stance in `controller.ts` (`abilities()`, behind a cooldown). Move names are neutral; the candidate flavours are in `look`.
+
+Mechanics (engine.ts), with the counterplay:
+- **Floor wave** (Kiln `special`, projectile `wave`, low at 0.45 m, 0.2 m/tick, 10 m, 22-frame wind-up, 11 damage, real knockback).
+  Counter: it is slow and seen coming: jump it (a full hop clears it) or shield it (shield blocks every shot).
+- **Fan** (Tick `special`, `fan` of three `knife` shots, level, rising, dipping, 8 m). Only one shot of a volley can land; the
+  others are spent (`Projectile.cd = 1`). Weak (about 3) and fast: pestering. Counter: shield, or close in under the cooldown.
+- **Blink** (Tick `special2`, `blink`): untouchable on frames 1 to 9, reappears on frame 6 3.2 m ahead or just behind an opponent
+  within 4.5 m (turned to face it), quick slash on frames 8 to 11, acts again at frame 24. Clamped: on the ground it stays on its
+  platform, in the air it never ends further out than it started (no blink into a fall). Counter: the arrival slash is shieldable from
+  any side, and a whiffed blink-slash (blinked forward with nobody there) is open for 14 frames. The hands also blink through a swing
+  they see coming and out of a corner.
+- **Floor ward** (Gantry `special2`, lobbed `ward`, comes to rest about 5.3 m ahead and lies there 5 s, 1.5 m wide). Snare: the first
+  opponent that stands in it on the ground is rooted 42 ticks (0.7 s, `FighterState.rooted`, a grounded hitstun with no knockback) and
+  takes 4; then it is spent. One per owner (a new one replaces the old; the hands re-place only after 2 s). Counter: the hands see it
+  after the reaction delay and hop over it when running or stop short when walking; a shield blocks it (spent on the shield); it does
+  nothing while flying. `effect` absent with `linger` set makes it a **burn** hazard instead (a hit every `every` ticks while stood in):
+  built and supported, not used by the current data (switch for the lamplighter).
+- **Tether** (Vise `special`, `chain` with `effect: 'pull'` and `tether: true`, about 5.6 m): on an unshielded catch it drags the target
+  in at 0.42 m/tick (`pulled`, the tip rides on the target with `drag: true`), holds it in front, then the existing command slam (the old
+  Lunge Clamp's `cmd`). Counter: shield blocks it and the thrower is locked until 18 ticks after its move ends; dodging through it lets
+  it whiff (the move has 30 frames of recovery); hitting the thrower cuts the line and frees the catch; armour does not stop it.
+- Shared rules: projectile hits read the move that fired them (`Projectile.move`, `hit.via`), so stale moves and damage are per move;
+  a hit (or a grab) clears `rooted` and a drag; the lobbed shot uses `gravity` (projectiles now honour it); a shot touching a floor with
+  `linger` becomes a hazard; `place` spawns a hazard straight onto the floor ahead (supported, unused). Shield blocks all of it.
+  The coach habit counter counts a tether as a grab and every other projectile move as a shot.
+- Gantry's bolt is faster and longer (0.36 m/tick, 14 m, 12-frame startup, 5 damage). Ballast Swing, Blast Furnace's fire cone,
+  Overclock Dart, Spring Hop and Lunge Clamp's lunge are gone (their slots now hold the new tools). Kiln's armoured `special2` and
+  Vise's spin `special2` are kept and are now also used up close (`abilities()`).
+
+Numbers (final build; `node tools/batch.mjs --sim src/sim2 --only fighters,pace,mirror` and `node tools/simstats.mjs --n 768`,
+with `--coaches adaptive,adaptive` for the adaptive column):
+
+| measure | adaptive vs adaptive | mixed coaches | bar |
+|---|---|---|---|
+| fights finished | 768/768; batch pace 400/400 | 768/768 | 99% |
+| median length | 97 s (batch pace 104 s, p10 72, p90 151) | 99 s | 70 to 130 |
+| stretches over 6 s | 1 of 768 (6.1 s); batch pace 0/400 (worst 5.9) | 2 of 768 (worst 7.9) | about none |
+| win rate kiln / tick / gantry / vise | simstats 53 / 45 / 52 / 50; batch FIGHTERS 54 / 55 / **41** / 51 | 44 / **64** / **33** / 58 | 42 to 58 |
+| mirrors (side 0) | 51% (batch: every coach 49 to 53) | 48% | near 50 |
+| seconds between specials k / t / g / v | **7.7 / 7.5 / 8.1 / 6.7** | 5.1 / 5.1 / 5.6 / 5.3 | <= 6 |
+| damage through special + special2 | **20%** | 27% | >= 25% |
+| top single move share | 23.6% (Tick fair) | 29.4% (Kiln wave) | <= 30% |
+| per fight: blinks, pulls, wards placed, snares | 3.4, 2.1, 1.7, 1.0 | 4.3, 3.3, 2.0, 1.0 | |
+
+Trims (`TRIM`): Tick 1.27, Kiln 1, Gantry 0.94, Vise 1.05 (round 2's values; every other set tried moved one coach mix in or
+out at the cost of the other). Determinism, JSON round trip and all 51 tests hold; median 7 ms per fight.
+
+Not at target and what I would do next:
+1. **Usage under adaptive coaches (7 to 8 s, bar 6) and the 25% damage share (20%).** The adaptive coach plays rush and bait almost
+   always; rush fights inside the shot range and the ward's landing spot. Next: give rush a shot on the approach run (fire as it
+   closes from 5 to 3 m), let Gantry lob the ward from closer (a shorter lob, or `place` at 2.5 m) and let bait blink-punish more.
+2. **Gantry vs the field.** Within the bar on one seed set (52) and under it on the batch's (41; kiln-gantry 66, tick-gantry 69); 33 with
+   mixed coaches. The trims are touchy here (Gantry 0.98 swung it to 65 under adaptive). Next: rather than a trim, make the snare pay
+   off more reliably (the bolt follow-up already fires on a rooted target; a longer root, 50 ticks, or a slightly faster bolt), then
+   recheck both columns with 1500+ fights.
+3. **Tick with mixed coaches (64).** Keep-away Tick (knives plus blink escapes) is strong; adaptive Tick is fine (45 to 55). Next: a
+   longer shot cooldown for Tick's fan in keep-away, or one less frame of blink invulnerability.
+4. The stance model (`STANCE_MODEL`) was fitted on round-2 behaviour; with shots and tethers in every stance, refit it (`batch --only
+   views`) before relying on `oppLooksLike`. The exploit search was not rerun.
+
+## Round 3b: the Count and the Wolf
+
+The owner chose a vampire and a werewolf for the two robot slots. Ids stay `gantry` and `vise`; only data, two engine options and the
+hands changed. Tick and Kiln are untouched (the higher special rates below apply only to the two new fighters).
+
+**The Count** (`gantry`, "Vampire lord"): tall, long reach; every normal renamed to a cloak or claw move with the same numbers.
+- **Bat Swarm** (`special`): three `bat` shots on frames 15, 19 and 23 (`fan[].delay`), a tight rising, level and dipping spread,
+  0.26 m/tick for 54 ticks (about 14 m), 3 damage, light knockback. At most two of a volley land (`projectile.fanHits: 2`); the rest are
+  spent (`cd` 1) and fly on harmlessly. Counter: shield (each bat blocked counts toward the two), jump the level line, or close in
+  under the cooldown.
+- **Mist Step** (`special2`): the blink, slower than Tick's: startup 9, untouchable frames 1 to 12, reappears on frame 9 3.2 m ahead or
+  just behind an opponent within 4.5 m, claw swipe on frames 11 to 14 (8 base damage). Counter: shield the arrival from any side; a
+  whiffed swipe is open for 18 frames.
+- **Bat Form** (`recover`): the old Grapple Line numbers with a new look.
+
+**The Wolf** (`vise`, "Werewolf"): 1.9 m tall, 1.15 m wide, weight 100, walk 0.1, run 0.205; normals renamed to claws and bites.
+- **Pounce** (`special`): the old Lunge Clamp travelling command grab with far more travel (about 4.7 m; startup 9, catch frames 10 to
+  25, moving 0.26 m/tick on frames 7 to 24). A catch holds and slams (the command slam, 15 base damage). A shield does not stop it; a
+  jump or a spot dodge does, and a miss skids into 34 frames of recovery. Opponents read it as a grab (spot dodge, hop or step away).
+- **Howl** (`special2`): startup 14, a burst about 1.8 m round the wolf (frames 15 to 18) that staggers for 40 ticks instead of
+  launching (`Hitbox.effect: 'snare'`): a `snare` event, `rooted` set, a `hit` with kb 0, 2 damage. A shield blocks it.
+- **Wall Run** (`recover`): the old Clamp Climb numbers.
+
+Engine (all optional): `Hitbox.effect` and `effectTicks` (a strike that roots like the snare); `fan[].delay` (a fan's shots spaced in
+time; one volley per move in flight still holds); `projectile.fanHits` (how many shots of a fan may land, default 1); `Projectile.n`
+(shots of the volley landed or blocked when it spawned). One fix found by the new tests: a fighter rooted in the air used to have its
+root cut to 4 ticks on landing (the small-launch landing rule); a root now runs its full length (`if (f.hitstun > 4 && !f.rooted)`).
+The Floor Ward, tether and pull mechanics stay in the engine, unused by the current cast.
+
+Hands (`controller.ts`): two new move tags, `POUNCE` and `HOWL`. The pounce closes from 2 to about 6 m and punishes openings at mid
+range (only a grounded opponent at the same height); the howl fires when the opponent is close and pressing, or right after the wolf
+blocked something; it is kept out of the poke picker. The bats and Mist Step use round 3's shot and blink logic. For the two new
+fighters only, the rates are about double round 3's: shots keep-away 0.07, rush 0.05 + (1 - aggression) x 0.03, wall 0.05, bait 0.07;
+blink rush 0.07 + aggression x 0.05, bait 0.05, else 0.02, cooldown 90; pounce rush 0.08 + grab mix x 0.06, keep-away 0.06, wall 0.04,
+bait 0.06, cooldown 60; howl 0.12 (rush) or 0.09 when pressing, else 0.04, cooldown 70.
+
+Trims: the Count 0.93, the Wolf 1.04 (Tick 1.27, Kiln 1 unchanged). `tools/simstats.mjs` takes `--fighters gantry,vise`.
+
+Numbers (`node tools/simstats.mjs --n 400 --fighters gantry,vise`, with `--coaches adaptive,adaptive` for the adaptive column;
+mirrors included; the 1600-fight figure in brackets):
+
+| measure | adaptive vs adaptive | mixed coaches | bar |
+|---|---|---|---|
+| Count beats Wolf | 53.0% (55.8%) | **39.5%** (**42.0%**) | 45 to 55 |
+| mirrors (side 0 wins) | 53.0% | 49.0% | near 50 |
+| fights finished | 400/400 | 400/400 | all |
+| median length | 88 s (p10 65, p90 116) | 89 s (p10 63, p90 120) | 70 to 130 |
+| quiet stretches over 6 s | 0 (worst 6.0 s) | 1 (worst 6.1 s) | about none |
+| seconds between specials, Count / Wolf | **6.8 / 7.1** | 5.3 / 6.0 | <= 6 |
+| damage through special + special2, Count / Wolf | **20.9% / 20.8%** | 27.3% / 26.7% | >= 25% |
+| largest single move | Count fair 20.3% | Wolf Pounce 25.8% | <= 30% |
+| per fight: blinks, snares (howls landed) | 4.7, 1.45 | 5.4, 1.0 | |
+
+The full cast (`--n 768`): adaptive kiln 46 / tick 54 / Count 47 / Wolf 53 (tick beats the Count 65%); mixed kiln 37 / tick 58 /
+Count 41 / Wolf **64**; 768/768 finish in both, 21% and 28% of damage through the specials.
+
+Not at target and what I would do next:
+1. **The two coach mixes pull apart by about 14 points on Count vs Wolf**, and no trim fixes both (0.92 to 0.95 against 1.04 to 1.08
+   all keep the gap; I kept the set that puts adaptive, the show's default, inside the bar). Forced same-coach pairs: keep-away the
+   Count wins 93%, rush 56, bait 52, random 50, wall 44. So the mixed column's low number comes from the cross pairs (different coaches
+   on each side), which I did not break down. Next: a per-coach-pair table for Count vs Wolf, then fix the worst pairs (likely the
+   Wolf has no answer to a keep-away Count, and something beats the Count badly in the cross pairs) before touching trims again.
+2. **Usage under adaptive coaches (6.8 / 7.1 s, bar 6) and the damage share (21%, bar 25%).** Mixed coaches meet both. Same cause as
+   round 3: the adaptive coach plays mostly rush and bait. Next: let rush fire bats on the approach and pounce more from rush.
+3. **The Wolf vs the field with mixed coaches (64%).** The Pounce is strong against coaches that do not spot-dodge; check its catch
+   window (16 frames) before raising anything else.

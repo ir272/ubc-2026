@@ -1,58 +1,77 @@
-# src/sim2: interim swap ready
+# src/sim2: round 3 (abilities) and round 3b (the Count and the Wolf) ready to promote
 
-Interim written about 10:30 CST; updated 10:50 CST with the final round-2 build (same file list, same stage notes; Tick damage x1.27, Gantry x0.94, Vise x1.05 trims, Kiln weight 112, Tick 84, Vise 106). Consistent point: `node --test test/sim2.test.mjs` 15/15 pass,
-`node tools/batch.mjs --sim src/sim2` ran clean (6336 fights, 400/400 pace fights finish, determinism and
-JSON round trip hold). Round 2 stopped here (usage limit); see NOTES.md "Where round 2 stopped".
+`SIM_VERSION` is `ringout-sim-3` (unchanged by round 3b). Consistent point: `node --test test/*.test.mjs` 55/55 (src/sim untouched
+and its tests pass). Numbers and what is not at target: NOTES.md "Round 3: abilities" and "Round 3b: the Count and the Wolf".
 
 ## Copy
 
-Copy these over src/sim (types.ts is unchanged and identical, copying it is harmless):
-
 ```
-src/sim2/arena.ts       -> src/sim/arena.ts        (unchanged, copy anyway)
-src/sim2/math.ts        -> src/sim/math.ts         (unchanged, copy anyway)
-src/sim2/types.ts       -> src/sim/types.ts        (unchanged)
-src/sim2/fighters.ts    -> src/sim/fighters.ts
-src/sim2/engine.ts      -> src/sim/engine.ts
-src/sim2/controller.ts  -> src/sim/controller.ts
-src/sim2/coach.ts       -> src/sim/coach.ts
-src/sim2/index.ts       -> src/sim/index.ts
-src/sim2/NOTES.md       -> src/sim/NOTES.md
+cp src/sim2/controller.ts src/sim2/engine.ts src/sim2/fighters.ts src/sim2/index.ts src/sim2/types.ts src/sim2/NOTES.md src/sim/
 ```
-(`cp src/sim2/*.ts src/sim2/NOTES.md src/sim/`). Do not copy READY.md. Exported API and FightState shape unchanged.
-`SIM_VERSION` is now `ringout-sim-2` (script.ts builds the default sim hash name from it). Removed export:
-`inferStance` (nothing outside src/sim used it); new exports `stanceFeatures`, `inferFromFeatures`, `STANCE_MODEL`, `STANCE_FEATURES`.
-test/sim.test.mjs passes against the new code too (it is the same suite test/sim2.test.mjs starts from).
+Only these five .ts files differ from src/sim (arena.ts, coach.ts and math.ts are identical; do not copy READY.md). Then, in
+test/sim.test.mjs, change the two name checks (lines 37 and 38) to `'The Count'` and `'The Wolf'`: that is the only src/sim test that
+fails against the promoted code (checked by running test/sim.test.mjs against a copy). Exported API unchanged. New exports since
+round 2: `projDef` (engine.ts), `SHOT`, `WARD`, `BLINK`, `TETHER`, `POUNCE`, `HOWL` (controller.ts). Type changes are additive and
+optional only. The show and stage read fighter names and projectile kinds from the sim, so the picture needs the kinds below (`bat`
+is new; `ward` and `chain` are no longer produced by any fighter).
 
-## What the stage must know
+## Every new optional field and event (for the picture)
 
-- New projectile kind `slag` (owner Kiln, move `special` Blast Furnace, spawned on frame 26, radius 0.42, speed 0.17 m/tick,
-  flat, life 40 ticks). It is the only new event or kind. The renderer's generic bolt fallback will draw it; a glowing
-  molten glob would fit the move's look (the `look` text was updated).
-- Launch: speed `kb * 0.0052` m/tick decaying by `0.0204` m/tick per tick (was 0.0025 and 0.0051).
-  `src/stage/camera.ts` hard-codes `DECAY = 0.0051` for its look-ahead: it should become 0.0204.
-- Hit pause (`hitlag` on hit events and on both fighters): light 5 to 6, medium 6 to 10, heavy 11 to 14, lethal 18,
-  the early hits of a multi-hit move 3. On a perfect shield (parry, now within 5 ticks of raising the shield) the attacker
-  freezes 8 ticks longer than the defender. Shield hits unchanged (`floor(d*0.45 + 4)`).
-- A grab out of a run is preceded by a 4-tick `skid` (action `skid`, then `attack` with move `grab`).
-- Grounded bodies never overlap; a walk faces the opponent (backing off is a walk backwards, only a run turns the back).
-- Jump arcs: quicker rise, short hang, fast fall, sharper stops (per-fighter numbers in fighters.ts BODIES).
-- Select-screen bars move (they are computed from the numbers): Kiln reach 3 -> 5 (its shot), weight 5 -> 4;
-  Tick power 1 -> 2, weight 1 -> 2; Vise weight 4 -> 3. Gantry unchanged (recheck after the final trims).
-- Damage is about 12% higher everywhere (fights had grown long); stale moves now lower a repeated move's damage, so the
-  percent jumps vary more.
+`MoveDef` (static data):
+- `projectile.y?: number` spawn height above the feet (Kiln's wave: 0.45, low along the floor).
+- `projectile.fan?: { vx, vy, delay? }[]` several shots, one per entry; `delay` is ticks after `frame` (Tick: three knives at once;
+  the Count: three bats 4 ticks apart).
+- `projectile.fanHits?: number` how many shots of one fan may land (default 1; the Count's bats: 2).
+- `projectile.effect?: 'pull' | 'snare'`, `projectile.effectTicks?: number` what a catch does (supported; no fighter uses them now).
+- `projectile.linger?`, `projectile.every?`, `projectile.floorR?`, `projectile.place?` floor hazards (supported; no fighter uses them now).
+- `projectile.tether?: boolean` draw it as a line from the owner's hand to the tip (supported; no fighter uses it now).
+- `blink?: { frame, dx, behind, invuln: [from, to] }` (Tick special2 Blink Step; the Count special2 Mist Step: untouchable frames 1 to
+  12, reappears on frame 9).
+- `Hitbox.effect?: 'snare'`, `Hitbox.effectTicks?: number` a strike that staggers instead of launching (the Wolf's Howl, 40 ticks).
 
-## Batch summary (src/sim2, final round-2 build, 10:50 CST)
+`FighterState` (per tick):
+- `rooted?: number` ticks left snared (action is `hitstun`, no knockback, standing still): draw the stagger. A fighter howled in the
+  air drops straight down and stays rooted for the full length after landing.
+- `pulled?: boolean` being reeled in by a tether (supported; unused now).
 
-```
-ADAPTIVE vs rush 53% (NOT MET), keepaway 70%, bait 67%, wall 94%; stance mix rush 46 bait 44 wall 9 keepaway 1 (none over half)
-FIXED STANCES (row vs column): rush 61/48/59 vs keepaway/bait/wall; keepaway 52 vs wall; bait 52/67/61; wall 41/48/39
-  NOT MET: bait beats all three (its edge over rush is 52%)
-IDENTICAL COACHES (408 each): adaptive 55 (edge of the bar), rush 50, keepaway 48, bait 49, wall 48, random 51
-FIGHTERS (adaptive both sides): Kiln 56, Tick 50, Gantry 45, Vise 48; every matchup 41 to 59: met
-READING THE FIGHT: rush 84%, keepaway 84%, bait 82%, wall 80%: met
-PACE (400 mixed): 400/400; length median 103 s (p10 64, p90 162); first KO median 44 s; stretches over 6 s 0/400 (worst 6.0 s);
-  self-destructs 0.5% of KOs; KO damage median 138%: met
-DETERMINISM: same hash every tick, JSON round trip identical: met. Sim time median 8 ms.
-Tests: node --test test/sim2.test.mjs 15/15.
-```
+`Projectile` (per tick):
+- `move?: MoveId` the move that fired it. `g?: number` gravity.
+- `n?: number` on a fan shot: how many shots of its volley had landed or been blocked when it spawned.
+- `cd?: number` on a flying shot, 1 = spent (its volley already landed as many as it may: one knife, two bats): fade it and let it fly
+  on harmlessly; on a burn hazard, ticks to its next hit.
+- `floor?`, `effect?`, `tether?`, `drag?` as in round 3 (hazards and tethers; unused by the current cast).
+
+Projectile kinds produced today: `wave` (Kiln special), `knife` (Tick special, three per throw) and the new `bat` (the Count special:
+three per Bat Swarm, spawned 4 ticks apart, in a tight rising, level and dipping spread, about 14 m). `rivet`, `ward` and `chain` are
+no longer produced.
+
+`SimEvent`:
+- `{ t: 'blink', side, fromX, fromY, toX, toY, behind }` vanish at from, appear at to (Tick and the Count's mist).
+- `{ t: 'snare', by, to, x, y, ticks }` rooted. The Howl uses this event, with the `hit` (kb 0, 2 damage) and the `move` event for
+  `special2` before it; there is no new event.
+- The Pounce uses the existing events: `move` (`special`), then on a catch `grab` and `throw` (move `special`) and the slam `hit`, or a
+  `whiff` on a miss. The wolf itself travels (about 4.7 m); there is no tether projectile.
+- `{ t: 'pull', ... }` and `{ t: 'hazard', ... }` are still emitted by the engine if data uses them; the current cast does not.
+- `hit.via?: MoveId` and `shield_hit.via?: MoveId` on projectile hits: which move fired it (`move` stays `'projectile'`).
+
+Which mechanic each special uses:
+
+| move | mechanic |
+|---|---|
+| Kiln special (Floor Wave) | low projectile `wave` |
+| Tick special (Fan Throw) | fan of three `knife`, one may land |
+| Tick special2 (Blink Step) | blink |
+| Count special (Bat Swarm) | fan of three `bat` with delays, `fanHits` 2 |
+| Count special2 (Mist Step) | blink (slower than Tick's) |
+| Count recover (Bat Form) | ledge tether (the old Grapple Line numbers) |
+| Wolf special (Pounce) | travelling command grab, then the command slam |
+| Wolf special2 (Howl) | hitbox snare effect |
+| Wolf recover (Wall Run) | rising climb (the old Clamp Climb numbers) |
+
+## What else the stage should know
+
+- `gantry` is now The Count (role "Vampire lord") and `vise` is The Wolf (role "Werewolf", 1.9 m tall, 1.15 m wide). Ids are
+  unchanged. Every move has a new name and `look` note; the Count's normals keep their old numbers.
+- After a Pounce catch the Wolf holds and slams: the same `holding` with move `special` as the old command grab.
+- Select-screen bars (computed from the numbers): the Count power 3, speed 3, reach 5, weight 3, grab 3; the Wolf power 2, speed 3,
+  reach 2, weight 3, grab 5. The power bar only reads strikes, so the bats do not count.

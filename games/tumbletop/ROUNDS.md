@@ -423,7 +423,7 @@ sent as separate 30 s clips (`docs/music-by-phase/`): three for the line-up, fiv
 two for the final, one for the win. Nothing is in the build until he picks.
 
 
-## Round 9, Fri 2026-11-20, about 03:00 to 04:30 CST: the display redrawn in the site's look
+## Round 9, Fri 2026-11-20, from 03:00 CST: the display redrawn in the site's look
 
 **The owner, relayed by the site session (02:58):** the HUD and panels "for all games are trash",
 Tumbletop's "horrible ... rly bad" (he sent the Round Two standings: white header, numbered rows
@@ -466,13 +466,25 @@ which eight was by the catalogue's own description, and no one has listened.
 **Checks:** unit tests 19 of 19; a whole show and 18 stills captured with 0 page errors.
 **Not re-run on the new display:** comprehension, mid-join, a critic. Not re-measured: frame time.
 
-**Renamed for viewers (about 04:50):** the owner named the show "Goober Guys". The channel title and
+**Renamed for viewers:** the owner named the show "Goober Guys". The channel title and
 each match's title say so (`channel.ts`, `show/script.js`); the channel id `tumbletop`, the folder,
 the exports and the feed are unchanged. One string still says the old name: the sim's winner event
 text ("X wins Tumbletop!", `sim/sim.js`), which the stage does not print; changing it would change
 SIM_HASH, so it is left. The creatures are still "Gumbles" (his call; not asked yet).
 
-**The owner picked the table (about 05:10):** "the table is better." The strip and the cut-only
+**The owner picked the table:** "the table is better." The strip and the cut-only
 layouts, the `data-hud` switch and the `?hud=` address option are removed; `raceHud.js` draws the
 table only. A whole show and a late Round One frame captured after the removal: 0 page errors,
 tests 19 of 19. Committed and pushed on his pick.
+
+**Music is in (about 04:10).** The owner on the clips: "line-up 4, race 7, and five armies are cool.
+win 1 is good". So: "Adventures in Adventureland" for the call, the line-ups and the shelf, "Heroic
+Age" for Rounds One and Two, "Five Armies" for the Final, "Winner Winner!" for the winner (all Kevin
+MacLeod, CC BY 4.0; credit in `ASSETS.md`). Each is cut from the point his clip started, lowered to
+about -20 LUFS and otherwise untouched. A whole show rendered offline: integrated -23.2 LUFS, true
+peak -4 dBFS, no clipping; the phases sit between -20 and -27 LUFS, the Final loudest. Two clips
+with the picture, `docs/with-music-*.mp4`, sent to him. Effects are still his to choose.
+
+**Disk.** The Mac ran out of space; at the main session's and then the owner's request the folder
+went from 5.0 GB to about 0.15 GB: old captures, the rejected mix's recordings and the Earshot
+install (`.tools/`, 2.4 GB) are gone. Earshot would have to be installed again to rank new sounds.

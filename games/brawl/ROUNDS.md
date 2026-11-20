@@ -68,3 +68,33 @@ Nine workflows launched, one per piece, each an Opus 5.5 builder then a fresh-co
 - 15:51 Cast decision taken by the lead in the owner's absence on that question (he said the cast should not be only robots; he has not answered the proposal for 2.5 hours): Kiln stays the one robot; id tick becomes Jink, a marsh hare duelist; id gantry becomes Wick, a lantern wizard with a long staff; id vise stays Vise as a giant crab brawler. Ids, movesets and balance unchanged. The robot versions are backed up in .cache/backup/fighters-robots. Usage 94% with 9 minutes to the reset; builders launch after 16:00.
 - 16:07 Owner heard game sound in the background. Lead closed the Ringout tab in the Browser pane, stopped the dev server on 5202, and added --mute-audio to the capture browser's launch flags. Rule from now on: no game page left open when not being looked at, dev server stopped when idle, captures muted.
 - 16:29 Owner: "lets brainstorm characters first. you NEVER will decide, you must ASK me what the creative stuf is". The lead's cast decision of 15:51 is withdrawn: fighter names restored to Tick and Gantry, ARCH.md and CORE-CHANGES.md now say the cast is undecided and the owner's to choose. Nothing had been built for it. Brainstorm with the owner in progress; no builders launched.
+
+## 03:00 CST Fri Nov 20: the owner asks for an overhaul (relayed by the site session)
+
+His asks, relayed: the robots go ("the robots i dont like at all"); characters in the style of The
+Scrivener, drawn in the site's ink-on-black style; real special abilities and spells; a character
+select and a stage select before each match; a new HUD in the site style (options for him to
+pick); new music (tracks for him to hear). He renames the games himself later. Target: submit by
+10:00. First step is options as visuals, his pick; the lead chooses nothing creative.
+
+- Technique (stated to him): every figure is drawn by code with a hand-held pen on a 2D canvas,
+  cream ink on the site's black (#141318), no images. New kit `lab/ink.js`; options sheet
+  `lab/cast.html` (+ `lab/cast.js`); one file per candidate under `lab/cast/`; screenshots with
+  `tools/castshot.mjs`. One drawing gives two treatments (hollow line, solid ink) for him to pick.
+- 03:07 launched six Opus high agents: four draw three cast candidates each (heavy, fast, reach,
+  grabber: twelve candidates, working names), one draws three HUD options (`lab/hud.html`), one
+  gathers music candidates with a listen page (`lab/music.html`, files in
+  `assets/vendor/music-candidates/`).
+
+## 03:40 Fri Nov 20: the owner's picks
+
+- Cast: "just dracula and werewolf for now" (The Count, The Wolf; ids gantry and vise). HUD: option A,
+  corner plates. Name: "Blood Moon" (channel title changed; channel id `brawl`, exports and feed
+  event names unchanged). Music and sounds: he will give input if asked.
+- Sim round 3 (abilities) landed in `src/sim2` (wave, knife fan, blink, floor ward, tether;
+  `ringout-sim-3`), 51 of 51 tests. The same agent is re-authoring gantry and vise as the Count
+  and the Wolf and balancing that matchup. Not promoted to `src/sim` yet.
+- Ink stage shell done (`src/ink/`), default in the harness and `index.ts`; old 3D stage behind
+  `stage=3d` in the harness. Script: `ROSTER` (two fighters) and a stage drawn by lot (`ctx.stage`).
+- Running: pose engine, monsters sheet (Count, Wolf, Stitched One), HUD A port, six stage sets,
+  screens.

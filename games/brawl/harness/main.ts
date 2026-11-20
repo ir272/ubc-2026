@@ -7,7 +7,8 @@
 // Capture mode: ?capture=1&scene=<name>: a virtual clock, nothing moves unless window.__ringout.step/seek
 // is called. Scenes and their params: README.md "Harness".
 
-import { createStage, type Stage } from '../src/stage/stage.ts';
+import { createStage as create3dStage, type Stage, type StageOptions } from '../src/stage/stage.ts';
+import { createInkStage } from '../src/ink/stage.ts';
 import { VirtualClock } from '../src/stage/clock.ts';
 import { createFakeShow, realClock } from '../src/show/fakeShow.ts';
 import { runMatch, type MatchDeps } from '../src/show/script.ts';
@@ -139,6 +140,11 @@ function runShow(o: ShowOpts): Running {
 
 // ---- page ----
 const q = new URLSearchParams(location.search);
+/** the ink stage by default; `stage=3d` keeps the three.js stage for comparison, `ink=mass` the solid treatment */
+function createStage(el: HTMLElement, o: StageOptions): Stage {
+  if (q.get('stage') === '3d') return create3dStage(el, o);
+  return createInkStage(el, { ...o, mode: q.get('ink') === 'line' ? 'line' : 'mass', set: q.get('set') ?? undefined });
+}
 const stageEl = document.getElementById('stage')!;
 const devEl = document.getElementById('dev')!;
 const ASSETS = '/';

@@ -42,6 +42,13 @@ export interface Ctx {
   header?: FightHeader;
   /** lives left per side, as of this event */
   lives?: [number, number];
+  /** the stages on offer in the stage select (ids of the drawn sets), from select_open on */
+  stages?: string[];
+  /** the bots strike stages in turn until one is left: the strikes in order, and the survivor that
+   *  is played. Both first appear in the ctx of the `picks` event (the fighters flip, then the
+   *  stage select plays the strikes). */
+  strikes?: { by: Side; stage: string }[];
+  stage?: string;
 }
 
 export type Phase =
@@ -118,8 +125,8 @@ export interface FeedEvent<K extends FeedEventType = FeedEventType> {
 /** Planned phase lengths (ms). The script may run a little over when a model is slow. */
 const TIMING_DEFAULTS = {
   call: 10_000,
-  select: 24_000,
-  selectReveal: 16_000,
+  select: 36_000, // the fighters flip at selectReveal, then the stage strikes play out
+  selectReveal: 14_000,
   versus: 16_000,
   predictions: 30_000,
   countdown: 3_500, // "3, 2, 1, go" before tick 0

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stage options</title>
+<style>
+  html, body { margin: 0; background: #141318; color: #e6e4de; font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  #sheet { width: 1920px; margin: 0 auto; }
+  header { height: 84px; display: flex; align-items: flex-end; padding: 0 32px 18px; box-sizing: border-box; }
+  header h1 { font-size: 28px; font-weight: 400; margin: 0; letter-spacing: 0.04em; }
+  header span { margin-left: auto; font-size: 15px; color: #8d8b87; }
+  .grid { display: grid; grid-template-columns: 912px 912px; gap: 26px 32px; padding: 0 32px 40px; }
+  canvas { display: block; }
+  .cap { padding: 14px 2px 0; }
+  .cap h2 { font-size: 26px; font-weight: 400; margin: 0 0 4px; letter-spacing: 0.02em; }
+  .cap p { font-size: 17px; line-height: 1.4; margin: 0; color: #b9b7b1; }
+  body.only #sheet { width: 1280px; }
+  body.only .cap { padding: 14px 24px 30px; }
+</style>
+</head>
+<body>
+<div id="sheet"></div>
+<script src="ink.js"></script>
+<script src="stages/common.js"></script>
+<script src="stages/belfry.js" onerror="0"></script>
+<script src="stages/shelf.js" onerror="0"></script>
+<script src="stages/graveyard.js" onerror="0"></script>
+<script src="stages/ship.js" onerror="0"></script>
+<script src="stages/map.js" onerror="0"></script>
+<script src="stages/rooftops.js" onerror="0"></script>
+<script>
+// stages.html shows all six; stages.html?only=<id> shows one at 1280x720.
+(function () {
+  const only = new URLSearchParams(location.search).get('only');
+  const sheet = document.getElementById('sheet');
+  // every stage is drawn in a 1280x720 frame, then scaled to fit, so pen weights match the game
+  function draw(st, w, h) {
+    const c = document.createElement('canvas');
+    const d = 2;
+    c.width = w * d; c.height = h * d; c.style.width = w + 'px'; c.style.height = h + 'px';
+    const ctx = c.getContext('2d');
+    ctx.scale((d * w) / 1280, (d * h) / 720);
+    const v = StageKit.view(1280, 720);
+    try { st.draw(ctx, v); } catch (e) { console.error(st.id, e); }
+    return c;
+  }
+  function cell(st, w, h) {
+    const box = document.createElement('div');
+    const cap = document.createElement('div'); cap.className = 'cap';
+    cap.innerHTML = `<h2>${st.name}</h2><p>${st.look}</p>`;
+    box.append(draw(st, w, h), cap);
+    return box;
+  }
+  if (only) {
+    document.body.classList.add('only');
+    const st = STAGES.find((s) => s.id === only);
+    if (st) sheet.appendChild(cell(st, 1280, 720));
+  } else {
+    const head = document.createElement('header');
+    head.innerHTML = '<h1>Stages</h1><span>Names are working names. Two stand-ins on each for scale.</span>';
+    sheet.appendChild(head);
+    const grid = document.createElement('div'); grid.className = 'grid';
+    for (const st of STAGES) grid.appendChild(cell(st, 912, 513));
+    sheet.appendChild(grid);
+  }
+  document.body.dataset.ready = '1';
+})();
+</script>
+</body>
+</html>

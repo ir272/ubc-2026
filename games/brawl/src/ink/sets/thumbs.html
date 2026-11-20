@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head>
+<body><canvas id="c" width="1280" height="720"></canvas>
+<script type="module">
+import { SETS, STAGE_IDS } from './index.ts';
+const g = document.getElementById('c').getContext('2d');
+g.fillStyle = '#000'; g.fillRect(0, 0, 1280, 720);
+const w = 400, h = 225;
+STAGE_IDS.forEach((id, i) => {
+  const s = SETS[id]();
+  s.drawThumb(g, 20 + (i % 3) * 420, 40 + Math.floor(i / 3) * 330, w, h);
+});
+// a small one, as a select screen might show it
+SETS.belfry().drawThumb(g, 20, 640, 112, 63);
+</script></body></html>
