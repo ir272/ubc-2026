@@ -1,0 +1,62 @@
+{
+  "bets-open": [
+    "Place your bets!",
+    "Bets are open!"
+  ],
+  "last-call": [
+    "Last call!",
+    "Last call!"
+  ],
+  "bets-closed": [
+    "Bets are closed!",
+    "Bets are closed!"
+  ],
+  "winner": [
+    "We have a winner!",
+    "We have a winner!"
+  ],
+  "brawl-fight": [
+    "Fight!",
+    "Fight!"
+  ],
+  "brawl-knockout": [
+    "Knockout!",
+    "Knockout!"
+  ],
+  "brawl-sudden-death": [
+    "Sudden death!",
+    "Sudden death!"
+  ],
+  "brawl-game-over": [
+    "Game Over!",
+    "Game Over!"
+  ],
+  "goober-round-one": [
+    "Round One!",
+    "Round One!"
+  ],
+  "goober-round-two": [
+    "Round Two!",
+    "Round Two!"
+  ],
+  "goober-final-round": [
+    "Final Round!",
+    "Final Round!"
+  ],
+  "goober-eight-remain": [
+    "Eight remain!",
+    "Eight remain!"
+  ],
+  "goober-four-remain": [
+    "Four remain!",
+    "Four remain!"
+  ],
+  "inkelton-fight": [
+    "Fight the Inkelton!",
+    "Fight the Inkelton!"
+  ],
+  "inkelton-duel-over": [
+    "The duel is over!",
+    "The duel is over!"
+  ]
+}
