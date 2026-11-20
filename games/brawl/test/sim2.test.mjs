@@ -183,7 +183,8 @@ test('grounded bodies never overlap for more than two ticks, and walking keeps f
         const mg = (sim.FIGHTERS[a.fighter].width + sim.FIGHTERS[b.fighter].width) * 0.5;
         if (a.grounded && b.grounded && a.platform === b.platform && free(a) && free(b) && Math.abs(a.x - b.x) < mg * 0.95) run++; else run = 0;
         longest = Math.max(longest, run);
-        for (const [f, o] of [[a, b], [b, a]]) if (f.action === 'walk') { walks++; if ((o.x - f.x) * f.facing < -0.3) back++; }
+        // (walking back to the middle while the opponent is dead or respawning faces where it walks, not the opponent)
+        for (const [f, o] of [[a, b], [b, a]]) if (f.action === 'walk' && o.action !== 'dead' && o.action !== 'respawn') { walks++; if ((o.x - f.x) * f.facing < -0.3) back++; }
       },
     });
   }
@@ -228,8 +229,8 @@ test('a grab out of a run comes after a short skid', () => {
 
 const engine = await import(path.join(simDir, 'engine.ts'));
 
-test('version is ringout-sim-6', () => {
-  assert.equal(sim.SIM_VERSION, 'ringout-sim-6');
+test('version is ringout-sim-7', () => {
+  assert.equal(sim.SIM_VERSION, 'ringout-sim-7');
 });
 
 test('the new tools are used and the same seed gives the same hash', () => {

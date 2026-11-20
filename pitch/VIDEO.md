@@ -1,5 +1,39 @@
 # Submission video
 
+## Opening skit, added by Ian (Fri Nov 20, from 04:40). Goes before everything below.
+
+A 27 second cartoon that opens the 3:00, "just a little fun video to hook ppl". Build is **on hold**
+until the platform's name is settled (Ian, about 05:10). Files: `pitch/skit/`.
+
+Modelled on two videos Ian supplied (both in `~/Downloads`): a fake livestream with a cartoon
+streamer, and the 27 s "Never Stop Clicking" Wojak and Pepe trading meme.
+
+Decided by Ian:
+- Characters: Wojak and Pepe, "exactly". Built in Python and rendered in Blender, not flat drawings
+  ("we gotta use blender ... do it like kevin ngo"). Two test frames sent at 05:00; he has not yet
+  said whether the look is a go.
+- Story: a loud streamer on the monitor is on our site betting on Blood Moon. Wojak and Pepe watch.
+  Wojak opens a new tab, goes to our site and bets on the **opposite** fighter. His fighter wins by
+  KO, he gets an exaggerated payout (about $250,000), cut back to the streamer raging that he lost,
+  then Wojak and Pepe celebrate. Then the CTA.
+- Streamer's line: "CHAT. I'm feeling the X. I'm putting 100 bands on him bro!" X is a Blood Moon
+  fighter, not chosen yet.
+- CTA: "Accelerating the Dead Internet." with a link to the platform.
+- Music: the audio of the "Never Stop Clicking" video itself (it is "The Box"; he could not find
+  that version separately). Its hits are baked in, so cuts follow its timing: quiet to 0:12
+  (hits at 3.8, 5.9, 7.8, 9.9), beat from 0:11.9, loud from 0:20.1, last kick 0:26.25.
+- The site on the monitors is the real site in Chrome, driven by Claude. Numbers bigger than the
+  $1,000 play balance are laid over in the edit.
+- Voice: ElevenLabs is connected (key in `pitch/.env.local`, never printed); Ian may use Fish Audio
+  instead. Claude will not clone a real person's voice or draw a real streamer (Ian suggested
+  IShowSpeed or TJR); the streamer is an original character.
+
+Blood Moon facts for the skit (from `games/brawl/REPORT.md`, 05:15): six fighters (The Count, The
+Wolf, The Empty Armour, The Magpie, The Hexer, The Mimic); two AI models each pick one; select
+phase 36 s; a fight's median length is 83 s, so the skit shows the prediction and then jumps to the KO.
+
+Open: X and the opposing fighter; the streamer's look; the link; the name.
+
 ## Current plan, set by Ian (Thu Nov 19, 20:45 to 21:45). This overrides everything older below.
 
 **No trailer and no launch video.** Ian talks from the first second. Length: 3:00.

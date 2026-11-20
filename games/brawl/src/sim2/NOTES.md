@@ -427,3 +427,33 @@ Still off:
    already shoots outside its own range rarely) or walk it in behind its shield.
 3. Single moves just over 35% (the Mimic's tongue in both columns; with mixed coaches the Hexer's bolt and the Wolf's pounce).
 4. Mixed coaches: 9 stretches over 6 s (worst 10.8 s) in 2880 fights; adaptive has none.
+
+## Round 4c: the Magpie and the Wolf, the Hexer and the Mimic (`SIM_VERSION` `ringout-sim-7`)
+
+Numbers and hands only; no field, event or projectile kind changed.
+- **Magpie vs Wolf.** Of the Wolf's catches on the Magpie, the largest group (59 in 40 fights) was the Pounce landing while she threw
+  knives inside its range; next were plain grabs out of her dash, jab and tilt. The Pounce (37 KOs in 80 fights) and the back throw (30)
+  took the lives. Fixes: a fighter with a fan shot (the Magpie) throws only from outside a pounce's reach (catch reach + travel +
+  0.5 m), and the Magpie weighs 88 (was 84; still "light", the threshold for the light-fighter habits is now under 92).
+- **Hexer vs Mimic.** The Mimic lashes its tongue at a caster winding up a shot or a ward (50%, frames 0 to 7 seen), and runs a
+  little faster (walk 0.08, run 0.175; were 0.075 and 0.165).
+- Test: the facing check no longer counts walks back to the middle while the opponent is dead or respawning.
+
+Numbers (`node tools/simstats.mjs --n 2880`). Overall, adaptive: Armour 48.5, Magpie 50.2, Count 48.6, Wolf 51.6, Hexer 49.6, Mimic
+51.4 (mixed 52.9 / 54.4 / **40.6** / 55.6 / 49.1 / 47.4). Seconds between specials, adaptive 3.7 / 3.1 / 3.2 / 3.2 / 3.5 / 3.4.
+Damage through specials 48.2 / **29.5** / 45.5 / 43.1 / 39.5 / 49.9%. All 2880 finish in both columns; median 83 s (mixed 84 s);
+stretches over 6 s: 2 (worst 6.9 s), mixed 10 (worst 7.6 s).
+
+Matchups, row beats column, adaptive (mixed in brackets), with the round-4b adaptive value after the arrow when it moved 3 or more:
+
+| | Magpie | Count | Wolf | Hexer | Mimic |
+|---|---|---|---|---|---|
+| Armour | 51 (53) | 52 (64) | 48 (48) | 44 (51) | 48 (49), was 51 |
+| Magpie | | 62 (68), was 56 | 44 (43), was 28 | 63 (63), was 58 | **34** (52) |
+| Count | | | 49 (36) | 53 (51) | 56 (48), was 59 |
+| Wolf | | | | 50 (61) | 48 (43) |
+| Hexer | | | | | 58 (**71**), was 67 |
+
+Still off: the Magpie against the Mimic 34 (36 before, within noise of the 35 line); the Magpie's side moved up about 6 against the
+Count and 5 against the Hexer (the heavier Magpie); the Magpie's share through specials is 29.5% (just under 30); with mixed coaches
+the Hexer still beats the Mimic 71 and the Count is at 40.6 overall.

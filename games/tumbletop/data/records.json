@@ -1,238 +1,238 @@
 {
   "juniper": {
-    "played": 128,
-    "wins": 10,
-    "finals": 41,
+    "played": 137,
+    "wins": 12,
+    "finals": 43,
     "form": [
       "2",
-      "F",
+      "2",
       "1",
-      "F",
-      "1"
+      "W",
+      "W"
     ]
   },
   "noodle": {
-    "played": 127,
+    "played": 137,
     "wins": 11,
-    "finals": 29,
+    "finals": 32,
     "form": [
-      "W",
-      "1",
       "2",
-      "1",
-      "F"
-    ]
-  },
-  "fizz": {
-    "played": 128,
-    "wins": 6,
-    "finals": 31,
-    "form": [
       "1",
       "F",
       "1",
+      "2"
+    ]
+  },
+  "fizz": {
+    "played": 136,
+    "wins": 7,
+    "finals": 32,
+    "form": [
       "1",
+      "2",
+      "W",
+      "2",
       "1"
     ]
   },
   "kiwi": {
-    "played": 127,
-    "wins": 11,
-    "finals": 32,
+    "played": 137,
+    "wins": 14,
+    "finals": 35,
     "form": [
-      "1",
-      "1",
+      "W",
       "2",
-      "1",
+      "2",
+      "2",
       "1"
     ]
   },
   "pickle": {
-    "played": 127,
+    "played": 137,
     "wins": 5,
-    "finals": 21,
+    "finals": 26,
     "form": [
-      "2",
-      "1",
-      "1",
-      "2",
-      "1"
-    ]
-  },
-  "sprocket": {
-    "played": 127,
-    "wins": 6,
-    "finals": 28,
-    "form": [
-      "2",
       "F",
       "1",
-      "2",
+      "1",
+      "F",
       "F"
     ]
   },
-  "pippin": {
-    "played": 127,
-    "wins": 13,
-    "finals": 35,
+  "sprocket": {
+    "played": 137,
+    "wins": 6,
+    "finals": 29,
     "form": [
       "1",
-      "W",
       "1",
-      "W",
+      "2",
+      "1",
+      "1"
+    ]
+  },
+  "pippin": {
+    "played": 136,
+    "wins": 13,
+    "finals": 37,
+    "form": [
+      "1",
+      "1",
+      "2",
+      "F",
       "2"
     ]
   },
   "ziggy": {
-    "played": 127,
+    "played": 137,
     "wins": 8,
-    "finals": 34,
+    "finals": 39,
+    "form": [
+      "F",
+      "2",
+      "F",
+      "F",
+      "F"
+    ]
+  },
+  "marzipan": {
+    "played": 137,
+    "wins": 11,
+    "finals": 30,
     "form": [
       "1",
       "1",
-      "F",
+      "1",
       "1",
       "1"
     ]
   },
-  "marzipan": {
-    "played": 127,
-    "wins": 11,
-    "finals": 30,
-    "form": [
-      "2",
-      "2",
-      "F",
-      "1",
-      "2"
-    ]
-  },
   "clementine": {
-    "played": 127,
-    "wins": 12,
-    "finals": 41,
+    "played": 137,
+    "wins": 14,
+    "finals": 45,
     "form": [
-      "1",
-      "1",
-      "F",
-      "1",
+      "2",
+      "2",
+      "2",
+      "2",
       "2"
     ]
   },
   "wobble": {
-    "played": 127,
+    "played": 136,
     "wins": 5,
-    "finals": 25,
+    "finals": 28,
     "form": [
-      "F",
-      "2",
       "1",
-      "F",
-      "1"
+      "1",
+      "1",
+      "1",
+      "F"
     ]
   },
   "sherbet": {
-    "played": 128,
-    "wins": 8,
-    "finals": 26,
+    "played": 136,
+    "wins": 9,
+    "finals": 28,
     "form": [
-      "1",
+      "F",
+      "W",
       "1",
       "2",
-      "1",
-      "1"
+      "2"
     ]
   },
   "pemberton": {
-    "played": 128,
+    "played": 137,
     "wins": 4,
-    "finals": 34,
+    "finals": 36,
     "form": [
-      "2",
       "1",
-      "F",
       "2",
-      "1"
+      "F",
+      "1",
+      "2"
     ]
   },
   "truffle": {
-    "played": 127,
-    "wins": 10,
-    "finals": 29,
+    "played": 137,
+    "wins": 11,
+    "finals": 32,
     "form": [
-      "1",
-      "W",
-      "2",
       "F",
-      "W"
+      "1",
+      "2",
+      "1",
+      "2"
     ]
   },
   "crumpet": {
-    "played": 127,
+    "played": 137,
     "wins": 9,
-    "finals": 40,
+    "finals": 41,
     "form": [
+      "1",
       "2",
       "1",
-      "F",
-      "F",
+      "2",
       "2"
     ]
   },
   "gherkin": {
-    "played": 127,
+    "played": 137,
     "wins": 9,
-    "finals": 38,
+    "finals": 41,
     "form": [
-      "2",
+      "1",
       "F",
       "1",
-      "W",
+      "F",
       "F"
     ]
   },
   "biscuit": {
-    "played": 128,
-    "wins": 6,
-    "finals": 28,
+    "played": 136,
+    "wins": 7,
+    "finals": 30,
     "form": [
-      "F",
-      "1",
+      "2",
+      "W",
       "1",
       "1",
       "1"
     ]
   },
   "bramble": {
-    "played": 127,
+    "played": 137,
     "wins": 4,
     "finals": 32,
     "form": [
-      "2",
-      "2",
       "1",
-      "2",
-      "F"
+      "1",
+      "1",
+      "1",
+      "1"
     ]
   },
   "taffy": {
-    "played": 128,
+    "played": 136,
     "wins": 4,
     "finals": 30,
     "form": [
       "1",
-      "F",
-      "2",
-      "2",
+      "1",
+      "1",
+      "1",
       "1"
     ]
   },
   "boop": {
-    "played": 127,
+    "played": 137,
     "wins": 8,
-    "finals": 28,
+    "finals": 29,
     "form": [
-      "1",
+      "2",
       "1",
       "1",
       "1",
@@ -240,51 +240,51 @@
     ]
   },
   "mochi": {
-    "played": 127,
-    "wins": 8,
-    "finals": 21,
+    "played": 136,
+    "wins": 10,
+    "finals": 24,
     "form": [
       "1",
       "F",
-      "2",
-      "2",
-      "1"
+      "1",
+      "1",
+      "W"
     ]
   },
   "waffles": {
-    "played": 128,
-    "wins": 4,
-    "finals": 33,
+    "played": 137,
+    "wins": 5,
+    "finals": 34,
     "form": [
       "1",
+      "W",
       "1",
-      "2",
       "1",
       "1"
     ]
   },
   "dumpling": {
-    "played": 128,
+    "played": 137,
     "wins": 7,
-    "finals": 40,
+    "finals": 45,
     "form": [
+      "1",
       "F",
-      "1",
-      "1",
+      "F",
       "1",
       "F"
     ]
   },
   "turnip": {
-    "played": 127,
+    "played": 136,
     "wins": 12,
-    "finals": 38,
+    "finals": 42,
     "form": [
-      "W",
+      "F",
       "1",
-      "W",
-      "1",
-      "2"
+      "2",
+      "F",
+      "1"
     ]
   }
 }

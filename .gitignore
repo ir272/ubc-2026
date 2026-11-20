@@ -16,3 +16,4 @@ refs/
 # demo recordings (large, not needed to run)
 games/tumbletop/docs/**/*.wav
 games/tumbletop/docs/**/*.mp4
+__pycache__/

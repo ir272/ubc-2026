@@ -1,7 +1,7 @@
-# src/sim2: round 4b (balance) ready to promote
+# src/sim2: round 4c (balance) ready to promote
 
-`SIM_VERSION` is `ringout-sim-6`. Consistent point: `node --test test/*.test.mjs` 60/60. Numbers and what is not at target: NOTES.md
-"Round 4b: balance".
+`SIM_VERSION` is `ringout-sim-7`. Consistent point: `node --test test/*.test.mjs` 60/60. Numbers and what is not at target: NOTES.md
+"Round 4c".
 
 ## Copy
 
@@ -9,10 +9,11 @@ Promotion is a plain copy:
 ```
 cp src/sim2/*.ts src/sim2/NOTES.md src/sim/
 ```
-(do not copy READY.md). Round 4b changed numbers and controller behaviour only (fighters.ts, controller.ts, index.ts): no field, no
-event, no projectile kind changed, so the picture and sound work against round 4 stands. test/sim.test.mjs needs no edit (it does
-not name the version). The tables below are still correct, except that the Hexer's ward is now 1.1 m half-width (was 0.75) and
-lies about 7 s (420 ticks).
+(do not copy READY.md). Rounds 4b and 4c changed numbers and controller behaviour only (fighters.ts, controller.ts, index.ts): no
+field, no event, no projectile kind changed, so the picture and sound work against round 4 stands. test/sim.test.mjs needs no edit
+(checked against a copy: 11/11). The tables below are still correct, except that the Hexer's ward is now 1.1 m half-width (was 0.75)
+and lies about 7 s (420 ticks). Three select-screen bars moved with the trims and speeds (computed from the numbers): the Armour's
+power 4 -> 5, the Count's power 4 -> 3, the Mimic's speed 1 -> 2; the table below is current.
 
 ## Round 4: the six fighters (for the picture and sound teams)
 
@@ -20,12 +21,12 @@ Ids, in `FIGHTER_IDS` order: `kiln`, `tick`, `gantry`, `vise`, `hexer`, `mimic`.
 
 | id | name | role | bars power / speed / reach / weight / grab | projectile kinds |
 |---|---|---|---|---|
-| kiln | The Empty Armour | Haunted armour | 4 / 1 / 5 / 4 / 3 | `flame` |
+| kiln | The Empty Armour | Haunted armour | 5 / 1 / 5 / 4 / 3 | `flame` |
 | tick | The Magpie | Thief | 2 / 5 / 5 / 2 / 1 | `knife` (three per throw) |
-| gantry | The Count | Vampire lord | 4 / 3 / 5 / 3 / 3 | `bat` (three per swarm) |
+| gantry | The Count | Vampire lord | 3 / 3 / 5 / 3 / 3 | `bat` (three per swarm) |
 | vise | The Wolf | Werewolf | 2 / 3 / 2 / 3 / 5 | none |
 | hexer | The Hexer | Witch | 2 / 1 / 5 / 2 / 4 | `hex`, `ward` |
-| mimic | The Mimic | Hungry chest | 2 / 1 / 5 / 5 / 3 | `tongue` (a tether) |
+| mimic | The Mimic | Hungry chest | 2 / 2 / 5 / 5 / 3 | `tongue` (a tether) |
 
 Bodies of the new two: the Hexer 2.15 m tall, 0.75 m wide; the Mimic 1.2 m tall, 1.3 m wide.
 

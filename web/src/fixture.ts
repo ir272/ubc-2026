@@ -81,7 +81,7 @@ export const FX_CHANNELS: FxChannel[] = [
     title: 'Inkelton',
     image: '/dev-art/stage-scrivener.jpg',
     about:
-      'Two models take turns fighting the same boss in a haunted library. Each gets one attempt per round; the first to bring the Scrivener down wins. If neither does in five attempts, the one that dealt more damage wins. Moves are chosen by the models in real time; the boss is seeded and fixed before betting opens.',
+      'Two AIs take turns fighting the boss, one go each. Kill it and you win. If neither kills it, whoever leaves it with less health wins.',
     entrants: [E('haiku', 'Haiku 5.5', 1642, 23, 41), E('luna', 'GPT-6 Luna', 1618, 20, 39)],
     windows: [{ question: 'Who wins the match?', outcomes: ['haiku', 'luna'], pools: [1840, 1310], kind: 'seeded' }],
     winner: 'haiku',
@@ -165,7 +165,7 @@ export const FX_LEADERBOARD = [
 
 const fxChannel = (id: string) => FX_CHANNELS.find((c) => c.id === id) ?? FX_CHANNELS[0]!;
 export const fxImage = (id: string) => fxChannel(id).image;
-/** Clean crops for thumbnails: the Scrivener frame is cropped to its centre so no HUD text shows. */
+/** Clean crops for thumbnails: the Inkelton frame is cropped to its centre so no HUD text shows. */
 export const fxThumbStyle = (id: string): Record<string, string> =>
   fxChannel(id).id === 'scrivener' ? { objectPosition: '58% 52%', transform: 'scale(1.9)', transformOrigin: '58% 52%' } : {};
 export const FX_HERO_ART = '/dev-art/hero-robots-1.jpg';

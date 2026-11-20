@@ -431,7 +431,7 @@ const BODIES: Record<FighterId, Body> = {
     gravity: 0.017, fallSpeed: 0.21, fastFallSpeed: 0.3, jumpSpeed: 0.3, shortHopSpeed: 0.19, doubleJumpSpeed: 0.29,
     airJumps: 1, jumpsquat: 4, traction: 0.02 },
   tick: { id: 'tick', name: 'The Magpie', role: 'Thief', blurb: 'Small bird-masked thief in a feather cloak. Fastest on the deck, knives, snatches behind you.',
-    width: 0.75, height: 1.35, weight: 84, walkSpeed: 0.1, runSpeed: 0.215, airSpeed: 0.12, airAccel: 0.007,
+    width: 0.75, height: 1.35, weight: 88, walkSpeed: 0.1, runSpeed: 0.215, airSpeed: 0.12, airAccel: 0.007,
     gravity: 0.019, fallSpeed: 0.23, fastFallSpeed: 0.34, jumpSpeed: 0.31, shortHopSpeed: 0.2, doubleJumpSpeed: 0.3,
     airJumps: 2, jumpsquat: 3, traction: 0.032 },
   gantry: { id: 'gantry', name: 'The Count', role: 'Vampire lord', blurb: 'Tall vampire in a bat-wing cloak. Long reach, bats, mist.',
@@ -447,7 +447,7 @@ const BODIES: Record<FighterId, Body> = {
     gravity: 0.0135, fallSpeed: 0.18, fastFallSpeed: 0.26, jumpSpeed: 0.28, shortHopSpeed: 0.18, doubleJumpSpeed: 0.28,
     airJumps: 1, jumpsquat: 5, traction: 0.02 },
   mimic: { id: 'mimic', name: 'The Mimic', role: 'Hungry chest', blurb: 'A walking treasure chest with teeth and a very long tongue. Heavy, slow, swallows you whole.',
-    width: 1.3, height: 1.2, weight: 120, walkSpeed: 0.075, runSpeed: 0.165, airSpeed: 0.08, airAccel: 0.0045,
+    width: 1.3, height: 1.2, weight: 120, walkSpeed: 0.08, runSpeed: 0.175, airSpeed: 0.08, airAccel: 0.0045,
     gravity: 0.018, fallSpeed: 0.22, fastFallSpeed: 0.31, jumpSpeed: 0.26, shortHopSpeed: 0.16, doubleJumpSpeed: 0.25,
     airJumps: 1, jumpsquat: 5, traction: 0.024 },
 };
