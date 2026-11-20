@@ -27,6 +27,11 @@ export const SAMPLE_NAMES = [
   'bell-toll', 'candle-snuff',
   // the show
   'quill-1', 'quill-2', 'clock-tick', 'lock-1', 'sting-danse-finale', 'sting-danse-hit',
+  // the Empty Armour, the Magpie, the Hexer, the Mimic
+  'plate-1', 'plate-2', 'plate-3', 'plates-fall', 'blade-1', 'blade-2', 'blade-3', 'flame', 'fire-breath',
+  'knife-1', 'knife-2', 'feathers-1', 'feathers-2', 'magpie',
+  'staff-1', 'staff-2', 'wood-knock', 'hex-crackle', 'ward-snap', 'crow', 'cackle',
+  'creak-1', 'creak-2', 'lid-1', 'lid-2', 'lid-slam', 'tongue-whip', 'slurp', 'spit', 'coins-spill', 'coins-jingle', 'coin-bag',
   // the night under the fight
   'night-bed',
 ] as const;

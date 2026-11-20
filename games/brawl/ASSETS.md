@@ -4,7 +4,7 @@ Every vendored file, where it came from, who made it and its licence. All files 
 `assets/vendor/`. Downloaded originals were sliced, peak-normalised to about -1 dBFS and encoded
 to mp3 with ffmpeg; the slice is given where only part of a file is used.
 
-## Sound (`assets/vendor/sound/`, 2.8 MB in total, Blood Moon)
+## Sound (`assets/vendor/sound/`, 3.2 MB in total, Blood Moon)
 
 The fight is now the Count against the Wolf, hand-inked on black, and the sound follows: one
 score (Danse Macabre) and a small set of recorded effects. Every effect is CC0; the four music
@@ -57,6 +57,39 @@ The licences were read on the track pages on 2026-11-20 (see `music-candidates/C
 | bell-toll.mp3 | https://freesound.org/people/LadyCailin/sounds/62964/ (Deep Bell.wav) | LadyCailin | CC0 | 0-9 s, faded over the last 3.5 s; one toll per knockout |
 | quill-1.mp3, quill-2.mp3 | https://freesound.org/people/brktkrgll/sounds/856167/ (Ink Quill Writing on Parchment ASMR) | brktkrgll | CC0 | 1.00-2.30 and 3.88-4.78 s; titles drawing in |
 | night-bed.mp3 | https://freesound.org/people/sleepCircle/sounds/22331/ (wind.ogg) | sleepCircle | CC0 | 3-23 s made into a seamless 20 s loop (1.5 s crossfade), low-passed at 3 kHz, 64 kbps mono; the night under the fight, barely there |
+
+The other four fighters (added 2026-11-20, same treatment; licence checked on each page that day):
+
+| file | source | author | licence | slice / used for |
+|---|---|---|---|---|
+| plate-1.mp3 to plate-3.mp3 | https://freesound.org/people/Vrymaa/sounds/770065/ (Footstep Armor - Knight) | Vrymaa | CC0 | 1.12-1.62, 2.62-3.12, 8.02-8.52 s; the Empty Armour's plates on steps, landings, grabs and when he is hit |
+| plates-fall.mp3 | https://freesound.org/people/SamsterBirdies/sounds/587443/ (Scrap metal dropping / crashing) | SamsterBirdies | CC0 | 2.35-4.35 s, low-passed at 4 kHz; the Armour's Fall Apart (forwards, then its tail backwards as the plates snap together) |
+| blade-1.mp3 to blade-3.mp3 | https://freesound.org/people/EminYILDIRIM/sounds/535359/ (Combat Whooshes) | EminYILDIRIM | CC0 | 0.95-1.27, 1.30-1.62, 2.12-2.46 s; the Armour's greatsword swings |
+| flame.mp3 | https://freesound.org/people/LookIMadeAThing/sounds/260554/ (Basic Fire whoosh) | LookIMadeAThing | CC0 | 0-1.6 s; the Armour's Grave Cleave, and (higher, lighter) the Hexer's Hex Bolt |
+| fire-breath.mp3 | https://freesound.org/people/bspiller5/sounds/157616/ (Fire Breath.wav) | bspiller5 | CC0 | 1.35-2.15 s; the Armour's Collar Fire (about 0.6 s, pitched down) |
+| knife-1.mp3 | https://freesound.org/people/MissCellany/sounds/240640/ (Metallic Whoosh.wav) | MissCellany | CC0 | whole; the Magpie's knife swings, throws and slashes |
+| knife-2.mp3 | https://freesound.org/people/spycrah/sounds/471097/ (Knife/sword swing) | spycrah | CC0 | 1.62-2.12 s; the Magpie's knives |
+| feathers-1.mp3 | https://freesound.org/people/Godowan/sounds/240476/ (wings.wav) | Godowan | CC0 | whole; the Magpie's Snatch, Updraft; the Hexer's crows' wings |
+| feathers-2.mp3 | https://freesound.org/people/Godowan/sounds/240469/ (wings2.wav) | Godowan | CC0 | whole; the Magpie's Snatch and Updraft |
+| magpie.mp3 | https://freesound.org/people/Metalman101/sounds/231302/ (Magpie - 01.wav) | Metalman101 | CC0 | 1.80-3.35 s, high-passed at 700 Hz; the Magpie's win, low |
+| staff-1.mp3 | https://freesound.org/people/qubodup/sounds/60013/ (Whoosh) | qubodup | CC0 | whole; the Hexer's staff swings |
+| staff-2.mp3 | https://freesound.org/people/denao270/sounds/346373/ (Throwing / Whip Effect) | denao270 | CC0 | whole, low-passed at 5 kHz; the Hexer's staff swings |
+| wood-knock.mp3 | https://freesound.org/people/Flem0527/sounds/629987/ (Knocking on Wood Door (1)) | Flem0527 | CC0 | whole; the Hexer's staff landing, the Mimic when hit |
+| hex-crackle.mp3 | https://freesound.org/people/DiArchangeli/sounds/462111/ (Match Ignite.aif) | DiArchangeli | CC0 | 0.18-1.18 s; the crackle on the Hex Bolt |
+| ward-snap.mp3 | https://freesound.org/people/deleted_user_2104797/sounds/164472/ (Crack of branch 3.wav) | deleted_user_2104797 | CC0 | whole; the Hexer's Ward catching someone |
+| crow.mp3 | https://freesound.org/people/Jofae/sounds/361470/ (Crow Caw) | Jofae | CC0 | whole; the Hexer's Crow Flight (two caws) |
+| cackle.mp3 | https://freesound.org/people/AntumDeluge/sounds/417826/ (Witch Cackle) | AntumDeluge | CC0 | whole; the Hexer's win, low |
+| creak-1.mp3 | https://freesound.org/people/Mafon2/sounds/377552/ (Wooden Creak) | Mafon2 | CC0 | whole; the Mimic's steps (some of them) |
+| creak-2.mp3 | https://freesound.org/people/Rudmer_Rotteveel/sounds/502507/ (Creaking Wood 4 Steps) | Rudmer_Rotteveel | CC0 | 2.00-2.55 s; the Mimic's steps |
+| lid-1.mp3 | https://freesound.org/people/salo_c_r_711/sounds/446711/ (0018-Tapa_Cofre.wav) | salo_c_r_711 | CC0 | whole; the Mimic's lid snapping on bites and grabs |
+| lid-2.mp3 | https://freesound.org/people/northern87/sounds/369988/ (Lid of chest hitting_northern87) | northern87 | CC0 | 0.05-0.45 s; the Mimic's lid snaps |
+| lid-slam.mp3 | same as lid-2 | northern87 | CC0 | 2.65-3.25 s; the Mimic's Swallow, its landings |
+| tongue-whip.mp3 | https://freesound.org/people/snowflakes/sounds/72191/ (whip03.wav) | snowflakes | CC0 | whole, pitched down; the Mimic's Tongue Lash |
+| slurp.mp3 | https://freesound.org/people/Breviceps/sounds/445974/ (Cartoon - Slurp!) | Breviceps | CC0 | whole; the tongue going out, and the drag on a catch |
+| spit.mp3 | https://freesound.org/people/nebulasnails/sounds/495117/ (Wet Splat 2.mp3) | nebulasnails | CC0 | whole; the Mimic's Spit |
+| coins-spill.mp3 | https://freesound.org/people/clairinski/sounds/184372/ (Coin Spill) | clairinski | CC0 | 0.60-3.20 s; the Mimic's Coin Burst |
+| coins-jingle.mp3 | https://freesound.org/people/severaltimes/sounds/173989/ (Coin Jingle Trio) | severaltimes | CC0 | 0.55-3.85 s; the Mimic's win |
+| coin-bag.mp3 | https://freesound.org/people/tomf_/sounds/121990/ (coinBag.wav) | tomf_ | CC0 | whole; the coins in the Spit |
 
 Kept from round 4 (non-metal; sources as recorded then):
 

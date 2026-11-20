@@ -22,14 +22,14 @@ export interface Fam {
   stride: number;
 }
 
-// gantry is the Count, vise is the Wolf; kiln and tick are kept for old fight data
+// kiln the Empty Armour, tick the Magpie, gantry the Count, vise the Wolf, hexer the Hexer, mimic the Mimic
 export const FAMS: Record<FighterId, Fam> = {
-  kiln: { pitch: 0.85, weight: 1, stride: 17 },
-  tick: { pitch: 1.15, weight: 0.3, stride: 9 },
+  kiln: { pitch: 0.88, weight: 0.9, stride: 18 },
+  tick: { pitch: 1.12, weight: 0.25, stride: 9 },
   gantry: { pitch: 1.0, weight: 0.5, stride: 15 },
   vise: { pitch: 0.93, weight: 0.7, stride: 12 },
   hexer: { pitch: 1.05, weight: 0.4, stride: 16 },
-  mimic: { pitch: 0.8, weight: 1, stride: 11 },
+  mimic: { pitch: 0.9, weight: 0.85, stride: 13 },
 };
 
 /** which strikes land with claws and which with jaws, per fighter (the rest are body or cloak) */
@@ -39,11 +39,17 @@ const CLAW: Partial<Record<FighterId, readonly string[]>> = {
 };
 const BITE: Partial<Record<FighterId, readonly string[]>> = {
   vise: ['jab', 'fair', 'uair', 'throwf', 'special'],
+  // the Mimic's lid snaps shut on the same moves the Wolf bites with (its moves are drawn from his)
+  mimic: ['jab', 'fair', 'uair', 'throwf'],
 };
-function touch(f: FighterId, move: string | undefined): 'claw' | 'bite' | null {
+/** the layer a strike adds on contact: claws, jaws, the lid, the Magpie's knife, the Hexer's staff */
+type Touch = 'claw' | 'bite' | 'lid' | 'knife' | 'staff';
+function touch(f: FighterId, move: string | undefined): Touch | null {
   if (!move) return null;
-  if (BITE[f]?.includes(move)) return 'bite';
+  if (BITE[f]?.includes(move)) return f === 'mimic' ? 'lid' : 'bite';
   if (CLAW[f]?.includes(move)) return 'claw';
+  if (f === 'tick' && move !== 'special' && move !== 'grab') return 'knife';
+  if (f === 'hexer' && move !== 'special' && move !== 'special2' && move !== 'grab') return 'staff';
   return null;
 }
 
@@ -58,6 +64,13 @@ const BITES = ['bite-1', 'bite-2'];
 const BATS = ['bats-1', 'bats-2'];
 const SNARLS = ['snarl-1', 'snarl-2'];
 const QUILLS = ['quill-1', 'quill-2'];
+const PLATES = ['plate-1', 'plate-2', 'plate-3'];
+const BLADES = ['blade-1', 'blade-2', 'blade-3'];
+const KNIVES = ['knife-1', 'knife-2'];
+const STAVES = ['staff-1', 'staff-2'];
+const FEATHERS = ['feathers-1', 'feathers-2'];
+const CREAKS = ['creak-1', 'creak-2'];
+const LIDS = ['lid-1', 'lid-2'];
 
 /**
  * Per-recording trims (dB) so every member of a round-robin set lands at the same loudest 10 ms
@@ -75,13 +88,32 @@ const vg = (e: Engine) => e.rng.range(0.89, 1.12);
 /** small pitch variation, about +-4% */
 const vr = (e: Engine, k = 0.04) => e.rng.range(1 - k, 1 + k);
 
-/** the claw slash or the bite snap on top of a landed strike */
+/** the claw slash, the bite snap, the lid clack, the knife or the staff knock on top of a landed strike */
 function edge(e: Engine, t: number, f: FighterId, move: string | undefined, amt: number, pan: number): void {
   const k = touch(f, move);
   if (!k || amt <= 0) return;
+  if (k === 'knife') {
+    e.smp(e.rr('knife-hit', KNIVES), t, { gain: 0.45 * amt * vg(e), rate: 1.15 * vr(e, 0.06), pan, hp: 900, lp: 7000, dur: 0.18 });
+    return;
+  }
+  if (k === 'staff') {
+    e.smp('wood-knock', t, { gain: 0.6 * amt * vg(e), rate: 1.05 * vr(e, 0.06), pan, hp: 150, lp: 5000, dur: 0.2 });
+    return;
+  }
+  if (k === 'lid') {
+    const n = e.rr('lid', LIDS);
+    e.smp(n, t, { gain: 0.7 * amt * vg(e), rate: 1.0 * vr(e, 0.06), pan, hp: 120, lp: 6000 });
+    return;
+  }
   const n = e.rr(k, k === 'claw' ? CLAWS : BITES);
   // claws are kept dark (no hiss on top); the snap keeps its click
   e.smp(n, t, { gain: trim(n) * amt * vg(e), rate: (k === 'claw' ? 0.92 : 1.0) * vr(e, 0.06), pan, hp: k === 'claw' ? 300 : 150, lp: k === 'claw' ? 5000 : 6500 });
+}
+
+/** what the struck body sounds like: the Armour's plates rattle, the Mimic's wood knocks */
+function struck(e: Engine, t: number, f: FighterId, amt: number, pan: number): void {
+  if (f === 'kiln') e.smp(e.rr('plate-hit', PLATES), t, { gain: 0.55 * amt * vg(e), rate: 1.0 * vr(e, 0.05), pan, hp: 200, lp: 5000 });
+  else if (f === 'mimic') e.smp('wood-knock', t, { gain: 0.55 * amt * vg(e), rate: 0.85 * vr(e, 0.05), pan, hp: 100, lp: 3500, dur: 0.25 });
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -143,6 +175,7 @@ function hitLayers(e: Engine, t: number, a: HitArgs): number {
       const lt = e.rr('light', LIGHTS);
       e.smp(lt, t, { gain: trim(lt) * vg(e), rate: pp * comboUp * vr(e), pan, hp: 120, lp: 5000, verb: 0.05 });
       edge(e, t, a.by, a.move, 0.55, pan);
+      struck(e, t, a.to, 0.5, pan);
       return 0.4;
     }
     case 'medium': {
@@ -150,6 +183,7 @@ function hitLayers(e: Engine, t: number, a: HitArgs): number {
       const md = e.rr('medium', MEDIUMS);
       e.smp(md, t, { gain: trim(md) * vg(e), rate: pp * vr(e), pan, hp: 70, lp: 4500, verb: 0.1 });
       edge(e, t, a.by, a.move, 0.7, pan);
+      struck(e, t, a.to, 0.7, pan);
       return 0.8;
     }
     case 'heavy': {
@@ -159,6 +193,7 @@ function hitLayers(e: Engine, t: number, a: HitArgs): number {
       // the low impact with a short tail; a lighter victim rings a little higher
       e.smp('impact-low', t, { gain: 0.6 * vg(e), rate: (1.05 + 0.12 * (1 - vic.weight)) * vr(e, 0.03), pan: pan * 0.5, hold: 0.06, tc: 0.13, lp: 2500 });
       edge(e, t, a.by, a.move, 0.85, pan);
+      struck(e, t, a.to, 0.85, pan);
       return 1.2;
     }
     case 'lethal': {
@@ -173,6 +208,7 @@ function hitLayers(e: Engine, t: number, a: HitArgs): number {
       e.smp(hv, h, { gain: 0.85 * trim(hv), rate: 0.85 * pp, pan, hp: 40, lp: 3500 });
       e.smp('crack-lethal', h, { gain: 0.7, rate: 0.9 * vr(e, 0.03), pan, hp: 150, lp: 5500, verb: 0.15 });
       edge(e, h, a.by, a.move, 0.6, pan);
+      struck(e, h, a.to, 0.9, pan);
       return 2.4;
     }
   }
@@ -227,6 +263,21 @@ function swing_(e: Engine, t: number, f: FighterId, move: MoveId, activeIn: numb
   const size = MOVE_SIZE[move] ?? 0.5;
   if (!e.voice(t, activeIn + 0.4, 1)) return;
   const pp = Math.pow(fam.pitch, 0.3);
+  // the Armour's greatsword: a heavy blade through the air, cresting about 120 ms in
+  if (f === 'kiln') {
+    e.smp(e.rr('blade', BLADES), t + Math.max(0, activeIn - 0.12), { gain: (0.25 + 0.22 * size) * vg(e), rate: (1.1 - 0.2 * size) * vr(e), pan, hp: 80, lp: 5000 });
+    return;
+  }
+  // the Magpie's knives: short thin whooshes
+  if (f === 'tick') {
+    e.smp(e.rr('knife', KNIVES), t + Math.max(0, activeIn - 0.06), { gain: (0.4 + 0.4 * size) * vg(e), rate: (1.15 - 0.15 * size) * vr(e), pan, hp: 400, lp: 7500 });
+    return;
+  }
+  // the Hexer's staff: a wooden swish
+  if (f === 'hexer') {
+    e.smp(e.rr('staff', STAVES), t + Math.max(0, activeIn - 0.08), { gain: (0.28 + 0.25 * size) * vg(e), rate: (1.05 - 0.2 * size) * vr(e), pan, hp: 150, lp: 5000 });
+    return;
+  }
   if (size >= 0.8) {
     // the heavy cloak crests about 120 ms in
     e.smp(e.rr('cloak-big', CLOAKS_BIG), t + Math.max(0, activeIn - 0.12), { gain: (0.55 + 0.35 * size) * vg(e), rate: (1.05 - 0.15 * size) * pp * vr(e), pan, hp: 90, lp: 6000 });
@@ -245,8 +296,103 @@ function projectile_(e: Engine, t: number, f: FighterId, kind: string, pan: numb
     if (e.rng.next() < 0.7) e.smp('bat-squeak', t + e.rng.range(0.12, 0.3), { gain: 0.3, rate: 0.72 * vr(e, 0.06), pan: pan + e.rng.range(-0.15, 0.15), hp: 500, lp: 3800 });
     return;
   }
+  if (kind === 'flame') {
+    // the Armour's Grave Cleave: a wall of fire leaves along the floor
+    if (!e.voice(t, 1.2, 2)) return;
+    e.smp('flame', t, { gain: 0.55 * vg(e), rate: 0.95 * vr(e, 0.04), pan, hp: 60, lp: 5000 });
+    return;
+  }
+  if (kind === 'hex') {
+    // the Hexer's bolt: a lighter, crackling fire
+    if (!e.voice(t, 1.0, 2)) return;
+    e.smp('flame', t, { gain: 0.6 * vg(e), rate: 1.35 * vr(e, 0.04), pan, hp: 250, lp: 6000, dur: 0.8 });
+    e.smp('hex-crackle', t + 0.02, { gain: 0.55, rate: 1.0 * vr(e, 0.05), pan, hp: 400, lp: 6500, dur: 0.6 });
+    return;
+  }
+  if (kind === 'knife') {
+    // the Magpie's Feather Knives: three quick throws
+    if (!e.voice(t, 0.5, 2)) return;
+    for (let i = 0; i < 3; i++) e.smp(e.rr('knife', KNIVES), t + i * 0.055, { gain: (0.5 - 0.07 * i) * vg(e), rate: (1.25 + 0.06 * i) * vr(e), pan, hp: 500, lp: 7500 });
+    return;
+  }
+  if (kind === 'tongue') {
+    // the Mimic's Tongue Lash: a wet whip out
+    if (!e.voice(t, 0.6, 2)) return;
+    e.smp('tongue-whip', t, { gain: 0.6 * vg(e), rate: 0.85 * vr(e, 0.04), pan, hp: 200, lp: 4500 });
+    e.smp('slurp', t + 0.03, { gain: 0.3, rate: 0.8 * vr(e, 0.04), pan, hp: 200, lp: 4500 });
+    return;
+  }
   if (!e.voice(t, 0.4, 2)) return;
-  e.smp(e.rr('swing', CLOAKS), t, { gain: 0.6, rate: 1.35 * vr(e) * Math.pow(FAMS[f].pitch, 0.3), pan, hp: 300, lp: 6000 });
+  // anything else thrown (the Hexer's ward is lobbed): a small whoosh
+  e.smp(e.rr('swing', CLOAKS), t, { gain: 0.5, rate: 1.35 * vr(e) * Math.pow(FAMS[f].pitch, 0.3), pan, hp: 300, lp: 6000 });
+}
+
+/** the Hexer's ward lies down on the floor: a soft scratch */
+function wardPlaced_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 0.5, 1)) return;
+  e.smp(e.rr('quill', QUILLS), t, { gain: 0.55, rate: 0.85 * vr(e, 0.05), pan, hp: 400, lp: 6000, dur: 0.35 });
+}
+
+/** the ward catches someone: one sharp snap of a twig */
+function wardSnap_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 0.6, 2)) return;
+  e.smp('ward-snap', t, { gain: 0.8, rate: 1.0 * vr(e, 0.05), pan, hp: 200, lp: 6500 });
+}
+
+/** the Armour's Collar Fire: a breath of fire, a low roar for about half a second */
+function fireBreath_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 1.0, 2)) return;
+  e.smp('fire-breath', t, { gain: 0.8 * vg(e), rate: 0.85 * vr(e, 0.03), pan, hp: 60, lp: 3500, dur: 0.6 });
+}
+
+/** the Armour's Fall Apart: plates drop in a heap, then snap back together */
+function fallApart_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 1.2, 2)) return;
+  e.smp('plates-fall', t, { gain: 0.6, rate: 1.0 * vr(e, 0.04), pan, hp: 100, lp: 3500, dur: 0.55 });
+  const b = sample('plates-fall');
+  if (b) e.smp('plates-fall', t + 0.45, { gain: 0.45, rate: 1.1, pan, hp: 150, lp: 4000, reverse: true, offset: Math.max(0, b.duration - 0.35), fadeIn: 0.1 });
+}
+
+/** the Magpie's Snatch: a flutter of feathers out (or back in when `back`) */
+function feathers_(e: Engine, t: number, back: boolean, pan: number): void {
+  if (!e.voice(t, 0.6, 1)) return;
+  e.smp(e.rr('feathers', FEATHERS), t, { gain: (back ? 0.55 : 0.7) * vg(e), rate: (back ? 1.15 : 1.0) * vr(e, 0.05), pan, hp: 250, lp: 7000, dur: 0.5 });
+}
+
+/** a recovery: the Magpie's cloak flap, the Hexer's crows, the Mimic's coins, the Armour falling apart */
+function recover_(e: Engine, t: number, f: FighterId, pan: number): void {
+  if (f === 'kiln') return fallApart_(e, t, pan);
+  if (!e.voice(t, 0.9, 1)) return;
+  if (f === 'tick') {
+    e.smp('cloak-big-2', t, { gain: 0.6, rate: 1.2 * vr(e), pan, hp: 150, lp: 6000 });
+    e.smp(e.rr('feathers', FEATHERS), t + 0.05, { gain: 0.35, rate: 0.9 * vr(e), pan, hp: 300, lp: 6000, dur: 0.4 });
+  } else if (f === 'hexer') {
+    e.smp('crow', t, { gain: 0.5, rate: 1.0 * vr(e, 0.05), pan: pan - 0.2, hp: 300, lp: 6000 });
+    e.smp('crow', t + 0.28, { gain: 0.35, rate: 1.08 * vr(e, 0.05), pan: pan + 0.2, hp: 300, lp: 6000 });
+    e.smp('feathers-1', t + 0.05, { gain: 0.5, rate: 0.85, pan, hp: 200, lp: 6000, dur: 0.6 });
+  } else if (f === 'mimic') {
+    e.smp('coins-spill', t, { gain: 0.6, rate: 1.0 * vr(e, 0.04), pan, hp: 400, lp: 7000, dur: 1.0 });
+  }
+}
+
+/** the Mimic's Swallow: the lid slams on the opponent and a muffled thump inside */
+function swallow_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 0.8, 2)) return;
+  e.smp('lid-slam', t, { gain: 0.6, rate: 1.0 * vr(e, 0.04), pan, hp: 50, lp: 3500 });
+  e.smp('p-heavy-4', t + 0.18, { gain: 0.6, rate: 0.85, pan, lp: 400 });
+}
+
+/** ...and the Spit: wet, with a few coins */
+function spit_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 0.8, 2)) return;
+  e.smp('spit', t, { gain: 0.65, rate: 0.9 * vr(e, 0.05), pan, hp: 150, lp: 5000 });
+  e.smp('coin-bag', t + 0.08, { gain: 0.4, rate: 1.0 * vr(e, 0.05), pan, hp: 400, lp: 7000 });
+}
+
+/** the tongue catches and drags the opponent in */
+function tongueDrag_(e: Engine, t: number, pan: number): void {
+  if (!e.voice(t, 0.6, 2)) return;
+  e.smp('slurp', t, { gain: 0.55, rate: 0.75 * vr(e, 0.04), pan, hp: 150, lp: 4500 });
 }
 
 /** the Count's Mist Step: a breath that swells to where he re-forms (`reformIn` s from now) */
@@ -277,7 +423,13 @@ function grab_(e: Engine, t: number, f: FighterId, pan: number): void {
   if (!e.voice(t, 0.6, 2)) return;
   const fam = FAMS[f];
   // a hand (or jaws) closing on a body: the cloth grab and a short dull knock
+  if (f === 'mimic') {
+    // the lid closes on a body
+    e.smp(e.rr('lid', LIDS), t, { gain: 0.7, rate: 0.95 * vr(e), pan, hp: 100, lp: 6000 });
+    return;
+  }
   e.smp('grab-1', t, { gain: 0.8 * vg(e), rate: Math.pow(fam.pitch, 0.3) * vr(e), pan, hp: 60, lp: 5000 });
+  if (f === 'kiln') e.smp(e.rr('plate', PLATES), t, { gain: 0.3, rate: 1.0 * vr(e), pan, hp: 200, lp: 5000 });
   if (f === 'vise') e.smp(e.rr('bite', BITES), t, { gain: 0.35, rate: 1.0 * vr(e), pan, hp: 150, lp: 6000 });
   else e.smp('p-light-4', t, { gain: 0.3, rate: 1.1 * vr(e), pan, hp: 120, lp: 2500 });
 }
@@ -295,7 +447,10 @@ function step_(e: Engine, t: number, f: FighterId, pan: number, loud = 1): void 
   if (!e.voice(t, 0.2, 0)) return;
   const w = FAMS[f].weight;
   // a soft footfall on stone or boards, heavier and lower with weight
-  e.smp(e.rr('step', STEPS), t, { gain: (0.35 + 0.45 * w) * loud * vg(e), rate: (1.15 - 0.3 * w) * vr(e), pan, hp: 60, lp: 3000 });
+  e.smp(e.rr('step', STEPS), t, { gain: (0.35 + 0.45 * w) * loud * (f === 'tick' ? 0.7 : 1) * vg(e), rate: (1.15 - 0.3 * w) * (f === 'tick' ? 1.2 : 1) * vr(e), pan, hp: 60, lp: 3000 });
+  // the Armour's plates shift with each step; the Mimic's boards creak on some steps
+  if (f === 'kiln') e.smp(e.rr('plate', PLATES), t, { gain: 0.22 * loud * vg(e), rate: 1.0 * vr(e, 0.06), pan, hp: 250, lp: 5000 });
+  else if (f === 'mimic' && e.rng.next() < 0.4) e.smp(e.rr('creak', CREAKS), t, { gain: 0.35 * loud * vg(e), rate: 1.0 * vr(e, 0.06), pan, hp: 150, lp: 4500, dur: 0.35 });
 }
 
 function jump_(e: Engine, t: number, f: FighterId, air: boolean, pan: number): void {
@@ -314,6 +469,8 @@ function land_(e: Engine, t: number, f: FighterId, hard: boolean, pan: number): 
   // the weight comes down: a soft thump and a footfall
   e.smp('land-1', t, { gain: (0.35 + 0.45 * w) * k * vg(e), rate: (1.25 - 0.35 * w) * vr(e), pan, hp: 50, lp: 2500 });
   e.smp(e.rr('step', STEPS), t, { gain: 0.25 * k, rate: 1.05 * vr(e), pan, hp: 150, lp: 3000 });
+  if (f === 'kiln') e.smp(e.rr('plate', PLATES), t, { gain: 0.45 * k * vg(e), rate: 0.95 * vr(e), pan, hp: 200, lp: 5000 });
+  else if (f === 'mimic') e.smp('lid-slam', t, { gain: 0.3 * k, rate: 1.1 * vr(e), pan, hp: 80, lp: 2000 });
 }
 
 function dash_(e: Engine, t: number, f: FighterId, pan: number): void {
@@ -549,6 +706,14 @@ export const shieldBreak = leveled(-10, shieldBreak_);
 export const clank = leveled(-10, clank_);
 export const swing = leveled(-16, swing_);
 export const projectile = leveled(-12, projectile_);
+export const wardPlaced = leveled(-14, wardPlaced_);
+export const wardSnap = leveled(-12, wardSnap_);
+export const fireBreath = leveled(-11, fireBreath_);
+export const feathers = leveled(-14, feathers_);
+export const recover = leveled(-13, recover_);
+export const swallow = leveled(-10, swallow_);
+export const spit = leveled(-11, spit_);
+export const tongueDrag = leveled(-12, tongueDrag_);
 export const mist = leveled(-12, mist_);
 export const pounce = leveled(-9, pounce_);
 export const howl = leveled(-12, howl_);
@@ -595,6 +760,13 @@ export function koEcho(e: Engine, t: number, pan: number): void {
 /** The music stings, played on the ui bus so the music bus's ducks never touch them. */
 export function stingFinale(e: Engine, t: number): number {
   return e.smp('sting-danse-finale', t, { gain: 1.1, bus: 'ui' });
+}
+/** a winner's own voice over the strings: the Magpie's chatter, the Hexer's cackle, the Mimic's coins (the Wolf's howl is separate) */
+export function winVoice(e: Engine, t: number, f: FighterId, pan: number): void {
+  const lvl = Math.pow(10, -14 / 20);
+  if (f === 'tick') e.smp('magpie', t, { gain: 0.6 * lvl, bus: 'ui', pan, hp: 700, lp: 6000 });
+  else if (f === 'hexer') e.smp('cackle', t, { gain: 0.5 * lvl, bus: 'ui', pan, hp: 250, lp: 6000 });
+  else if (f === 'mimic') e.smp('coins-jingle', t, { gain: 0.6 * lvl, bus: 'ui', pan, hp: 400, lp: 7000 });
 }
 export function stingHit(e: Engine, t: number): number {
   return e.smp('sting-danse-hit', t, { gain: 0.6, bus: 'ui' });

@@ -69,6 +69,30 @@ const JOBS: Record<string, Job> = {
   'howl-short': { len: 1.6, run: (e, t) => S.howl(e, t, false, 0) },
   'hit-claw': { len: 1.2, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'vise', to: 'gantry', damage: 9, kb: 70, pan: 0, combo: 0, move: 'tilt' }); } },
   'hit-bite': { len: 1.2, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'vise', to: 'gantry', damage: 9, kb: 70, pan: 0, combo: 0, move: 'jab' }); } },
+  'n-flame': { len: 1.8, run: (e, t) => S.projectile(e, t, 'kiln', 'flame', 0) },
+  'n-hex': { len: 1.2, run: (e, t) => S.projectile(e, t, 'hexer', 'hex', 0) },
+  'n-knives': { len: 0.8, run: (e, t) => S.projectile(e, t, 'tick', 'knife', 0) },
+  'n-tongue': { len: 0.8, run: (e, t) => S.projectile(e, t, 'mimic', 'tongue', 0) },
+  'n-tongue-drag': { len: 0.8, run: (e, t) => S.tongueDrag(e, t, 0) },
+  'n-fire-breath': { len: 1.0, run: (e, t) => S.fireBreath(e, t, 0) },
+  'n-fall-apart': { len: 1.4, run: (e, t) => S.recover(e, t, 'kiln', 0) },
+  'n-updraft': { len: 1.0, run: (e, t) => S.recover(e, t, 'tick', 0) },
+  'n-crows': { len: 1.0, run: (e, t) => S.recover(e, t, 'hexer', 0) },
+  'n-coin-burst': { len: 1.4, run: (e, t) => S.recover(e, t, 'mimic', 0) },
+  'n-snatch': { len: 1.0, run: (e, t) => { S.feathers(e, t, false, 0); S.feathers(e, t + 0.15, true, 0); } },
+  'n-ward-placed': { len: 0.6, run: (e, t) => S.wardPlaced(e, t, 0) },
+  'n-ward-snap': { len: 0.8, run: (e, t) => S.wardSnap(e, t, 0) },
+  'n-swallow-spit': { len: 1.4, run: (e, t) => { S.swallow(e, t, 0); S.spit(e, t + 0.5, 0); } },
+  'n-swing-blade': { len: 0.8, run: (e, t) => S.swing(e, t, 'kiln', 'smash', 0.25, 0) },
+  'n-swing-knife': { len: 0.6, run: (e, t) => S.swing(e, t, 'tick', 'tilt', 0.1, 0) },
+  'n-swing-staff': { len: 0.6, run: (e, t) => S.swing(e, t, 'hexer', 'tilt', 0.12, 0) },
+  'n-steps-kiln': { len: 1.4, run: (e, t) => { for (let i = 0; i < 4; i++) S.step(e, t + i * 0.3, 'kiln', 0); S.land(e, t + 1.2, 'kiln', false, 0); } },
+  'n-steps-mimic': { len: 1.4, run: (e, t) => { for (let i = 0; i < 4; i++) S.step(e, t + i * 0.22, 'mimic', 0); S.land(e, t + 1.0, 'mimic', false, 0); } },
+  'n-steps-tick': { len: 1.0, run: (e, t) => { for (let i = 0; i < 4; i++) S.step(e, t + i * 0.15, 'tick', 0); } },
+  'n-hit-on-kiln': { len: 1.0, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'tick', to: 'kiln', damage: 9, kb: 70, pan: 0, combo: 0, move: 'tilt' }); } },
+  'n-hit-on-mimic': { len: 1.0, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'hexer', to: 'mimic', damage: 9, kb: 70, pan: 0, combo: 0, move: 'tilt' }); } },
+  'n-lid-bite': { len: 1.0, run: (e, t) => { S.hit(e, t, { strength: 'medium', by: 'mimic', to: 'hexer', damage: 9, kb: 70, pan: 0, combo: 0, move: 'jab' }); } },
+  'win-voices': { len: 6.5, run: (e, t) => { S.winVoice(e, t, 'tick', 0); S.winVoice(e, t + 2.2, 'hexer', 0); S.winVoice(e, t + 3.8, 'mimic', 0); } },
   'sting-finale': { len: 10.8, run: (e, t) => { S.stingFinale(e, t); } },
   ledge: { len: 0.8, run: (e, t) => S.ledge(e, t, 'vise', 0) },
   clank: { len: 0.8, run: (e, t) => S.clank(e, t, 0) },
@@ -518,6 +542,94 @@ async function renderPreview(): Promise<{ buf: AudioBuffer; meta: Record<string,
 }
 
 // ------------------------------------------------------------------------------------------------
+// The second preview: the new four. Two real stretches, the Armour against the Magpie and the Hexer
+// against the Mimic, each the window of its fight that holds the most of the new abilities.
+// ------------------------------------------------------------------------------------------------
+
+type Want = [string, (x: SimEvent) => boolean];
+const ABILITIES: Record<string, Want[]> = {
+  'kiln-tick': [
+    ['Grave Cleave (flame)', (x) => x.t === 'projectile' && x.side === 0 && x.kind === 'flame'],
+    ['Collar Fire', (x) => x.t === 'move' && x.side === 0 && x.move === 'special2'],
+    ['Fall Apart', (x) => x.t === 'move' && x.side === 0 && x.move === 'recover'],
+    ['Feather Knives', (x) => x.t === 'projectile' && x.side === 1 && x.kind === 'knife'],
+    ['Snatch', (x) => x.t === 'blink' && x.side === 1],
+    ['Updraft', (x) => x.t === 'move' && x.side === 1 && x.move === 'recover'],
+  ],
+  'hexer-mimic': [
+    ['Hex Bolt', (x) => x.t === 'projectile' && x.side === 0 && x.kind === 'hex'],
+    ['Ward placed', (x) => x.t === 'hazard' && x.side === 0 && x.state === 'placed'],
+    ['Ward catches', (x) => (x.t === 'hazard' && x.side === 0 && x.state === 'sprung') || (x.t === 'snare' && x.by === 0)],
+    ['Crow Flight', (x) => x.t === 'move' && x.side === 0 && x.move === 'recover'],
+    ['Tongue Lash', (x) => x.t === 'projectile' && x.side === 1 && x.kind === 'tongue'],
+    ['Tongue catch', (x) => x.t === 'pull' && x.by === 1],
+    ['Swallow and Spit', (x) => x.t === 'throw' && x.by === 1 && x.move === 'special2'],
+    ['Coin Burst', (x) => x.t === 'move' && x.side === 1 && x.move === 'recover'],
+  ],
+};
+
+function bestWindow(mod: SimMod, fighters: [FighterId, FighterId], wants: Want[], secs: number): { ticks: Tick[]; seed: string; got: string[] } {
+  const W = secs * 60;
+  let best: { seed: string; from: number; got: string[] } | null = null;
+  for (let k = 0; k < 40; k++) {
+    const seed = `blood-moon-four-${fighters.join('-')}-${k}-3c5e7a9b1d2f4e6a8c0b`;
+    const header = mod.makeHeader(seed, fighters, { lives: 2 });
+    const evs: SimEvent[][] = [];
+    mod.runFight(header, { coaches: ['adaptive', 'rush'], onTick: (st, ev) => { evs[st.tick] = ev.slice(); } });
+    for (let from = 0; from + W < evs.length; from += 60) {
+      const got: string[] = [];
+      for (const [name, f] of wants) {
+        for (let i = from; i < from + W && !got.includes(name); i++) if (evs[i]?.some(f)) got.push(name);
+      }
+      if (!best || got.length > best.got.length) best = { seed, from, got };
+    }
+    if (best && best.got.length === wants.length) break;
+  }
+  const b = best!;
+  const ticks: Tick[] = [];
+  mod.runFight(mod.makeHeader(b.seed, fighters, { lives: 2 }), { coaches: ['adaptive', 'rush'], onTick: (st, ev) => { if (st.tick >= b.from && st.tick < b.from + W) ticks.push({ s: structuredClone(st), ev: ev.slice() }); } });
+  return { ticks, seed: b.seed, got: b.got };
+}
+
+async function renderPreviewFour(): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
+  const { mod, name } = await newestSim();
+  const frames: Frame[] = [];
+  const at = () => Math.round((frames.length * 1000) / 60) / 1000;
+  const marks: Record<string, number[]> = {};
+  const stretches: Record<string, unknown>[] = [];
+  frames.push({ dt: 1 / 60, now: 0, show: { ...blankShow('predictions'), phaseMs: 9000 }, fight: null, post: POST, width: 1280, height: 720 });
+  let ms = 0;
+  for (const [key, fighters] of [['kiln-tick', ['kiln', 'tick']], ['hexer-mimic', ['hexer', 'mimic']]] as [string, [FighterId, FighterId]][]) {
+    const wants = ABILITIES[key];
+    const w = bestWindow(mod, fighters, wants, 27);
+    stretches.push({ pair: key, seed: w.seed, from_s: at(), covered: w.got, missing: wants.map((x) => x[0]).filter((n) => !w.got.includes(n)) });
+    const ctxPicks = { picks: fighters } as unknown as ShowState['ctx'];
+    for (let i = 0; i < w.ticks.length; i++) {
+      const cur = w.ticks[i];
+      for (const ev of cur.ev) for (const [n, f] of wants) if (f(ev)) (marks[n] ??= []).push(at());
+      ms += 1000 / 60;
+      frames.push(frameOf({ ...blankShow('fight'), ctx: ctxPicks, phaseMs: ms }, cur, w.ticks[Math.max(0, i - 1)], cur.ev, 'live', 1, at() * 1000));
+    }
+    // a short held breath between the two stretches
+    const last = w.ticks[w.ticks.length - 1];
+    for (let i = 0; i < 60; i++) { ms += 1000 / 60; frames.push(frameOf({ ...blankShow('fight'), ctx: ctxPicks, phaseMs: ms }, last, last, [], 'frozen', 1, at() * 1000)); }
+  }
+  const ctx = new OfflineAudioContext(2, Math.ceil((frames.length / 60 + 0.8) * SR), SR);
+  const e = new Engine(ctx);
+  const dir = createDirector(e, { live: false, defs: mod.FIGHTERS as unknown as MoveDefs });
+  await music('fight', SR);
+  await music('bed', SR);
+  frames.forEach((f, i) => {
+    void ctx.suspend(i / 60 + 0.0005).then(() => {
+      dir.update(f);
+      void ctx.resume();
+    });
+  });
+  const buf = await ctx.startRendering();
+  return { buf, meta: { lead: 0, eventAt: 0, sim: name, stretches, marks } };
+}
+
+// ------------------------------------------------------------------------------------------------
 
 function b64(f: Float32Array): string {
   const u8 = new Uint8Array(f.buffer, f.byteOffset, f.byteLength);
@@ -579,12 +691,13 @@ export function installAudioHarness(assetsBase = '/'): void {
   const w = window as unknown as { __audio: Record<string, unknown> };
   const api = {
     ready: false,
-    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict', 'preview'],
+    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict', 'preview', 'preview-four'],
     missing: () => missingSamples(),
     liveSmoke: () => liveSmoke(assetsBase),
     async render(name: string) {
       let r: { buf: AudioBuffer; meta: Record<string, unknown> };
       if (name === 'preview') r = await renderPreview();
+      else if (name === 'preview-four') r = await renderPreviewFour();
       else if (name === 'timeline' || name === 'ko-break' || name === 'ko-replay') r = await renderTimeline(name);
       else if (name.startsWith('show-')) r = await renderShow(name.slice(5) as 'call' | 'countdown' | 'verdict');
       else if (name === 'music-fight') r = await renderMusicJob('fight');

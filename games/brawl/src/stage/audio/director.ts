@@ -140,8 +140,10 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
   /** the wolf's voice: when it last snarled and last howled in full (context time) */
   let lastSnarl = -999;
   let lastHowl = -999;
-  /** the last bat of each side's swarm (tick): one flutter per swarm of three */
+  /** the last bat or knife of each side's volley (tick): one sound per volley of three */
   const lastBat: [number, number] = [-999, -999];
+  /** the last ward snap (tick): the hazard and the snare of one catch arrive together */
+  let lastSnap = -999;
   let night: Loop | null = null;
   let mus: Loop | null = null;
   let wantMusic: 'fight' | 'bed' | null = null;
@@ -230,10 +232,11 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
     S.stingFinale(e, t + 0.05);
     bedHeldUntil = t + FINALE_S - 1.0;
     // the Wolf's win: the one howl, in full, a moment after the strings begin
-    if (fighterOf(frame, side) === 'vise') {
+    const wf = fighterOf(frame, side);
+    if (wf === 'vise') {
       S.howl(e, t + 1.1, true, side === 0 ? -0.3 : 0.3);
       lastHowl = t;
-    }
+    } else S.winVoice(e, t + 1.1, wf, side === 0 ? -0.3 : 0.3);
   }
 
   // ---- fight events ----
@@ -273,11 +276,35 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
       case 'clank':
         S.clank(e, t, panOf(ev.x));
         break;
-      case 'grab':
-        S.grab(e, t, fighterOf(frame, ev.by), panOf(side(ev.by).x));
+      case 'grab': {
+        const f = fighterOf(frame, ev.by);
+        // the Mimic's Swallow is a close command grab: the lid slams shut on them
+        if (f === 'mimic' && side(ev.by).move === 'special2') S.swallow(e, t, panOf(side(ev.by).x));
+        else S.grab(e, t, f, panOf(side(ev.by).x));
         break;
-      case 'throw':
-        S.throwSound(e, t, fighterOf(frame, ev.by), panOf(side(ev.by).x));
+      }
+      case 'throw': {
+        const f = fighterOf(frame, ev.by);
+        // ...and the Spit, with a few coins
+        if (f === 'mimic' && ev.move === 'special2') S.spit(e, t, panOf(side(ev.by).x));
+        else S.throwSound(e, t, f, panOf(side(ev.by).x));
+        break;
+      }
+      case 'pull':
+        // the Mimic's tongue caught: the drag in
+        if (fighterOf(frame, ev.by) === 'mimic') S.tongueDrag(e, t, panOf(ev.x));
+        break;
+      case 'blink':
+        // the Magpie's Snatch lands: feathers settle (the Count's mist is played from his move)
+        if (fighterOf(frame, ev.side) === 'tick') S.feathers(e, t, true, panOf(ev.toX));
+        break;
+      case 'hazard':
+        if (ev.kind === 'ward' && ev.state === 'placed') S.wardPlaced(e, t, panOf(ev.x));
+        else if (ev.kind === 'ward' && ev.state === 'sprung' && ev.tick - lastSnap > 10) { lastSnap = ev.tick; S.wardSnap(e, t, panOf(ev.x)); }
+        break;
+      case 'snare':
+        // the Hexer's ward closing on someone (the Wolf's howl is heard from his move)
+        if (fighterOf(frame, ev.by) === 'hexer' && ev.tick - lastSnap > 10) { lastSnap = ev.tick; S.wardSnap(e, t, panOf(ev.x)); }
         break;
       case 'move': {
         if (ev.move === 'grab' || ev.move === 'throwf' || ev.move === 'throwb' || ev.move === 'throwu') break;
@@ -306,12 +333,29 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
           S.howl(e, t, full, pan);
           break;
         }
+        // the Armour's Collar Fire: the roar starts as the fire leaves the collar
+        if (f === 'kiln' && ev.move === 'special2') {
+          S.fireBreath(e, t + Math.min(0.3, (Math.max(0, startup - 2) * TICK_S) / speed), pan);
+          break;
+        }
+        // the Magpie's Snatch: feathers out (they settle again on the blink)
+        if (f === 'tick' && ev.move === 'special2') {
+          S.feathers(e, t, false, pan);
+          break;
+        }
+        // the Mimic's Tongue Lash and Swallow are heard from the tongue and the grab
+        if (f === 'mimic' && (ev.move === 'special' || ev.move === 'special2')) break;
+        // the new four's recoveries: plates, a cloak flap, crows, coins
+        if (ev.move === 'recover' && (f === 'kiln' || f === 'tick' || f === 'hexer' || f === 'mimic')) {
+          S.recover(e, t, f, pan);
+          break;
+        }
         S.swing(e, t, f, ev.move, (startup * TICK_S) / speed, pan);
         break;
       }
       case 'projectile': {
         // the Count's swarm is three bats a few ticks apart: one flutter for the three
-        if (ev.kind === 'bat') {
+        if (ev.kind === 'bat' || ev.kind === 'knife') {
           if (ev.tick - lastBat[ev.side] < 20 && ev.tick >= lastBat[ev.side]) break;
           lastBat[ev.side] = ev.tick;
         }
