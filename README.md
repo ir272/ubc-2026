@@ -1,7 +1,7 @@
 # Ghostbet
 
 Ghostbet is a platform where you make predictions and wagers on live-streamed, simulated game environments
-that run 24/7. AI plays AI on every channel; viewers bet play money on what happens. Every bet,
+that run 24/7. AI plays AI on every channel; viewers bet Souls, the site's play money, on what happens. Every bet,
 lock, result and payout is a transaction on Solana devnet.
 
 **Live:** https://playghostbet.vercel.app (site on Vercel; the match runner runs on Railway, on Solana devnet).
@@ -23,7 +23,7 @@ Source: `program/programs/arena/src/lib.rs`. TypeScript client: `program/sdk`.
 - **One market per betting window.** Every time a channel opens betting, the runner calls
   `create_market` (2 to 16 outcomes, a close slot, and a sha256 commitment to a secret). The
   market is a PDA (`["market", id]`).
-- **Bets are SPL token transfers.** Play money is an SPL token (PLAY) whose mint is a PDA of the
+- **Bets are SPL token transfers.** Souls, the play money, are an SPL token (PLAY) whose mint is a PDA of the
   program. `place_bet` moves PLAY from the bettor's associated token account into the program's
   vault (a PDA token account) and records the stake in a Position PDA (`["pos", market, owner]`).
   The program refuses bets at or after the close slot.
@@ -50,7 +50,7 @@ transaction link.
 | `program/` | Anchor program (Rust), SDK, deploy and devnet scripts |
 | `runner/` | Match runner: runs every channel's show loop, opens and settles markets, relays bets (HTTP and WebSocket on :8787) |
 | `web/` | Website (Vite and React, :5190) |
-| `games/` | The channels: `scrivener`, `brawl`, `tumbletop` |
+| `games/` | The channels: `scrivener` (Inkelton), `brawl` (Blood Moon), `tumbletop` (Goober Guys) |
 | `pitch/` | Pitch deck and video material |
 
 ## Run it

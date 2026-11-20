@@ -1,7 +1,7 @@
 # Contract
 
-Working name: **Arena**. A site with 24/7 live channels where AI plays AI and viewers bet play
-money on the outcome. This file fixes the seams between the parts so they can be built in parallel.
+Name: **Ghostbet** (working name Arena). A site with 24/7 live channels where AI plays AI and viewers bet
+play money (Souls) on the outcome. This file fixes the seams between the parts so they can be built in parallel.
 It is not a spec: anything not written here is the owner's call.
 
 ## Folders and rules
@@ -30,7 +30,7 @@ Two kinds of window:
 
 ## 1. Program (owner: `program/`)
 
-Token: one SPL mint, `PLAY`, 6 decimals, mint authority = admin. The UI shows 1 PLAY as $1.
+Token: one SPL mint, `PLAY`, 6 decimals, mint authority = admin. The UI shows 1 PLAY as 1 Soul.
 
 Accounts
 - `Config { admin, mint, vault }`: `vault` is a program-owned token account that holds every pool.
@@ -128,7 +128,7 @@ chat           { from, text, bot?: boolean }                   // clients send {
 ## 3. Web (owner: `web/`)
 
 Vite + React + TypeScript, dev port **5190**.
-- **Silent wallet**: an ed25519 keypair made on first visit and kept in `localStorage`. No sign-in, no extension, no signing prompt. First visit calls `/faucet`. Balance is shown in dollars.
+- **Silent wallet**: an ed25519 keypair made on first visit and kept in `localStorage`. No sign-in, no extension, no signing prompt. First visit calls `/faucet`. Balance is shown in Souls.
 - **Betting**: build the `place_bet` transaction with `@arena/sdk`, sign with the silent key, `POST /relay`.
 - **Pages**: home (grid of live channels) and channel (stage where the game mounts, bet panel, chat).
 
@@ -156,7 +156,7 @@ The game draws the world. The platform owns names, odds, bets, chat and results.
 The program and the runner now exist. Where this file and the code differ, the code and
 `runner/README.md` win. The differences that matter to the website and to games:
 
-- **Amounts are integers in PLAY base units** everywhere (1 PLAY = 1,000,000). Divide by 1e6 to show dollars. `GET /config` returns `decimals`.
+- **Amounts are integers in PLAY base units** everywhere (1 PLAY = 1,000,000). Divide by 1e6 to show Souls. `GET /config` returns `decimals`.
 - **`event` messages nest the game event**: `{ type: 'event', t, event: { type, at, data } }`.
 - Extra feed messages: `phase { phase }` on every phase change; `error { message }` to one socket.
 - Extra fields: `match.startedAt`; `window_open.simHash` and `.commitment`; `window_locked.pools/total`; `window_void.refunds`; `bot: true` on house-bot payouts. The snapshot adds `title`, `recentChat`, `bots`, and per-window `state / pools / total / payouts`.

@@ -1,6 +1,6 @@
 // The wallet window, laid out after duel.com's: a title row, a two-part switch (Deposit, Withdraw), then that
 // part's fields. Deposit shows the viewer's address as a QR code and text, plus the free top-up. Withdraw sends
-// play dollars to another address. Viewer copy never names the chain underneath.
+// Souls to another address. Viewer copy never names the chain underneath.
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CURRENCY, UNIT, usd } from '../lib/money';
 import { qrPath } from '../lib/qr';

@@ -1,5 +1,5 @@
 // Top-right of the header: the balance pill with its dropdown, the Wallet button that opens the wallet
-// window (WalletModal.tsx), and the profile tile. Everything shown is real: there is one currency (play dollars), one
+// window (WalletModal.tsx), and the profile tile. Everything shown is real: there is one currency (Souls), one
 // silent wallet in this browser, and no sign-in.
 import { useEffect, useRef, useState } from 'react';
 import { CURRENCY, usd } from '../lib/money';

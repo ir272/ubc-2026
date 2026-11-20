@@ -112,7 +112,7 @@ export const api = {
   devBet: (b: { owner: string; windowId: string; outcomeId: string; amount: number }) =>
     req<{ ok: true; pools: number[]; total: number; balance: number }>('/dev/bet', b),
   relay: (tx: string) => req<{ signature: string }>('/relay', { tx }),
-  /** Practice mode only: move play dollars to another address. */
+  /** Practice mode only: move Souls to another address. */
   devTransfer: (b: { from: string; to: string; amount: number }) => req<{ ok: true; balance: number }>('/dev/transfer', b),
 };
 

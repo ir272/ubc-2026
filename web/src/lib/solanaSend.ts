@@ -1,4 +1,4 @@
-// Solana mode only, loaded on demand: sends play dollars from the viewer's silent wallet to another address.
+// Solana mode only, loaded on demand: sends Souls from the viewer's silent wallet to another address.
 // The transaction is exactly what the runner's POST /relay accepts for a transfer: the runner's fee payer pays,
 // an idempotent "create the recipient's token account" (paid by the fee payer), then one checked transfer signed
 // by the viewer's key. The runner adds the fee payer's signature and submits.

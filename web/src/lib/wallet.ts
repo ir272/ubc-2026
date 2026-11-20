@@ -123,7 +123,7 @@ class Wallet {
     }
   }
 
-  /** "Get free play dollars" in the wallet window: the one-time grant, asked for again by hand. */
+  /** "Get free Souls" in the wallet window: the one-time grant, asked for again by hand. */
   async topUp(): Promise<'added' | 'already' | 'failed'> {
     if (FIXTURE) {
       await new Promise((r) => setTimeout(r, 400));
@@ -198,7 +198,7 @@ class Wallet {
   }
 
   /**
-   * Sends play dollars to another address. Resolves to null when it went through, else a short reason to show.
+   * Sends Souls to another address. Resolves to null when it went through, else a short reason to show.
    * Solana: a transfer signed with the silent key, fees paid by the runner (POST /relay). Practice: POST /dev/transfer.
    */
   async send(to: string, amount: number): Promise<string | null> {

@@ -118,7 +118,7 @@ Under reduced motion a moment shows its settled frame (and `chat-sent` shows not
   outcomes), `Button` for amounts (`selected`) and the bet, the `bet-placed` moment when a bet lands and the
   `payout` moment on a fresh win. All bet logic and every `data-testid` are unchanged.
 - **Chat** (`components/Chat.tsx`): `BotTag`, new messages rise in, `TextInput` + `Button`, the `chat-sent` moment.
-- **Channel tabs** (`components/ChannelTabs.tsx`): `Tabs` + `TabPanel`.
+- **Channel tabs** (`components/ChannelTabs.tsx`): `Tabs` + `TabPanel`. No longer mounted: the channel page now uses `components/ChannelPanels.tsx`.
 - **Rail** (`components/Rail.tsx`): `Medallion` + `Beacon`.
 - **Home** (`pages/Home.tsx`): `Medallion`, `Pill`, cards in `Frame`, "Watch and bet" as a primary `Button`.
 - **Header** (`components/Balance.tsx`): the three triggers are `Button`s and the balance is a `Roll`. The menus
