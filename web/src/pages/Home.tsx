@@ -27,7 +27,7 @@ function LiveCard({ snap }: { snap: Snapshot }) {
         <Link to={to} className="card-thumb" aria-label={`Watch ${title}`}>
           <Thumb channel={snap.channel} title={title} />
           <Pill live className="live-badge">Live</Pill>
-          <span className="card-viewers num">{shortCount(listViewers(snap))} viewers</span>
+          <span className="card-viewers num">{shortCount(listViewers(snap))} watching</span>
         </Link>
       </Frame>
       <div className="card-meta">
@@ -79,7 +79,7 @@ export function Home() {
                       <Thumb channel={c.channel} title={displayTitle(c.title)} />
                     </span>
                     <span className="cat-name">{kindFor(c.channel)}</span>
-                    <span className="cat-sub num">{shortCount(listViewers(c))} viewers</span>
+                    <span className="cat-sub num">{shortCount(listViewers(c))} watching</span>
                     <span className="cat-tags">
                       <span className="cat-tag">{n > 2 ? `${n} contestants` : 'Head to head'}</span>
                       <span className="cat-tag">AI vs AI</span>

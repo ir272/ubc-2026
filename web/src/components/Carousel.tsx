@@ -41,7 +41,7 @@ function Info({ snap, cur, viewers }: { snap: Snapshot; cur: Cur; viewers: numbe
         <span className="car-id">
           <span className="car-name">{title}</span>
           <span className="car-kind">{kindFor(snap.channel)}</span>
-          <span className="car-viewers num">{shortCount(viewers)} viewers</span>
+          <span className="car-viewers num">{shortCount(viewers)} watching</span>
         </span>
       </Link>
       {line && <div className="car-match">{line}</div>}
