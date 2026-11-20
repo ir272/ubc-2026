@@ -2,7 +2,7 @@
 // Both sides run this exact code. It reads the opponent only through a delayed observation
 // (a human reaction time of 10 to 14 ticks), its own fighter directly, and keeps its memory in
 // s.ctl.hands[side] (plain JSON). Randomness comes from s.rng only.
-import type { Action, FightHeader, FightState, FighterDef, FighterId, FighterState, MoveDef, MoveId, Plan, Side } from './types.ts';
+import type { Action, FightHeader, FightState, FighterDef, FighterId, FighterState, MoveDef, MoveId, Plan, Projectile, Side } from './types.ts';
 import { MOVE_IDS } from './types.ts';
 import { ARENA, LEDGE_X } from './arena.ts';
 import { FIGHTERS, kbAt, moveExtra } from './fighters.ts';
@@ -372,6 +372,7 @@ export function think(s: FightState, side: Side, header: FightHeader, inp: Input
   if (H.shotCd > 0) H.shotCd--;
   if (H.abCd > 0) H.abCd--;
   if ((a === 'attack' || a === 'charge') && f.actionFrame === 1) H.cool = Math.floor((10 + rnd(s.rng) * 22) * (1.4 - plan.aggression * 0.8));
+  if (a === 'attack' && f.actionFrame === 1 && (f.move === 'special' || f.move === 'special2')) H.lastSp = s.tick;
 
   switch (a) {
     case 'respawn':
@@ -633,11 +634,12 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
 function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, O: Obs, odef: FighterDef, P: Pred, H: Record<string, any>, st: Style,
   plan: Plan, inp: Input, adist: number, dir: number, vul: number): boolean {
   if (O.act === 'dead' || O.act === 'respawn' || O.act === 'ledgehang' || O.act === 'ledgeclimb' || O.act === 'entrance' || O.act === 'held') return false;
-  if (f.platform !== -1 || !O.grounded && O.act !== 'hitstun') return false;
   const id = def.id;
+  const night = id === 'gantry' || id === 'vise'; // the Count and the Wolf lean on their specials harder than the round-3 cast
+  if (f.platform !== -1 || !O.grounded && O.act !== 'hitstun' && !(night && O.y < f.y + 2.4)) return false;
   const stance = plan.stance;
   const ag = plan.aggression;
-  const level = Math.abs(O.y - f.y) < 0.9;
+  const level = night ? O.y - f.y > -0.9 && O.y - f.y < 1.8 : Math.abs(O.y - f.y) < 0.9;
   const fire = (m: MoveId, cd: number, shot: boolean): boolean => {
     inp.act = m; inp.face = dir;
     if (shot) H.shotCd = cd; else H.abCd = Math.round(cd * (1.25 - ag * 0.5));
@@ -645,12 +647,13 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
   };
   const r = rnd(s.rng);
   const ready = H.cool <= 0;
-  const night = id === 'gantry' || id === 'vise'; // the Count and the Wolf lean on their specials harder than the round-3 cast
+  // the longer since its last special, the harder a night fighter reaches for one (x1 up to 0.7 s, rising to x5 by 2.7 s)
+  const urge = night ? 1 + Math.min(4, Math.max(0, s.tick - (H.lastSp || 0) - 40) / 30) : 1;
   // a shot: from range at the same height
   const S = SHOT[id];
   if (S && H.shotCd <= 0 && level) {
     const pr = def.moves[S].projectile!;
-    const lo = def.moves[S].startup > 16 ? 3.4 : 2.6;
+    const lo = night ? 1.8 : def.moves[S].startup > 16 ? 3.4 : 2.6;
     const hi = Math.min(pr.vx * pr.life, 11);
     if (adist > lo && adist < hi) {
       const travel = def.moves[S].startup + adist / pr.vx;
@@ -659,19 +662,40 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
         ? (stance === 'keepaway' ? 0.07 : stance === 'rush' ? 0.05 + (1 - ag) * 0.03 : stance === 'wall' ? 0.05 : 0.07)
         : (stance === 'keepaway' ? 0.06 : stance === 'rush' ? 0.03 + (1 - ag) * 0.02 : stance === 'wall' ? 0.03 : 0.05);
       const slow = def.moves[S].startup > 16;
-      if (ready && O.act !== 'shield' && r < rate) return fire(S, Math.round((slow ? 60 : 45) + rnd(s.rng) * (slow ? 60 : 55)), true);
+      if (night && ready && O.act !== 'shield' && r < rate * urge) { H.cover = 110; return fire(S, Math.round(40 + rnd(s.rng) * 30), true); }
+      if (!night && ready && O.act !== 'shield' && r < rate) return fire(S, Math.round((slow ? 60 : 45) + rnd(s.rng) * (slow ? 60 : 55)), true);
     }
+  }
+  // cover: with its own bats flying at the opponent, walk in behind them, and mist-step through as they arrive
+  if (H.cover > 0) H.cover--;
+  if (night && S && H.cover > 0 && level) {
+    let lead: Projectile | null = null;
+    for (const p of s.projectiles) if (p.owner === side && p.move === S && !p.cd && (p.x - f.x) * dir > 0 && (O.x - p.x) * dir > -0.3) {
+      if (!lead || Math.abs(O.x - p.x) < Math.abs(O.x - lead.x)) lead = p;
+    }
+    if (lead) {
+      const B0 = BLINK[id];
+      const near = Math.abs(O.x - lead.x) < 2.2;
+      if (B0 && H.abCd <= 0 && near && adist < def.moves[B0].blink!.behind - 0.3 && adist > 0.9 && r < 0.2) return fire(B0, 70, false);
+      if (adist > 2.4 && Math.abs(f.x + dir) < ARENA.main.x1 - 0.5) { inp.mx = dir * 0.75; return true; }
+    } else H.cover = 0;
+  }
+  // the howl's follow-up: a staggered opponent on the floor is pounced on (not held back by the howl's cooldown)
+  const Pf = POUNCE[id];
+  if (Pf && O.act === 'hitstun' && !O.tumble && O.grounded && Math.abs(O.y - f.y) < 0.5) {
+    const I = INFO[id][Pf];
+    if (vul > I.first + 3 && adist < I.reach + I.fwdDist * 0.9 && r < 0.7) return fire(Pf, 45, false);
   }
   if (H.abCd > 0) return false;
   // a blink: through and behind it
   const B = BLINK[id];
-  if (B && level && O.grounded) {
-    const into = adist > 1.6 && adist < def.moves[B].blink!.behind - 0.3;
+  if (B && level && (O.grounded || night)) {
+    const into = adist > (night ? 0.9 : 1.6) && adist < def.moves[B].blink!.behind - 0.3;
     if (into && vul > 9 && r < 0.5 * st.punish) return fire(B, 100, false);
     const rate = night
       ? (stance === 'rush' ? 0.07 + ag * 0.05 : stance === 'bait' ? 0.05 : 0.02)
       : (stance === 'rush' ? 0.04 + ag * 0.04 : stance === 'bait' ? 0.03 : 0.012);
-    if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate) return fire(B, night ? 90 : 110, false);
+    if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate * urge) return fire(B, night ? 70 : 110, false);
   }
   // a tether: drag it in
   const Tm = TETHER[id];
@@ -697,18 +721,19 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
     const Q = predict(O, odef, H.delay + Math.round(I.first + Math.max(0, adist - I.reach) / v), { x: 0, y: 0 });
     const qd = Math.abs(Q.x - f.x);
     const tReach = ex.fwd![0] + Math.max(0, qd - I.reach - odef.width * 0.4) / v;
-    if (qd > 2.0 && qd < reach && O.act !== 'jumpsquat' && O.act !== 'spotdodge' && O.act !== 'roll') {
-      if (vul > tReach && r < st.punish * 0.8) return fire(Po, 70, false);
-      const rate = stance === 'rush' ? 0.08 + plan.grabMix * 0.06 : stance === 'keepaway' ? 0.06 : stance === 'wall' ? 0.04 : 0.06;
-      if (ready && O.act !== 'attack' && r < rate) return fire(Po, 60, false);
+    if (qd > 1.4 && qd < reach && O.act !== 'jumpsquat' && O.act !== 'spotdodge' && O.act !== 'roll') {
+      if (vul > tReach && r < st.punish * 0.8) return fire(Po, 50, false);
+      const rate = stance === 'rush' ? 0.1 + plan.grabMix * 0.06 : stance === 'keepaway' ? 0.07 : stance === 'wall' ? 0.05 : 0.07;
+      if (ready && O.act !== 'attack' && r < rate * urge) return fire(Po, 45, false);
     }
   }
   // a howl: when it is close and pressing, or right after a blocked string
   const Hw = HOWL[id];
   if (Hw && adist < 2.2 + odef.width * 0.3 && O.act !== 'shield' && O.act !== 'shieldstun') {
     const pressing = O.act === 'attack' || O.act === 'run' || O.act === 'walk' || O.act === 'land' || O.act === 'getup';
-    const rate = pressing ? (stance === 'rush' ? 0.12 : 0.09) : 0.04;
-    if ((H.oos > 0 && r < 0.35) || r < rate) return fire(Hw, 70, false);
+    const rate = pressing ? (stance === 'rush' ? 0.16 : 0.13) : 0.08;
+    const opening = vul > INFO[id][Hw].first + 2 && r < st.punish * 0.6; // inside bait's punish game: stagger it, then pounce
+    if ((H.oos > 0 && r < 0.35) || opening || r < rate * urge) return fire(Hw, 50, false);
   }
   // a plain strike on the second special (an armoured blow, a spin): up close, where it reaches
   const md2 = def.moves.special2;
@@ -900,6 +925,9 @@ function pickGroundMove(s: FightState, f: FighterState, def: FighterDef, O: Obs,
     if ((m === 'smash' || m === 'upsmash' || m === 'special2' && def.id === 'gantry') && !punishing && !killWanted) sc -= 6;
     if ((m === 'special' || m === 'special2') && !punishing && I.first > 9) sc -= 4;
     if (m === 'special2' && punishing) sc += 3; // the second special is a punish tool (and should be seen)
+    if ((def.id === 'gantry' || def.id === 'vise') && (m === 'jab' || m === 'tilt')) sc -= 3;
+    if (POUNCE[def.id] === m) sc += O.act === 'hitstun' && !O.tumble ? 12 : 4;
+    if (POUNCE[def.id] && m === 'grab') sc -= 3; // the wolf seizes with the pounce rather than a plain grab
     if (!punishing) sc -= I.fwdDist * 1.5;
     if (m === 'uptilt' || m === 'upsmash') sc += O.y > f.y + 0.6 ? 4 : -2;
     sc += rnd(s.rng) * 3;

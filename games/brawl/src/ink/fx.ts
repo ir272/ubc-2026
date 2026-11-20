@@ -60,7 +60,7 @@ export function createFx(cam: CameraRig2D): InkModule {
     const b = e as unknown as { t: string; fromX: number; fromY: number; toX: number; toY: number };
     if (b.t === 'blink') {
       add({ kind: 'mist', x: b.fromX, y: b.fromY + 1.0, dx: 0, dy: 1, life: 0.6, k: 1.2, tint: 'red' });
-      add({ kind: 'mist', x: b.toX, y: b.toY + 1.0, dx: 0, dy: 1, life: 0.7, k: 1.1, tint: 'red' });
+      add({ kind: 'mist', x: b.toX, y: b.toY + 1.0, dx: 0, dy: 1, life: 0.55, k: 1, tint: 'red' });
       return;
     }
     switch (e.t) {
@@ -105,7 +105,7 @@ export function createFx(cam: CameraRig2D): InkModule {
         const a = f.arena.blast;
         const x = Math.max(a.left + 0.5, Math.min(a.right - 0.5, e.x));
         const y = Math.max(a.bottom + 0.5, Math.min(a.top - 0.5, e.y));
-        add({ kind: 'ko', x, y, dx, dy, life: 0.75, k: 1, tint: 'ink' });
+        add({ kind: 'ko', x, y, dx, dy, life: 0.85, k: 1, tint: f.sideTints[e.side] });
         flashT = Math.max(flashT, 0.1);
         cam.shake(0.9, dx, dy);
         break;
@@ -137,7 +137,7 @@ export function createFx(cam: CameraRig2D): InkModule {
         const c = Math.cos(ang), s = Math.sin(ang);
         const bend = side * 0.25;
         const mid = (r0 + r1) / 2;
-        ink.line([[cx + c * r0, cy + s * r0], [cx + Math.cos(ang + bend) * mid, cy + Math.sin(ang + bend) * mid], [cx + Math.cos(ang + bend * 1.6) * r1, cy + Math.sin(ang + bend * 1.6) * r1]], { w: 4.2 * u, taper: 0.9, tint: i % 3 === 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+        ink.line([[cx + c * r0, cy + s * r0], [cx + Math.cos(ang + bend) * mid, cy + Math.sin(ang + bend) * mid], [cx + Math.cos(ang + bend * 1.6) * r1, cy + Math.sin(ang + bend * 1.6) * r1]], { w: 6 * u, taper: 0.9, tint: i % 3 === 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
       }
     } else if (m.who === 'gantry') {
       // Mist Step: wisps drawn in toward the body from both sides
@@ -153,12 +153,14 @@ export function createFx(cam: CameraRig2D): InkModule {
     } else if (m.move === 'special') {
       // Pounce: a burst of short strokes kicked back off the feet as he crouches
       for (let i = 0; i < 7; i++) {
-        const ang = Math.PI + (i - 3) * 0.2 - 0.35;
-        const r0 = h * 0.12, r1 = r0 + h * (0.25 + 0.12 * (i % 3)) * ease;
+        // back and up off the heels, low to steep
+        const ang = Math.PI + 0.12 + i * 0.16;
+        const r0 = h * 0.1, r1 = r0 + h * (0.3 + 0.14 * (i % 3)) * ease;
         const c = Math.cos(ang) * fx, s = Math.sin(ang);
-        ink.line([[fig.x + c * r0, fig.y - 4 + s * r0], [fig.x + c * r1, fig.y - 4 + s * r1]], { w: (i % 2 ? 3 : 4.4) * u, taper: 0.9, tint: i % 3 === 1 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+        const ox = fig.x - fx * h * 0.18, oy = fig.y - 3;
+        ink.line([[ox + c * r0, oy + s * r0], [ox + c * r1, oy + s * r1]], { w: (i % 2 ? 4 : 6) * u, taper: 0.9, tint: i % 3 === 1 ? 'ink' : tint, alpha: a, seed: m.seed + i });
       }
-      ink.line([[fig.x - fx * h * 0.1, fig.y + 3], [fig.x + fx * h * (0.2 + 0.4 * ease), fig.y + 3]], { w: 3 * u, taper: 0.8, tint, alpha: a, seed: m.seed + 9 });
+      ink.line([[fig.x - fx * h * 0.1, fig.y + 2], [fig.x + fx * h * (0.2 + 0.5 * ease), fig.y + 2]], { w: 4 * u, taper: 0.8, tint, alpha: a, seed: m.seed + 9 });
     } else {
       // Howl: the hackles rise, short upright strokes along the back and head
       for (let i = 0; i < 6; i++) {
@@ -166,7 +168,7 @@ export function createFx(cam: CameraRig2D): InkModule {
         const bx = fig.x - fx * h * (0.3 - 0.55 * t);
         const by = fig.y - h * (0.62 + 0.28 * Math.sin(t * Math.PI));
         const l = h * (0.16 + 0.1 * Math.sin(t * Math.PI)) * ease;
-        ink.line([[bx, by], [bx - fx * l * 0.25, by - l]], { w: 3.8 * u, taper: 0.9, tint: i % 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
+        ink.line([[bx, by], [bx - fx * l * 0.25, by - l]], { w: 5.5 * u, taper: 0.9, tint: i % 2 ? 'ink' : tint, alpha: a, seed: m.seed + i });
       }
     }
   }
@@ -298,15 +300,16 @@ export function createFx(cam: CameraRig2D): InkModule {
           drawTell(f, m, p);
         } else {
           // knockout: long strokes driving in from the edge
-          const n = 7;
+          const n = 9;
           for (let i = 0; i < n; i++) {
-            const lane = (i - (n - 1) / 2) * 34;
+            const lane = (i - (n - 1) / 2) * 30;
             const px = -uy, py = ux; // across the travel
             const head = (60 + 900 * Math.min(1, p * 1.6)) * (0.8 + 0.3 * Math.sin(m.seed + i * 1.7));
             const len = 220 + 160 * Math.sin(m.seed * 0.3 + i);
             const tail = Math.max(0, head - len * (1 - p));
             const bx = cx + px * lane, by = cy + py * lane;
-            ink.line([[bx + ux * tail, by + uy * tail], [bx + ux * head, by + uy * head]], { w: 3 + 4 * (1 - Math.abs(lane) / 120), seed: m.seed + i, taper: 0.85, alpha: 1 - p * p });
+            const mid = Math.abs(i - (n - 1) / 2) < 1.5;
+            ink.line([[bx + ux * tail, by + uy * tail], [bx + ux * head, by + uy * head]], { w: 4 + 7 * (1 - Math.abs(lane) / 150), seed: m.seed + i, taper: 0.85, tint: mid && i % 2 ? m.tint : 'ink', alpha: 1 - p * p });
           }
         }
       }

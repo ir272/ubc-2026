@@ -1198,6 +1198,8 @@ function separate(s: FightState, ox0: number, ox1: number): void {
   // against the end of the platform the other one takes the whole push
   if (ax < p.x0) { bx += p.x0 - ax; ax = p.x0; } else if (ax > p.x1) { bx -= ax - p.x1; ax = p.x1; }
   if (bx < p.x0) { ax += p.x0 - bx; bx = p.x0; } else if (bx > p.x1) { ax -= bx - p.x1; bx = p.x1; }
+  // a rooted body stands its ground: the other one takes the whole push
+  if (a.rooted && !b.rooted) { ax = a.x; bx = a.x + dir * minGap; } else if (b.rooted && !a.rooted) { bx = b.x; ax = b.x - dir * minGap; }
   a.x = clamp(ax, p.x0, p.x1); b.x = clamp(bx, p.x0, p.x1);
   void need;
   // momentum into the other body is spent

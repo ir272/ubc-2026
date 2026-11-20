@@ -165,16 +165,17 @@ export function createFigures(): InkModule {
     const n = hp > 0.7 ? 4 : hp > 0.35 ? 3 : 2;
     const front = hw + 22 + stun * 14;
     const cy = -h * 0.5;
-    const bow = h * 0.11;
+    const bow = h * 0.035;
     const pieces = hp > 0.6 ? 1 : hp > 0.3 ? 2 : 3;
     for (let i = 0; i < n; i++) {
       const c = i - (n - 1) / 2;
-      const span = h * (0.78 - 0.1 * Math.abs(c)) * (0.75 + 0.25 * hp);
-      const x0 = front + c * 9;
+      const span = h * (0.74 - 0.13 * Math.abs(c)) * (0.75 + 0.25 * hp);
+      const x0 = front + c * 11 - Math.abs(c) * 4;
       const pts: Pt[] = [];
       for (let j = 0; j <= 8; j++) {
         const t = j / 8 - 0.5;
-        pts.push([x0 + bow * (1 - 4 * t * t) - stun * 10 * (1 - 4 * t * t) * (i % 2 ? 0.6 : 1), cy + t * span]);
+        // upright, leaning a touch out at the top; the hit bends the middle back
+        pts.push([x0 + bow * (1 - 4 * t * t) - t * 8 - stun * 10 * (1 - 4 * t * t) * (i % 2 ? 0.6 : 1), cy + t * span + Math.abs(c) * 6]);
       }
       // broken into pieces as the shield wears: drop a short gap between them
       for (let k = 0; k < pieces; k++) {
@@ -182,7 +183,7 @@ export function createFigures(): InkModule {
         const g1 = Math.floor(((k + 1) * 9) / pieces) - (k < pieces - 1 ? 1 : 0);
         const seg = pts.slice(g0, Math.max(g0 + 2, g1 + 1));
         if (seg.length < 2) continue;
-        ink.line(seg, { w: 1.6 + hp * 3.4 - Math.abs(c) * 0.6, tint, seed: 900 + i * 7 + k + fig.side * 40, taper: 0.7, alpha: 0.6 + 0.4 * hp });
+        ink.line(seg, { w: 2 + hp * 4 - Math.abs(c) * 0.8, tint, seed: 900 + i * 7 + k + fig.side * 40, taper: 0.7, alpha: 0.6 + 0.4 * hp });
       }
     }
     // the hit: a quick flick off the top and the bottom of the wall

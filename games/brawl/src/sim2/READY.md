@@ -1,7 +1,8 @@
-# src/sim2: round 3 (abilities) and round 3b (the Count and the Wolf) ready to promote
+# src/sim2: rounds 3, 3b and 3c (abilities carry the fight) ready to promote
 
-`SIM_VERSION` is `ringout-sim-3` (unchanged by round 3b). Consistent point: `node --test test/*.test.mjs` 55/55 (src/sim untouched
-and its tests pass). Numbers and what is not at target: NOTES.md "Round 3: abilities" and "Round 3b: the Count and the Wolf".
+`SIM_VERSION` is `ringout-sim-4` (round 3c changed constants, so hashes differ from sim-3). Consistent point: `node --test
+test/*.test.mjs` 55/55. Numbers and what is not at target: NOTES.md "Round 3: abilities", "Round 3b" and "Round 3c". Round 3c adds
+no field and no event: only the numbers of existing ones changed (bats, Howl length).
 
 ## Copy
 
@@ -10,7 +11,8 @@ cp src/sim2/controller.ts src/sim2/engine.ts src/sim2/fighters.ts src/sim2/index
 ```
 Only these five .ts files differ from src/sim (arena.ts, coach.ts and math.ts are identical; do not copy READY.md). Then, in
 test/sim.test.mjs, change the two name checks (lines 37 and 38) to `'The Count'` and `'The Wolf'`: that is the only src/sim test that
-fails against the promoted code (checked by running test/sim.test.mjs against a copy). Exported API unchanged. New exports since
+fails against the promoted code. (Round 3c: if src/sim already holds round 3b with those names fixed, test/sim.test.mjs passes
+unchanged against the round-3c code; checked by running it against a copy. Its only version reference is the export list.) Exported API unchanged. New exports since
 round 2: `projDef` (engine.ts), `SHOT`, `WARD`, `BLINK`, `TETHER`, `POUNCE`, `HOWL` (controller.ts). Type changes are additive and
 optional only. The show and stage read fighter names and projectile kinds from the sim, so the picture needs the kinds below (`bat`
 is new; `ward` and `chain` are no longer produced by any fighter).
@@ -20,18 +22,19 @@ is new; `ward` and `chain` are no longer produced by any fighter).
 `MoveDef` (static data):
 - `projectile.y?: number` spawn height above the feet (Kiln's wave: 0.45, low along the floor).
 - `projectile.fan?: { vx, vy, delay? }[]` several shots, one per entry; `delay` is ticks after `frame` (Tick: three knives at once;
-  the Count: three bats 4 ticks apart).
+  the Count: three bats 8 ticks apart).
 - `projectile.fanHits?: number` how many shots of one fan may land (default 1; the Count's bats: 2).
 - `projectile.effect?: 'pull' | 'snare'`, `projectile.effectTicks?: number` what a catch does (supported; no fighter uses them now).
 - `projectile.linger?`, `projectile.every?`, `projectile.floorR?`, `projectile.place?` floor hazards (supported; no fighter uses them now).
 - `projectile.tether?: boolean` draw it as a line from the owner's hand to the tip (supported; no fighter uses it now).
 - `blink?: { frame, dx, behind, invuln: [from, to] }` (Tick special2 Blink Step; the Count special2 Mist Step: untouchable frames 1 to
-  12, reappears on frame 9).
-- `Hitbox.effect?: 'snare'`, `Hitbox.effectTicks?: number` a strike that staggers instead of launching (the Wolf's Howl, 40 ticks).
+  12, reappears on frame 9, then a heavy launching swipe).
+- `Hitbox.effect?: 'snare'`, `Hitbox.effectTicks?: number` a strike that staggers instead of launching (the Wolf's Howl, 48 ticks).
 
 `FighterState` (per tick):
 - `rooted?: number` ticks left snared (action is `hitstun`, no knockback, standing still): draw the stagger. A fighter howled in the
-  air drops straight down and stays rooted for the full length after landing.
+  air drops straight down and stays rooted for the full length after landing. A rooted body is never shoved by the other fighter
+  (the other one takes the whole push).
 - `pulled?: boolean` being reeled in by a tether (supported; unused now).
 
 `Projectile` (per tick):
@@ -42,7 +45,8 @@ is new; `ward` and `chain` are no longer produced by any fighter).
 - `floor?`, `effect?`, `tether?`, `drag?` as in round 3 (hazards and tethers; unused by the current cast).
 
 Projectile kinds produced today: `wave` (Kiln special), `knife` (Tick special, three per throw) and the new `bat` (the Count special:
-three per Bat Swarm, spawned 4 ticks apart, in a tight rising, level and dipping spread, about 14 m). `rivet`, `ward` and `chain` are
+three per Bat Swarm on frames 15, 23 and 31, so they fly as a line; slow, 0.115 m/tick, about 2 s to cross the stage, 104 ticks
+(about 12 m); radius 0.45, so draw them big; a nearly flat line with a very slight rise and dip). `rivet`, `ward` and `chain` are
 no longer produced.
 
 `SimEvent`:

@@ -64,14 +64,17 @@ export function subjectBoxes(f: InkFrame): SubjectBox[] {
 export function fighterBox(f: InkFrame, s: FighterState): SubjectBox {
   const h = f.fighterDefs[s.fighter]?.height ?? 2;
   const wd = f.fighterDefs[s.fighter]?.width ?? 1;
+  // a little ahead along the travel (8 ticks), so the eased view never trails a fast fighter
+  const lx = s.vx * 8, ly = s.vy * 8;
+  const lead = (b: SubjectBox): SubjectBox => ({ x0: b.x0 + Math.min(0, lx), x1: b.x1 + Math.max(0, lx), y0: b.y0 + Math.min(0, ly), y1: b.y1 + Math.max(0, ly) });
   if (s.tumble || s.action === 'hitstun' || s.action === 'knockdown' || !s.grounded) {
-    // spun about the hip or stretched in the air: a square around the hip
-    const r = h * 0.62;
+    // spun about the hip or stretched in the air (arms up in a jump): a square around the hip
+    const r = h * 0.75;
     const hy = s.y + h * 0.5;
-    return { x0: s.x - r, x1: s.x + r, y0: Math.min(s.y, hy - r), y1: hy + r };
+    return lead({ x0: s.x - r, x1: s.x + r, y0: Math.min(s.y, hy - r), y1: hy + r });
   }
   const hw = Math.max(0.55, wd * 0.5 + 0.2, h * 0.3);
-  return { x0: s.x - hw, x1: s.x + hw, y0: s.y, y1: s.y + h * 1.1 };
+  return lead({ x0: s.x - hw, x1: s.x + hw, y0: s.y, y1: s.y + h * 1.1 });
 }
 
 /** the view nearest (cx, cy, w) that keeps every box in the safe box, up to maxW wide; when even
@@ -266,7 +269,7 @@ export function createCamera2D(): CameraRig2D {
       // the safe box on the eased (and punched) view: a fast eased correction, so the springs' lag
       // never lets a fighter slide under a plate or off the side, and a respawn never pops
       const [scx, scy, sw2] = solveSafe(boxes, cx, cy, w, MAX_W);
-      const kc = justStarted ? 1 : frozen ? 0 : 1 - Math.exp(-dt * 16);
+      const kc = justStarted ? 1 : frozen ? 0 : 1 - Math.exp(-dt * 24);
       corr[0] += (scx - cx - corr[0]) * kc;
       corr[1] += (scy - cy - corr[1]) * kc;
       corr[2] += (Math.log(sw2 / w) - corr[2]) * kc;

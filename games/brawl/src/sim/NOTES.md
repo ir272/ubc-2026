@@ -258,3 +258,57 @@ Not at target and what I would do next:
    round 3: the adaptive coach plays mostly rush and bait. Next: let rush fire bats on the approach and pounce more from rush.
 3. **The Wolf vs the field with mixed coaches (64%).** The Pounce is strong against coaches that do not spot-dodge; check its catch
    window (16 frames) before raising anything else.
+
+## Round 3c: abilities carry the fight (`SIM_VERSION` `ringout-sim-4`)
+
+The owner, watching real fights: the characters "seem to be just fighting with melee attacks". The abilities fired but seasoned the
+fight, and the bats were too small and fast to see. Changes (the Count and the Wolf only; Tick and Kiln untouched):
+
+Data (`fighters.ts`):
+- **Bat Swarm**: slow, big, present. 0.115 m/tick (about 2 s to cross the stage), 104 ticks (about 12 m), radius 0.45, spawned on
+  frames 15, 23 and 31 so the three fly as a line, 4 damage each with a real stagger (angle 45, bkb 34, kbg 30). Still at most two of a
+  line land.
+- **Mist Step** swipe: 14 damage (was 8), launching (angle 40, bkb 48, kbg 104): it can take a life.
+- **Pounce**: starts 2 frames sooner (startup 7, catch frames 8 to 23, same 4.7 m travel); slam 17 (was 15).
+- **Howl**: 7 damage (was 2), staggers 48 ticks (was 40).
+- Trims: the Count 0.93, the Wolf 1.10 (was 1.04).
+
+Engine: a rooted body stands its ground (`separate()`: the other fighter takes the whole push), so a wolf pouncing on a howled
+opponent no longer shoves it before the catch. No new field or event.
+
+Hands (`controller.ts`, the Count and the Wolf only):
+- **Urge**: the ability rates are multiplied by 1 up to 0.7 s since the fighter's last special, rising to x5 by 2.7 s. That keeps a
+  special coming about every 3.5 s whatever the stance, including rush and bait, the adaptive coach's usual stances.
+- Wider windows: bats from 1.8 m (was 2.6), against an opponent up to 1.8 m above; Mist Step from 0.9 m (goes behind); pounce from
+  1.4 m (was 2.0); abilities are no longer switched off while the opponent is in the air.
+- **Cover**: after casting bats, the Count walks in behind them and mist-steps through as they reach the opponent (rate 0.2 a tick
+  once the lead bat is within 2.2 m of it). Opponents already answer an incoming shot by shielding or jumping toward the caster (the
+  slow bats give them time to). Bat cooldown 40 to 70 ticks.
+- **Howl into Pounce**: a staggered opponent on the floor is pounced on (rate 0.7), bypassing the howl's cooldown. After a landed howl
+  the wolf's next move is now the pounce 57% of the time (was 2%). The howl also fires inside the punish game (bait's openings).
+- Poke picker: jab and tilt -3 for these two; the pounce +4 (+12 on a staggered opponent); the wolf's plain grab -3.
+- Cooldowns: pounce 45, howl 50, mist 70.
+
+`tools/simstats.mjs` targets are now 4 s, 35% and 35%.
+
+Numbers, Count vs Wolf (`node tools/simstats.mjs --n 1600 --fighters gantry,vise`, mirrors included; `--n 400` in brackets):
+
+| measure | before, adaptive | after, adaptive | before, mixed | after, mixed | target |
+|---|---|---|---|---|---|
+| seconds between specials, Count / Wolf | 6.8 / 7.1 | 3.4 / 3.6 | 5.3 / 6.0 | 3.4 / 3.4 | 4 or less |
+| damage through special + special2, Count / Wolf | 20.9% / 20.8% | 42.1% / 36.6% | 27.3% / 26.7% | 44.4% / 40.5% | 35% or more |
+| largest single move | Count fair 20.3% | Count Mist Step 22.0% | Wolf Pounce 25.8% | Wolf Pounce 31.9% | 35% or less |
+| Count beats Wolf | 53.0% | 52.0% (47.5%) | 39.5% | **39.3%** (39.0%) | 45 to 55 |
+| mirrors (side 0) | 53.0% | 52.4% | 49.0% | 49.0% | near 50 |
+| fights finished | 400/400 | 1600/1600 | 400/400 | 1600/1600 | all |
+| median length | 88 s | 73 s (p10 52, p90 98) | 89 s | 73 s (p10 52, p90 100) | 70 to 130 |
+| quiet stretches over 6 s | 0 | 1 of 1600 (6.1 s) | 1 | 2 of 1600 (6.7 s) | about none |
+| per fight: blinks, howls landed | 4.7, 1.45 | 8.9, 3.0 | 5.4, 1.0 | 8.2, 2.6 | |
+
+Not at target:
+1. **Count vs Wolf with mixed coaches (39%)**: the same gap between coach mixes as round 3b (about 13 points; trims move both columns
+   together). The adaptive column, the show's default, is inside the band. Next: a per-coach-pair table to find the pairs that sink
+   the Count.
+2. **Fights are shorter** (median 73 s, near the 70 s floor; p10 52 s): more specials means more damage. If the median drops below 70,
+   take a little off the Mist Step swipe and the Howl before touching the rates.
+3. Not measured: how often opponents jump, shield or take the bats (no event says so). The at-most-two test still holds.

@@ -203,14 +203,14 @@ const GANTRY = build('gantry', {
   throwu: { name: 'Rising Toss', kind: 'throw', startup: 12, active: 1, recovery: 20, hitboxes: [hb(13, 13, 1, 1, 0.5, 8, 90, 70, 56)],
     look: 'Lifts the opponent overhead on one hand and tosses them straight up.' },
   special: { name: 'Bat Swarm', kind: 'special', startup: 14, active: 10, recovery: 18, hitboxes: NO_HB,
-    projectile: { frame: 15, kind: 'bat', vx: 0.26, vy: 0, gravity: 0, life: 54, r: 0.32, damage: 3, angle: 40, bkb: 18, kbg: 18, fanHits: 2,
-      fan: [{ vx: 0.26, vy: 0.008, delay: 0 }, { vx: 0.265, vy: 0, delay: 4 }, { vx: 0.26, vy: -0.008, delay: 8 }] },
+    projectile: { frame: 15, kind: 'bat', vx: 0.115, vy: 0, gravity: 0, life: 104, r: 0.45, damage: 4, angle: 45, bkb: 34, kbg: 30, fanHits: 2,
+      fan: [{ vx: 0.115, vy: 0.003, delay: 0 }, { vx: 0.115, vy: 0, delay: 8 }, { vx: 0.115, vy: -0.003, delay: 16 }] },
     extra: { air: true, ground: true },
-    look: 'Throws the cloak open and a stream of three bats pours out (frames 15, 19 and 23), flying straight in a tight spread the length of the stage (14 m). At most two of a stream can land; small damage and a light knock each: it pesters and sets up. The rest flutter on harmlessly (Projectile.cd 1).' },
-  special2: { name: 'Mist Step', kind: 'special', startup: 9, active: 4, recovery: 18, hitboxes: [hb(11, 14, 0.9, 1.1, 0.65, 8, 40, 36, 70)],
+    look: 'Throws the cloak open and three big bats pour out one after another (frames 15, 23 and 31), flapping slowly in a line across the stage (about 2 s to cross, 12 m): a wall the Count walks in behind. At most two of a line can land; each knocks the victim back into a short stagger. The rest flutter on harmlessly (Projectile.cd 1). Jump them, shield them or dodge through.' },
+  special2: { name: 'Mist Step', kind: 'special', startup: 9, active: 4, recovery: 18, hitboxes: [hb(11, 14, 0.9, 1.1, 0.7, 14, 40, 48, 104)],
     blink: { frame: 9, dx: 3.2, behind: 4.5, invuln: [1, 12] },
     extra: { air: true, ground: true, oncePerAir: true },
-    look: 'Dissolves into mist (untouchable from frame 1 to 12), drifts and re-forms on frame 9 3.2 m ahead, or just behind the opponent when it stands within 4.5 m ahead, turned to face it, with a clawed swipe on arrival (frames 11 to 14). Slower to start than a quick blink: a read can punish it. Never re-forms further off the deck than it started.' },
+    look: 'Dissolves into mist (untouchable from frame 1 to 12), drifts and re-forms on frame 9 3.2 m ahead, or just behind the opponent when it stands within 4.5 m ahead, turned to face it, with a heavy clawed swipe on arrival (frames 11 to 14) that launches hard enough to take a life. Slower to start than a quick blink: a read can punish it. Never re-forms further off the deck than it started.' },
   recover: { name: 'Bat Form', kind: 'special', startup: 8, active: 24, recovery: 16, hitboxes: [hb(10, 14, 1.5, 2.0, 0.5, 6, 60, 40, 40)],
     extra: { up: [4, 12, 0.16], tether: { from: 10, to: 30, range: 6.2, speed: 0.38 }, helpless: true, air: true, ground: true },
     look: 'Bursts into a large bat, flaps up, then flies straight to the ledge (a ledge within 6.2 m pulls him to it) and becomes himself again hanging there.' },
@@ -253,13 +253,13 @@ const VISE = build('vise', {
     look: 'Twists and flings the opponent over its shoulder behind it.' },
   throwu: { name: 'Muzzle Toss', kind: 'throw', startup: 12, active: 1, recovery: 18, hitboxes: [hb(13, 13, 1, 1, 0.5, 9, 88, 65, 70)],
     look: 'Jerks its muzzle up and tosses the opponent straight up.' },
-  special: { name: 'Pounce', kind: 'special', startup: 9, active: 16, recovery: 34, hitboxes: [hb(10, 25, 1.0, 1.0, 0.75, 0, 0, 0, 0)],
-    extra: { grabbing: true, fwd: [7, 24, 0.26], cmd: { delay: 14, hb: hb(1, 1, 1, 1, 0.5, 15, 48, 66, 78), endlag: 14 } },
+  special: { name: 'Pounce', kind: 'special', startup: 7, active: 16, recovery: 34, hitboxes: [hb(8, 23, 1.0, 1.0, 0.75, 0, 0, 0, 0)],
+    extra: { grabbing: true, fwd: [5, 22, 0.26], cmd: { delay: 14, hb: hb(1, 1, 1, 1, 0.5, 17, 48, 66, 80), endlag: 14 } },
     look: 'A long flat leap of about 4.7 m along the floor, jaws and forepaws first: if it reaches a grounded opponent it seizes them (a grab, so a shield does not stop it; a jump or a spot dodge does), bowls them over and slams them into the deck. A miss skids to a stop with a long recovery.' },
   special2: { name: 'Howl', kind: 'special', startup: 14, active: 4, recovery: 16,
-    hitboxes: [{ ...hb(15, 18, 0, 1.0, 1.8, 2, 90, 0, 0), effect: 'snare', effectTicks: 40 }],
+    hitboxes: [{ ...hb(15, 18, 0, 1.0, 1.8, 7, 90, 0, 0), effect: 'snare', effectTicks: 48 }],
     extra: { air: false, ground: true },
-    look: 'Throws the head back and howls (14 frames of wind-up): a burst of sound about 2.2 m all round staggers whoever it reaches for 40 ticks (rooted, no knockback, tiny damage), long enough to follow up. A shield blocks it.' },
+    look: 'Throws the head back and howls (14 frames of wind-up): a burst of sound about 2.2 m all round staggers whoever it reaches for 48 ticks (rooted, no knockback, small damage), long enough for the wolf to pounce on them. A shield blocks it.' },
   recover: { name: 'Wall Run', kind: 'special', startup: 5, active: 20, recovery: 18, hitboxes: [hb(6, 12, 0.5, 1.8, 0.7, 9, 80, 45, 70)],
     extra: { up: [6, 24, 0.24], fwd: [6, 24, 0.05], helpless: true, air: true, ground: true },
     look: 'Claws into the air (or the deck side) and runs straight up it on all fours, raking on the way.' },
@@ -293,7 +293,7 @@ const BODIES: Record<FighterId, Body> = {
 const MOVES: Record<FighterId, Record<MoveId, MoveDef>> = { kiln: KILN, tick: TICK, gantry: GANTRY, vise: VISE };
 
 /** per-fighter damage trim (balance), applied once to the built hitboxes */
-const TRIM: Partial<Record<FighterId, number>> = { tick: 1.27, kiln: 1, gantry: 0.93, vise: 1.04 };
+const TRIM: Partial<Record<FighterId, number>> = { tick: 1.27, kiln: 1, gantry: 0.93, vise: 1.10 };
 for (const id of Object.keys(TRIM) as FighterId[]) for (const m of Object.values(MOVES[id])) for (const h of m.hitboxes) if (h.damage > 0) h.damage = Math.max(1, Math.round(h.damage * TRIM[id]!));
 
 // ------------------------------------------------------------------------------------------------

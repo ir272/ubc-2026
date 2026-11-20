@@ -94,14 +94,14 @@ for (let i = 0; i < F.length; i++) for (let j = i + 1; j < F.length; j++) {
 }
 console.log(`      ` + pairs.join('  '));
 // usage
-console.log(`\nUSE   seconds between specials (special or special2), per fighter, target <= 6 s`);
+console.log(`\nUSE   seconds between specials (special or special2), per fighter, target <= 4 s`);
 for (const f of F) {
   let u = 0, t = 0;
   for (const r of res) for (let i = 0; i < 2; i++) if (r.fighters[i] === f) { u += r.uses[i]; t += r.ticks / 60; }
   console.log(`      ${f.padEnd(7)} ${(t / Math.max(1, u)).toFixed(1).padStart(5)} s  (${(u / res.filter((r) => r.fighters.includes(f)).length).toFixed(1)} a fight)`);
 }
 // damage
-console.log(`\nDAMAGE by move, per fighter (share of that fighter's damage); top move must be <= 30%`);
+console.log(`\nDAMAGE by move, per fighter (share of that fighter's damage); top move must be <= 35%`);
 let all = 0, tool = 0;
 for (const f of F) {
   const d = {};
@@ -112,8 +112,8 @@ for (const f of F) {
   tool += tl;
   const top = Object.entries(d).sort((a, b) => b[1] - a[1]);
   console.log(`      ${f.padEnd(7)} tools ${pct(tl / tot)}  special ${pct((d.special || 0) / tot)}  special2 ${pct((d.special2 || 0) / tot)}  top: ` +
-    top.slice(0, 4).map(([m, v]) => `${m} ${pct(v / tot)}`).join(' ') + (top[0][1] / tot > 0.3 ? '  OVER 30%' : ''));
+    top.slice(0, 4).map(([m, v]) => `${m} ${pct(v / tot)}`).join(' ') + (top[0][1] / tot > 0.35 ? '  OVER 35%' : ''));
 }
-console.log(`      all fighters: ${pct(tool / all)} of all damage through special and special2 (target >= 25%)`);
+console.log(`      all fighters: ${pct(tool / all)} of all damage through special and special2 (target >= 35%)`);
 const E = res.reduce((a, r) => { for (const k of Object.keys(r.ev)) a[k] = (a[k] || 0) + r.ev[k]; return a; }, {});
 console.log(`\nEVENTS per fight: ` + Object.entries(E).map(([k, v]) => `${k} ${(v / res.length).toFixed(2)}`).join('  '));
