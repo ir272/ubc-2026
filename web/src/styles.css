@@ -539,7 +539,7 @@ table { border-collapse: collapse; }
   .hdr { gap: 6px; padding: 0 8px; }
   .hdr-menu { display: grid; place-items: center; flex: none; width: 44px; height: 44px; margin-left: -4px; border-radius: 8px; color: var(--text); }
   .hdr-menu:active { background: var(--raised); }
-  .hdr-home { min-width: 0; }
+  .hdr-home { min-width: 0; overflow: hidden; }
   .hdr-right { margin-left: auto; min-width: 0; }
   .hw { gap: 4px; }
   .hdr .wm-look { font-size: 19px; }
@@ -564,4 +564,13 @@ table { border-collapse: collapse; }
   .hero-sub { white-space: normal; }
   .car-arrow { width: 44px; height: 44px; }
   .cats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; display: grid; gap: 16px 12px; }
+}
+@media (max-width: 400px) {
+  /* small phones: room for a five-digit balance */
+  .hdr { gap: 2px; padding: 0 6px; }
+  .hdr-menu { width: 40px; }
+  .hdr .wm-look { font-size: 17px; }
+  .hw-bal { gap: 4px; padding: 0 6px; font-size: 14px; }
+  .hw-wallet { width: 36px; }
+  .hw-me { width: 32px; height: 32px; }
 }
