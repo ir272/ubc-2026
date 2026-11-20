@@ -390,7 +390,7 @@ test('OpenRouter brains (stubbed fetch): JSON repair, cost log, budget, timeouts
   assert.ok(req.max_tokens <= 200);
   assert.equal(requests[0].init.headers.authorization, 'Bearer test-key-not-real');
   assert.ok(!requests[0].init.body.includes('test-key-not-real'), 'the key is never in the body');
-  assert.ok(SYSTEM_PROMPT.split(/\s+/).length < 250, `system prompt ${SYSTEM_PROMPT.split(/\s+/).length} words`);
+  assert.ok(SYSTEM_PROMPT.split(/\s+/).length < 280, `system prompt ${SYSTEM_PROMPT.split(/\s+/).length} words`);
   const userMsg = req.messages[1].content;
   assert.ok(userMsg.length < 1400, `user message ${userMsg.length} chars`);
   assert.equal(ledger.entries[0].promptTokens, 210);

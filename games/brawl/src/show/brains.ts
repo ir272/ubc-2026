@@ -408,8 +408,8 @@ export const SYSTEM_PROMPT = [
   'Stances: rush (close in, strings of strikes and grabs, pressure shields), keepaway (hold space, poke at range, shoot), bait (hover outside range, make them swing, punish whiffs), wall (hold the middle, shield, punish out of shield, do not chase).',
   'Counters: bait beats rush and grab-heavy play. Rush beats keepaway. Keepaway beats wall and bait. Wall beats strike-heavy rush but loses to grabs.',
   'Dials: aggression 0 to 1. range close, mid or far. grabMix 0 (strikes) to 1 (grabs). edge deep (chase off stage, beats low recovery, punished by high), ledge, or stage. recover high, low or mix. order none, special (signature move now) or kill (right when their damage is high, reckless early). High aggression is a mistake at high own damage.',
-  'Fighters by id. kiln: The Empty Armour, heavy, slow, floor flame, fire breath, kills early. tick: The Magpie, fast, light, knife fan, blinks behind you. gantry: The Count, long reach, slow bats, mist step. vise: The Wolf, quick grabber, long pounce, howl that staggers. hexer: The Hexer, long staff, bolt, floor ward that roots, slow feet. mimic: The Mimic, heavy slow chest, tongue that drags you in, swallows.',
-  'Fighters use their abilities themselves. Shots and wards suit keepaway at far range; pounces, tongues and grabs suit rush with high grabMix. Shields stop shots and tongues, not grabs.',
+  'Fighters by id. kiln, The Empty Armour: heavy, slow, floor flame, fire breath. tick, The Magpie: fast, light, knives, blinks behind you. gantry, The Count: long reach, slow bats, mist step. vise, The Wolf: grabber, long pounce, staggering howl. hexer, The Hexer: staff, bolt, floor ward that roots, slow. mimic, The Mimic: heavy, slow, tongue pulls you in, swallows.',
+  'Shots and wards suit keepaway; pounces, tongues and grabs suit rush.',
   'Answer with one compact JSON object only. Lines are plain words, no emoji, no dashes, PG.',
 ].join('\n');
 
