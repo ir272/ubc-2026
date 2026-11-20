@@ -4,7 +4,7 @@ import { usd } from '../lib/money';
 import { useWallet } from '../lib/wallet';
 import { timeAgo } from './bits';
 import { paletteVar } from './Prediction';
-import { BotTag, Button, Moment, TextInput } from '../ui';
+import { BotTag, Moment, TextInput } from '../ui';
 import { sfxFor } from './nightline';
 
 const NAME_HUES = 6;
@@ -109,13 +109,16 @@ export function ChatInput({ feed, s }: { feed: FeedClient; s: ChannelState }) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Send a message"
         data-testid="chat-input"
+        suffix={
+          <button type="submit" className={`chat-send ${text.trim() ? 'ready' : ''}`} data-testid="chat-send" aria-label="Send message" title="Send">
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15.6 2.4 2.6 7.5l5 2.9 2.9 5z" />
+              <path d="M15.6 2.4 7.6 10.4" />
+            </svg>
+          </button>
+        }
       />
       <Moment className="chat-sent" name="chat-sent" width={200} autoplay={false} playKey={sent} onStart={() => sfxFor('chat-sent')} />
-      <div className="chat-foot">
-        <Button size="sm" type="submit" data-testid="chat-send">
-          Chat
-        </Button>
-      </div>
     </form>
   );
 }

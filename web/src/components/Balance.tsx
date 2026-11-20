@@ -143,7 +143,6 @@ export function HeaderWallet() {
           </div>
           <Row label="Balance" value={target == null ? '—' : money(target)} />
           <Row label="In open bets" value={money(staked)} />
-          <Row label="Network" value={cfg ? (solana ? `Solana ${cfg.cluster ?? 'devnet'}` : 'Practice') : '—'} />
           <p className="menu-note">Play money only. This wallet lives in your browser, with no sign-in, and fees are paid for you.</p>
           <div className="menu-actions">
             <button type="button" className="btn" onClick={copy}>
@@ -151,7 +150,7 @@ export function HeaderWallet() {
             </button>
             {explorer && (
               <a className="btn" href={explorer} target="_blank" rel="noreferrer">
-                View on Solana
+                View activity
               </a>
             )}
           </div>

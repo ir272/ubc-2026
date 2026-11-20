@@ -81,3 +81,18 @@
   .app .chat-in .ink-field-box:hover:not(:focus-within) { border-color: var(--text-2); }
 }
 .app .chat-sent { left: 30px; }
+
+/* Send is a paper plane inside the box, at its right end; there is no row under the field. */
+.app .chat-in .ink-field-box { padding-right: 5px; }
+.app .chat-in .ink-field-affix { display: flex; }
+.app .chat-in .chat-send { display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 4px; background: none; color: var(--text-2); transition: color 150ms cubic-bezier(0.23, 1, 0.32, 1), background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 120ms cubic-bezier(0.23, 1, 0.32, 1); }
+.app .chat-in .chat-send.ready { color: var(--accent); }
+.app .chat-in .chat-send:active { transform: scale(0.94); }
+.app .chat-in .chat-send:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (hover: hover) and (pointer: fine) {
+  .app .chat-in .chat-send:hover { background: var(--hover); color: var(--text); }
+  .app .chat-in .chat-send.ready:hover { color: var(--accent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app .chat-in .chat-send { transition: none; }
+}

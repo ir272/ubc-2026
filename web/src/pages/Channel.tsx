@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChannelTabs } from '../components/ChannelTabs';
+import { ChannelPanels } from '../components/ChannelPanels';
 import { ChatInput, ChatList } from '../components/Chat';
 import { GameStage } from '../components/GameStage';
 import { StreamControls } from '../components/StreamControls';
@@ -9,6 +9,8 @@ import { kindFor } from '../channelInfo';
 import { EyeIcon, Link, VolumeIcon } from '../components/bits';
 import { effectiveVolume, useAudio } from '../lib/audio';
 import { displayTitle, useChannels } from '../lib/channels';
+import { channelPath } from '../lib/router';
+import { Button } from '../ui';
 import { useChannelState, useFeed } from '../lib/feed';
 import { useWallet } from '../lib/wallet';
 
@@ -54,6 +56,21 @@ function Channel({ id }: { id: string }) {
     highlight = w.outcomes[idx]?.entrantId ?? null;
   }
 
+  // "Bet now": bring the bet panel into view, open if it was folded.
+  const betNow = () => {
+    setChatOpen(true);
+    requestAnimationFrame(() => window.dispatchEvent(new Event('arena:bet-now')));
+  };
+  const [shared, setShared] = useState(false);
+  useEffect(() => {
+    if (!shared) return;
+    const t = window.setTimeout(() => setShared(false), 1600);
+    return () => clearTimeout(t);
+  }, [shared]);
+  const share = () => {
+    navigator.clipboard?.writeText(location.origin + channelPath(id)).then(() => setShared(true), () => {});
+  };
+
   const es = s.match?.entrants ?? [];
   const title = displayTitle(s.title);
 
@@ -91,28 +108,41 @@ function Channel({ id }: { id: string }) {
             </div>
           </div>
           <div className="ch-actions">
-            {cams.length > 1 && (
-              <div className="cams" role="group" aria-label="Camera">
-                {cams.map((c) => (
-                  <button key={c} type="button" className={cam === c ? 'on' : ''} onClick={() => setCam(c)} data-testid={`cam-${c}`} aria-pressed={cam === c}>
-                    {c}
-                  </button>
-                ))}
-              </div>
-            )}
-            <span className="ch-viewers num">
-              <EyeIcon />
-              <span className="ch-viewers-n">{viewersOf(s).toLocaleString('en-US')}</span>
-              <span className="ch-viewers-w">watching</span>
-            </span>
-            {!chatOpen && (
-              <button type="button" className="btn" onClick={() => setChatOpen(true)}>
-                Show chat
+            <div className="ch-buttons">
+              {cams.length > 1 && (
+                <div className="cams" role="group" aria-label="Camera">
+                  {cams.map((c) => (
+                    <button key={c} type="button" className={cam === c ? 'on' : ''} onClick={() => setCam(c)} data-testid={`cam-${c}`} aria-pressed={cam === c}>
+                      {c}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {!chatOpen && (
+                <button type="button" className="btn" onClick={() => setChatOpen(true)}>
+                  Show chat
+                </button>
+              )}
+              <Button variant="primary" size="lg" onClick={betNow} data-testid="bet-now" seed="bet-now">
+                Bet now
+              </Button>
+            </div>
+            <div className="ch-meta">
+              <span className="ch-viewers num">
+                <EyeIcon />
+                <span className="ch-viewers-n">{viewersOf(s).toLocaleString('en-US')}</span>
+                <span className="ch-viewers-w">watching</span>
+              </span>
+              <button type="button" className={`ch-share ${shared ? 'done' : ''}`} onClick={share} aria-label="Copy the link to this channel" title={shared ? 'Link copied' : 'Share'} data-testid="share">
+                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  {shared ? <path d="M4.5 10.5l3.5 3.5 7.5-8" /> : <path d="M11 4.5l5.5 5-5.5 5v-3.2c-4 0-6.3 1-8 3.7.3-4.3 2.8-7.2 8-7.5z" />}
+                </svg>
               </button>
-            )}
+              <span className="ink-sr" role="status">{shared ? 'Link copied' : ''}</span>
+            </div>
           </div>
         </div>
-        <ChannelTabs s={s} />
+        <ChannelPanels s={s} />
       </section>
       <aside className="ch-side">
         <div className="chat-head">

@@ -42,6 +42,21 @@ export function Prediction({
   const now = useNow(200);
   const settledAt = useRef(new Map<string, number>());
   const [folded, setFolded] = useState(false);
+  const card = useRef<HTMLDivElement>(null);
+  // "Bet now" under the stream: open the panel, bring it into view and ring it once.
+  useEffect(() => {
+    const on = () => {
+      setFolded(false);
+      const el = card.current?.closest('.pred');
+      if (!el) return;
+      el.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      el.classList.remove('pred-nudge');
+      void (el as HTMLElement).offsetWidth;
+      el.classList.add('pred-nudge');
+    };
+    window.addEventListener('arena:bet-now', on);
+    return () => window.removeEventListener('arena:bet-now', on);
+  }, []);
 
   useEffect(
     () =>
@@ -90,7 +105,7 @@ export function Prediction({
   return (
     <AutoHeight className={`pred has-hide ${folded ? 'pred-folded' : ''}`}>
       <>
-        <div data-testid="prediction" data-kind={kind}>
+        <div ref={card} data-testid="prediction" data-kind={kind}>
           {body}
         </div>
         <button type="button" className="icon-btn pred-hide" onClick={() => setFolded((v) => !v)} aria-expanded={!folded} aria-label={folded ? 'Open the bet' : 'Fold the bet'} title={folded ? 'Open the bet' : 'Fold the bet'}>
@@ -401,7 +416,7 @@ function TxLink({ t }: { t: Ticket | null }) {
   if (!t?.tx) return null;
   return (
     <a className="tx-link" href={t.tx} target="_blank" rel="noreferrer" data-testid="bet-tx">
-      View transaction
+      View receipt
     </a>
   );
 }
