@@ -5,8 +5,6 @@ import { ChannelPage } from './pages/Channel';
 import { Home } from './pages/Home';
 import { Lab } from './pages/Lab';
 import { HomeTopPrototype } from './prototypes/home-top';
-import { HeroPrototype } from './prototypes/hero';
-import { HeroJsPrototype } from './prototypes/hero-js';
 import { UiDemo } from './ui/Demo';
 import { FxDefs } from './components/FxDefs';
 import './components/nightline';
@@ -20,8 +18,6 @@ export function App() {
   const railOpen = useRailOpen(true);
   if (path === '/lab' && import.meta.env.DEV) return <Lab />;
   if (path === '/prototypes/home-top' && import.meta.env.DEV) return <HomeTopPrototype />;
-  if (path === '/prototypes/hero' && import.meta.env.DEV) return <HeroPrototype />;
-  if (path === '/prototypes/hero-js' && import.meta.env.DEV) return <HeroJsPrototype />;
   if (path === '/ui' && import.meta.env.DEV) return <UiDemo />;
   return (
     <div className={`ink-ui app ${m ? 'app-channel' : 'app-home'} ${railOpen ? 'rail-open' : 'rail-closed'}`}>

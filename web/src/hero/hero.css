@@ -1,0 +1,15 @@
+/* The home page hero. The scene paints its own paper; the section clips the scene's empty lower band and
+   fades into the page colour so there is no visible edge where the cards begin. */
+.hero { position: relative; background: #0c100b; overflow: hidden; aspect-ratio: 3000 / 800; container-type: inline-size; }
+.hero-hold { width: 100%; aspect-ratio: 3 / 1; }
+.hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(to bottom, transparent, var(--bg)); pointer-events: none; }
+/* Sizes follow the hero's own width, not the window's, so the headline always fits the open sky. */
+.hero-copy { position: absolute; width: 54%; transform: translate(-50%, -50%); text-align: center; pointer-events: none; z-index: 1; }
+.hero-h { margin: 0; font-family: var(--font-ui); font-weight: 700; font-size: clamp(16px, 3.7cqw, 56px); line-height: 1.08; letter-spacing: -0.01em; color: #f2efe6; white-space: nowrap; }
+.hero-sub { margin: clamp(4px, 0.7cqw, 12px) 0 0; font-size: clamp(10px, 1.45cqw, 18px); line-height: 1.35; color: rgba(242, 239, 230, 0.74); }
+/* The channel cards start on the hero's faded lower edge, the way Duel's tiles overlap its banner. */
+.hero + .home { position: relative; z-index: 1; margin-top: clamp(-72px, -4vw, -20px); }
+@media (max-width: 720px) {
+  .hero { aspect-ratio: 3000 / 1000; }
+  .hero-h { white-space: normal; }
+}
