@@ -403,6 +403,16 @@ export function memoryLedger(): CostLedger & { entries: CostEntry[] } {
   return { entries, total: () => entries.reduce((a, e) => a + e.costUsd, 0), add: (e) => void entries.push(e) };
 }
 
+/** a shuffled copy (presentation order only; not part of any outcome the sim computes) */
+function shuffled<T>(list: readonly T[]): T[] {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j]!, a[i]!];
+  }
+  return a;
+}
+
 export const SYSTEM_PROMPT = [
   'You coach a monster in Blood Moon, a side-on platform fighter. Damage is a percent: the higher it is, the further hits launch you. Knocked past the arena edge, you lose a life. Your fighter plays every frame itself; you set its game plan about every 3 seconds, and a plan takes effect a moment after you answer, so think ahead.',
   'Stances: rush (close in, strings of strikes and grabs, pressure shields), keepaway (hold space, poke at range, shoot), bait (hover outside range, make them swing, punish whiffs), wall (hold the middle, shield, punish out of shield, do not chase).',
@@ -607,16 +617,18 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
     },
     async pickFighter(bot, info) {
       if (overBudget()) return o.mock.pickFighter(bot, info);
+      let shown = info.roster;
       const ans = await call(
         'pick',
         bot,
         {
           you: you(bot),
-          task: 'Pick your fighter. The opponent picks at the same time without seeing yours.',
-          roster: info.roster.map((r) => ({ id: r.id, role: r.role, blurb: r.blurb, stats: r.stats })),
+          task: 'Pick your fighter by id. The opponent picks at the same time without seeing yours. Any of them can win: choose the one that suits how you like to fight.',
+          // the order is shuffled for every call: models lean to the first option they are shown
+          roster: (shown = shuffled(info.roster)).map((r) => ({ id: r.id, name: r.name, role: r.role, blurb: r.blurb, stats: r.stats })),
           opponent: info.opponent,
           memory: info.memory.slice(-3),
-          answer: { pick: info.roster.map((r) => r.id).join('|') },
+          answer: { pick: shown.map((r) => r.id).join('|') },
         },
         40,
         T.pick,
