@@ -1,0 +1,11 @@
+/* "Coming soon" tiles. They reuse the live tiles' classes (card, cat, rail-item); this only marks them as not
+   yet playable: no pointer, no hover lift, a quieter tag. */
+.soon { cursor: default; }
+.soon-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+.soon-ph { display: grid; place-items: center; width: 100%; height: 100%; padding: 16px; background: var(--card, var(--raised)); outline: 1px dashed var(--keyline); outline-offset: -10px; color: var(--text-2); font-size: 18px; font-weight: 700; line-height: 24px; text-align: center; }
+.cat.soon .soon-ph { font-size: 16px; }
+.card.soon .card-thumb .soon-badge { color: var(--accent); }
+.card.soon .card-title:hover, .cat.soon:hover .cat-name { color: var(--text); }
+.app .rail-item.soon:hover { background: none; }
+.app .rail-item.soon .rail-name { color: var(--text-2); }
+.app .rail-item.soon:hover .rail-name { color: var(--text-2); }

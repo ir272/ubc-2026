@@ -1,5 +1,7 @@
 // Left rail (Kick/Twitch): live channels (thumbnail, name, state, pot, viewers), then top models and
 // what's up next. 256px open, 56px collapsed to icons (kick.com's sizes; CSS in kick-detail.css).
+import { SOON } from '../comingSoon';
+import { SoonRailRow } from './ComingSoon';
 import { useSyncExternalStore } from 'react';
 import type { Snapshot } from '../lib/api';
 import { displayTitle, useChannels } from '../lib/channels';
@@ -166,6 +168,10 @@ export function Rail({ home }: { home?: boolean }) {
             {sec.list.map((c) => <RailRow key={c.channel} c={c} open={isOpen} on={channelPath(c.channel) === path} />)}
           </section>
         ))}
+        <section className="rail-sec">
+          {isOpen && <h2 className="rail-sec-h">Coming soon</h2>}
+          {SOON.map((g) => <SoonRailRow key={g.id} game={g} open={isOpen} />)}
+        </section>
       </div>
     </nav>
   );

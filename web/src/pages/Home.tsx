@@ -11,6 +11,8 @@ import { usdShort } from '../lib/money';
 import { channelPath } from '../lib/router';
 import { HomeHero } from '../hero/HomeHero';
 import { Carousel } from '../components/Carousel';
+import { SoonCard, SoonCat } from '../components/ComingSoon';
+import { SOON } from '../comingSoon';
 
 const potOf = (c: Pick<Snapshot, 'windows'>) => {
   const w = [...c.windows].reverse().find((x) => x.state === 'open') ?? c.windows[c.windows.length - 1];
@@ -66,6 +68,7 @@ export function Home() {
               {channels.map((c) => (
                 <LiveCard key={c.channel} snap={c} />
               ))}
+              {SOON.filter((g) => g.inLiveRow).map((g) => <SoonCard key={g.id} game={g} />)}
             </div>
           </section>
           <section>
@@ -87,6 +90,7 @@ export function Home() {
                   </Link>
                 );
               })}
+              {SOON.map((g) => <SoonCat key={g.id} game={g} />)}
             </div>
           </section>
         </div>
