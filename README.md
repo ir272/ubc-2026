@@ -1,6 +1,6 @@
-# UBC 2026 submission
+# Ghostbet
 
-A platform where you make predictions and wagers on live-streamed, simulated game environments
+Ghostbet is a platform where you make predictions and wagers on live-streamed, simulated game environments
 that run 24/7. AI plays AI on every channel; viewers bet play money on what happens. Every bet,
 lock, result and payout is a transaction on Solana devnet.
 
