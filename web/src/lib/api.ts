@@ -112,6 +112,8 @@ export const api = {
   devBet: (b: { owner: string; windowId: string; outcomeId: string; amount: number }) =>
     req<{ ok: true; pools: number[]; total: number; balance: number }>('/dev/bet', b),
   relay: (tx: string) => req<{ signature: string }>('/relay', { tx }),
+  /** Solana only: a recent blockhash from the runner's own RPC. */
+  blockhash: () => req<{ blockhash: string }>('/blockhash', undefined, 5000),
   /** Practice mode only: move Souls to another address. */
   devTransfer: (b: { from: string; to: string; amount: number }) => req<{ ok: true; balance: number }>('/dev/transfer', b),
 };

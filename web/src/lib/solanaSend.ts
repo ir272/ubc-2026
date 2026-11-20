@@ -6,8 +6,7 @@ import './bufferGlobal'; // first: the token library expects a global Buffer
 import { createAssociatedTokenAccountIdempotentInstruction, createTransferCheckedInstruction, getAssociatedTokenAddressSync } from '@solana/spl-token';
 import { Keypair, PublicKey, Transaction } from '@solana/web3.js';
 import { api, type Config } from './api';
-import { SOLANA_RPC } from './env';
-import { CLUSTERS, latestBlockhash } from './solanaBet';
+import { blockhashFor } from './solanaBet';
 
 const PLAY_DECIMALS = 6;
 
@@ -35,8 +34,7 @@ export function buildSendTx(a: {
 
 export async function sendPlaySolana(a: { seed: Uint8Array; owner: string; to: string; amount: number; cfg: Config }): Promise<string> {
   if (!a.cfg.feePayer || !a.cfg.mint) throw new Error('runner has no fee payer');
-  const rpc = SOLANA_RPC || CLUSTERS[a.cfg.cluster ?? 'devnet'] || CLUSTERS.devnet!;
-  const recentBlockhash = await latestBlockhash(rpc);
+  const recentBlockhash = await blockhashFor(a.cfg.cluster);
   const tx = buildSendTx({ seed: a.seed, owner: a.owner, to: a.to, amount: a.amount, mint: a.cfg.mint, feePayer: a.cfg.feePayer, recentBlockhash });
   const { signature } = await api.relay(tx);
   return signature;

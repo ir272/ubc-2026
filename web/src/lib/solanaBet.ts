@@ -13,6 +13,18 @@ export const CLUSTERS: Record<string, string> = {
   localhost: 'http://127.0.0.1:8899',
 };
 
+/**
+ * A recent blockhash to sign with. The runner's own RPC first (the public devnet RPC turns requests away now
+ * and then, which used to show as "Lost connection"), then the public RPC once as a fallback.
+ */
+export async function blockhashFor(cluster: string | undefined): Promise<string> {
+  try {
+    return (await api.blockhash()).blockhash;
+  } catch {
+    return latestBlockhash(SOLANA_RPC || CLUSTERS[cluster ?? 'devnet'] || CLUSTERS.devnet!);
+  }
+}
+
 export async function latestBlockhash(rpc: string): Promise<string> {
   const r = await fetch(rpc, {
     method: 'POST',
@@ -49,8 +61,7 @@ export async function placeBetSolana(a: {
   seed: Uint8Array; owner: string; market: string; outcome: number; amount: number; cfg: Config;
 }): Promise<string> {
   if (!a.cfg.feePayer) throw new Error('runner has no fee payer');
-  const rpc = SOLANA_RPC || CLUSTERS[a.cfg.cluster ?? 'devnet'] || CLUSTERS.devnet!;
-  const recentBlockhash = await latestBlockhash(rpc);
+  const recentBlockhash = await blockhashFor(a.cfg.cluster);
   const tx = buildPlaceBetTx({ ...a, programId: a.cfg.programId, feePayer: a.cfg.feePayer, recentBlockhash });
   const { signature } = await api.relay(tx);
   return signature;

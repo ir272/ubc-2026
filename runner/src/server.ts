@@ -161,6 +161,10 @@ export function createApp(o: AppOpts) {
     if (m === 'GET' && (p === '/' || p === '/health')) return json(200, { ok: true, chain: chain.kind, channels: hub.channels.size, reclaim: { pending: hub.reclaimer.pending, ...hub.reclaimer.stats }, ...(chain.rpcUsage ? { rpc: chain.rpcUsage() } : {}) });
     if (m === 'GET' && p === '/config')
       return json(200, { ...chain.info(), decimals: DECIMALS, unit: UNIT, faucetAmount: FAUCET_AMOUNT, houseBots: hub.bots.length > 0 });
+    if (m === 'GET' && p === '/blockhash') {
+      if (!chain.recentBlockhash) throw new HttpError(404, '/blockhash is only available with CHAIN=solana');
+      return json(200, { blockhash: await chain.recentBlockhash() });
+    }
     if (m === 'GET' && p === '/dev') {
       res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' });
       return res.end(devHtml());

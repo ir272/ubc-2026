@@ -233,6 +233,25 @@ export class SolanaChain implements ChainAdapter {
   }
 
   /** Earliest time the next transaction may be sent: TX_PER_SEC (default 1, Helius free tier's cap). */
+  // The browser signs bets against a recent blockhash. It used to ask the public devnet RPC for one, which
+  // refuses requests now and then (the browser then reports a network error). The runner answers from its own
+  // RPC instead, cached briefly so a crowd of viewers costs one RPC call every couple of seconds.
+  private bh: { value: string; at: number } | null = null;
+  private bhPending: Promise<string> | null = null;
+  async recentBlockhash(): Promise<string> {
+    if (this.bh && Date.now() - this.bh.at < 2000) return this.bh.value;
+    this.bhPending ??= this.connection
+      .getLatestBlockhash('confirmed')
+      .then(({ blockhash }) => {
+        this.bh = { value: blockhash, at: Date.now() };
+        return blockhash;
+      })
+      .finally(() => {
+        this.bhPending = null;
+      });
+    return this.bhPending;
+  }
+
   private nextSendAt = 0;
   private readonly sendGapMs = 1000 / Math.max(0.1, Number(process.env.TX_PER_SEC) || 1);
   private async sendTurn() {

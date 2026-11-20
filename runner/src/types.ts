@@ -22,6 +22,8 @@ export interface ChainAdapter {
   /** Resolves to the transaction signature when there is one (Solana); nothing on the memory chain. */
   grant(owner: string, amount: number): Promise<string | void>;
   relay(txBase64: string): Promise<string>;
+  /** EXTRA, Solana only: a recent blockhash for the browser to sign with, read through the runner's own RPC. */
+  recentBlockhash?(): Promise<string>;
   getMarket(market: string): Promise<{ pools: number[]; state: string }>;
   getBalance(owner: string): Promise<number>;
 
