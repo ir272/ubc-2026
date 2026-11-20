@@ -33,6 +33,8 @@ export interface Pose {
   greet?: number;
   /** 0..1 a bow from the hips (duellist, Count) */
   bow?: number;
+  /** 0..1 feet apart, front foot forward (the duellist's lunge) */
+  spread?: number;
   /** wind at the character, -1..1 */
   wind?: number;
   /** line weight multiplier (thinner for the small picture on the screen) */
@@ -44,7 +46,7 @@ export interface Pose {
 interface Rig { thigh: number; shin: number; step: number; lift: number; bob: number; foot: number; size: number }
 // every figure is drawn about 100 units tall and scaled by `size` (scene units per unit)
 const RIGS: Record<Kind, Rig> = {
-  goober: { thigh: 8, shin: 8, step: 22, lift: 7, bob: 0, foot: 4, size: 0.84 },
+  goober: { thigh: 8.5, shin: 8.5, step: 26, lift: 7, bob: 0, foot: 4, size: 0.84 },
   duellist: { thigh: 20, shin: 19, step: 31, lift: 5, bob: 1.2, foot: 3.6, size: 1.14 },
   count: { thigh: 21, shin: 20, step: 40, lift: 7, bob: 1.8, foot: 4.5, size: 1.42 },
 };
@@ -174,7 +176,8 @@ function gait(R: Rig, pose: Pose, gl: (fx: number) => number): Gait {
     fa = lerp(fa, 0.6, tuck);
     return { ax: fx, ay: gy * (1 - tuck) - lift - R.foot, fa, u };
   };
-  const tn = target(0, 0.24 * R.step * 0.5), tf = target(Math.PI, -0.24 * R.step * 0.5);
+  const sp = pose.spread ?? 0;
+  const tn = target(0, R.step * (0.12 + 0.42 * sp)), tf = target(Math.PI, -R.step * (0.12 + 0.3 * sp));
   // the hips ride low enough for both legs to reach (this is what makes a walker sink onto each step down)
   for (const tg of [tn, tf]) {
     const dx = tg.ax - hip[0], m = LL * 0.985;
@@ -226,7 +229,7 @@ function goober(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen
   // the bounce: up over each planted foot, squashed at each landing, stretched at the top
   const hop = 4.6 * amp * Math.abs(Math.sin(ph)) ** 0.8 * (1 - tuck);
   const sq = 0.075 * amp * Math.cos(2 * ph - 0.5) * (1 - tuck) + 0.2 * crouch - 0.12 * tuck + 0.02 * Math.sin(t * 2.1) * (1 - amp);
-  const sx = 1 + sq * 0.7, sy = 1 - sq;
+  const sx = (1 + sq * 0.7) * 1.1, sy = 1 - sq; // a little wider than the profile: Sherbet is a squat one
   const rock = 0.1 * amp * Math.sin(ph + 0.4) + 0.05 * amp - 0.1 * tuck + 0.06 * greet * Math.sin(t * 9);
   const bx = g.hip[0], by = g.hip[1] + 3 - hop;
   const cr = Math.cos(rock), sr = Math.sin(rock);
@@ -262,7 +265,7 @@ function goober(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen
 
   // the near arm, low on the side: it swings against the near leg, waves, or goes up
   const aNear = lerp(lerp(-0.25 - 0.75 * amp * Math.cos(ph), -2.5 + 0.4 * Math.sin(t * 9), greet), -2.5, up);
-  mass(ctx, [{ p: armAt(B(-4, -25), aNear, 15), f: body }], TEAL, pen.f);
+  mass(ctx, [{ p: armAt(B(-13, -26), aNear, 15), f: body }], TEAL, pen.f);
 
   // the face, turned toward where it is going
   const happy = up > 0.35 || greet > 0.5;
@@ -272,7 +275,8 @@ function goober(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen
     else if (bl) seg(ctx, c[0] - rx, c[1], c[0] + rx, c[1], pen.d * 1.2, DARK);
     else {
       disc(ctx, c[0], c[1], rx, INK, DARK, pen.d * 0.8, 1, ry, rock);
-      disc(ctx, c[0] + rx * 0.24, c[1] + ry * 0.08, rx * 0.6, '#1c1428', null, 0, 1, ry * 0.62, rock);
+      disc(ctx, c[0] + rx * 0.22, c[1] + ry * 0.08, rx * 0.66, '#7a4fb0', null, 0, 1, ry * 0.68, rock);
+      disc(ctx, c[0] + rx * 0.26, c[1] + ry * 0.1, rx * 0.4, '#150f20', null, 0, 1, ry * 0.42, rock);
       disc(ctx, c[0] - rx * 0.05, c[1] - ry * 0.3, rx * 0.22, INK);
     }
   };
@@ -300,7 +304,7 @@ function duellist(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, p
   const R = RIGS.duellist;
   const amp = pose.amp, ph = pose.phase, tuck = pose.tuck ?? 0, act = pose.act ?? 0, greet = pose.greet ?? 0, bow = pose.bow ?? 0;
   const wnd = pose.wind ?? 0;
-  const g = gait(R, pose, gl);
+  const g = gait(R, { ...pose, spread: act }, gl);
   const hip = g.hip;
   const BLACK = tone(INK, 0.045), CREAM = tone(INK, 0.66), SASH = tone(ORANGE, 0.6);
   contact(ctx, R, g, pose, gl, 26, INK, pen);
@@ -328,9 +332,9 @@ function duellist(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, p
     }
     return tube(pts, w, false, false);
   };
-  const nape = P(35.5, -4.5), knot = P(3, -7.4);
-  mass(ctx, [{ p: ribbon(nape, 21, 3, 1.3, 0.3, [1.4, 2.4, 2.7, 2.7, 2.5, 2.2, 1.6]), f: tone(INK, 0.5) }, { p: ribbon(nape, 31, -3, 0, 0.26, [1.5, 2.6, 3, 3, 2.9, 2.6, 1.8]), f: CREAM }], INK, pen.f);
-  mass(ctx, [{ p: ribbon(knot, 27, 5, 2.2, 0.5, [1.4, 2.8, 3.2, 3.1, 2.6, 1.7, 0.5]), f: tone(ORANGE, 0.42) }, { p: ribbon(knot, 36, -1, 0.7, 0.4, [1.5, 3, 3.5, 3.4, 2.9, 1.9, 0.5]), f: SASH }], ORANGE, pen.f);
+  const nape = P(35.5, -4.5), knot = P(3, -11.3);
+  mass(ctx, [{ p: ribbon(nape, 29, 3, 1.3, 0.3, [1.2, 1.8, 2, 2, 1.9, 1.8, 1.4]), f: tone(INK, 0.5) }, { p: ribbon(nape, 42, -3, 0, 0.22, [1.3, 2, 2.2, 2.2, 2.1, 2, 1.5]), f: CREAM }], INK, pen.f);
+  mass(ctx, [{ p: ribbon(knot, 34, 5, 2.2, 0.46, [1.3, 2.3, 2.6, 2.5, 2.1, 1.4, 0.4]), f: tone(ORANGE, 0.42) }, { p: ribbon(knot, 45, -1, 0.7, 0.36, [1.4, 2.5, 2.8, 2.7, 2.3, 1.5, 0.4]), f: SASH }], ORANGE, pen.f);
 
   // the far arm swings a little behind the coat
   const sF = P(33, -1), swF = 0.3 * amp * Math.cos(ph);
@@ -343,8 +347,8 @@ function duellist(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, p
 
   // the coat: one black mass from the helm to a ragged hem that follows the feet
   const lead = g.near.ankle[0] > g.far.ankle[0] ? g.near.ankle : g.far.ankle, trail = lead === g.near.ankle ? g.far.ankle : g.near.ankle;
-  const F: Pt = [lead[0] + 7 + 2 * amp, lead[1] - 6 - 10 * tuck], Bk: Pt = [trail[0] - 14 - 5 * amp - 6 * tuck, trail[1] - 5.5 - 16 * tuck];
-  const wF = P(3, 6.8), wB = P(3, -7.2);
+  const F: Pt = [lead[0] + 5 + 3 * amp, lead[1] - 6 - 10 * tuck], Bk: Pt = [trail[0] - 14 - 5 * amp - 6 * tuck, trail[1] - 5.5 - 16 * tuck];
+  const wF = P(3, 9.4), wB = P(3, -11.3);
   const hem: Pt[] = [];
   for (let i = 0; i <= 6; i++) {
     const p = mix(F, Bk, i / 6);
@@ -355,24 +359,28 @@ function duellist(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, p
     }
   }
   const skirt: Pt[] = [wF, ...curve([wF, [(wF[0] + F[0]) / 2 + 2.5, (wF[1] + F[1]) / 2], F], 4).slice(1, -1), ...hem, ...curve([Bk, [(wB[0] + Bk[0]) / 2 - 3, (wB[1] + Bk[1]) / 2 + 2], wB], 4).slice(1)];
-  const torso: Pt[] = [P(-1, -7.6), P(-1, 7), P(14, 7.6), P(27, 8.2), P(34.5, 7), P(37.5, 3), P(37.5, -3.4), P(35, -8.2), P(20, -8.4)];
+  const torso: Pt[] = [P(-1, -11.5), P(-1, 9.5), P(14, 9.2), P(27, 8.8), P(34.5, 7.4), P(37.5, 3), P(37.5, -3.6), P(35, -8.6), P(20, -10.4)];
   const helm = ellipse(H, 8.3, 8.8, hl);
-  const crest: Pt[] = [HP(-4.5, -7.4), HP(-17.5, -6.8), HP(-7.6, -2.2)];
+  const crest: Pt[] = [HP(-3.6, -8), HP(-15, -7.4), HP(-7.8, -3.2)];
   const collar: Pt[] = [P(33, -6.6), P(39.5, -5), P(39.5, 5.6), P(33, 6.8)];
   mass(ctx, [{ p: skirt, f: BLACK }, { p: torso, f: BLACK }, { p: collar, f: BLACK }, { p: helm, f: BLACK }, { p: crest, f: BLACK }], INK, pen.s);
   // the engraving: streaks down the skirt, hatch across the chest, three arcs on the helm
-  for (const [v, f] of [[4.4, 0.12], [1.4, 0.36], [-2.2, 0.6], [-5.2, 0.84]] as const) {
+  for (const [v, f] of [[6.4, 0.1], [3, 0.27], [-0.6, 0.44], [-4.4, 0.62], [-8.4, 0.82]] as const) {
     const a = P(0.5, v), b = mix(F, Bk, f);
     taper(ctx, [a, mix(a, b, 0.5), [b[0], b[1] - 7]], pen.d * 1.3, INK, 0.62, 0.1, 0.5);
   }
-  for (let i = 0; i < 4; i++) seg(ctx, P(11 + i * 6, -6.2)[0], P(11 + i * 6, -6.2)[1], P(11 + i * 6, -0.6 - (i % 2) * 1.6)[0], P(11 + i * 6, -0.6 - (i % 2) * 1.6)[1], pen.d, INK, 0.6);
+  for (let i = 0; i < 6; i++) {
+    const u = 9.5 + i * 4.5, v0 = -8.6 + (i % 2) * 1.4, v1 = -1.6 - (i % 3) * 0.8, v2 = 5.8 - ((i * 2) % 3) * 1.3;
+    seg(ctx, P(u, v0)[0], P(u, v0)[1], P(u, v1)[0], P(u, v1)[1], pen.d, INK, 0.7);
+    if (i % 2 === 0) seg(ctx, P(u, v1 + 2)[0], P(u, v1 + 2)[1], P(u, v2)[0], P(u, v2)[1], pen.d, INK, 0.5);
+  }
   for (let i = 0; i < 2; i++) line(ctx, curve([HP(-4.4 + i * 0.6, -5.4 + i * 2.8), HP(0.6, -7 + i * 2.8), HP(5.4 + i * 0.6, -5.2 + i * 2.8)], 3), pen.d, INK, 0.72);
   // the visor: a slit and the pale ground behind it
   line(ctx, [HP(2.6, 1.2), HP(8, 0.8)], pen.d * 1.5, INK);
   line(ctx, [HP(4, 3.6), HP(7.6, 3.3)], pen.d, INK, 0.6);
 
   // the sash round the waist, knotted at the back
-  mass(ctx, [{ p: [P(0.2, -7.8), P(5.6, -7.8), P(4.6, 7.4), P(-0.6, 7.4)], f: SASH }, { p: ellipse(knot, 3.1, 3.1, 0, 12), f: SASH }], ORANGE, pen.d);
+  mass(ctx, [{ p: [P(0.4, -11.8), P(5.6, -11.5), P(4.6, 9.8), P(-0.6, 10)], f: SASH }, { p: ellipse(knot, 3.1, 3.1, 0, 12), f: SASH }], ORANGE, pen.d);
 
   // the sword arm. Carried point down in front, as in the game; thrust; brought up in salute; swept low in the bow.
   let hu = 13, hv = 11, ang = Math.PI - 0.14;
@@ -406,7 +414,7 @@ function duellist(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, p
 // Points are in the units of the game's own character sheet (240 tall, hips at y = -104), scaled here.
 const CK = 0.4167;
 const C_FRONT: readonly Pt[] = [[-34, -180], [-18, -182], [8, -184], [28, -176], [40, -162], [48, -146], [48, -124], [50, -96], [54, -66]];
-const C_FRONT_OPEN: readonly Pt[] = [[-34, -180], [-18, -182], [8, -184], [28, -178], [44, -172], [58, -182], [72, -188], [86, -150], [93, -104]];
+const C_FRONT_OPEN: readonly Pt[] = [[-34, -180], [-18, -182], [8, -184], [28, -178], [44, -174], [60, -192], [76, -206], [101, -162], [105, -112]];
 const C_HEM: readonly Pt[] = [[60, -40], [36, -30], [10, -22], [-20, -17], [-52, -15], [-82, -19], [-108, -32]];
 const C_BACK: readonly (readonly [number, number, number])[] = [[-96, -72, 0.7], [-78, -118, 0.4], [-60, -158, 0.15], [-46, -180, 0.03], [-34, -184, 0]];
 const C_INNER: readonly (readonly [number, number, number])[] = [[-44, -60, 0.4], [-30, -120, 0.14], [-22, -170, 0]];
@@ -451,8 +459,8 @@ function count(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen:
   const off: Pt[] = C_HEM.map((_, i) => {
     const f = i / 6;
     return [
-      -f * amp * 18 - f * tuck * 26 + (i === 0 ? 28 : i === 1 ? 22 : 0) * act + 7 * Math.sin(2 * ph - 0.9 * i - 0.5) * amp * (0.35 + f) + 12 * wnd * f + 2.5 * Math.sin(t * 1.7 - i * 0.8),
-      -f * amp * 10 + 5 * Math.sin(2 * ph - 0.9 * i - 2) * amp * (0.3 + f) - tuck * f * 60 - (i === 0 ? 22 : i === 1 ? 4 : 0) * act + 2 * Math.sin(t * 1.9 - i),
+      -f * amp * 18 - f * tuck * 26 + (i === 0 ? 31 : i === 1 ? 22 : 0) * act + 7 * Math.sin(2 * ph - 0.9 * i - 0.5) * amp * (0.35 + f) + 12 * wnd * f + 2.5 * Math.sin(t * 1.7 - i * 0.8),
+      -f * amp * 10 + 5 * Math.sin(2 * ph - 0.9 * i - 2) * amp * (0.3 + f) - tuck * f * 60 - (i === 0 ? 26 : i === 1 ? 6 : 0) * act + 2 * Math.sin(t * 1.9 - i),
     ];
   });
   const tips: Pt[] = C_HEM.map(([X, Y], i) => {
@@ -462,22 +470,28 @@ function count(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen:
   const front: Pt[] = C_FRONT.map(([X, Y], i) => C(lerp(X, C_FRONT_OPEN[i]![0], act), lerp(Y, C_FRONT_OPEN[i]![1], act)));
   const back: Pt[] = C_BACK.map(([X, Y, f]) => C(X + off[6]![0] * f, Y + off[6]![1] * f));
   const inside = C(-10, -90);
-  const hem: Pt[] = [tips[0]!];
-  for (let i = 1; i < tips.length; i++) {
-    const a = tips[i - 1]!, b = tips[i]!;
-    let nx = -(b[1] - a[1]), ny = b[0] - a[0];
-    const nl = Math.hypot(nx, ny) || 1;
-    nx /= nl;
-    ny /= nl;
-    const m = mix(a, b, 0.5);
-    if ((inside[0] - m[0]) * nx + (inside[1] - m[1]) * ny < 0) {
-      nx = -nx;
-      ny = -ny;
+  // a bat-wing edge through sharp points: each span between two points sags in toward the body
+  const scallop = (pts: readonly Pt[], depth: number): Pt[] => {
+    const out: Pt[] = [pts[0]!];
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1]!, b = pts[i]!;
+      let nx = -(b[1] - a[1]), ny = b[0] - a[0];
+      const nl = Math.hypot(nx, ny) || 1;
+      nx /= nl;
+      ny /= nl;
+      const m = mix(a, b, 0.5);
+      if ((inside[0] - m[0]) * nx + (inside[1] - m[1]) * ny < 0) {
+        nx = -nx;
+        ny = -ny;
+      }
+      for (const u of [0.25, 0.5, 0.75]) out.push(add(mix(a, b, u), [nx, ny], depth * Math.sin(Math.PI * u ** 0.8)));
+      out.push(b);
     }
-    for (const u of [0.25, 0.5, 0.75]) hem.push(add(mix(a, b, u), [nx, ny], 3.4 * Math.sin(Math.PI * u ** 0.8)));
-    hem.push(b);
-  }
-  const cloak: Pt[] = [...curve([...front, tips[0]!], 3).slice(0, -1), ...hem, ...curve([tips[6]!, ...back], 3).slice(1)];
+    return out;
+  };
+  // thrown open, the front edge becomes a wing held up by the arm: hand, two points, then the hem
+  const wing = scallop([front[6]!, front[7]!, front[8]!, tips[0]!], 3.6 * act);
+  const cloak: Pt[] = [...curve(front.slice(0, 7), 3).slice(0, -1), ...wing.slice(0, -1), ...scallop(tips, 3.4), ...curve([tips[6]!, ...back], 3).slice(1)];
   const collar = curve(C_COLLAR.map(([x, y]) => Hc(x, y)), 3, true);
   mass(ctx, [{ p: cloak, f: CLOTH }, { p: collar, f: CLOTH }], INK, pen.s);
   // the back third in shade, hatched along the fall of the cloth
@@ -493,10 +507,12 @@ function count(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen:
   line(ctx, curve([C(0, -166), mix(C(-10, -100), tips[3]!, 0.15), add(tips[3]!, [0.6, -3])], 5), pen.d * 1.2, INK, 0.85);
   line(ctx, curve([C(36, -128), mix(C(30, -84), tips[1]!, 0.15), add(tips[1]!, [0.3, -3])], 5), pen.d * 1.2, INK, 0.7);
   // the red lining turned back along the front edge; it opens wide when he throws the cloak open
-  const edge: Pt[] = [front[6]!, front[7]!, front[8]!, tips[0]!];
-  const seam: readonly Pt[] = [[46, -164], [40, -124], [36, -84], [33, -48]];
-  const turn: Pt[] = edge.map((p, i) => mix(add(p, [-1.5 - i * 0.45, 0.8]), C(seam[i]![0], seam[i]![1]), act)).reverse();
-  mass(ctx, [{ p: [...curve(edge, 3), mix(tips[0]!, add(tips[1]!, [0, -1.6]), act), ...curve(turn, 3)], f: LINING }], RED, pen.d * 0.8);
+  const wc = C(70, -120);
+  const lin: Pt[] = [...wing, mix(tips[0]!, tips[1]!, act)].map((p) => mix(p, wc, 0.13 * act));
+  const seam: readonly Pt[] = [[52, -176], [42, -128], [37, -84], [34, -50]];
+  const turn: Pt[] = [front[6]!, front[7]!, front[8]!, tips[0]!].map((p, i) => mix(add(p, [-1.5 - i * 0.45, 0.8]), C(seam[i]![0], seam[i]![1]), act)).reverse();
+  mass(ctx, [{ p: [...lin, ...curve(turn, 3)], f: LINING }], RED, pen.d * 0.8);
+  if (act > 0.5) for (const q of [front[7]!, front[8]!, tips[0]!]) line(ctx, [mix(front[6]!, wc, 0.1), mix(q, wc, 0.16)], pen.d, RED, 0.8 * act);
   mass(ctx, [{ p: curve(C_COLLAR_IN.map(([x, y]) => Hc(x, y)), 3, true), f: LINING }], RED, pen.d);
 
   // neck, the long pale face, the hair combed straight back, the pointed ear
@@ -523,7 +539,7 @@ function count(ctx: Ctx, pose: Pose, t: number, gl: (fx: number) => number, pen:
   }
 
   // the hand that holds the cloak shut: pale, long nails into the cloth
-  const hd = C(lerp(44, 73, act), lerp(-140, -186, act));
+  const hd = C(lerp(44, 77, act), lerp(-140, -205, act));
   for (let i = 0; i < 3; i++) seg(ctx, hd[0] - 1, hd[1] - 1.6 + i * 1.7, hd[0] - 6.4, hd[1] - 0.4 + i * 2.2, pen.d * 1.25, INK);
   mass(ctx, [{ p: ellipse(add(hd, [0.6, 0.4]), 3.3, 2.7, 0.3, 10), f: PALE }], INK, pen.d);
 }

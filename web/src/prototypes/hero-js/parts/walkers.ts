@@ -7,7 +7,7 @@
 // to throw it open and bare his fangs. At the couch each takes its leave: the goober waves and hops, the
 // duellist salutes with the blade and bows, the Count bows. Then it is gone the way a game character goes,
 // with a pop: puffs, loose pages, a few bats. Nothing is ever see-through.
-// All three share a 30 s loop, a third apart, so the ridge is never empty. Each walker moves along its own
+// All three share a 33 s loop, a third apart, so the ridge is never empty. Each walker moves along its own
 // distance s; the walk phase is driven by s, so feet never slide, and the stride shortens on the steps.
 import { GOLD, INK, WALK, wind } from '../engine/layout';
 import type { Part } from '../engine/types';
@@ -17,12 +17,12 @@ import { slopeAt, stepY, walkY } from './left/world';
 
 interface Walker { kind: Kind; v: number; acts: readonly { at: number; dur: number }[] }
 const CAST: readonly Walker[] = [
-  { kind: 'goober', v: 92, acts: [{ at: 1250, dur: 1.7 }, { at: 1690, dur: 1.7 }] },
-  { kind: 'duellist', v: 102, acts: [{ at: 1420, dur: 2.4 }] },
+  { kind: 'goober', v: 96, acts: [{ at: 1250, dur: 1.7 }, { at: 1690, dur: 1.7 }] },
+  { kind: 'duellist', v: 100, acts: [{ at: 1420, dur: 2.4 }] },
   { kind: 'count', v: 122, acts: [{ at: 1560, dur: 2.8 }] },
 ];
 
-const LOOP = 30;
+const LOOP = 33; // long enough for the slowest of the three to finish its walk, its leave-taking and its pop
 const X_IN = 468; // where it appears, game-sized, on the terrace inside the glass
 const X_LAND = 610; // where the leap lands, on the bluff
 const S_IN = 0.3;
