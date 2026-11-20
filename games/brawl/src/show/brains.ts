@@ -74,7 +74,7 @@ export interface Brains {
   startMatch?(bots: [BotConfig, BotConfig]): void;
 }
 
-const FIGHTER_NAMES: Record<FighterId, string> = { kiln: 'Kiln', tick: 'Tick', gantry: 'The Count', vise: 'The Wolf' };
+const FIGHTER_NAMES: Record<FighterId, string> = { kiln: 'The Empty Armour', tick: 'The Magpie', gantry: 'The Count', vise: 'The Wolf', hexer: 'The Hexer', mimic: 'The Mimic' };
 
 /** "anthropic/claude-haiku-5.5" -> "Claude Haiku 5.5" (HUD label, no provider) */
 export function modelLabel(model: string): string {

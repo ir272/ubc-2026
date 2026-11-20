@@ -98,3 +98,27 @@ pick); new music (tracks for him to hear). He renames the games himself later. T
   `stage=3d` in the harness. Script: `ROSTER` (two fighters) and a stage drawn by lot (`ctx.stage`).
 - Running: pose engine, monsters sheet (Count, Wolf, Stitched One), HUD A port, six stage sets,
   screens.
+
+## 04:30 Fri Nov 20: Blood Moon plays end to end
+
+- Committed: 14eb3f4 (ink stage, by accident inside the Tumbletop session's commit), 36b4bdb
+  (Count and Wolf rigs, Danse Macabre score, new sounds), cbe16fb (ringout-sim-4, picture polish).
+- Owner's further picks: solid ink (lead's recommendation at his request), all six stages, bots
+  strike stages, Danse Macabre for fights. He then saw only melee in fights; round 3c made
+  abilities carry the fight (a special every 3.4 to 3.6 s, 37 to 44 percent of damage) and the
+  polish pass made them visible (bat swarms, flourishes, stagger marks, mist).
+- Numbers on sim-4: Count beats Wolf 52 percent (adaptive coaches), 39 (mixed; known gap), all
+  fights finish, median 73 s. 55 of 55 tests, type check clean.
+- Not yet heard by anyone: the new score and sounds (preview sent to the owner).
+- Open with the owner: the Count's resting pose (cloak open or wrapped), mirror matches with a
+  two-fighter roster, the Night Ship's top platform (boat or third mast), a third fighter.
+- The disk filled at 03:45 and stopped two agents; old captures and scratch were deleted.
+
+## 04:45 Fri Nov 20: four more fighters picked
+
+- The owner picked The Mimic, The Hexer, The Magpie and The Empty Armour. Read as: six fighters in
+  all with The Count and The Wolf (to be confirmed with him).
+- Ids: kiln is The Empty Armour, tick is The Magpie; new ids `hexer` and `mimic` (sim round 4,
+  `ringout-sim-5`, in `src/sim2`). Four rig agents write `src/ink/cast/{armour,magpie,hexer,mimic}.ts`
+  from the shared brief `captures/RIG-BRIEF.md`; the harness query `cast=gantry:hexer,vise:mimic`
+  lets a sim id wear another drawing until the new ids land.

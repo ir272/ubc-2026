@@ -18,7 +18,7 @@ test('exports the API from ARCH.md', () => {
   for (const c of ['rush', 'keepaway', 'bait', 'wall', 'adaptive', 'random']) assert.ok(sim.COACHES[c], `coach ${c}`);
 });
 
-test('four fighters, 18 moves each, named, with looks, bars 1..5', () => {
+test('six fighters, 18 moves each, named, with looks, bars 1..5', () => {
   const names = new Set();
   for (const id of sim.FIGHTER_IDS) {
     const f = sim.FIGHTERS[id];
@@ -31,9 +31,12 @@ test('four fighters, 18 moves each, named, with looks, bars 1..5', () => {
     }
     for (const v of Object.values(f.stats)) assert.ok(v >= 1 && v <= 5 && Number.isInteger(v));
   }
-  assert.equal(names.size, 72, 'move names are unique');
-  assert.equal(sim.FIGHTERS.kiln.name, 'Kiln');
-  assert.equal(sim.FIGHTERS.tick.name, 'Tick');
+  assert.equal(sim.FIGHTER_IDS.length, 6);
+  assert.equal(names.size, 18 * sim.FIGHTER_IDS.length, 'move names are unique');
+  assert.equal(sim.FIGHTERS.kiln.name, 'The Empty Armour');
+  assert.equal(sim.FIGHTERS.tick.name, 'The Magpie');
+  assert.equal(sim.FIGHTERS.hexer.name, 'The Hexer');
+  assert.equal(sim.FIGHTERS.mimic.name, 'The Mimic');
   assert.equal(sim.FIGHTERS.gantry.name, 'The Count');
   assert.equal(sim.FIGHTERS.vise.name, 'The Wolf');
 });
@@ -82,7 +85,7 @@ test('state is plain JSON, hash is stable, round trip continues identically', ()
 
 test('every lethal hit becomes a knockout of that fighter', () => {
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + k, [sim.FIGHTER_IDS[k % 4], sim.FIGHTER_IDS[(k + 1) % 4]]);
+    const h = sim.makeHeader(SEED + k, [sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length], sim.FIGHTER_IDS[(k + 1) % sim.FIGHTER_IDS.length]]);
     const lethal = [];
     sim.runFight(h, {
       coaches: ['adaptive', 'rush'],
@@ -170,7 +173,7 @@ test('a full fight simulates fast', () => {
 test('grounded bodies never overlap for more than two ticks, and walking keeps facing the opponent', () => {
   let longest = 0, back = 0, walks = 0;
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + 'ov' + k, [sim.FIGHTER_IDS[k % 4], sim.FIGHTER_IDS[(k + 1) % 4]]);
+    const h = sim.makeHeader(SEED + 'ov' + k, [sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length], sim.FIGHTER_IDS[(k + 1) % sim.FIGHTER_IDS.length]]);
     let run = 0;
     sim.runFight(h, {
       coaches: [['rush', 'bait', 'keepaway'][k % 3], ['wall', 'rush', 'adaptive'][k % 3]],
@@ -191,7 +194,7 @@ test('grounded bodies never overlap for more than two ticks, and walking keeps f
 test('hit pause scales with strength', () => {
   const byStrength = { light: [], medium: [], heavy: [], lethal: [] };
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + 'hl' + k, [sim.FIGHTER_IDS[k % 4], sim.FIGHTER_IDS[(k + 2) % 4]]);
+    const h = sim.makeHeader(SEED + 'hl' + k, [sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length], sim.FIGHTER_IDS[(k + 2) % sim.FIGHTER_IDS.length]]);
     sim.runFight(h, { coaches: ['rush', 'bait'], onTick(s, ev) { for (const e of ev) if (e.t === 'hit' && e.kb > 0) byStrength[e.strength].push(e.hitlag); } });
   }
   const within = (a, lo, hi) => a.every((x) => x >= lo && x <= hi);
@@ -225,8 +228,8 @@ test('a grab out of a run comes after a short skid', () => {
 
 const engine = await import(path.join(simDir, 'engine.ts'));
 
-test('version is ringout-sim-4', () => {
-  assert.equal(sim.SIM_VERSION, 'ringout-sim-4');
+test('version is ringout-sim-5', () => {
+  assert.equal(sim.SIM_VERSION, 'ringout-sim-5');
 });
 
 test('the new tools are used and the same seed gives the same hash', () => {
@@ -266,7 +269,7 @@ test('a blink never takes a fighter off the deck or toward a blast zone', () => 
   engine.startMove(s, 0, f, s.ctl.eng[0], 'special2', engine.newInput(), []);
   for (let i = 0; i < 12; i++) for (const e of sim.stepFight(s, h)) if (e.t === 'blink') assert.ok(e.toX <= e.fromX + 1e-9, `blinked out to ${e.toX}`);
   // and in real fights no blink ever ends past the blast lines or off the deck when grounded
-  for (let k = 0; k < 4; k++) {
+  for (let k = 0; k < sim.FIGHTER_IDS.length; k++) {
     const hh = sim.makeHeader(SEED + 'blf' + k, ['tick', sim.FIGHTER_IDS[k]]);
     sim.runFight(hh, { coaches: [['rush', 'bait', 'keepaway', 'adaptive'][k], 'adaptive'], onTick(st, ev) {
       for (const e of ev) if (e.t === 'blink') {
@@ -281,7 +284,7 @@ test('a blink never takes a fighter off the deck or toward a blast zone', () => 
 test('a howled fighter cannot move or act until the root ends (unless hit), and a howl never launches', () => {
   let snares = 0;
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + 'sn' + k, ['vise', sim.FIGHTER_IDS[k % 4]]);
+    const h = sim.makeHeader(SEED + 'sn' + k, ['vise', sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length]]);
     let watch = null;
     sim.runFight(h, { coaches: [['rush', 'wall', 'bait'][k % 3], 'adaptive'], onTick(s, ev) {
       for (const e of ev) {
@@ -307,7 +310,7 @@ test('a howled fighter cannot move or act until the root ends (unless hit), and 
 test('a pounce ends in a grab with the opponent held adjacent in front, or a whiff', () => {
   let grabs = 0, whiffs = 0, cut = 0, pounces = 0;
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + 'po' + k, ['vise', sim.FIGHTER_IDS[k % 4]]);
+    const h = sim.makeHeader(SEED + 'po' + k, ['vise', sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length]]);
     let pending = false;
     sim.runFight(h, { coaches: [['rush', 'bait', 'keepaway'][k % 3], 'adaptive'], onTick(s, ev) {
       for (const e of ev) {
@@ -337,7 +340,7 @@ test('a pounce ends in a grab with the opponent held adjacent in front, or a whi
 test('at most two bats of a Bat Swarm connect', () => {
   let volleys = 0, swarmHits = 0;
   for (let k = 0; k < 6; k++) {
-    const h = sim.makeHeader(SEED + 'bat' + k, ['gantry', sim.FIGHTER_IDS[k % 4]]);
+    const h = sim.makeHeader(SEED + 'bat' + k, ['gantry', sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length]]);
     let last = -100, hits = 0;
     sim.runFight(h, { coaches: [['keepaway', 'bait', 'rush'][k % 3], 'adaptive'], onTick(s, ev) {
       for (const e of ev) {
@@ -383,5 +386,96 @@ test('one floor hazard per owner at any time (a ward lent to a spare fighter)', 
     assert.ok(floor[0].x > 0, `the newer ward is the one kept (at ${floor[0].x})`);
   } finally {
     kiln.special2 = own;
+  }
+});
+
+test('every fighter is deterministic: the same seed gives the same hash', () => {
+  for (const fa of sim.FIGHTER_IDS) {
+    const fb = sim.FIGHTER_IDS[(sim.FIGHTER_IDS.indexOf(fa) + 1) % sim.FIGHTER_IDS.length];
+    const h = sim.makeHeader(SEED + 'det' + fa, [fa, fb]);
+    const hashes = [];
+    for (let run = 0; run < 2; run++) {
+      const s = sim.createFight(h);
+      for (let i = 0; i < 3000 && s.phase !== 'over'; i++) sim.stepFight(s, h);
+      hashes.push(sim.hashFight(s));
+    }
+    assert.equal(hashes[0], hashes[1], `${fa} vs ${fb}`);
+  }
+});
+
+test('a tongue pull ends with the opponent held adjacent in front of the Mimic', () => {
+  let pulls = 0;
+  for (let k = 0; k < 8; k++) {
+    const h = sim.makeHeader(SEED + 'tg' + k, ['mimic', sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length]]);
+    let pending = -1;
+    sim.runFight(h, { coaches: [['rush', 'bait', 'keepaway', 'adaptive'][k % 4], 'adaptive'], onTick(s, ev) {
+      for (const e of ev) {
+        if (e.t === 'projectile' && e.side === 0) assert.ok(e.kind === 'tongue', `mimic shot ${e.kind}`);
+        if (e.t === 'pull' && e.by === 0) pending = e.tick;
+        if (e.t === 'grab' && e.by === 0 && pending >= 0) {
+          pending = -1;
+          if (ev.some((x) => x.t === 'hit' && x.to === 0)) continue;
+          pulls++;
+          const a = s.fighters[0], b = s.fighters[1];
+          const want = (sim.FIGHTERS[a.fighter].width + sim.FIGHTERS[b.fighter].width) * 0.5 + 0.05;
+          assert.equal(b.action, 'held');
+          assert.ok(Math.abs(Math.abs(b.x - a.x) - want) < 1e-6 && (b.x - a.x) * a.facing > 0, 'held in front, adjacent');
+        }
+      }
+    } });
+  }
+  assert.ok(pulls > 0, 'tongue pulls happen');
+});
+
+test('the Hexer lays wards that root, one at a time', () => {
+  let roots = 0, placed = 0;
+  for (let k = 0; k < 8; k++) {
+    const h = sim.makeHeader(SEED + 'hw' + k, ['hexer', sim.FIGHTER_IDS[k % sim.FIGHTER_IDS.length]]);
+    sim.runFight(h, { coaches: [['keepaway', 'wall', 'bait', 'adaptive'][k % 4], 'adaptive'], onTick(s, ev) {
+      for (const e of ev) {
+        if (e.t === 'hazard' && e.side === 0 && e.state === 'placed') { placed++; assert.equal(e.kind, 'ward'); }
+        if (e.t === 'snare' && e.by === 0) { roots++; assert.ok(s.fighters[1].rooted > 0 || ev.some((x) => x.t === 'ko' || x.t === 'end')); }
+      }
+      let n = 0;
+      for (const p of s.projectiles) if (p.floor && p.owner === 0) n++;
+      assert.ok(n <= 1, `${n} wards down`);
+    } });
+  }
+  assert.ok(placed > 0 && roots > 0, `placed ${placed}, roots ${roots}`);
+});
+
+test('the Magpie throws a fan of three knives', () => {
+  const h = sim.makeHeader(SEED + 'mf', ['tick', 'hexer']);
+  const s = sim.createFight(h);
+  for (let i = 0; i < 30; i++) sim.stepFight(s, h);
+  const f = s.fighters[0];
+  f.x = -6; f.facing = 1; f.action = 'idle'; f.move = null;
+  s.fighters[1].x = 6;
+  engine.startMove(s, 0, f, s.ctl.eng[0], 'special', engine.newInput(), []);
+  let knives = 0;
+  for (let i = 0; i < 14; i++) for (const e of sim.stepFight(s, h)) if (e.t === 'projectile' && e.side === 0 && e.kind === 'knife') knives++;
+  assert.equal(knives, 3);
+});
+
+test("the Armour's flame hits a grounded opponent and passes under one in the air", () => {
+  for (const air of [false, true]) {
+    const h = sim.makeHeader(SEED + 'fl', ['kiln', 'mimic']);
+    const s = sim.createFight(h);
+    for (let i = 0; i < 30; i++) sim.stepFight(s, h);
+    const f = s.fighters[0], o = s.fighters[1];
+    f.x = -4; f.facing = 1; f.action = 'idle'; f.move = null;
+    engine.startMove(s, 0, f, s.ctl.eng[0], 'special', engine.newInput(), []);
+    let hit = false, flames = 0;
+    for (let i = 0; i < 90 && !hit; i++) {
+      // the opponent held still: standing in hitstun on the deck, or in the air above the flame
+      o.x = 1.5; o.action = 'hitstun'; o.hitstun = 99; o.move = null; o.vx = 0; o.vy = 0;
+      if (air) { o.y = 1.6; o.grounded = false; o.platform = -2; } else { o.y = 0; o.grounded = true; o.platform = -1; }
+      for (const e of sim.stepFight(s, h)) {
+        if (e.t === 'projectile' && e.side === 0 && e.kind === 'flame') flames++;
+        if (e.t === 'hit' && e.by === 0 && e.via === 'special') hit = true;
+      }
+    }
+    assert.ok(flames >= 1, 'a flame was sent');
+    assert.equal(hit, !air, air ? 'jumped over it' : 'hit on the ground');
   }
 });

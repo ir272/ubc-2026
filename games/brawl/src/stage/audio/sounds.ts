@@ -28,6 +28,8 @@ export const FAMS: Record<FighterId, Fam> = {
   tick: { pitch: 1.15, weight: 0.3, stride: 9 },
   gantry: { pitch: 1.0, weight: 0.5, stride: 15 },
   vise: { pitch: 0.93, weight: 0.7, stride: 12 },
+  hexer: { pitch: 1.05, weight: 0.4, stride: 16 },
+  mimic: { pitch: 0.8, weight: 1, stride: 11 },
 };
 
 /** which strikes land with claws and which with jaws, per fighter (the rest are body or cloak) */

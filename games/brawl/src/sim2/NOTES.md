@@ -312,3 +312,67 @@ Not at target:
 2. **Fights are shorter** (median 73 s, near the 70 s floor; p10 52 s): more specials means more damage. If the median drops below 70,
    take a little off the Mist Step swipe and the Howl before touching the rates.
 3. Not measured: how often opponents jump, shield or take the bats (no event says so). The at-most-two test still holds.
+
+## Round 4: six fighters (`SIM_VERSION` `ringout-sim-5`)
+
+The owner picked four more fighters: the roster is six. The Count (`gantry`) and the Wolf (`vise`) are unchanged in data.
+- **The Empty Armour** (`kiln`, "Haunted armour"): the old heavy's numbers, renamed. Grave Cleave (`special`) is the floor wave as
+  projectile kind `flame` (11 damage, was 13). Collar Fire (`special2`, new): a fire cone from the collar, about 2.4 m, armoured on
+  frames 6 to 28, two small licks (4) then one solid burst (9, knocks away); ordinary hitboxes. Fall Apart (`recover`) keeps the rise numbers.
+- **The Magpie** (`tick`, "Thief"): the old sprinter, renamed. Feather Knives (`special`): the three-knife fan slowed to 0.11 m/tick for
+  72 ticks (about 1.2 s across 8 m), radius 0.26, still one of three may land. Snatch (`special2`): Blink Step; the hands also snatch
+  behind a shield. Updraft (`recover`): the aimed recovery.
+- **The Hexer** (`hexer`, new, "Witch"): 2.15 m, 0.75 m wide, weight 88, slow feet (run 0.15), floaty. Normals derived from the Count's
+  (one frame slower, 0.2 m longer). Hex Bolt (`special`): one `hex` shot, 0.15 m/tick for 90 ticks (about 13 m in 1.5 s), 8 damage.
+  Ward (`special2`): the floor ward, kind `ward`, lobbed about 5.3 m, lies 300 ticks, 0.75 m half-width, roots 42 ticks, 4 damage, one at
+  a time. Crow Flight (`recover`): the Count's ledge-tether recovery (no untouchable stretch).
+- **The Mimic** (`mimic`, new, "Hungry chest"): 1.2 m tall, 1.3 m wide, weight 120, slow (run 0.165), short hops. Normals derived from the
+  Wolf's (reach x0.85, height x0.63, damage x1.1). Tongue Lash (`special`): the tether pull, kind `tongue`, 0.42 m/tick for 12 ticks
+  (about 5.5 m from the mouth), reel in, hold and command slam (10). Swallow and Spit (`special2`): a close command grab (catch frames
+  9 to 12), holds 24 ticks, then spits forward hard (15). Coin Burst (`recover`): a rising recovery.
+
+Engine: `FighterId` and `FIGHTER_IDS` take `hexer` and `mimic` (order kiln, tick, gantry, vise, hexer, mimic); `simulate()` picks
+fighters by `FIGHTER_IDS.length`. Command grabs now work on `special2` as well as `special` (`doGrab`, the hold timer and the `throw`
+event carry the move); a tether catch uses its own move's command throw. New data helper `derive()` builds a fighter's normals from
+another's numbers; `NAMES` carries the cast's move names and looks.
+
+Hands: round 3c's ability behaviour now applies to all six (the urge that brings a special about every 3 s, the wider windows,
+follow-ups). Per fighter: the Armour sends the flame less often (x0.6) and runs in to meet whoever jumped it; the Magpie snatches
+behind shields; the Hexer may lay the ward where a falling opponent will land; tethers and the swallow fire at the urge rate (the
+swallow three times as often against a shield); light fighters (under 90) spot-dodge a coming tongue half the time. Jab and tilt
+-3 in the poke picker for everyone. Recovery: the Hexer as the Count, the Mimic as the Wolf; a sideways `special2` recovery only for a
+move that travels. Coach: the Hexer counts as a shooter and keeps mid range; the Mimic leans on grabs like the Wolf.
+
+Trims: Armour 1.22, Magpie 1.32, Count 0.82, Wolf 1.0, Hexer 1.12, Mimic 1.0 (normals only; shots and command throws are set in the data).
+
+Numbers (`node tools/simstats.mjs --n 1440`, every ordered pair, mirrors included; 80 fights a matchup, so about +-6 points of noise):
+
+| measure | adaptive vs adaptive | mixed coaches | target |
+|---|---|---|---|
+| win rate Armour / Magpie / Count / Wolf / Hexer / Mimic | 58.3 / 45.5 / 48.3 / 44.8 / 47.5 / 55.8 | **64.5** / 46.0 / 42.0 / 53.0 / **36.0** / **58.5** | 42 to 58 |
+| seconds between specials (same order) | 3.5 / 2.8 / 3.1 / 3.2 / 3.4 / 3.5 | 3.4 / 2.6 / 3.4 / 3.2 / 3.0 / 3.1 | 4.5 or less |
+| damage through special + special2 | 50.6 / 31.2 / 47.3 / 42.6 / 37.6 / 47.3% | 50.5 / 33.6 / 48.7 / 43.8 / 43.7 / 49.5% | 30% or more |
+| largest single move | Mimic Tongue 34.5% | **Hexer Bolt 38.5%**, Mimic Tongue 36.7%, Wolf Pounce 35.1% | 35% or less |
+| fights finished, median length | 1440/1440, 84 s (p10 57, p90 118) | 1440/1440, 82 s (p10 55, p90 134) | all; 65 to 130 |
+| stretches over 6 s | 1 (worst 6.3 s) | 5 (worst 6.5 s) | about none |
+| mirrors (side 0) | 55.0% | 44.2% | near 50 |
+
+Matchups, row beats column (adaptive; mixed in brackets). Outside 35 to 65 in bold:
+
+| | Magpie | Count | Wolf | Hexer | Mimic |
+|---|---|---|---|---|---|
+| Armour | 60 (59) | 54 (**71**) | **69** (**69**) | 50 (**73**) | 59 (51) |
+| Magpie | | 64 (61) | 36 (**30**) | **68** (**79**) | **20** (**19**) |
+| Count | | | 56 (35) | 63 (61) | 40 (46) |
+| Wolf | | | | 51 (63) | **34** (36) |
+| Hexer | | | | | **69** (55) |
+
+Not at target and what I would do next:
+1. **The Magpie against the Mimic (20%)** and against the Wolf (36): the light thief is grabbed and thrown out early by the two
+   grabbers. The tongue dodge for light fighters did not move it, so it is the swallow and plain grabs: give the Magpie a
+   grab-read (spot dodge when a grabber walks into range) or more weight.
+2. **The Armour over the Wolf (69) and the Hexer over the Mimic (69)**, the Magpie over the Hexer (68). Mixed coaches add the Armour over
+   the Count and the Hexer (71, 73) and put the Armour at 64.5 and the Hexer at 36 overall.
+3. With mixed coaches the Hexer's bolt (38.5%), the Mimic's tongue (36.7%) and the Wolf's pounce (35.1%) pass 35% of their damage;
+   with adaptive coaches none does.
+4. The Ward lands rarely (Hexer `special2` 5% of her damage): it roots, but the hands lay it mostly at feet that have moved on.

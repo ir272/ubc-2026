@@ -7,8 +7,9 @@
 // Capture mode: ?capture=1&scene=<name>: a virtual clock, nothing moves unless window.__ringout.step/seek
 // is called. Scenes and their params: README.md "Harness".
 
-import { createStage as create3dStage, type Stage, type StageOptions } from '../src/stage/stage.ts';
+import type { Stage, StageOptions } from '../src/stage/types.ts';
 import { createInkStage } from '../src/ink/stage.ts';
+import { overrideCast } from '../src/ink/cast/index.ts';
 import { VirtualClock } from '../src/stage/clock.ts';
 import { createFakeShow, realClock } from '../src/show/fakeShow.ts';
 import { runMatch, type MatchDeps } from '../src/show/script.ts';
@@ -140,9 +141,9 @@ function runShow(o: ShowOpts): Running {
 
 // ---- page ----
 const q = new URLSearchParams(location.search);
-/** the ink stage by default; `stage=3d` keeps the three.js stage for comparison, `ink=mass` the solid treatment */
+/** the ink stage; `ink=line` shows the hollow treatment (solid ink is the default) */
+overrideCast(new URLSearchParams(location.search).get('cast'));
 function createStage(el: HTMLElement, o: StageOptions): Stage {
-  if (q.get('stage') === '3d') return create3dStage(el, o);
   return createInkStage(el, { ...o, mode: q.get('ink') === 'line' ? 'line' : 'mass', set: q.get('set') ?? undefined });
 }
 const stageEl = document.getElementById('stage')!;

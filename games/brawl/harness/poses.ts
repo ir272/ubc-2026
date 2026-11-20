@@ -12,9 +12,10 @@ import { LEDGE_X } from '../src/sim/arena.ts';
 import type { CharacterDef, FigureExtra, Joints } from '../src/ink/api.ts';
 import { makeInk, BG, INK, TINTS, type InkMode, type Pt } from '../src/ink/pen.ts';
 import { pose, moveAnimOf } from '../src/ink/pose.ts';
-import { CAST } from '../src/ink/cast/index.ts';
+import { CAST, overrideCast } from '../src/ink/cast/index.ts';
 
 const q = new URLSearchParams(location.search);
+overrideCast(q.get('cast'));
 const id = (q.get('id') || 'kiln') as FighterId;
 const other = (q.get('other') || id) as FighterId;
 const mode = (q.get('mode') || 'line') as InkMode;

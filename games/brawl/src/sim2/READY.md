@@ -1,33 +1,59 @@
-# src/sim2: rounds 3, 3b and 3c (abilities carry the fight) ready to promote
+# src/sim2: round 4 (six fighters) ready to promote
 
-`SIM_VERSION` is `ringout-sim-4` (round 3c changed constants, so hashes differ from sim-3). Consistent point: `node --test
-test/*.test.mjs` 55/55. Numbers and what is not at target: NOTES.md "Round 3: abilities", "Round 3b" and "Round 3c". Round 3c adds
-no field and no event: only the numbers of existing ones changed (bats, Howl length).
+`SIM_VERSION` is `ringout-sim-5`. Consistent point: `node --test test/*.test.mjs` 60/60. Numbers and what is not at target: NOTES.md
+"Round 4: six fighters" (and rounds 3, 3b, 3c before it).
 
 ## Copy
 
 ```
-cp src/sim2/controller.ts src/sim2/engine.ts src/sim2/fighters.ts src/sim2/index.ts src/sim2/types.ts src/sim2/NOTES.md src/sim/
+cp src/sim2/*.ts src/sim2/NOTES.md src/sim/
 ```
-Only these five .ts files differ from src/sim (arena.ts, coach.ts and math.ts are identical; do not copy READY.md). Then, in
-test/sim.test.mjs, change the two name checks (lines 37 and 38) to `'The Count'` and `'The Wolf'`: that is the only src/sim test that
-fails against the promoted code. (Round 3c: if src/sim already holds round 3b with those names fixed, test/sim.test.mjs passes
-unchanged against the round-3c code; checked by running it against a copy. Its only version reference is the export list.) Exported API unchanged. New exports since
-round 2: `projDef` (engine.ts), `SHOT`, `WARD`, `BLINK`, `TETHER`, `POUNCE`, `HOWL` (controller.ts). Type changes are additive and
-optional only. The show and stage read fighter names and projectile kinds from the sim, so the picture needs the kinds below (`bat`
-is new; `ward` and `chain` are no longer produced by any fighter).
+(do not copy READY.md). Every .ts but arena.ts and math.ts changed this round (types, fighters, engine, controller, coach, index).
+Then, in test/sim.test.mjs: the fighter test (line 34) expects 72 unique move names; make it `18 * sim.FIGHTER_IDS.length` (108), and
+change the names on lines 35 and 36 to `'The Empty Armour'` and `'The Magpie'` (and the test title "four fighters" to six). That is
+the only src/sim test that fails against the promoted code (checked against a copy). Its `% 4` loops still pass; they just cover
+the first four fighters.
+
+## Round 4: the six fighters (for the picture and sound teams)
+
+Ids, in `FIGHTER_IDS` order: `kiln`, `tick`, `gantry`, `vise`, `hexer`, `mimic`. The `FighterId` type gains `hexer` and `mimic`.
+
+| id | name | role | bars power / speed / reach / weight / grab | projectile kinds |
+|---|---|---|---|---|
+| kiln | The Empty Armour | Haunted armour | 4 / 1 / 5 / 4 / 3 | `flame` |
+| tick | The Magpie | Thief | 2 / 5 / 5 / 2 / 1 | `knife` (three per throw) |
+| gantry | The Count | Vampire lord | 4 / 3 / 5 / 3 / 3 | `bat` (three per swarm) |
+| vise | The Wolf | Werewolf | 2 / 3 / 2 / 3 / 5 | none |
+| hexer | The Hexer | Witch | 2 / 1 / 5 / 2 / 4 | `hex`, `ward` |
+| mimic | The Mimic | Hungry chest | 2 / 1 / 5 / 5 / 3 | `tongue` (a tether) |
+
+Bodies of the new two: the Hexer 2.15 m tall, 0.75 m wide; the Mimic 1.2 m tall, 1.3 m wide.
+
+Which mechanic each special uses:
+
+| fighter | special | special2 | recover |
+|---|---|---|---|
+| Armour | Grave Cleave: low floor wave, kind `flame` (0.2 m/tick, 48 ticks, y 0.45) | Collar Fire: plain hitboxes, a cone about 2.4 m, armoured frames 6 to 28 (`FighterState.armor`), three hits on frames 11 to 14, 17 to 20, 23 to 28 | Fall Apart: rising (the old rise) |
+| Magpie | Feather Knives: fan of three `knife`, 0.11 m/tick for 72 ticks, one may land | Snatch: blink | Updraft: aimed flight |
+| Count | Bat Swarm: fan of three `bat` with delays, two may land | Mist Step: blink | Bat Form: ledge tether |
+| Wolf | Pounce: travelling command grab, then slam | Howl: hitbox snare | Wall Run: rising |
+| Hexer | Hex Bolt: one `hex` shot, 0.15 m/tick for 90 ticks | Ward: lobbed `ward`, lies on the floor as a hazard (`floor`, `hazard` events), snare | Crow Flight: ledge tether |
+| Mimic | Tongue Lash: `tongue` tether with `effect: 'pull'` (`pulled`, `drag`, `pull` event), then `grab` and `throw` (move `special`) and the slam `hit` | Swallow and Spit: close command grab: `grab`, then `throw` with move `special2`, `holding` with move `special2` for 24 ticks, then the spit `hit` (move `special2`) | Coin Burst: rising |
+
+The only event change: `throw.move` can now be `special2` (the Mimic's swallow); before, a command throw was always `special`.
+No new field.
 
 ## Every new optional field and event (for the picture)
 
 `MoveDef` (static data):
-- `projectile.y?: number` spawn height above the feet (Kiln's wave: 0.45, low along the floor).
-- `projectile.fan?: { vx, vy, delay? }[]` several shots, one per entry; `delay` is ticks after `frame` (Tick: three knives at once;
+- `projectile.y?: number` spawn height above the feet (the Armour's flame: 0.45, low along the floor).
+- `projectile.fan?: { vx, vy, delay? }[]` several shots, one per entry; `delay` is ticks after `frame` (the Magpie: three knives at once;
   the Count: three bats 8 ticks apart).
 - `projectile.fanHits?: number` how many shots of one fan may land (default 1; the Count's bats: 2).
-- `projectile.effect?: 'pull' | 'snare'`, `projectile.effectTicks?: number` what a catch does (supported; no fighter uses them now).
+- `projectile.effect?: 'pull' | 'snare'`, `projectile.effectTicks?: number` what a catch does (the Mimic's tongue: pull; the Hexer's ward: snare, 42 ticks).
 - `projectile.linger?`, `projectile.every?`, `projectile.floorR?`, `projectile.place?` floor hazards (supported; no fighter uses them now).
 - `projectile.tether?: boolean` draw it as a line from the owner's hand to the tip (supported; no fighter uses it now).
-- `blink?: { frame, dx, behind, invuln: [from, to] }` (Tick special2 Blink Step; the Count special2 Mist Step: untouchable frames 1 to
+- `blink?: { frame, dx, behind, invuln: [from, to] }` (the Magpie's Snatch; the Count special2 Mist Step: untouchable frames 1 to
   12, reappears on frame 9, then a heavy launching swipe).
 - `Hitbox.effect?: 'snare'`, `Hitbox.effectTicks?: number` a strike that staggers instead of launching (the Wolf's Howl, 48 ticks).
 
@@ -42,40 +68,28 @@ is new; `ward` and `chain` are no longer produced by any fighter).
 - `n?: number` on a fan shot: how many shots of its volley had landed or been blocked when it spawned.
 - `cd?: number` on a flying shot, 1 = spent (its volley already landed as many as it may: one knife, two bats): fade it and let it fly
   on harmlessly; on a burn hazard, ticks to its next hit.
-- `floor?`, `effect?`, `tether?`, `drag?` as in round 3 (hazards and tethers; unused by the current cast).
+- `floor?`, `effect?`, `tether?`, `drag?` as in round 3: the Hexer's ward lies on the floor (`floor`, `effect: 'snare'`); the Mimic's
+  tongue is a tether (`tether`, `drag` while reeling).
 
-Projectile kinds produced today: `wave` (Kiln special), `knife` (Tick special, three per throw) and the new `bat` (the Count special:
-three per Bat Swarm on frames 15, 23 and 31, so they fly as a line; slow, 0.115 m/tick, about 2 s to cross the stage, 104 ticks
-(about 12 m); radius 0.45, so draw them big; a nearly flat line with a very slight rise and dip). `rivet`, `ward` and `chain` are
-no longer produced.
+Projectile kinds produced today: `flame` (the Armour), `knife` (the Magpie, three per throw), `bat` (the Count, three per swarm on
+frames 15, 23 and 31, 0.115 m/tick, 104 ticks, radius 0.45: draw them big), `hex` and `ward` (the Hexer), `tongue` (the Mimic, a tether).
+`wave`, `rivet` and `chain` are no longer produced.
 
 `SimEvent`:
-- `{ t: 'blink', side, fromX, fromY, toX, toY, behind }` vanish at from, appear at to (Tick and the Count's mist).
-- `{ t: 'snare', by, to, x, y, ticks }` rooted. The Howl uses this event, with the `hit` (kb 0, 2 damage) and the `move` event for
+- `{ t: 'blink', side, fromX, fromY, toX, toY, behind }` vanish at from, appear at to (the Magpie's Snatch and the Count's mist).
+- `{ t: 'snare', by, to, x, y, ticks }` rooted. The Howl and the Hexer's ward use this event; the Howl comes with a `hit` (kb 0, small damage) and the `move` event for
   `special2` before it; there is no new event.
 - The Pounce uses the existing events: `move` (`special`), then on a catch `grab` and `throw` (move `special`) and the slam `hit`, or a
   `whiff` on a miss. The wolf itself travels (about 4.7 m); there is no tether projectile.
-- `{ t: 'pull', ... }` and `{ t: 'hazard', ... }` are still emitted by the engine if data uses them; the current cast does not.
+- `{ t: 'pull', by, to, x, y }` the Mimic's tongue caught. `{ t: 'hazard', side, id, kind, x, y, r, state }` the Hexer's ward
+  (`placed`, `sprung`, `expired`, `replaced`).
 - `hit.via?: MoveId` and `shield_hit.via?: MoveId` on projectile hits: which move fired it (`move` stays `'projectile'`).
 
-Which mechanic each special uses:
-
-| move | mechanic |
-|---|---|
-| Kiln special (Floor Wave) | low projectile `wave` |
-| Tick special (Fan Throw) | fan of three `knife`, one may land |
-| Tick special2 (Blink Step) | blink |
-| Count special (Bat Swarm) | fan of three `bat` with delays, `fanHits` 2 |
-| Count special2 (Mist Step) | blink (slower than Tick's) |
-| Count recover (Bat Form) | ledge tether (the old Grapple Line numbers) |
-| Wolf special (Pounce) | travelling command grab, then the command slam |
-| Wolf special2 (Howl) | hitbox snare effect |
-| Wolf recover (Wall Run) | rising climb (the old Clamp Climb numbers) |
+Which mechanic each special uses: the round-4 table above.
 
 ## What else the stage should know
 
 - `gantry` is now The Count (role "Vampire lord") and `vise` is The Wolf (role "Werewolf", 1.9 m tall, 1.15 m wide). Ids are
   unchanged. Every move has a new name and `look` note; the Count's normals keep their old numbers.
 - After a Pounce catch the Wolf holds and slams: the same `holding` with move `special` as the old command grab.
-- Select-screen bars (computed from the numbers): the Count power 3, speed 3, reach 5, weight 3, grab 3; the Wolf power 2, speed 3,
-  reach 2, weight 3, grab 5. The power bar only reads strikes, so the bats do not count.
+- Select-screen bars: the round-4 table above (computed from the numbers). The power bar only reads strikes, so shots do not count.

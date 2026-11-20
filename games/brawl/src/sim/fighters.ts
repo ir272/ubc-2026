@@ -1,4 +1,4 @@
-// The four robots: physical numbers, all 18 moves each, and the select-screen bars computed from
+// The six fighters: physical numbers, all 18 moves each, and the select-screen bars computed from
 // the numbers themselves (so they can never drift from what the sim does).
 import type { FighterDef, FighterId, Hitbox, MoveDef, MoveId } from './types.ts';
 
@@ -28,7 +28,7 @@ export interface MoveExtra {
   oncePerAir?: boolean;
 }
 
-export const MOVE_EXTRA: Record<FighterId, Partial<Record<MoveId, MoveExtra>>> = { kiln: {}, tick: {}, gantry: {}, vise: {} };
+export const MOVE_EXTRA: Record<FighterId, Partial<Record<MoveId, MoveExtra>>> = { kiln: {}, tick: {}, gantry: {}, vise: {}, hexer: {}, mimic: {} };
 
 /** global damage scale applied when the data is built (tuned for fight length; the built numbers are the truth) */
 const DMG = 0.84;
@@ -96,12 +96,12 @@ const KILN = build('kiln', {
   throwu: { name: 'Chimney Launch', kind: 'throw', startup: 14, active: 1, recovery: 20, hitboxes: [hb(15, 15, 1, 1, 0.5, 9, 90, 70, 62)],
     look: 'Holds the opponent over the chest vent and blasts them straight up on a column of heat.' },
   special: { name: 'Floor Wave', kind: 'special', startup: 22, active: 2, recovery: 26, hitboxes: NO_HB,
-    projectile: { frame: 23, kind: 'wave', vx: 0.2, vy: 0, gravity: 0, life: 48, r: 0.55, damage: 13, angle: 42, bkb: 40, kbg: 78, y: 0.45 },
+    projectile: { frame: 23, kind: 'flame', vx: 0.2, vy: 0, gravity: 0, life: 48, r: 0.55, damage: 11, angle: 42, bkb: 40, kbg: 78, y: 0.45 },
     extra: { air: false, ground: true },
     look: 'Heavy ranged hit along the floor, slow to start (22 frames of wind-up). A low wave about knee high runs along the deck for ten metres and hits hard; jump it or shield it. Candidates: the bellringer swings the bell and its peal rolls along the floor as a visible ring; the gargoyle spits a chunk of masonry that skids along the deck; the empty armour sweeps its sword and sends a blade of flame along the floor.' },
-  special2: { name: 'Ram Piston', kind: 'special', startup: 12, active: 8, recovery: 26, armor: [1, 12],
-    hitboxes: [hb(13, 20, 1.0, 1.0, 0.75, 13, 35, 40, 80)],
-    extra: { fwd: [10, 20, 0.28], air: true, ground: true, oncePerAir: true },
+  special2: { name: 'Collar Fire', kind: 'special', startup: 10, active: 18, recovery: 22, armor: [6, 28],
+    hitboxes: [hb(11, 14, 1.2, 1.3, 0.85, 4, 40, 18, 20), hb(17, 20, 1.5, 1.3, 0.95, 4, 40, 18, 20), hb(23, 28, 1.7, 1.25, 1.0, 9, 38, 42, 88)],
+    extra: { air: true, ground: true, oncePerAir: true },
     look: 'Cocks one arm and fires the piston fist forward, the whole body lunging behind it; steam jets from the elbow.' },
   recover: { name: 'Thermal Rise', kind: 'special', startup: 6, active: 14, recovery: 20, armor: [3, 20],
     hitboxes: [hb(7, 14, 0, 1.0, 1.0, 10, 80, 50, 60)],
@@ -149,8 +149,8 @@ const TICK = build('tick', {
   throwu: { name: 'Chime Pop', kind: 'throw', startup: 9, active: 1, recovery: 14, hitboxes: [hb(10, 10, 1, 1, 0.5, 5, 90, 62, 40)],
     look: 'Hops under the opponent and headbutts them straight up, antennae ringing.' },
   special: { name: 'Fan Throw', kind: 'special', startup: 9, active: 2, recovery: 17, hitboxes: NO_HB,
-    projectile: { frame: 10, kind: 'knife', vx: 0.33, vy: 0, gravity: 0, life: 26, r: 0.22, damage: 3, angle: 30, bkb: 16, kbg: 14,
-      fan: [{ vx: 0.33, vy: 0.034 }, { vx: 0.335, vy: 0 }, { vx: 0.33, vy: -0.03 }] },
+    projectile: { frame: 10, kind: 'knife', vx: 0.11, vy: 0, gravity: 0, life: 72, r: 0.26, damage: 3, angle: 30, bkb: 22, kbg: 16,
+      fan: [{ vx: 0.11, vy: 0.012 }, { vx: 0.112, vy: 0 }, { vx: 0.11, vy: -0.01 }] },
     extra: { air: true, ground: true },
     look: 'Quick flick that throws a fan of three small fast shots (one level, one rising, one dipping) about eight metres; weak, for pestering: only one shot of a fan can land (the others are spent, Projectile.cd 1, and fly on harmlessly). Candidates: the bird-masked thief throws three knives; the candle sprite flicks three drops of fire; the hare duelist flicks three darts from the guard of the rapier.' },
   special2: { name: 'Blink Step', kind: 'special', startup: 6, active: 4, recovery: 14, hitboxes: [hb(8, 11, 0.7, 0.75, 0.55, 6, 40, 34, 66)],
@@ -265,6 +265,157 @@ const VISE = build('vise', {
     look: 'Claws into the air (or the deck side) and runs straight up it on all fours, raking on the way.' },
 });
 
+
+// ------------------------------------------------------------------------------------------------
+// Derived move sets: a new fighter's normals start from another's numbers, then are made its own
+// (slower or quicker, longer or shorter, harder or softer, scaled to its body). Names and looks come from NAMES.
+// ------------------------------------------------------------------------------------------------
+
+function derive(id: FighterId, baseId: FighterId, base: Record<MoveId, MoveDef>, o: { startup: number; reach: number; reachScale: number; yScale: number; dmg: number },
+  own: Partial<Record<MoveId, MoveSpec>>): Record<MoveId, MoveDef> {
+  const specs = {} as Record<MoveId, MoveSpec>;
+  for (const m of Object.keys(base) as MoveId[]) {
+    if (own[m]) { specs[m] = own[m]!; continue; }
+    const b = base[m];
+    const throwMove = b.kind === 'throw';
+    const d = throwMove ? 0 : o.startup;
+    const hitboxes = b.hitboxes.map((h) => ({ ...h, from: h.from + d, to: h.to + d,
+      x: throwMove ? h.x : h.x * o.reachScale + (h.x > 0.25 ? o.reach : h.x < -0.25 ? -o.reach : 0),
+      y: throwMove ? h.y : h.y * o.yScale, r: throwMove ? h.r : h.r * Math.min(1, 0.5 + o.yScale * 0.5),
+      damage: h.damage > 0 ? Math.max(1, Math.round(h.damage * o.dmg)) : 0 }));
+    const bx = MOVE_EXTRA[baseId][m]!;
+    const extra: Partial<MoveExtra> = { ...bx };
+    if (bx.fwd) extra.fwd = [bx.fwd[0] + d, bx.fwd[1] + d, bx.fwd[2]];
+    const { id: _id, ...rest } = b;
+    void _id;
+    specs[m] = { ...rest, startup: b.startup + d, hitboxes, armor: b.armor ? [b.armor[0] + d, b.armor[1] + d] : undefined, extra };
+    if (!specs[m].armor) delete specs[m].armor;
+  }
+  return build(id, specs);
+}
+
+// ------------------------------------------------------------------------------------------------
+// hexer: THE HEXER. Tall witch, robe, pointed hood, crooked staff. Long reach, slow feet, spells.
+// ------------------------------------------------------------------------------------------------
+
+const HEXER = derive('hexer', 'gantry', GANTRY, { startup: 1, reach: 0.2, reachScale: 1, yScale: 0.98, dmg: 1 }, {
+  special: { name: 'Hex Bolt', kind: 'special', startup: 14, active: 2, recovery: 20, hitboxes: NO_HB,
+    projectile: { frame: 15, kind: 'hex', vx: 0.15, vy: 0, gravity: 0, life: 90, r: 0.35, damage: 8, angle: 40, bkb: 38, kbg: 72 },
+    extra: { air: true, ground: true }, look: '' },
+  special2: { name: 'Ward', kind: 'special', startup: 16, active: 2, recovery: 22, hitboxes: NO_HB,
+    projectile: { frame: 17, kind: 'ward', vx: 0.16, vy: 0.12, gravity: 0.012, life: 60, r: 0.35, damage: 4, angle: 80, bkb: 20, kbg: 10,
+      effect: 'snare', effectTicks: 42, linger: 300, floorR: 0.75 },
+    extra: { air: false, ground: true }, look: '' },
+  recover: { name: 'Crow Flight', kind: 'special', startup: 8, active: 24, recovery: 16, hitboxes: [hb(10, 14, 1.5, 2.0, 0.5, 6, 60, 40, 40)],
+    extra: { up: [4, 12, 0.16], tether: { from: 10, to: 30, range: 6.2, speed: 0.38 }, helpless: true, air: true, ground: true }, look: '' },
+});
+
+// ------------------------------------------------------------------------------------------------
+// mimic: THE MIMIC. A walking treasure chest on four short clawed legs, teeth along the lid, a very long tongue.
+// ------------------------------------------------------------------------------------------------
+
+const MIMIC = derive('mimic', 'vise', VISE, { startup: 0, reach: 0, reachScale: 0.85, yScale: 0.63, dmg: 1.1 }, {
+  special: { name: 'Tongue Lash', kind: 'special', startup: 11, active: 14, recovery: 30, hitboxes: NO_HB,
+    projectile: { frame: 12, kind: 'tongue', vx: 0.42, vy: 0, gravity: 0, life: 12, r: 0.3, damage: 3, angle: 0, bkb: 0, kbg: 0, y: 0.6,
+      effect: 'pull', tether: true },
+    extra: { air: false, ground: true, cmd: { delay: 14, hb: hb(1, 1, 1, 1, 0.5, 10, 48, 66, 80), endlag: 14 } }, look: '' },
+  special2: { name: 'Swallow and Spit', kind: 'special', startup: 8, active: 4, recovery: 30, hitboxes: [hb(9, 12, 0.85, 0.6, 0.7, 0, 0, 0, 0)],
+    extra: { grabbing: true, air: false, ground: true, cmd: { delay: 24, hb: hb(1, 1, 1, 1, 0.5, 15, 35, 72, 98), endlag: 12 } }, look: '' },
+  recover: { name: 'Coin Burst', kind: 'special', startup: 5, active: 20, recovery: 18, hitboxes: [hb(6, 12, 0, -0.2, 0.8, 8, 80, 45, 70)],
+    extra: { up: [6, 24, 0.24], fwd: [6, 24, 0.045], helpless: true, air: true, ground: true }, look: '' },
+});
+
+// ------------------------------------------------------------------------------------------------
+// Names and looks of the cast (round 4): applied over the built data (kiln and tick keep their robot-era numbers).
+// ------------------------------------------------------------------------------------------------
+
+const NAMES: Partial<Record<FighterId, Partial<Record<MoveId, [string, string]>>>> = {
+  kiln: {
+    jab: ['Gauntlet Jab', 'A short straight punch with one plated gauntlet; the visor rattles.'],
+    tilt: ['Pommel Shove', 'Drives the greatsword pommel forward from the chest with both hands.'],
+    uptilt: ['Rising Edge', 'Sweeps the greatsword up from hip to high overhead in one rising cut.'],
+    dash: ['Charging Plate', 'Lowers the shoulder pauldron and rams forward in a clatter of plate.'],
+    smash: ['Greatsword Fall', 'Raises the greatsword overhead (the collar fire roaring hotter with charge) and brings it down in a huge arc.'],
+    upsmash: ['Skyward Blade', 'Crouches, then thrusts the greatsword straight up two-handed, flames licking up the blade.'],
+    nair: ['Whirling Steel', 'Spins once in the air with the greatsword held out flat.'],
+    fair: ['Overhead Chop', 'Lifts the sword high and chops down in front; the low end of the swing spikes.'],
+    bair: ['Backhand Cut', 'Swings the greatsword backhanded behind it, plates grinding.'],
+    uair: ['Helm Swat', 'Swats the flat of the blade overhead in a half circle.'],
+    dair: ['Sabaton Stomp', 'Draws the iron boots up then stamps them straight down.'],
+    grab: ['Iron Grip', 'Both gauntlets clamp shut in front of the breastplate.'],
+    throwf: ['Shield Shove', 'Lifts the opponent and shoves them away with the breastplate.'],
+    throwb: ['Heave Behind', 'Turns at the waist and hurls the opponent behind, the empty helm swinging.'],
+    throwu: ['Flame Column', 'Holds the opponent over the open collar and blasts them up on a column of fire.'],
+    special: ['Grave Cleave', 'A low two-handed sword cut along the floor (22 frames of wind-up) that leaves the blade as a wall of flame travelling along the deck about ten metres, knee high: jump it or shield it. Projectile kind flame.'],
+    special2: ['Collar Fire', 'Leans in and breathes fire from the empty collar: a short cone in front, about 2.4 m, armoured while it breathes (frames 6 to 28); two licks of flame then one solid burst that knocks away.'],
+    recover: ['Fall Apart', 'Drops to pieces in the air, the plates scatter upward and reassemble higher, armoured, fire in the collar (the old rise numbers).'],
+  },
+  tick: {
+    jab: ['Quick Peck', 'A quick jab of the beaked mask, like a bird pecking.'],
+    tilt: ['Thief Kick', 'A snappy forward kick from under the feather cloak.'],
+    uptilt: ['Wing Flick', 'Flicks one cloak wing up overhead from front to back.'],
+    dash: ['Cutpurse Dive', 'Dives forward head first, cloak swept back, grabbing at pockets.'],
+    smash: ['Double Heel', 'Coils back into the cloak and lashes out with a double heel kick.'],
+    upsmash: ['Somersault Kick', 'A handstand flip that swings both feet overhead.'],
+    nair: ['Feather Spin', 'Curls into the cloak and spins, the feather edges cutting; strong at first, weaker after.'],
+    fair: ['Talon Slash', 'A fast forward slash with a hooked knife in a short arc.'],
+    bair: ['Recoil Heel', 'Back kick with both feet, the body jolting forward from the recoil.'],
+    uair: ['Beak Snip', 'Snaps the beaked mask straight up.'],
+    dair: ['Drill Talons', 'Points both feet down and spins like a drill, finishing with a kick that pops upward.'],
+    grab: ['Light Fingers', 'Darts both hands out and snatches.'],
+    throwf: ['Pickpocket Toss', 'Spins the opponent half round, empties a pocket and lets go forward.'],
+    throwb: ['Turnabout', 'Runs a tight circle round the opponent and flings them behind.'],
+    throwu: ['Up and Away', 'Hops under the opponent and kicks them straight up.'],
+    special: ['Feather Knives', 'A flick of the wrist throws three knives in a fan (level, rising, dipping), slow enough to see, about 1.2 s across their 8 m; weak, for pestering. Only one of a fan can land (the others are spent, Projectile.cd 1). Projectile kind knife.'],
+    special2: ['Snatch', 'Vanishes in a puff of feathers on frame 6 (untouchable frames 1 to 9) and reappears 3.2 m ahead, or just behind the opponent when it stands within 4.5 m, turned to face it, with a quick cut on arrival (frames 8 to 11). Snatches behind shields.'],
+    recover: ['Updraft', 'Spreads the feather cloak and rides the air up along a straight line.'],
+  },
+  hexer: {
+    jab: ['Staff Rap', 'A quick rap forward with the crooked staff head.'],
+    tilt: ['Crook Jab', 'Thrusts the staff out level at chest height; the crook does the damage at the far end.'],
+    uptilt: ['Hood Sweep', 'Sweeps the staff up overhead in a wide arc, sleeves billowing.'],
+    dash: ['Broom Lunge', 'Lunges forward low, staff held out like a lance.'],
+    smash: ['Long Crook Swing', 'Draws the staff back (green fire gathering in the crook with charge) and swings it round flat at full length.'],
+    upsmash: ['Rising Hex', 'Plants the staff and thrusts both hands up; a column of green sparks rises above the hood.'],
+    nair: ['Robe Spin', 'Spins in the air with the robe flaring and the staff held out.'],
+    fair: ['Staff Thrust', 'Stabs the staff down-forward from high to low.'],
+    bair: ['Back Crook', 'Swings the crook out behind her without looking.'],
+    uair: ['Moon Twirl', 'Twirls the staff overhead.'],
+    dair: ['Staff Plunge', 'Drives the staff straight down beneath her; it spikes.'],
+    grab: ['Hooked Crook', 'Reaches out with the crook and hooks whatever it touches.'],
+    throwf: ['Crook Fling', 'Flings the hooked opponent away with a flick of the staff.'],
+    throwb: ['Over the Broom', 'Swings the opponent round on the crook and casts them out behind.'],
+    throwu: ['Levitate', 'Lifts the opponent on a spell and tosses them straight up.'],
+    special: ['Hex Bolt', 'Points the staff and looses one bolt of green fire (14 frames of wind-up) that crosses most of the stage in about 1.5 s; solid damage. Projectile kind hex.'],
+    special2: ['Ward', 'Lobs a hex sigil about 5.3 m ahead; it lies on the floor about 5 s (1.5 m wide) and roots the first opponent that stands in it for 0.7 s. One at a time. Projectile kind ward.'],
+    recover: ['Crow Flight', 'Bursts into a flock of crows, flaps up, flies to the ledge (within 6.2 m) and re-forms hanging there.'],
+  },
+  mimic: {
+    jab: ['Lid Snap', 'Snaps the lid open and shut, teeth clacking.'],
+    tilt: ['Hinge Bite', 'Lunges the front edge forward with the lid gaping and bites.'],
+    uptilt: ['Lid Flip', 'Throws the lid open upward, teeth first.'],
+    dash: ['Treasure Charge', 'Scuttles forward on all four claws and rams with the chest front.'],
+    smash: ['Chest Slam', 'Rears back on the hind claws (lid rattling with charge) and slams the whole chest down-forward.'],
+    upsmash: ['Jackpot Bite', 'Springs up with the lid flung wide, biting straight up.'],
+    nair: ['Coin Spin', 'Spins in the air shedding coins, the lid flapping.'],
+    fair: ['Lunging Lid', 'Lunges forward in the air with the lid gaping.'],
+    bair: ['Back Bump', 'Bumps backward with the hinged back of the chest.'],
+    uair: ['Upward Gulp', 'Tips back and gulps at the air above.'],
+    dair: ['Lid Drop', 'Drops flat on whatever is below, lid first; it spikes.'],
+    grab: ['Clamp Jaws', 'Lunges and clamps the opponent in the lid.'],
+    throwf: ['Spit Out', 'Chews once and spits the opponent forward.'],
+    throwb: ['Over the Hinge', 'Flips the opponent back over the hinge.'],
+    throwu: ['Gold Geyser', 'Tips the lid up and blasts the opponent skyward on a fountain of coins.'],
+    special: ['Tongue Lash', 'The tongue shoots out about 5.5 m along the floor; an unshielded catch is reeled in to the teeth (drawn as a line from the mouth to the tip), held, then slammed. A shield blocks it and leaves the chest open. Projectile kind tongue, a tether.'],
+    special2: ['Swallow and Spit', 'A close command grab: gulps the opponent inside, holds them a moment (the lid bulging), then spits them out hard forward.'],
+    recover: ['Coin Burst', 'A burst of coins from below throws the chest straight up, raking with the claws.'],
+  },
+};
+for (const id of Object.keys(NAMES) as FighterId[]) {
+  const mv = ({ kiln: KILN, tick: TICK, hexer: HEXER, mimic: MIMIC } as Record<string, Record<MoveId, MoveDef>>)[id];
+  for (const [m, nl] of Object.entries(NAMES[id]!) as [MoveId, [string, string]][]) { mv[m].name = nl[0]; mv[m].look = nl[1]; }
+}
+
 // ------------------------------------------------------------------------------------------------
 // Bodies
 // ------------------------------------------------------------------------------------------------
@@ -272,11 +423,11 @@ const VISE = build('vise', {
 type Body = Omit<FighterDef, 'stats' | 'moves'>;
 
 const BODIES: Record<FighterId, Body> = {
-  kiln: { id: 'kiln', name: 'Kiln', role: 'Heavy hitter', blurb: 'Slow foundry brawler. Armoured swings that end lives early.',
+  kiln: { id: 'kiln', name: 'The Empty Armour', role: 'Haunted armour', blurb: 'A suit of plate with nobody inside, a fire in the collar, a greatsword. Slow, armoured, ends lives early.',
     width: 1.2, height: 1.9, weight: 112, walkSpeed: 0.075, runSpeed: 0.16, airSpeed: 0.09, airAccel: 0.0046,
     gravity: 0.017, fallSpeed: 0.21, fastFallSpeed: 0.3, jumpSpeed: 0.3, shortHopSpeed: 0.19, doubleJumpSpeed: 0.29,
     airJumps: 1, jumpsquat: 4, traction: 0.02 },
-  tick: { id: 'tick', name: 'Tick', role: 'Fast and light', blurb: 'Clockwork sprinter. Fastest on the deck, quick strings, flies far.',
+  tick: { id: 'tick', name: 'The Magpie', role: 'Thief', blurb: 'Small bird-masked thief in a feather cloak. Fastest on the deck, knives, snatches behind you.',
     width: 0.75, height: 1.35, weight: 84, walkSpeed: 0.1, runSpeed: 0.215, airSpeed: 0.12, airAccel: 0.007,
     gravity: 0.019, fallSpeed: 0.23, fastFallSpeed: 0.34, jumpSpeed: 0.31, shortHopSpeed: 0.2, doubleJumpSpeed: 0.3,
     airJumps: 2, jumpsquat: 3, traction: 0.032 },
@@ -288,12 +439,20 @@ const BODIES: Record<FighterId, Body> = {
     width: 1.15, height: 1.9, weight: 100, walkSpeed: 0.1, runSpeed: 0.205, airSpeed: 0.095, airAccel: 0.005,
     gravity: 0.016, fallSpeed: 0.205, fastFallSpeed: 0.29, jumpSpeed: 0.295, shortHopSpeed: 0.185, doubleJumpSpeed: 0.285,
     airJumps: 1, jumpsquat: 4, traction: 0.022 },
+  hexer: { id: 'hexer', name: 'The Hexer', role: 'Witch', blurb: 'Tall witch in a pointed hood with a crooked staff. Long reach, bolts and wards, slow feet.',
+    width: 0.75, height: 2.15, weight: 88, walkSpeed: 0.07, runSpeed: 0.15, airSpeed: 0.095, airAccel: 0.005,
+    gravity: 0.0135, fallSpeed: 0.18, fastFallSpeed: 0.26, jumpSpeed: 0.28, shortHopSpeed: 0.18, doubleJumpSpeed: 0.28,
+    airJumps: 1, jumpsquat: 5, traction: 0.02 },
+  mimic: { id: 'mimic', name: 'The Mimic', role: 'Hungry chest', blurb: 'A walking treasure chest with teeth and a very long tongue. Heavy, slow, swallows you whole.',
+    width: 1.3, height: 1.2, weight: 120, walkSpeed: 0.075, runSpeed: 0.165, airSpeed: 0.08, airAccel: 0.0045,
+    gravity: 0.018, fallSpeed: 0.22, fastFallSpeed: 0.31, jumpSpeed: 0.26, shortHopSpeed: 0.16, doubleJumpSpeed: 0.25,
+    airJumps: 1, jumpsquat: 5, traction: 0.024 },
 };
 
-const MOVES: Record<FighterId, Record<MoveId, MoveDef>> = { kiln: KILN, tick: TICK, gantry: GANTRY, vise: VISE };
+const MOVES: Record<FighterId, Record<MoveId, MoveDef>> = { kiln: KILN, tick: TICK, gantry: GANTRY, vise: VISE, hexer: HEXER, mimic: MIMIC };
 
 /** per-fighter damage trim (balance), applied once to the built hitboxes */
-const TRIM: Partial<Record<FighterId, number>> = { tick: 1.27, kiln: 1, gantry: 0.93, vise: 1.10 };
+const TRIM: Partial<Record<FighterId, number>> = { tick: 1.32, kiln: 1.22, gantry: 0.82, vise: 1.0, hexer: 1.12, mimic: 1.0 };
 for (const id of Object.keys(TRIM) as FighterId[]) for (const m of Object.values(MOVES[id])) for (const h of m.hitboxes) if (h.damage > 0) h.damage = Math.max(1, Math.round(h.damage * TRIM[id]!));
 
 // ------------------------------------------------------------------------------------------------
@@ -362,6 +521,8 @@ export const FIGHTERS: Record<FighterId, FighterDef> = {
   tick: { ...BODIES.tick, stats: statsFor('tick'), moves: TICK },
   gantry: { ...BODIES.gantry, stats: statsFor('gantry'), moves: GANTRY },
   vise: { ...BODIES.vise, stats: statsFor('vise'), moves: VISE },
+  hexer: { ...BODIES.hexer, stats: statsFor('hexer'), moves: HEXER },
+  mimic: { ...BODIES.mimic, stats: statsFor('mimic'), moves: MIMIC },
 };
 
 export function moveExtra(f: FighterId, m: MoveId): MoveExtra {

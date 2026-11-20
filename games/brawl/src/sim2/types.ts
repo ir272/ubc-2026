@@ -13,8 +13,8 @@ export const TICK_HZ = 60;
 export const COACH_PERIOD = 180; // ticks between plan boundaries (3 s)
 
 export type Side = 0 | 1;
-export type FighterId = 'kiln' | 'tick' | 'gantry' | 'vise';
-export const FIGHTER_IDS: FighterId[] = ['kiln', 'tick', 'gantry', 'vise'];
+export type FighterId = 'kiln' | 'tick' | 'gantry' | 'vise' | 'hexer' | 'mimic';
+export const FIGHTER_IDS: FighterId[] = ['kiln', 'tick', 'gantry', 'vise', 'hexer', 'mimic'];
 
 // ------------------------------------------------------------------------------------------------
 // The mind's side: a game plan. This is all a model (or a mock coach) can say during a fight.

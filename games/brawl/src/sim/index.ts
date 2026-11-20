@@ -13,7 +13,7 @@ import { fnv32, hash64, rnd, seedRng } from './math.ts';
 export { ARENA, FIGHTERS, COACHES, createFight, stepFight, schedulePlan };
 export * from './types.ts';
 
-export const SIM_VERSION = 'ringout-sim-4';
+export const SIM_VERSION = 'ringout-sim-5';
 
 /** short hex of the whole state: same in node and any browser */
 export function hashFight(s: FightState): string {
@@ -334,7 +334,7 @@ export function simulate(a: { seed: string; entrants: EntrantLike[]; options?: u
   const o = (a.options || {}) as SimulateOptions;
   const seed = String(a.seed);
   const h = fnv32(seed, 2166136261);
-  const fighters: [FighterId, FighterId] = o.fighters || [FIGHTER_IDS[h % 4], FIGHTER_IDS[(h >>> 2) % 4]];
+  const fighters: [FighterId, FighterId] = o.fighters || [FIGHTER_IDS[h % FIGHTER_IDS.length], FIGHTER_IDS[Math.floor(h / FIGHTER_IDS.length) % FIGHTER_IDS.length]];
   const coaches: [string, string] = o.coaches || ['adaptive', 'adaptive'];
   const header = makeHeader(seed, fighters, o);
   const r = runFight(header, { coaches, think: o.think, keepEvents: true });

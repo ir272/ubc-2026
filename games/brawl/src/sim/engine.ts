@@ -795,15 +795,16 @@ function advance(s: FightState, side: Side, f: FighterState, e: Eng, def: Fighte
       break;
     }
     case 'holding':
-      if (f.move === 'special' && e.cmd) {
+      if ((f.move === 'special' || f.move === 'special2') && e.cmd) {
         e.holdTimer++;
-        const ex = moveExtra(f.fighter, 'special');
+        const cm = f.move;
+        const ex = moveExtra(f.fighter, cm);
         if (e.holdTimer >= ex.cmd!.delay) {
           const tgt = s.fighters[1 - side];
           const te = ctlOf(s).eng[1 - side];
           e.cmd = false;
           tgt.action = 'hitstun';
-          applyHit(s, side, (1 - side) as Side, ex.cmd!.hb, 'special', 0, f.facing, ev, false);
+          applyHit(s, side, (1 - side) as Side, ex.cmd!.hb, cm, 0, f.facing, ev, false);
           void te;
           setAction(f, 'land');
           e.lock = ex.cmd!.endlag;
@@ -1000,7 +1001,7 @@ function stepDrag(s: FightState, ev: SimEvent[]): void {
       te.drag = 0; t.pulled = false;
       if (tp) tp.life = 0;
       const mv = tp && tp.move ? tp.move : 'special';
-      doGrab(s, by, i as Side, moveExtra(o.fighter, mv).cmd ? 'special' : 'grab', ev);
+      doGrab(s, by, i as Side, moveExtra(o.fighter, mv).cmd ? mv : 'grab', ev);
       continue;
     }
     t.x += (dx / d) * sp; t.y += (dy / d) * sp;
@@ -1508,9 +1509,10 @@ function doGrab(s: FightState, by: Side, to: Side, move: MoveId, ev: SimEvent[])
   ae.hitThisMove = true;
   // drop the target's own grab or move
   setAction(a, 'holding');
-  a.move = move === 'special' ? 'special' : null;
+  // a command grab (special or special2 with a command throw) holds, then throws on its own timer
+  ae.cmd = (move === 'special' || move === 'special2') && !!moveExtra(a.fighter, move).cmd;
+  a.move = ae.cmd ? move : null;
   ae.holdTimer = 0;
-  ae.cmd = move === 'special';
   ae.ovx = 0; te.ovx = 0; te.kvx = 0; te.kvy = 0;
   setAction(t, 'held');
   t.move = null; t.hitstun = 0; t.tumble = false; t.rooted = 0; t.pulled = false; te.drag = 0;
@@ -1520,7 +1522,7 @@ function doGrab(s: FightState, by: Side, to: Side, move: MoveId, ev: SimEvent[])
   ctl.track[to].since.oppGrabs++;
   ctl.lastExchange = s.tick;
   ev.push({ t: 'grab', tick: s.tick, by, to });
-  if (ae.cmd) ev.push({ t: 'throw', tick: s.tick, by, to, move: 'special' });
+  if (ae.cmd) ev.push({ t: 'throw', tick: s.tick, by, to, move });
   placeHeld(s, to);
 }
 

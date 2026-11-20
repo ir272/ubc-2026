@@ -569,7 +569,7 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
   if (pcm) {
     const r = rnd(s.rng);
     // a tether: shield it (the thrower is left open) or dodge through it and punish the whiff
-    if (pcm === 2 && r < 0.3) { inp.act = 'spot'; H.punishT = 40; return; }
+    if (pcm === 2 && r < (def.weight < 90 ? 0.5 : 0.3)) { inp.act = 'spot'; H.punishT = 40; return; } // light fighters dodge a tongue more
     if (r < st.shield + 0.15) { inp.shield = true; H.shieldT = 12; return; }
     if (r < st.shield + 0.15 + 0.35 && plan.stance !== 'wall') { inp.jump = 2; inp.mx = dir; return; }
   }
@@ -635,7 +635,7 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
   plan: Plan, inp: Input, adist: number, dir: number, vul: number): boolean {
   if (O.act === 'dead' || O.act === 'respawn' || O.act === 'ledgehang' || O.act === 'ledgeclimb' || O.act === 'entrance' || O.act === 'held') return false;
   const id = def.id;
-  const night = id === 'gantry' || id === 'vise'; // the Count and the Wolf lean on their specials harder than the round-3 cast
+  const night = true; // round 4: every fighter of the cast leans on its specials (round 3c's behaviour for all six)
   if (f.platform !== -1 || !O.grounded && O.act !== 'hitstun' && !(night && O.y < f.y + 2.4)) return false;
   const stance = plan.stance;
   const ag = plan.aggression;
@@ -662,10 +662,13 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
         ? (stance === 'keepaway' ? 0.07 : stance === 'rush' ? 0.05 + (1 - ag) * 0.03 : stance === 'wall' ? 0.05 : 0.07)
         : (stance === 'keepaway' ? 0.06 : stance === 'rush' ? 0.03 + (1 - ag) * 0.02 : stance === 'wall' ? 0.03 : 0.05);
       const slow = def.moves[S].startup > 16;
-      if (night && ready && O.act !== 'shield' && r < rate * urge) { H.cover = 110; return fire(S, Math.round(40 + rnd(s.rng) * 30), true); }
+      if (night && ready && O.act !== 'shield' && r < rate * urge * (id === 'kiln' ? 0.6 : 1)) { H.cover = id === 'gantry' ? 110 : 0; H.meet = id === 'kiln' ? 80 : 0; return fire(S, Math.round(40 + rnd(s.rng) * 30), true); }
       if (!night && ready && O.act !== 'shield' && r < rate) return fire(S, Math.round((slow ? 60 : 45) + rnd(s.rng) * (slow ? 60 : 55)), true);
     }
   }
+  // the Armour's flame forces a jump: run to meet the landing
+  if (H.meet > 0) H.meet--;
+  if (H.meet > 0 && !O.grounded && O.vy < 0.05 && adist > 1.4 && adist < 5) { inp.mx = dir; return true; }
   // cover: with its own bats flying at the opponent, walk in behind them, and mist-step through as they arrive
   if (H.cover > 0) H.cover--;
   if (night && S && H.cover > 0 && level) {
@@ -695,6 +698,8 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
     const rate = night
       ? (stance === 'rush' ? 0.07 + ag * 0.05 : stance === 'bait' ? 0.05 : 0.02)
       : (stance === 'rush' ? 0.04 + ag * 0.04 : stance === 'bait' ? 0.03 : 0.012);
+    // the Magpie snatches behind shields
+    if (id === 'tick' && into && O.act === 'shield' && r < 0.12) return fire(B, 70, false);
     if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate * urge) return fire(B, night ? 70 : 110, false);
   }
   // a tether: drag it in
@@ -706,9 +711,9 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
     const Q = predict(O, odef, H.delay + Math.round(travel * 0.6), { x: 0, y: 0 });
     const qd = Math.abs(Q.x - f.x);
     if (adist > 1.8 && qd < reach - 0.25 && O.act !== 'shield' && O.act !== 'shieldstun') {
-      if (vul > travel - 2 && r < st.punish * 0.75) return fire(Tm, 80, false);
-      const rate = stance === 'rush' ? 0.035 + plan.grabMix * 0.05 : stance === 'keepaway' ? 0.045 : stance === 'wall' ? 0.024 : 0.035;
-      if (ready && O.act !== 'attack' && r < rate) return fire(Tm, 100, false);
+      if (vul > travel - 2 && r < st.punish * 0.75) return fire(Tm, 60, false);
+      const rate = stance === 'rush' ? 0.06 + plan.grabMix * 0.06 : stance === 'keepaway' ? 0.07 : stance === 'wall' ? 0.04 : 0.06;
+      if (ready && O.act !== 'attack' && r < rate * urge) return fire(Tm, 60, false);
     }
   }
   // a pounce: the long leap that seizes, to close and to punish at mid range (only a grounded opponent can be caught)
@@ -737,23 +742,24 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
   }
   // a plain strike on the second special (an armoured blow, a spin): up close, where it reaches
   const md2 = def.moves.special2;
-  if (!md2.projectile && !md2.blink && !HOWL[id] && md2.hitboxes.length && ready && O.act !== 'shield' && adist < 3.2) {
-    const I2 = INFO[id].special2;
+  const I2 = INFO[id].special2;
+  // (a command grab on the second special, the Mimic's swallow, is best against a shield)
+  if (!md2.projectile && !md2.blink && !HOWL[id] && md2.hitboxes.length && ready && (O.act !== 'shield' || I2.grab) && adist < 3.2) {
     const Q = predict(O, odef, H.delay + I2.first, { x: 0, y: 0 });
-    const rate = stance === 'rush' ? 0.04 : stance === 'wall' ? 0.015 : 0.01;
-    if ((vul > I2.first + 2 || r < rate) && moveReaches(def, 'special2', f.x, f.y, dir, Q.x + H.err * 0.5, Q.y, odef, -0.05)) return fire('special2', 90, false);
+    const rate = (stance === 'rush' ? 0.08 : stance === 'wall' ? 0.05 : 0.04) * (I2.grab && O.act === 'shield' ? 3 : 1);
+    if ((vul > I2.first + 2 || r < rate * urge) && moveReaches(def, 'special2', f.x, f.y, dir, Q.x + H.err * 0.5, Q.y, odef, -0.05)) return fire('special2', 60, false);
   }
   // a floor hazard: at its feet, or between us to guard the space
   const W = WARD[id];
-  if (W && !myHazard(s, side, W) && level && O.grounded && Math.abs(f.x + dir * WARD_DIST[id]) < ARENA.main.x1 - 0.4) {
+  if (W && !myHazard(s, side, W) && level && (O.grounded || O.vy < 0) && Math.abs(f.x + dir * WARD_DIST[id]) < ARENA.main.x1 - 0.4) {
     const pr = def.moves[W].projectile!;
     const Q = predict(O, odef, H.delay + pr.frame + 30, { x: 0, y: 0 });
     const ahead = (Q.x - f.x) * dir;
     const land = WARD_DIST[id];
     const atFeet = Math.abs(ahead - land) < 1.7;
     const between = ahead > land + 0.9 && ahead < land + 4.5;
-    const rate = stance === 'keepaway' ? 0.08 : stance === 'wall' ? 0.07 : stance === 'bait' ? 0.06 : 0.05;
-    if ((atFeet || between) && ready && r < rate) return fire(W, 80, false);
+    const rate = stance === 'keepaway' ? 0.1 : stance === 'wall' ? 0.09 : stance === 'bait' ? 0.08 : 0.07;
+    if ((atFeet || between) && ready && r < rate * urge) return fire(W, 60, false);
   }
   return false;
 }
@@ -925,7 +931,7 @@ function pickGroundMove(s: FightState, f: FighterState, def: FighterDef, O: Obs,
     if ((m === 'smash' || m === 'upsmash' || m === 'special2' && def.id === 'gantry') && !punishing && !killWanted) sc -= 6;
     if ((m === 'special' || m === 'special2') && !punishing && I.first > 9) sc -= 4;
     if (m === 'special2' && punishing) sc += 3; // the second special is a punish tool (and should be seen)
-    if ((def.id === 'gantry' || def.id === 'vise') && (m === 'jab' || m === 'tilt')) sc -= 3;
+    if (m === 'jab' || m === 'tilt') sc -= 3; // round 4: the specials, not the pokes, carry the fight
     if (POUNCE[def.id] === m) sc += O.act === 'hitstun' && !O.tumble ? 12 : 4;
     if (POUNCE[def.id] && m === 'grab') sc -= 3; // the wolf seizes with the pounce rather than a plain grab
     if (!punishing) sc -= I.fwdDist * 1.5;
@@ -1507,14 +1513,14 @@ function recovery(s: FightState, side: Side, f: FighterState, def: FighterDef, O
     const dx = tx - f.x, dy = ty - f.y;
     const d = Math.sqrt(dx * dx + dy * dy);
     if (d < 6.4 && (f.vy < 0 || d > 5) || f.y < ARENA.blast.bottom + 4) { use = true; inp.aimx = dx; inp.aimy = dy; }
-  } else if (id === 'gantry') {
+  } else if (id === 'gantry' || id === 'hexer') {
     const hx = lx - f.x, hy = 0 - (f.y + def.height * 0.8);
     const d = Math.sqrt(hx * hx + hy * hy);
     if ((d < 5.6 && (below < (goHigh ? 0.5 : -0.8)) && f.vy < 0.05) || f.y < ARENA.blast.bottom + 4 || (d < 6 && out > 3)) use = true;
-  } else if (id === 'kiln' || id === 'vise') {
-    const rise = id === 'kiln' ? 3.9 : 4.6;
+  } else {
+    const rise = id === 'kiln' ? 3.9 : id === 'mimic' ? 4.4 : 4.6;
     const side2 = !(H.used2side) && out > 2.4 && f.y > ledgeHandY - 1.5;
-    if (id === 'kiln' && side2 && f.airJumpsLeft === 0) { inp.act = 'special2'; inp.face = -o; return; }
+    if (moveExtra(id, 'special2').fwd && side2 && f.airJumpsLeft === 0) { inp.act = 'special2'; inp.face = -o; return; }
     if ((f.y + rise > (goHigh ? 0.6 : ledgeHandY + 0.2) && f.y < (goHigh ? 0.2 : ledgeHandY - 1.2) && out < 2.2) ||
       f.y < ARENA.blast.bottom + 4.2 || (f.y < ledgeHandY - 2.4)) use = true;
   }

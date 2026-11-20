@@ -64,7 +64,7 @@ export const COACHES: Record<string, Coach> = {
 type Answer = { stance: Stance; aggression: number; range: Plan['range']; grabMix: number };
 
 /** fighters that carry a shot (keep-away is a real plan for them, a weak one for the others) */
-const SHOOTERS: Partial<Record<FighterId, boolean>> = { gantry: true, kiln: true };
+const SHOOTERS: Partial<Record<FighterId, boolean>> = { gantry: true, kiln: true, hexer: true };
 
 /**
  * What beats each look (measured on the hands with tools/exploit.mjs; see NOTES): a strike-minded rush runs into a shield
@@ -127,8 +127,8 @@ function adaptive(v: CoachView, mem: Record<string, any>, rand: () => number): P
   // go for the kill when it is cooked and I am not
   const order: Plan['order'] = v.opp.damage > 115 && v.me.damage < 130 && rand() < 0.7 ? 'kill' : 'none';
   // the fighter shifts the dials: a grappler keeps grabbing whatever the plan, a long-reach robot keeps its distance
-  const grabMix = v.me.fighter === 'vise' ? Math.max(base.grabMix, 0.45) : base.grabMix;
-  const range: Plan['range'] = v.me.fighter === 'gantry' && base.range === 'close' ? 'mid' : base.range;
+  const grabMix = (v.me.fighter === 'vise' || v.me.fighter === 'mimic') ? Math.max(base.grabMix, 0.45) : base.grabMix;
+  const range: Plan['range'] = (v.me.fighter === 'gantry' || v.me.fighter === 'hexer') && base.range === 'close' ? 'mid' : base.range;
   const p: Plan = { stance: base.stance, aggression, range, grabMix, edge, recover, order, read: readFor(base.stance, look, grabby, order, v) };
   mem.last = p;
   return p;

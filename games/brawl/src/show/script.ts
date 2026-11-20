@@ -76,7 +76,7 @@ const REPLAY_SPEED = 0.5;
 const SAFETY_TICKS = 3 * 60 * TICK_HZ; // past regulation + this, the script calls the fight itself
 
 /** the fighters on offer. The owner is choosing the cast one at a time; ids not listed stay out of the select */
-export const ROSTER: FighterId[] = ['gantry', 'vise']; // the Count and the Wolf (the owner's picks so far)
+export const ROSTER: FighterId[] = ['gantry', 'vise', 'kiln', 'tick', 'hexer', 'mimic']; // the Count, the Wolf, the Empty Armour, the Magpie, the Hexer, the Mimic
 /** the stages on offer in the stage select (ids of the drawn sets in src/ink/sets). One platform layout for all. */
 export const STAGES: string[] = ['belfry', 'shelf', 'graveyard', 'ship', 'map', 'rooftops'];
 /** the stages' names, for the bots' strike prompt */

@@ -31,9 +31,9 @@ test('four fighters, 18 moves each, named, with looks, bars 1..5', () => {
     }
     for (const v of Object.values(f.stats)) assert.ok(v >= 1 && v <= 5 && Number.isInteger(v));
   }
-  assert.equal(names.size, 72, 'move names are unique');
-  assert.equal(sim.FIGHTERS.kiln.name, 'Kiln');
-  assert.equal(sim.FIGHTERS.tick.name, 'Tick');
+  assert.equal(names.size, 18 * sim.FIGHTER_IDS.length, 'move names are unique');
+  assert.equal(sim.FIGHTERS.kiln.name, 'The Empty Armour');
+  assert.equal(sim.FIGHTERS.tick.name, 'The Magpie');
   assert.equal(sim.FIGHTERS.gantry.name, 'The Count');
   assert.equal(sim.FIGHTERS.vise.name, 'The Wolf');
 });

@@ -9,7 +9,7 @@
 import { ARENA, FIGHTERS } from '../sim/index.ts';
 import type { Action, FighterId, FighterState, MoveId, Side } from '../sim/types.ts';
 import { MOVE_IDS } from '../sim/types.ts';
-import type { Stage, StageInfo, StageOptions } from '../stage/stage.ts';
+import type { Stage, StageInfo, StageOptions } from '../stage/types.ts';
 import type { Frame, PostState, StageCtx } from '../stage/api.ts';
 import { initialReduced, reduce, showStateAt } from '../show/reduce.ts';
 import { Playback } from '../show/playback.ts';
