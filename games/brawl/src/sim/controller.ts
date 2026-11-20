@@ -572,7 +572,7 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
   if (pcm) {
     const r = rnd(s.rng);
     // a tether: shield it (the thrower is left open) or dodge through it and punish the whiff
-    if (pcm === 2 && r < (def.weight < 90 ? 0.5 : 0.3)) { inp.act = 'spot'; H.punishT = 40; return; } // light fighters dodge a tongue more
+    if (pcm === 2 && r < (def.weight < 92 ? 0.5 : 0.3)) { inp.act = 'spot'; H.punishT = 40; return; } // light fighters dodge a tongue more
     if (r < st.shield + 0.15) { inp.shield = true; H.shieldT = 12; return; }
     if (r < st.shield + 0.15 + 0.35 && plan.stance !== 'wall') { inp.jump = 2; inp.mx = dir; return; }
   }
@@ -585,17 +585,17 @@ function groundLogic(s: FightState, side: Side, f: FighterState, def: FighterDef
   const Tg = TETHER[odef.id];
   if (Tg && O.act === 'attack' && O.move === Tg && O.frame < 14 && f.grounded && adist < TETHER_REACH[odef.id] + 0.8 && !(H.tgT > 0)) {
     H.tgT = 20;
-    if (rnd(s.rng) < (def.weight < 90 ? 0.85 : 0.5)) { inp.jump = 2; inp.mx = -dir * 0.4; return; }
+    if (rnd(s.rng) < (def.weight < 92 ? 0.85 : 0.5)) { inp.jump = 2; inp.mx = -dir * 0.4; return; }
   }
   const Pw = POUNCE[odef.id];
   if (Pw && O.act === 'attack' && O.move === Pw && O.frame < 9 && f.grounded && adist < 5.5 && !(H.tgT > 0)) {
     H.tgT = 20;
-    if (rnd(s.rng) < (def.weight < 90 ? 0.7 : 0.3)) { inp.jump = 1; inp.mx = -dir * 0.3; return; } // a pounce catches only the grounded
+    if (rnd(s.rng) < (def.weight < 92 ? 0.7 : 0.3)) { inp.jump = 1; inp.mx = -dir * 0.3; return; } // a pounce catches only the grounded
   }
   if (H.tgT > 0) H.tgT--;
   // a light fighter keeps out of a grabber's hands: as it closes into grab range, snatch past it, spot dodge, or hop back
   if (H.gdT > 0) H.gdT--;
-  if (def.weight < 90 && GRABBER[odef.id] && O.grounded && f.grounded && !(H.gdT > 0) && vul <= 0) {
+  if (def.weight < 92 && GRABBER[odef.id] && O.grounded && f.grounded && !(H.gdT > 0) && vul <= 0) {
     const cl = closingSpeed(O, dir);
     const gr = INFO[odef.id].grab.reach + def.width * 0.5 + 0.35 + Math.max(0, cl) * 8;
     if (adist < gr && (cl > 0.02 || O.act === 'idle' || O.act === 'walk' || O.act === 'shield')) {
@@ -685,7 +685,9 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
   if (S && (H.shotCd <= 0 || O.act === 'hitstun' && !O.tumble) && level) {
     const pr = def.moves[S].projectile!;
     // (against a tongue, shoot from outside its reach: a throw inside it gets the thrower reeled in)
-    const lo = Math.max(night ? 1.8 : def.moves[S].startup > 16 ? 3.4 : 2.6, TETHER[odef.id] ? TETHER_REACH[odef.id] + 0.6 : 0);
+    const Po0 = POUNCE[odef.id];
+    const lo = Math.max(night ? 1.8 : def.moves[S].startup > 16 ? 3.4 : 2.6, TETHER[odef.id] ? TETHER_REACH[odef.id] + 0.6 : 0,
+      Po0 && def.weight < 92 && def.moves[S].projectile!.fan ? INFO[odef.id][Po0].reach + INFO[odef.id][Po0].fwdDist + 0.5 : 0); // and a light fighter from outside a pounce
     const hi = Math.min(pr.vx * pr.life, 11);
     if (adist > lo && adist < hi) {
       const travel = def.moves[S].startup + adist / pr.vx;
@@ -732,7 +734,7 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
       : (stance === 'rush' ? 0.04 + ag * 0.04 : stance === 'bait' ? 0.03 : 0.012);
     // the Magpie snatches behind shields
     if (id === 'tick' && into && O.act === 'shield' && r < 0.12) return fire(B, 70, false);
-    if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate * urge * (GRABBER[odef.id] && def.weight < 90 ? 0.4 : 1)) return fire(B, night ? 70 : 110, false);
+    if (into && ready && O.act !== 'attack' && O.act !== 'shield' && r < rate * urge * (GRABBER[odef.id] && def.weight < 92 ? 0.4 : 1)) return fire(B, night ? 70 : 110, false);
   }
   // a tether: drag it in
   const Tm = TETHER[id];
@@ -744,6 +746,8 @@ function abilities(s: FightState, side: Side, f: FighterState, def: FighterDef, 
     const qd = Math.abs(Q.x - f.x);
     if (adist > 1.8 && qd < reach - 0.25 && O.act !== 'shield' && O.act !== 'shieldstun') {
       if (vul > travel - 2 && r < st.punish * 0.75) return fire(Tm, 60, false);
+      // a caster winding up a shot or a ward is standing still: lash it before the spell comes out
+      if (O.act === 'attack' && O.frame < 8 && (O.move === SHOT[odef.id] || O.move === WARD[odef.id]) && r < 0.5) return fire(Tm, 60, false);
       const rate = stance === 'rush' ? 0.06 + plan.grabMix * 0.06 : stance === 'keepaway' ? 0.07 : stance === 'wall' ? 0.04 : 0.06;
       if (ready && O.act !== 'attack' && r < rate * urge) return fire(Tm, 60, false);
     }
@@ -965,7 +969,7 @@ function pickGroundMove(s: FightState, f: FighterState, def: FighterDef, O: Obs,
     if (m === 'special2' && punishing) sc += 3; // the second special is a punish tool (and should be seen)
     if (m === 'jab' || m === 'tilt') sc -= 3; // round 4: the specials, not the pokes, carry the fight
     // a light fighter does not swing with a long recovery inside a grabber's reach: it gets grabbed out of it
-    if (!punishing && def.weight < 90 && GRABBER[odef.id] && I.total - I.last > 12) sc -= 6;
+    if (!punishing && def.weight < 92 && GRABBER[odef.id] && I.total - I.last > 12) sc -= 6;
     if (POUNCE[def.id] === m) sc += O.act === 'hitstun' && !O.tumble ? 12 : 4;
     if (POUNCE[def.id] && m === 'grab') sc -= 3; // the wolf seizes with the pounce rather than a plain grab
     if (!punishing) sc -= I.fwdDist * 1.5;
