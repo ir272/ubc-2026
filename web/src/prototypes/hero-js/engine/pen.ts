@@ -1,9 +1,10 @@
 // The ink pen every part draws with. A stroke is filled as a ribbon of varying width, so it reads as a
-// brush-pen line: a touch heavier where the pen lands and lifts and in tight corners, with a small hand
-// wobble that depends ONLY on `seed` (and on the distance along the line), so it is identical every frame.
-// `reveal` draws only the first part of the stroke's length and ends in a round leading tip.
+// confident pen line: a hair heavier where the pen lands and in tight corners, with a drift so small it is
+// felt rather than seen (at most 0.8 scene units; it depends ONLY on `seed` and the distance along the line,
+// so it is identical every frame). `taper` thins the ends to a point where a hand would lift.
+// Also: hatch and stipple textures, the glow recipe, and an offscreen cache for static detail.
 import { INK } from './layout';
-import type { Pen, Pt, StrokeOpts } from './types';
+import type { Box, HatchOpts, Pen, Pt, StippleOpts, StrokeOpts } from './types';
 
 const STEP = 7; // resample spacing in scene units: fine enough for the wobble and the pressure, still cheap
 
@@ -85,8 +86,9 @@ export function makePen(ctx: CanvasRenderingContext2D): Pen {
 
     // 3. hand wobble along the normal, a function of seed and distance only (never of time)
     const p1 = h01(seed) * 6.283, p2 = h01(seed + 7.3) * 6.283, p3 = h01(seed + 13.1) * 6.283;
-    const f1 = 1 / (70 + h01(seed + 2.2) * 60), f2 = 1 / (26 + h01(seed + 4.4) * 18);
-    const amp = Math.min(width * 0.32, 1.9) * Math.min(1, total / 90);
+    const f1 = 1 / (130 + h01(seed + 2.2) * 110), f2 = 1 / (52 + h01(seed + 4.4) * 30);
+    // hairlines do not drift at all; nothing drifts more than 0.8 units unless the caller asks for it
+    const amp = (width < 1.5 && o.wobble == null ? 0 : Math.min(width * 0.2, 0.8)) * (o.wobble ?? 1) * Math.min(1, total / 120);
     if (amp > 0.05) {
       for (let i = 0; i < n; i++) {
         const ia = Math.max(0, i - 1), ib = Math.min(n - 1, i + 1);
@@ -104,12 +106,18 @@ export function makePen(ctx: CanvasRenderingContext2D): Pen {
     }
 
     // 4. pressure: heavier where the pen lands and lifts and in corners, a slow seeded swell between
-    const endLen = Math.min(22, total * 0.18);
+    const endLen = Math.min(16, total * 0.15);
+    const tp = o.taper;
+    const t0 = close || tp == null ? 0 : (typeof tp === 'number' ? tp : tp[0]) * total;
+    const t1 = close || tp == null ? 0 : (typeof tp === 'number' ? tp : tp[1]) * total;
     const half = (i: number) => {
       const s = SS[i]!;
-      const ends = close ? 0 : Math.exp(-s / endLen) + Math.exp(-(total - s) / endLen);
-      const swell = 0.07 * Math.sin(s * f1 * 3.1 + p3);
-      return width * 0.5 * (0.86 + 0.26 * Math.min(1, ends) + 0.22 * CN[i]! + swell);
+      const ends = close || tp != null ? 0 : Math.exp(-s / endLen) + Math.exp(-(total - s) / endLen);
+      const swell = 0.045 * Math.sin(s * f1 * 3.1 + p3);
+      let k = 0.93 + 0.1 * Math.min(1, ends) + 0.1 * CN[i]! + swell;
+      if (t0 > 0 && s < t0) k *= 0.04 + 0.96 * (s / t0) ** 0.75;
+      if (t1 > 0 && total - s < t1) k *= 0.04 + 0.96 * ((total - s) / t1) ** 0.75;
+      return width * 0.5 * k;
     };
 
     // 5. cut at the reveal length
@@ -226,5 +234,107 @@ export function makePen(ctx: CanvasRenderingContext2D): Pen {
     ctx.restore();
   };
 
-  return { ctx, stroke, fill, curve, text };
+  // the halo is four soft passes, so it reads as light falling off, never as bands beside the line
+  const glow = (pts: readonly Pt[], o: StrokeOpts = {}) => {
+    const w = o.width ?? 4.8, a = o.alpha ?? 1;
+    stroke(pts, { ...o, width: w * 3.5, alpha: a * 0.045, taper: undefined });
+    stroke(pts, { ...o, width: w * 2.6, alpha: a * 0.06, taper: undefined });
+    stroke(pts, { ...o, width: w * 1.8, alpha: a * 0.09, taper: undefined });
+    stroke(pts, o);
+  };
+
+  const clipTo = (clip: readonly Pt[]) => {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    ctx.beginPath();
+    for (let i = 0; i < clip.length; i++) {
+      const [x, y] = clip[i]!;
+      if (i) ctx.lineTo(x, y);
+      else ctx.moveTo(x, y);
+      if (x < x0) x0 = x;
+      if (x > x1) x1 = x;
+      if (y < y0) y0 = y;
+      if (y > y1) y1 = y;
+    }
+    ctx.closePath();
+    ctx.clip();
+    return { x0, y0, x1, y1 };
+  };
+
+  const hatch = (clip: readonly Pt[], o: HatchOpts = {}) => {
+    if (clip.length < 3) return;
+    const angle = o.angle ?? -0.9, gap = o.gap ?? 9, seed = o.seed ?? 1, breakup = o.breakup ?? 0.35;
+    ctx.save();
+    const b = clipTo(clip);
+    const cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2;
+    const R = Math.hypot(b.x1 - b.x0, b.y1 - b.y0) / 2 + 2;
+    const dx = Math.cos(angle), dy = Math.sin(angle);
+    ctx.globalAlpha = o.alpha ?? 0.45;
+    ctx.strokeStyle = o.color ?? INK;
+    ctx.lineWidth = o.width ?? 1.2;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    let k = 0;
+    for (let v = -R; v <= R; v += gap * (0.72 + 0.56 * h01(seed + k * 1.7)), k++) {
+      const ox = cx - dy * v, oy = cy + dx * v;
+      let u = -R + h01(seed + k * 3.3) * 24, j = 0;
+      while (u < R) {
+        const len = 16 + h01(seed + k * 5.1 + j * 2.3) * 44;
+        if (h01(seed + k * 7.7 + j * 4.9) >= breakup) {
+          ctx.moveTo(ox + dx * u, oy + dy * u);
+          ctx.lineTo(ox + dx * (u + len), oy + dy * (u + len));
+        }
+        u += len + 5 + h01(seed + k * 9.1 + j * 6.1) * 12;
+        j++;
+      }
+    }
+    ctx.stroke();
+    ctx.restore();
+  };
+
+  const stipple = (clip: readonly Pt[], o: StippleOpts = {}) => {
+    if (clip.length < 3) return;
+    const count = o.count ?? 40, r = o.r ?? 1.2, seed = o.seed ?? 1;
+    ctx.save();
+    const b = clipTo(clip);
+    ctx.globalAlpha = o.alpha ?? 0.45;
+    ctx.fillStyle = o.color ?? INK;
+    ctx.beginPath();
+    for (let i = 0; i < count; i++) {
+      const x = b.x0 + h01(seed + i * 2.71) * (b.x1 - b.x0), y = b.y0 + h01(seed + i * 4.13 + 9) * (b.y1 - b.y0);
+      const rr = r * (0.6 + 0.8 * h01(seed + i * 6.37));
+      ctx.moveTo(x + rr, y);
+      ctx.arc(x, y, rr, 0, 6.2832);
+    }
+    ctx.fill();
+    ctx.restore();
+  };
+
+  // offscreen layers, repainted only when the device scale changes
+  const layers = new Map<string, { cv: HTMLCanvasElement; s: number }>();
+  const layer = (key: string, box: Box, paint: (pen: Pen) => void) => {
+    const m = ctx.getTransform();
+    let s = Math.hypot(m.a, m.b);
+    if (!(s > 0)) return null;
+    s = Math.min(s, 4096 / box.w, 4096 / box.h);
+    let L = layers.get(key);
+    if (!L || Math.abs(L.s - s) > 1e-4) {
+      const cv = L?.cv ?? document.createElement('canvas');
+      cv.width = Math.max(1, Math.ceil(box.w * s));
+      cv.height = Math.max(1, Math.ceil(box.h * s));
+      const c2 = cv.getContext('2d');
+      if (!c2) return null;
+      c2.setTransform(s, 0, 0, s, -box.x * s, -box.y * s);
+      c2.clearRect(box.x, box.y, box.w + 1, box.h + 1);
+      paint(makePen(c2));
+      L = { cv, s };
+      layers.set(key, L);
+    }
+    return L;
+  };
+  const cache = (key: string, box: Box, paint: (pen: Pen) => void) => {
+    const L = layer(key, box, paint);
+    if (L) ctx.drawImage(L.cv, box.x, box.y, L.cv.width / L.s, L.cv.height / L.s);
+  };
+
+  return { ctx, stroke, fill, curve, text, hatch, stipple, glow, cache, layer };
 }

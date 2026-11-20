@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;background:#0c100b}canvas{display:block;width:3000px;height:1000px}</style></head>
+<body><canvas id="c" width="3000" height="1000"></canvas>
+<script type="module">
+// Temporary builder preview for the right side only (used while other parts are mid-edit). Not part of the site.
+import { couch } from '/src/prototypes/hero-js/parts/couch.ts';
+import { tree } from '/src/prototypes/hero-js/parts/tree.ts';
+import { GROUND, GREEN, GREEN_LINE, PAPER } from '/src/prototypes/hero-js/engine/layout.ts';
+const q = new URLSearchParams(location.search);
+const t = Number(q.get('t') ?? 9000) / 1000 + 4.4; // the same clock as the real page (?t plus the skipped intro)
+const only = q.get('only')?.split(',');
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+ctx.fillStyle = PAPER; ctx.fillRect(0, 0, 3000, 1000);
+ctx.beginPath(); ctx.moveTo(GROUND[0][0], GROUND[0][1]);
+for (const p of GROUND) ctx.lineTo(p[0], p[1]);
+for (const p of [...GROUND].reverse()) ctx.lineTo(p[0], p[1] + 80);
+ctx.closePath(); ctx.fillStyle = GREEN; ctx.fill();
+ctx.beginPath(); ctx.moveTo(GROUND[0][0], GROUND[0][1]);
+for (const p of GROUND) ctx.lineTo(p[0], p[1]);
+ctx.strokeStyle = GREEN_LINE; ctx.lineWidth = 4.8; ctx.stroke();
+const pen = { ctx };
+const n = Number(q.get('bench') ?? 0);
+let tt = t;
+const run = () => { for (const p of [tree, couch]) { if (only && !only.includes(p.id)) continue; ctx.save(); p.draw(pen, { t: tt, reveal: 1, alive: true }); ctx.restore(); } };
+run();
+if (n) { const t0 = performance.now(); for (let i = 0; i < n; i++) { tt = t + i * 0.37; run(); } document.title = 'ms ' + ((performance.now() - t0) / n).toFixed(2); console.log('BENCH ms/frame ' + ((performance.now() - t0) / n).toFixed(2)); }
+</script></body></html>
