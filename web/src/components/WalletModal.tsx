@@ -1,9 +1,8 @@
 // The wallet window, laid out after duel.com's: a title row, a two-part switch (Deposit, Withdraw), then that
 // part's fields. Deposit shows the viewer's address as a QR code and text, plus the free top-up. Withdraw sends
 // Souls to another address. Viewer copy never names the chain underneath.
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CURRENCY, UNIT, usd } from '../lib/money';
-import { qrPath } from '../lib/qr';
 import { looksLikeAddress, useWallet } from '../lib/wallet';
 import { Button } from '../ui';
 import { sfx } from './nightline';
@@ -63,7 +62,6 @@ function CurrencyField({ balance }: { balance: number | null }) {
 
 function Deposit() {
   const w = useWallet();
-  const qr = useMemo(() => qrPath(w.owner), [w.owner]);
   const [copied, setCopied] = useState(false);
   const [free, setFree] = useState<'idle' | 'busy' | 'added' | 'already' | 'failed'>('idle');
   useEffect(() => {
@@ -87,11 +85,6 @@ function Deposit() {
   };
   return (
     <>
-      <div className="wlt-qr" role="img" aria-label="Your address as a QR code">
-        <svg viewBox={`0 0 ${qr.size} ${qr.size}`} shapeRendering="crispEdges" aria-hidden>
-          <path d={qr.d} />
-        </svg>
-      </div>
       <CurrencyField balance={w.balance} />
       <div className="wlt-lab">Your address</div>
       <div className="wlt-field">
