@@ -196,7 +196,7 @@ async function renderJob(name: string): Promise<{ buf: AudioBuffer; meta: Record
   return { buf, meta: { lead, eventAt: j.eventAt ?? lead } };
 }
 
-async function renderMusicJob(kind: 'fight' | 'bed'): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
+async function renderMusicJob(kind: 'fight' | 'bed' | 'theme'): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
   const loop = await music(kind, SR);
   const ctx = new OfflineAudioContext(2, Math.ceil(20 * SR), SR);
   const e = new Engine(ctx);
@@ -630,6 +630,66 @@ async function renderPreviewFour(): Promise<{ buf: AudioBuffer; meta: Record<str
 }
 
 // ------------------------------------------------------------------------------------------------
+// The third preview: the theme. The call, the select (shortened: the picks flip at 10 s, five
+// stage strikes, 30 s in all), the versus (10 s), the last 5 s of predictions, the countdown and the
+// first 12 s of the fight, so the theme and its hand-over to the fight loop are heard.
+// ------------------------------------------------------------------------------------------------
+
+async function renderPreviewTheme(): Promise<{ buf: AudioBuffer; meta: Record<string, unknown> }> {
+  const { mod, name } = await newestSim();
+  const fighters: [FighterId, FighterId] = ['gantry', 'vise'];
+  const strikes = [{ by: 0, stage: 'belfry' }, { by: 1, stage: 'ship' }, { by: 0, stage: 'crypt' }, { by: 1, stage: 'bridge' }, { by: 0, stage: 'mill' }];
+  const ctxAll = { picks: fighters, strikes, stage: 'hill' } as unknown as ShowState['ctx'];
+  const frames: Frame[] = [];
+  const at = () => Math.round((frames.length * 1000) / 60) / 1000;
+  const marks: Record<string, number> = {};
+  const phase = (ph: ShowState['phase'], secs: number, extra: (ms: number) => Partial<ShowState>, from = 0) => {
+    marks[ph] = at();
+    for (let i = 0; i < Math.round(secs * 60); i++) {
+      const ms = from + (i * 1000) / 60;
+      frames.push({ dt: 1 / 60, now: at() * 1000, show: { ...blankShow(ph), ctx: ctxAll, phaseMs: ms, ...extra(ms) }, fight: null, post: POST, width: 1280, height: 720 });
+    }
+  };
+  frames.push({ dt: 1 / 60, now: 0, show: { ...blankShow('idle'), phaseMs: 9000 }, fight: null, post: POST, width: 1280, height: 720 });
+  phase('call', 10, () => ({ phaseDurationMs: 10_000 }));
+  phase('select', 30, (ms) => ({ phaseDurationMs: 30_000, selectRevealMs: 10_000, picksRevealed: ms >= 10_000 }));
+  const R = 10_000, first = R + 3700, last = 30_000 - 3000;
+  strikes.forEach((_, i) => { marks[`strike ${i + 1}`] = marks.select + (first + (i * (last - first)) / (strikes.length - 1)) / 1000; });
+  marks['pick reveal'] = marks.select + R / 1000;
+  phase('versus', 10, () => ({ phaseDurationMs: 16_000 }));
+  phase('predictions', 5, () => ({ phaseDurationMs: 30_000 }), 25_000);
+  // the countdown and the first 12 s of a real fight
+  const ticks: Tick[] = [];
+  mod.runFight(mod.makeHeader('blood-moon-theme-preview-5e2c8a1f', fighters, { lives: 2 }), { coaches: ['adaptive', 'rush'], onTick: (st, ev) => { if (st.tick < 12 * 60) ticks.push({ s: structuredClone(st), ev: ev.slice() }); } });
+  marks.fight = at();
+  const cdTotal = 3900;
+  let ms = 0;
+  for (; ms < cdTotal; ms += 1000 / 60) {
+    const f = frameOf({ ...blankShow('fight'), ctx: ctxAll, phaseMs: ms }, ticks[0], ticks[0], [], 'frozen', 1, at() * 1000);
+    f.fight!.countdownMs = Math.max(0, cdTotal - ms);
+    frames.push(f);
+  }
+  marks['first tick'] = at();
+  for (let i = 0; i < ticks.length; i++) {
+    ms += 1000 / 60;
+    frames.push(frameOf({ ...blankShow('fight'), ctx: ctxAll, phaseMs: ms }, ticks[i], ticks[Math.max(0, i - 1)], ticks[i].ev, 'live', 1, at() * 1000));
+  }
+  const ctx = new OfflineAudioContext(2, Math.ceil((frames.length / 60 + 0.8) * SR), SR);
+  const e = new Engine(ctx);
+  const dir = createDirector(e, { live: false, defs: mod.FIGHTERS as unknown as MoveDefs });
+  await music('fight', SR);
+  await music('theme', SR);
+  frames.forEach((f, i) => {
+    void ctx.suspend(i / 60 + 0.0005).then(() => {
+      dir.update(f);
+      void ctx.resume();
+    });
+  });
+  const buf = await ctx.startRendering();
+  return { buf, meta: { lead: 0, eventAt: 0, sim: name, marks } };
+}
+
+// ------------------------------------------------------------------------------------------------
 
 function b64(f: Float32Array): string {
   const u8 = new Uint8Array(f.buffer, f.byteOffset, f.byteLength);
@@ -691,13 +751,15 @@ export function installAudioHarness(assetsBase = '/'): void {
   const w = window as unknown as { __audio: Record<string, unknown> };
   const api = {
     ready: false,
-    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict', 'preview', 'preview-four'],
+    names: () => [...Object.keys(JOBS), ...PAIRED.map((n) => `${n}-inmix`), 'music-fight', 'music-bed', 'timeline', 'ko-break', 'ko-replay', 'show-call', 'show-countdown', 'show-verdict', 'preview', 'preview-four', 'preview-theme', 'music-theme'],
     missing: () => missingSamples(),
     liveSmoke: () => liveSmoke(assetsBase),
     async render(name: string) {
       let r: { buf: AudioBuffer; meta: Record<string, unknown> };
       if (name === 'preview') r = await renderPreview();
       else if (name === 'preview-four') r = await renderPreviewFour();
+      else if (name === 'preview-theme') r = await renderPreviewTheme();
+      else if (name === 'music-theme') r = await renderMusicJob('theme');
       else if (name === 'timeline' || name === 'ko-break' || name === 'ko-replay') r = await renderTimeline(name);
       else if (name.startsWith('show-')) r = await renderShow(name.slice(5) as 'call' | 'countdown' | 'verdict');
       else if (name === 'music-fight') r = await renderMusicJob('fight');

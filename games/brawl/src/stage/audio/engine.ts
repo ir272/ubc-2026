@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 // Blood Moon sound engine: buses, the master limiter, sample bank, synth primitives and the voice cap.
 // Works on a live AudioContext and on an OfflineAudioContext alike (the harness renders through the
 // same code), so everything is scheduled at explicit context times and nothing reads a wall clock.
@@ -38,7 +39,7 @@ export const SAMPLE_NAMES = [
 export type SampleName = (typeof SAMPLE_NAMES)[number];
 
 /** loops and long beds: never trimmed or faded at load */
-const RAW = ['night-bed', 'music-danse-fight', 'music-danse-opening'];
+const RAW = ['night-bed', 'music-danse-fight', 'music-danse-opening', 'music-danse-theme'];
 /** fetched first at unlock, so the night is heard at once */
 export const BED_NAMES: readonly string[] = ['night-bed'];
 
@@ -55,6 +56,38 @@ const SFX_SR = 32000;
 const BED_SR = 24000;
 const decoders = new Map<number, BaseAudioContext>();
 let assetRoot = '/';
+
+/**
+ * Every sound file's url as the bundler serves it (the site, the harness and the offline page all
+ * run through vite, which rewrites this literal call). The page that mounts the game may serve
+ * nothing at assetsBase, so this is the first choice; assetsBase is only the fallback. Under plain
+ * node (tests) import.meta.glob does not exist: the table is simply empty.
+ */
+const URLS: Record<string, string> = (() => {
+  const out: Record<string, string> = {};
+  try {
+    const g = import.meta.glob('../../../assets/vendor/sound/*.mp3', { eager: true, query: '?url', import: 'default' });
+    for (const [path, url] of Object.entries(g)) {
+      const m = /([^/]+)\.mp3$/.exec(path);
+      if (m && typeof url === 'string') out[m[1]] = url;
+    }
+  } catch {
+    /* not bundled (node): fall back to assetsBase */
+  }
+  return out;
+})();
+
+function urlOf(name: string): string {
+  return URLS[name] ?? `${assetRoot}assets/vendor/sound/${name}.mp3`;
+}
+
+/** one warning for the first file that fails to load or decode, so a silent game is never a mystery */
+let warnedLoad = false;
+function warnLoad(name: string, url: string, err: unknown): void {
+  if (warnedLoad) return;
+  warnedLoad = true;
+  console.warn(`[blood moon audio] could not load "${name}" from ${url}: ${err instanceof Error ? err.message : String(err)} (later failures are not reported)`);
+}
 
 /** an OfflineAudioContext only for decoding: decodeAudioData resamples to its rate */
 function decoderAt(sr: number, fallback: BaseAudioContext | null): BaseAudioContext | null {
@@ -110,11 +143,21 @@ function loadOne(ctx: BaseAudioContext | null, name: string): Promise<AudioBuffe
   if (!p) {
     const bed = name.startsWith('music-');
     const dec = decoderAt(bed ? BED_SR : SFX_SR, ctx);
-    p = fetch(`${assetRoot}assets/vendor/sound/${name}.mp3`)
-      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(String(r.status)))))
+    const url = urlOf(name);
+    p = fetch(url)
+      .then((r) => {
+        if (!r.ok) return Promise.reject(new Error(`HTTP ${r.status}`));
+        // a site that serves its own page for unknown paths answers 200 with html: say so
+        const ct = r.headers.get('content-type') ?? '';
+        if (ct.includes('text/html')) return Promise.reject(new Error('the server answered with an html page, not audio'));
+        return r.arrayBuffer();
+      })
       .then((ab) => (dec ? dec.decodeAudioData(ab) : Promise.reject(new Error('no decoder'))))
       .then((b) => prepare(b, RAW.includes(name)))
-      .catch(() => null)
+      .catch((err) => {
+        warnLoad(name, url, err);
+        return null;
+      })
       .then((b) => {
         pending.delete(name);
         decoded.set(name, b);
@@ -138,6 +181,11 @@ export function loadBed(name: string): Promise<AudioBuffer | null> {
 /** forget a decoded bed so its memory can go (it is fetched again if a phase needs it) */
 export function releaseSample(name: string): void {
   decoded.delete(name);
+}
+
+/** how many sound files are decoded and ready (for the stage's sound check) */
+export function decodedCount(): number {
+  return decoded.size;
 }
 
 export function sample(name: string): AudioBuffer | null {

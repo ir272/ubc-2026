@@ -15,7 +15,7 @@
 // is a separate gain on top of it, so muting and unmuting returns to the same volume.
 
 import type { AudioRig, CreateAudio, Frame, StageCtx } from './api.ts';
-import { BED_NAMES, Engine, SAMPLE_NAMES, loadSamples } from './audio/engine.ts';
+import { BED_NAMES, Engine, SAMPLE_NAMES, decodedCount, loadSamples } from './audio/engine.ts';
 import { createDirector, type Director, type MoveDefs } from './audio/director.ts';
 
 type AC = typeof AudioContext;
@@ -63,14 +63,25 @@ export const createAudio: CreateAudio = (ctx: StageCtx): AudioRig => {
       });
   }
 
+  const dbg = { updates: 0, skippedNotRunning: 0, errors: 0, lastError: '', phase: '', events: 0 };
+  // a sound check can read this from the page: globalThis.__bloodMoonAudio()
+  (globalThis as { __bloodMoonAudio?: () => unknown }).__bloodMoonAudio = () => ({ ...dbg, ctx: ac?.state ?? 'none', director: !!director, decoded: decodedCount(), wanted: SAMPLE_NAMES.length, volume, muted });
   return {
     update(frame: Frame) {
       if (!director || !ac) return;
-      if (ac.state !== 'running') return;
+      if (ac.state !== 'running') {
+        dbg.skippedNotRunning++;
+        return;
+      }
+      dbg.updates++;
+      dbg.phase = frame.show.phase;
+      dbg.events += frame.fight?.events.length ?? 0;
       try {
         director.update(frame);
       } catch (err) {
         // sound must never take the stage down
+        dbg.errors++;
+        dbg.lastError = String(err);
         console.warn('[ringout audio]', err);
       }
     },

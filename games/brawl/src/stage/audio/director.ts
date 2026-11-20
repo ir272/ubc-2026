@@ -11,7 +11,7 @@
 import type { Frame, ShowState } from '../api.ts';
 import type { FighterId, FighterState, Side, SimEvent } from '../../sim/types.ts';
 import { sample, type Engine } from './engine.ts';
-import { loopEndOf, music, musicTrim, releaseMusic } from './music.ts';
+import { loopEndOf, loopStartOf, music, musicTrim, releaseMusic, type MusicKind } from './music.ts';
 import * as S from './sounds.ts';
 
 const TICK_S = 1 / 60;
@@ -133,6 +133,8 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
   let breakBed = false;
   let lockSlamDone = false;
   let verdictDone = false;
+  /** stage strikes already heard in this select */
+  let strikesHeard = 0;
   /** context time when the opening may come back after the finale sting (0: not held) */
   let bedHeldUntil = 0;
   const lastStep: [number, number] = [-999, -999];
@@ -146,7 +148,7 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
   let lastSnap = -999;
   let night: Loop | null = null;
   let mus: Loop | null = null;
-  let wantMusic: 'fight' | 'bed' | null = null;
+  let wantMusic: MusicKind | null = null;
   let musicLoading: string | null = null;
   let stopped = false;
   /** true when the current phase began while we watched (not a late join) */
@@ -176,7 +178,10 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
     night = { src, gain: g, kind: 'night-bed' };
   }
 
-  function startMusic(kind: 'fight' | 'bed', t: number, fade = 0.6): void {
+  /** the music of a show phase that is not the fight: the theme up to the fight, the opening after */
+  const showMusic = (phase: string): MusicKind => (phase === 'call' || phase === 'select' || phase === 'versus' || phase === 'predictions' ? 'theme' : 'bed');
+
+  function startMusic(kind: MusicKind, t: number, fade = 0.6, fromStart = true): void {
     wantMusic = kind;
     if (mus && mus.kind === kind) return;
     if (musicLoading === kind) return;
@@ -193,7 +198,7 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         old.src.stop(at + fade * 4 + 0.05);
         // only one bed is held in memory: let the outgoing one go once it is silent
         if (opts.live) {
-          const k = old.kind as 'fight' | 'bed';
+          const k = old.kind as MusicKind;
           old.src.onended = () => { if (wantMusic !== k) releaseMusic(k); };
         }
       }
@@ -201,15 +206,20 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
       src.buffer = buf;
       src.loop = true;
       const le = loopEndOf(buf);
+      const ls = loopStartOf(buf);
       if (le > 0) src.loopEnd = le;
+      if (ls > 0) src.loopStart = ls;
       const g = e.ctx.createGain();
       // a smooth rise (no hole between the outgoing and incoming loop, no step when it starts)
       g.gain.setValueAtTime(0, at);
       g.gain.setTargetAtTime(musicTrim(kind), at, fade / 3);
       src.connect(g);
       g.connect(e.bus.music);
-      // the fight loop starts on its first bar; the opening picks up somewhere new each time
-      src.start(at, kind === 'bed' && opts.live ? (at * 13.7) % Math.max(1, le > 0 ? le : buf.duration) : 0);
+      // the fight loop starts on its first bar, the theme too on a fresh show (a late joiner picks it
+      // up somewhere in its loop); the opening picks up somewhere new each time
+      const span = Math.max(1, (le > 0 ? le : buf.duration) - ls);
+      const off = kind === 'bed' && opts.live ? (at * 13.7) % span : kind === 'theme' && !fromStart ? ls + ((at * 13.7) % span) : 0;
+      src.start(at, off);
       mus = { src, gain: g, kind };
     }).catch(() => { musicLoading = null; });
   }
@@ -480,7 +490,7 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         breakBed = s.phase === 'break' && s.phaseMs >= KO_HOLD_MS;
         startNight(t);
         if (s.phase === 'fight' || (s.phase === 'break' && !breakBed)) startMusic('fight', t, 1);
-        else if (s.phase !== 'idle') startMusic('bed', t, 1.5);
+        else if (s.phase !== 'idle') startMusic(showMusic(s.phase), t, 1.5, fresh);
         return;
       }
 
@@ -504,7 +514,13 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
             startMusic('bed', t, 1.5);
           }
         } else if (s.phase === 'idle') stopMusic(t, 1);
-        else startMusic('bed', t, prev === 'idle' ? 1.2 : 0.8);
+        else {
+          // the theme from its first bar when a show starts in front of us (fast in, so the first
+          // bar is heard); a phase joined late picks it up inside its loop
+          const k = showMusic(s.phase);
+          startMusic(k, t, k === 'theme' && fresh ? 0.25 : prev === 'idle' ? 1.2 : 0.8, fresh);
+        }
+        strikesHeard = 0;
         riserDone = false;
         countStage = -1;
       }
@@ -536,9 +552,33 @@ export function createDirector(e: Engine, opts: { live: boolean; defs?: MoveDefs
         }
       }
       if (s.picksRevealed && !picksRevealed) {
-        if (watched && (s.phase === 'select' || s.phase === 'versus')) S.pickReveal(e, t);
+        if (watched && (s.phase === 'select' || s.phase === 'versus')) {
+          S.pickReveal(e, t);
+          dip(e, t, 0.7, 0.25, 0.6);
+        }
       }
       picksRevealed = s.picksRevealed;
+      // the stage strikes (select.ts: each cross-out starts at reveal + 2.2 s + 1.5 s + i * step):
+      // a quill stroke each, the theme stepping back a little under it
+      const strikes = s.ctx?.strikes;
+      if (s.phase === 'select' && watched && s.picksRevealed && strikes && strikes.length > strikesHeard) {
+        const R = s.selectRevealMs > 0 ? s.selectRevealMs : 14_000;
+        const dur = s.phaseDurationMs > 0 ? s.phaseDurationMs : 36_000;
+        const k = strikes.length;
+        const first = R + 2200 + 1500;
+        const lastAt = Math.max(first, dur - 3000);
+        const step = k > 1 ? (lastAt - first) / (k - 1) : 0;
+        while (strikesHeard < k) {
+          const at = first + strikesHeard * step;
+          if (at > s.phaseMs + CUE_LOOKAHEAD) break;
+          if (s.phaseMs - at < 400) {
+            const tt = t + Math.max(0, at - s.phaseMs) / 1000;
+            S.strike(e, tt, strikes[strikesHeard].by);
+            dip(e, tt, 0.8, 0.3, 0.5);
+          }
+          strikesHeard++;
+        }
+      }
       for (const side of [0, 1] as Side[]) {
         if (s.tauntAt[side] !== tauntAt[side]) {
           if (s.tauntAt[side] >= 0 && frame.now - s.tauntAt[side] < 500) S.taunt(e, t, side);

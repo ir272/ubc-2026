@@ -584,6 +584,11 @@ function wordSlam_(e: Engine, t: number, size: number, pan = 0): void {
   thump(e, t, 0.6 * size, pan);
 }
 
+/** a stage is struck out: one quill stroke from that corner */
+function strike_(e: Engine, t: number, side: 0 | 1): void {
+  quill(e, t, 0.9, side === 0 ? -0.4 : 0.4, 0.7);
+}
+
 /** a smaller beat: a band or a number draws in */
 function cardHit_(e: Engine, t: number, size: number, pan = 0): void {
   quill(e, t, 0.7 * size, pan, 0.5);
@@ -735,6 +740,7 @@ export const lockSlam = leveled(-12, lockSlam_);
 export const windowOpen = leveled(-12, windowOpen_);
 export const wordSlam = leveled(-12, wordSlam_);
 export const cardHit = leveled(-14, cardHit_);
+export const strike = leveled(-12, strike_);
 export const rosterLand = leveled(-16, rosterLand_);
 export const sting = leveled(-16, sting_);
 export const countBeep = leveled(-12, countBeep_);
