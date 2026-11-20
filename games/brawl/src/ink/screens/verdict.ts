@@ -6,7 +6,7 @@
 import type { InkFrame } from '../api.ts';
 import { H, W } from '../api.ts';
 import type { FighterId } from '../../sim/types.ts';
-import { C, draw, figH, fitSize, flourish, newInk, out, ruledBox, span, stand, text, textW, tintOf } from './kit.ts';
+import { C, boundsAt, draw, figBounds, fitSize, placeFigure, flourish, newInk, out, ruledBox, span, stand, text, textW, tintOf } from './kit.ts';
 
 export const VERDICT_HOLD = 2000;
 
@@ -36,18 +36,23 @@ export function drawVerdict(f: InkFrame): void {
   // the winner, large, drawn in from its side
   const fid: FighterId = ctx.picks?.[side] ?? (r.winnerId as FighterId);
   const def = f.fighterDefs[fid];
-  const fx = left ? 330 : W - 330;
   const feet = 588;
-  const s = Math.min(2.05, 390 / ((def?.height ?? 2) * 100));
+  // fitted to what the figure draws, in the half the card leaves free, centred on its drawing
+  const bnd = figBounds(f, fid);
+  const facing: 1 | -1 = left ? 1 : -1;
+  const s = Math.min(2.05, 400 / -bnd.y0, (feet - 44) / -bnd.y0, 440 / (bnd.x1 - bnd.x0));
+  const feetX = left ? placeFigure(bnd, s, facing, 300, 46, 516) : placeFigure(bnd, s, facing, W - 300, W - 516, W - 46);
+  const ab = boundsAt(bnd, s, facing);
+  const fx = feetX + (ab.x0 + ab.x1) / 2;
   const rv = span(ms, 120, 1000);
   draw(ink, left ? [[fx + 210, feet + 1], [fx - 220, feet]] : [[fx - 210, feet + 1], [fx + 220, feet]], out(span(ms, 0, 560)), { w: 2.4, seed: 1300, taper: 0.4 });
   draw(ink, left ? [[fx + 180, feet + 9], [fx - 190, feet + 9]] : [[fx - 180, feet + 9], [fx + 190, feet + 9]], out(span(ms, 100, 560)), { w: 1, seed: 1301, taper: 0.6, alpha: 0.45 });
   if (rv > 0) {
     const ru = out(rv);
-    const hh = figH(f, fid, s) + 90;
+    const hh = -ab.y0 + 40;
     g.save();
     if (rv < 1) {
-      const half = 240;
+      const half = Math.max(240, (ab.x1 - ab.x0) / 2 + 40);
       const edge = left ? fx - half + ru * half * 2 : fx + half - ru * half * 2;
       const sl = left ? 60 : -60;
       g.beginPath();
@@ -58,7 +63,7 @@ export function drawVerdict(f: InkFrame): void {
       g.closePath();
       g.clip();
     }
-    stand(f, g, fid, side, fx + (1 - ru) * 40 * (left ? -1 : 1), feet, s, left ? 1 : -1, f.now / 1000);
+    stand(f, g, fid, side, feetX + (1 - ru) * 40 * (left ? -1 : 1), feet, s, facing, f.now / 1000);
     g.restore();
   }
 

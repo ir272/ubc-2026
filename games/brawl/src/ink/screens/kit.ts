@@ -265,6 +265,70 @@ export function stand(f: InkFrame, g: CanvasRenderingContext2D, id: FighterId, s
   drawFigure(g, ch, J, extraFor(st, def, t, tint ?? f.sideTints[side]), x, y, s, facing, f.mode);
 }
 
+/** the pen's cream-grey: the side colour's stand-in before a bot has picked */
+export const NEUTRAL_TINT = '#959389';
+
+/** a figure's drawn extent in figure units, feet at (0, 0), facing +1: x0..x1, y0 (top, negative)..y1 */
+export interface Bounds { x0: number; x1: number; y0: number; y1: number }
+const boundsCache = new Map<string, Bounds>();
+
+/** Measure what a character actually draws standing (cloak, tail, staff), once per id and mode. */
+export function figBounds(f: InkFrame, id: FighterId): Bounds {
+  const key = `${id}|${f.mode}`;
+  const hit = boundsCache.get(key);
+  if (hit) return hit;
+  const h = (f.fighterDefs[id]?.height ?? 2) * 100;
+  // fallback when nothing can be measured: the hurtbox, generously
+  let b: Bounds = { x0: -h * 0.35, x1: h * 0.35, y0: -h * 1.1, y1: 6 };
+  if (typeof document !== 'undefined') {
+    const S = 0.5, CW = 900, CH = 800, OX = 450, OY = 620; // half scale is plenty to find edges
+    const c = document.createElement('canvas');
+    c.width = CW;
+    c.height = CH;
+    const cg = c.getContext('2d', { willReadFrequently: true });
+    if (cg) {
+      try {
+        stand(f, cg, id, 0, OX, OY, S, 1, 0, NEUTRAL_TINT);
+        const d = cg.getImageData(0, 0, CW, CH).data;
+        let x0 = CW, x1 = -1, y0 = CH, y1 = -1;
+        for (let y = 0; y < CH; y++) {
+          for (let x = 0; x < CW; x++) {
+            if (d[(y * CW + x) * 4 + 3]! > 24) {
+              if (x < x0) x0 = x;
+              if (x > x1) x1 = x;
+              if (y < y0) y0 = y;
+              if (y > y1) y1 = y;
+            }
+          }
+        }
+        if (x1 > x0 && y1 > y0) b = { x0: (x0 - OX) / S, x1: (x1 + 1 - OX) / S, y0: (y0 - OY) / S, y1: (y1 + 1 - OY) / S };
+      } catch {
+        /* keep the fallback */
+      }
+    }
+    c.width = 0;
+    c.height = 0;
+  }
+  boundsCache.set(key, b);
+  return b;
+}
+
+/** the bounds for a facing, scaled: px offsets from the feet point */
+export function boundsAt(b: Bounds, s: number, facing: 1 | -1): Bounds {
+  return facing === 1
+    ? { x0: b.x0 * s, x1: b.x1 * s, y0: b.y0 * s, y1: b.y1 * s }
+    : { x0: -b.x1 * s, x1: -b.x0 * s, y0: b.y0 * s, y1: b.y1 * s };
+}
+
+/** feet x that centres the drawn bounds on cx, then keeps them inside [minX, maxX] */
+export function placeFigure(b: Bounds, s: number, facing: 1 | -1, cx: number, minX: number, maxX: number): number {
+  const a = boundsAt(b, s, facing);
+  let x = cx - (a.x0 + a.x1) / 2;
+  if (x + a.x1 > maxX) x = maxX - a.x1;
+  if (x + a.x0 < minX) x = minX - a.x0;
+  return x;
+}
+
 /** figure height in px at scale s (from the fighter's hurtbox height, 2 m when unknown) */
 export function figH(f: InkFrame, id: FighterId, s: number): number {
   return (f.fighterDefs[id]?.height ?? 2) * 100 * s;

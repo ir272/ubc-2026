@@ -14,14 +14,15 @@ import type { FighterId, Side } from '../../sim/types.ts';
 import { TIMING } from '../../show/events.ts';
 import { ell, h01, smooth, type Pen, type Pt } from '../pen.ts';
 import {
-  C, devK, draw, figH, fitSize, lerp, newInk, out, pageFrame, ruledBox, span, stand, strHash, text, textW, tintOf,
+  C, NEUTRAL_TINT, boundsAt, devK, draw, figBounds, fitSize, lerp, newInk, out, pageFrame, ruledBox, span, stand, strHash, text, textW, tintOf,
 } from './kit.ts';
 import { drawTitle } from './call.ts';
 import { stageName, stagesOnOffer, thumb, type Env } from './env.ts';
+import type { Bounds } from './kit.ts';
 
 const TOP = 150;
 const Y1 = 548;
-const FEET = Y1 - 70;
+const FEET = Y1 - 80;
 /** the stage select starts this long after the flip */
 export const STAGE_AFTER_FLIP = 2000;
 /** the draw lands this long before the phase ends (the fallback without strikes) */
@@ -32,23 +33,54 @@ const LAST_STRIKE_BEFORE_END = 3000;
 const FIRST_STRIKE = 1500;
 
 function plates(n: number): { x0: number; x1: number }[] {
-  const pw = n <= 2 ? 290 : n === 3 ? 250 : n === 4 ? 214 : n === 5 ? 184 : 156;
-  const gap = n <= 2 ? 110 : n === 3 ? 64 : n === 4 ? 42 : n === 5 ? 34 : 30;
+  const pw = n <= 2 ? 290 : n === 3 ? 250 : n === 4 ? 220 : n === 5 ? 190 : 164;
+  const gap = n <= 2 ? 110 : n === 3 ? 64 : n === 4 ? 40 : n === 5 ? 30 : 26;
   const total = n * pw + (n - 1) * gap;
   const left = (W - total) / 2;
   return Array.from({ length: n }, (_, i) => ({ x0: left + i * (pw + gap), x1: left + i * (pw + gap) + pw }));
 }
 
-/** one scale for the whole roster, so the fighters' sizes compare truly */
+/** the step forward at the flip */
+const STEP = 1.08;
+/** clear paper between a figure's drawn edge and its plate's rules */
+const MARGIN = 13;
+
+/** One scale for the whole roster, so heights compare truly: the largest at which every figure's
+ *  drawn bounds (stepped forward) fit its plate with a margin. */
 function figScale(f: InkFrame, ids: FighterId[], pw: number): number {
   let s = 1.25;
   for (const id of ids) {
-    const def = f.fighterDefs[id];
-    const h = (def?.height ?? 2) * 100;
-    const wd = Math.max(0.6, def?.width ?? 0.8) * 100;
-    s = Math.min(s, 255 / h, (pw - 24) / (wd * 1.25));
+    const b = figBounds(f, id);
+    s = Math.min(s, (pw - 2 * MARGIN) / ((b.x1 - b.x0) * STEP), (FEET - TOP - 30) / ((-b.y0) * STEP));
   }
   return s;
+}
+
+/** feet x so the figure's drawn bounds are centred on cx */
+function feetFor(b: Bounds, s: number, facing: 1 | -1, cx: number): number {
+  const a = boundsAt(b, s, facing);
+  return cx - (a.x0 + a.x1) / 2;
+}
+
+/** One size for every name; a name too long for the plate breaks onto two lines at a space. */
+function nameLayout(g: CanvasRenderingContext2D, names: string[], maxW: number): { size: number; lines: string[][] } {
+  const base = 22;
+  const lines = names.map((nm) => {
+    if (textW(g, nm, base, 600) <= maxW) return [nm];
+    const words = nm.split(' ');
+    if (words.length < 2) return [nm];
+    let best: string[] = [nm];
+    let bestW = Infinity;
+    for (let i = 1; i < words.length; i++) {
+      const a = words.slice(0, i).join(' '), b = words.slice(i).join(' ');
+      const w = Math.max(textW(g, a, base, 600), textW(g, b, base, 600));
+      if (w < bestW) { bestW = w; best = [a, b]; }
+    }
+    return best;
+  });
+  let size = base;
+  for (const ls of lines) for (const l of ls) size = Math.min(size, Math.floor((base * maxW) / Math.max(1, textW(g, l, base, 600))));
+  return { size: Math.max(12, size), lines };
 }
 
 /** where a bot's bracket is (a fractional plate index) while it thinks: from its id and the clock */
@@ -120,46 +152,57 @@ function drawRoster(f: InkFrame, e: Env, ms: number, R: number, revealed: boolea
   const picks = revealed ? ctx.picks : undefined;
   const chosenBy = (i: number): Side[] => (picks ? ([0, 1] as Side[]).filter((s) => picks[s] === roster[i]!.id) : []);
   const k = devK(g);
-  const scale = figScale(f, roster.map((c) => c.id), P[0]!.x1 - P[0]!.x0);
+  const pw0 = P[0]!.x1 - P[0]!.x0;
+  const scale = figScale(f, roster.map((c) => c.id), pw0);
   // the plates are as tall as the tallest figure needs, within limits
-  const maxH = Math.max(...roster.map((c) => figH(f, c.id, scale)));
-  const Y0 = Math.max(TOP, Math.min(220, FEET - maxH - 70));
+  const maxH = Math.max(...roster.map((c) => -figBounds(f, c.id).y0 * scale * STEP));
+  const Y0 = Math.max(TOP, Math.min(300, FEET - maxH - 44));
+  // the row of plates sits midway between the title and the bots' names
+  g.save();
+  g.translate(0, Math.max(0, (130 + 596) / 2 - (Y0 + Y1) / 2));
+  const names = nameLayout(g, roster.map((c) => c.name), pw0 - 22);
 
   roster.forEach((card, i) => {
     const { x0, x1 } = P[i]!;
     const pw = x1 - x0;
     const cx = (x0 + x1) / 2;
     const facing: 1 | -1 = i < n / 2 ? 1 : -1;
-    // stand a little back from the middle so the reach (a staff, a blade) has room
-    const fx = cx - facing * pw * 0.08;
+    // centred on what it draws, not on its feet (wide bodies, tails and staffs are off the feet)
+    const bnd = figBounds(f, card.id);
+    const fx = feetFor(bnd, scale, facing, cx);
     const by = chosenBy(i);
     const t0 = 80 + i * 70;
     ruledBox(ink, g, x0, Y0, x1, Y1, span(ms, t0, 620), { seed: 400 + i * 10, w: 1.7 });
     draw(ink, [[x0 + 16, FEET + 1], [x1 - 16, FEET]], out(span(ms, t0 + 250, 500)), { w: 1.4, seed: 480 + i, taper: 0.7, alpha: 0.7 });
     const sh = out(span(ms, t0 + 350, 400));
-    if (sh > 0) ink.hatch(ell(fx, FEET + 6, Math.min(pw * 0.36, 70) * sh, 7, 0, 20), { angle: 0.5, gap: 4, w: 0.9, alpha: 0.4, seed: 490 + i, free: true });
+    if (sh > 0) ink.hatch(ell(cx, FEET + 6, Math.min(pw * 0.36, 70) * sh, 7, 0, 20), { angle: 0.5, gap: 4, w: 0.9, alpha: 0.4, seed: 490 + i, free: true });
     // the figure: a cached still while it waits, drawn live once chosen (it steps forward)
     const s = scale;
-    const hh = figH(f, card.id, s);
+    const sb = boundsAt(bnd, s, facing);
+    const hh = -sb.y0;
     const rev = out(span(ms, t0 + 220, 520));
     if (rev > 0) {
       g.save();
       g.beginPath();
-      g.rect(x0 + 2, Math.max(Y0 + 2, FEET + 14 - (hh + 60) * rev), pw - 4, Y1 - Y0);
+      g.rect(x0 + 2, Math.max(Y0 + 2, FEET + 14 - (hh * STEP + 30) * rev), pw - 4, Y1 - Y0);
       g.clip();
       if (by.length && u > 0) {
-        stand(f, g, card.id, by[0]!, fx, FEET + 10 * u, s * (1 + 0.08 * u), facing, tf / 1000);
+        const s2 = s * (1 + (STEP - 1) * u);
+        stand(f, g, card.id, by[0]!, feetFor(bnd, s2, facing, cx), FEET + 10 * u, s2, facing, tf / 1000);
       } else {
-        const bw = pw, bh = hh + 120;
-        const sp = e.figs.get(`fig|${card.id}|${s.toFixed(3)}|${facing}|${f.mode}`, k, -bw / 2, -bh + 30, bw, bh, (cg) => stand(f, cg, card.id, 0, 0, 0, s, facing, 0, 'gold'));
+        const sp = e.figs.get(`fig|${card.id}|${s.toFixed(3)}|${facing}|${f.mode}`, k, sb.x0 - 8, sb.y0 - 8, sb.x1 - sb.x0 + 16, sb.y1 - sb.y0 + 16, (cg) => stand(f, cg, card.id, 0, 0, 0, s, facing, 0, NEUTRAL_TINT));
         if (sp) e.figs.blit(g, sp, fx, FEET);
       }
       g.restore();
     }
     // the name
-    const size = fitSize(g, card.name, 22, 600, pw - 22);
-    text(g, card.name, cx, Y1 - 26, { size, weight: 600, align: 'center' }, span(ms, t0 + 380, 450));
-    if (by.length === 1 && u > 0) text(g, card.name, cx, Y1 - 26, { size, weight: 600, align: 'center', color: tintOf(f, by[0]!), alpha: u });
+    const size = names.size;
+    const ls = names.lines[i]!;
+    ls.forEach((line, j) => {
+      const y = Y1 - 24 - (ls.length - 1 - j) * size * 1.08;
+      text(g, line, cx, y, { size, weight: 600, align: 'center' }, span(ms, t0 + 380 + j * 120, 450));
+      if (by.length === 1 && u > 0) text(g, line, cx, y, { size, weight: 600, align: 'center', color: tintOf(f, by[0]!), alpha: u });
+    });
     // the chosen plate re-inks in the side tint (both tints when both bots chose it)
     if (by.length && tf >= 0) {
       const a = tintOf(f, by[0]!), b = tintOf(f, by[by.length - 1]!);
@@ -191,6 +234,7 @@ function drawRoster(f: InkFrame, e: Env, ms: number, R: number, revealed: boolea
     const x = lerp(xAt(i0), xAt(i1), fr);
     bracket(ink, x, Y0, side, tintOf(f, side), span(ms, 1000 + side * 160, 520), 600 + side);
   }
+  g.restore();
 }
 
 interface Hop { t: number; i: number }

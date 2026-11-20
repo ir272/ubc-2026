@@ -6,7 +6,7 @@
 import type { InkFrame } from '../api.ts';
 import { H, W } from '../api.ts';
 import type { Side } from '../../sim/types.ts';
-import { C, crossMark, draw, figH, fitSize, newInk, out, pageFrame, span, stand, text, textW, tintOf } from './kit.ts';
+import { C, boundsAt, crossMark, draw, figBounds, fitSize, placeFigure, newInk, out, pageFrame, span, stand, text, textW, tintOf } from './kit.ts';
 import { thumb, type Env } from './env.ts';
 
 const BAND0 = 168;
@@ -48,19 +48,26 @@ export function drawVersus(f: InkFrame, e: Env): void {
     const id = picks[side];
     const def = f.fighterDefs[id];
     const left = side === 0;
-    const x = XS[side];
-    const s = Math.min(1.85, 352 / (Math.max(f.fighterDefs[picks[0]]?.height ?? 2, f.fighterDefs[picks[1]]?.height ?? 2) * 100));
+    // one scale for both (heights compare truly), fitted to the measured drawings: each stays in
+    // its own half with clear air either side of the mark, and under the page frame's top
+    const bs = [figBounds(f, picks[0]), figBounds(f, picks[1])];
+    const s = Math.min(1.85, ...bs.map((b) => Math.min(360 / -b.y0, (FEET - 46) / -b.y0, (W / 2 - 92 - 52) / (b.x1 - b.x0))));
+    const facing: 1 | -1 = left ? 1 : -1;
+    const bnd = bs[side]!;
+    const x = left ? placeFigure(bnd, s, facing, XS[0], 52, W / 2 - 92) : placeFigure(bnd, s, facing, XS[1], W / 2 + 92, W - 52);
+    const ab = boundsAt(bnd, s, facing);
     // the pen reveal: a slanted edge sweeps in from the figure's own side
     const t0 = 300 + side * 180;
     const r = span(ms, t0, 1000);
     const ru = out(r);
     if (ru > 0) {
-      const hh = figH(f, id, s) + 80;
-      const half = 230;
+      const hh = -ab.y0 + 40;
+      const half = Math.max(230, (ab.x1 - ab.x0) / 2 + 40);
+      const bx = x + (ab.x0 + ab.x1) / 2;
       const dx = (1 - ru) * 46 * (left ? -1 : 1);
       g.save();
       if (r < 1) {
-        const edge = left ? x - half + ru * half * 2 : x + half - ru * half * 2;
+        const edge = left ? bx - half + ru * half * 2 : bx + half - ru * half * 2;
         const slant = 60 * (left ? 1 : -1);
         g.beginPath();
         if (left) {
@@ -77,7 +84,7 @@ export function drawVersus(f: InkFrame, e: Env): void {
         g.closePath();
         g.clip();
       }
-      stand(f, g, id, side, x + dx, FEET, s, left ? 1 : -1, Math.max(0, ms - t0) / 1000);
+      stand(f, g, id, side, x + dx, FEET, s, facing, Math.max(0, ms - t0) / 1000);
       g.restore();
     }
     // names
