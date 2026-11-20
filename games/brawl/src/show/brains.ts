@@ -241,6 +241,8 @@ const PICK_HINTS: [RegExp, FighterId][] = [
   [/\b(reach|range|distance|space|zon|keep ?away|patient)/i, 'gantry'],
   [/\b(grab|grapple|clamp|throw|wrestl|hold)/i, 'vise'],
   [/\b(power|heavy|hit hard|big hits|armou?r|brute|kill early)/i, 'kiln'],
+  [/\b(spell|magic|trap|ward|witch|control)/i, 'hexer'],
+  [/\b(tank|slow|swallow|greed|patient|drag)/i, 'mimic'],
 ];
 
 export function mockBrains(o: { rand: () => number; sleep: (ms: number) => Promise<void>; coaches?: [string, string] }): Brains {
@@ -406,7 +408,8 @@ export const SYSTEM_PROMPT = [
   'Stances: rush (close in, strings of strikes and grabs, pressure shields), keepaway (hold space, poke at range, shoot), bait (hover outside range, make them swing, punish whiffs), wall (hold the middle, shield, punish out of shield, do not chase).',
   'Counters: bait beats rush and grab-heavy play. Rush beats keepaway. Keepaway beats wall and bait. Wall beats strike-heavy rush but loses to grabs.',
   'Dials: aggression 0 to 1. range close, mid or far. grabMix 0 (strikes) to 1 (grabs). edge deep (chase off stage, beats low recovery, punished by high), ledge, or stage. recover high, low or mix. order none, special (signature move now) or kill (right when their damage is high, reckless early). High aggression is a mistake at high own damage.',
-  'Fighters: kiln heavy hitter, slow, kills early. tick fast and light, dies early. gantry long reach and a projectile, slow up close. vise grappler, best grabs and a kill throw.',
+  'Fighters (id: who, what it does): kiln: The Empty Armour, heavy and slow, a wall of flame along the floor, armoured fire breath, kills early. tick: The Magpie, fast and light, throws a fan of knives, blinks behind you, dies early. gantry: The Count, tall with long reach, slow bats that hold space, mist step to appear behind you. vise: The Wolf, quick grabber, a long pounce that grabs, a howl that staggers anyone close. hexer: The Hexer, long staff, a bolt across the stage and a floor ward that roots whoever steps on it, slow feet. mimic: The Mimic, a heavy slow chest, a tongue that drags you in from range, swallows and spits you out hard.',
+  'Every fighter uses its abilities by itself every few seconds; your plan decides where it fights and how it mixes them. Shots and wards reward keepaway and far range; pounces, tongues and grabs reward rush with a high grabMix; shields stop shots and tongues but not grabs.',
   'Answer with one compact JSON object only. Lines are plain words, no emoji, no dashes, PG.',
 ].join('\n');
 
