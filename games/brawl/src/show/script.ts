@@ -38,6 +38,8 @@ export interface MatchDeps {
     timing?: Partial<typeof TIMING>;
     picks?: [FighterId, FighterId];
     /** the stages on offer and a forced stage (captures): the strikes then end on it. Default: STAGES, struck by the bots */
+    /** fighter ids the channel showed in its last few matches, newest last: passed to the pick so the roster rotates */
+    recentPicks?: FighterId[];
     stages?: string[];
     stage?: string;
     /** EXTRA: the channel's pause after the match, so match_end.nextInMs is right. Default 8000 */
@@ -259,6 +261,7 @@ async function run(show: Show, deps: MatchDeps, opened: Win[]): Promise<MatchRes
         roster,
         opponent: { name: bots[other(side)].name, model: bots[other(side)].model },
         memory: (deps.memories[bots[side].id] ?? []).slice(-3),
+        lately: deps.options?.recentPicks?.slice(-4),
       });
     const p0 = ask(0);
     const p1 = ask(1);

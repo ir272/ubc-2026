@@ -62,7 +62,8 @@ function hash01(s: string): number {
 }
 
 export interface Brains {
-  pickFighter(bot: BotConfig, info: { roster: FighterCard[]; opponent: { name: string; model: string }; memory: string[] }): Promise<FighterId>;
+  /** `lately`: fighter ids seen in the channel's last few matches, newest last (optional): the show wants variety */
+  pickFighter(bot: BotConfig, info: { roster: FighterCard[]; opponent: { name: string; model: string }; memory: string[]; lately?: FighterId[] }): Promise<FighterId>;
   taunt(bot: BotConfig, info: { mine: FighterId; theirs: FighterId; opponentName: string }): Promise<string>; // 10 words at most
   plan(bot: BotConfig, view: CoachView, prev: Plan): Promise<Plan>; // may be slow; the fight never waits
   corner(bot: BotConfig, info: { view: CoachView; lostLife: boolean; prev: Plan }): Promise<{ plan: Plan; talk: string }>; // talk 12 words at most
@@ -327,6 +328,9 @@ export function mockBrains(o: { rand: () => number; sleep: (ms: number) => Promi
         // a bot that lost with a fighter last time leans away from it a little
         const last = info.memory[info.memory.length - 1] ?? '';
         if (/^lost/i.test(last) && last.toLowerCase().includes(`as ${FIGHTER_NAMES[id].toLowerCase()}`)) w *= 0.6;
+        // fighters the channel has just shown are less likely, so the roster rotates
+        const seen = (info.lately ?? []).filter((x) => x === id).length;
+        if (seen) w *= seen > 1 ? 0.2 : 0.4;
         return w;
       });
       let r = rand() * weights.reduce((a, b) => a + b, 0);
@@ -623,7 +627,8 @@ export function createOpenRouterBrains(o: OpenRouterOpts): Brains & { spent(): n
         bot,
         {
           you: you(bot),
-          task: 'Pick your fighter by id. The opponent picks at the same time without seeing yours. Any of them can win: choose the one that suits how you like to fight.',
+          task: 'Pick your fighter by id. The opponent picks at the same time without seeing yours. Any of them can win. The crowd has just watched the fighters in `seenLately`: prefer one that is not in it.',
+          seenLately: (info.lately ?? []).slice(-4),
           // the order is shuffled for every call: models lean to the first option they are shown
           roster: (shown = shuffled(info.roster)).map((r) => ({ id: r.id, name: r.name, role: r.role, blurb: r.blurb, stats: r.stats })),
           opponent: info.opponent,

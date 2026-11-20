@@ -12,6 +12,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ChannelDef, Show } from '../../runner/src/types.ts';
 import type { BotConfig } from './src/show/brains.ts';
+import type { FighterId } from './src/sim/types.ts';
 import { createBrains, GAME_DIR, loadEnv } from './src/show/brains.node.ts';
 import { DEFAULT_INTERMISSION_MS, runMatch } from './src/show/script.ts';
 
@@ -74,6 +75,7 @@ export default function brawlChannel(o: BrawlChannelOpts = {}): ChannelDef {
   const byId = new Map(bots.map((b) => [b.id, b]));
   const records: Record<string, { played: number; wins: number }> = {};
   const memories: Record<string, string[]> = {};
+  const recentPicks: FighterId[] = [];
   const coaches = (process.env.BRAWL_COACHES ?? 'adaptive,adaptive').split(',').map((s) => s.trim()) as [string, string];
   const choice = createBrains({
     rand: Math.random,
@@ -116,16 +118,19 @@ export default function brawlChannel(o: BrawlChannelOpts = {}): ChannelDef {
       // the stage shows no model label at all (the owner: show nothing rather than a stand-in label)
       const live = choice.live();
       const pair = (live ? picked : picked.map((b) => ({ ...b, label: '' }))) as [BotConfig, BotConfig];
-      await runMatch(show, {
+      const result = await runMatch(show, {
         brains: choice.brains,
         bots: pair,
         matchNo,
         records,
         memories,
         random: Math.random,
-        options: { handicap: handicapFor(pair[0], pair[1]), intermissionMs },
+        options: { handicap: handicapFor(pair[0], pair[1]), intermissionMs, recentPicks: [...recentPicks] },
         simHash: SIM_HASH,
       });
+      // remember who fought, so the next picks lean to fighters the viewers have not just seen
+      recentPicks.push(...result.fighters);
+      while (recentPicks.length > 4) recentPicks.shift();
     },
   };
 }

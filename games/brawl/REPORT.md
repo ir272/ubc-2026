@@ -46,24 +46,32 @@ sheets, everything creative below. The three.js stage was deleted (it is in git 
 
 ## Check numbers
 
-- `node --test test/*.test.mjs`: 60 of 60 pass. `npx tsc --noEmit -p .`: clean.
+- `node --test test/*.test.mjs`: 60 of 60 pass (rules `ringout-sim-7`). `npx tsc --noEmit -p .`: clean.
 - A whole mock show plays in the harness from the call to the winner card with no console errors.
 - Sim, 2,880 fights, adaptive coaches on both sides (mixed fixed coaches in brackets):
-  - overall win rate per fighter: Armour 49 (52), Magpie 46 (50), Count 50 (42), Wolf 55 (58),
-    Hexer 53 (48), Mimic 48 (50)
-  - seconds between abilities per fighter: 3.0 to 3.7 (2.6 to 3.5)
-  - share of damage through abilities: 30 to 51 percent (33 to 51)
-  - all fights finish; median 83 s (84 s); mirrors 50.6 percent for side 0
-- Matchups still outside 35 to 65: Magpie beats Wolf 28 percent (34), Hexer beats Mimic 67 (69).
-  With mixed coaches only: Armour beats Count 64, nine quiet stretches over 6 s (worst 10.8 s).
+  - overall win rate per fighter: Armour 49 (53), Magpie 50 (54), Count 49 (41), Wolf 52 (56),
+    Hexer 50 (49), Mimic 51 (47)
+  - seconds between abilities per fighter: 3.1 to 3.7
+  - share of damage through abilities: about 30 to 51 percent
+  - all fights finish; median 83 s (84 s)
+- Matchups still at or outside 35 to 65: Magpie beats Mimic 34 percent (52). With mixed coaches
+  only: Hexer beats Mimic 71, Magpie beats Count 68, Armour beats Count 64, Count beats Wolf 36,
+  ten quiet stretches over 6 s (worst 7.6 s). Magpie against Wolf is 44 (was 28), Hexer over
+  Mimic 58 (was 67).
 
 ## What is unfinished, unverified or thin
 
 - **Sound: the owner listened** on the `lab/sounds.html` page at about 05:15 and said "the sounds are
   good". Levels were set by meters before that; nothing was changed after.
-- **Real models have not coached these six.** The last real-model trial (20 matches, $0.47 of the
-  $1.50 budget) was on the two-plan-style robot sim before abilities. The stage-strike call and
-  the new roster prompt have only run on mock coaches and a stubbed fetch in tests.
+- **Real models: six full matches and a direct pick and strike check, all six models, about $0.05**
+  (total real spend $0.53 of $1.50). Every match ran from the call to the winner with plans every
+  three seconds; every model returned a full, valid stage strike order. Found and fixed: the coach
+  prompt still described four robot-era styles (now all six, 269 words); every match was The Count
+  against The Wolf or close to it, so the pick now shows names in a shuffled order and is told
+  which fighters viewers have just seen (`recentPicks` from the channel): asked right after two
+  Count against Wolf matches, the six models picked The Hexer twice, The Mimic twice, The Magpie
+  and The Empty Armour. Not done: a real-model match on the final prompts watched end to end, and
+  no check of how real models' plans affect the balance numbers (those are from scripted coaches).
 - **Not seen in a capture:** the Mimic holding an opponent inside for Swallow and Spit, its coins
   in the win pose, the clamp that keeps a knocked-down fighter above the deck, the off-screen
   pointer, a worn or struck shield.
@@ -91,8 +99,7 @@ sheets, everything creative below. The three.js stage was deleted (it is in git 
 
 ## Next steps
 
-2. A short real-model trial on the six (budget left: $1.03) to see which fighters and stages
-   models pick and whether the strike call returns clean answers.
+2. A longer real-model trial on the final prompts (budget left: about $0.97).
 3. Magpie against Wolf and Hexer against Mimic.
 4. A critic pass on the ink version against real footage of the genre, piece by piece.
 5. Per-stage platform layouts (the sim needs the arena in the fight header).
