@@ -219,7 +219,9 @@ export class FeedClient {
         const w = s.windows.find((x) => x.windowId === m.windowId);
         const es = s.match?.entrants ?? [];
         const o = w?.outcomes.find((x) => x.id === m.winnerOutcomeId);
-        if (w && es.length >= 2 && !s.results.some((r) => r.matchId === m.windowId)) {
+        // A result row names two sides, so it is only kept for head-to-head matches. A free-for-all settles a
+        // round at a time (each with its own winner), which this "a against b" row cannot describe.
+        if (w && es.length === 2 && !s.results.some((r) => r.matchId === m.windowId)) {
           this.set({
             results: [
               {

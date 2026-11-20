@@ -11,7 +11,7 @@ import { effectiveVolume, useAudio } from '../lib/audio';
 import { displayTitle, useChannels } from '../lib/channels';
 import { channelPath } from '../lib/router';
 import { Button } from '../ui';
-import { useChannelState, useFeed } from '../lib/feed';
+import { currentWindow, useChannelState, useFeed } from '../lib/feed';
 import { useWallet } from '../lib/wallet';
 
 export function ChannelPage({ id }: { id: string }) {
@@ -47,14 +47,14 @@ function Channel({ id }: { id: string }) {
     if (cams.length && (!cam || !cams.includes(cam))) setCam(cams[0]!);
   }, [cams, cam]);
 
-  // game.highlight(): the outcome the viewer is selecting, else the one they bet on most recently.
+  // game.highlight(): the outcome the viewer is selecting, else their pick in the round that is on now. A pick
+  // from an earlier round is not carried over: each round is its own bet, so the mark clears when the next opens.
   let highlight: string | null = picked;
-  for (let i = s.windows.length - 1; i >= 0 && highlight == null; i--) {
-    const w = s.windows[i]!;
-    const t = wallet.ticket(w.windowId);
-    if (!t) continue;
-    const idx = t.pending ? t.pending.outcome : t.amounts.reduce((b, a, j, arr) => (a > (arr[b] ?? 0) ? j : b), 0);
-    highlight = w.outcomes[idx]?.entrantId ?? null;
+  const round = currentWindow(s);
+  const mine = round ? wallet.ticket(round.windowId) : null;
+  if (highlight == null && round && mine) {
+    const idx = mine.pending ? mine.pending.outcome : mine.amounts.reduce((b, a, j, arr) => (a > (arr[b] ?? 0) ? j : b), 0);
+    highlight = round.outcomes[idx]?.entrantId ?? null;
   }
 
   // "Bet now": bring the bet panel into view, open if it was folded.

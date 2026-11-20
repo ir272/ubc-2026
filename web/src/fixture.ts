@@ -3,7 +3,7 @@
 // runner. Never used in production builds.
 //
 //   ?fixture=scrivener  &phase=open|locked|win            one 2-outcome window
-//   ?fixture=tumbletop  &phase=open|open2|between|win     16 → 8 → 4 outcomes, three windows, cameras
+//   ?fixture=tumbletop  &phase=open|open2|between|won1|won1open2|win   16 → 8 → 4 outcomes, three windows, cameras
 import type { ChannelForm, Entrant, EntrantForm, HistoryMatch, Snapshot, WindowState, WindowView } from './lib/api';
 import { FIXTURE, PHASE } from './lib/dev';
 
@@ -125,6 +125,9 @@ export const FX_CHANNELS: FxChannel[] = [
       open: one(['open', null, null], 'lobby'),
       open2: one(['locked', 'open', null], 'live', [{ outcome: 'sonnet', amount: 25 }, null]),
       between: one(['locked', 'locked', null], 'live', [{ outcome: 'sonnet', amount: 25 }, { outcome: 'luna', amount: 10 }]),
+      // each round is its own bet now: Round One paid out mid-show, then Round Two opens
+      won1: one(['settled', null, null], 'live', [{ outcome: 'sonnet', amount: 25 }, null]),
+      won1open2: one(['settled', 'open', null], 'live', [{ outcome: 'sonnet', amount: 25 }, null]),
       win: one(['settled', 'settled', 'settled'], 'result', [{ outcome: 'sonnet', amount: 25 }, { outcome: 'luna', amount: 10 }, { outcome: 'sonnet', amount: 25 }]),
     },
     chat: [
