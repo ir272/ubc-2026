@@ -228,8 +228,8 @@ function wing(ink: Pen, sh: Pt, el: Pt, hd: Pt, amt: number, hint: Pt, sweep: Pt
     let perp: Pt = [-armD[1], armD[0]];
     if (dot(perp, hint) < 0) perp = [-perp[0], -perp[1]];
     const dir = unit(add(add(perp, armD, t * t * 1.1), sweep, 0.45));
-    const L = (22 + 26 * t) * amt * k;
-    feather(ink, root, add(root, dir, L), 5.8 * k * (0.7 + 0.3 * amt), seed + i * 3, { bend: i % 2 ? 2.5 : -2, cut: i >= 3 });
+    const L = (30 + 36 * t) * amt * k;
+    feather(ink, root, add(root, dir, L), 7 * k * (0.7 + 0.3 * amt), seed + i * 3, { bend: i % 2 ? 2.5 : -2, cut: i >= 3 });
   }
 }
 
@@ -250,9 +250,9 @@ function drawLoose(ink: Pen, U: (x: number, y: number) => Pt, rotB: number, k: n
     const h1 = h01(i * 3.7 + 1), h2 = h01(i * 5.3 + 2), h3 = h01(i * 7.1 + 3);
     const out = unit(sub(p0, c));
     const sw = gather ? -1 : 1;
-    const p = add(add(add(p0, out, 85 * k * (0.55 + 0.8 * h1)), [0, -1], (gather ? 10 : 34) * k * h2), [-out[1], out[0]], sw * Math.sin(k * 5 + i) * 10 * k);
+    const p = add(add(add(p0, out, 62 * k * (0.5 + 0.8 * h1)), [0, -1], (gather ? 8 : 26) * k * h2), [-out[1], out[0]], sw * Math.sin(k * 5 + i) * 10 * k);
     const ang = a + rotB + sw * (h3 - 0.5) * 7 * k;
-    const L = (20 + 9 * h2) * kk * (1 - 0.45 * k);
+    const L = (30 + 10 * h2) * kk * (1 - 0.3 * k);
     feather(ink, add(p, dirA(ang), -L * 0.5), add(p, dirA(ang), L * 0.5), L * 0.24, 700 + i * 4, { bend: (h1 - 0.5) * 5, cut: true });
   });
 }
@@ -272,7 +272,7 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
   let burst = 0, gather = false;
   if (mv === 'special2' && md) {
     const bf = blinkFrame(md);
-    if (f < bf) burst = ease((f - 1.2) / Math.max(1, bf - 2.2));
+    if (f < bf) burst = ease((f - 1.5) / Math.max(1, bf - 2.3));
     else { burst = 1 - ease((f - bf - 0.4) / 2.6); gather = true; }
   }
 
@@ -287,6 +287,12 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
     const tB = mix(J.handB, add(J.shoulderB, dirA(PI - 0.3), ARM * 0.96), e);
     [eB, hB] = ik2(J.shoulderB, tB, BUILD.arm[0], BUILD.arm[1], [0, 1]);
     knifeMode = f < rel ? 'fan' : f < rel + 13 ? 'open' : 'hold';
+    if (f < rel) {
+      // the fan of knives cocked back over the shoulder, then the arm snaps forward on the release
+      const k = ease(f / Math.max(1, rel - 3)) * (1 - ease((f - rel + 1.6) / 1.4));
+      const tF = mix(J.handF, add(J.shoulderF, dirA(-2.45), ARM * 0.82), k);
+      [eF, hF] = ik2(J.shoulderF, tF, BUILD.arm[0], BUILD.arm[1], [0.4, 1]);
+    }
   }
   if (mv === 'recover' && md) {
     // Updraft: both arms spread wide and high, the cloak's feathers fanned from them as wings
@@ -339,7 +345,6 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
     const kx = s.kbx * facing, ky = -s.kby, kl = Math.hypot(kx, ky);
     if (kl > 1e-4) dvW = add(dvW, [-(kx / kl) * 30, -(ky / kl) * 30]);
   }
-  if (mv === 'recover' && md) dvW = add(dvW, [0, 22 * wingF]);
   const dv = rotV(dvW, -spin);
   const flut = Math.sin(t * 9.3) * c01(len(dvW) / 30) * 4;
   const floorY = s.grounded && Math.abs(spin) < 0.01 ? -1.5 : 1e9;
@@ -377,26 +382,28 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
 
   // 1. the tail: three long feathers from behind the hip, blue sheen, streaming with the motion
   {
-    let td = unit(add(add(back, down, 0.28), u, flick * 0.42 + (sulk ? -0.5 : 0)));
+    let td = unit(add(add(back, down, 0.42), u, flick * 0.42 + (sulk ? -0.5 : 0)));
     const m = c01(len(dvW) / 34);
-    if (m > 0.01) td = unit(add(td, unit(dv), m * 1.1));
-    const lens = [88, 80, 68];
+    if (m > 0.01) td = unit(add(td, unit(dv), m * (mv === 'recover' ? 1.4 : 0.55)));
+    const lens = [108, 98, 84];
     for (let i = 0; i < 3; i++) {
-      const root = U(-20 + i * 4, 2 + i * 3);
+      const root = U(-22 + i * 4, 10 + i * 3);
       const d = rotV(td, -0.08 + i * 0.085 + flut * 0.006 * (i + 1));
-      const tip = onFloor(add(add(root, d, lens[i]! * kk), dv, 0.2));
+      const tip = onFloor(add(add(root, d, lens[i]! * kk), dv, 0.12));
       feather(ink, root, tip, (6.4 - i * 0.8) * kk, 20 + i * 5, { bend: i === 0 ? -3 : 2, hatch: BLUE, cut: true });
     }
   }
 
   // 2. the cloak's back mass: hangs from the shoulders, swings back and out like a wing in a throw
   const pivot = U(-14, -50);
+  const gatherUp = mv === 'recover' ? 0.42 * wingB : 0;
   const hang = (p: Pt, w: number): Pt => {
     let q = p;
     if (cloakRot > 0.001) {
       const r = sub(q, pivot);
       q = add(pivot, rotV(r, cloakRot * Math.sqrt(w)), 1 + 0.35 * cloakRot * w);
     }
+    if (gatherUp > 0) q = mix(q, pivot, gatherUp * w);
     if (ruffle > 0) q = add(q, unit(sub(q, pivot)), ruffle * 6 * w);
     return onFloor(add(add(q, dv, w), [flut * w, 0]));
   };
@@ -501,7 +508,7 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
   if (sulk) fist(ink, hB, eB, 4.4, 244);
 
   // 8. the hood and the beak mask
-  drawHead(ink, H, add(dv, [flut, -flut * 0.5], 0.3), x.sideTint, 300, { eye: !sulk, hoodK: sulk ? 1.3 : 1 });
+  drawHead(ink, H, add(dv, [flut, -flut * 0.5], 0.14), x.sideTint, 300, { eye: !sulk, hoodK: sulk ? 1.3 : 1 });
 
   // the win: a stolen coin spinning up off the back hand and dropping back into it
   if (won && f > 18) {
@@ -510,6 +517,19 @@ function drawMagpie(ink: Pen, J: Joints, x: FigureExtra): void {
     const c = add(hB, [2, -7 - hgt]);
     const flip = Math.cos(p * TAU * 3);
     ink.form(ell(c[0], c[1], Math.abs(flip) * 4.6 + 0.9, 4.6, 0, 14), { tint: 'gold', w: 1.3, seed: 320 });
+  }
+
+  // Snatch's slash: one quick pen stroke along the knife's sweep on the arrival frames
+  if (mv === 'special2' && md && knifeMode === 'hold') {
+    const a0 = md.startup + 1, a1 = md.startup + md.active + 1;
+    const k = c01((f - a0 + 1) / 1.5) * (1 - c01((f - a1) / 2));
+    if (k > 0.02) {
+      const tip = add(hF, dirA(J.prop), BUILD.propLen);
+      const c = J.shoulderF, r = len(sub(tip, c)) + 4, ta = Math.atan2(tip[1] - c[1], tip[0] - c[0]);
+      const pts: Pt[] = [];
+      for (let i = 0; i <= 8; i++) { const a = ta - 1.9 * k + (1.9 * k * i) / 8; pts.push(add(c, dirA(a), r * (0.9 + 0.1 * i / 8))); }
+      ink.line(pts, { w: 4.5, taper: 0.95, alpha: 0.85, seed: 330 });
+    }
   }
 
   // the re-forming from feathers (Snatch): the last loose feathers settling in over the body

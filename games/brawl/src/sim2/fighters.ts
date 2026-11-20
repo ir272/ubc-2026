@@ -153,7 +153,7 @@ const TICK = build('tick', {
       fan: [{ vx: 0.11, vy: 0.012 }, { vx: 0.112, vy: 0 }, { vx: 0.11, vy: -0.01 }] },
     extra: { air: true, ground: true },
     look: 'Quick flick that throws a fan of three small fast shots (one level, one rising, one dipping) about eight metres; weak, for pestering: only one shot of a fan can land (the others are spent, Projectile.cd 1, and fly on harmlessly). Candidates: the bird-masked thief throws three knives; the candle sprite flicks three drops of fire; the hare duelist flicks three darts from the guard of the rapier.' },
-  special2: { name: 'Blink Step', kind: 'special', startup: 6, active: 4, recovery: 14, hitboxes: [hb(8, 11, 0.7, 0.75, 0.55, 6, 40, 34, 66)],
+  special2: { name: 'Blink Step', kind: 'special', startup: 6, active: 4, recovery: 10, hitboxes: [hb(8, 11, 0.7, 0.75, 0.55, 6, 40, 34, 66)],
     blink: { frame: 6, dx: 3.2, behind: 4.5, invuln: [1, 9] },
     extra: { air: true, ground: true, oncePerAir: true },
     look: 'Vanishes on frame 6 (untouchable from frame 1 to 9) and reappears 3.2 m ahead, or just behind the opponent when it stands within 4.5 m ahead, turned to face it, with a quick slash on arrival (frames 8 to 11). Never ends further off the deck than it started. Candidates: the bird-masked thief blinks through the opponent in a puff of feathers; the candle sprite snuffs out and relights behind; the hare duelist makes one impossibly long lunge past the opponent and cuts on the way.' },
@@ -303,8 +303,8 @@ const HEXER = derive('hexer', 'gantry', GANTRY, { startup: 1, reach: 0.2, reachS
     projectile: { frame: 15, kind: 'hex', vx: 0.15, vy: 0, gravity: 0, life: 90, r: 0.35, damage: 8, angle: 40, bkb: 38, kbg: 72 },
     extra: { air: true, ground: true }, look: '' },
   special2: { name: 'Ward', kind: 'special', startup: 16, active: 2, recovery: 22, hitboxes: NO_HB,
-    projectile: { frame: 17, kind: 'ward', vx: 0.16, vy: 0.12, gravity: 0.012, life: 60, r: 0.35, damage: 4, angle: 80, bkb: 20, kbg: 10,
-      effect: 'snare', effectTicks: 42, linger: 300, floorR: 0.75 },
+    projectile: { frame: 17, kind: 'ward', vx: 0.16, vy: 0.12, gravity: 0.012, life: 60, r: 0.35, damage: 7, angle: 80, bkb: 20, kbg: 10,
+      effect: 'snare', effectTicks: 60, linger: 420, floorR: 1.1 },
     extra: { air: false, ground: true }, look: '' },
   recover: { name: 'Crow Flight', kind: 'special', startup: 8, active: 24, recovery: 16, hitboxes: [hb(10, 14, 1.5, 2.0, 0.5, 6, 60, 40, 40)],
     extra: { up: [4, 12, 0.16], tether: { from: 10, to: 30, range: 6.2, speed: 0.38 }, helpless: true, air: true, ground: true }, look: '' },
@@ -318,12 +318,15 @@ const MIMIC = derive('mimic', 'vise', VISE, { startup: 0, reach: 0, reachScale: 
   special: { name: 'Tongue Lash', kind: 'special', startup: 11, active: 14, recovery: 30, hitboxes: NO_HB,
     projectile: { frame: 12, kind: 'tongue', vx: 0.42, vy: 0, gravity: 0, life: 12, r: 0.3, damage: 3, angle: 0, bkb: 0, kbg: 0, y: 0.6,
       effect: 'pull', tether: true },
-    extra: { air: false, ground: true, cmd: { delay: 14, hb: hb(1, 1, 1, 1, 0.5, 10, 48, 66, 80), endlag: 14 } }, look: '' },
+    extra: { air: false, ground: true, cmd: { delay: 14, hb: hb(1, 1, 1, 1, 0.5, 9, 48, 66, 80), endlag: 14 } }, look: '' },
   special2: { name: 'Swallow and Spit', kind: 'special', startup: 8, active: 4, recovery: 30, hitboxes: [hb(9, 12, 0.85, 0.6, 0.7, 0, 0, 0, 0)],
     extra: { grabbing: true, air: false, ground: true, cmd: { delay: 24, hb: hb(1, 1, 1, 1, 0.5, 15, 35, 72, 98), endlag: 12 } }, look: '' },
   recover: { name: 'Coin Burst', kind: 'special', startup: 5, active: 20, recovery: 18, hitboxes: [hb(6, 12, 0, -0.2, 0.8, 8, 80, 45, 70)],
     extra: { up: [6, 24, 0.24], fwd: [6, 24, 0.045], helpless: true, air: true, ground: true }, look: '' },
 });
+
+// round 4b: the back throw over the hinge launched light fighters off the stage too early
+MIMIC.throwb.hitboxes[0].kbg = 92;
 
 // ------------------------------------------------------------------------------------------------
 // Names and looks of the cast (round 4): applied over the built data (kiln and tick keep their robot-era numbers).
@@ -452,7 +455,7 @@ const BODIES: Record<FighterId, Body> = {
 const MOVES: Record<FighterId, Record<MoveId, MoveDef>> = { kiln: KILN, tick: TICK, gantry: GANTRY, vise: VISE, hexer: HEXER, mimic: MIMIC };
 
 /** per-fighter damage trim (balance), applied once to the built hitboxes */
-const TRIM: Partial<Record<FighterId, number>> = { tick: 1.32, kiln: 1.22, gantry: 0.82, vise: 1.0, hexer: 1.12, mimic: 1.0 };
+const TRIM: Partial<Record<FighterId, number>> = { tick: 1.32, kiln: 1.16, gantry: 0.86, vise: 1.03, hexer: 1.12, mimic: 0.95 };
 for (const id of Object.keys(TRIM) as FighterId[]) for (const m of Object.values(MOVES[id])) for (const h of m.hitboxes) if (h.damage > 0) h.damage = Math.max(1, Math.round(h.damage * TRIM[id]!));
 
 // ------------------------------------------------------------------------------------------------

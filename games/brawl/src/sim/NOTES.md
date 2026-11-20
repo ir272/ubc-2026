@@ -376,3 +376,54 @@ Not at target and what I would do next:
 3. With mixed coaches the Hexer's bolt (38.5%), the Mimic's tongue (36.7%) and the Wolf's pounce (35.1%) pass 35% of their damage;
    with adaptive coaches none does.
 4. The Ward lands rarely (Hexer `special2` 5% of her damage): it roots, but the hands lay it mostly at feet that have moved on.
+
+## Round 4b: balance (`SIM_VERSION` `ringout-sim-6`)
+
+Numbers and hands only; no field, event or projectile kind changed.
+
+The Magpie's losses to the Mimic were not the swallow but two habits: about 160 tongue catches in 30 fights came while the Magpie
+was in the middle of its own move (mostly throwing knives inside tongue range), and about 185 plain grabs caught it out of its own
+swings (the Snatch landing next to the chest, then a laggy follow-up). The back throw over the hinge then took the life (71 KOs in 80
+fights). Fixes:
+- Hands, every fighter: a tongue seen coming out is hopped (light fighters 85%, others 50%); a pounce seen starting is jumped (70% /
+  30%); shots are thrown from outside a tongue's reach.
+- Hands, light fighters (weight under 90: the Magpie, the Hexer) against a grabber (any fighter with a command grab: the Wolf, the
+  Mimic): as it closes into grab range, snatch past it, spot dodge or hop back (16% a tick, then 24 ticks off); no swing with more than
+  12 frames after its last active frame unless punishing; the Snatch fires at 0.4 of its rate into a grabber.
+- Data: the Magpie's Snatch recovery 10 (was 14); the Mimic's back throw growth 92 (was 104).
+- The Ward matters more: 1.1 m half-width (was 0.75), lies 420 ticks (was 300), roots 60 ticks (was 42), 7 base damage (was 4); the
+  Hexer follows a rooted or staggered opponent with a bolt even while the bolt is cooling down. Its share of her damage is now 11%
+  (was 5.5%), and the bolt fell from 34 to 29%.
+- Trims: Armour 1.16, Magpie 1.32, Count 0.86, Wolf 1.03, Hexer 1.12, Mimic 0.95.
+
+Numbers (`node tools/simstats.mjs --n 2880`, every ordered pair and mirror, 160 fights a matchup, about +-4 points):
+
+| measure | adaptive vs adaptive | mixed coaches | target |
+|---|---|---|---|
+| win rate Armour / Magpie / Count / Wolf / Hexer / Mimic | 48.9 / 45.6 / 50.4 / 55.1 / 52.5 / 47.5 | 52.0 / 50.0 / 42.1 / 57.8 / 48.3 / 49.9 | 42 to 58 |
+| seconds between specials | 3.7 / 3.0 / 3.2 / 3.2 / 3.5 / 3.4 | 3.5 / 2.6 / 3.5 / 3.2 / 2.9 / 3.2 | 4.5 or less |
+| damage through special + special2 | 48.6 / 30.3 / 45.4 / 43.3 / 39.6 / 50.6% | 51.1 / 33.1 / 46.9 / 44.8 / 47.2 / 51.1% | 30% or more |
+| largest single move | **Mimic tongue 35.8%** | **Mimic tongue 37.9%, Hexer bolt 36.7%, Wolf pounce 36.3%** | 35% or less |
+| finished, median length | 2880/2880, 83 s (p10 57, p90 118) | 2880/2880, 84 s (p10 57, p90 136) | all; 65 to 130 |
+| stretches over 6 s | 0 (worst 6.0 s) | **9 (worst 10.8 s)** | about none |
+| mirrors (side 0) | 50.6% | 50.4% | near 50 |
+
+Matchups, row beats column, adaptive (mixed in brackets); outside 35 to 65 in bold:
+
+| | Magpie | Count | Wolf | Hexer | Mimic |
+|---|---|---|---|---|---|
+| Armour | 49 (49) | 52 (64) | 48 (48) | 44 (51) | 51 (48) |
+| Magpie | | 56 (59) | **28** (**34**) | 58 (65) | 36 (42) |
+| Count | | | 49 (36) | 53 (51) | 59 (46) |
+| Wolf | | | | 50 (61) | 50 (45) |
+| Hexer | | | | | **67** (**69**) |
+
+Before (round 4, adaptive): Magpie-Mimic 20, Magpie-Wolf 36, Armour-Wolf 69, Hexer-Mimic 69, Magpie-Hexer 68, Wolf-Mimic 34.
+
+Still off:
+1. **The Magpie against the Wolf (28)**: the pounce hop did not move it; not broken down yet (likely the Howl into the Pounce on a
+   light fighter, or the plain back throw at 13 base). Next: the same breakdown as for the Mimic (`what was it doing when grabbed`).
+2. **The Hexer over the Mimic (67)**: the slow chest cannot close on bolts and wards. Next: let the Mimic tongue from further (it
+   already shoots outside its own range rarely) or walk it in behind its shield.
+3. Single moves just over 35% (the Mimic's tongue in both columns; with mixed coaches the Hexer's bolt and the Wolf's pounce).
+4. Mixed coaches: 9 stretches over 6 s (worst 10.8 s) in 2880 fights; adaptive has none.

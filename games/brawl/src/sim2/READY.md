@@ -1,18 +1,18 @@
-# src/sim2: round 4 (six fighters) ready to promote
+# src/sim2: round 4b (balance) ready to promote
 
-`SIM_VERSION` is `ringout-sim-5`. Consistent point: `node --test test/*.test.mjs` 60/60. Numbers and what is not at target: NOTES.md
-"Round 4: six fighters" (and rounds 3, 3b, 3c before it).
+`SIM_VERSION` is `ringout-sim-6`. Consistent point: `node --test test/*.test.mjs` 60/60. Numbers and what is not at target: NOTES.md
+"Round 4b: balance".
 
 ## Copy
 
+Promotion is a plain copy:
 ```
 cp src/sim2/*.ts src/sim2/NOTES.md src/sim/
 ```
-(do not copy READY.md). Every .ts but arena.ts and math.ts changed this round (types, fighters, engine, controller, coach, index).
-Then, in test/sim.test.mjs: the fighter test (line 34) expects 72 unique move names; make it `18 * sim.FIGHTER_IDS.length` (108), and
-change the names on lines 35 and 36 to `'The Empty Armour'` and `'The Magpie'` (and the test title "four fighters" to six). That is
-the only src/sim test that fails against the promoted code (checked against a copy). Its `% 4` loops still pass; they just cover
-the first four fighters.
+(do not copy READY.md). Round 4b changed numbers and controller behaviour only (fighters.ts, controller.ts, index.ts): no field, no
+event, no projectile kind changed, so the picture and sound work against round 4 stands. test/sim.test.mjs needs no edit (it does
+not name the version). The tables below are still correct, except that the Hexer's ward is now 1.1 m half-width (was 0.75) and
+lies about 7 s (420 ticks).
 
 ## Round 4: the six fighters (for the picture and sound teams)
 

@@ -22,7 +22,7 @@ import { ell, h01, smooth } from '../pen.ts';
 import { FIGHTERS } from '../../sim/fighters.ts';
 import type { Hitbox, MoveDef, MoveId, Projectile } from '../../sim/types.ts';
 
-const BUILD: Build = { height: 120, hipY: 55, torso: 40, neckLen: 16, arm: [34, 34], leg: [28, 28], shoulderX: 20, stanceX: 44, hunch: 0.95, propLen: 0, heft: 1.4 };
+const BUILD: Build = { height: 120, hipY: 55, torso: 40, neckLen: 6, arm: [34, 34], leg: [28, 28], shoulderX: 20, stanceX: 44, hunch: 0.95, propLen: 0, heft: 1.4 };
 
 // ---- small math ----
 const PI = Math.PI;
@@ -154,8 +154,8 @@ const BITES: Partial<Record<MoveId, true>> = { jab: true, fair: true, uair: true
 const TONGUE: Partial<Record<MoveId, true>> = { tilt: true, nair: true, grab: true, throwf: true, throwb: true, throwu: true, special: true };
 
 /** the engine's rest offsets of each foot from the hip (ready stance), so the legs take only the change */
-const REST_F = BUILD.stanceX * 0.55 - BUILD.hunch * 10;
-const REST_B = -BUILD.stanceX * 0.5 - BUILD.hunch * 10;
+const REST_F = 12;
+const REST_B = -19;
 
 function mimicPose(J: Joints, x: FigureExtra): Mim {
   const s = x.state;
@@ -187,8 +187,14 @@ function mimicPose(J: Joints, x: FigureExtra): Mim {
   const biteLid = (wide: number): number => ff <= S ? lerp(0.35, wide, outQuad(ff / S)) : ff <= actEnd ? lerp(wide, 0.02, c01((ff - S) / 1.5)) : lerp(0.02, 0.35, inOutSine((ff - actEnd) / (R * 0.5)));
 
   switch (act) {
-    case 'idle': case 'respawn': case 'entrance': case 'land': case 'turn':
+    case 'idle': case 'respawn': case 'entrance': case 'turn':
       break;
+    case 'land': {
+      // the lid bangs open on landing and drops back
+      const k = 1 - inOutSine((f - 1) / 10);
+      open = lerp(open, 1.0, k); loll = lerp(1, 1.5, k); eye = lerp(1, 1.3, k);
+      break;
+    }
     case 'walk': {
       const ph = (s.x * 100 * s.facing) / (BUILD.leg[0] * 2.5);
       box.C = add(box.C, [0, -1.5 * Math.abs(Math.sin(PI * 2 * ph))]);
@@ -272,13 +278,27 @@ function mimicPose(J: Joints, x: FigureExtra): Mim {
       break;
     case 'holding': {
       if (mv === 'special2') {
-        // swallowed: the lid shut on the catch, a bulge, the tip of the tongue poking out; it chews
-        const G = J.handF;
-        const want = sub(add(G, [-16, 26]), B(box, MOUTH_B));
-        box.C = add(box.C, within(want, 40));
-        box.a = -0.25 + 0.05 * Math.sin(f * 1.3);
-        box.C = add(box.C, [1.6 * Math.sin(f * 1.7), 1.2 * Math.sin(f * 2.3)]);
-        open = 0.06 + 0.05 * Math.abs(Math.sin(f * 0.6)); bulge = 1; eye = 0.55; loll = 0.6;
+        // SWALLOW AND SPIT (24 ticks): the lid shut on the catch with a bulge, the tip of the tongue
+        // poking out, a chew that shakes the whole box, then it rears back and flings the lid open
+        // The held body hangs at the grip: the box lunges until the catch's middle is in its mouth,
+        // so the dark of the mouth hides it and only the head and shoulders stick out over the lid.
+        // (the engine's grip is not where the body hangs here: aim at the held hip, one body-width out)
+        box.a = -0.12;
+        const k0 = inOutSine(f / 3);
+        box.C = mixP(box.C, add(box.C, sub([110, -82], B(box, [X1, YR]))), k0);
+        if (f <= 11) {
+          const w = f * 1.9;
+          box.a = -0.12 + 0.07 * Math.sin(w);
+          box.C = add(box.C, [2.2 * Math.sin(w * 1.3), 1.8 * Math.sin(w * 1.7)]);
+          open = 0.42 + 0.12 * Math.abs(Math.sin(w * 0.8)); bulge = 1; eye = f < 4 ? 0.9 : 0.4; loll = 0;
+        } else {
+          const back = f <= 16 ? inOutSine((f - 11) / 5) : 1 - inOutSine((f - 16) / 4);
+          const fling = c01((f - 16) / 2);
+          box.a = lerp(-0.12, -0.45, back) + 0.2 * fling;
+          box.C = add(box.C, [-10 * back + 6 * fling, -5 * back]);
+          open = lerp(0.45, 0.3, back) * (1 - fling) + 1.6 * fling;
+          bulge = 1 - fling; eye = fling > 0 ? 1.4 : 0.45; loll = 1.6 * fling;
+        }
         break;
       }
       // the tongue wrapped round the catch at the engine's grip
@@ -297,32 +317,24 @@ function mimicPose(J: Joints, x: FigureExtra): Mim {
         break;
       }
       if (mv === 'special2') {
-        // SWALLOW AND SPIT: jaws wide, SLAM shut on whatever is there, chew, rear back and spit
-        const v = ff <= actEnd ? 0 : (ff - actEnd) / Math.max(1, R);
+        // SWALLOW (the grab part): jaws wide and rearing, then SLAM shut lunging forward; a miss
+        // leaves it chewing on nothing and opening again sulkily
         if (ff <= S) {
           const k = outQuad(ff / S);
-          open = lerp(0.3, 1.55, k); box.a = lerp(box.a, -0.4, k); eye = lerp(1, 1.4, k); loll = 0.4;
+          open = lerp(0.3, 1.6, k); box.a = lerp(box.a, -0.4, k); eye = lerp(1, 1.45, k); loll = 0.3;
           box.C = add(box.C, [-6 * k, -4 * k]);
         } else if (ff <= actEnd) {
           const k = c01((ff - S) / 1.5);
-          open = lerp(1.55, 0, k); box.a = lerp(-0.4, 0.3, k); eye = 0.6; loll = 0;
-          box.C = add(box.C, [lerp(-6, 16, k), lerp(-4, 4, k)]);
-          bulge = k;
-        } else if (v < 0.45) {
-          // the chew: lid chattering, the whole box shaking
-          const w = (ff - actEnd) * 1.9;
-          open = 0.04 + 0.08 * Math.abs(Math.sin(w * 0.8)); bulge = 1; eye = 0.4; loll = 0;
-          box.a = 0.2 + 0.06 * Math.sin(w);
-          box.C = add(box.C, [12 + 2.5 * Math.sin(w * 1.3), 4 + 2 * Math.sin(w * 1.7)]);
+          open = lerp(1.6, 0.02, k); box.a = lerp(-0.4, 0.28, k); eye = 0.6; loll = 0;
+          box.C = add(box.C, [lerp(-6, 18, k), lerp(-4, 4, k)]);
         } else {
-          // rear back, then the spit: lid flung wide, everything thrown forward
-          const u = (v - 0.45) / 0.55;
-          const back = u < 0.25 ? inOutSine(u / 0.25) : 1 - inOutSine((u - 0.25) / 0.2);
-          const fling = u < 0.25 ? 0 : 1 - inOutSine((u - 0.5) / 0.5);
-          box.a = lerp(0.2, -0.55, back) + 0.15 * fling;
-          box.C = add(box.C, [lerp(12, -8, back) + 8 * fling * (1 - back), -6 * back]);
-          open = u < 0.25 ? lerp(0.04, 0.2, back) : lerp(0.35, 1.6, fling);
-          bulge = u < 0.25 ? 1 : 0; eye = u < 0.25 ? 0.5 : 1.3; loll = u < 0.25 ? 0 : 1.6 * fling;
+          const v = (ff - actEnd) / Math.max(1, R);
+          const back = 1 - inOutSine((v - 0.35) / 0.55);
+          const w = (ff - actEnd) * 1.9;
+          open = v < 0.4 ? 0.03 + 0.05 * Math.abs(Math.sin(w * 0.8)) : lerp(0.35, 0.05, back);
+          box.a = 0.28 * back + (v < 0.4 ? 0.04 * Math.sin(w) : 0);
+          box.C = add(box.C, [18 * back, 4 * back]);
+          eye = v < 0.4 ? 0.5 : 0.8; loll = v < 0.4 ? 0 : 0.6;
         }
         break;
       }
@@ -349,6 +361,13 @@ function mimicPose(J: Joints, x: FigureExtra): Mim {
         open = lerp(0.35, 1.5, k); eye = lerp(1, 1.4, k); loll = ff >= proj.frame ? 0 : lerp(1, 0.2, k);
         box.a = lerp(box.a, -0.15, k);
         box.C = add(box.C, sub(J.head, B(box, MOUTH_B)));
+        // the line is gone (spent or the catch let go): the tongue snaps back into the mouth
+        const gone = proj.frame + proj.life;
+        if (ff > gone) {
+          const u = c01((ff - gone) / 7);
+          if (u < 1) { tip = add(J.head, [proj.vx * proj.life * 100 * (1 - inOutSine(u)) + 20, 6]); tipK = 1; }
+          else loll = lerp(0, 1, c01((ff - gone - 7) / 6));
+        }
         break;
       }
       if (mv === 'special') {
@@ -454,18 +473,18 @@ function teethRow(a: Pt, b: Pt, out: Pt, sizes: number[], hook: number): Pt[] {
 /** a big clawed foot: a pad on the deck and three hooked claws fanned out along `fwd` (+1/-1) */
 function footShape(g: Pt, fwd: number, k: number, spread: number): Pt[] {
   const P = (u: number, v: number): Pt => [g[0] + u * fwd * k, g[1] + v * k];
-  const pts: Pt[] = [P(-7, -3), P(-6, -10), P(0, -13), P(6, -11)];
-  const angs = [-0.5 * spread - 0.1, -0.08, 0.3];
-  const lens = [14, 17, 15];
+  const pts: Pt[] = [P(-9, -2), P(-9, -9), P(-3, -14), P(5, -13)];
+  const angs = [-0.45 * spread - 0.15, 0.0, 0.42];
+  const lens = [13, 15, 12];
   for (let i = 0; i < 3; i++) {
     const d = dir(angs[i]!), n: Pt = [d[1], -d[0]];
-    const base: Pt = [7, -8.5 + i * 3.6];
+    const base: Pt = [7, -9.5 + i * 4];
     const L = lens[i]!;
-    const kn = add(base, d, L * 0.5);
-    const tip = add(add(base, d, L), [0, 2.5]);
-    pts.push(P(...add(base, n, 2.6)), P(...add(kn, n, 2.4)), P(...tip), P(...add(kn, n, -1.4)), P(...add(base, n, -1.8)));
+    const kn = add(base, d, L * 0.45);
+    const tip = add(add(base, d, L), [0, 4]);
+    pts.push(P(...add(base, n, 3.4)), P(...add(kn, n, 3.2)), P(...add(add(kn, d, L * 0.35), n, 1.6)), P(...tip), P(...add(kn, n, -1.6)), P(...add(base, n, -1.2)));
   }
-  pts.push(P(9, 1), P(-2, 1), P(-8, 0));
+  pts.push(P(8, 1), P(-3, 1.5), P(-9, 0.5));
   return pts;
 }
 
@@ -476,7 +495,7 @@ function drawLeg(ink: Pen, hip: Pt, foot: Pt, front: boolean, near: boolean, onF
   const k = near ? 1.15 : 1.02;
   // the foot: flat on the deck, or hanging with the claws curled down
   const foot2 = onFloor && foot[1] > -2 ? add(a2, [0, 9]) : add(a2, [0, 9]);
-  const shin = tube([knee, mixP(knee, a2, 0.55), a2], (u) => (7 - u * 2) * k, 3);
+  const shin = tube([knee, mixP(knee, a2, 0.55), a2], (u) => (8 - u * 2) * k, 3);
   const thigh = tube([hip, knee], (u) => (10.5 - u * 3) * k, 3);
   ink.form(shin, { w: 2.1, seed: sd });
   ink.form(footShape(foot2, fwd, k, onFloor ? 1 : 0.6), { w: 1.7, seed: sd + 1 });
@@ -498,7 +517,7 @@ function coin(ink: Pen, c: Pt, r: number, rot: number, tilt: number, sd: number)
 
 /** the tongue as a thick tapering ribbon from the mouth along a path, a centre line, a curled,
  *  slightly forked tip; with `wrap` it coils round what it caught at the end. Path in any units. */
-function drawTongue(ink: Pen, path: Pt[], w0: number, wrap: number, sd: number): void {
+function drawTongue(ink: Pen, path: Pt[], w0: number, wrap: number, sd: number, curl = 1): void {
   const n0 = path.length;
   const end = path[n0 - 1]!;
   const dEnd = unit(sub(end, path[Math.max(0, n0 - 2)]!));
@@ -531,7 +550,7 @@ function drawTongue(ink: Pen, path: Pt[], w0: number, wrap: number, sd: number):
     return;
   }
   // free: the tip curls down and over, with a small fork
-  const curl1 = add(add(end, dEnd, 7), nd, 6), curl2 = add(add(end, dEnd, 3), nd, 12), curl3 = add(add(end, dEnd, -4), nd, 10);
+  const curl1 = add(add(end, dEnd, 7 * curl), nd, 6 * curl), curl2 = add(add(end, dEnd, 3 * curl), nd, 12 * curl), curl3 = add(add(end, dEnd, -4 * curl), nd, 10 * curl);
   const full = path.concat([curl1, curl2, curl3]);
   const sh = tube(full, (u) => w0 * (1 - 0.62 * u), 5);
   ink.form(sh, { w: 2.3, seed: sd });
@@ -616,11 +635,12 @@ function drawChest(ink: Pen, m: Mim, tint: string, legs: boolean): void {
     const mid = add(mixP(out, tip, 0.5), sag, Math.min(14, span * 0.08) * (1 - m.wrap * 0.5));
     drawTongue(ink, [root, out, mid, tip], 8.5, m.wrap, 60);
   } else if (m.loll > 0.05) {
+    // draped out over the front teeth and hanging down past the front of the box, tip turned up
     const l = m.loll;
-    const p0 = root, p1 = T([X1 + 2, YR - 7]);
-    const p2 = T([X1 + 9 + 2 * l, YR + 2 + 4 * l]);
-    const p3 = T([X1 + 8 + 4 * l, YR + 6 + 10 * l]);
-    drawTongue(ink, [p0, p1, p2, p3], 7.5, 0, 60);
+    const p0 = root, p1 = T([X1 + 3, YR - 6]);
+    const p2 = T([X1 + 15 + 3 * l, YR + 1 + 2 * l]);
+    const p3 = T([X1 + 22 + 6 * l, YR + 7 + 9 * l]);
+    drawTongue(ink, [p0, p1, p2, p3], 8, 0, 60, 0.22);
   }
 
   // ---- the lid: the barrel seen from its end, boards running back, band, brackets, the eye ----
@@ -713,8 +733,25 @@ function drawMimicMove(ink: Pen, J: Joints, x: FigureExtra): void {
     }
     return;
   }
+  if (s.action === 'holding' && mv === 'special2' && f > 16) {
+    // THE SPIT: the lid flung open, speed strokes and coins thrown out of the mouth
+    const m = mimicPose(J, x);
+    const mouth = B(m.box, [X1, YR - 6]);
+    const go = c01((f - 16) / 7);
+    const k = 1 - 0.5 * go;
+    for (let i = 0; i < 4; i++) {
+      const y = mouth[1] - 18 + i * 10;
+      const x0 = mouth[0] + 10 + go * 24;
+      ink.line([[x0, y], [x0 + (70 + 30 * h01(i + 2)) * k, y - 6 + i * 3]], { w: 2.4, taper: 0.9, seed: 460 + i, alpha: 0.9 });
+    }
+    for (let i = 0; i < 4; i++) {
+      const p: Pt = [mouth[0] + 16 + go * (50 + 28 * i), mouth[1] - 22 + i * 11 + go * go * 16];
+      coin(ink, p, 5.5, i, f * 0.8 + i, 470 + i * 2);
+    }
+    return;
+  }
   if (!md || !mv || (s.action !== 'attack' && s.action !== 'charge')) return;
-  const S0 = md.startup, actEnd = md.startup + md.active, R = md.recovery;
+  const S0 = md.startup, actEnd = md.startup + md.active;
   if (mv === 'recover' && s.action === 'attack' && f > S0 && f <= actEnd + 6) {
     // COIN BURST: a fan of coins blown down out of the bottom of the box
     const m = mimicPose(J, x);
@@ -734,27 +771,6 @@ function drawMimicMove(ink: Pen, J: Joints, x: FigureExtra): void {
       const a = PI / 2 + (i - 1.5) * 0.28;
       const p0 = add(base, dir(a), 8);
       ink.line([p0, add(p0, dir(a), (60 + 25 * h01(i + 4)) * fade)], { w: 2.2, taper: 0.9, tint: 'gold', seed: 450 + i, alpha: 0.9 });
-    }
-    return;
-  }
-  if (mv === 'special2' && s.action === 'attack' && f > actEnd) {
-    const v = (f - actEnd) / Math.max(1, R);
-    const u = (v - 0.45) / 0.55;
-    if (u > 0.25 && u < 0.85) {
-      // THE SPIT: speed strokes and coins thrown out of the mouth
-      const m = mimicPose(J, x);
-      const mouth = B(m.box, [X1, YR - 6]);
-      const k = 1 - c01((u - 0.25) / 0.6);
-      const go = c01((u - 0.25) / 0.3);
-      for (let i = 0; i < 4; i++) {
-        const y = mouth[1] - 14 + i * 9;
-        const x0 = mouth[0] + 14 + go * 30;
-        ink.line([[x0, y], [x0 + (60 + 30 * h01(i + 2)) * k, y - 4 + i * 2]], { w: 2.3, taper: 0.9, seed: 460 + i, alpha: 0.9 });
-      }
-      for (let i = 0; i < 4; i++) {
-        const p: Pt = [mouth[0] + 20 + go * (60 + 25 * i), mouth[1] - 18 + i * 10 + go * go * 20];
-        coin(ink, p, 5.5, i, f * 0.8 + i, 470 + i * 2);
-      }
     }
     return;
   }

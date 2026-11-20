@@ -228,8 +228,8 @@ test('a grab out of a run comes after a short skid', () => {
 
 const engine = await import(path.join(simDir, 'engine.ts'));
 
-test('version is ringout-sim-5', () => {
-  assert.equal(sim.SIM_VERSION, 'ringout-sim-5');
+test('version is ringout-sim-6', () => {
+  assert.equal(sim.SIM_VERSION, 'ringout-sim-6');
 });
 
 test('the new tools are used and the same seed gives the same hash', () => {

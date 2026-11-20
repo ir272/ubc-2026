@@ -177,17 +177,28 @@ function shoe(ink: Pen, knee: Pt, f: Pt, fx: number, seed: number): void {
 }
 
 /** a crow in flight, side on, looking along +x (fx flips it), wings at phase ph (-1 down .. 1 up) */
-function crowShapes(c: Pt, S: number, fx: number, ph: number, tilt: number): { far: Pt[]; body: Pt[]; near: Pt[]; eye: Pt } {
+function crowShapes(c: Pt, S: number, fx: number, ph: number, tilt: number): { far: Pt[]; body: Pt[]; near: Pt[]; beak: Pt[]; quill: Pt[]; eye: Pt } {
   const cs = Math.cos(tilt), sn = Math.sin(tilt);
   const P = (x: number, y: number): Pt => { const X = x * S * fx, Y = y * S; return [c[0] + X * cs - Y * sn * fx, c[1] + X * sn * fx + Y * cs]; };
-  const body = smooth([P(0.62, 0.02), P(0.48, -0.1), P(0.32, -0.13), P(0.05, -0.11), P(-0.3, -0.06), P(-0.62, -0.12), P(-0.7, 0.0), P(-0.64, 0.1), P(-0.3, 0.07), P(0.05, 0.12), P(0.36, 0.08)], 3, true);
-  // beak
-  body.splice(0, 0, P(0.78, 0.05));
+  const body = smooth([P(0.5, 0.0), P(0.44, -0.1), P(0.3, -0.12), P(0.05, -0.1), P(-0.3, -0.05), P(-0.62, -0.13), P(-0.72, -0.02), P(-0.66, 0.1), P(-0.3, 0.07), P(0.05, 0.12), P(0.34, 0.08)], 3, true);
+  const beak = [P(0.48, -0.05), P(0.72, 0.02), P(0.47, 0.05)];
+  /** a long wing from the shoulder: the leading edge to the wrist, three fingered primaries, the trailing edge home */
   const wing = (up: number, back: number): Pt[] => {
-    const tipY = -0.85 * up, tipX = -0.15 - back;
-    return smooth([P(0.28, -0.08), P(0.15 + tipX * 0.2, tipY * 0.55), P(tipX + 0.12, tipY), P(tipX, tipY + 0.08 * Math.sign(up || 1)), P(tipX - 0.02, tipY + 0.2 * Math.sign(up || 1)), P(-0.12, tipY * 0.45), P(-0.18, -0.04)], 2, true);
+    const sg = up >= 0 ? -1 : 1; // the tip points up (-y) or down
+    const ext = sg < 0 ? 0.55 + 0.45 * Math.abs(up) : 0.45 + 0.3 * Math.abs(up);
+    const wr: Pt = [0.0 - back, sg * 0.42 * ext];
+    const tip: Pt = [-0.42 - back, sg * 0.92 * ext];
+    const pts: Pt[] = [P(0.24, -0.06), P(wr[0] + 0.06, wr[1]), P(tip[0] + 0.05, tip[1])];
+    for (let k = 0; k < 3; k++) {
+      const fxk = tip[0] + 0.02 - 0.08 * (k + 1), fyk = tip[1] - sg * 0.07 * (k + 0.6);
+      pts.push(P(fxk + 0.04, fyk - sg * 0.04), P(fxk, fyk));
+    }
+    pts.push(P(-0.28 - back * 0.5, sg * 0.32 * ext), P(-0.2, -0.02));
+    return smooth(pts, 2, true);
   };
-  return { far: wing(ph * 0.85 + 0.15, 0.12), body, near: wing(ph, 0), eye: P(0.42, -0.04) };
+  const near = wing(ph, 0);
+  const quill = [P(0.16, -0.05), P(-0.08 , (ph >= 0 ? -1 : 1) * 0.5 * (0.55 + 0.45 * Math.abs(ph)))];
+  return { far: wing(ph * 0.8 + 0.2, 0.14), body, near, beak, quill, eye: P(0.36, -0.04) };
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -249,10 +260,10 @@ function restyle(J0: Joints, x: FigureExtra): { J: Joints; look: Look } {
 
   if (s.action === 'win') {
     const k = ease(f / 14);
-    look.bendUp = -0.22 * k;
+    look.bendUp = -0.14 * k;
     J = bendUpper(J, look.bendUp);
     const cackle = Math.sin(t * 19) * 0.05 + Math.sin(t * 31) * 0.03;
-    look.headBack = (0.32 + cackle) * k;
+    look.headBack = (0.18 + cackle) * k;
     look.jaw = (5 + Math.sin(t * 19) * 2.5) * k;
     const bx = J.hip[0] + 58;
     const d: Pt = [0, -1];
@@ -284,6 +295,17 @@ function restyle(J0: Joints, x: FigureExtra): { J: Joints; look: Look } {
     J = { ...J, prop: -1.0 };
     armTo('B', add(J.handF, dirA(-1.0), 52), 1, [-0.2, 1]);
     look.twoHand = true;
+  }
+
+  if (inMove && s.move === 'special' && md && s.action === 'attack') {
+    // Hex Bolt: the staff thrust out level at the foe as the bolt leaves, the far hand flung back
+    const S = (md.projectile ? md.projectile.frame : md.startup + 1) - 1;
+    const k = ease((f - (S - 2)) / 3) * (1 - ease((f - (S + 9)) / 12));
+    if (k > 0.001) {
+      armTo('F', add(J.shoulderF, dirA(-0.08), ARM * 0.95), k, [0, 1]);
+      J = { ...J, prop: J.prop + (-0.05 - J.prop) * k };
+      armTo('B', add(J.shoulderB, dirA(-2.55), ARM * 0.9), k, [-0.6, 1]);
+    }
   }
 
   if (inMove && s.move) {
@@ -566,12 +588,17 @@ function crowState(s: FighterState): { k: number; phase: 'out' | 'fly' | 'in' | 
 }
 
 function drawCrow(ink: Pen, c: Pt, S: number, fx: number, ph: number, tilt: number, seed: number): void {
+  // a black bird: dark masses with a cream pen edge, a pale beak and eye
   const cr = crowShapes(c, S, fx, ph, tilt);
-  ink.form(cr.far, { w: 1.3, seed });
-  ink.hatch(cr.far, { angle: 1.1, gap: 3, w: 0.8, seed: seed + 1 });
-  ink.form(cr.body, { w: 1.6, seed: seed + 2 });
-  ink.form(cr.near, { w: 1.5, seed: seed + 3 });
-  ink.dot(cr.eye[0], cr.eye[1], Math.max(1.1, S * 0.035));
+  ink.mask(cr.far);
+  ink.line(cr.far, { closed: true, w: 1.6, seed });
+  ink.mask(cr.body);
+  ink.line(cr.body, { closed: true, w: 2, seed: seed + 2 });
+  ink.mask(cr.near);
+  ink.line(cr.near, { closed: true, w: 2, seed: seed + 3 });
+  ink.line(cr.quill, { w: 1.2, taper: 0.8, seed: seed + 4 });
+  ink.form(cr.beak, { w: 1, seed: seed + 5 });
+  ink.dot(cr.eye[0], cr.eye[1], Math.max(1.3, S * 0.035), { free: true });
 }
 
 /** the flock: nine crows in a loose rising spiral where her body was; the staff carried by one */
@@ -692,46 +719,56 @@ function drawBolt(ink: Pen, p: Projectile, t: number): void {
   const spent = (p as Projectile & { cd?: number }).cd === 1;
   const seed = 700 + (p.id % 30) * 9;
   const tt = t + p.id * 0.37;
-  const hx = 30;
-  const shapes: Pt[][] = [];
-  // the long tongues streaming back, uneven, curling up at their ends and flickering
+  const hx = 34;
+  const back: Pt[][] = [], knot: Pt[][] = [];
+  // five long uneven tongues streaming back from the knot, whipping up and down, flickering
   const TONG: [number, number, number, number, number][] = [
     // y at the root, length, angle off straight back, half-width, curl
-    [2, 92, -0.03, 8, 0.55], [-7, 70, 0.2, 8.5, 0.85], [8, 60, -0.12, 7, 0.7], [-11, 46, 0.42, 6.5, 1.0], [5, 38, 0.1, 6, 1.15], [-3, 28, 0.3, 5, 1.3],
+    [0, 104, 0.02, 6.5, -0.2], [-5, 86, 0.17, 6, -0.35], [5, 76, -0.15, 5.5, 0.3], [-8, 60, 0.32, 5, -0.5], [8, 52, -0.3, 4.5, 0.45], [-2, 40, 0.08, 4, -0.6],
   ];
   TONG.forEach(([y0, L0, a0, w, cu], i) => {
-    const L = L0 * (1 + 0.13 * Math.sin(tt * 19 + i * 2.1)) ;
+    const L = L0 * (1 + 0.14 * Math.sin(tt * 19 + i * 2.1));
     const a = PI + a0 + Math.sin(tt * 15 + i * 1.3) * 0.06;
-    const tg = tongue([hx - 10 - i * 2, y0], L, a, w, cu, 0.22 + 0.04 * i, tt * 11 + i * 1.6);
-    shapes.push(tg.shape.map(F));
+    back.push(tongue([hx - 8, y0], L, a, w, cu + Math.sin(tt * 11 + i) * 0.15, 0.14 + 0.03 * i, tt * 12 + i * 1.6).shape.map(F));
   });
-  // the knot at the head: short fat tongues rooted at the front
-  const HEAD: [number, number, number, number, number, number][] = [[hx + 10, 1, 40, -0.05, 10, 0.9], [hx + 6, -5, 30, 0.3, 8, 1.1], [hx + 4, 7, 28, -0.25, 7.5, 0.9]];
-  HEAD.forEach(([x0, y0, L0, a0, w, cu], i) => {
-    const L = L0 * (1 + 0.1 * Math.sin(tt * 23 + i * 2.7));
-    const tg = tongue([x0, y0], L, PI + a0 + Math.sin(tt * 17 + i) * 0.08, w, cu, 0.2, tt * 13 + i * 2.2);
-    shapes.push(tg.shape.map(F));
-  });
+  // the knot at the head: a tight ball of fire, round at the front, licking back in points
+  {
+    const pts: Pt[] = [];
+    const M = 30;
+    for (let i = 0; i < M; i++) {
+      const a = (i / M) * PI * 2;
+      const c = Math.cos(a);
+      let r = 15 * (1 + 0.07 * Math.sin(tt * 31 + i * 1.7));
+      if (c < -0.2) {
+        // five uneven points along the back of the ball
+        const k = (a < PI ? a - Math.acos(-0.2) : PI * 2 - Math.acos(-0.2) - a);
+        const w = Math.max(0, Math.sin((k / (PI - Math.acos(-0.2))) * PI * 2.5));
+        r += w * (9 + 7 * h01(i * 3.3 + Math.floor(tt * 8))) * (-c);
+      }
+      pts.push([hx + c * r * 1.15, Math.sin(a) * r * 0.85]);
+    }
+    knot.push(smooth(pts, 2, true).map(F));
+  }
   // two thin strokes spiralling round the tongues
   const spirals: Pt[][] = [];
   for (let k = 0; k < 2; k++) {
     const pts: Pt[] = [];
-    for (let j = 0; j <= 16; j++) {
-      const q = j / 16, xx = hx + 6 - q * 104;
-      const amp = 3 + q * 13;
-      pts.push(F([xx, Math.sin(q * 11 - tt * 24 + k * PI) * amp - q * 6]));
+    for (let j = 0; j <= 36; j++) {
+      const q = j / 36, xx = hx + 2 - q * 100;
+      pts.push(F([xx, Math.sin(q * 10 - tt * 26 + k * PI) * (3 + q * 13) * (1 + 0.25 * Math.sin(q * 5 + k))]));
     }
     spirals.push(pts);
   }
   if (spent) {
-    shapes.forEach((sh, i) => { if (i % 2 === 0) ink.line(sh, { tint: MAGIC, closed: true, w: 1.6, alpha: 0.35, seed: seed + i }); });
+    back.concat(knot).forEach((sh, i) => { if (i % 2 === 0) ink.line(sh, { tint: MAGIC, closed: true, w: 1.6, alpha: 0.35, seed: seed + i }); });
     return;
   }
-  spirals.forEach((pts, k) => ink.line(pts, { tint: MAGIC, w: 2.6, taper: 0.9, seed: seed + 20 + k }));
-  shapes.forEach((sh, i) => ink.form(sh, { tint: MAGIC, w: 1.5, seed: seed + i }));
-  // the heart of the knot: a few cuts so it reads as fire, not a blob
-  ink.cut([F([hx + 8, -2]), F([hx - 14, 1]), F([hx - 30, -3])], { w: 1.2, seed: seed + 30 });
-  ink.cut([F([hx + 2, 5]), F([hx - 20, 7])], { w: 1, seed: seed + 31 });
+  back.forEach((sh, i) => ink.form(sh, { tint: MAGIC, w: 1.4, seed: seed + i }));
+  spirals.forEach((pts, k) => ink.line(pts, { tint: MAGIC, w: 1.8, taper: 0.85, seed: seed + 20 + k }));
+  knot.forEach((sh, i) => ink.form(sh, { tint: MAGIC, w: 1.6, seed: seed + 10 + i }));
+  // a swirl cut into the knot so it reads as fire turning over, not a blob
+  ink.cut(smooth([F([hx + 10, -6]), F([hx - 2, -3]), F([hx - 16, -7])], 4), { w: 1.4, seed: seed + 15 });
+  ink.cut(smooth([F([hx + 6, 6]), F([hx - 6, 3]), F([hx - 20, 6])], 4), { w: 1.1, seed: seed + 16 });
 }
 
 function drawWard(ink: Pen, p: Projectile, t: number): void {
@@ -741,40 +778,47 @@ function drawWard(ink: Pen, p: Projectile, t: number): void {
     const a = t * 14 + p.id;
     const d = dirA(a), n = perp(d);
     const T = (x: number, y: number): Pt => add(add([0, 0], d, x), n, y);
-    ink.line([[-12, 0], [-34, Math.sin(t * 20) * 3]], { tint: MAGIC, w: 3, taper: 0.9, alpha: 0.8, seed: seed + 1 });
-    ink.line([[-10, 6], [-26, 9]], { tint: MAGIC, w: 2, taper: 0.9, alpha: 0.6, seed: seed + 2 });
-    const tok = smooth([T(-10, 0), T(-5, 8), T(5, 8.5), T(10, 0), T(5, -8.5), T(-5, -8)], 4, true);
-    ink.form(tok, { tint: MAGIC, w: 1.8, seed: seed + 3 });
-    ink.cut([T(-5, -4), T(6, 4)], { w: 1.4, seed: seed + 4 });
-    ink.cut([T(-5, 4), T(6, -4)], { w: 1.4, seed: seed + 5 });
-    ink.line([T(10, 0), T(18, 2), T(24, 0)], { tint: MAGIC, w: 1.6, taper: 0.8, seed: seed + 6 });
+    ink.line([[-14, 0], [-40, Math.sin(t * 20) * 3]], { tint: MAGIC, w: 3.4, taper: 0.9, alpha: 0.8, seed: seed + 1 });
+    ink.line([[-12, 7], [-30, 10]], { tint: MAGIC, w: 2.4, taper: 0.9, alpha: 0.6, seed: seed + 2 });
+    const tok = smooth([T(-12, 0), T(-6, 10), T(6, 10.5), T(12, 0), T(6, -10.5), T(-6, -10)], 4, true);
+    ink.form(tok, { tint: MAGIC, w: 2, seed: seed + 3 });
+    ink.cut([T(-6, -5), T(7, 5)], { w: 1.6, seed: seed + 4 });
+    ink.cut([T(-6, 5), T(7, -5)], { w: 1.6, seed: seed + 5 });
+    ink.line([T(12, 0), T(21, 2), T(28, 0)], { tint: MAGIC, w: 1.8, taper: 0.8, seed: seed + 6 });
     return;
   }
   // lying on the floor: a hand-scratched mark seen nearly edge-on, fading as its life runs out
-  // (drawn in a frame that stays upright whatever the velocity says)
   const rw = Math.max(40, p.r * 100);
-  const fade = c01(p.life / 70);
-  const al = 0.25 + 0.75 * fade;
-  const rh = rw * 0.13;
-  const E = (a: number, k = 1, j = 0): Pt => [Math.cos(a) * rw * k * (1 + 0.06 * Math.sin(a * 3 + 1)), -rh * 0.9 + Math.sin(a) * rh * k * (1 + 0.15 * Math.sin(a * 2.3)) + j];
-  const oval: Pt[] = [];
-  for (let i = 0; i <= 26; i++) { const a = -0.25 + (i / 26) * (PI * 2 - 0.1); oval.push(E(a, 1, (h01(seed + i) - 0.5) * 1.6)); }
-  ink.line(oval, { tint: MAGIC, w: 4.2, taper: 0.5, alpha: al, seed });
+  const al = 0.3 + 0.7 * c01(p.life / 70);
+  const rh = rw * 0.12;
+  const cy = -rh * 0.85;
+  // the oval, scratched round twice and never quite closed, uneven
+  const ring = (k0: number, k1: number, sc: number, jy: number, s0: number): Pt[] => {
+    const out: Pt[] = [];
+    for (let i = 0; i <= 28; i++) {
+      const a = k0 + ((k1 - k0) * i) / 28;
+      out.push([Math.cos(a) * rw * sc * (1 + 0.07 * Math.sin(a * 3 + 1)), cy + Math.sin(a) * rh * sc * (1 + 0.2 * Math.sin(a * 2.3 + s0)) + jy + (h01(s0 + i) - 0.5) * 1.4]);
+    }
+    return out;
+  };
+  ink.line(ring(-0.3, PI * 2 - 0.15, 1, 0, seed), { tint: MAGIC, w: 5.5, taper: 0.55, alpha: al, seed });
+  ink.line(ring(PI * 0.75, PI * 1.85, 0.9, -1.5, seed + 3), { tint: MAGIC, w: 3, taper: 0.8, alpha: al * 0.85, seed: seed + 1 });
   // the crossed strokes scratched inside it
-  const X: [number, number, number, number][] = [[-0.7, -0.6, 0.55, 0.7], [-0.5, 0.75, 0.75, -0.55], [-0.85, 0.05, 0.9, -0.1], [0.05, -0.85, -0.2, 0.9]];
-  X.forEach(([x0, y0, x1, y1], i) => ink.line([[x0 * rw * 0.8, -rh * 0.9 + y0 * rh * 0.8], [(x0 + x1) * rw * 0.4 + 2, -rh * 0.9 + (y0 + y1) * rh * 0.4 - 1], [x1 * rw * 0.8, -rh * 0.9 + y1 * rh * 0.8]],
-    { tint: MAGIC, w: 3.4 - i * 0.4, taper: 0.7, alpha: al, seed: seed + 10 + i }));
+  const X: [number, number, number, number][] = [[-0.62, -0.7, 0.5, 0.75], [-0.45, 0.8, 0.68, -0.6], [-0.8, 0.1, 0.84, -0.15], [0.1, -0.9, -0.15, 0.95]];
+  X.forEach(([x0, y0, x1, y1], i) => ink.line([[x0 * rw * 0.82, cy + y0 * rh * 0.85], [(x0 + x1) * rw * 0.41 + 3, cy + (y0 + y1) * rh * 0.42 - 1], [x1 * rw * 0.82, cy + y1 * rh * 0.85]],
+    { tint: MAGIC, w: 4.6 - i * 0.5, taper: 0.7, alpha: al, seed: seed + 10 + i }));
   // thin strokes rising from it now and then, each on its own clock
   for (let i = 0; i < 4; i++) {
     const per = 1.1 + 0.37 * i;
-    const q = ((t + h01(seed + i * 3.1) * per) / per) % 1;
-    if (q > 0.6) continue;
-    const v = q / 0.6;
-    const bx = (h01(seed + i * 7.7 + Math.floor((t + h01(seed + i * 3.1) * per) / per)) - 0.5) * rw * 1.5;
-    const y0 = -rh - v * 46, l = 14 + 10 * (1 - v);
+    const ph = t / per + h01(seed + i * 3.1);
+    const q = ph % 1;
+    if (q > 0.65) continue;
+    const v = q / 0.65;
+    const bx = (h01(seed + i * 7.7 + Math.floor(ph)) - 0.5) * rw * 1.4;
+    const y0 = cy - v * 50, l = 22 + 14 * (1 - v);
     const pts: Pt[] = [];
-    for (let j = 0; j <= 4; j++) pts.push([bx + Math.sin(v * 7 + j * 0.9 + i) * 4, y0 - (l * j) / 4]);
-    ink.line(pts, { tint: MAGIC, w: 2.6 * (1 - v * 0.5), taper: 0.8, alpha: al * (1 - v) * 0.9, seed: seed + 20 + i });
+    for (let j = 0; j <= 5; j++) pts.push([bx + Math.sin(v * 6 + j * 0.9 + i) * 4, y0 - (l * j) / 5]);
+    ink.line(pts, { tint: MAGIC, w: 3.6 * (1 - v * 0.4), taper: 0.8, alpha: al * (1 - v * v) * 0.9, seed: seed + 20 + i });
   }
 }
 
@@ -805,7 +849,7 @@ export const HEXER: CharacterDef = {
   portrait(ink, t) {
     void t;
     // shoulders in the shawl, the hood with its bent tip, the face, the crook and charm beside
-    const Hr = (hx: number, hy: number): Pt => [hx * 1.25 - 2, hy * 1.25 - 4];
+    const Hr = (hx: number, hy: number): Pt => [hx * 1.1 + 14, hy * 1.1 - 2];
     ink.form(smooth([[-50, 56], [-44, 22], [-24, 8], [0, 4], [24, 10], [44, 26], [48, 56]], 5, true), { w: 2.6, seed: 901 });
     ink.form(smooth([[-46, 40], [-40, 16], [-20, 6], [6, 6], [28, 14], [40, 30], [30, 42], [10, 36], [-10, 44], [-30, 38]], 4, true), { w: 2.2, seed: 902 });
     ink.hatch(smooth([[-46, 40], [-40, 16], [-20, 6], [-12, 30], [-30, 38]], 4, true), { angle: 1.25, gap: 3.6, w: 0.9, seed: 903 });

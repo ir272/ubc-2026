@@ -13,7 +13,7 @@ import { fnv32, hash64, rnd, seedRng } from './math.ts';
 export { ARENA, FIGHTERS, COACHES, createFight, stepFight, schedulePlan };
 export * from './types.ts';
 
-export const SIM_VERSION = 'ringout-sim-5';
+export const SIM_VERSION = 'ringout-sim-6';
 
 /** short hex of the whole state: same in node and any browser */
 export function hashFight(s: FightState): string {
