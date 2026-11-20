@@ -8,7 +8,7 @@
 .hero-h { margin: 0; font-family: var(--font-ui); font-weight: 700; font-size: clamp(16px, 3.7cqw, 56px); line-height: 1.08; letter-spacing: -0.01em; color: #f2efe6; white-space: nowrap; }
 .hero-sub { margin: clamp(4px, 0.7cqw, 12px) 0 0; font-size: clamp(10px, 1.45cqw, 18px); line-height: 1.35; color: rgba(242, 239, 230, 0.74); }
 /* The channel cards start on the hero's faded lower edge, the way Duel's tiles overlap its banner. */
-.hero + .home { position: relative; z-index: 1; margin-top: clamp(-72px, -4vw, -20px); }
+.hero + .home { position: relative; z-index: 1; margin-top: 0; padding-top: 8px; }
 @media (max-width: 720px) {
   .hero { aspect-ratio: 3000 / 1000; }
   .hero-h { white-space: normal; }

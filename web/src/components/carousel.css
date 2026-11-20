@@ -1,0 +1,19 @@
+/* The fluid carousel. Carousel.tsx sets each slide's width, place, size and brightness as it moves;
+   these rules only say what a slide is. The older .car rules in styles.css still size the row. */
+.car.fluid { outline: none; }
+.car.fluid .car-track { touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.car.fluid.dragging .car-track { cursor: grabbing; }
+.car.fluid .car-slide { display: flex; transition: none; background: var(--raised); overflow: hidden; transform: translateX(-50%); will-change: transform, width; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+.car.fluid .car-slide.off { cursor: pointer; }
+.car.fluid .car-slide .car-media { opacity: var(--lit, 1); }
+.car.fluid .car-slide .car-info { flex: none; width: var(--iw); box-sizing: border-box; }
+.car.fluid .car-slide.off .car-info { pointer-events: none; }
+.car.fluid .car-slide.off .car-media { pointer-events: none; }
+.car.fluid .car-media .thumb-img, .car.fluid .car-media .thumb-letter { width: 100%; height: 100%; object-fit: cover; }
+.car.fluid img, .car.fluid a { -webkit-user-drag: none; }
+@media (max-width: 900px) {
+  /* phones: one slide at a time, no row to push */
+  .car.fluid .car-slide { position: static; width: 100% !important; height: auto; transform: none !important; opacity: 1 !important; flex-direction: column; box-shadow: none; }
+  .car.fluid .car-slide.off { display: none; }
+  .car.fluid .car-slide .car-info { width: auto; }
+}

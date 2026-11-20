@@ -1,5 +1,6 @@
 // Home, laid out like a streaming site's browse page: the live channel list on the left (the rail,
-// see App.tsx), the hero scene with the headline across the top, then a row of live cards.
+// see App.tsx), the hero scene with the headline across the top, the carousel of live games directly
+// under it, then a row of live cards.
 import type { Snapshot } from '../lib/api';
 import { PhaseTag, Thumb, listViewers, matchLine, shortCount } from '../components/Rail';
 import { Link } from '../components/bits';
@@ -9,6 +10,7 @@ import { displayTitle, useChannels } from '../lib/channels';
 import { usdShort } from '../lib/money';
 import { channelPath } from '../lib/router';
 import { HomeHero } from '../hero/HomeHero';
+import { Carousel } from '../components/Carousel';
 
 const potOf = (c: Pick<Snapshot, 'windows'>) => {
   const w = [...c.windows].reverse().find((x) => x.state === 'open') ?? c.windows[c.windows.length - 1];
@@ -57,6 +59,7 @@ export function Home() {
         <div className="home-wait">{error ? 'Can’t reach the server. Retrying…' : 'Loading…'}</div>
       ) : (
         <div className="home">
+          <Carousel channels={channels} />
           <section>
             <h2 className="home-h">Live now</h2>
             <div className="cards">
