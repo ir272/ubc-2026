@@ -37,6 +37,22 @@ export interface InkStageOptions extends StageOptions {
 }
 
 const SIDE_TINTS: [string, string] = ['coral', 'blue'];
+
+const BODY_JOINTS = ['hip', 'chest', 'neck', 'head', 'shoulderF', 'elbowF', 'handF', 'shoulderB', 'elbowB', 'handB', 'kneeF', 'footF', 'kneeB', 'footB'] as const;
+
+/** how far (figure units) a spun figure's lowest part reaches below its feet line; 0 when upright */
+function sunk(J: Joints, height: number): number {
+  if (Math.abs(J.spin) < 0.15) return 0;
+  const c = Math.cos(J.spin), sn = Math.sin(J.spin);
+  let low = 0;
+  for (const k of BODY_JOINTS) {
+    const p = J[k];
+    const dx = p[0] - J.hip[0], dy = p[1] - J.hip[1];
+    const y = J.hip[1] + dx * sn + dy * c + (k === 'head' ? height * 0.09 : 5);
+    if (y > low) low = y;
+  }
+  return low;
+}
 const ARENA_PHASES = new Set(['predictions', 'fight', 'break', 'verdict']);
 
 export function createInkStage(el0: HTMLElement, opts: InkStageOptions): Stage {
@@ -207,7 +223,11 @@ export function createInkStage(el0: HTMLElement, opts: InkStageOptions): Stage {
       const a = jump ? 1 : fight.alpha;
       const wx = p.x + (s.x - p.x) * a;
       const wy = p.y + (s.y - p.y) * a;
-      f.figures[side] = makeFigure(side, s, J, f.view.x(wx), f.view.y(wy), f.view.scale / UNITS_PER_M);
+      // lying on a floor (knocked down, spun about the hip): lift the drawing so nothing of it
+      // goes under the deck it lies on
+      const sc = f.view.scale / UNITS_PER_M;
+      const lift = s.grounded ? sunk(J, ch.build.height) : 0;
+      f.figures[side] = makeFigure(side, s, J, f.view.x(wx), f.view.y(wy) - lift * sc, sc);
     }
   }
 

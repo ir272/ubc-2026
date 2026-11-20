@@ -203,7 +203,9 @@ export function createFigures(): InkModule {
     const h = (f.fighterDefs[s.fighter]?.height ?? 2) * UNITS_PER_M * fig.s;
     const head = fig.point('head');
     const ink = makeInk(f.g, 'line');
-    const tint = f.sideTints[fig.side === 0 ? 1 : 0];
+    // whoever rooted it: the Hexer's ward is green, the Wolf's Howl is his side tint
+    const other = fig.side === 0 ? 1 : 0;
+    const tint = f.fight?.state.fighters[other]?.fighter === 'hexer' ? 'green' : f.sideTints[other];
     const t = f.now / 1000;
     const u = Math.max(0.7, fig.s);
     const top = Math.min(head[1], fig.y - h * 0.95) - h * 0.12;

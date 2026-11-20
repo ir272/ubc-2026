@@ -579,7 +579,7 @@ export const COUNT: CharacterDef = {
       const x0 = -62 - i * 14;
       const pts: Pt[] = [];
       for (let j = 0; j <= 4; j++) pts.push([x0 - j * 13, (y + Math.sin(t * 14 + j * 1.3 + i) * 4) * sy]);
-      ink.line(pts, { w: 2.4 - i * 0.4, taper: 0.9, alpha: 0.75, seed: seed + 10 + i });
+      ink.line(pts, { w: 3 - i * 0.4, taper: 0.9, alpha: 0.85, tint: i === 1 ? 'ink' : 'red', seed: seed + 10 + i });
     }
     ink.form(bat(-52, -30, 24, Math.sin(t * 21 + p.id * 1.7 + 2.1)), { w: 1.2, seed: seed + 1 });
     ink.form(bat(-46, 30, 21, Math.sin(t * 23 + p.id * 1.7 + 4.2)), { w: 1.2, seed: seed + 2 });
