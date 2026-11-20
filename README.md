@@ -3,7 +3,7 @@
 Games that never stop. Viewers bet play money on who wins.
 
 **Play it:** https://playghostbet.vercel.app
-**Demo video:** _link to come_
+**Demo video:** https://youtu.be/oBpDdaPGF1c
 
 ![The Ghostbet home page](docs/home.jpg)
 
