@@ -22,7 +22,20 @@ export function CoinIcon({ size = 22 }: { size?: number }) {
   return (
     <svg className="coin" width={size} height={size} viewBox="0 0 24 24" aria-hidden>
       <circle cx="12" cy="12" r="11" fill="var(--accent)" />
-      <path d="M12 5.600v12.800M15.300 8.900c-.500-1.100-1.700-1.700-3.300-1.700-1.900 0-3.200.900-3.200 2.400 0 3.300 6.700 1.500 6.700 4.900 0 1.500-1.400 2.400-3.400 2.400-1.800 0-3.100-.7-3.600-2" fill="none" stroke="var(--on-accent)" strokeWidth="1.800" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7.2 18.6V11.2a4.8 4.8 0 0 1 9.6 0v7.4l-1.6-1.5-1.6 1.5-1.6-1.5-1.6 1.5-1.6-1.5z" fill="var(--on-accent)" />
+      <circle cx="10.2" cy="11.4" r="1" fill="var(--accent)" />
+      <circle cx="13.8" cy="11.4" r="1" fill="var(--accent)" />
+    </svg>
+  );
+}
+
+/** The Souls mark on its own, in the text colour: stands where a currency sign would. */
+export function SoulMark({ size = 16 }: { size?: number }) {
+  return (
+    <svg className="soul-mark" width={size} height={size} viewBox="4 4 16 16" aria-hidden>
+      <path d="M7.2 18.6V11.2a4.8 4.8 0 0 1 9.6 0v7.4l-1.6-1.5-1.6 1.5-1.6-1.5-1.6 1.5-1.6-1.5z" fill="currentColor" />
+      <circle cx="10.2" cy="11.4" r="1" fill="var(--bg)" />
+      <circle cx="13.8" cy="11.4" r="1" fill="var(--bg)" />
     </svg>
   );
 }
@@ -91,7 +104,7 @@ function Deposit() {
         <span className="ink-sr" role="status">{copied ? 'Address copied' : ''}</span>
       </div>
       <Button className="wlt-go" variant="primary" size="lg" block disabled={free === 'busy'} confirmed={free === 'added'} onClick={getFree} data-testid="wallet-free" seed="wlt-free">
-        {free === 'added' ? 'Added' : free === 'already' ? 'Already claimed' : free === 'failed' ? 'Try again in a moment' : `Get free ${CURRENCY.toLowerCase()}`}
+        {free === 'added' ? 'Added' : free === 'already' ? 'Already claimed' : free === 'failed' ? 'Try again in a moment' : `Get free ${CURRENCY}`}
       </Button>
     </>
   );
@@ -145,7 +158,7 @@ function Withdraw() {
       </div>
       <label className="wlt-lab" htmlFor="wlt-amount">Amount</label>
       <div className="wlt-field wlt-input">
-        <span className="wlt-dim">$</span>
+        <SoulMark size={18} />
         <input id="wlt-amount" className="num" value={amount} onChange={(e) => { setAmount(e.target.value.replace(/[^\d.]/g, '')); setErr(null); }} placeholder="0.00" inputMode="decimal" autoComplete="off" data-testid="wallet-amount" />
         <button type="button" className="wlt-max wlt-end" onClick={() => setAmount((balance / UNIT).toFixed(2))} disabled={!balance}>
           Max

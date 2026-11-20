@@ -1,8 +1,9 @@
 export const UNIT = 1_000_000;
-/** What the site calls its money. A placeholder until the platform has a name: change it here only. */
-export const CURRENCY = 'Play dollars';
+/** What the site calls its play money (Ian's name for it, 2026-11-20). Change it here only. */
+export const CURRENCY = 'Souls';
 
-/** Base units → "$1,240". Play money is shown in whole dollars; pass cents: true to show cents. */
+/** Base units → "1,240". Souls have no currency sign in text (the ghost mark stands beside them where one is
+ * needed); shown whole, or with cents when cents: true. */
 export function usd(base: number, opts: { cents?: boolean; sign?: boolean } = {}): string {
   const dollars = base / UNIT;
   const cents = opts.cents ?? false;
@@ -11,15 +12,15 @@ export function usd(base: number, opts: { cents?: boolean; sign?: boolean } = {}
     maximumFractionDigits: cents ? 2 : 0,
   });
   const sign = dollars < 0 ? '-' : opts.sign ? '+' : '';
-  return `${sign}$${s}`;
+  return `${sign}${s}`;
 }
 
-/** Compact, for pools: $1.2k */
+/** Compact, for pools: 1.2k */
 export function usdShort(base: number): string {
   const d = base / UNIT;
-  if (d >= 10_000) return `$${(d / 1000).toFixed(0)}k`;
-  if (d >= 1000) return `$${(d / 1000).toFixed(1)}k`;
-  return `$${Math.round(d).toLocaleString('en-US')}`;
+  if (d >= 10_000) return `${(d / 1000).toFixed(0)}k`;
+  if (d >= 1000) return `${(d / 1000).toFixed(1)}k`;
+  return `${Math.round(d).toLocaleString('en-US')}`;
 }
 
 export const mult = (x: number | null) =>

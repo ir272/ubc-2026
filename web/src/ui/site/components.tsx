@@ -191,7 +191,7 @@ function MenuExample({ align }: { align?: 'start' | 'end' }) {
         align={align}
         trigger={<Button>Wallet</Button>}
         items={[
-          { id: 'add', label: 'Add play money', hint: '+1,000', onSelect: () => setLast('Add play money') },
+          { id: 'add', label: 'Add Souls', hint: '+1,000', onSelect: () => setLast('Add Souls') },
           { id: 'history', label: 'Bet history', onSelect: () => setLast('Bet history') },
           { id: 'copy', label: 'Copy address', onSelect: () => setLast('Copy address') },
           { id: 'out', label: 'Disconnect', onSelect: () => setLast('Disconnect') },
@@ -441,7 +441,7 @@ export const COMPONENTS: Record<string, Doc> = {
     group: 'Overlays', title: 'Menu',
     lede: 'A list of actions that opens from a button.',
     preview: <MenuExample />,
-    usage: `import { Menu, Button } from './ui';\n\n<Menu\n  label="Wallet"\n  trigger={<Button>Wallet</Button>}\n  items={[\n    { id: 'add', label: 'Add play money', hint: '+1,000', onSelect: addMoney },\n    { id: 'out', label: 'Disconnect', onSelect: disconnect },\n  ]}\n/>`,
+    usage: `import { Menu, Button } from './ui';\n\n<Menu\n  label="Wallet"\n  trigger={<Button>Wallet</Button>}\n  items={[\n    { id: 'add', label: 'Add Souls', hint: '+1,000', onSelect: addMoney },\n    { id: 'out', label: 'Disconnect', onSelect: disconnect },\n  ]}\n/>`,
     examples: [{ title: 'Lined up with the right edge', note: 'For a button near the right of the page, such as the wallet in the header.', node: <MenuExample align="end" /> }],
     props: [['label', 'string', '', 'Required. Names the menu.'], ['trigger', 'element', '', 'The button that opens it.'], ['items', '{ id, label, hint?, disabled?, onSelect }[]', '', 'The actions, in order.'], ['align', "'start' | 'end'", "'start'", 'Which edge of the trigger it lines up with.'], SEED],
     a11y: ['Arrow keys move, Home and End jump, a letter jumps to the item that starts with it, Enter chooses, Escape closes and returns focus to the button.', 'Opened from the keyboard it appears at once, with focus on the first item.', 'A click outside closes it.'],

@@ -81,3 +81,6 @@
   .app .bm, .wlt[open], .wlt[open]::backdrop, .wlt-panel { animation: none; }
   .wlt-tab-pill, .wlt-icon, .wlt-max, .wlt-field { transition: none; }
 }
+
+/* the Souls mark where a currency sign would stand */
+.soul-mark { flex: none; color: var(--text-2); }

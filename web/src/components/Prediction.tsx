@@ -304,7 +304,7 @@ function Open(p: {
                 }
               }}
             >
-              {`$${d}`}
+              {String(d)}
             </Button>
           ))}
         </div>
@@ -315,7 +315,7 @@ function Open(p: {
               ? n > 2
                 ? 'Pick one'
                 : 'Pick a side'
-              : `${staked ? 'Add' : 'Bet'} $${amt}${est != null ? ` to win ${usd(est, { cents: false })}` : ''}`}
+              : `${staked ? 'Add' : 'Bet'} ${amt}${est != null ? ` to win ${usd(est, { cents: false })}` : ''}`}
         </Button>
         {(err || pick != null) && (
           <div className={`pc-note pc-placed ${err ? 'bad' : ''}`} data-testid="ticket" data-look={err ? 'failed' : 'placed'}>
@@ -380,7 +380,7 @@ function Result(p: { w: WindowView; entrants: Entrant[]; ticket: Ticket | null; 
     cls = 'win';
   } else if (stake > 0) {
     label = payout > 0 ? 'Refunded' : 'Your bet lost';
-    big = payout > 0 ? `${usd(stake)} → ${usd(payout)}` : `${usd(stake)} → $0`;
+    big = payout > 0 ? `${usd(stake)} → ${usd(payout)}` : `${usd(stake)} → 0`;
     cls = 'loss';
   }
   return (
