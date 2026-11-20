@@ -4,7 +4,7 @@
 
 A three-round knockout show. Sixteen Gumbles from a house roster of 24 race through a toy attic.
 Round One cuts 16 to 8, Round Two cuts 8 to 4, and the Final has one winner. Nobody plays: viewers
-watch and bet on who wins the show. Channel id `tumbletop`, dev port 5201.
+watch and bet on who wins each round. Channel id `tumbletop`, dev port 5201.
 
 Every name, character, course and piece of art is our own.
 
@@ -68,11 +68,13 @@ timings, about 100 s) and checks what a viewer's socket receives. It edits nothi
 | round | the race events on the clock | 3 2 1, the race (one tracking shot on the fight for the last place, one cut to the line camera as that place is taken), the cut |
 | recap | event `recap`, 8 s | who went out and how, who is through, a clock to the next line-up |
 | (line-up to recap repeat for Round Two; line-up to round for the Final) | | |
-| result | event `result`, `settle` on all three windows, `end`, 14 s | the winner, the viewer's pick, a clock to the next show |
+| result | event `result`, `settle` on the Final's window (Rounds One and Two were paid as they ended), `end`, 14 s | the winner, the viewer's pick, a clock to the next show |
 
-Three windows, one per round, each asking "Who wins the show?" with the Gumbles still in it
-(16, 8, 4 outcomes). Each window is seeded and its seed runs the round that follows. All three
-settle on the show winner at the end. A show runs about 4:35 at the real window lengths; the races
+Three windows, one per round, each its own bet among the Gumbles still in: "Who wins Round One?"
+(16 outcomes), "Who wins Round Two?" (8), "Who wins the Final?" (4). Each window is paid when its
+round ends, on the Gumble who crossed the line first in that round: `simulate({ seed, entrants,
+options: { round } }).result.winnerId` for that window's seed and that round's entrants (the first
+of `result.qualified`, place 1). The Final's winner is the show's winner. Each window is seeded and its seed runs the round that follows. A show runs about 4:35 at the real window lengths; the races
 run about 41 s, 35 s and 23 s. The longest stretch with no window open is about 65 s (across the
 result into the next show).
 

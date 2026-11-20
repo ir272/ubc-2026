@@ -8,8 +8,15 @@
 //     lock                        the seed for this round now exists; the stage marks the lock
 //     emit 'round'                3 2 1, then the round replays from the seed on every client
 //     emit the race events        for tickers and chat
+//     settle the round's window   on the contestant who crossed the line first in THIS round
 //     emit 'recap'                who went out and how (rounds one and two)
-//   emit 'result', settle the three windows on the show winner, end
+//   emit 'result', end
+//
+// Each window is its own bet ("Who wins Round One?", "Who wins Round Two?", "Who wins the Final?")
+// and is paid when its round ends: its winner is `simulate(...).result.winnerId` for that round's
+// seed and entrants, which is the first of `result.qualified` (place 1). The Final's winner is the
+// show's winner. A round always has a winner: if the clock ever ran out before anyone finished,
+// the best placed takes place 1 (it never has in 2000 test shows).
 import { ROUNDS } from '../sim/rounds.js';
 import { gumble } from '../sim/roster.js';
 import { simulate } from '../sim/simulate.js';
@@ -24,7 +31,9 @@ export const DEFAULT_TIMINGS = {
   resultMs: 14000,                // the winner
 };
 
-export const QUESTION = 'Who wins the show?';
+/** The bet of each round's window, in round order. */
+export const QUESTIONS = ['Who wins Round One?', 'Who wins Round Two?', 'Who wins the Final?'];
+export const questionFor = (round) => QUESTIONS[round] ?? QUESTIONS[QUESTIONS.length - 1];
 
 /** Entrants for `announce`: roster ids -> platform Entrant objects with records. */
 export function toEntrants(ids, records = {}) {
@@ -64,18 +73,22 @@ export async function runShow(show, { entrants, records = {}, simHash = '', matc
   await show.sleep(T.callMs);
 
   let field = entrants.slice();
-  const wins = [];
   const rounds = [];
+  // A window is paid as its round ends. If the platform cannot settle at that moment the show
+  // goes on, and the window is tried once more before the show ends (then the error is the show's).
+  const unpaid = [];
+  const settle = async (win, id) => {
+    try { await show.settle(win, id); } catch (err) { unpaid.push({ win, id, err }); }
+  };
   let last = null;
   for (let r = 0; r < ROUNDS.length; r++) {
     const win = await show.openWindow({
-      question: QUESTION,
+      question: questionFor(r),
       outcomes: field.map((id) => ({ id, label: gumble(id).name, entrantId: id })),
       durationMs: T.betMs[r] ?? T.betMs[T.betMs.length - 1],
       seeded: true,
       simHash: simHash || undefined,
     });
-    wins.push(win);
     const { seed } = await show.lock(win);
     if (!seed) throw new Error('tumbletop needs a seeded window');
 
@@ -88,11 +101,15 @@ export async function runShow(show, { entrants, records = {}, simHash = '', matc
       show.emit({ type: ev.type, at: startAt + ev.at, data: { ...ev.data, round: r } });
     }
     const final = r === ROUNDS.length - 1;
+    await until(startAt + sim.durationMs);
+    // the round is over: pay its window on who crossed the line first (inside the cut beat, which
+    // absorbs the time the payout takes; the final's window is paid after its result has aired)
+    if (!final) await settle(win, sim.result.winnerId);
     await until(startAt + sim.durationMs + (final ? T.finalCutMs : T.cutMs));
-    last = { round: r, seed, entrants: field, qualified: sim.result.qualified, eliminated: sim.result.eliminated, notes: sim.result.notes };
-    rounds.push({ round: r, seed, qualified: last.qualified, eliminated: last.eliminated });
+    last = { round: r, seed, entrants: field, qualified: sim.result.qualified, eliminated: sim.result.eliminated, notes: sim.result.notes, win };
+    rounds.push({ round: r, seed, winnerId: sim.result.winnerId, qualified: last.qualified, eliminated: last.eliminated });
     if (!final) {
-      show.emit({ type: 'recap', at: at(), data: { ...last, durationMs: T.recapMs } });
+      show.emit({ type: 'recap', at: at(), data: { round: r, seed, entrants: field, qualified: last.qualified, eliminated: last.eliminated, notes: last.notes, durationMs: T.recapMs } });
       await show.sleep(T.recapMs);
     }
     field = sim.result.qualified;
@@ -101,7 +118,8 @@ export async function runShow(show, { entrants, records = {}, simHash = '', matc
   const winnerId = field[0];
   const order = [winnerId, ...last.eliminated];
   show.emit({ type: 'result', at: at(), data: { winnerId, order, seed: last.seed, entrants: last.entrants, notes: last.notes, rounds, nextShowMs: T.resultMs + intermissionMs } });
-  for (const w of wins) await show.settle(w, winnerId);
+  await settle(last.win, winnerId);
+  for (const u of unpaid.splice(0)) await show.settle(u.win, u.id);
   const result = { winnerId, order, rounds, entrants };
   show.end(result);
   await show.sleep(T.resultMs);

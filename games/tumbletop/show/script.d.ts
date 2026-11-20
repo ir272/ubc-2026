@@ -10,13 +10,14 @@ export interface ShowTimings {
   resultMs: number;
 }
 export const DEFAULT_TIMINGS: ShowTimings;
-export const QUESTION: string;
+export const QUESTIONS: string[];
+export function questionFor(round: number): string;
 
 export interface ShowResult {
   winnerId: string;
   order: string[];
   entrants: string[];
-  rounds: { round: number; seed: string; qualified: string[]; eliminated: string[] }[];
+  rounds: { round: number; seed: string; winnerId: string; qualified: string[]; eliminated: string[] }[];
 }
 
 /** The subset of the platform's Show that the script uses (runner/src/types.ts is assignable to it). */

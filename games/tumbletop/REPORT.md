@@ -44,7 +44,8 @@ files (both need the owner; see the end). Nothing is committed.
   by one section. Median races 40.9 s, 34.8 s and 22.6 s.
 - **The show** (`show/script.js`): call, then for each round a title call, a line-up with the
   window open, the lock, the race, the cut and a recap; then the result. Three seeded windows of
-  16, 8 and 4 outcomes, each seed running the round that follows, all settled on the show winner.
+  16, 8 and 4 outcomes, each seed running the round that follows. (Since 2026-11-20 each window is its own
+  bet, "Who wins Round One / Round Two / the Final?", paid on that round's first across the line.)
   About 4:35 at the real window lengths.
 - **The stage** (`web/src/stage.js`, mounted by `index.ts`): draws only from feed messages, replays
   each round from its seed in step with the channel's clock, and joins at any second from a snapshot.

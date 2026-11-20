@@ -497,3 +497,18 @@ third hit sound (the other three are deleted). He picked nothing for the last se
 close or for the winner's crowd, so those stay silent. Every effect is set to peak at -6 dBFS and
 is otherwise untouched; the music now eases 3 dB under the applause. Sources and licences in
 `ASSETS.md`.
+
+**The bet changed (Fri 2026-11-20, about 07:15).** The owner, relayed by the main session: "i think
+we need to change the prediction for goober guys. the current one doesnt make much sense"; of four
+options he picked "Winner of each round". So the three windows now ask "Who wins Round One?" (16),
+"Who wins Round Two?" (8) and "Who wins the Final?" (4), and each is paid when its round ends on
+the Gumble who crossed the line first in that round (`simulate(...).result.winnerId`, place 1); the
+Final's winner is still the show's winner. Rounds, timings, who goes through and the simulation are
+unchanged (SIM_HASH is the same). The payout for Rounds One and Two happens inside the 5 s cut beat;
+the Final's after its result has aired. If the platform cannot settle at that moment the show goes
+on and the window is tried once more before the show ends. Tests 19 of 19, the real-runner check
+passes ("each window settles on its own round winner").
+**Not changed, and now out of step with the bet:** the race camera and the standings are built
+around the cut line (who takes the last place through), not around who crosses first. The round's
+winner is row 1 of the standings, but the Director camera may be on the fight for the last place
+when the winner crosses. The Leader camera follows first place.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Runs the Tumbletop channel on the REAL platform runner (../../runner, memory chain, nothing
 // edited there) with short show timings, on a spare port, and checks what a viewer's socket gets:
-// the message order, three seeded windows of 16, 8 and 4 outcomes, all settled on the show winner,
+// the message order, three seeded windows of 16, 8 and 4 outcomes, each settled on its own round's winner,
 // a bet that pays, and a mid-show snapshot that carries the `round` event the stage needs to join.
 // Races still air in real time, so this takes about 90 s.
 //   node tools/platform-smoke.mjs
@@ -68,7 +68,7 @@ try {
   check(locks.length === 3 && locks.every((l) => /^[0-9a-f]{64}$/.test(l.seed || '')), 'every lock publishes a seed');
   check(rounds.length === 3 && rounds.every((r, i) => r.event.data.seed === locks[i].seed), 'each round runs on the seed of its own window');
   check(rounds.every((r, i) => show.indexOf(r) > show.indexOf(locks[i])), 'no round event before its window locked');
-  check(!!result && settles.length === 3 && settles.every((s) => s.winnerOutcomeId === result.event.data.winnerId), 'all three windows settle on the show winner');
+  check(!!result && settles.length === 3 && settles.every((s, i) => s.winnerOutcomeId === result.event.data.rounds[i]?.winnerId) && settles[2].winnerOutcomeId === result.event.data.winnerId, 'each window settles on its own round winner (the last on the show winner)');
   check(!!end && end.result?.winnerId === result?.event.data.winnerId, 'match_end carries the winner');
   check(settles.some((s) => (s.payouts || []).some((p) => p.owner && p.amount > 0)), 'the test viewer was paid');
   const snapRound = midSnapshot?.recentEvents?.filter((e) => e.type === 'round').pop();

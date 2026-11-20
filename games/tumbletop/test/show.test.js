@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { virtualClock } from '../show/clock.js';
 import { createFakeShow } from '../show/fakeShow.js';
-import { runShow, DEFAULT_TIMINGS, QUESTION } from '../show/script.js';
+import { runShow, DEFAULT_TIMINGS, QUESTIONS } from '../show/script.js';
 import { emptyRecords, pickEntrants, applyShow, normaliseRecords } from '../show/records.js';
 import { simulate, ROSTER } from '../sim/index.js';
 import { Rng } from '../sim/rng.js';
@@ -29,7 +29,9 @@ test('a whole show airs in 4 to 5 minutes with a window at least every 90 s', as
   const opens = feed.filter((m) => m.type === 'window_open');
   const locks = feed.filter((m) => m.type === 'window_locked');
   assert.deepEqual(opens.map((o) => o.outcomes.length), [16, 8, 4]);
-  assert.ok(opens.every((o) => o.question === QUESTION && o.seeded));
+  assert.deepEqual(opens.map((o) => o.question), QUESTIONS);
+  assert.deepEqual(QUESTIONS, ['Who wins Round One?', 'Who wins Round Two?', 'Who wins the Final?']);
+  assert.ok(opens.every((o) => o.seeded));
   // closed gaps between windows, and from the last lock round to the next show's first window
   for (let i = 1; i < 3; i++) assert.ok(opens[i].t - locks[i - 1].t <= 90000, `gap before window ${i + 1}: ${(opens[i].t - locks[i - 1].t) / 1000} s`);
   const tail = t0 + seconds * 1000 - locks[2].t + 6000 + DEFAULT_TIMINGS.callMs;
@@ -47,12 +49,13 @@ test('bets lock before the outcome exists: nothing about a round is emitted befo
   }
 });
 
-test('the feed lets a client replay every round, and all windows settle on the winner', async () => {
+test('the feed lets a client replay every round, and each window settles on its own round\'s winner as the round ends', async () => {
   const { feed, result } = await playShow(13);
   const locks = feed.filter((m) => m.type === 'window_locked');
   const rounds = feed.filter((m) => m.type === 'event' && m.event.type === 'round').map((m) => m.event);
   assert.equal(rounds.length, 3);
   let field = null;
+  const roundWinners = [];
   rounds.forEach((ev, i) => {
     assert.equal(ev.data.seed, locks[i].seed);
     if (field) assert.deepEqual(ev.data.entrants, field);
@@ -60,11 +63,24 @@ test('the feed lets a client replay every round, and all windows settle on the w
     assert.equal(sim.durationMs, ev.data.durationMs);
     assert.ok(ev.data.startAt > ev.at, 'the round starts after its title call');
     field = sim.result.qualified;
+    roundWinners.push(sim.result.winnerId);
+    assert.equal(sim.result.winnerId, sim.result.qualified[0]);
+    assert.equal(sim.result.order[0].id, sim.result.winnerId, 'the round winner is place 1');
   });
   assert.equal(field[0], result.winnerId);
   const settles = feed.filter((m) => m.type === 'window_settled');
   assert.equal(settles.length, 3);
-  assert.ok(settles.every((s) => s.winnerOutcomeId === result.winnerId));
+  // window i is paid on round i's winner: the seed of that window and its entrants are enough to recompute it
+  assert.deepEqual(settles.map((s) => s.winnerOutcomeId), roundWinners);
+  assert.equal(settles[2].winnerOutcomeId, result.winnerId, 'the Final is the show');
+  assert.deepEqual(result.rounds.map((r) => r.winnerId), roundWinners);
+  // each window is paid before the next one opens (rounds one and two: before their recap), and the last after the result
+  const opens = feed.filter((m) => m.type === 'window_open');
+  const recapAt = feed.filter((m) => m.type === 'event' && m.event.type === 'recap').map((m) => feed.indexOf(m));
+  const at = (m) => feed.indexOf(m);
+  assert.ok(at(settles[0]) < recapAt[0] && at(settles[0]) < at(opens[1]));
+  assert.ok(at(settles[1]) < recapAt[1] && at(settles[1]) < at(opens[2]));
+  assert.ok(at(settles[2]) > at(feed.find((m) => m.type === 'event' && m.event.type === 'result')));
   const recaps = feed.filter((m) => m.type === 'event' && m.event.type === 'recap');
   assert.equal(recaps.length, 2);
   for (const r of recaps) for (const n of r.event.data.notes) assert.ok(n.text.split(/\s+/).length <= 8, n.text);
