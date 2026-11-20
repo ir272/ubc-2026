@@ -70,7 +70,7 @@ export const base = (o: Partial<Tokens>): Tokens => ({
   ...o,
 });
 
-const text = (style: React.CSSProperties, word = 'ARENA') => () => (
+const text = (style: React.CSSProperties, word = 'Ghostbet') => () => (
   <span className="wm" style={style}>
     {word}
   </span>
@@ -174,7 +174,7 @@ export const terminal: ThemeDef = {
     '--btn-h': '30px',
     '--btn-lg': '40px',
   }),
-  Wordmark: text({ fontFamily: JBM, fontWeight: 700, fontSize: 17, letterSpacing: '0.04em' }, 'ARENA'),
+  Wordmark: text({ fontFamily: JBM, fontWeight: 700, fontSize: 17, letterSpacing: '0.04em' }, 'Ghostbet'),
 };
 
 export const mono: ThemeDef = {
@@ -237,7 +237,7 @@ export const cobalt: ThemeDef = {
     '--btn-h': '36px',
     '--btn-lg': '48px',
   }),
-  Wordmark: text({ fontFamily: OUTFIT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.01em' }, 'arena'),
+  Wordmark: text({ fontFamily: OUTFIT, fontWeight: 700, fontSize: 22, letterSpacing: '-0.01em' }, 'ghostbet'),
 };
 
 // Deep navy with an indigo-blue action colour and soft 10px corners: taken from the wallet header

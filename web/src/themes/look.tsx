@@ -214,7 +214,7 @@ export function currentLook(): Look {
 }
 
 function Wordmark() {
-  return <span className="wm wm-look">ARENA</span>;
+  return <span className="wm wm-look">Ghostbet</span>;
 }
 
 export function lookTheme(l: Look): ThemeDef {

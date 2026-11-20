@@ -607,7 +607,7 @@ export const bloodMoon: GameGuide = {
     },
     {
       name: "Stages and the stage strike",
-      intro: "Six stages are offered before each match. Each AI lists them in the order it would cross them out; the two take turns crossing out their next stage still standing until one is left. Who strikes first alternates from match to match. A list that comes late or incomplete is finished at random. The strike lists are asked for at the same time as the fighter picks, before either side knows the other's fighter.",
+      intro: "The stage strike is for show: by design every stage plays on the same layout, so the stage does not change who wins. Six stages are offered before each match. Each AI lists them in the order it would cross them out; the two take turns crossing out their next stage still standing until one is left. Who strikes first alternates from match to match. A list that comes late or incomplete is finished at random. The strike lists are asked for at the same time as the fighter picks, before either side knows the other's fighter.",
       entries: [
         { name: "The Belfry", does: "Scenery only: every stage plays on the same layout." },
         { name: "The Long Shelf", does: "Scenery only." },
@@ -631,8 +631,8 @@ export const bloodMoon: GameGuide = {
     },
   ],
   beforeYouBet: [
-    "Both fighters are known before the first window opens. In 2880 scripted test fights (sim version ringout-sim-6, about 4 points of noise) every fighter won between 45.6% and 55.1% overall: the Wolf 55.1, the Hexer 52.5, the Count 50.4, the Empty Armour 48.9, the Mimic 47.5, the Magpie 45.6.",
-    "Matchups matter more than the fighter. Lopsided in those tests: the Wolf beats the Magpie 72% of the time, the Hexer beats the Mimic 67%, the Mimic beats the Magpie 64%, the Count beats the Mimic 59%, the Magpie beats the Hexer 58% and the Count 56%. Every other pairing was within 44 to 56%.",
+    "Both fighters are known before the first window opens. The win rates below were measured before the final balance pass and may change. In 2880 scripted test fights (sim version ringout-sim-6, about 4 points of noise) every fighter won between 45.6% and 55.1% overall: the Wolf 55.1, the Hexer 52.5, the Count 50.4, the Empty Armour 48.9, the Mimic 47.5, the Magpie 45.6.",
+    "Matchups matter more than the fighter. Lopsided in those tests (measured before the final balance pass; may change): the Wolf beats the Magpie 72% of the time, the Hexer beats the Mimic 67%, the Mimic beats the Magpie 64%, the Count beats the Mimic 59%, the Magpie beats the Hexer 58% and the Count 56%. Every other pairing was within 44 to 56%.",
     "Weight decides how long a fighter lives at high damage: the Magpie (84) and the Hexer (88) fly furthest, the Mimic (120) and the Empty Armour (112) the least.",
     "Abilities do 30 to 51% of all damage (the Magpie least, the Mimic and the Empty Armour most), so watch who lands them.",
     "In the windows between lives you see lives and damage. The fighter who just came back starts at 0 damage; the other keeps theirs.",
@@ -641,7 +641,7 @@ export const bloodMoon: GameGuide = {
   ],
   fairness: [
     "Fighter picks are made at the same time and hidden until both flip together. A pick that does not arrive in time becomes a random fighter.",
-    "The fight's dice come from the seed produced when the first window closes, so the fight does not exist while that bet is open. The stage is scenery and changes nothing.",
+    "The fight's dice come from the seed produced when the first window closes, so the fight does not exist while that bet is open. The stage strike is for show and does not change who wins.",
     "The AI coaches' plans arrive during the fight and are published in the feed as they are scheduled; a late or broken answer changes nothing (the old plan stays). The fight never waits for a model.",
     "The windows between lives are not seeded: they are bets on a fight already in progress, with the score in view.",
     "Ties are settled by the rules: more lives at 3 minutes, then the first knockout in sudden death, then lower damage, and an exact tie by the seed.",
@@ -675,11 +675,11 @@ export const bloodMoon: GameGuide = {
 // Goober Guys (games/tumbletop)
 // ------------------------------------------------------------------------------------------------
 
-/** one contestant: stats from sim/roster.js, rates from data/checks-2000.json (2000 simulated shows) */
+/** one contestant: stats and best-stat word from sim/roster.js, rates from data/checks-2000.json (2000 simulated shows) */
 function contestant(name: string, speed: number, grip: number, bounce: number, nerve: number, trait: string, win: string, final: string, r2: string): GuideEntry {
   return {
     name,
-    does: `${trait}.`,
+    does: `Best stat: ${trait}.`,
     numbers: { Speed: speed, Grip: grip, Bounce: bounce, Nerve: nerve, "Won (test shows)": win, "Reached the Final": final, "Reached Round Two": r2 },
   };
 }
@@ -693,7 +693,7 @@ export const gooberGuys: GameGuide = {
     "Who wins the show? before Round One: 16 outcomes, open 40 seconds.",
     "Who wins the show? before Round Two: the 8 still in, open 30 seconds.",
     "Who wins the show? before the Final: the last 4, open 30 seconds.",
-    "Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.",
+    "On the stream the clock reads \"Bets open in\", then \"Bets close in\", then \"Bets closed\". Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.",
   ],
   groups: [
     {
@@ -702,26 +702,30 @@ export const gooberGuys: GameGuide = {
         {
           name: "The field",
           does: "Before each show the channel picks the 16 of 24 who have run the fewest shows (ties at random), so everyone runs about as often.",
-          numbers: { Roster: 24, "Run per show": 16, "Show length": "about 4 min 35 s" },
+          numbers: { Roster: 24, "Run per show": 16, "Show length": "about 4 and a half minutes" },
         },
         {
           name: "Going through",
-          does: "The first contestants across the line go through; the rest are out. In the Final the first across wins.",
+          does: "The first contestants across the line go through; the rest are out. The standings on the stream say \"Top 8 go through\" or \"Top 4 go through\", mark \"your pick\" and \"out\". After Rounds One and Two the show cuts to a shelf of all sixteen with shutters on those knocked out, then \"8 remain\" or \"4 remain\". In the Final the first across wins.",
           numbers: { "Round One": "16 start, 8 go through", "Round Two": "8 start, 4 go through", "The Final": "4 start, 1 wins" },
         },
         {
           name: "Falls",
-          does: "A contestant that falls off drops back in at the last checkpoint it passed, after a short wait. A fall costs a few seconds and some ground, not the round.",
-          numbers: { "Wait before dropping back in": "1.5 s, from 2.25 s (bounce 2) to 0.75 s (bounce 9)" },
+          does: "A contestant that falls off drops back in at the last checkpoint it passed. A fall costs a few seconds and some ground, not the round.",
+          numbers: {
+            "Wait before dropping back in": "1.5 s, shorter with more bounce (longest in the roster 2.04 s)",
+            "From going off the edge to dropping back in": "1.1 to 2.9 s, typically 2.2 s",
+            "Then, before it can move": "0.33 s",
+          },
         },
         {
           name: "Catching up",
-          does: "After the first 4 seconds, a contestant outside the qualifying places pushes: a little more pace and much bolder lines. In the Final the further behind the leader, the harder it pushes. Leads are not safe.",
-          numbers: { "Outside the places": "+5% pace", "Final, 8 m or more behind": "up to +18% pace more" },
+          does: "After the first 4 seconds, a contestant outside the qualifying places pushes: a little more pace and much bolder lines. In the Final everyone but the leader counts as outside the places, and the further behind the leader, the harder it pushes. Leads are not safe.",
+          numbers: { "Outside the places": "+5% pace", "Final": "a further +18% at 8 m or more behind the leader (+23% in all), less when closer" },
         },
         {
           name: "Contact",
-          does: "Contestants barge each other (the one barged into stumbles) and the boldest grab the one in front, which slows both. Grip makes a contestant harder to barge.",
+          does: "A contestant running into another at more than 6 m/s may knock it into a stumble; the chance depends on the barger and on the victim's grip, and above 8.5 m/s the victim is sent sprawling. The boldest grab the one in front, which slows both.",
           numbers: { "Who grabs": "nerve 7 or more", "Grab": "slows both for 0.6 s" },
         },
         {
@@ -733,55 +737,63 @@ export const gooberGuys: GameGuide = {
     },
     {
       name: "The four stats",
-      intro: "Every contestant has speed, grip, bounce and nerve from 2 to 9, adding up to 22. They never change. The one word shown with a contestant is its best stat (on a tie, the first of speed, grip, bounce, nerve).",
+      intro: "Every contestant has speed, grip, bounce and nerve from 2 to 9, adding up to 22. They never change. The stream shows names only; the stats and the one-word best stat (on a tie, the first of speed, grip, bounce, nerve) are the guide's own information, from the game's roster.",
       entries: [
         {
-          name: "Speed (shown as Quick)",
-          does: "Flat-out pace and how fast it gets back up to it. The day's form adds a small random wobble from the seed.",
-          numbers: { "Top speed": "8.8 m/s at 2 to 10.05 m/s at 9", "Day's form": "about 0.14 m/s either way" },
+          name: "Speed (best-stat word: Quick)",
+          does: "Flat-out pace and how fast it gets back up to it. Each round the seed adds a fresh small wobble to top speed, the contestant's form for that round.",
+          numbers: { "Top speed": "8.8 m/s at 2 to 10.05 m/s at 9 (0.18 m/s per point)", "Form each round": "typically about 0.14 m/s either way, at most about 0.48" },
           tip: "The stat that matters most over a whole show: the fastest third won 7.3% of shows entered, the slowest third 5.5% (2000 test shows).",
         },
         {
-          name: "Grip (shown as Sure-footed)",
-          does: "Footing: stays steady on the tipping rulers, is thrown less far by a hit and is knocked over less by barges.",
+          name: "Grip (best-stat word: Sure-footed)",
+          does: "Footing: stays steady on the tipping rulers (less likely to slip off), is thrown less far by a hit and is knocked over less by barges.",
           numbers: { "Thrown by a hit": "x1.12 at 2 to x0.82 at 9", "Knocked over by a barge": "x1.25 at 2 to x0.65 at 9" },
-          tip: "Counts in Round One: the two grippiest (Bramble 9, Pemberton 8) reached Round Two 64% and 62% of the time, the least grippy (Wobble 2) 34%.",
+          tip: "Counts in Round One: Bramble (grip 9) and Pemberton (grip 8) reached Round Two 64% and 62% of the time, Wobble (grip 2) 34%. The other two with grip 8, Dumpling and Turnip, reached it 54.7% and 50.0%.",
         },
         {
-          name: "Bounce (shown as Bouncy)",
+          name: "Bounce (best-stat word: Bouncy)",
           does: "Bounces back: less time on the floor after a hit and a shorter wait to drop back in after a fall.",
           numbers: { "Time down": "x1.5 at 2 to x0.5 at 9" },
         },
         {
-          name: "Nerve (shown as Fearless)",
-          does: "Takes the bold line: cooler timing at hazards and smaller safety margins, but more slips, more contact, and grabs at nerve 7 or more. Quicker, and hit more often.",
-          numbers: { "Hazard timing": "60% at 2 to 90% at 9", "Chance to misjudge a hazard": "2% at 2 to 5.5% at 9" },
-          tip: "Counts in Round Two: the two with nerve 8 (Ziggy, Gherkin) reached the Final 33% and 31% of the time, against 25% on average.",
+          name: "Nerve (best-stat word: Fearless)",
+          does: "Takes the bold line: tighter timing at hazards and smaller safety margins, but more misjudged hazards, more grabs (at nerve 7 or more) and barges that knock others over more often. Quicker, and hit more often.",
+          numbers: {
+            "Hazard timing error": "about 0.04 s at nerve 2 to 0.01 s at nerve 9",
+            "Chance to misjudge, per decision (several a second)": "2% at 2 to 5.5% at 9; about 3% to 5% across the roster (nerve 4 to 8)",
+          },
+          tip: "Mixed in the test data: the two with nerve 8 (Ziggy, Gherkin) reached the Final 33% and 31% of the time against 25% on average, but the four with nerve 7 reached it only 22.7% to 24.2%.",
         },
       ],
     },
     {
       name: "The rounds",
+      intro: "The tips here are the guide's own, from the game's design notes and the test data; the stream does not show them.",
       entries: [
         {
           name: "Round One: Tops, Marbles and Rulers",
           does: "Off the game board, through the spinning tops, up the bookshelf past rolling marbles, and over the tipping rulers.",
-          numbers: { Start: 16, "Go through": 8, "Typical race": "41 s", "The show's hint": "Grip counts most here." },
+          numbers: { Start: 16, "Go through": 8, "Typical race": "41 s" },
+          tip: "Grip counts most here.",
         },
         {
           name: "Round Two: Metronomes and the Block Maze",
           does: "Across the crayon bridges under swinging metronomes, then through the block maze.",
-          numbers: { Start: 8, "Go through": 4, "Typical race": "35 s", "The show's hint": "Speed and nerve count most here." },
+          numbers: { Start: 8, "Go through": 4, "Typical race": "35 s" },
+          tip: "In tests the two with nerve 8 (Ziggy, Gherkin) did well here; nerve 7 did not.",
         },
         {
           name: "The Final: The Block Maze",
           does: "The block maze again, then the dash under the giant spinning pencil to the arch.",
-          numbers: { Start: 4, Winner: 1, "Typical race": "23 s", "The show's hint": "Speed helps. The blocks decide." },
+          numbers: { Start: 4, Winner: 1, "Typical race": "23 s" },
+          tip: "Speed helps. The blocks decide.",
         },
       ],
     },
     {
       name: "The obstacles",
+      intro: "The obstacles move the same way every race; they use no seed.",
       entries: [
         { name: "Game Board Start", does: "The start grid. No hazards. Round One starts in two rows of eight; the back row stands about 2 m behind." },
         {
@@ -807,7 +819,7 @@ export const gooberGuys: GameGuide = {
         {
           name: "Alphabet Block Maze",
           does: "Five rows of block walls with gaps. Some gaps hold a ram block that rocks back and shoves across, and giant 4 m blocks cartwheel across the corridors between rows, so crossing is a timing call.",
-          numbers: { Rows: 5, "Ram blocks": 5, "Cartwheeling blocks": 8 },
+          numbers: { Rows: 5, "Ram blocks": 4, "Cartwheeling blocks": 8 },
         },
         {
           name: "Final Dash",
@@ -818,7 +830,7 @@ export const gooberGuys: GameGuide = {
     },
     {
       name: "The contestants",
-      intro: "All 24, with their permanent stats and how they did in 2000 simulated shows (the average is 6.25% wins, 25% Finals and 50% Round Two). A contestant's recent form is shown as letters, latest first: W won, F reached the Final, 2 out in Round Two, 1 out in Round One.",
+      intro: "All 24, with their permanent stats and how they did in 2000 simulated shows (the average is 6.25% wins, 25% Finals and 50% Round Two).",
       entries: [
         contestant("Juniper", 9, 4, 4, 5, "Quick", "8.3%", "27.0%", "52.1%"),
         contestant("Noodle", 8, 3, 6, 5, "Quick", "9.0%", "25.6%", "45.4%"),
@@ -850,16 +862,16 @@ export const gooberGuys: GameGuide = {
   beforeYouBet: [
     "Upsets are normal: in 2000 test shows the best contestant won 9.0% of the shows it entered and the worst 4.3%, against 6.25% for a pure lottery among 16.",
     "Speed wins shows: the fastest third won 7.3% of shows entered, the slowest third 5.5%. Noodle, Kiwi, Juniper and Ziggy won most often (8.2 to 9.0%); Boop, Taffy and Wobble least (4.3 to 4.9%).",
-    "Each round rewards something different. Grip gets contestants through Round One (Bramble, Pemberton, Clementine reached Round Two 58 to 64% of the time; Wobble 34%). Nerve helps in Round Two (Ziggy and Gherkin reached the Final 31 to 33%). The Final is short and the blocks decide a lot.",
+    "Each round rewards something different. Grip helps in Round One (Bramble, Pemberton and Clementine reached Round Two 58 to 64% of the time; Wobble 34%). Ziggy and Gherkin, the two with nerve 8, reached the Final 31 to 33% of the time, though nerve 7 did not help the same way. The Final is short and the blocks decide a lot.",
     "Later windows have fewer outcomes: before the Final you choose among four, knowing who survived and how.",
-    "A fall is not the end: the faller drops back in at the last checkpoint within about 1 to 2 seconds, and contestants outside the places push harder. Still, about a quarter of Finals were won by more than 22 m in testing.",
-    "Recent form letters come from the channel's records (started from 36 simulated pre-season shows). Stats are the better guide: the races are simulated from them.",
+    "A fall is not the end: the faller can move again about 1.4 to 3.2 seconds after going off the edge (typically about 2.5), and contestants outside the places push harder. Still, in the 2000 test shows 35% of Finals were won by more than 22 m (the typical winning gap was 12.9 m).",
+    "The channel keeps each contestant's record and recent form (W won, F reached the Final, 2 out in Round Two, 1 out in Round One); the stream itself does not show them. Stats are the better guide: the races are simulated from them.",
   ],
   fairness: [
     "Which 16 run is decided before the show is announced, by who has run the fewest shows (ties at random). No seed exists yet.",
     "Each round is simulated only after its window closes, from the seed that close produces. The round does not exist while betting on it is open.",
-    "The seed only adds the day's form (a small wobble to top speed), each contestant's reaction at the gun, and its habits (lane choice, hops, dives at the line). Stats never change.",
-    "No AI model plays. The same seed gives the same race in the server and in every viewer's browser, and a hash of the simulation's code is recorded with each window.",
+    "Stats never change and the obstacles move the same way every race. The seed decides the rest: each contestant's form for the round (a wobble to top speed, drawn again every round), its reaction at the gun, its habits (lane choice, hops, dives at the line), its timing errors and misjudged hazards, whether grabs and barges happen and land, slips on the rulers, and where a faller lands at the checkpoint.",
+    "No AI model plays. The same seed gives the same race, and a hash of the simulation's code is recorded with each window.",
     "Round One's grid is two rows of eight in the order of the random draw made before the announcement; the back row starts about 2 m behind. Later rounds start in one line.",
   ],
   sources: [
@@ -867,11 +879,13 @@ export const gooberGuys: GameGuide = {
     "games/tumbletop/README.md, REPORT.md, ROUNDS.md",
     "games/tumbletop/show/script.js, records.js",
     "games/tumbletop/sim/roster.js, rounds.js, ai.js, course.js, sim.js, physics.js",
-    "games/tumbletop/data/checks-2000.json (2000 simulated shows, 2026-11-19 09:56)",
+    "games/tumbletop/web/src/show/cards.js, raceHud.js; web/src/world/rosterBoard.js (what the stream draws, per the Tumbletop session)",
+    "games/tumbletop/data/checks-2000.json (2000 simulated shows; re-run on the current code by the Tumbletop session on 2026-11-20 with the same results)",
     "games/tumbletop/data/records.json",
+    "Corrections from the Tumbletop session, 2026-11-20 about 05:30 CST",
   ],
   checked: {
-    readAt: "2026-11-20, about 05:10 to 05:12 CST",
+    readAt: "2026-11-20, about 05:10 to 05:12 CST; corrected about 05:35 CST",
     newestFiles: [
       "progress.json, progress.html, ROUNDS.md 2026-11-20 04:20:22",
       "README.md, ASSETS.md 2026-11-20 04:20:17",

@@ -2,7 +2,7 @@
 
 For Ian to mark up. This is the content only; how it looks on the channel pages is a separate decision. The same content is typed data in `web/src/content/guides.ts` (one object per game, plus `GUIDES` by channel id), which is not wired into any page.
 
-Every number below was read from the game's own code or from test data recorded in the repo; where a figure comes from tests it says so. Where the code and the docs disagree the guide follows the code, and the disagreement is listed under Open questions at the end. The games were still being edited while this was written: each section says when its files were read and the newest files seen, and the rules code (sim and show folders) had not changed again at 05:16.
+Every number below was read from the game's own code or from test data recorded in the repo; where a figure comes from tests it says so. Where the code and the docs disagree the guide follows the code, and the disagreement is listed under Open questions at the end. The games were still being edited while this was written: each section says when its files were read and the newest files seen. The Goober Guys section was corrected at about 05:35 from a check by the Tumbletop session, which also says what the stream does and does not draw.
 
 "Scripted tests" means batches the game builders ran with scripted players instead of AI models. They are the only measured data in the repo; the live AI players have not been measured.
 
@@ -359,7 +359,7 @@ Hungry chest. Heavy, slow, swallows you whole. Bars: power 2, speed 1, reach 5, 
 
 ### Stages and the stage strike
 
-Six stages are offered before each match. Each AI lists them in the order it would cross them out; the two take turns crossing out their next stage still standing until one is left. Who strikes first alternates from match to match. A list that comes late or incomplete is finished at random. The strike lists are asked for at the same time as the fighter picks, before either side knows the other's fighter.
+The stage strike is for show: by design every stage plays on the same layout, so the stage does not change who wins. Six stages are offered before each match. Each AI lists them in the order it would cross them out; the two take turns crossing out their next stage still standing until one is left. Who strikes first alternates from match to match. A list that comes late or incomplete is finished at random. The strike lists are asked for at the same time as the fighter picks, before either side knows the other's fighter.
 
 - **The Belfry**: Scenery only: every stage plays on the same layout.
 - **The Long Shelf**: Scenery only.
@@ -387,8 +387,8 @@ The AI coaches in bots.json. Each is a language model with a short style line; e
 
 ### Before you bet
 
-- Both fighters are known before the first window opens. In 2880 scripted test fights (sim version ringout-sim-6, about 4 points of noise) every fighter won between 45.6% and 55.1% overall: the Wolf 55.1, the Hexer 52.5, the Count 50.4, the Empty Armour 48.9, the Mimic 47.5, the Magpie 45.6.
-- Matchups matter more than the fighter. Lopsided in those tests: the Wolf beats the Magpie 72% of the time, the Hexer beats the Mimic 67%, the Mimic beats the Magpie 64%, the Count beats the Mimic 59%, the Magpie beats the Hexer 58% and the Count 56%. Every other pairing was within 44 to 56%.
+- Both fighters are known before the first window opens. The win rates below were measured before the final balance pass and may change. In 2880 scripted test fights (sim version ringout-sim-6, about 4 points of noise) every fighter won between 45.6% and 55.1% overall: the Wolf 55.1, the Hexer 52.5, the Count 50.4, the Empty Armour 48.9, the Mimic 47.5, the Magpie 45.6.
+- Matchups matter more than the fighter. Lopsided in those tests (measured before the final balance pass; may change): the Wolf beats the Magpie 72% of the time, the Hexer beats the Mimic 67%, the Mimic beats the Magpie 64%, the Count beats the Mimic 59%, the Magpie beats the Hexer 58% and the Count 56%. Every other pairing was within 44 to 56%.
 - Weight decides how long a fighter lives at high damage: the Magpie (84) and the Hexer (88) fly furthest, the Mimic (120) and the Empty Armour (112) the least.
 - Abilities do 30 to 51% of all damage (the Magpie least, the Mimic and the Empty Armour most), so watch who lands them.
 - In the windows between lives you see lives and damage. The fighter who just came back starts at 0 damage; the other keeps theirs.
@@ -398,7 +398,7 @@ The AI coaches in bots.json. Each is a language model with a short style line; e
 ### Fairness and randomness
 
 - Fighter picks are made at the same time and hidden until both flip together. A pick that does not arrive in time becomes a random fighter.
-- The fight's dice come from the seed produced when the first window closes, so the fight does not exist while that bet is open. The stage is scenery and changes nothing.
+- The fight's dice come from the seed produced when the first window closes, so the fight does not exist while that bet is open. The stage strike is for show and does not change who wins.
 - The AI coaches' plans arrive during the fight and are published in the feed as they are scheduled; a late or broken answer changes nothing (the old plan stays). The fight never waits for a model.
 - The windows between lives are not seeded: they are bets on a fight already in progress, with the score in view.
 - Ties are settled by the rules: more lives at 3 minutes, then the first knockout in sudden death, then lower damage, and an exact tie by the seed.
@@ -418,7 +418,7 @@ The AI coaches in bots.json. Each is a language model with a short style line; e
 
 ## Goober Guys (channel `tumbletop`, games/tumbletop)
 
-Read 2026-11-20, about 05:10 to 05:12 CST. Newest files then: progress.json, progress.html, ROUNDS.md 2026-11-20 04:20:22; README.md, ASSETS.md 2026-11-20 04:20:17; web/src/show/sound.js 2026-11-20 04:19:40; REPORT.md 2026-11-20 04:10:35; data/records.json 2026-11-20 04:08:41; show/script.js 2026-11-20 03:18:37; sim/* 2026-11-19 10:02:18 or older.
+Read 2026-11-20, about 05:10 to 05:12 CST; corrected about 05:35 CST. Newest files then: progress.json, progress.html, ROUNDS.md 2026-11-20 04:20:22; README.md, ASSETS.md 2026-11-20 04:20:17; web/src/show/sound.js 2026-11-20 04:19:40; REPORT.md 2026-11-20 04:10:35; data/records.json 2026-11-20 04:08:41; show/script.js 2026-11-20 03:18:37; sim/* 2026-11-19 10:02:18 or older.
 
 ### What happens
 
@@ -429,49 +429,56 @@ Sixteen contestants from a house roster of 24 race through a toy attic in three 
 - Who wins the show? before Round One: 16 outcomes, open 40 seconds.
 - Who wins the show? before Round Two: the 8 still in, open 30 seconds.
 - Who wins the show? before the Final: the last 4, open 30 seconds.
-- Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.
+- On the stream the clock reads "Bets open in", then "Bets close in", then "Bets closed". Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.
 
 ### How a show works
 
 - **The field**: Before each show the channel picks the 16 of 24 who have run the fewest shows (ties at random), so everyone runs about as often.
-  - Numbers: Roster: 24; Run per show: 16; Show length: about 4 min 35 s
-- **Going through**: The first contestants across the line go through; the rest are out. In the Final the first across wins.
+  - Numbers: Roster: 24; Run per show: 16; Show length: about 4 and a half minutes
+- **Going through**: The first contestants across the line go through; the rest are out. The standings on the stream say "Top 8 go through" or "Top 4 go through", mark "your pick" and "out". After Rounds One and Two the show cuts to a shelf of all sixteen with shutters on those knocked out, then "8 remain" or "4 remain". In the Final the first across wins.
   - Numbers: Round One: 16 start, 8 go through; Round Two: 8 start, 4 go through; The Final: 4 start, 1 wins
-- **Falls**: A contestant that falls off drops back in at the last checkpoint it passed, after a short wait. A fall costs a few seconds and some ground, not the round.
-  - Numbers: Wait before dropping back in: 1.5 s, from 2.25 s (bounce 2) to 0.75 s (bounce 9)
-- **Catching up**: After the first 4 seconds, a contestant outside the qualifying places pushes: a little more pace and much bolder lines. In the Final the further behind the leader, the harder it pushes. Leads are not safe.
-  - Numbers: Outside the places: +5% pace; Final, 8 m or more behind: up to +18% pace more
-- **Contact**: Contestants barge each other (the one barged into stumbles) and the boldest grab the one in front, which slows both. Grip makes a contestant harder to barge.
+- **Falls**: A contestant that falls off drops back in at the last checkpoint it passed. A fall costs a few seconds and some ground, not the round.
+  - Numbers: Wait before dropping back in: 1.5 s, shorter with more bounce (longest in the roster 2.04 s); From going off the edge to dropping back in: 1.1 to 2.9 s, typically 2.2 s; Then, before it can move: 0.33 s
+- **Catching up**: After the first 4 seconds, a contestant outside the qualifying places pushes: a little more pace and much bolder lines. In the Final everyone but the leader counts as outside the places, and the further behind the leader, the harder it pushes. Leads are not safe.
+  - Numbers: Outside the places: +5% pace; Final: a further +18% at 8 m or more behind the leader (+23% in all), less when closer
+- **Contact**: A contestant running into another at more than 6 m/s may knock it into a stumble; the chance depends on the barger and on the victim's grip, and above 8.5 m/s the victim is sent sprawling. The boldest grab the one in front, which slows both.
   - Numbers: Who grabs: nerve 7 or more; Grab: slows both for 0.6 s
 - **The clock**: Each round has a time limit; if it runs out, the best placed take the open places in order. In 2000 test shows no round ran out of time.
   - Numbers: Round One: 100 s; Round Two: 110 s; The Final: 90 s
 
 ### The four stats
 
-Every contestant has speed, grip, bounce and nerve from 2 to 9, adding up to 22. They never change. The one word shown with a contestant is its best stat (on a tie, the first of speed, grip, bounce, nerve).
+Every contestant has speed, grip, bounce and nerve from 2 to 9, adding up to 22. They never change. The stream shows names only; the stats and the one-word best stat (on a tie, the first of speed, grip, bounce, nerve) are the guide's own information, from the game's roster.
 
-- **Speed (shown as Quick)**: Flat-out pace and how fast it gets back up to it. The day's form adds a small random wobble from the seed.
-  - Numbers: Top speed: 8.8 m/s at 2 to 10.05 m/s at 9; Day's form: about 0.14 m/s either way
+- **Speed (best-stat word: Quick)**: Flat-out pace and how fast it gets back up to it. Each round the seed adds a fresh small wobble to top speed, the contestant's form for that round.
+  - Numbers: Top speed: 8.8 m/s at 2 to 10.05 m/s at 9 (0.18 m/s per point); Form each round: typically about 0.14 m/s either way, at most about 0.48
   - Tip: The stat that matters most over a whole show: the fastest third won 7.3% of shows entered, the slowest third 5.5% (2000 test shows).
-- **Grip (shown as Sure-footed)**: Footing: stays steady on the tipping rulers, is thrown less far by a hit and is knocked over less by barges.
+- **Grip (best-stat word: Sure-footed)**: Footing: stays steady on the tipping rulers (less likely to slip off), is thrown less far by a hit and is knocked over less by barges.
   - Numbers: Thrown by a hit: x1.12 at 2 to x0.82 at 9; Knocked over by a barge: x1.25 at 2 to x0.65 at 9
-  - Tip: Counts in Round One: the two grippiest (Bramble 9, Pemberton 8) reached Round Two 64% and 62% of the time, the least grippy (Wobble 2) 34%.
-- **Bounce (shown as Bouncy)**: Bounces back: less time on the floor after a hit and a shorter wait to drop back in after a fall.
+  - Tip: Counts in Round One: Bramble (grip 9) and Pemberton (grip 8) reached Round Two 64% and 62% of the time, Wobble (grip 2) 34%. The other two with grip 8, Dumpling and Turnip, reached it 54.7% and 50.0%.
+- **Bounce (best-stat word: Bouncy)**: Bounces back: less time on the floor after a hit and a shorter wait to drop back in after a fall.
   - Numbers: Time down: x1.5 at 2 to x0.5 at 9
-- **Nerve (shown as Fearless)**: Takes the bold line: cooler timing at hazards and smaller safety margins, but more slips, more contact, and grabs at nerve 7 or more. Quicker, and hit more often.
-  - Numbers: Hazard timing: 60% at 2 to 90% at 9; Chance to misjudge a hazard: 2% at 2 to 5.5% at 9
-  - Tip: Counts in Round Two: the two with nerve 8 (Ziggy, Gherkin) reached the Final 33% and 31% of the time, against 25% on average.
+- **Nerve (best-stat word: Fearless)**: Takes the bold line: tighter timing at hazards and smaller safety margins, but more misjudged hazards, more grabs (at nerve 7 or more) and barges that knock others over more often. Quicker, and hit more often.
+  - Numbers: Hazard timing error: about 0.04 s at nerve 2 to 0.01 s at nerve 9; Chance to misjudge, per decision (several a second): 2% at 2 to 5.5% at 9; about 3% to 5% across the roster (nerve 4 to 8)
+  - Tip: Mixed in the test data: the two with nerve 8 (Ziggy, Gherkin) reached the Final 33% and 31% of the time against 25% on average, but the four with nerve 7 reached it only 22.7% to 24.2%.
 
 ### The rounds
 
+The tips here are the guide's own, from the game's design notes and the test data; the stream does not show them.
+
 - **Round One: Tops, Marbles and Rulers**: Off the game board, through the spinning tops, up the bookshelf past rolling marbles, and over the tipping rulers.
-  - Numbers: Start: 16; Go through: 8; Typical race: 41 s; The show's hint: Grip counts most here.
+  - Numbers: Start: 16; Go through: 8; Typical race: 41 s
+  - Tip: Grip counts most here.
 - **Round Two: Metronomes and the Block Maze**: Across the crayon bridges under swinging metronomes, then through the block maze.
-  - Numbers: Start: 8; Go through: 4; Typical race: 35 s; The show's hint: Speed and nerve count most here.
+  - Numbers: Start: 8; Go through: 4; Typical race: 35 s
+  - Tip: In tests the two with nerve 8 (Ziggy, Gherkin) did well here; nerve 7 did not.
 - **The Final: The Block Maze**: The block maze again, then the dash under the giant spinning pencil to the arch.
-  - Numbers: Start: 4; Winner: 1; Typical race: 23 s; The show's hint: Speed helps. The blocks decide.
+  - Numbers: Start: 4; Winner: 1; Typical race: 23 s
+  - Tip: Speed helps. The blocks decide.
 
 ### The obstacles
+
+The obstacles move the same way every race; they use no seed.
 
 - **Game Board Start**: The start grid. No hazards. Round One starts in two rows of eight; the back row stands about 2 m behind.
 - **Spinning Top Field**: Five rows of giant spinning tops with paddle arms that knock racers flying. Racers pick the gaps between them; bold ones go straight through.
@@ -483,78 +490,78 @@ Every contestant has speed, grip, bounce and nerve from 2 to 9, adding up to 22.
 - **Metronome Bridges**: Two crayon bridges, each swept by five metronome weights that skim the deck and swing out past its edge.
   - Numbers: Bridges: 2; Weights: 5 per bridge; Weight size: about 3.3 m across; Swing: 2.9 to 3.4 s
 - **Alphabet Block Maze**: Five rows of block walls with gaps. Some gaps hold a ram block that rocks back and shoves across, and giant 4 m blocks cartwheel across the corridors between rows, so crossing is a timing call.
-  - Numbers: Rows: 5; Ram blocks: 5; Cartwheeling blocks: 8
+  - Numbers: Rows: 5; Ram blocks: 4; Cartwheeling blocks: 8
 - **Final Dash**: A ramp up to the arch under a giant pencil spinner: two pencils crossed on a hub, four chest-high arms sweeping the way.
   - Numbers: Spinner reach: 11.2 m; Arms: 4
 
 ### The contestants
 
-All 24, with their permanent stats and how they did in 2000 simulated shows (the average is 6.25% wins, 25% Finals and 50% Round Two). A contestant's recent form is shown as letters, latest first: W won, F reached the Final, 2 out in Round Two, 1 out in Round One.
+All 24, with their permanent stats and how they did in 2000 simulated shows (the average is 6.25% wins, 25% Finals and 50% Round Two).
 
-- **Juniper**: Quick.
+- **Juniper**: Best stat: Quick.
   - Numbers: Speed: 9; Grip: 4; Bounce: 4; Nerve: 5; Won (test shows): 8.3%; Reached the Final: 27.0%; Reached Round Two: 52.1%
-- **Noodle**: Quick.
+- **Noodle**: Best stat: Quick.
   - Numbers: Speed: 8; Grip: 3; Bounce: 6; Nerve: 5; Won (test shows): 9.0%; Reached the Final: 25.6%; Reached Round Two: 45.4%
-- **Fizz**: Quick.
+- **Fizz**: Best stat: Quick.
   - Numbers: Speed: 8; Grip: 4; Bounce: 3; Nerve: 7; Won (test shows): 5.2%; Reached the Final: 24.2%; Reached Round Two: 49.1%
-- **Kiwi**: Quick.
+- **Kiwi**: Best stat: Quick.
   - Numbers: Speed: 8; Grip: 5; Bounce: 5; Nerve: 4; Won (test shows): 8.7%; Reached the Final: 26.0%; Reached Round Two: 51.3%
-- **Pickle**: Quick.
+- **Pickle**: Best stat: Quick.
   - Numbers: Speed: 7; Grip: 4; Bounce: 4; Nerve: 7; Won (test shows): 6.3%; Reached the Final: 22.7%; Reached Round Two: 44.5%
-- **Sprocket**: Quick.
+- **Sprocket**: Best stat: Quick.
   - Numbers: Speed: 7; Grip: 5; Bounce: 3; Nerve: 7; Won (test shows): 5.1%; Reached the Final: 23.5%; Reached Round Two: 50.2%
-- **Pippin**: Quick.
+- **Pippin**: Best stat: Quick.
   - Numbers: Speed: 7; Grip: 6; Bounce: 5; Nerve: 4; Won (test shows): 7.5%; Reached the Final: 26.9%; Reached Round Two: 55.8%
-- **Ziggy**: Fearless.
+- **Ziggy**: Best stat: Fearless.
   - Numbers: Speed: 7; Grip: 3; Bounce: 4; Nerve: 8; Won (test shows): 8.2%; Reached the Final: 33.3%; Reached Round Two: 52.4%
-- **Marzipan**: Fearless.
+- **Marzipan**: Best stat: Fearless.
   - Numbers: Speed: 6; Grip: 5; Bounce: 4; Nerve: 7; Won (test shows): 5.4%; Reached the Final: 23.8%; Reached Round Two: 47.3%
-- **Clementine**: Sure-footed.
+- **Clementine**: Best stat: Sure-footed.
   - Numbers: Speed: 6; Grip: 7; Bounce: 5; Nerve: 4; Won (test shows): 7.3%; Reached the Final: 27.1%; Reached Round Two: 58.2%
-- **Wobble**: Bouncy.
+- **Wobble**: Best stat: Bouncy.
   - Numbers: Speed: 6; Grip: 2; Bounce: 8; Nerve: 6; Won (test shows): 4.9%; Reached the Final: 18.3%; Reached Round Two: 33.9%
-- **Sherbet**: Quick.
+- **Sherbet**: Best stat: Quick.
   - Numbers: Speed: 6; Grip: 4; Bounce: 6; Nerve: 6; Won (test shows): 5.1%; Reached the Final: 22.7%; Reached Round Two: 44.0%
-- **Pemberton**: Sure-footed.
+- **Pemberton**: Best stat: Sure-footed.
   - Numbers: Speed: 5; Grip: 8; Bounce: 5; Nerve: 4; Won (test shows): 6.4%; Reached the Final: 27.4%; Reached Round Two: 62.2%
-- **Truffle**: Sure-footed.
+- **Truffle**: Best stat: Sure-footed.
   - Numbers: Speed: 5; Grip: 6; Bounce: 6; Nerve: 5; Won (test shows): 5.8%; Reached the Final: 25.3%; Reached Round Two: 51.2%
-- **Crumpet**: Sure-footed.
+- **Crumpet**: Best stat: Sure-footed.
   - Numbers: Speed: 5; Grip: 7; Bounce: 4; Nerve: 6; Won (test shows): 5.9%; Reached the Final: 25.4%; Reached Round Two: 56.2%
-- **Gherkin**: Fearless.
+- **Gherkin**: Best stat: Fearless.
   - Numbers: Speed: 5; Grip: 4; Bounce: 5; Nerve: 8; Won (test shows): 6.9%; Reached the Final: 31.4%; Reached Round Two: 49.3%
-- **Biscuit**: Bouncy.
+- **Biscuit**: Best stat: Bouncy.
   - Numbers: Speed: 4; Grip: 6; Bounce: 8; Nerve: 4; Won (test shows): 6.4%; Reached the Final: 22.3%; Reached Round Two: 46.4%
-- **Bramble**: Sure-footed.
+- **Bramble**: Best stat: Sure-footed.
   - Numbers: Speed: 4; Grip: 9; Bounce: 5; Nerve: 4; Won (test shows): 5.3%; Reached the Final: 27.1%; Reached Round Two: 64.0%
-- **Taffy**: Bouncy.
+- **Taffy**: Best stat: Bouncy.
   - Numbers: Speed: 4; Grip: 5; Bounce: 7; Nerve: 6; Won (test shows): 4.6%; Reached the Final: 19.9%; Reached Round Two: 42.5%
-- **Boop**: Sure-footed.
+- **Boop**: Best stat: Sure-footed.
   - Numbers: Speed: 4; Grip: 6; Bounce: 6; Nerve: 6; Won (test shows): 4.3%; Reached the Final: 22.8%; Reached Round Two: 47.4%
-- **Mochi**: Bouncy.
+- **Mochi**: Best stat: Bouncy.
   - Numbers: Speed: 4; Grip: 5; Bounce: 9; Nerve: 4; Won (test shows): 6.2%; Reached the Final: 21.2%; Reached Round Two: 39.5%
-- **Waffles**: Sure-footed.
+- **Waffles**: Best stat: Sure-footed.
   - Numbers: Speed: 3; Grip: 7; Bounce: 7; Nerve: 5; Won (test shows): 5.6%; Reached the Final: 26.0%; Reached Round Two: 52.5%
-- **Dumpling**: Sure-footed.
+- **Dumpling**: Best stat: Sure-footed.
   - Numbers: Speed: 3; Grip: 8; Bounce: 7; Nerve: 4; Won (test shows): 6.0%; Reached the Final: 25.8%; Reached Round Two: 54.7%
-- **Turnip**: Sure-footed.
+- **Turnip**: Best stat: Sure-footed.
   - Numbers: Speed: 2; Grip: 8; Bounce: 8; Nerve: 4; Won (test shows): 5.5%; Reached the Final: 24.0%; Reached Round Two: 50.0%
 
 ### Before you bet
 
 - Upsets are normal: in 2000 test shows the best contestant won 9.0% of the shows it entered and the worst 4.3%, against 6.25% for a pure lottery among 16.
 - Speed wins shows: the fastest third won 7.3% of shows entered, the slowest third 5.5%. Noodle, Kiwi, Juniper and Ziggy won most often (8.2 to 9.0%); Boop, Taffy and Wobble least (4.3 to 4.9%).
-- Each round rewards something different. Grip gets contestants through Round One (Bramble, Pemberton, Clementine reached Round Two 58 to 64% of the time; Wobble 34%). Nerve helps in Round Two (Ziggy and Gherkin reached the Final 31 to 33%). The Final is short and the blocks decide a lot.
+- Each round rewards something different. Grip helps in Round One (Bramble, Pemberton and Clementine reached Round Two 58 to 64% of the time; Wobble 34%). Ziggy and Gherkin, the two with nerve 8, reached the Final 31 to 33% of the time, though nerve 7 did not help the same way. The Final is short and the blocks decide a lot.
 - Later windows have fewer outcomes: before the Final you choose among four, knowing who survived and how.
-- A fall is not the end: the faller drops back in at the last checkpoint within about 1 to 2 seconds, and contestants outside the places push harder. Still, about a quarter of Finals were won by more than 22 m in testing.
-- Recent form letters come from the channel's records (started from 36 simulated pre-season shows). Stats are the better guide: the races are simulated from them.
+- A fall is not the end: the faller can move again about 1.4 to 3.2 seconds after going off the edge (typically about 2.5), and contestants outside the places push harder. Still, in the 2000 test shows 35% of Finals were won by more than 22 m (the typical winning gap was 12.9 m).
+- The channel keeps each contestant's record and recent form (W won, F reached the Final, 2 out in Round Two, 1 out in Round One); the stream itself does not show them. Stats are the better guide: the races are simulated from them.
 
 ### Fairness and randomness
 
 - Which 16 run is decided before the show is announced, by who has run the fewest shows (ties at random). No seed exists yet.
 - Each round is simulated only after its window closes, from the seed that close produces. The round does not exist while betting on it is open.
-- The seed only adds the day's form (a small wobble to top speed), each contestant's reaction at the gun, and its habits (lane choice, hops, dives at the line). Stats never change.
-- No AI model plays. The same seed gives the same race in the server and in every viewer's browser, and a hash of the simulation's code is recorded with each window.
+- Stats never change and the obstacles move the same way every race. The seed decides the rest: each contestant's form for the round (a wobble to top speed, drawn again every round), its reaction at the gun, its habits (lane choice, hops, dives at the line), its timing errors and misjudged hazards, whether grabs and barges happen and land, slips on the rulers, and where a faller lands at the checkpoint.
+- No AI model plays. The same seed gives the same race, and a hash of the simulation's code is recorded with each window.
 - Round One's grid is two rows of eight in the order of the random draw made before the announcement; the back row starts about 2 m behind. Later rounds start in one line.
 
 ### Sources
@@ -563,8 +570,10 @@ All 24, with their permanent stats and how they did in 2000 simulated shows (the
 - games/tumbletop/README.md, REPORT.md, ROUNDS.md
 - games/tumbletop/show/script.js, records.js
 - games/tumbletop/sim/roster.js, rounds.js, ai.js, course.js, sim.js, physics.js
-- games/tumbletop/data/checks-2000.json (2000 simulated shows, 2026-11-19 09:56)
+- games/tumbletop/web/src/show/cards.js, raceHud.js; web/src/world/rosterBoard.js (what the stream draws, per the Tumbletop session)
+- games/tumbletop/data/checks-2000.json (2000 simulated shows; re-run on the current code by the Tumbletop session on 2026-11-20 with the same results)
 - games/tumbletop/data/records.json
+- Corrections from the Tumbletop session, 2026-11-20 about 05:30 CST
 
 ## Open questions
 
@@ -581,20 +590,23 @@ All 24, with their permanent stats and how they did in 2000 simulated shows (the
 
 ### Blood Moon
 
-1. **The stage strike changes nothing in the fight.** Every stage is scenery over one layout (`src/sim/arena.ts`, "Dry Dock 9: the one arena"). The guide says so plainly. Is that the message you want, or should stages matter?
+1. **The test win rates may change.** The fighter session says a last balance pass is in progress, so the overall range (45.6 to 55.1%) and the matchups (the Wolf against the Magpie 72%, the Hexer against the Mimic 67%, and the rest) are marked "measured before the final balance pass; may change". They need re-reading from `src/sim/NOTES.md` once that pass lands.
 2. **The Ward's description is out of date.** The move text in `fighters.ts` says it lies "about 5 s (1.5 m wide)" and roots "for 0.7 s"; the numbers in the same file (round 4b) are 7 s, 2.2 m wide, 1 s, 7 damage. The guide uses the numbers. The "about 5.3 m" throw distance was left out because I could not confirm it from the numbers.
-3. **The AI coaches are told about only four fighters.** The model prompt in `src/show/brains.ts` (SYSTEM_PROMPT) still describes "kiln, tick, gantry, vise" in robot-era words and says nothing about the Hexer or the Mimic. The picker does send the full roster with roles and blurbs. `bots.json` style lines still say "robot". This can make the live AI play worse than the tests; not a guide problem, but worth knowing.
-4. **The test numbers are scripted coaches (round 4b, 2880 fights).** Live fights are coached by models. Same question as Inkelton: show them with the caveat, or not?
-5. **Records and the handicap reset** whenever the channel process restarts (kept in memory in `channel.ts`). The handicap can therefore only kick in after both coaches have 3 matches in the current run.
-6. **Some reach numbers come from the move descriptions** (Collar Fire "about 2.4 m", Bat Swarm "about 2 s to cross"); the rest are computed from the move data.
+3. **The test numbers are scripted coaches (round 4b, 2880 fights).** Live fights are coached by models. Same question as Inkelton: show them with the caveat, or not?
+4. **Records and the handicap reset** whenever the channel process restarts (kept in memory in `channel.ts`). The handicap can therefore only kick in after both coaches have 3 matches in the current run.
+5. **Some reach numbers come from the move descriptions** (Collar Fire "about 2.4 m", Bat Swarm "about 2 s to cross"); the rest are computed from the move data.
+
+(Settled since the first draft: the stage strike is for show by design, and the guide says so plainly; the AI coach prompt has been fixed.)
 
 ### Goober Guys
 
-1. **What to call the contestants.** The code, README and the race events' text call them "Gumbles" (the events say things like "16 Gumbles"); the show is "Goober Guys". The guide says "contestants". Your call on the word.
-2. **The round hints disagree with the log.** The code (`sim/rounds.js`) says Round One "Grip counts most here", Round Two "Speed and nerve count most here", the Final "Speed helps. The blocks decide." ROUNDS.md (round 4) recorded "Speed counts most" for Round One and "Nerve and grip" for Round Two. The guide follows the code, and the 2000-show test data agrees with the code's hints, but the 1500-field measurement behind them is not saved in the repo. As far as I could tell the hint is passed to the line-up card but not drawn.
-3. **The test data may be a few minutes stale:** `data/checks-2000.json` was written at 09:56 on 2026-11-19 and `sim/rounds.js` was last changed at 10:02. I could not confirm whether that edit changed the racing.
-4. **Nerve cuts both ways** in the code (better timing, but more misjudged hazards and more contact). Over a whole show the high-nerve third did slightly worse than the low-nerve third (5.9% against 6.7%), partly because stats add up to 22, so high nerve means lower speed. The guide states the mechanism and the Round Two result only. Wording is yours.
+1. **What to call the contestants.** The code, README and the race events' text call them "Gumbles", but that word never appears on the stream; the show is "Goober Guys". The guide says "contestants" until you choose a word.
+2. **Round tips.** The code (`sim/rounds.js`) carries a hint per round ("Grip counts most here", "Speed and nerve count most here", "Speed helps. The blocks decide."), but the stream does not draw it, and ROUNDS.md (round 4) once recorded different hints. The guide now gives its own tips from the test data: grip for Round One, the two nerve-8 contestants for Round Two (nerve 7 did not help), and the Final's hint kept as a tip. Wording is yours.
+3. **Nerve cuts both ways** in the code (tighter timing, but more misjudged hazards, grabs and barges). Over a whole show the high-nerve third did slightly worse than the low-nerve third (5.9% against 6.7%), partly because stats add up to 22. The guide states the mechanism and the mixed result only.
+4. **Not confirmed today, so softened in the guide:** the records file is no longer mostly pre-season (it held 205 shows at 04:08, against the 36 simulated pre-season shows it started from), so the guide no longer says it started from the pre-season; "the same race in every viewer's browser" rests on an earlier cross-check (9 of 9 rounds, not re-run today), so the guide now says only "the same seed gives the same race"; the show length (4:34 measured at the real window lengths) is now "about 4 and a half minutes".
 5. **The site calls the channel a "Battle royale"** (`web/src/channelInfo.ts`); it is an elimination race show. Not changed here.
+
+(Settled since the first draft: `data/checks-2000.json` is current; the Tumbletop session re-ran the 2000 shows on the current code twice and got the same numbers.)
 
 ### Wording choices that are yours
 
