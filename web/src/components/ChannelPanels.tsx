@@ -7,6 +7,7 @@ import { FIXTURE } from '../lib/dev';
 import type { ChannelState } from '../lib/feed';
 import { useHistory } from '../lib/history';
 import { Button } from '../ui';
+import { GameGuideDialog, hasGuide } from './GameGuide';
 import { thumbFor } from './Rail';
 import './channel-panels.css';
 
@@ -70,6 +71,13 @@ function ScaleIcon() {
     </svg>
   );
 }
+function BookIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden {...stroke}>
+      <path d="M12 6.5c-1.8-1.3-4.2-1.8-7.5-1.8v13c3.300 0 5.700.5 7.500 1.800 1.8-1.300 4.200-1.800 7.500-1.800v-13c-3.300 0-5.700.5-7.500 1.800zM12 6.500v13" />
+    </svg>
+  );
+}
 function OutIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden {...stroke}>
@@ -122,6 +130,7 @@ function FairPlayDialog({ open, onClose }: { open: boolean; onClose: () => void 
 export function ChannelPanels({ s }: { s: ChannelState }) {
   const results = useResultsLink(s);
   const [fair, setFair] = useState(false);
+  const [guide, setGuide] = useState(false);
   const title = displayTitle(s.title);
   const text = GAME[s.channel];
   return (
@@ -134,6 +143,13 @@ export function ChannelPanels({ s }: { s: ChannelState }) {
         </div>
       </article>
       <div className="lp-row">
+        {hasGuide(s.channel) && (
+          <button type="button" className="lp" onClick={() => setGuide(true)} aria-haspopup="dialog" data-testid="open-guide">
+            <BookIcon />
+            <span className="lp-name">Game guide</span>
+            <span className="lp-go"><NextIcon /></span>
+          </button>
+        )}
         {results && (
           <a className="lp" href={results} target="_blank" rel="noreferrer" data-testid="view-results">
             <ReceiptIcon />
@@ -148,6 +164,7 @@ export function ChannelPanels({ s }: { s: ChannelState }) {
         </button>
       </div>
       <FairPlayDialog open={fair} onClose={() => setFair(false)} />
+      <GameGuideDialog channel={s.channel} title={title} open={guide} onClose={() => setGuide(false)} />
     </section>
   );
 }

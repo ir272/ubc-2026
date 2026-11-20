@@ -15,10 +15,10 @@ export const aboutFor = (channel: string) =>
 
 // The kind of show each channel is: the second line under its name, like a stream's category.
 const KIND: Record<string, string> = {
-  scrivener: 'Boss duel',
-  brawl: 'Platform fighter',
-  tumbletop: 'Battle royale',
+  scrivener: 'Boss Duel',
+  brawl: 'Platform Fighter',
+  tumbletop: 'Battle Royale',
   coinflip: 'Race',
   'dice-duel': 'Dice',
 };
-export const kindFor = (channel: string) => KIND[channel] ?? 'Live game';
+export const kindFor = (channel: string) => KIND[channel] ?? 'Live Game';
