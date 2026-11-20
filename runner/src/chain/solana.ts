@@ -81,7 +81,27 @@ function pooledFetch(maxSockets: number) {
       if (init.body) req.write(init.body);
       req.end();
     });
-  return (input: unknown, init: unknown = {}) => once(new URL(String(input)), init as Parameters<typeof once>[1], false);
+  // RPC_STATS=1: log how many requests of each method were sent in the last 30 s (finding rate-limit leaks).
+  const counts = new Map<string, number>();
+  if (process.env.RPC_STATS === '1') {
+    setInterval(() => {
+      if (!counts.size) return;
+      log.info(`rpc/30s ${[...counts].sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}=${v}`).join(' ')}`);
+      counts.clear();
+    }, 30_000).unref();
+  }
+  return (input: unknown, init: unknown = {}) => {
+    const i = init as Parameters<typeof once>[1];
+    if (process.env.RPC_STATS === '1' && i.body) {
+      try {
+        const b = JSON.parse(i.body);
+        for (const r of Array.isArray(b) ? b : [b]) counts.set(r.method, (counts.get(r.method) ?? 0) + 1);
+      } catch {
+        /* not JSON */
+      }
+    }
+    return once(new URL(String(input)), i, false);
+  };
 }
 
 export class SolanaChain implements ChainAdapter {

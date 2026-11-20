@@ -32,7 +32,8 @@ odds / events / chat, get a key + faucet, place bets).
 | `HISTORY_DIR` | `data/history` | where finished matches are saved (`<chain kind>-<channel>.json`, gitignored) |
 | `ADMIN_KEYPAIR` | `../program/.keys/admin.json` | solana only: admin/fee-payer keypair (solana-keygen JSON) |
 | `DEPLOYED_PATH` | `../program/DEPLOYED.json` | solana only |
-| `SOLANA_RPC` | public endpoint for the cluster in DEPLOYED.json | solana only |
+| `SOLANA_RPC` | public endpoint for the cluster in DEPLOYED.json | solana only. The public devnet endpoint rate-limits a runner with several channels; put a private devnet URL (e.g. a free Helius key) in `runner/.env` as `SOLANA_RPC=...` (gitignored; `npm start` loads it) |
+| `RPC_STATS` | off | solana only: `1` logs RPC requests per method every 30 s |
 | `BOT_KEYS` | `.keys/house-bots.json` | solana only: where bot keypairs are kept (gitignored) |
 | `RECLAIM` | on | solana only: `0` turns off closing finished markets (rent stays locked) |
 | `RECLAIM_DELAY_MS` | `20000` | solana only: wait after a window is paid before closing its accounts |
