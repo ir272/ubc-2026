@@ -85,12 +85,27 @@ MIT: <a href="web/src/ui">web/src/ui</a>.</td>
 <td><b>Plain JavaScript.</b> The home scene is drawn on a canvas, and the diagram above is drawn by a script in the kit's ink style.</td>
 </tr>
 <tr>
-<td><img src="docs/coming-soon.jpg" width="100%" alt="The four coming-soon cards"></td>
+<td><img src="docs/midjourney/6-picked.jpg" width="100%" alt="The four coming-soon cards as shipped"></td>
 <td><img src="docs/game-art.jpg" width="100%" alt="Inkelton's haunted library"></td>
 </tr>
 <tr>
-<td><b>Midjourney.</b> The coming-soon cards, styled on our own art and picked from rounds of grids and edits.</td>
+<td><b>Midjourney.</b> The coming-soon cards: one grid each, with our own art as the style reference.</td>
 <td><b>Our own game art:</b> an ink library, ink monsters, a three.js toy box.</td>
+</tr>
+</table>
+
+**Midjourney, round by round** (the Inkelton art):
+
+<table>
+<tr>
+<td width="33%"><img src="docs/midjourney/1-first-grid.jpg" width="100%" alt="First Midjourney grid: detailed storybook scenes"></td>
+<td width="33%"><img src="docs/midjourney/2-rerun-site-style.jpg" width="100%" alt="Rerun with the site's own art as the style reference"></td>
+<td width="33%"><img src="docs/midjourney/3-rerun-game-look.jpg" width="100%" alt="Rerun in the game's own ink look"></td>
+</tr>
+<tr>
+<td>1. First round: rich storybook art that drifted from our look.</td>
+<td>2. Rerun with our own art as the style reference.</td>
+<td>3. Rerun in the game's own ink, with a simpler prompt.</td>
 </tr>
 </table>
 
