@@ -1,143 +1,60 @@
 /* Tumbletop show cards: the DOM graphics over the 3D view in every phase that is not racing.
-   Uses the tokens in theme.css. Flat ink panels, paper type, green only for "through", red only for
-   "out". No transitions or animations here: cards.js computes all motion from the frame clock and
-   writes it inline, so captures in virtual time are deterministic.
+   Tokens and the typeface come from theme.css; the frames are drawn by ink.js for any element with
+   data-ink (crossing ruled lines on dark paper, as on the site). Gold is the winner and the last
+   seconds of a clock. No transitions or animations here: cards.js computes all motion from the
+   frame clock and writes it inline, so captures in virtual time are deterministic.
 
-   Layout, in the 1280x720 design space (.tt-fit): the "where are we" plate sits at (24, 24);
-   lower thirds sit at x 24 with their bottom edge at y 664. Straps over Gumbles live outside the
-   design space, in real pixels, and are scaled by --k from JS. */
+   Layout, in the 1280x720 design space (.tt-fit): the clock plate sits at (24, 24); lower thirds sit
+   at x 24 with their bottom edge at y 664. Straps over Gumbles live outside the design space, in
+   real pixels, and are scaled by --k from JS. */
 
 .tt-stage .tc-fit > * { position: absolute; }
 
-/* one panel style for everything */
-.tt-stage .tc-panel { background: var(--tt-ink-a); border-radius: var(--tt-radius); }
-/* the shared signature: a flat 4px paper bar along the top edge of each card's main panel */
-.tt-stage .tc-panel.tc-sig { border-top: 4px solid var(--tt-paper); border-top-left-radius: 0; border-top-right-radius: 0; }
-
-/* chip sizes (base chip is 14x18 in theme.css) */
-.tt-stage .tc .tt-chip.tc-c-md { width: 16px; height: 22px; }
-.tt-stage .tc .tt-chip.tc-c-lg { width: 20px; height: 26px; border-radius: 5px; }
-.tt-stage .tc .tt-chip.tc-c-xl { width: 34px; height: 44px; border-radius: 8px; }
-
 /* ------------------------------------------------------------------ top-left plate */
-.tt-stage .tc-plate { left: 24px; top: 24px; min-width: 300px; padding: 14px 20px 16px; }
-.tt-stage .tc-plate .tc-name { font: 800 30px/1.05 var(--tt-call); letter-spacing: -0.01em; }
-.tt-stage .tc-plate .tc-place { font: 600 20px/1.2 var(--tt-text); margin-top: 6px; }
-.tt-stage .tc-plate .tc-rule { font: 500 18px/1.25 var(--tt-text); color: var(--tt-dim); margin-top: 2px; }
-.tt-stage .tc-plate .tc-clock { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; font: 700 26px/1.1 var(--tt-text);
-  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--tt-rule); }
+.tt-stage .tc-plate { left: 24px; top: 24px; padding: 11px 18px 12px; white-space: nowrap; }
+.tt-stage .tc-plate .tc-name { font-size: 22px; font-weight: 700; line-height: 1.1; }
+.tt-stage .tc-plate .tc-clock { display: flex; align-items: baseline; gap: 12px; font-size: 22px; font-weight: 500; line-height: 1.1; }
+.tt-stage .tc-plate .tc-clock .v { min-width: 46px; font-weight: 700; }
 
 /* ------------------------------------------------------------------ lower thirds */
 .tt-stage .tc-l3 { left: 24px; bottom: 56px; }
-.tt-stage .tc-soon { padding: 14px 22px 16px; font: 600 30px/1.1 var(--tt-call); }
+.tt-stage .tc-soon { padding: 13px 22px 15px; font-size: 26px; font-weight: 600; line-height: 1.1; white-space: nowrap; }
 
-/* call: headline, then the three steps; from 5 s the steps rise and the sixteen fill in below */
+/* call: the sixteen who race, two rows of eight */
 .tt-stage .tc-call { width: 1232px; height: 0; }
 .tt-stage .tc-call > * { position: absolute; left: 0; }
-.tt-stage .tc-head { bottom: 52px; padding: 12px 22px 14px; font: 800 44px/1.05 var(--tt-call); letter-spacing: -0.01em; white-space: nowrap; }
-.tt-stage .tc-steps { bottom: 0; display: flex; gap: 8px; height: 40px; }
-.tt-stage .tc-step { display: flex; align-items: center; gap: 14px; height: 40px; padding: 0 16px; white-space: nowrap; }
-.tt-stage .tc-step .n { font: 600 18px/1 var(--tt-text); color: var(--tt-dim); }
-.tt-stage .tc-step .v { display: flex; align-items: center; gap: 8px; font: 700 22px/1 var(--tt-text); }
-.tt-stage .tc-arrow { display: inline-block; width: 16px; height: 10px; background: var(--tt-paper);
-  clip-path: polygon(0 38%, 58% 38%, 58% 0, 100% 50%, 58% 100%, 58% 62%, 0 62%); }
-.tt-stage .tc-grid { bottom: 0; width: 1232px; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-auto-rows: 32px; gap: 8px; }
-.tt-stage .tc-gp { display: flex; align-items: center; gap: 8px; padding: 0 10px; overflow: hidden; white-space: nowrap; font: 700 18px/1 var(--tt-text); }
+.tt-stage .tc-grid { bottom: 0; width: 1232px; display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-auto-rows: 34px; gap: 8px; }
+.tt-stage .tc-gp { display: flex; align-items: center; gap: 9px; padding: 0 11px; white-space: nowrap; font-size: 17px; font-weight: 500; line-height: 1; }
 
 /* title */
-.tt-stage .tc-title { padding: 18px 28px 22px; }
-.tt-stage .tc-title .a { font: 800 76px/1 var(--tt-call); letter-spacing: -0.015em; }
-.tt-stage .tc-title .b { font: 600 30px/1.2 var(--tt-text); margin-top: 10px; }
-.tt-stage .tc-title .c { font: 500 22px/1.3 var(--tt-text); color: var(--tt-dim); margin-top: 4px; }
-/* in the line-up the title and the board end at y 648, 16px clear of the open bar */
-.tt-stage .tc-l3.tc-title, .tt-stage .tc-l3.tc-board { bottom: 72px; }
+.tt-stage .tc-title { padding: 16px 32px 20px; white-space: nowrap; }
+.tt-stage .tc-title .a { font-size: 72px; font-weight: 800; line-height: 1; }
+/* in the line-up the title ends at y 648, 16px clear of the bar */
+.tt-stage .tc-l3.tc-title { bottom: 72px; }
 
-/* the open bar: the line-up window's own graphic, full width along the bottom (y 664 to 720) */
-.tt-stage .tc-open { left: 0; top: 664px; width: 1280px; height: 56px; box-sizing: border-box; padding: 0 64px;
-  display: flex; align-items: center; background: var(--tt-paper); color: var(--tt-ink); white-space: nowrap; }
-.tt-stage .tc-open .l { flex: none; font: 800 30px/1 var(--tt-call); letter-spacing: -0.01em; }
-.tt-stage .tc-open .m { visibility: hidden; /* the rule is already on the title and the plate: said once */ flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: clip; margin-left: 40px; font: 500 20px/1 var(--tt-text); }
-.tt-stage .tc-open .v { flex: none; margin-left: 24px; font: 700 34px/1 var(--tt-text); font-variant-numeric: tabular-nums; }
-.tt-stage .tc-open.warn .v { font-size: 44px; }
-
-/* the final's board: four slim columns (about 128px tall), x 24 to 1256. Each column's top bar takes
-   the finalist's first colour inline. */
-.tt-stage .tc-board { width: 1232px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-.tt-stage .tc-fin { padding: 8px 12px 10px; white-space: nowrap; overflow: hidden;
-  border-top: 3px solid var(--tt-paper); border-top-left-radius: 0; border-top-right-radius: 0; }
-.tt-stage .tc-fin .l1 { display: flex; align-items: center; gap: 9px; font: 700 24px/1.1 var(--tt-text); }
-.tt-stage .tc-fin .l2 { font: 500 16px/1.25 var(--tt-text); color: var(--tt-dim); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; }
-.tt-stage .tc-meters { display: grid; grid-template-columns: auto auto auto auto auto auto; align-items: center;
-  column-gap: 5px; row-gap: 5px; margin-top: 7px; }
-.tt-stage .tc-meters .lb { min-width: 0; font: 600 15px/1 var(--tt-text); color: var(--tt-dim); }
-.tt-stage .tc-meters .lb:nth-child(6n + 4) { margin-left: 10px; }
-.tt-stage .tc-meters b { font: 700 15px/1 var(--tt-text); }
-.tt-stage .tc-bar { display: flex; gap: 2px; }
-.tt-stage .tc-bar i { display: block; width: 6px; height: 10px; background: var(--tt-rule); }
-.tt-stage .tc-bar i.on { background: var(--tt-paper); }
-
-/* the lock beat: the open bar swollen, full width, flat and hard (y 532 to 720), text centred */
-.tt-stage .tc-lock { left: 0; top: 532px; width: 1280px; height: 188px; box-sizing: border-box; padding: 0 64px;
-  display: flex; align-items: center; justify-content: space-between; gap: 32px; background: var(--tt-paper); color: var(--tt-ink); }
-.tt-stage .tc-lock .l { font: 800 72px/1 var(--tt-call); letter-spacing: -0.015em; white-space: nowrap; }
-.tt-stage .tc-lock .r { text-align: right; white-space: nowrap; }
-.tt-stage .tc-lock .a { font: 700 26px/1.15 var(--tt-text); }
-.tt-stage .tc-lock .b { font: 500 20px/1.25 var(--tt-text); }
+/* the bar along the bottom for the whole line-up (y 664 to 720): a band between two ruled lines */
+.tt-stage .tc-open, .tt-stage .tc-lock { left: 0; top: 664px; width: 1280px; height: 56px; box-sizing: border-box; padding: 0 64px;
+  display: flex; align-items: baseline; white-space: nowrap; line-height: 56px; }
+.tt-stage .tc-open .l, .tt-stage .tc-lock .l { font-size: 26px; font-weight: 600; }
+.tt-stage .tc-open .v { margin-left: 14px; font-size: 30px; font-weight: 800; }
+.tt-stage .tc-open.warn .v { color: var(--ink-coral); }
+.tt-stage .tc-lock { justify-content: space-between; }
+.tt-stage .tc-lock .a { font-size: 20px; font-weight: 500; color: var(--ink-dim); }
 
 /* result */
-.tt-stage .tc-win { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
-.tt-stage .tc-win .pick { display: flex; align-items: center; gap: 10px; padding: 10px 18px; font: 600 22px/1.15 var(--tt-text); white-space: nowrap; }
-.tt-stage .tc-win .pick .sq { flex: none; width: 10px; height: 10px; }
-.tt-stage .tc-win .pick .sq.in { background: var(--tt-in); }
-.tt-stage .tc-win .pick .sq.out { background: var(--tt-out); }
-.tt-stage .tc-win .main { padding: 16px 26px 18px 20px; }
-.tt-stage .tc-win .hl { display: flex; align-items: center; gap: 18px; font: 800 64px/1 var(--tt-call); letter-spacing: -0.015em; white-space: nowrap; }
-.tt-stage .tc-win .rec { font: 600 24px/1.2 var(--tt-text); margin-top: 10px; padding-left: 52px; }
-.tt-stage .tc-win .ord { display: flex; align-items: center; gap: 28px; padding: 10px 20px; white-space: nowrap; }
-.tt-stage .tc-win .ord span { display: flex; align-items: center; gap: 8px; font: 700 20px/1 var(--tt-text); }
-.tt-stage .tc-win .ord em { font-style: normal; font-weight: 600; font-size: 18px; color: var(--tt-dim); }
+.tt-stage .tc-win .main { padding: 16px 30px 18px 22px; }
+.tt-stage .tc-win .hl { display: flex; align-items: center; gap: 18px; font-size: 60px; font-weight: 800; line-height: 1; white-space: nowrap; }
 
-/* ------------------------------------------------------------------ recap */
-.tt-stage .tc-out { left: 24px; top: 24px; width: 430px; padding: 16px 20px 14px; }
-.tt-stage .tc-out .h { font: 800 30px/1.1 var(--tt-call); letter-spacing: -0.01em; margin-bottom: 14px; }
-.tt-stage .tc-first { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: center;
-  padding-bottom: 12px; margin-bottom: 6px; border-bottom: 1px solid var(--tt-rule); }
-.tt-stage .tc-first .tt-chip { grid-row: 1 / span 2; }
-.tt-stage .tc-first .nm { font: 700 26px/1.1 var(--tt-text); }
-.tt-stage .tc-first .tx { font: 600 20px/1.2 var(--tt-text); color: var(--tt-out); }
-.tt-stage .tc-row { display: grid; grid-template-columns: 14px 112px 1fr; column-gap: 12px; align-items: center; padding: 6px 0; }
-.tt-stage .tc-row .nm { font: 700 20px/1.15 var(--tt-text); white-space: nowrap; overflow: hidden; }
-.tt-stage .tc-row .tx { font: 500 18px/1.2 var(--tt-text); color: var(--tt-dim); }
-.tt-stage .tc-also { font: 500 18px/1.3 var(--tt-text); color: var(--tt-dim); margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--tt-rule); }
-
-.tt-stage .tc-band { left: 24px; bottom: 56px; width: 1232px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;
-  gap: 10px 22px; padding: 12px 22px; }
-.tt-stage .tc-band .h { font: 800 22px/1.1 var(--tt-call); margin-right: 6px; white-space: nowrap; }
-.tt-stage .tc-band span { display: flex; align-items: center; gap: 8px; font: 700 20px/1.1 var(--tt-text); white-space: nowrap; }
-.tt-stage .tc-band em { margin-left: auto; font: 600 20px/1.1 var(--tt-text); font-style: normal; color: var(--tt-dim); white-space: nowrap; }
+/* recap: the roster shelf's count, one big line above the shelf, centred */
+.tt-stage .tc-remain { left: 0; right: 0; margin: 0 auto; width: max-content; top: 70px; padding: 12px 34px 16px;
+  font-size: 76px; font-weight: 800; line-height: 1; white-space: nowrap; }
 
 /* ------------------------------------------------------------------ straps (real pixels) */
-/* JS writes translate(left, top) scale(k); the stem runs from the panel's bottom edge down to the
+/* JS writes translate(left, top) scale(k); the stem runs from the plate's bottom edge down to the
    Gumble's head, where it ends in a dot. JS writes the stem height in design px. */
 .tt-stage .tc-straps { position: absolute; inset: 0; }
 .tt-stage .tc-strap { position: absolute; left: 0; top: 0; transform-origin: 0 0; white-space: nowrap; opacity: 0; }
-.tt-stage .tc-strap .body { padding: 8px 14px 10px; background: var(--tt-ink); } /* opaque: nothing shows through */
-.tt-stage .tc-strap .l1 { display: flex; align-items: center; gap: 10px; font: 700 24px/1.1 var(--tt-text); }
-.tt-stage .tc-strap .l2 { font: 500 17px/1.25 var(--tt-text); color: var(--tt-dim); margin-top: 3px; }
-.tt-stage .tc-strap .stem { position: absolute; top: 100%; left: 50%; width: 3px; margin-left: -1.5px; height: 26px; background: var(--tt-paper); }
-.tt-stage .tc-strap .stem::after { content: ''; position: absolute; left: -3px; bottom: -4.5px; width: 9px; height: 9px; border-radius: 50%; background: var(--tt-paper); }
-
-/* recap: the ones who are out, as a wrap of names */
-.tt-stage .tc-out .tc-names { display: flex; flex-wrap: wrap; gap: 10px 20px; }
-.tt-stage .tc-out .tc-names span { display: flex; align-items: center; gap: 8px; font: 700 20px/1.1 var(--tt-text); white-space: nowrap; }
-
-/* a plate that is only a clock row */
-.tt-stage .tc-plate.tc-plate-clock { padding: 12px 20px; min-width: 260px; }
-.tt-stage .tc-plate.tc-plate-clock .tc-clock { margin-top: 0; padding-top: 0; border-top: 0; }
-/* the lock: the same slim bar as the open line-up, not a banner */
-.tt-stage .tc-lock { top: 664px; height: 56px; }
-.tt-stage .tc-lock .l { font: 800 30px/1 var(--tt-call); letter-spacing: -0.01em; }
-.tt-stage .tc-lock .a { font: 700 22px/1 var(--tt-text); }
-
-/* the roster shelf's count: one big line above the shelf, centred */
-.tt-stage .tc-remain { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; top: 70px; padding: 14px 34px 18px; font: 800 84px/1 var(--tt-call); letter-spacing: -0.015em; white-space: nowrap; }
+.tt-stage .tc-strap .body { padding: 7px 14px 9px; }
+.tt-stage .tc-strap .l1 { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600; line-height: 1.1; }
+.tt-stage .tc-strap .stem { position: absolute; top: 100%; left: 50%; width: 2px; margin-left: -1px; height: 26px; background: var(--ink); }
+.tt-stage .tc-strap .stem::after { content: ''; position: absolute; left: -3px; bottom: -4px; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }

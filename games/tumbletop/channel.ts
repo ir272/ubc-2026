@@ -73,7 +73,7 @@ export function tumbletopChannel(o: TumbletopChannelOpts = {}): ChannelDef {
 
   return {
     id: o.id ?? 'tumbletop',
-    title: o.title ?? 'Tumbletop',
+    title: o.title ?? 'Goober Guys', // the name viewers see (the owner's, 2026-11-20); the id and the folder stay `tumbletop`
     intermissionMs: o.intermissionMs ?? 6000,
     async run(show: Show) {
       // Which 16 run is decided here, before the show is announced. No seed exists yet.
@@ -84,7 +84,7 @@ export function tumbletopChannel(o: TumbletopChannelOpts = {}): ChannelDef {
         records,
         simHash: SIM_HASH,
         matchId: `tumbletop-${Date.now().toString(36)}`,
-        title: `Tumbletop, show ${showNo}`,
+        title: `Goober Guys, show ${showNo}`,
         timings,
         intermissionMs: o.intermissionMs ?? 6000,
       });

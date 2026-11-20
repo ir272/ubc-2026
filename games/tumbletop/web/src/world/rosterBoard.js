@@ -11,7 +11,7 @@ const CW = 1.8, CH = 1.95;          // one cubby, metres
 const LIP = 0.42;                   // the shelf edge under a row, where the name plate sits
 const DEPTH = 1.5;
 export const BOARD_AT = { x: 0, y: 34, z: -50 };    // above and behind the start, in front of the gable window
-const WOOD = '#f2d3a2', WOOD_DARK = '#d9a96a', INK = '#16120f', PAPER = '#fbfbf8';
+const WOOD = '#f2d3a2', WOOD_DARK = '#d9a96a', INK = '#141318', PAPER = '#e6e4de';
 const BACKS = ['#7fd6e8', '#ffd166', '#ff9fb2', '#9be7a8', '#c3a6ff', '#ffb37a'];
 
 const rowY = (r) => BOARD_AT.y + (ROWS - 1 - r) * (CH + LIP);
@@ -45,13 +45,13 @@ function plateTexture(name) {
     const g = c.getContext('2d');
     g.fillStyle = INK; g.fillRect(0, 0, c.width, c.height);
     g.fillStyle = PAPER; g.textAlign = 'center'; g.textBaseline = 'middle';
-    g.font = '700 50px "Barlow Semi Condensed", "Avenir Next Condensed", "Arial Narrow", sans-serif';
+    g.font = '600 46px "TT Shantell", "Shantell Sans Variable", "Avenir Next", sans-serif';
     g.fillText(name, c.width / 2, c.height / 2 + 3, c.width - 24);
     t.needsUpdate = true;
   };
   draw();
   // the web font may arrive after the first build: draw again when it has
-  if (typeof document !== 'undefined' && document.fonts?.load) document.fonts.load('700 50px "Barlow Semi Condensed"').then(draw).catch(() => {});
+  if (typeof document !== 'undefined' && document.fonts?.load) document.fonts.load('600 46px "TT Shantell"').then(draw).catch(() => {});
   return t;
 }
 
@@ -91,9 +91,9 @@ export function createRosterBoard(scene) {
     plate.position.set(x, y - LIP / 2, zBack + DEPTH + 0.41); group.add(plate);
     cells.push({ back, shut, plate, plateMat, tex: null, amt: 0, old: false });
   }
-  // the viewer's pick: a white frame round its cubby (it stays when the shutter is down)
+  // the viewer's pick: a gold frame round its cubby (it stays when the shutter is down)
   const pickFrame = new THREE.Group();
-  const pm = new THREE.MeshBasicMaterial({ color: '#ffffff' });
+  const pm = new THREE.MeshBasicMaterial({ color: '#c5a559' }); // gold, as the pick is everywhere else
   for (const [w, h, x, y] of [[CW, 0.09, 0, CH / 2], [CW, 0.09, 0, -CH / 2], [0.09, CH, -CW / 2, 0], [0.09, CH, CW / 2, 0]]) { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.06), pm); m.position.set(x, y, 0); pickFrame.add(m); }
   pickFrame.visible = false; group.add(pickFrame);
 

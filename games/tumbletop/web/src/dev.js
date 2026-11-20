@@ -66,7 +66,7 @@ async function loop() {
     const entrants = pickEntrants(records, () => rng.next());
     showNo++;
     showStart = clock.now();
-    lastResult = await runShow(fake.show, { entrants, records, simHash: SIM_HASH, matchId: `tt-dev-${seed}`, title: 'Tumbletop', timings, intermissionMs: 5000 });
+    lastResult = await runShow(fake.show, { entrants, records, simHash: SIM_HASH, matchId: `tt-dev-${seed}`, title: 'Goober Guys', timings, intermissionMs: 5000 });
     applyShow(records, lastResult);
     fake.intermission();
     await clock.sleep(5000);

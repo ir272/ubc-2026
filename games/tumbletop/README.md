@@ -1,5 +1,7 @@
 # Tumbletop
 
+**The show's name for viewers is "Goober Guys"** (the owner's choice, 2026-11-20). The channel id, the folder, the exports and these documents still say `tumbletop` / Tumbletop so the runner and the site keep working.
+
 A three-round knockout show. Sixteen Gumbles from a house roster of 24 race through a toy attic.
 Round One cuts 16 to 8, Round Two cuts 8 to 4, and the Final has one winner. Nobody plays: viewers
 watch and bet on who wins the show. Channel id `tumbletop`, dev port 5201.
@@ -23,9 +25,8 @@ stays open; default 12 in dev, `0` for the real 40/30/30), `pick` (roster id to 
 platform: camera modes, the viewer's pick, and "Rejoin", which remounts the stage from a snapshot
 as a viewer joining mid-show would.
 
-No env vars. Tumbletop is seeded and calls no models. Sound is fourteen recorded CC0 files in
-`web/src/audio/` (2.6 MB, listed in `ASSETS.md`), fetched once the page has had a click or key
-press; a sound with no file falls back to a synthesised stand-in. `captures/` (stills and strips from the
+No env vars. Tumbletop is seeded and calls no models. Sound in the build is four recorded hit sounds (CC0) in
+`web/src/audio/` and no music yet: the owner is choosing by ear, and a sound with no file is silent. `captures/` (stills and strips from the
 tools) is gitignored.
 
 ## Plugging it into the platform

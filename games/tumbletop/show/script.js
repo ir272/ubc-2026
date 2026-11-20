@@ -55,7 +55,7 @@ export function showMeta(ids, records = {}, simHash = '', T = DEFAULT_TIMINGS) {
  * Run one show. `entrants` are the 16 roster ids in draw order (decided before the announce).
  * Returns { winnerId, order, rounds, entrants } once the result has aired.
  */
-export async function runShow(show, { entrants, records = {}, simHash = '', matchId, title = 'Tumbletop', timings = {}, intermissionMs = 6000 }) {
+export async function runShow(show, { entrants, records = {}, simHash = '', matchId, title = 'Goober Guys', timings = {}, intermissionMs = 6000 }) {
   const T = { ...DEFAULT_TIMINGS, ...timings };
   const at = () => show.elapsed();
   const until = (ms) => show.sleep(ms - at());

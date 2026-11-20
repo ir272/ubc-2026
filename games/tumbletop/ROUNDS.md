@@ -421,3 +421,58 @@ listing (1,443 pieces) for electronic and funk instruments, a bouncy or driving 
 more, then ranked per part by Earshot, dropping everything it read as chiptune or code-made. Eleven
 sent as separate 30 s clips (`docs/music-by-phase/`): three for the line-up, five for the races,
 two for the final, one for the win. Nothing is in the build until he picks.
+
+
+## Round 9, Fri 2026-11-20, about 03:00 to 04:30 CST: the display redrawn in the site's look
+
+**The owner, relayed by the site session (02:58):** the HUD and panels "for all games are trash",
+Tumbletop's "horrible ... rly bad" (he sent the Round Two standings: white header, numbered rows
+with green and red number tiles, colour chips, a "Top 4 go through" bar); the music "is bad", only
+The Scrivener's fits; text a first-time viewer would not get should be clarified or removed; bring
+him two or three visual options and tracks to hear; do not invent a style.
+
+**The look is now the site's (Nightline), not mine.** `web/src/show/ink.js` is the site's ink
+engine (`web/src/ui/ink/`) written out in plain JavaScript: seeded pen strokes, ruled boxes whose
+lines cross at the corners, loops, hand-cut plates. `theme.css` carries Nightline's measured tokens
+(paper #141318, ink #e6e4de, gold #c5a559, the four pencils) and the site's typeface, Shantell Sans
+(a copy of its latin file in `web/src/fonts/`). Gone: the paper-white header bar, the green, red
+and gold number tiles, rounded corners, Bricolage Grotesque and Barlow. Gold now means the viewer's
+pick and the cut line; a place number is green pencil above the line and coral below.
+
+**Three layouts of the race display** (same information, `data-hud` on the stage; `?hud=a|b|c` on
+the page address or keys 1 to 3 on the dev page):
+- a, the table: one ruled panel top left, every place in order, the cut a gold ruled line.
+- b, the strip: one band along the bottom, places left to right, the cut a gold upright.
+- c, the cut only: round and clock in a loop, loose plates for the two places either side of the
+  cut and the pick.
+Stills of each in Rounds One and Two, and of the five cards, are in `docs/hud-options/`. Default is
+a until he picks; nothing is committed until then.
+
+**Cards** (shared by all three): clock plate, round title, the sixteen names, the bar along the
+bottom, the countdown, "8 remain", the winner (gold frame), the straps over Gumbles, all as ink on
+paper. The shelf's name plates and pick frame follow (pick is gold).
+
+**Text.** "Line-up in / Line-up open / Line-up locked" became "Bets open in / Bets close in / Bets
+closed", the words the site's own bet panel uses: "line-up" said nothing about what was closing.
+The tags over Gumbles no longer print "your pick" (the gold loop says it; the standings still do).
+The event line and the cut plate, already off, are deleted from the code.
+
+**Music, third set.** Eight orchestral Kevin MacLeod candidates (CC-BY 4.0) as separate 30 s clips
+in `docs/music-orchestral/`: two for the line-up, three for the races, two for the final, one for
+the win, taken from his catalogue listing by instrument and feel (bright action, full orchestra).
+Earshot rates all of them 86 to 98% real; it could not tell them apart by fit, so the choice of
+which eight was by the catalogue's own description, and no one has listened.
+
+**Checks:** unit tests 19 of 19; a whole show and 18 stills captured with 0 page errors.
+**Not re-run on the new display:** comprehension, mid-join, a critic. Not re-measured: frame time.
+
+**Renamed for viewers (about 04:50):** the owner named the show "Goober Guys". The channel title and
+each match's title say so (`channel.ts`, `show/script.js`); the channel id `tumbletop`, the folder,
+the exports and the feed are unchanged. One string still says the old name: the sim's winner event
+text ("X wins Tumbletop!", `sim/sim.js`), which the stage does not print; changing it would change
+SIM_HASH, so it is left. The creatures are still "Gumbles" (his call; not asked yet).
+
+**The owner picked the table (about 05:10):** "the table is better." The strip and the cut-only
+layouts, the `data-hud` switch and the `?hud=` address option are removed; `raceHud.js` draws the
+table only. A whole show and a late Round One frame captured after the removal: 0 page errors,
+tests 19 of 19. Committed and pushed on his pick.

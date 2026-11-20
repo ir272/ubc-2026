@@ -12,7 +12,7 @@ const hex64 = (rng) => { let s = ''; for (let i = 0; i < 8; i++) s += rng.nextU3
  *   seed     number: fixes every window's seed, so a show can be replayed exactly
  * Returns { show, snapshot(), done } . `show` is one match; make a new fake show per match.
  */
-export function createFakeShow({ clock, onFeed, seed = 1, channel = 'tumbletop', title = 'Tumbletop', lockDelayMs = 150 }) {
+export function createFakeShow({ clock, onFeed, seed = 1, channel = 'tumbletop', title = 'Goober Guys', lockDelayMs = 150 }) {
   const rng = new Rng((seed >>> 0) ^ 0x7a11);
   const ctl = new AbortController();
   let startedAt = 0, phase = 'intermission', match = null, windowCount = 0;

@@ -23,6 +23,7 @@
 // No betting UI here (no odds, amounts or prompts): only the rhythm of the show.
 import * as THREE from 'three';
 import './cards.css';
+import { inkAll, inkFrame, swatchSvg } from './ink.js';
 
 const W0 = 1280, H0 = 720;
 const STRAP_LIFT = 1.3;    // metres above the feet: the top of the head
@@ -61,9 +62,11 @@ const secsLeft = (at, now) => (Number.isFinite(at) ? Math.max(0, at - now) : 0);
 const smooth = (x) => { const t = x < 0 ? 0 : x > 1 ? 1 : x; return t * t * (3 - 2 * t); };
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const css = (c) => (typeof c === 'number' ? '#' + c.toString(16).padStart(6, '0') : String(c ?? '#ccc'));
+const CHIP = { '': [14, 18], 'tc-c-md': [16, 22], 'tc-c-lg': [20, 26], 'tc-c-xl': [34, 44] };
 const chip = (colors, cls = '') => {
   const a = css(colors?.[0]), b = css(colors?.[1] ?? colors?.[0]);
-  return `<i class="tt-chip${cls ? ' ' + cls : ''}" style="--a:${esc(a)};--b:${esc(b)}"></i>`;
+  const [w, h] = CHIP[cls] ?? CHIP[''];
+  return swatchSvg(esc(a), esc(b), w, h, `chip${a}${b}`);
 };
 const setText = (node, cache, k, txt) => { if (cache[k] !== txt) { cache[k] = txt; node.textContent = txt; } };
 
@@ -131,9 +134,9 @@ export function createShowCards(root) {
   const track = (node, keys) => ({ el: node, keys, o: '', tf: '' });
 
   // the corner plate is a clock and its two words; with no clock there is no plate (the page names the show)
-  const showPlate = (clockRow) => (clockRow ? '<div class="tc-plate tc-panel tc-sig tc-plate-clock"><div class="tc-clock"><span class="k"></span><span class="v"></span></div></div>' : '<div class="tc-plate" style="display:none"></div>');
+  const showPlate = (clockRow) => (clockRow ? '<div class="tc-plate tc-plate-clock" data-ink="box" data-seed="tt-plate"><div class="tc-clock"><span class="k"></span><span class="v"></span></div></div>' : '<div class="tc-plate" style="display:none"></div>');
   const titleHTML = (round, cls = '') => `
-    <div class="tc-l3 tc-title tc-panel tc-sig${cls}">
+    <div class="tc-l3 tc-title${cls}" data-ink="box" data-seed="tt-title">
       <div class="a">${esc(round.name)}</div>
     </div>`;
 
@@ -148,7 +151,7 @@ export function createShowCards(root) {
   }
 
   function buildIdle() {
-    fit.innerHTML = `${showPlate(false)}<div class="tc-l3 tc-soon tc-panel tc-sig">Next show soon</div>`;
+    fit.innerHTML = `${showPlate(false)}<div class="tc-l3 tc-soon" data-ink="box" data-seed="tt-soon"><span>Next show soon</span></div>`;
     return { tracks: [track(q('.tc-plate'), enter(0)), track(q('.tc-l3'), enter(0.1))] };
   }
 
@@ -156,7 +159,7 @@ export function createShowCards(root) {
   function buildCall(d) {
     const gumbles = d.gumbles ?? [];
     const timed = d.lineupAt != null;
-    const plates = gumbles.map((g) => `<div class="tc-gp tc-panel">${chip(g.colors)}<span>${esc(g.name)}</span></div>`).join('');
+    const plates = gumbles.map((g) => `<div class="tc-gp" data-ink="plate" data-seed="gp${esc(g.name)}">${chip(g.colors)}<span>${esc(g.name)}</span></div>`).join('');
     fit.innerHTML = `${showPlate(timed)}
       <div class="tc-l3 tc-call">
         <div class="tc-grid">${plates}</div>
@@ -167,7 +170,7 @@ export function createShowCards(root) {
     for (let i = 0; i < n; i++) tracks.push(track(cells[i], enter(0.4 + (n > 1 ? (i / (n - 1)) * 0.95 : 0), 0.25, 10)));
     const c = { tracks };
     if (timed) {
-      const tick = plateClock(c, 'Line-up in', 'Line-up opening');
+      const tick = plateClock(c, 'Bets open in', 'Bets opening');
       c.live = (dd, now) => tick(dd.lineupAt, now);
     }
     return c;
@@ -178,11 +181,11 @@ export function createShowCards(root) {
     const bots = d.bots ?? [];
     const board = false; // (no stat board: the stage shows names, the site's Form tab has the rest)
     fit.innerHTML = `
-      <div class="tc-plate tc-panel tc-sig">
+      <div class="tc-plate" data-ink="box" data-seed="tt-plate">
         <div class="tc-name">${esc(round.name)}</div>
       </div>
       ${titleHTML(round)}
-      <div class="tc-open"><span class="l"></span><span class="m"></span><span class="v"></span></div>`;
+      <div class="tc-open" data-ink="band" data-seed="tt-open"><span class="l"></span><span class="v"></span></div>`;
     const byId = [];
     for (const b of bots) if (b && b.id != null) byId[b.id] = b;
     const tracks = [
@@ -198,7 +201,7 @@ export function createShowCards(root) {
       txt: {}, mode: -1, plateW: 0, plateH: 0, boardH: 0,
       board, byId, straps: [], strapById: [], first: true, cand: [], shown: [],
     };
-    c.ck = c.bar.firstChild; c.cv = c.bar.lastChild;
+    c.ck = c.bar.querySelector('.l'); c.cv = c.bar.querySelector('.v');
     // the open bar: one clock for the whole window, counting to the lock; bigger for the last 5 s
     c.live = (dd, now) => {
       const left = secsLeft(dd.closeAt, now);
@@ -206,7 +209,7 @@ export function createShowCards(root) {
       if (mode !== c.mode) {
         c.mode = mode;
         c.bar.className = mode === 1 ? 'tc-open warn' : mode === 2 ? 'tc-open done' : 'tc-open';
-        setText(c.ck, c.txt, 'k', mode === 2 ? 'Line-up locked' : 'Line-up open');
+        setText(c.ck, c.txt, 'k', mode === 2 ? 'Bets closed' : 'Bets close in');
       }
       setText(c.cv, c.txt, 'v', mode === 2 ? '' : clock(left));
     };
@@ -217,8 +220,8 @@ export function createShowCards(root) {
   function buildLocked(d) {
     const round = d.round ?? {};
     fit.innerHTML = `
-      <div class="tc-lock">
-        <div class="l">Line-up locked</div>
+      <div class="tc-lock" data-ink="band" data-seed="tt-open">
+        <div class="l">Bets closed</div>
         <div class="r"><div class="a">${esc(round.name)}</div></div>
       </div>`;
     const slide = () => [key(0, 1, 0, 24), key(0.18, 1, 0, 0)];
@@ -235,8 +238,8 @@ export function createShowCards(root) {
   function buildRecap(d) {
     const n = d.remain ?? 0;
     fit.innerHTML = `
-      <div class="tc-remain tc-panel tc-sig">${esc(n)} remain</div>
-      ${d.next ? '<div class="tc-plate tc-panel tc-sig tc-plate-clock"><div class="tc-clock"><span class="k"></span><span class="v"></span></div></div>' : ''}`;
+      <div class="tc-remain" data-ink="box" data-seed="tt-remain"><span>${esc(n)} remain</span></div>
+      ${d.next ? '<div class="tc-plate tc-plate-clock" data-ink="box" data-seed="tt-plate"><div class="tc-clock"><span class="k"></span><span class="v"></span></div></div>' : ''}`;
     const at = Number.isFinite(d.revealAt) ? d.revealAt : 4;
     const tracks = [track(q('.tc-remain'), [key(at, 0, -14), key(at + 0.22, 1, 0)])];
     const c = { tracks };
@@ -253,7 +256,7 @@ export function createShowCards(root) {
     const order = d.order ?? [];
     fit.innerHTML = `${showPlate(true)}
       <div class="tc-l3 tc-win">
-        <div class="main tc-panel tc-sig">
+        <div class="main" data-ink="gold" data-seed="tt-win">
           <div class="hl">${chip(w.colors, 'tc-c-xl')}<span>${esc(w.name)} wins</span></div>
         </div>
       </div>`;
@@ -318,7 +321,7 @@ export function createShowCards(root) {
     const node = document.createElement('div');
     node.className = 'tc-strap';
     const lines = ''; // the name, nothing under it
-    node.innerHTML = `<div class="body tc-panel"><div class="l1">${chip(g.colors, 'tc-c-md')}<span>${esc(g.name)}</span></div>${lines}</div><i class="stem"></i>`;
+    node.innerHTML = `<div class="body" data-ink="box" data-seed="strap${esc(g.name)}"><div class="l1">${chip(g.colors, 'tc-c-md')}<span>${esc(g.name)}</span></div>${lines}</div><i class="stem"></i>`;
     strapLayer.appendChild(node);
     const s = { id: g.id, el: node, body: node.firstChild, stem: node.lastChild, w: 0, h: 0, on: false, since: 0,
       a: 0, d: 0, l: 0, t: 0, r: 0, b: 0, ax: 0, ay: 0, o: '', tf: '', sh: '' };
@@ -374,7 +377,7 @@ export function createShowCards(root) {
         const ax = (V.x * 0.5 + 0.5) * W, ay = (-V.y * 0.5 + 0.5) * H;
         // the head must be in frame, and not hard against a side
         if (ax < STRAP_EDGE * k || ax > W - STRAP_EDGE * k || ay < 0 || ay > H) continue;
-        if (!s.w) { s.w = s.body.offsetWidth; s.h = s.body.offsetHeight; }
+        if (!s.w) { s.w = s.body.offsetWidth; s.h = s.body.offsetHeight; inkFrame(s.body); }
         const sw = s.w * k, sh = s.h * k;
         s.ax = ax; s.ay = ay;
         s.l = ax - sw / 2; s.r = ax + sw / 2; s.b = ay - STRAP_RISE * k; s.t = s.b - sh;
@@ -421,6 +424,8 @@ export function createShowCards(root) {
 
     applyTracks(cur, t);
     if (cur.live) cur.live(data, now, t);
+    const ik = Math.floor(now * 4);
+    if (cur.inkAt !== ik) { cur.inkAt = ik; inkAll(fit); }
     if (phase === 'lineup') updateStraps(cur, data, t, now, frame.camera, frame.view, W, H);
   }
 
