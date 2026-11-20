@@ -242,6 +242,15 @@ export function createFigures(): InkModule {
         ink.line([[r * 0.6, 0], [-r * 0.2, r * 0.5]], { w: 2.4, seed: 820 + (p.id % 50), taper: 0.5 });
       }
       g.restore();
+      // a tether: the owner draws the line from its head (mouth) to the tip, in unrotated units
+      const ownerFig = f.figures[p.owner];
+      if (p.tether && ch?.drawTether && ownerFig) {
+        const a = ownerFig.point('head');
+        g.save();
+        g.scale(s, s);
+        ch.drawTether(makeInk(g, f.mode), [a[0] / s, a[1] / s], [f.view.x(p.x) / s, f.view.y(p.y) / s], p, t);
+        g.restore();
+      }
     }
   }
 

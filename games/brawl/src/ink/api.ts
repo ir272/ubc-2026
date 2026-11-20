@@ -141,6 +141,10 @@ export interface CharacterDef {
   drawMove?(ink: Pen, J: Joints, x: FigureExtra): void;
   /** draw one of this character's projectiles, in local units centred on it, +x = its travel */
   drawProjectile?(ink: Pen, p: Projectile, t: number): void;
+  /** optional: a tether projectile (`p.tether`) as a line from the owner to the tip, after
+   *  drawProjectile. Units (stage px / px-per-unit), not rotated, y down: `from` is the owner's head
+   *  joint (its mouth), `to` the tip. */
+  drawTether?(ink: Pen, from: Pt, to: Pt, p: Projectile, t: number): void;
   /** head-and-shoulders portrait in local units, about 100 wide, for the HUD and select screens */
   portrait?(ink: Pen, t: number): void;
 }
