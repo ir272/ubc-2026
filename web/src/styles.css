@@ -546,7 +546,9 @@ table { border-collapse: collapse; }
   .hw-bal { gap: 6px; padding: 0 8px; }
   .hw-bal .chev { display: none; }
   .hw-wallet { width: 40px; padding: 0; justify-content: center; }
-  .hw-wallet > span { display: none; }
+  /* icon only: hide the word, keep the icon (both sit inside the button's label span) */
+  .hw-wallet .ink-btn-label > span > span { display: none; }
+  .hw-wallet .ink-btn-label { display: grid; place-items: center; }
   .hw-wallet svg { display: block; flex: none; }
   .hw-me { width: 36px; height: 36px; }
   /* the side panel: a menu over the page, closed until the menu button opens it */
