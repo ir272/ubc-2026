@@ -36,6 +36,38 @@ export const useRailOpen = (defaultOpen = false) => {
   return p ?? defaultOpen;
 };
 
+// Phones: the side panel is a menu that slides over the page from the header's menu button.
+let navOpen = false;
+const navSubs = new Set<() => void>();
+const setNav = (v: boolean) => {
+  if (navOpen === v) return;
+  navOpen = v;
+  navSubs.forEach((f) => f());
+};
+export const openNav = () => setNav(true);
+export const closeNav = () => setNav(false);
+export const toggleNav = () => setNav(!navOpen);
+export const useNavOpen = () =>
+  useSyncExternalStore(
+    (f) => {
+      navSubs.add(f);
+      return () => navSubs.delete(f);
+    },
+    () => navOpen,
+  );
+
+const PHONE = '(max-width: 900px)';
+/** True on phone-sized screens (the width the phone layout starts at). */
+export const usePhone = () =>
+  useSyncExternalStore(
+    (f) => {
+      const mq = window.matchMedia(PHONE);
+      mq.addEventListener('change', f);
+      return () => mq.removeEventListener('change', f);
+    },
+    () => window.matchMedia(PHONE).matches,
+  );
+
 /** "12.4K" above a thousand, the plain number below */
 export const shortCount = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}K` : String(n));
 /** People watching a channel, as the runner counts them in the channel list. Never padded. */
@@ -118,7 +150,8 @@ function RailRow({ c, open, on }: { c: Snapshot; open: boolean; on: boolean }) {
  * On a channel page: games like this one, then recommended. On the home page: live channels, then recommended.
  */
 export function Rail({ home }: { home?: boolean }) {
-  const isOpen = useRailOpen(true);
+  const phone = usePhone();
+  const isOpen = useRailOpen(true) || phone; // the phone menu always shows names
   const { channels } = useChannels();
   const path = usePath();
   const all = channels ?? [];
