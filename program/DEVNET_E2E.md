@@ -1,23 +1,23 @@
 # Devnet end-to-end run
 
-Run: `npm run e2e:devnet` (scripts/e2e-devnet.ts), 2026-11-18T18:49:56.339Z
+Run: `npm run e2e:devnet` (scripts/e2e-devnet.ts), 2026-11-20T08:46:54.901Z
 
 - Program: `GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P`
 - Mint (PLAY): `8DywivK9Vv5Yi2bCRPqDWakdhJE8Qd6eACLgCc8kDts7`
-- Market: `E4boRtq6njaQMuL9a9zVxkqTdwP4Xogw7L2xCqvr95JS` (id 1795027780615, close_slot 523725723, entropy from slot 523725723)
-- Relayer / fee payer: `HWPavxjtez4PCaV2y9nGPbF84mwJudX98RZH7isZqhrF`; bettors A `Ayhzm2sEFmSsdRkgT7z9R7EC5eDYPpVtorBNLPP9vHnk`, B `HjLCipT3kdKPvPdhr47Dt2yeAKRUAPMKqTqWMBFEuPQ8` hold 0 SOL
+- Market: `FFZWppWmCkzHy5MH7qxzZW5LC12XSP3evhju2sTzwdoB` (id 1795164398838, close_slot 524296772, entropy from slot 524296772)
+- Relayer / fee payer: `FkqePa3sPjtF2owmJ1n1yWFeQtMaDYEYrzxDFmXoSNut`; bettors A `8TnWVB9dufb2mRJuHMtVkLEf1BajB1WcyHAsiBQXy2d`, B `8z7UyxhmtcThqtQabGtv5zymsdRtawXZstH687miTSpw` hold 0 SOL
 - Result: winner 0, A 1000 -> 1300 PLAY, B 1000 -> 700 PLAY
-- Seed sha256(secret ‖ entropy ‖ market): `08d3c37d9b07c62be74e11c899b1e6f3aab2fc4288544e2ca3d0090354579518` (secret `91a4ba4673a71eec5a3fbf5b2f9d3bdd827b28ab8e460c38846b5e06a52c5703`)
+- Seed sha256(secret ‖ entropy ‖ market): `c33b8f17dae7beb3f177284b7d931ba9517b51a0208595768b54433616716916` (secret `dd5fb68c302d7fe4e7343facef8a40b73e003ff79ca478ad33a1106bcc9bd0c7`)
 
 | Step | Signature |
 |---|---|
-| fund relayer 0.05 SOL | [`4pyJgtQoxTuzZgc2dAnwPTUTEzugSANj1q2FNFMdqMnFBq32jtQ7iwLSHaGyYrBHt8syqy1JGSnU4emsoWNKej4e`](https://explorer.solana.com/tx/4pyJgtQoxTuzZgc2dAnwPTUTEzugSANj1q2FNFMdqMnFBq32jtQ7iwLSHaGyYrBHt8syqy1JGSnU4emsoWNKej4e?cluster=devnet) |
-| grant A 1000 PLAY | [`5ge89jGN4F8FoaBHibwQVo4qt92BhipfmuxELujmFLTgpMBQHDCesrAXZSD41mZoSnfVEHKdyLXwadxfc8oRqZRQ`](https://explorer.solana.com/tx/5ge89jGN4F8FoaBHibwQVo4qt92BhipfmuxELujmFLTgpMBQHDCesrAXZSD41mZoSnfVEHKdyLXwadxfc8oRqZRQ?cluster=devnet) |
-| grant B 1000 PLAY | [`2UiR2rm9Ac8JoVE1vm3zfj8ZDyzRvgsGBeVsG72vcoTEm6wDfqq8pmLBDK3YfR2MefXHT45XkGeHfYWwaDsrZNw9`](https://explorer.solana.com/tx/2UiR2rm9Ac8JoVE1vm3zfj8ZDyzRvgsGBeVsG72vcoTEm6wDfqq8pmLBDK3YfR2MefXHT45XkGeHfYWwaDsrZNw9?cluster=devnet) |
-| create_market | [`532nm316LdqPCZz7gAWQWfdLQSf3RAbWKG3q4WepqE7n6BSwzFP6NVKhabrxG8vJHwhPt4RRbUJRKbRA4dZpTCE6`](https://explorer.solana.com/tx/532nm316LdqPCZz7gAWQWfdLQSf3RAbWKG3q4WepqE7n6BSwzFP6NVKhabrxG8vJHwhPt4RRbUJRKbRA4dZpTCE6?cluster=devnet) |
-| place_bet A 100 on 0 | [`198v3J3TxQ6UX7SrLryKVyfNZnJwvsMjR7at9f3cNmUX1E9pgTw3dKtK7JmbXUyjoa5uUaFJ2Dr5JCAaHQcSgt1`](https://explorer.solana.com/tx/198v3J3TxQ6UX7SrLryKVyfNZnJwvsMjR7at9f3cNmUX1E9pgTw3dKtK7JmbXUyjoa5uUaFJ2Dr5JCAaHQcSgt1?cluster=devnet) |
-| place_bet B 300 on 1 | [`ifb9xguw7YjrqkMSxThqY8aUNxv8G4UqB3K3iYHskZNLLFa2N6hibM9gdUnsTTLzgH6Jx7Kz21Sj1M7abkKZrKL`](https://explorer.solana.com/tx/ifb9xguw7YjrqkMSxThqY8aUNxv8G4UqB3K3iYHskZNLLFa2N6hibM9gdUnsTTLzgH6Jx7Kz21Sj1M7abkKZrKL?cluster=devnet) |
-| lock | [`5AWsF9U2XByqvoTf4KEkQtNhcNxDhrW5xL4nUanoWDkZDtZj2paRzGzQXfp9S5aFME891GmWde7MUaUTHfSXhGMc`](https://explorer.solana.com/tx/5AWsF9U2XByqvoTf4KEkQtNhcNxDhrW5xL4nUanoWDkZDtZj2paRzGzQXfp9S5aFME891GmWde7MUaUTHfSXhGMc?cluster=devnet) |
-| settle (winner 0) | [`3Q2gUeiPr9oiPKCaY4yaDVgLWFfsNybB6uaqGy8Yi4RGW95HxYFaTKXyo92AV8bkEsEcyJhU4xJeF6kpNGJg75w2`](https://explorer.solana.com/tx/3Q2gUeiPr9oiPKCaY4yaDVgLWFfsNybB6uaqGy8Yi4RGW95HxYFaTKXyo92AV8bkEsEcyJhU4xJeF6kpNGJg75w2?cluster=devnet) |
-| claim A | [`wh1ma2egUHhC3vi798pFo7UFpUWi986WA6T5LGs59PF5LgTeAAnfLoyA4Swbev6HCsqjHinioB4DPMEGoqkfvTJ`](https://explorer.solana.com/tx/wh1ma2egUHhC3vi798pFo7UFpUWi986WA6T5LGs59PF5LgTeAAnfLoyA4Swbev6HCsqjHinioB4DPMEGoqkfvTJ?cluster=devnet) |
-| claim B | [`4F5H4VjhQUtHvnWRRZ2G7BQDh5RAdhc88mmohCjz6CJavChyGqZbLfqUjbRxVcXHuQUGvH534eNzX6XB2x8nNb3H`](https://explorer.solana.com/tx/4F5H4VjhQUtHvnWRRZ2G7BQDh5RAdhc88mmohCjz6CJavChyGqZbLfqUjbRxVcXHuQUGvH534eNzX6XB2x8nNb3H?cluster=devnet) |
+| fund relayer 0.05 SOL | [`2ZRnVwioFD9YEPZmuovVzx7wih766AXETPk3fUWoAbjRoywWtTPcxpnTb8zhwHc3DwksKk7Rq8qGwKEznibX91Do`](https://explorer.solana.com/tx/2ZRnVwioFD9YEPZmuovVzx7wih766AXETPk3fUWoAbjRoywWtTPcxpnTb8zhwHc3DwksKk7Rq8qGwKEznibX91Do?cluster=devnet) |
+| grant A 1000 PLAY | [`5h4qRs14w99HDsG9qFQwpxqHvrjErYWdNmxcwtcSLMs9RmXVtj2EdWH6VzFiNtM5DPF2NLeAuwPUDVJPgNxdcqZt`](https://explorer.solana.com/tx/5h4qRs14w99HDsG9qFQwpxqHvrjErYWdNmxcwtcSLMs9RmXVtj2EdWH6VzFiNtM5DPF2NLeAuwPUDVJPgNxdcqZt?cluster=devnet) |
+| grant B 1000 PLAY | [`5cbwYWh8MUgs7wLdUeuFufi6482xk8rZXDrocEPzkCVVdC6DgrJrbTqE11uMxwKbGF6ffxFQ2jQmBjVottzLjhX3`](https://explorer.solana.com/tx/5cbwYWh8MUgs7wLdUeuFufi6482xk8rZXDrocEPzkCVVdC6DgrJrbTqE11uMxwKbGF6ffxFQ2jQmBjVottzLjhX3?cluster=devnet) |
+| create_market | [`2nyS4JXEuPFAkC6go5MySsF4YcCk5ycoVb3mXWDpXiALy889EFR5NLsgx3XkNEWD5XeFyxRbKds9zN1ABzciNf8e`](https://explorer.solana.com/tx/2nyS4JXEuPFAkC6go5MySsF4YcCk5ycoVb3mXWDpXiALy889EFR5NLsgx3XkNEWD5XeFyxRbKds9zN1ABzciNf8e?cluster=devnet) |
+| place_bet A 100 on 0 | [`2T93imYxA8xE5FaKuTfaB1AYMjFfsryejrYM48TWdHo88KYteUgA1s8Tms9cFiGGkWY81YwASwpNZ8j5hLuRkikC`](https://explorer.solana.com/tx/2T93imYxA8xE5FaKuTfaB1AYMjFfsryejrYM48TWdHo88KYteUgA1s8Tms9cFiGGkWY81YwASwpNZ8j5hLuRkikC?cluster=devnet) |
+| place_bet B 300 on 1 | [`WP6DEMUGdEhPxxkhLqPXj33tzHASWZst7zbmxe4yDNp2MtyT4nji8WJm83HGy9Z6ozpCwMXTTLTTsnJUv6w72y6`](https://explorer.solana.com/tx/WP6DEMUGdEhPxxkhLqPXj33tzHASWZst7zbmxe4yDNp2MtyT4nji8WJm83HGy9Z6ozpCwMXTTLTTsnJUv6w72y6?cluster=devnet) |
+| lock | [`2gGVmCkfvpeb2vf236twRQn35TBQHF1b38rzTcFHVTefwBfLpDax5nR1vJNLCXvTvkDZsSo7zuXvf6PdZVrB42Ai`](https://explorer.solana.com/tx/2gGVmCkfvpeb2vf236twRQn35TBQHF1b38rzTcFHVTefwBfLpDax5nR1vJNLCXvTvkDZsSo7zuXvf6PdZVrB42Ai?cluster=devnet) |
+| settle (winner 0) | [`4H5Y1fMopo23gZ5TvE7cNExF5Vn4ULjvyFrTfwZssLAqAaJX4FbC5JsLiG74Am9hTgYuzezzP51oraHcpMnQyTM6`](https://explorer.solana.com/tx/4H5Y1fMopo23gZ5TvE7cNExF5Vn4ULjvyFrTfwZssLAqAaJX4FbC5JsLiG74Am9hTgYuzezzP51oraHcpMnQyTM6?cluster=devnet) |
+| claim A | [`5ajr8FcT8ABDuBP3hCCJs8P34AYo2uqevGNfZLCjsrWvbT1rqVxEVnQQ6TUS9PbHqNwPYG16gzPwLKLx21pyEdCK`](https://explorer.solana.com/tx/5ajr8FcT8ABDuBP3hCCJs8P34AYo2uqevGNfZLCjsrWvbT1rqVxEVnQQ6TUS9PbHqNwPYG16gzPwLKLx21pyEdCK?cluster=devnet) |
+| claim B | [`22vPU7Wr13aUjEijuShjaMgGdW6qQ9iNboTTcfg4bP1AnktLisDRcfs3mGVisK3rsugKnAKMNiTM8hPmRoZ4P6Ae`](https://explorer.solana.com/tx/22vPU7Wr13aUjEijuShjaMgGdW6qQ9iNboTTcfg4bP1AnktLisDRcfs3mGVisK3rsugKnAKMNiTM8hPmRoZ4P6Ae?cluster=devnet) |
