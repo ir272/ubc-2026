@@ -204,9 +204,13 @@ export function createInkStage(el0: HTMLElement, opts: InkStageOptions): Stage {
     f.figures[1] = null;
     if (!fight || !ARENA_PHASES.has(f.show.phase)) return;
     const t = f.now / 1000;
+    // while the predictions window is open the fight has not begun: the fighters stand ready in
+    // their idle (the sim holds them on the first frame of `entrance`, which for some is a heap)
+    const waiting = f.show.phase === 'predictions';
+    const ready = (x: FighterState): FighterState => (waiting && x.action === 'entrance' ? { ...x, action: 'idle', actionFrame: 30 } : x);
     for (const side of [0, 1] as Side[]) {
-      const s = fight.state.fighters[side];
-      const p = fight.prev.fighters[side];
+      const s = ready(fight.state.fighters[side]);
+      const p = ready(fight.prev.fighters[side]);
       const o = fight.state.fighters[side === 0 ? 1 : 0];
       const ch = CAST[s.fighter];
       const def = FIGHTERS[s.fighter];
