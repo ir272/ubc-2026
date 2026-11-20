@@ -171,3 +171,25 @@ test('viewers: snapshots and the feed carry the real number of open connections'
     await app.stop();
   }
 });
+
+test('rate limits use the proxy-reported visitor address when TRUST_PROXY=1', async () => {
+  const app = createApp({ chain: new MemoryChain(), channels: [coinflipChannel()], historyDir: null });
+  const port = await app.start(0, '127.0.0.1');
+  const faucet = (ip?: string) =>
+    fetch(`http://127.0.0.1:${port}/faucet`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', ...(ip ? { 'x-forwarded-for': `1.2.3.4, ${ip}` } : {}) },
+      body: JSON.stringify({ owner: randomPubkey() }),
+    }).then((r) => r.status);
+  process.env.TRUST_PROXY = '1';
+  try {
+    const distinct = await Promise.all([1, 2, 3, 4, 5, 6, 7].map((i) => faucet(`10.0.0.${i}`)));
+    assert.deepEqual(distinct, [200, 200, 200, 200, 200, 200, 200], 'different visitors are limited separately');
+    const same = [];
+    for (let i = 0; i < 6; i++) same.push(await faucet('10.0.0.99'));
+    assert.equal(same.at(-1), 429, 'one visitor still gets 5 a minute');
+  } finally {
+    delete process.env.TRUST_PROXY;
+    await app.stop();
+  }
+});

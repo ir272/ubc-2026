@@ -2,7 +2,25 @@
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
     "builder": "DOCKERFILE",
-    "dockerfilePath": "runner/Dockerfile"
+    "dockerfilePath": "runner/Dockerfile",
+    "watchPatterns": [
+      "railway.json",
+      ".dockerignore",
+      "runner/**",
+      "program/sdk/**",
+      "program/DEPLOYED.json",
+      "games/*/channel.ts",
+      "games/*/bots.json",
+      "games/scrivener/src/show/**",
+      "games/scrivener/src/sim/**",
+      "games/scrivener/src/core/**",
+      "games/scrivener/src/ai/**",
+      "games/scrivener/src/brains/**",
+      "games/brawl/src/show/**",
+      "games/brawl/src/sim/**",
+      "games/tumbletop/show/**",
+      "games/tumbletop/sim/**"
+    ]
   },
   "deploy": {
     "healthcheckPath": "/health",

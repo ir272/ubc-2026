@@ -220,7 +220,7 @@ Variables to set on the Railway service (names only; values go in Railway's dash
 | `OPENROUTER_API_KEY` | the key the AI players of Inkelton and Blood Moon use (same as in `games/*/.env`) |
 
 Already set by the Dockerfile (override only to change them): `CHAIN=solana`,
-`CHANNELS=scrivener,brawl,tumbletop`, `NODE_ENV=production`. Railway provides `PORT`. Optional:
+`CHANNELS=scrivener,brawl,tumbletop`, `NODE_ENV=production`, `TRUST_PROXY=1` (rate limits use the visitor's address from the proxy headers, not the proxy's). Every `SWEEP_MINUTES` (default 30, `0` = off) the runner voids markets past their settle deadline (left behind by a restart) and closes finished ones. `railway.json` `watchPatterns` limit redeploys to pushes that touch the runner, the SDK or the games' rules and simulations. Railway provides `PORT`. Optional:
 `BRAIN_BUDGET_USD` / `BRAWL_BUDGET_USD` (AI spend caps per game; the spend file lives in the
 container, so it restarts from zero on each deploy), `TX_PER_SEC`, `POOL_POLL_MS`, `RPC_STATS`.
 House bots stay off unless `HOUSE_BOTS=1`.

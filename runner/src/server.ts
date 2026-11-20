@@ -76,8 +76,24 @@ export function createApp(o: AppOpts) {
   const devHtml = () => readFileSync(new URL('../public/dev.html', import.meta.url));
   let loops: Promise<void>[] = [];
 
+  /**
+   * The visitor's address for rate limits. Behind a proxy (TRUST_PROXY=1, set in the Dockerfile for
+   * Railway) every request comes from the proxy, so use the address the proxy reports: X-Real-IP,
+   * else the last X-Forwarded-For entry (the one the proxy appended; earlier ones are client-supplied).
+   */
+  const clientIp = (req: http.IncomingMessage) => {
+    if (process.env.TRUST_PROXY === '1') {
+      const real = req.headers['x-real-ip'];
+      if (typeof real === 'string' && real) return real.trim();
+      const fwd = req.headers['x-forwarded-for'];
+      const last = (Array.isArray(fwd) ? fwd.join(',') : fwd ?? '').split(',').map((x) => x.trim()).filter(Boolean).pop();
+      if (last) return last;
+    }
+    return req.socket.remoteAddress ?? '';
+  };
+
   const ipLimit = (req: http.IncomingMessage, key: string, size: number, refillMs: number) => {
-    const k = `${key}:${req.socket.remoteAddress}`;
+    const k = `${key}:${clientIp(req)}`;
     let b = ipBuckets.get(k);
     if (!b) ipBuckets.set(k, (b = new Bucket(size, refillMs)));
     if (ipBuckets.size > 10_000) ipBuckets.clear();
@@ -336,6 +352,24 @@ export function createApp(o: AppOpts) {
       if (o.houseBots) await startHouseBots(hub, ac.signal, o.houseBots === true ? {} : o.houseBots);
       loops = o.channels.map((def) => runChannelLoop(hub, def, ac.signal, o.loop));
       const poll = setInterval(() => void hub.refreshAllOpen(), POOL_POLL_MS || (chain.kind === 'solana' ? 5000 : 2000));
+      // Solana: every SWEEP_MINUTES (default 30, 0 = off) void markets past their settle deadline
+      // (left open by a restart or crash) and close every finished one, returning the rent.
+      const sweepMin = Number(process.env.SWEEP_MINUTES ?? 30);
+      const sweeper = chain as ChainAdapter & { sweep?: (o: { voidStale?: boolean; say?: (s: string) => void }) => Promise<unknown> };
+      if (chain.kind === 'solana' && sweepMin > 0 && sweeper.sweep) {
+        let sweeping = false;
+        const sweep = setInterval(() => {
+          if (sweeping) return;
+          sweeping = true;
+          sweeper
+            .sweep!({ voidStale: true, say: (x) => log.info(`sweep: ${x}`) })
+            .then((r) => log.info(`sweep done: ${JSON.stringify(r)}`))
+            .catch((e) => log.warn(`sweep failed: ${(e as Error).message}`))
+            .finally(() => (sweeping = false));
+        }, sweepMin * 60_000);
+        sweep.unref?.();
+        ac.signal.addEventListener('abort', () => clearInterval(sweep), { once: true });
+      }
       ac.signal.addEventListener('abort', () => clearInterval(poll), { once: true });
       return actual;
     },

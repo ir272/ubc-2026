@@ -21,6 +21,7 @@ COPY runner runner
 COPY games games
 
 ENV NODE_ENV=production \
+    TRUST_PROXY=1 \
     CHAIN=solana \
     CHANNELS=scrivener,brawl,tumbletop
 
