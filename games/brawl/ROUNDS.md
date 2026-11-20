@@ -131,3 +131,5 @@ pick); new music (tracks for him to hear). He renames the games himself later. T
   four, screens fitted to six, fighters stand ready during predictions. The three.js stage is deleted.
 - 60 of 60 tests, type check clean, a whole show plays in the harness. `REPORT.md` rewritten.
 - Commits: 000df27, 427a4a4, 598c165, 6f775a9, 98e4a76, 2a30c75, e1e51c2.
+
+- 05:15 the owner listened to every sound on `lab/sounds.html`: "ok the sounds are good lets goo". Then: three real-model matches on the six (all six models) started, and a last balance pass on Magpie against Wolf and Hexer against Mimic (`ringout-sim-7`).

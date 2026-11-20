@@ -59,10 +59,8 @@ sheets, everything creative below. The three.js stage was deleted (it is in git 
 
 ## What is unfinished, unverified or thin
 
-- **Nobody has listened to the sound.** Two previews were sent to the owner
-  (`captures/lead/sound/blood-moon-preview.mp3`, `-2.mp3`). Every level was set by meters. The
-  agent's own doubts: the fight loop starts mid-phrase, the howl may be too present, the
-  Armour's Fall Apart may read as a clang, the magpie chatter has hiss.
+- **Sound: the owner listened** on the `lab/sounds.html` page at about 05:15 and said "the sounds are
+  good". Levels were set by meters before that; nothing was changed after.
 - **Real models have not coached these six.** The last real-model trial (20 matches, $0.47 of the
   $1.50 budget) was on the two-plan-style robot sim before abilities. The stage-strike call and
   the new roster prompt have only run on mock coaches and a stubbed fetch in tests.
@@ -93,7 +91,6 @@ sheets, everything creative below. The three.js stage was deleted (it is in git 
 
 ## Next steps
 
-1. The owner's ears on the two sound previews; fix what he hears.
 2. A short real-model trial on the six (budget left: $1.03) to see which fighters and stages
    models pick and whether the strike call returns clean answers.
 3. Magpie against Wolf and Hexer against Mimic.
