@@ -88,7 +88,12 @@ test('chain transactions are filed under their window, mapped to outcome ids, an
   );
   assert.equal(w.txs![2]!.bot, undefined);
   assert.equal(w.txs![4]!.outcomeId, 'heads');
-  assert.deepEqual(feed.map((m) => [m.type, m.windowId, m.tx.kind]), [
+  // the human's bet is also announced in chat (the bot's is not: house bots post their own lines)
+  const chat = feed.filter((m) => m.type === 'chat');
+  assert.equal(chat.length, 1);
+  assert.equal(chat[0].from, `${human.slice(0, 4)}…${human.slice(-4)}`);
+  assert.match(chat[0].text, /^bet 2 Souls on /);
+  assert.deepEqual(feed.filter((m) => m.type === 'tx').map((m) => [m.type, m.windowId, m.tx.kind]), [
     ['tx', 'm1:w1', 'bet'],
     ['tx', 'm1:w1', 'bet'],
     ['tx', 'm1:w1', 'lock'],

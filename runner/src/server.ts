@@ -229,8 +229,13 @@ export function createApp(o: AppOpts) {
     }
     if (m === 'POST' && p === '/relay') {
       ipLimit(req, 'relay', 10, 1000);
-      const { tx } = await readJson(req);
+      const { tx, name, owner: who } = await readJson(req);
       if (typeof tx !== 'string' || !tx) throw new HttpError(400, 'tx (base64) required');
+      // optional: the bettor's chat name, so the chat line for this bet carries it
+      if (typeof name === 'string' && typeof who === 'string' && /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(who)) {
+        const n = clean(name).slice(0, NAME_MAX_LEN);
+        if (n && !botNames().has(n.toLowerCase()) && !/^housebot/i.test(n)) hub.nameBettor(who, n);
+      }
       let signature: string;
       try {
         signature = await chain.relay(tx);

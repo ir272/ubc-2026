@@ -243,7 +243,7 @@ class Wallet {
       } else if ((await getConfig()).chain === 'solana') {
         const cfg = await getConfig();
         const { placeBetSolana } = await import('./solanaBet');
-        const sig = await placeBetSolana({ seed: this.seed, owner: this.owner, market: w.market, outcome, amount, cfg });
+        const sig = await placeBetSolana({ seed: this.seed, owner: this.owner, market: w.market, outcome, amount, cfg, name: this.name });
         if (sig) t.tx = `https://explorer.solana.com/tx/${sig}?cluster=${cfg.cluster ?? 'devnet'}`;
       } else {
         const r = await api.devBet({ owner: this.owner, windowId: w.windowId, outcomeId: w.outcomes[outcome]!.id, amount });

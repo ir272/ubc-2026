@@ -111,7 +111,7 @@ export const api = {
   faucet: (owner: string) => req<{ granted: number; balance: number; already?: boolean }>('/faucet', { owner }, 30000),
   devBet: (b: { owner: string; windowId: string; outcomeId: string; amount: number }) =>
     req<{ ok: true; pools: number[]; total: number; balance: number }>('/dev/bet', b),
-  relay: (tx: string) => req<{ signature: string }>('/relay', { tx }),
+  relay: (tx: string, from?: { name: string; owner: string }) => req<{ signature: string }>('/relay', { tx, ...from }),
   /** Solana only: a recent blockhash from the runner's own RPC. */
   blockhash: () => req<{ blockhash: string }>('/blockhash', undefined, 5000),
   /** Practice mode only: move Souls to another address. */

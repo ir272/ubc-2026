@@ -50,6 +50,13 @@ export class Hub {
   /** Recent windows across all channels (for /me, /dev/bet and pool refreshes). */
   readonly windows = new Map<string, WindowRec>();
   readonly bots: { owner: string; name: string }[] = [];
+  /** Viewers' chat names by wallet address, sent with their bets (POST /relay), for the bet lines in chat. */
+  readonly betNames = new Map<string, string>();
+  nameBettor(owner: string, name: string) {
+    this.betNames.delete(owner);
+    this.betNames.set(owner, name);
+    if (this.betNames.size > 5000) this.betNames.delete(this.betNames.keys().next().value!);
+  }
   readonly botOwners = new Set<string>();
   readonly chain: ChainAdapter;
   /** Closes finished markets in the background to return their rent (see reclaim.ts). */
@@ -195,6 +202,15 @@ export class Hub {
     }
     const tx = this.fileTx(w, t, at);
     this.broadcast(w.channel, 'tx', { windowId: w.windowId, market: w.market, tx }); // EXTRA message
+    // Every confirmed viewer bet is announced in that game's chat ("Wren: bet 100 Souls on Marrow").
+    if (t.kind === 'bet' && t.who && !tx.bot && typeof t.amount === 'number' && typeof t.outcome === 'number') {
+      const label = w.outcomes[t.outcome]?.label;
+      if (label) {
+        const name = this.betNames.get(t.who) ?? `${t.who.slice(0, 4)}…${t.who.slice(-4)}`;
+        const souls = Number((t.amount / 1_000_000).toFixed(2)).toLocaleString('en-US');
+        this.chatMsg(w.channel, name, `bet ${souls} Souls on ${label}`);
+      }
+    }
   }
 
   /** Newest first: recent transactions across windows the runner still remembers (GET /ledger). */

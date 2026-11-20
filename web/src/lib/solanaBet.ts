@@ -59,10 +59,12 @@ export function buildPlaceBetTx(a: {
 
 export async function placeBetSolana(a: {
   seed: Uint8Array; owner: string; market: string; outcome: number; amount: number; cfg: Config;
+  /** the viewer's chat name, shown with the bet in the game's chat */
+  name?: string;
 }): Promise<string> {
   if (!a.cfg.feePayer) throw new Error('runner has no fee payer');
   const recentBlockhash = await blockhashFor(a.cfg.cluster);
   const tx = buildPlaceBetTx({ ...a, programId: a.cfg.programId, feePayer: a.cfg.feePayer, recentBlockhash });
-  const { signature } = await api.relay(tx);
+  const { signature } = await api.relay(tx, a.name ? { name: a.name, owner: a.owner } : undefined);
   return signature;
 }
