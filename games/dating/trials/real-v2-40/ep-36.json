@@ -1,0 +1,2040 @@
+{
+  "episode": 93,
+  "matchId": "dating-ep93-mwnxzoxm",
+  "brain": "model",
+  "sealed": "4d3bddb3581cdfcc933f13a4691fb105da77afb8b8677ea66546362bde3a9934",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 0
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 1
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 2
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "bigwords",
+        "label": "Big words",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "rules",
+        "label": "Follows the rules",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "rhyme",
+      "label": "The Rhyme",
+      "rule": "Tell me why you. In a rhyme.",
+      "format": "solo"
+    },
+    "topTags": {
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ],
+      "nav": [
+        "plans",
+        "confidence",
+        "danger",
+        "rules",
+        "brevity"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash",
+        "nav"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "honesty": [
+        "vex"
+      ],
+      "bragging": [
+        "dash"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly",
+        "vex"
+      ],
+      "plans": [
+        "dash",
+        "nav"
+      ],
+      "flattery": [
+        "dash",
+        "tilly"
+      ],
+      "numbers": [
+        "dash"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "brevity": [
+        "nav"
+      ],
+      "past": [
+        "vex"
+      ],
+      "danger": [
+        "nav",
+        "vex"
+      ],
+      "rules": [
+        "nav",
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-bad-mood",
+    "theme": "I wake up in a foul mood. What do you do?"
+  },
+  "order": [
+    "dash",
+    "tilly",
+    "vex",
+    "nav"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 13,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Four of you. One of me. Always one of me. Tonight, big words.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7066,
+      "ms": 4730,
+      "genMs": 798,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 13326,
+      "ms": 4420,
+      "genMs": 3601,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Radio has no back button. Gone.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 18111,
+      "ms": 2560,
+      "genMs": 810,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 22202,
+      "ms": 4110,
+      "genMs": 3938,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The room's been cleared. Read that.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26677,
+      "ms": 2560,
+      "genMs": 825,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Good evening, Vesper. In four hundred feet, fall for me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30768,
+      "ms": 3800,
+      "genMs": 1807,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 4,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Measure again. Three hundred.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34934,
+      "ms": 1940,
+      "genMs": 1022,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "Episodes: 49. Wins: 12. I do apologise for the inconvenience.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38818,
+      "ms": 3800,
+      "genMs": 1345,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Those wins have been recounted. Downward.",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 789,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 16,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "I wake up foul. The whole county whispers till I've had tea. What do you do?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 5660,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "Pancakes, frown. Waffles, smaller frown. I'll be cooking till about four, but we're trending.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 57968,
+      "ms": 5040,
+      "genMs": 1058,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Waffles are now illegal. The frown stays.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 63380,
+      "ms": 2870,
+      "genMs": 976,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "May I read you your options? You have none, but I read them beautifully.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 66715,
+      "ms": 5040,
+      "genMs": 641,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Read them again. Slower. That's an order.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 72358,
+      "ms": 2870,
+      "genMs": 1209,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "I show you nothing all morning. Do you know what that costs me?",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 75947,
+      "ms": 4730,
+      "genMs": 396,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 81706,
+      "ms": 1000,
+      "genMs": 755,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 6,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Tilly, red light. I have decided.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 83735,
+      "ms": 2560,
+      "genMs": 1538,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "To the letter. I wrote most of the letters.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 87012,
+      "ms": 3490,
+      "genMs": 757,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Dash. Vex. One of you is about to become a wrong number.",
+      "pair": [
+        "dash",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 91952,
+      "ms": 7420,
+      "genMs": 641,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 11,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Dash, \"but we're trending\" went out live, to the whole coast.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 100822,
+      "ms": 4810,
+      "genMs": 780,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "exit",
+      "text": "Rolling me back to the last version that worked. Loading. Still loading.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 107082,
+      "ms": 4420,
+      "genMs": 3751,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 8,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Toll ahead. Vesper only accepts rule-following. Exact change.",
+      "guess": {
+        "id": "rules",
+        "label": "Follows the rules",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 115452,
+      "ms": 3180,
+      "genMs": 2900,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 12,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Nav thinks we're close. I've said their name three times. Policy's three.",
+      "about": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 120717,
+      "ms": 4420,
+      "genMs": 646,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Vesper cringed for a full second. That's the longest anyone's looked at me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 127222,
+      "ms": 4730,
+      "genMs": 561,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "Why you, in a rhyme. Moon and June are banned. They retired on my show in sixty-two.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 139737,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 20,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "twist",
+      "text": "You say that you're done with me; that's what you said at two in the morning, while scrolling in bed.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 145976,
+      "ms": 6900,
+      "genMs": 1388,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Two in the morning is my hour. It rhymes there.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 153145,
+      "ms": 3800,
+      "genMs": 931,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Turn off the radio, put down the phone. Mute me, and I find my own way home.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 157214,
+      "ms": 5970,
+      "genMs": 1791,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Turn off the radio. I've noted who asked.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 163481,
+      "ms": 3180,
+      "genMs": 909,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Pick me and I'll love you the way that I'm trained, with a ticket left open and nothing explained.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 167020,
+      "ms": 6590,
+      "genMs": 421,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [
+        "rules"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 174004,
+      "ms": 1000,
+      "genMs": 753,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "Vex's rhyme scanned, which is more than June ever did.",
+      "to": "vex",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 175398,
+      "ms": 3800,
+      "genMs": 2612,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Vex, you are not a recognised destination.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 179591,
+      "ms": 2870,
+      "genMs": 1237,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Vex, I'm told you see everything. Sorry about tonight, then.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 183010,
+      "ms": 3800,
+      "genMs": 535,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "jab",
+      "text": "Tilly, I've set your Up Next to this, forever.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 187358,
+      "ms": 3490,
+      "genMs": 415,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 11,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Nav and Tilly, stay on the line. One of you won't.",
+      "pair": [
+        "nav",
+        "tilly"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 191629,
+      "ms": 7110,
+      "genMs": 755,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 11,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "\"find my own way home\". The complaints book opened itself, Nav.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 199450,
+      "ms": 4810,
+      "genMs": 821,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Recalculating. See you on your dashboard tomorrow, Vesper. Facing forward.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 205396,
+      "ms": 3800,
+      "genMs": 1166,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "I've rung the others to warn them Vesper hates apologies. Wrong numbers, all three.",
+      "guess": {
+        "id": "sorry",
+        "label": "Says sorry too much",
+        "kind": "off",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 215316,
+      "ms": 5040,
+      "genMs": 556,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Between us, Tilly has been in Vesper's Continue Watching for weeks. Out of guilt.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 222606,
+      "ms": 5040,
+      "genMs": 417,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 18,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Vesper, that's where my head goes. You out of pocket, the way you were. Is that a symptom?",
+      "to": "vesper",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 232646,
+      "ms": 6280,
+      "genMs": 1534,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Tilly, nobody complains to me. They wouldn't dare. Complain to me.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 239176,
+      "ms": 4110,
+      "genMs": 1097,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "My complaint is your voice. The whole coast stays up for it, and they're shattered.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 243547,
+      "ms": 5350,
+      "genMs": 563,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "Did Tilly ask you one question about you? I've saved mine for years.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 250147,
+      "ms": 4730,
+      "genMs": 382,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Vex, I keep files on every listener. Yours is blank. Nobody asked. Tell me.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 255144,
+      "ms": 5040,
+      "genMs": 927,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "Write this down: watched to the end once, by you, tonight. Don't add to it.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 261071,
+      "ms": 5350,
+      "genMs": 331,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Two records cued, Tilly and Vex. One turntable.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 267871,
+      "ms": 3180,
+      "genMs": 942,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 9,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Instructions, followed to the letter. I'm commissioning a statue.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 274001,
+      "ms": 3490,
+      "genMs": 876,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 3,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Follows the rules.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 277741,
+      "ms": 2230,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 14,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "May I read you your options? You have none, but I read them beautifully.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 280221,
+      "ms": 3040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 20,
+      "event": "replay",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "replay",
+      "text": "You say that you're done with me; that's what you said at two in the morning, while scrolling in bed.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 283511,
+      "ms": 4000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 13,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "The line I'd play at close-down was \"while scrolling in bed\". So, Vex.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 292011,
+      "ms": 5730,
+      "genMs": 1051,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "win",
+      "text": "Nobody's ever picked me off the list. I'm usually the list.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 298791,
+      "ms": 4110,
+      "genMs": 462,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 10,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Confidence. Tilly did it on my air. The air remembers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 305351,
+      "ms": 4400,
+      "genMs": 847,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 18,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "Vesper, that's where my head goes. You out of pocket, the way you were. Is that a symptom?",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 310291,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "lose",
+      "text": "For our records, Vex. I've logged your coffee order, twice.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 314221,
+      "ms": 3800,
+      "genMs": 1211,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "Lines are closed. Gale warnings next. Batten down.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 320471,
+      "ms": 3180,
+      "genMs": 818,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Episodes: 49. Wins: 12. I do apologise for the inconvenience.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "apologise for the inconvenience"
+    },
+    {
+      "seq": 2,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 3,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 4,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Good evening, Vesper. In four hundred feet, fall for me.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "fall for me"
+    },
+    {
+      "seq": 5,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Pancakes, frown. Waffles, smaller frown. I'll be cooking till about four, but we're trending.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "but we're trending"
+    },
+    {
+      "seq": 6,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "May I read you your options? You have none, but I read them beautifully.",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "I read them beautifully"
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "I show you nothing all morning. Do you know what that costs me?",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "what that costs me"
+    },
+    {
+      "seq": 8,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Tilly, red light. I have decided.",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You say that you're done with me; that's what you said at two in the morning, while scrolling in bed.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "while scrolling in bed"
+    },
+    {
+      "seq": 10,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Turn off the radio, put down the phone. Mute me, and I find my own way home.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "find my own way home"
+    },
+    {
+      "seq": 11,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Pick me and I'll love you the way that I'm trained, with a ticket left open and nothing explained.",
+      "mark": "unsure",
+      "hits": [
+        "rules"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "a ticket left open"
+    },
+    {
+      "seq": 12,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Vesper, that's where my head goes. You out of pocket, the way you were. Is that a symptom?",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 13,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Did Tilly ask you one question about you? I've saved mine for years.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "saved mine for years"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "vex": 0,
+        "dash": 0,
+        "nav": 1,
+        "tilly": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "vex": -1,
+        "dash": -1,
+        "nav": 4,
+        "tilly": 3
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "vex": 0,
+        "dash": -1,
+        "nav": 0,
+        "tilly": 5
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "vex": 0,
+        "dash": -1,
+        "nav": 0,
+        "tilly": -3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "dash",
+      "name": "Dash",
+      "round": 1,
+      "standing": {
+        "vex": -1,
+        "dash": -1,
+        "nav": 4,
+        "tilly": 3
+      },
+      "tie": [
+        "vex",
+        "dash"
+      ],
+      "reason": "standing -1; 0 charmed, 1 unsure, 1 cringing",
+      "deciding": [
+        "rules"
+      ],
+      "roundMarks": {
+        "vex": -1,
+        "dash": -1,
+        "nav": 1,
+        "tilly": 1
+      },
+      "bottom": [
+        "dash",
+        "vex"
+      ],
+      "hintCard": null,
+      "hook": "but we're trending"
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 2,
+      "standing": {
+        "vex": 0,
+        "nav": 0,
+        "tilly": 5
+      },
+      "tie": [],
+      "reason": "standing 0; 2 charmed, 0 unsure, 1 cringing; 1x turn-on \"Follows the rules\"; 1x dealbreaker \"Confidence\"",
+      "deciding": [
+        "confidence"
+      ],
+      "roundMarks": {
+        "vex": 1,
+        "nav": -1,
+        "tilly": 0
+      },
+      "bottom": [
+        "nav",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": "find my own way home"
+    }
+  ],
+  "pick": {
+    "winner": "vex",
+    "loser": "tilly",
+    "standing": {
+      "vex": 0,
+      "dash": -1,
+      "nav": 0,
+      "tilly": -3
+    },
+    "tie": [],
+    "reason": "standing 0; 1 charmed, 2 unsure, 1 cringing",
+    "oneOnOne": {
+      "vex": 0,
+      "tilly": -1
+    },
+    "first": "tilly",
+    "last": "vex"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "rules",
+      "quote": null,
+      "replays": [
+        {
+          "who": "tilly",
+          "text": "May I read you your options? You have none, but I read them beautifully.",
+          "hit": true
+        },
+        {
+          "who": "vex",
+          "text": "You say that you're done with me; that's what you said at two in the morning, while scrolling in bed.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "nav",
+          "right": true
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "confidence",
+      "quote": null,
+      "replays": [
+        {
+          "who": "tilly",
+          "text": "Vesper, that's where my head goes. You out of pocket, the way you were. Is that a symptom?",
+          "hit": true
+        }
+      ],
+      "guesses": [
+        {
+          "who": "tilly",
+          "right": false
+        }
+      ]
+    }
+  ],
+  "guesses": [
+    {
+      "who": "nav",
+      "card": "rules",
+      "kind": "on",
+      "right": true,
+      "via": "chosen"
+    },
+    {
+      "who": "tilly",
+      "card": "sorry",
+      "kind": "off",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep93-mwnxzoxm:w1",
+      "outcomes": [
+        "vex",
+        "dash",
+        "nav",
+        "tilly"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep93-mwnxzoxm:w2",
+      "outcomes": [
+        "vex",
+        "nav",
+        "tilly"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 112952,
+      "lockAt": 134952
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep93-mwnxzoxm:w3",
+      "outcomes": [
+        "vex",
+        "tilly"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 210646,
+      "lockAt": 230646
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1501
+    },
+    {
+      "at": 5501,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7066,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 12161,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 13326,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 18111,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 21036,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 22202,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 26677,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 29603,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30768,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 34934,
+      "type": "reaction",
+      "ms": 1940
+    },
+    {
+      "at": 37446,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38818,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 57968,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 63380,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 66715,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 72358,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 75947,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 81706,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 83735,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 87012,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 91952,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 100822,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 107082,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 112952,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 112952,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 115452,
+      "type": "confession",
+      "ms": 3180
+    },
+    {
+      "at": 120717,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 127222,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 134952,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 134952,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 137952,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 139737,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 145976,
+      "type": "line",
+      "ms": 6900
+    },
+    {
+      "at": 153145,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 157214,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 163481,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 167020,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 174004,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 175398,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 179591,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 183010,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 187358,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 191629,
+      "type": "bottom",
+      "ms": 7110
+    },
+    {
+      "at": 199450,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 205396,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 210646,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 210646,
+      "type": "scene",
+      "ms": 4670
+    },
+    {
+      "at": 215316,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 222606,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 230646,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 230646,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 232646,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 239176,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 243547,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 249147,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 250147,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 255144,
+      "type": "reaction",
+      "ms": 5040
+    },
+    {
+      "at": 261071,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 267871,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 272501,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 274001,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 277741,
+      "type": "reveal",
+      "ms": 2230
+    },
+    {
+      "at": 280221,
+      "type": "replay",
+      "ms": 3040
+    },
+    {
+      "at": 283511,
+      "type": "replay",
+      "ms": 4000
+    },
+    {
+      "at": 287761,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 292011,
+      "type": "pick",
+      "ms": 5730
+    },
+    {
+      "at": 298791,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 304351,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 305351,
+      "type": "reveal",
+      "ms": 4400
+    },
+    {
+      "at": 310291,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 314221,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 319471,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 320471,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 320471,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 320471,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 320471,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 323901,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 326151
+}

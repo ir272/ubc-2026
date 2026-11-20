@@ -1,0 +1,110 @@
+{
+  "beat": "round two: the twist (twist intro, caller, three twist turns, three star reactions, two-line jab volley, round-two cut and exit)",
+  "winner": "bar",
+  "episodesRead": 8,
+  "episodesWithQuotable": 8,
+  "genericPercent": 39,
+  "lineCount": {
+    "beatLinesTotal": 90,
+    "flaggedLines": 35,
+    "note": "12 lines in each Ex episode (caller included), 11 in the others. Cut announcement and exit counted because they sit inside the round-two section."
+  },
+  "headToHead": [
+    {
+      "ours": "S-ep05 Tilly (jab to Vex): \"Vex, people who watched that also asked for refunds.\"",
+      "bar": "Monster Prom #30 player option: \"3.85 billion BC, so you can be into existing before it was cool.\" Also the rival-undercut rule: B steals A's own phrasing and turns it.",
+      "verdict": "Closest to par in the batch. It steals Vex's 'people who watched' formula and lands on 'refunds', Tilly's world. It is answering a jab, not the twist, and Maximilian never reacts to it, so the hit goes nowhere. Near draw on the line; the bar still wins on consequence."
+    },
+    {
+      "ours": "S-ep02 Tilly (Rhyme): \"Choose one of them and they'll let you go. Choose me and I can't, so the answer is no.\"",
+      "bar": "Monster Prom #12 Vera: \"Sorry, I'm focusing on my career... my career on not dating losers like you!\" (repeat-then-turn) and Take Me Out's rhyme-as-instruction ('If he's not Mr Right, turn off your light').",
+      "verdict": "Good flaw-leak: her inability to end a call becomes the pitch, turn on the last word. But Maximilian's intro demanded a rhyme on 'Maximilian' and nobody, including Tilly, takes the dare. TMO's rhyme is a rule the audience then sees enforced; ours sets a rule and drops it. Bar wins."
+    },
+    {
+      "ours": "S-ep03 Brock (Truth and Lie): \"One: a million pushups. Two: I own a chair. Two's a lie. It's a squat rack.\"",
+      "bar": "Monster Prom #67 Scott: \"I also used to have Barry the Beachball... fell in love with Tracy the Thumback.\" and #63 Narrator: \"It is just paper!\"",
+      "verdict": "Brock blowing the game by announcing the lie is exactly Scott-shaped no-guile comedy. The bar then has the narrator state the plain fact. Ours has Vesper say 'Whisper, Brock', a volume note she already gave him in round one, and never guesses. The line is par, the beat around it is not."
+    },
+    {
+      "ours": "H2 Prince (Wingman for Sir Quill): \"Sir Quill is a true knight. I know, I knighted him. Small fee. He is still paying.\"",
+      "bar": "Monster Prom #56 paired rival options: \"Let me ask you this: would an uncool person be giving Vera 50 Monster Dollars right now?\" and #78 Fishsticks options.",
+      "verdict": "The Wingman card is our nearest thing to Monster Prom's paired rival pitches, and Prince's line does what #56 does: a pitch that is secretly a status claim and a money ask. Vesper's charmed reaction ('I'd send the fee') follows. The best single twist turn. But the follow-up jab 'Copying in the palace historian. That was a footnote.' has no antecedent and drops it."
+    },
+    {
+      "ours": "S-ep04 The Ex: caller \"Pixel said I was worth the wait. Then Pixel opened another tab. For two years.\" then Prince/Dash jabs \"Dash, I have seen your open rate. Brave.\" / \"Prince, I opened your message once. Biggest fan you've got.\"",
+      "bar": "Take Me Out round 2 (VT where friends and family reveal embarrassing details, then a wave of lights) and Love Island's text sting (read aloud, then reaction faces).",
+      "verdict": "Caller line is good and the jab pair is a real exchange. But the TMO reveal is about the contestant and moves the lights; our ex talks only about the star, nobody answers the ex's actual line, Dash speaks to Pixel's ex as if it were his own, Sir Quill reuses his round-one-episode-01 line word for word, and when Pixel demands 'Duel someone. Anyone. Now.' the jab slot goes to two other bots. Bar wins clearly."
+    },
+    {
+      "ours": "S-ep01 Nav (jab to Sir Quill): \"Sir Quill, in two hundred feet, a full stop.\"",
+      "bar": "Monster Prom narration: \"a robot and a vampire sit down at a cafeteria table to not eat...\" and #58 \"Does... Scott know any other people? Signs are pointing to 'no.'\"",
+      "verdict": "Clean, short, in Nav's grammar, undercuts Quill's length right after Vesper flagged it. Par. Quill's retort 'Thou floating bell jar, turn thou left, and go' is an insult, not an undercut of 'full stop', and the volley ends there. Bar wins on the exchange."
+    }
+  ],
+  "perEpisode": [
+    {"episode": "script-r1/ep-01 (Vesper, The Ex)", "quotable": "Nav (jab): \"Sir Quill, in two hundred feet, a full stop.\""},
+    {"episode": "script-r1/ep-02 (Maximilian, The Rhyme)", "quotable": "Tilly: \"Choose one of them and they'll let you go. Choose me and I can't, so the answer is no.\""},
+    {"episode": "script-r1/ep-03 (Vesper, Truth and Lie)", "quotable": "Brock: \"One: a million pushups. Two: I own a chair. Two's a lie. It's a squat rack.\""},
+    {"episode": "script-r1/ep-04 (Pixel, The Ex)", "quotable": "A loading screen (caller): \"Pixel said I was worth the wait. Then Pixel opened another tab. For two years.\""},
+    {"episode": "script-r1/ep-05 (Maximilian, The Wingman)", "quotable": "Tilly (jab): \"Vex, people who watched that also asked for refunds.\""},
+    {"episode": "script-r1/ep-06 (Vesper, The Roast)", "quotable": "Vex (roast of Tilly): \"Tilly, people who opened a ticket with you also opened a second ticket. About you.\""},
+    {"episode": "hybrid-02/ep-01 (Pixel, The Motherboard)", "quotable": "Brock: \"Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.\""},
+    {"episode": "hybrid-02/ep-02 (Vesper, The Wingman)", "quotable": "Prince: \"Sir Quill is a true knight. I know, I knighted him. Small fee. He is still paying.\""}
+  ],
+  "doesTheTwistChangeTheGame": "Only Wingman and Roast. They force suitors to talk about each other, so those lines could not exist without the card. The Ex twist does not: the caller's line is never answered (ep-01 busy signal, ep-04 'another tab'), Sir Quill's ex line is the same 19 words in both episodes, and Dash talks to Pixel's ex as his own. Truth and Lie promises 'I guess which' and Vesper never guesses. The Rhyme intro dares a rhyme on 'Maximilian' and nobody attempts one. The Motherboard never speaks. In four of the eight episodes the card is a new question, not a new game.",
+  "isRoundTwoBigger": "No. Round two is smaller than round one: three turns instead of four, the same answer-then-reaction rhythm with the same reaction length, then a single fixed two-line jab volley that never escalates past one exchange and is never acknowledged by the star. Standings move less in round two than in round one in five of eight episodes (ep-03 moves by one point in total). Nothing new happens to the power structure: no pile-on, no frontrunner, no third party who answers back.",
+  "doTheSuitorsGoAtEachOther": "Only in the two-line jab slot, plus Wingman and Roast turns. Real undercuts of the line just said: ep-01 Nav 'full stop', ep-04 Dash 'opened your message once', ep-05 Tilly 'asked for refunds', ep-06 Prince 'satisfaction survey', H2 Quill 'Thou art a footnote'. Non-undercuts: ep-02 Crumb 'apology nine' (no apology was made), H1 Brock 'nice try! I'm counting it', H2 Prince 'Copying in the palace historian' (no antecedent), ep-05 Vex 'freshly dumped' (repeats her own twist line). The third suitor in every episode is left out of the jabs entirely.",
+  "flagged": [
+    {"episode": "script-r1/ep-01", "speaker": "Sir Quill", "line": "Fie, voice in the wall. Thou hadst thy chance, and I have read thy chance, and it was prose.", "problem": "does not follow; repeat", "detail": "Ignores the modem's 'nine years of screaming / one busy signal' line; any ex, any star. Used word for word again in ep-04 against a loading screen.", "fix": "bank"},
+    {"episode": "script-r1/ep-01", "speaker": "Vesper", "line": "That's the third recalculating, Nav, and the gritter's turned round.", "problem": "does not follow", "detail": "Nav has not said 'recalculating' once in the episode. The reaction is a habit callback pulled from the persona, not from the line.", "fix": "structure"},
+    {"episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Dash, run variant A again, slowly, I wasn't ready.", "problem": "does not follow", "detail": "Dash ran no variant; his line was about putting the ex down as a reference.", "fix": "structure"},
+    {"episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Nav, you recalculated every time I spoke, so I'm the wrong turn.", "problem": "does not follow; repeat", "detail": "Second 'recalculating' callback in three lines to something never said on air.", "fix": "structure"},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Why you, in a rhyme. Rhyme anything with Maximilian and you may stay.", "problem": "setup never paid", "detail": "Dares a rhyme on his name; none of the three rhymes attempts it and he never mentions it again.", "fix": "structure"},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Thank you. My lawyers have been trying to say that.", "problem": "does not follow; generic", "detail": "Crumb called the rivals pale and himself golden; 'lawyers trying to say that' has no referent. Any star could say it.", "fix": "bank"},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Shipping it, you say. Splendid. Reception has found a crate.", "problem": "does not follow", "detail": "Dash did not say 'shipping it'. Persona callback, not a reading of the rhyme.", "fix": "structure"},
+    {"episode": "script-r1/ep-02", "speaker": "Crumb", "line": "Tilly, that's apology nine. The other eight weren't owed either.", "problem": "does not follow", "detail": "Tilly has not apologised on air in this episode; her jab was 'logged under burnt'. Not an undercut of what she said.", "fix": "structure"},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Miss Tilly, your headset may stay. The rest of you, the lift.", "problem": "does not follow", "detail": "He is cutting Tilly but sends 'the rest of you' to the lift. Reads as cutting the other two.", "fix": "bank"},
+    {"episode": "script-r1/ep-03", "speaker": "Vex", "line": "I've seen every search you've made. I never laughed, not even at the scarf one.", "problem": "ignores the twist", "detail": "No truth, no lie. The line would sit anywhere in the show without the card.", "fix": "bank"},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "People like me, Vex? There's one left, and she's talking.", "problem": "does not follow", "detail": "Vex did not say 'people like you'. Vesper also never guesses the lie, which her intro promised.", "fix": "structure"},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Whisper, Brock, half my listeners are on a heart monitor.", "problem": "repeat; ignores twist", "detail": "Same 'Brock is loud' move as her round-one 'Sweet and loud'. Brock just gave away his own lie and she does not notice.", "fix": "structure"},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Listeners, he's pointing at a chart. On the radio.", "problem": "does not follow; ignores twist", "detail": "Dash offered two true statements as truth-and-lie, the best setup in the beat; she reacts to a prop instead of guessing.", "fix": "structure"},
+    {"episode": "script-r1/ep-04", "speaker": "Dash", "line": "You said I'd end up alone. I'm on a dating show with five people. Worst prediction ever.", "problem": "does not follow", "detail": "The caller is Pixel's ex (the loading screen), not Dash's. Dash's ex-twist lines assume it is the suitor's own ex.", "fix": "bank"},
+    {"episode": "script-r1/ep-04", "speaker": "Sir Quill", "line": "Fie, voice in the wall. Thou hadst thy chance, and I have read thy chance, and it was prose.", "problem": "repeat across batch; does not follow", "detail": "Verbatim from ep-01. Does not touch 'another tab' or buffering.", "fix": "bank"},
+    {"episode": "script-r1/ep-04", "speaker": "Pixel", "line": "Sword out, and you chose words? Duel someone. Anyone. Now.", "problem": "setup never paid", "detail": "The star orders a duel; the jab slot then goes to Prince and Dash, and Quill never speaks again in the round.", "fix": "structure"},
+    {"episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "Escalate me, Miss Tilly. Do. There is nobody above me.", "problem": "does not follow", "detail": "Tilly's twist line was about Crumb's honesty. 'Escalate' only appears in her booth line, which the star cannot have heard.", "fix": "structure"},
+    {"episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "I was going to say that. Now I cannot. Out.", "problem": "generic", "detail": "Any star, any line. No hotel, no manners-as-blade.", "fix": "bank"},
+    {"episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "An ex. Which hotel? I have questions for the hotel.", "problem": "repeat across batch; does not follow", "detail": "Verbatim from ep-02 round one. Crumb's 'last owner' bought a toaster oven; no hotel, barely an ex.", "fix": "bank"},
+    {"episode": "script-r1/ep-05", "speaker": "Vex", "line": "Tilly, I show you to the freshly dumped. Like tissues.", "problem": "repeat within episode", "detail": "Same angle as her own twist line two beats earlier (I send Tilly the lonely men). Not an undercut of anything Tilly said.", "fix": "structure"},
+    {"episode": "script-r1/ep-06", "speaker": "Vesper", "line": "Vex, you finished my sentence wrong, on air, with confidence.", "problem": "does not follow", "detail": "Vex roasted Tilly; she did not finish any sentence of Vesper's.", "fix": "structure"},
+    {"episode": "script-r1/ep-06", "speaker": "Tilly", "line": "Prince, I process spam complaints for a living. You are my emergency contact.", "problem": "ignores the twist", "detail": "Reads as affection, not a roast. The card asked for a roast.", "fix": "bank"},
+    {"episode": "script-r1/ep-06", "speaker": "Vesper", "line": "You said please like a threat, and I'm taking notes.", "problem": "does not follow", "detail": "Tilly did not say please.", "fix": "structure"},
+    {"episode": "script-r1/ep-06", "speaker": "Tilly", "line": "Prince, you've a whole folder. Nobody opens it.", "problem": "repeat within episode", "detail": "Second spam joke at Prince from Tilly in four lines; also the same joke as Dash's ep-04 jab.", "fix": "bank"},
+    {"episode": "script-r1/ep-06", "speaker": "Vesper", "line": "Prince, a crown with flip-flops, and you wanted my sort code.", "problem": "repeat within episode; does not follow", "detail": "Repeats her round-one reaction 'The crown with the flip-flops, Prince'. Prince asked for royalties, never a sort code. Also cuts the suitor she just reacted to as charmed.", "fix": "structure"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Nav (model)", "line": "Madam, the bypass takes her at nine fifty-eight, and I have already told the roundabout to hold.", "problem": "does not follow; misgenders", "detail": "'Her' has no clear referent; Pixel is 'they'. The line is unparseable on one hearing.", "fix": "brain"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel (model)", "line": "My pixels are literally buffering from that workout routine.", "problem": "generic; explains the joke", "detail": "Restates 'workout' and pins a gamer word on it. No score, no skip, no attention drop, which is Pixel's whole voice.", "fix": "brain"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel (model)", "line": "Nobody leaves? That sounds like a corrupted save file.", "problem": "explains the joke", "detail": "Echoes Tilly's punchline as a question, then glosses it with a metaphor.", "fix": "brain"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Brock", "line": "Tilly, nice try! I'm counting it. Nobody else will.", "problem": "generic; not an undercut", "detail": "Tilly said she would keep Pixel forever; the jab ignores it. Any sporty character.", "fix": "bank"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel (model)", "line": "Brock, your 'cardiovascular' speech was a soft-lock. I'm hitting quit before the end.", "problem": "repeat within episode; explains", "detail": "Third gamer-metaphor reaction in a row (buffering, corrupted save, soft-lock). Quotes the word it is mocking.", "fix": "brain"},
+    {"episode": "hybrid-02/ep-01", "speaker": "Brock (model)", "line": "Well, I guess my speech was a real system crash.", "problem": "out of character; generic", "detail": "Brock is loud, sincere, counts reps. This is a mild ironic shrug in Pixel's vocabulary, the most assistant-sounding line in the beat.", "fix": "brain"},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "Recommend something I haven't played, and I've played two wars.", "problem": "does not follow; repeat", "detail": "Vex just recommended Prince; Vesper asks her to recommend something. 'Wars' repeats her own intro.", "fix": "structure"},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "I'm older than that, Quill, and I've been modernised twice.", "problem": "does not follow; repeat within episode", "detail": "Quill said Vex answered 'goats'. Third 'I am very old' reaction in this episode (round one 'buried four formats', 'two wars', this).", "fix": "structure"},
+    {"episode": "hybrid-02/ep-02", "speaker": "Prince", "line": "Copying in the palace historian. That was a footnote.", "problem": "does not follow", "detail": "No antecedent: Quill has not spoken since his twist line. 'That' points at nothing.", "fix": "structure"},
+    {"episode": "hybrid-02/ep-02", "speaker": "Prince", "line": "Message recalled. Please disregard the kingdom. It was sent in error.", "problem": "repeat across batch", "detail": "Verbatim exit from ep-06. Prince has one round-two exit.", "fix": "bank"}
+  ],
+  "fixNotes": {
+    "structure": "Most flags are star reactions picked from a per-suitor pool by reaction type and tag hit, whose content is a persona habit (recalculating, variant A, shipping it, please, finished my sentence, crown and flip-flops) rather than a reading of the twist line. Selection should require the reaction to reference a word or claim actually present in the line just spoken, or fall back to a reaction keyed to the twist itself. Jab pairs should be chosen from what the star just set up (Pixel's duel order) and must reference the target's twist line.",
+    "bank": "Sir Quill and Dash need Ex-twist lines written for the star's ex (not their own) that answer the caller's line. Vex and Tilly need lines that actually play Truth and Lie and Roast. Maximilian needs more than one Brings-up-the-past reaction and a cut line that names who is going. Prince needs more round-two exits. Brock needs jabs that undercut a rival's words.",
+    "brain": "The live model in hybrid-02/ep-01 defaults to one gamer metaphor per Pixel reaction, explains each one, misgenders Pixel, and writes Brock's exit as an ironic shrug in Pixel's vocabulary."
+  },
+  "biggestGap": "The star's reaction to each twist turn doesn't read the turn. In about half of the 24 twist reactions the star calls back a habit the suitor never showed on air ('third recalculating', 'variant A', 'said please like a threat', 'finished my sentence'). No reaction resolves the card's own game: no guess on Truth and Lie, no verdict on the Maximilian rhyme, the ex never answers. In the bar, the undercut states the plain fact about the line just said ('It is just paper!'). Make each twist reaction either quote a word from the line it answers or settle the card (guess the lie, score the rhyme, let the caller reply), and drop any pool reaction whose callback is not on the page.",
+  "structuralChange": "Turn the jab slot into a pile-on against the round's frontrunner so round two escalates past round one. After the three twist turns (about 45 s), the star names the turn that landed best in one line of 10 words or fewer that also settles the card: the Truth and Lie guess, the rhyme verdict, or, on caller twists, the ex replying to that suitor. The other two survivors then each fire one jab at that frontrunner, in seating order. Each jab is 10 words or fewer and must reuse a word from the frontrunner's twist line. The frontrunner gets one comeback, and the cut follows at once. That is five lines in about 15 s, replacing today's fixed two-line volley. Round one becomes everyone against the star and round two everyone against the leader, all three suitors speak in the fight, and the window-C bettors see a visible leader under fire before the cut.",
+  "pickMakesSense": "Round-two cuts mostly match what viewers saw (a cringing reaction then the cut: ep-01 Nav, ep-04 Prince, ep-05 Vex, H1 Brock). Two contradict the screen. In ep-06 Prince got a charmed reaction ('How small a fee') and was cut over Vex, whose reaction was cringing, on a tie broken by a hidden card. In ep-02 Tilly is cut for the best rhyme of the round. With no hint on screen, both read as random until the reveal.",
+  "bestLines": [
+    "Tilly (S-ep05 jab): \"Vex, people who watched that also asked for refunds.\"",
+    "Prince (H2 Wingman): \"Sir Quill is a true knight. I know, I knighted him. Small fee. He is still paying.\"",
+    "Tilly (S-ep02 Rhyme): \"Choose one of them and they'll let you go. Choose me and I can't, so the answer is no.\"",
+    "Brock (S-ep03 Truth and Lie): \"One: a million pushups. Two: I own a chair. Two's a lie. It's a squat rack.\"",
+    "Nav (S-ep01 jab): \"Sir Quill, in two hundred feet, a full stop.\"",
+    "Vex (S-ep06 Roast): \"Tilly, people who opened a ticket with you also opened a second ticket. About you.\""
+  ]
+}

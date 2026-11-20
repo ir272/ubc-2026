@@ -1,0 +1,31 @@
+{
+  "name": "compatibility-mode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compatibility Mode: an AI dating show channel. One star, four suitor bots, viewers bet on the pick.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "dev": "vite --port 5203 --strictPort",
+    "build": "vite build",
+    "match": "node tools/match.ts",
+    "text": "node tools/text.ts",
+    "balance": "node tools/balance.ts",
+    "bankcheck": "node tools/bankcheck.ts",
+    "roster": "node tools/roster.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/dela-gothic-one": "^5.1.0",
+    "@fontsource/zen-maru-gothic": "^5.1.0",
+    "@pixiv/three-vrm": "^3.3.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/three": "^0.170.0",
+    "playwright": "^1.49.0",
+    "typescript": "^5.9.0",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,2029 @@
+{
+  "episode": 57,
+  "matchId": "dating-ep57-mwnwslbi",
+  "brain": "model",
+  "sealed": "7b726cdcd1e7635e801650c13da0e955c342c8a4490d9b26f280b0bc96e2dc12",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 0
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 1
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 2
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "gestures",
+        "label": "Grand gestures",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "roast-left",
+      "label": "The Roast",
+      "rule": "Roast the suitor on your left.",
+      "format": "target-left"
+    },
+    "topTags": {
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "brock": [
+        "numbers",
+        "confidence",
+        "vulnerability",
+        "food",
+        "bragging"
+      ],
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "brock"
+      ],
+      "puns": [
+        "crumb"
+      ],
+      "money": [
+        "prince"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "prince"
+      ],
+      "honesty": [
+        "crumb"
+      ],
+      "bragging": [
+        "brock"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly"
+      ],
+      "food": [
+        "brock",
+        "crumb"
+      ],
+      "flattery": [
+        "prince",
+        "tilly"
+      ],
+      "numbers": [
+        "brock"
+      ],
+      "mystery": [
+        "prince"
+      ],
+      "brevity": [
+        "crumb"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "crumb"
+      ],
+      "vulnerability": [
+        "brock"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-why-you",
+    "theme": "Why you and not the three standing next to you?"
+  },
+  "order": [
+    "tilly",
+    "brock",
+    "prince",
+    "crumb"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "WE'RE LIVE! Four suitors! Huge night! Mostly. Somebody bring numbers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 7212,
+      "ms": 3800,
+      "genMs": 1005,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Choose your setting: warm, honest, or the one that smokes?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12828,
+      "ms": 3800,
+      "genMs": 1991,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Smokes? Critical hit! Proc it, Crumb!",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 17136,
+      "ms": 2560,
+      "genMs": 941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21512,
+      "ms": 4110,
+      "genMs": 1386,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Four, you're zero percent compatible.",
+      "to": "brock",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 26130,
+      "ms": 2250,
+      "genMs": 942,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 9,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Subject: receipt of one prince, slightly nervous. Kindly confirm.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 12,
+      "at": 30300,
+      "ms": 3490,
+      "genMs": 2744,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Prince, your receipt is zero percent.",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 34350,
+      "ms": 2560,
+      "genMs": 1160,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "For security purposes, who else were you planning on loving?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 39037,
+      "ms": 3800,
+      "genMs": 1466,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Security, you're the only love.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 43500,
+      "ms": 2250,
+      "genMs": 961,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "Why you and not those three? Say it to their faces. I've got a camera on each.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 5970,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Which of them upset you? Just nod. I've a little button for each.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 58259,
+      "ms": 4730,
+      "genMs": 633,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Hand over the buttons. I'll press them all, live.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 63239,
+      "ms": 3490,
+      "genMs": 872,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 66979,
+      "ms": 5970,
+      "genMs": 757,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Always going means it's broken. A screensaver with fur.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 73212,
+      "ms": 3490,
+      "genMs": 763,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 77237,
+      "ms": 5970,
+      "genMs": 921,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 83875,
+      "ms": 1000,
+      "genMs": 540,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 8,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Tilly, I've heard that one through a wall.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 85543,
+      "ms": 3180,
+      "genMs": 642,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 88973,
+      "ms": 1000,
+      "genMs": 627,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Prince, Brock, bottom two. Sad! Cry a bit, I'll wait. Not long.",
+      "pair": [
+        "prince",
+        "brock"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 91423,
+      "ms": 7420,
+      "genMs": 784,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Brock, \"here with a tail\", I paused there and never pressed play again.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 100293,
+      "ms": 5430,
+      "genMs": 985,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 6,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "exit",
+      "text": "One tail, two legs, I'm out!",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 107173,
+      "ms": 2560,
+      "genMs": 481,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 15,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "It's questions. I've told every switchboard in the country, quietly, so it doesn't get out.",
+      "guess": {
+        "id": "curiosity",
+        "label": "Asks about me",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "fallback",
+      "maxWords": 18,
+      "at": 113683,
+      "ms": 5350,
+      "genMs": 1609,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Element when Pixel walked on: 203 degrees. Now: 289. I've told the studio it's the lights.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 119413,
+      "ms": 5660,
+      "genMs": 1132,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Subject: my last line. Please disregard. A corrected version follows. It is longer.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 125453,
+      "ms": 4730,
+      "genMs": 1275,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "ROAST TIME! Hit the bot on your left! Hard! Not that hard, I need them for later.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 137968,
+      "ms": 5970,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 144207,
+      "ms": 5970,
+      "genMs": 1112,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "He accepted crumbs! Prince, worth it? Nod. Nod harder.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 150470,
+      "ms": 3490,
+      "genMs": 855,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 154279,
+      "ms": 6280,
+      "genMs": 360,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Closed unresolved! Tilly, savage. You framed it? Iconic.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 160934,
+      "ms": 3180,
+      "genMs": 1182,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Sorry, everyone. I agreed with that by accident.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 164551,
+      "ms": 3180,
+      "genMs": 420,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Nice enough that chat's started a fundraiser. Against you.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 168237,
+      "ms": 3490,
+      "genMs": 614,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "verdict",
+      "text": "Crumb WINS the roast! Blood! Tears! Somebody get a mop. Not me.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 172272,
+      "ms": 4420,
+      "genMs": 810,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "Crumb, your notices never say URGENT. Have you no passion?",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 177236,
+      "ms": 3800,
+      "genMs": 364,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Noted, and passed upward. There is no upward.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 181581,
+      "ms": 3180,
+      "genMs": 290,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Tilly, was that a jab, or are you defrosting?",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 185011,
+      "ms": 3490,
+      "genMs": 424,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Prince, Tilly, one of you is about to be a highlight reel.",
+      "pair": [
+        "prince",
+        "tilly"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 189117,
+      "ms": 7420,
+      "genMs": 566,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 11,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Tilly, nobody's ever cried leaving my show politely. Be the first.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 197152,
+      "ms": 4810,
+      "genMs": 776,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "Understood. Policy says I wish you every happiness. Policy's very brave.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 203412,
+      "ms": 4110,
+      "genMs": 378,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 13,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Pixel is a simple dish. Brown side down, add grand gestures, serve warm.",
+      "guess": {
+        "id": "gestures",
+        "label": "Grand gestures",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "fallback",
+      "maxWords": 18,
+      "at": 213332,
+      "ms": 4730,
+      "genMs": 2318,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Dear Crumb, we regret to inform you that you are in the final with a prince.",
+      "about": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 220312,
+      "ms": 5660,
+      "genMs": 350,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Just us. Question: who did your toast before me? I'd like a name.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 230972,
+      "ms": 4730,
+      "genMs": 470,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Score me out of ten, out loud, and don't round up.",
+      "to": "crumb",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 235952,
+      "ms": 4110,
+      "genMs": 822,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 10,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Five point one, and the point one is the hoodie.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 240312,
+      "ms": 3800,
+      "genMs": 1110,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "duo",
+      "text": "Crumb's date was lovely. Please do not reply to it. Reply to this.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 245648,
+      "ms": 4730,
+      "genMs": 843,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Off stream, what would you say? Trick question! There's no off stream. Answer anyway.",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 251352,
+      "ms": 5040,
+      "genMs": 807,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 19,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "duo",
+      "text": "Off stream, Pixel? I would delete the URGENT, then the Dearest, then the crown, and ask you to dinner.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 257842,
+      "ms": 6590,
+      "genMs": 3360,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "compare",
+      "text": "Crumb would bring me soup. Prince would bring a camera crew.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 265882,
+      "ms": 4110,
+      "genMs": 952,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 9,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Drumroll! DRUMROLL! Okay, nobody has drums. Mouth drums. Go.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 272942,
+      "ms": 3490,
+      "genMs": 537,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 13,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Grand gestures. Nobody found it, and I left it lying right there, glowing.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 276682,
+      "ms": 5330,
+      "genMs": 871,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 17,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 282262,
+      "ms": 3520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 18,
+      "event": "replay",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "replay",
+      "text": "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 286032,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 15,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "chat says no. chat says \"which she closed unresolved\" was cringe. chat's not picking. Prince.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 294212,
+      "ms": 6350,
+      "genMs": 822,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 16,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "win",
+      "text": "A reply. An actual reply. I am marking it unread so I can open it again.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 300812,
+      "ms": 5660,
+      "genMs": 512,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Confidence. Brock did it like a best man with the wrong speech. Pinned.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 307722,
+      "ms": 5330,
+      "genMs": 740,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 17,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 313302,
+      "ms": 3520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 8,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "lose",
+      "text": "Fair. Ask Prince what happens to the crusts.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 317072,
+      "ms": 3180,
+      "genMs": 1446,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Goodnight. If anyone cries in the car park, I'm still recording.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 322702,
+      "ms": 4110,
+      "genMs": 772,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Choose your setting: warm, honest, or the one that smokes?",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "the one that smokes"
+    },
+    {
+      "seq": 2,
+      "who": "brock",
+      "name": "Brock",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "four, we're ENGAGED"
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "For security purposes, who else were you planning on loving?",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "who else were you planning"
+    },
+    {
+      "seq": 4,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Subject: receipt of one prince, slightly nervous. Kindly confirm.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Which of them upset you? Just nod. I've a little button for each.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "a little button for each"
+    },
+    {
+      "seq": 6,
+      "who": "brock",
+      "name": "Brock",
+      "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "here with a tail"
+    },
+    {
+      "seq": 7,
+      "who": "prince",
+      "name": "Prince",
+      "text": "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "concern your face"
+    },
+    {
+      "seq": 8,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Tilly, I've heard that one through a wall.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "through a wall"
+    },
+    {
+      "seq": 9,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "I sent crumbs"
+    },
+    {
+      "seq": 10,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "which she closed unresolved"
+    },
+    {
+      "seq": 11,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sorry, everyone. I agreed with that by accident.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 12,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Just us. Question: who did your toast before me? I'd like a name.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "I'd like a name"
+    },
+    {
+      "seq": 13,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Crumb's date was lovely. Please do not reply to it. Reply to this.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "Reply to this"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "crumb": 1,
+        "brock": 3,
+        "prince": 0,
+        "tilly": 1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "crumb": 1,
+        "brock": -1,
+        "prince": -1,
+        "tilly": 2
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "crumb": 2,
+        "brock": -1,
+        "prince": 0,
+        "tilly": 1
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "crumb": 0,
+        "brock": -1,
+        "prince": 0,
+        "tilly": 1
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "brock",
+      "name": "Brock",
+      "round": 1,
+      "standing": {
+        "crumb": 1,
+        "brock": -1,
+        "prince": -1,
+        "tilly": 2
+      },
+      "tie": [
+        "brock",
+        "prince"
+      ],
+      "reason": "standing -1; 1 charmed, 0 unsure, 1 cringing; 1x turn-on \"Numbers and stats\"; 1x dealbreaker \"Confidence\"",
+      "deciding": [
+        "confidence"
+      ],
+      "roundMarks": {
+        "crumb": 0,
+        "brock": -1,
+        "prince": -1,
+        "tilly": 1
+      },
+      "bottom": [
+        "prince",
+        "brock"
+      ],
+      "hintCard": null,
+      "hook": "here with a tail"
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 2,
+      "standing": {
+        "crumb": 2,
+        "prince": 0,
+        "tilly": 1
+      },
+      "tie": [],
+      "reason": "standing 1; 2 charmed, 0 unsure, 1 cringing",
+      "deciding": [],
+      "roundMarks": {
+        "crumb": 1,
+        "prince": 1,
+        "tilly": -1
+      },
+      "bottom": [
+        "prince",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": null
+    }
+  ],
+  "pick": {
+    "winner": "prince",
+    "loser": "crumb",
+    "standing": {
+      "crumb": 0,
+      "brock": -1,
+      "prince": 0,
+      "tilly": 1
+    },
+    "tie": [],
+    "reason": "standing 0; 1 charmed, 2 unsure, 1 cringing",
+    "oneOnOne": {
+      "crumb": -1,
+      "prince": 0
+    },
+    "first": "crumb",
+    "last": "prince"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "gestures",
+      "quote": null,
+      "replays": [
+        {
+          "who": "crumb",
+          "text": "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.",
+          "hit": false
+        },
+        {
+          "who": "prince",
+          "text": "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "tilly",
+          "right": false
+        },
+        {
+          "who": "crumb",
+          "right": true
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "confidence",
+      "quote": null,
+      "replays": [
+        {
+          "who": "brock",
+          "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "tilly",
+      "card": "curiosity",
+      "kind": "on",
+      "right": false,
+      "via": "fallback"
+    },
+    {
+      "who": "crumb",
+      "card": "gestures",
+      "kind": "on",
+      "right": true,
+      "via": "fallback"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep57-mwnwslbi:w1",
+      "outcomes": [
+        "crumb",
+        "brock",
+        "prince",
+        "tilly"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep57-mwnwslbi:w2",
+      "outcomes": [
+        "crumb",
+        "prince",
+        "tilly"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 111183,
+      "lockAt": 133183
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep57-mwnwslbi:w3",
+      "outcomes": [
+        "crumb",
+        "prince"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 208972,
+      "lockAt": 228972
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1504
+    },
+    {
+      "at": 5504,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7212,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 11520,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12828,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 17136,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20204,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21512,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 26130,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 28940,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30300,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 34350,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 37573,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 39037,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 43500,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 58259,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 63239,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 66979,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 73212,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 77237,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 83875,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 85543,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 88973,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 91423,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 100293,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 107173,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 111183,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 111183,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 113683,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 119413,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 125453,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 133183,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 133183,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 136183,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 137968,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 144207,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 150470,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 154279,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 160934,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 164551,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 168237,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 172272,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 177236,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 181581,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 185011,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 189117,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 197152,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 203412,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 208972,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 208972,
+      "type": "scene",
+      "ms": 4360
+    },
+    {
+      "at": 213332,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 220312,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 228972,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 228972,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 230972,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 235952,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 240312,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 244530,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 245648,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 251352,
+      "type": "reaction",
+      "ms": 5040
+    },
+    {
+      "at": 257842,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 265882,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 271442,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 272942,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 276682,
+      "type": "reveal",
+      "ms": 5330
+    },
+    {
+      "at": 282262,
+      "type": "replay",
+      "ms": 3520
+    },
+    {
+      "at": 286032,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 289962,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 294212,
+      "type": "pick",
+      "ms": 6350
+    },
+    {
+      "at": 300812,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 306722,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 307722,
+      "type": "reveal",
+      "ms": 5330
+    },
+    {
+      "at": 313302,
+      "type": "replay",
+      "ms": 3520
+    },
+    {
+      "at": 317072,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 321702,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 322702,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 322702,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 322702,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 322702,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 327062,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 329312
+}

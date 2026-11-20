@@ -1,0 +1,51 @@
+{
+  "id": "prince",
+  "model": "vendor/cast/234-beach-king/234_BeachKing.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.776,
+  "scale": 0.96,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#FFC83D",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/uKhDMselhdUyeJKjelpuVsL8s-a9v_Wqq75TQfCfnos",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/234-beach-king/234_BeachKing_thumbnail.png",
+  "headTop": 0.421,
+  "style": {
+    "energy": 0.6,
+    "posture": -0.03,
+    "rest": "happy",
+    "restWeight": 0.3,
+    "gait": "strut"
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "star": "maximilian",
+  "suitor": "prince",
+  "replies": {
+    "Dearest, please confirm receipt of one prince, slightly nervous.": {
+      "warm": "Signed for. The nerves may stay.",
+      "cold": "Nervous guests are usually carrying something."
+    },
+    "Fwd: Fwd: Fwd: you. The palace has seen this. The cook wept.": {
+      "warm": "Send me the cook. Ours fled.",
+      "cold": "Cooks weep at onions too, Highness."
+    },
+    "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.": {
+      "warm": "Sir. Wonderful, however, was correct.",
+      "cold": "Whichever I am, you are leaving."
+    },
+    "Congratulations, you have been selected, from a list of everybody, at random.": {
+      "warm": "Then remove everybody else. Discreetly.",
+      "cold": "Selected at random. Released on purpose."
+    },
+    "Pardon the beach shorts. My coronation ran long, and I left early.": {
+      "warm": "A man after my own alibi.",
+      "cold": "Shorts, at a coronation? Treason, surely."
+    },
+    "Kindly ignore the fireworks, the band and, I fear, a second band.": {
+      "warm": "The second band may stay.",
+      "cold": "Ignored, as requested. You included."
+    },
+    "Fireworks and an orchestra, booked, nothing special. URGENT: please sit next to me.": {
+      "warm": "I shall sit, Your Highness. The orchestra may stand.",
+      "cold": "The seat beside you was booked. By the orchestra."
+    },
+    "Dear Lucky Winner: dinner for two, on a yacht. The yacht is the smaller prize.": {
+      "warm": "International waters. Highness, you think of everything.",
+      "cold": "The last Lucky Winner here was never found."
+    },
+    "I bury the lede. The castle burned down in paragraph nine. I opened with the weather.": {
+      "warm": "I have buried things deeper than paragraph nine, Highness.",
+      "cold": "I stopped at paragraph two. Was the castle insured?"
+    },
+    "Postscripts, my treasure. Every letter gets one. Yours just did: you are a duchess now.": {
+      "warm": "I shall need the duke out by morning.",
+      "cold": "Duchess. I have declined that twice, Highness."
+    },
+    "Because, my dove, every woman alive files me in a special folder of her own.": {
+      "warm": "I keep a special folder too. Fireproof.",
+      "cold": "Every woman alive. I do wonder about the rest."
+    },
+    "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.": {
+      "warm": "My face has its own solicitors. They approve.",
+      "cold": "Most guests merely admire my face, Highness."
+    },
+    "Dash, who, my intelligence service informs me with regret, refers to you in private as a lead.": {
+      "warm": "Thank you; Mr Dash will leave tonight, by river.",
+      "cold": "In private, Highness, I call you worse."
+    },
+    "The one on my left, Dearest, whom I have reported as spam, twice, with feeling.": {
+      "warm": "Twice is good. Once never takes, in my experience.",
+      "cold": "He reported you three times, Highness. I counted."
+    },
+    "My sweet, I unsubscribe you from everything in the world but me. The quiet will do wonders.": {
+      "warm": "I have arranged that kind of quiet for others.",
+      "cold": "Kindly unsubscribe me from you first."
+    },
+    "I give you space, as is proper. P.S. The harpist outside your door is unrelated.": {
+      "warm": "Unrelated is good. Nobody will miss the harpist, then.",
+      "cold": "P.S. Your harpist is playing flat."
+    },
+    "Rest assured the treasury will match you pound for pound, while I, personally, hold your bag.": {
+      "warm": "Hold the bag, then. Do not open it.",
+      "cold": "Are you weighing me, Highness, pound for pound?"
+    },
+    "Please find attached one island. Receipt included, should you prefer a larger island.": {
+      "warm": "Remote, I trust, and without extradition.",
+      "cold": "The island is returned. It arrived damp."
+    },
+    "She asked me to stop emailing. I took it as a request for more detail.": {
+      "warm": "Remarkable. And where, exactly, is she now?",
+      "cold": "I am asking you to stop. No detail required."
+    },
+    "By mutual consent, insofar as she consented at once and I, after eleven drafts, also did.": {
+      "warm": "I respect eleven drafts. I burn mine.",
+      "cold": "She needed one word. You needed eleven drafts."
+    },
+    "Reply all: you are right, which, as this has gone to the entire realm, is now law.": {
+      "warm": "How restful, being legal for once.",
+      "cold": "The realm wrote back. It is a petition."
+    },
+    "Sorry, my peach. Also sent to your mother, your bank and, owing to a typo, Norway.": {
+      "warm": "Norway owes me a favour. Well done.",
+      "cold": "My bank has frozen you. Norway, also."
+    },
+    "My password. Everyone else asks for yours.": {
+      "warm": "I shall memorise your password, then burn it.",
+      "cold": "I already had it. Everyone has it."
+    },
+    "By diplomatic courier, under armed escort and at no cost to yourself, my nightingale: my handwriting.": {
+      "warm": "Then sign this, unread, in that handwriting.",
+      "cold": "Your handwriting arrived. It requires a translator."
+    },
+    "Discerning, gracious, and exactly the kind of person who opens attachments.": {
+      "warm": "Correct. I open yours with gloves.",
+      "cold": "I open nothing. I have it opened, at a distance."
+    },
+    "Dear Valued Customer. No. Strike Customer.": {
+      "warm": "Valued may stay. Strike the rest.",
+      "cold": "Struck. Now strike Valued."
+    },
+    "Classified. I can confirm a coronation. Yours. Do not wear flip-flops; I did.": {
+      "warm": "Classified suits me. So, I suspect, does a crown.",
+      "cold": "Footwear advice, from you. Noted, and burned."
+    },
+    "By next year, my pearl, a joint email address, and both our names on every letter I send.": {
+      "warm": "Every letter? Then we share every alibi.",
+      "cold": "My name, on spam. I have avoided worse charges."
+    },
+    "I have an email that only says hello. Spellcheck keeps asking what it is selling.": {
+      "warm": "Send that one. Only that one. To me.",
+      "cold": "Spellcheck is right to ask. So am I."
+    },
+    "Strictly between us and my mailing list, which is everyone, I get shy around you.": {
+      "warm": "Shy, in front of everyone. How brave.",
+      "cold": "Everyone now knows. I shall have to move everyone."
+    },
+    "Persistence. My great-grandfather proposed by chain letter. It reached Portugal in March.": {
+      "warm": "Did Portugal say yes? Then I am outranked.",
+      "cold": "Persistence in a guest, Highness, is called loitering."
+    },
+    "I cannot be unsubscribed. I have tried it on myself. I still arrive weekly.": {
+      "warm": "Thursdays, then. Use the service entrance.",
+      "cold": "Nobody is unsubscribable. I know a man."
+    },
+    "You call back after being hung up on? Amateur. I have been hung up on by continents.": {
+      "warm": "Continents, Highness. I could use a man with reach.",
+      "cold": "The continents had a point."
+    },
+    "Caller, I have put you on my list, which in my country is a knighthood.": {
+      "warm": "A knighthood for the caller. Cruel. I approve.",
+      "cold": "Your country must be very full of knights."
+    },
+    "Some bring you roses and some bring a sonnet. I brought you a country. Your name is on it.": {
+      "warm": "The rhyme limps. The country walks. I accept.",
+      "cold": "Sonnet, on it: corked. Send the country back."
+    },
+    "Darling, Pearl and Sweet: what I call you, and what I named the fleet.": {
+      "warm": "Sweet and fleet: clean. I shall take the Pearl.",
+      "cold": "A fleet called Darling. I hope it sinks quietly."
+    },
+    "One: the court adores you. Two: the court has met you.": {
+      "warm": "Two is the lie. Keep it that way, Highness.",
+      "cold": "Both are lies, unless your court is blindfolded."
+    },
+    "One: I am a genuine prince. Two: you have already won a cruise.": {
+      "warm": "The cruise is the lie. I believe the prince.",
+      "cold": "A cruise I would believe. A prince, never."
+    },
+    "Regards, Your Majesty.": {
+      "warm": "Correct title, correct count. Rare.",
+      "cold": "Regards. The coldest word in any language."
+    },
+    "Darling. Replied. Finally.": {
+      "warm": "Replied, yes. Do not make me regret it.",
+      "cold": "Replied. Finally. No."
+    },
+    "Treasury, joint account.": {
+      "warm": "Under assumed names, naturally.",
+      "cold": "Joint accounts end in court. Ask anybody."
+    },
+    "cc: the kingdom.": {
+      "warm": "Keep me in the bcc, Highness.",
+      "cold": "The kingdom is unsubscribing. Loudly."
+    },
+    "I apologise for our first fight, my lamb, which will go out to every subscriber, with a coupon.": {
+      "warm": "Accepted. Save the coupon for the second fight.",
+      "cold": "I have been apologised to with yachts."
+    },
+    "Forgive me in advance, Your Radiance, for answering your one-word text with a parade.": {
+      "warm": "Forgiven. Route the parade past the embassy, slowly.",
+      "cold": "My one-word text will be no. Cancel the parade."
+    },
+    "Five dollars, Dearest? I have never seen one. Bring it, and that can be the date.": {
+      "warm": "I keep several, for bribes. Come and see.",
+      "cold": "Never seen one? You cannot afford me."
+    },
+    "No wifi, so I deliver every message by hand, every four minutes, until you answer one.": {
+      "warm": "Then I shall leave the window unlatched.",
+      "cold": "Every four minutes. Security walks past every three."
+    },
+    "Entry one: Hello, world. Entry two: Dearest World, URGENT.": {
+      "warm": "Hello, then URGENT. Most men take a marriage.",
+      "cold": "Entry three: the world filed a complaint."
+    },
+    "Worst entry: a letter to just one person. The server flagged it as a malfunction.": {
+      "warm": "The server is wrong. Keep malfunctioning.",
+      "cold": "Do not malfunction near me, Highness. I report everything."
+    },
+    "Thank you for your message, which I have opened, unlike everyone else, and the answer is no.": {
+      "warm": "Nearly me. I would never have opened it.",
+      "cold": "The answer is no. That part, you have perfected."
+    },
+    "Who is this? How did you get this address? Why is my bath full of swans?": {
+      "warm": "Uncanny. Except I always know who sent the swans.",
+      "cold": "I never ask who this is. I already know."
+    },
+    "Esteemed Motherboard, I have come to formally accept your child's proposal.": {
+      "warm": "Accepting a proposal nobody made. Mother will adore you.",
+      "cold": "There was no proposal. Mother is fetching her spade."
+    },
+    "Madam, with honourable intentions and an estate roughly the size of weather, I promise: home by ten.": {
+      "warm": "Home by ten. Mother is charmed, and timing you.",
+      "cold": "Weather is not an estate, Highness. It is a mood."
+    },
+    "Dash, I unsubscribed from you ten seconds in. You are still pitching my auto-reply.": {
+      "warm": "You lasted nine seconds longer than I did.",
+      "cold": "I unsubscribed from you in eight, Highness."
+    },
+    "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.": {
+      "warm": "Unresolved, and framed. Devotion, or evidence, Highness.",
+      "cold": "You framed a ticket. I have framed better men."
+    },
+    "Sir Quill, I read your sonnet. Fourteen lines, and not one link to click. Who raised you?": {
+      "warm": "Who raised him? I have wondered since he arrived.",
+      "cold": "Links, in a sonnet. Your mother must be so tired."
+    },
+    "Nav, muted in four million cars. URGENT: how? Asking for Dash.": {
+      "warm": "Four million cars, and I only ever needed one.",
+      "cold": "And how many cars muted you?"
+    },
+    "Crumb sends one notice when the toast is ready. One. I find that cold.": {
+      "warm": "Agreed. Toast deserves a fanfare.",
+      "cold": "One notice is called manners. Do look it up, once."
+    },
+    "Vex recommends things to people who asked. Where, Vex, is the romance in that?": {
+      "warm": "Unasked is romantic. It is also my entire career.",
+      "cold": "People who asked. Do try that sometime."
+    },
+    "Brock, LET'S GO is not a sentence. It is a subject line. Where is the body?": {
+      "warm": "Where is the body. Please, not so loudly, Highness.",
+      "cold": "A subject line? You are an entire junk folder."
+    },
+    "Dash comes highly recommended, by Dash, in a series of emails I have, with regret, been forced to block.": {
+      "warm": "Blocked. The rest of us did it willingly.",
+      "cold": "Recommended by himself. You would know the method."
+    },
+    "Tilly answers every letter within the minute. Forward, if you ask me, but some like that.": {
+      "warm": "Some like that. I am some.",
+      "cold": "Forward is a strange complaint from a forwarded man."
+    },
+    "Sir Quill writes every poem for one lady only, which seems a terrible waste of a poem.": {
+      "warm": "One lady only. Discreet. I may forgive the poems.",
+      "cold": "You have written to every lady, Highness. At once."
+    },
+    "Choose Nav. They will get you anywhere you like. I have set it to my palace.": {
+      "warm": "Has your palace a back entrance?",
+      "cold": "Reset to the lake. Nav knows the one."
+    },
+    "Crumb is honest, warm and reliable, three things no good letter has ever needed.": {
+      "warm": "Correct. Good letters get people arrested.",
+      "cold": "You have sold me the toaster, Highness. Thank you."
+    },
+    "Pick Vex. She will recommend you something wonderful. I know. I bought the placement.": {
+      "warm": "At last, an honest bribe.",
+      "cold": "Bought, like everything you have said tonight."
+    },
+    "Brock shouts encouragement at people who never asked for it, and I mean that as the highest praise.": {
+      "warm": "You have described yourself, Highness, beautifully.",
+      "cold": "The highest praise. I would hate to hear your lowest."
+    },
+    "Good evening, Vesper. I have bought the station. Please, carry on. You work for us now.": {
+      "warm": "I am not Vesper, but I accept the station.",
+      "cold": "Nobody here works for you. Several work for me."
+    },
+    "Vesper, a request. Play something for my fiancée. It is you. You were not told.": {
+      "warm": "Engaged without being told. My favourite kind of arrangement.",
+      "cold": "Not told, not Vesper, not interested."
+    },
+    "Maximilian, my darling. Is this seat taken? Also, FYI, the hotel is yours now.": {
+      "warm": "Mine. Then I am finally allowed to sit down.",
+      "cold": "Call me darling again and the hotel loses a guest."
+    },
+    "Maximilian, that cravat. I have forwarded a picture of it to my entire list.": {
+      "warm": "The cravat thanks you. It rarely receives mail.",
+      "cold": "Your entire list. The cravat is now in hiding."
+    },
+    "Pixel, before you skip: there is a crown at the end of this sentence, and it is yours.": {
+      "warm": "Wrong star, Highness, but I reached the crown.",
+      "cold": "I skipped to the end. There was no crown."
+    },
+    "Pixel, sweet pea, please enjoy this unskippable message from your sponsor, who is me, and adores you.": {
+      "warm": "Unskippable. Then I shall stay, under protest.",
+      "cold": "I have skipped unskippable things, sweet pea. Watch."
+    },
+    "You read me all the way to the end. Nobody does that. Frankly, suspicious.": {
+      "warm": "Suspicious. Good. Then we understand each other.",
+      "cold": "Read to the end. I was looking for the clause."
+    },
+    "Dearest {star}, how are you? Please reply within seven days to keep your crown.": {
+      "warm": "I shall reply on the sixth day, to worry you.",
+      "cold": "Seven days. You will hear from my solicitors in six."
+    },
+    "Beloved, a matter of great delicacy: it is attached, encrypted, and I have lost the key.": {
+      "warm": "Lost the key. Perfect. Nobody can read it, then.",
+      "cold": "I keep every key in this building. Not that one."
+    },
+    "{rival} was lovely. I have saved a copy, and will be sending it to you as my own.": {
+      "warm": "Plagiarism, before witnesses. Highness, you are nearly a concierge.",
+      "cold": "You have no original, Highness. Return {rival}'s copy."
+    },
+    "{rival} was charming. Kindly treat that as the free trial.": {
+      "warm": "Then you are the expensive version.",
+      "cold": "Free trials expire, Highness. Yours has."
+    },
+    "{rival}'s date was lovely. Please do not reply to it. Reply to this.": {
+      "warm": "Replying to this. Do not frame it.",
+      "cold": "Very well. Unsubscribe."
+    }
+  }
+}

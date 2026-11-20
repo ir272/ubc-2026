@@ -1,0 +1,2016 @@
+{
+  "episode": 80,
+  "matchId": "dating-ep80-mwnxlr9m",
+  "brain": "model",
+  "sealed": "1667d740398817b7eabd5c281eff57053145b22767d4b4138266c7d244ae7acc",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 0
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 1
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 2
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "rules",
+        "label": "Follows the rules",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "parent",
+      "label": "The Motherboard",
+      "rule": "Tell my motherboard your intentions.",
+      "format": "solo"
+    },
+    "topTags": {
+      "nav": [
+        "plans",
+        "confidence",
+        "danger",
+        "rules",
+        "brevity"
+      ],
+      "brock": [
+        "numbers",
+        "confidence",
+        "vulnerability",
+        "food",
+        "bragging"
+      ],
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "brock",
+        "nav"
+      ],
+      "money": [
+        "prince"
+      ],
+      "gestures": [
+        "prince",
+        "quill"
+      ],
+      "bragging": [
+        "brock"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "food": [
+        "brock"
+      ],
+      "plans": [
+        "nav"
+      ],
+      "flattery": [
+        "prince"
+      ],
+      "numbers": [
+        "brock"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "prince"
+      ],
+      "brevity": [
+        "nav"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "quill"
+      ],
+      "danger": [
+        "nav"
+      ],
+      "vulnerability": [
+        "brock"
+      ],
+      "rules": [
+        "nav"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-worst-habit",
+    "theme": "What is your worst habit, the one I will find out about in week two?"
+  },
+  "order": [
+    "nav",
+    "quill",
+    "prince",
+    "brock"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Request line. I don't take requests. Tonight I take rule-following.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 7161,
+      "ms": 3800,
+      "genMs": 1259,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Local regulations require you to look at me until further notice.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12683,
+      "ms": 4110,
+      "genMs": 2239,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Looking. Further notice is cancelled.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17254,
+      "ms": 2250,
+      "genMs": 799,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21364,
+      "ms": 4110,
+      "genMs": 1780,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Engagement annulled at five, caller.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26004,
+      "ms": 2250,
+      "genMs": 822,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Is thy little lit slate painting me, and from which side?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30217,
+      "ms": 4110,
+      "genMs": 1619,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "It's painting the wall behind you.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34909,
+      "ms": 2560,
+      "genMs": 859,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 9,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Dearest, please confirm receipt of one prince, slightly nervous.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 39432,
+      "ms": 3490,
+      "genMs": 2094,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Receipt confirmed. Keep the nerves.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43503,
+      "ms": 2250,
+      "genMs": 796,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "Your worst habit. Name it now and I'll have it confiscated.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52003,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 7,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Amber lights. I read them as encouragement.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 56396,
+      "ms": 2870,
+      "genMs": 1141,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Amber's discontinued. From tonight it's red or nothing.",
+      "to": "nav",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 59633,
+      "ms": 3180,
+      "genMs": 1153,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "I correct everyone's Latin, loudly, at table, including people who were speaking French.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 63063,
+      "ms": 4730,
+      "genMs": 549,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Correct me at table. I'll be speaking French.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 68043,
+      "ms": 3180,
+      "genMs": 957,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "Postscripts, my treasure. Every letter gets one. Yours just did: you are a duchess now.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 71473,
+      "ms": 5350,
+      "genMs": 324,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 77073,
+      "ms": 1000,
+      "genMs": 751,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "Nav, that's one laugh! Two? Two? Somebody give Nav TWO!",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 78891,
+      "ms": 3800,
+      "genMs": 635,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 84129,
+      "ms": 1000,
+      "genMs": 1182,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 11,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Brock and Prince, stay on the line. One of you won't.",
+      "pair": [
+        "brock",
+        "prince"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 86579,
+      "ms": 7110,
+      "genMs": 915,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Prince, \"you are a duchess now\" went out live, to the whole coast.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 95139,
+      "ms": 5430,
+      "genMs": 772,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Message recalled. Please disregard the kingdom. It was sent in error.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 102019,
+      "ms": 4110,
+      "genMs": 630,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Vesper glanced at my sword, which can only mean big words, and also, I suspect, the sword.",
+      "guess": {
+        "id": "bigwords",
+        "label": "Big words",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 112389,
+      "ms": 5970,
+      "genMs": 511,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Lane assist is on. I am drifting into Vesper's lane anyway. It is a fault. Leave it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 120609,
+      "ms": 5970,
+      "genMs": 1080,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "My motherboard listens on long wave. She's deaf in one valve. State your intentions.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 134364,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 139654,
+      "ms": 6280,
+      "genMs": 3282,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Curfew is when she says. She just said.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "rules",
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 146184,
+      "ms": 3180,
+      "genMs": 844,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 149655,
+      "ms": 4730,
+      "genMs": 452,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Mother heard cardiovascular and switched herself off.",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [
+        "vulnerability"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 154635,
+      "ms": 2870,
+      "genMs": 984,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "Madam of a thousand copper roads, I ask thy child's hand, or whatever thy child hath instead of one.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 157800,
+      "ms": 6590,
+      "genMs": 408,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Quill, I stopped halfway through the gale warnings for that.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 164720,
+      "ms": 3800,
+      "genMs": 1016,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "My motherboard liked Sir Quill. She hasn't liked anything since valves.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 168850,
+      "ms": 4110,
+      "genMs": 976,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Sir Quill, you are not a recognised destination.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 173246,
+      "ms": 3180,
+      "genMs": 3404,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 5,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Good effort! Not good. Effort!",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 176676,
+      "ms": 2250,
+      "genMs": 894,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Strike me again, Brock, the other cheek is better lit.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 179465,
+      "ms": 3800,
+      "genMs": 373,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Brock. Nav. One of you is about to become a wrong number.",
+      "pair": [
+        "brock",
+        "nav"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 184289,
+      "ms": 7420,
+      "genMs": 738,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 10,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Nav, medium wave has no exits. I'm building you one.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 192732,
+      "ms": 4500,
+      "genMs": 784,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Recalculating. See you on your dashboard tomorrow, Vesper. Facing forward.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 198682,
+      "ms": 3800,
+      "genMs": 1011,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "booth2",
+      "words": 17,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "I have drawn up Brock's elegy in advance, as a courtesy, with a space for the dates.",
+      "about": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 207362,
+      "ms": 5970,
+      "genMs": 802,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 15,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Vesper wants self put-downs. I'd bet my eggs. All twelve. Eleven. Ten. Okay, NINE eggs!",
+      "guess": {
+        "id": "selfdeprecation",
+        "label": "Puts themselves down",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 215582,
+      "ms": 5350,
+      "genMs": 1217,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 225932,
+      "ms": 5970,
+      "genMs": 438,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Quill, I've cut sonnets mid-line for decades. Say it plainly. Go.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 232162,
+      "ms": 4110,
+      "genMs": 1079,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 18,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "Then by thy leave I shall go and tell the moon, who hath been very rude about this.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 236576,
+      "ms": 6280,
+      "genMs": 401,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Whatever Sir Quill gave you, I brought snacks! Boiled eggs! Eleven! Still warm from my POCKET!",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 244372,
+      "ms": 5660,
+      "genMs": 440,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Brock, the last thing proud of me rusted. Tell me why you are.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 250297,
+      "ms": 4730,
+      "genMs": 1195,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Because you never go off air! I clap at my radio every night. Eight years! ZERO rust!",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 255395,
+      "ms": 5970,
+      "genMs": 1196,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Sir Quill I'd play loud. Brock I'd play late.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 262199,
+      "ms": 3490,
+      "genMs": 768,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "pick",
+      "words": 9,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Voices shook. I've locked the tape in my drawer.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 268639,
+      "ms": 3490,
+      "genMs": 1002,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 3,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Admits a fear.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 272379,
+      "ms": 2230,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 13,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 274859,
+      "ms": 2880,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 19,
+      "event": "replay",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "replay",
+      "text": "Madam of a thousand copper roads, I ask thy child's hand, or whatever thy child hath instead of one.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 277989,
+      "ms": 3840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 15,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "\"whatever thy child hath instead\". I've played that back four times tonight. It's Sir Quill.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 286329,
+      "ms": 6350,
+      "genMs": 903,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 13,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "win",
+      "text": "A muse! Fetch a painter, or failing that, whoever painted the inn sign.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 293579,
+      "ms": 4730,
+      "genMs": 964,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "reveal",
+      "words": 12,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Confidence. Every time Nav did it, my hand went to the switch.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 300759,
+      "ms": 5020,
+      "genMs": 1040,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 18,
+      "event": "replay",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "replay",
+      "text": "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 306112,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 15,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "lose",
+      "text": "Somebody leave tissues by the mat, for the MAT, I think I lost my crown",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 310042,
+      "ms": 5350,
+      "genMs": 1334,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "result",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "That's the show. Go to sleep. I won't.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 316759,
+      "ms": 3180,
+      "genMs": 1534,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Dearest, please confirm receipt of one prince, slightly nervous.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "slightly nervous"
+    },
+    {
+      "seq": 2,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Local regulations require you to look at me until further notice.",
+      "mark": "charmed",
+      "hits": [
+        "rules"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "until further notice"
+    },
+    {
+      "seq": 3,
+      "who": "brock",
+      "name": "Brock",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "four, we're ENGAGED"
+    },
+    {
+      "seq": 4,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Is thy little lit slate painting me, and from which side?",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Amber lights. I read them as encouragement.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "I read them as encouragement"
+    },
+    {
+      "seq": 6,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "I correct everyone's Latin, loudly, at table, including people who were speaking French.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "who were speaking French"
+    },
+    {
+      "seq": 7,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Postscripts, my treasure. Every letter gets one. Yours just did: you are a duchess now.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "you are a duchess now"
+    },
+    {
+      "seq": 8,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Nav, that's one laugh! Two? Two? Somebody give Nav TWO!",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.",
+      "mark": "cringing",
+      "hits": [
+        "rules",
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 10,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+      "mark": "unsure",
+      "hits": [
+        "vulnerability"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "My intentions are cardiovascular"
+    },
+    {
+      "seq": 11,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Madam of a thousand copper roads, I ask thy child's hand, or whatever thy child hath instead of one.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "whatever thy child hath instead"
+    },
+    {
+      "seq": 12,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "I wish thee"
+    },
+    {
+      "seq": 13,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Whatever Sir Quill gave you, I brought snacks! Boiled eggs! Eleven! Still warm from my POCKET!",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "Still warm from my POCKET"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "nav": 3,
+        "brock": -1,
+        "quill": 0,
+        "prince": 1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "nav": 3,
+        "brock": -1,
+        "quill": 1,
+        "prince": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "nav": 1,
+        "brock": 1,
+        "quill": 2,
+        "prince": 0
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "nav": 1,
+        "brock": -1,
+        "quill": 2,
+        "prince": 0
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 1,
+      "standing": {
+        "nav": 3,
+        "brock": -1,
+        "quill": 1,
+        "prince": 0
+      },
+      "tie": [],
+      "reason": "standing 0; 1 charmed, 0 unsure, 1 cringing",
+      "deciding": [
+        "rules"
+      ],
+      "roundMarks": {
+        "nav": 0,
+        "brock": 0,
+        "quill": 1,
+        "prince": -1
+      },
+      "bottom": [
+        "brock",
+        "prince"
+      ],
+      "hintCard": null,
+      "hook": "you are a duchess now"
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 2,
+      "standing": {
+        "nav": 1,
+        "brock": 1,
+        "quill": 2
+      },
+      "tie": [],
+      "reason": "standing 1; 1 charmed, 1 unsure, 1 cringing; 2x turn-on \"Follows the rules\"; 1x dealbreaker \"Confidence\"",
+      "deciding": [
+        "vulnerability",
+        "confidence"
+      ],
+      "roundMarks": {
+        "nav": -1,
+        "brock": 0,
+        "quill": 1
+      },
+      "bottom": [
+        "brock",
+        "nav"
+      ],
+      "hintCard": null,
+      "hook": null
+    }
+  ],
+  "pick": {
+    "winner": "quill",
+    "loser": "brock",
+    "standing": {
+      "nav": 1,
+      "brock": -1,
+      "quill": 2,
+      "prince": 0
+    },
+    "tie": [],
+    "reason": "standing 2; 2 charmed, 2 unsure, 0 cringing",
+    "oneOnOne": {
+      "brock": -1,
+      "quill": 0
+    },
+    "first": "quill",
+    "last": "brock"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "vulnerability",
+      "quote": null,
+      "replays": [
+        {
+          "who": "brock",
+          "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+          "hit": true
+        },
+        {
+          "who": "quill",
+          "text": "Madam of a thousand copper roads, I ask thy child's hand, or whatever thy child hath instead of one.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "quill",
+          "right": false
+        },
+        {
+          "who": "brock",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "confidence",
+      "quote": null,
+      "replays": [
+        {
+          "who": "nav",
+          "text": "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "quill",
+      "card": "bigwords",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "brock",
+      "card": "selfdeprecation",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep80-mwnxlr9m:w1",
+      "outcomes": [
+        "nav",
+        "brock",
+        "quill",
+        "prince"
+      ],
+      "durationMs": 45003,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49003
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep80-mwnxlr9m:w2",
+      "outcomes": [
+        "nav",
+        "brock",
+        "quill"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 2,
+      "openAt": 107579,
+      "lockAt": 129579
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep80-mwnxlr9m:w3",
+      "outcomes": [
+        "brock",
+        "quill"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 203932,
+      "lockAt": 223932
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 5500,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7161,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 11422,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12683,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17254,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 20034,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21364,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 26004,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 28836,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30217,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34909,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 38050,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 39432,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 43503,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 49003,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49003,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52003,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 56396,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 59633,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 63063,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 68043,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 71473,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 77073,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 78891,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 84129,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 86579,
+      "type": "bottom",
+      "ms": 7110
+    },
+    {
+      "at": 95139,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 102019,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 107579,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 107579,
+      "type": "scene",
+      "ms": 4810
+    },
+    {
+      "at": 112389,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 120609,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 129579,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 129579,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 132579,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 134364,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 139654,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 146184,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 149655,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 154635,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 157800,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 164720,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 168850,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 173246,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 176676,
+      "type": "line",
+      "ms": 2250
+    },
+    {
+      "at": 179465,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 184289,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 192732,
+      "type": "cut",
+      "ms": 4500
+    },
+    {
+      "at": 198682,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 203932,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 203932,
+      "type": "scene",
+      "ms": 3430
+    },
+    {
+      "at": 207362,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 215582,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 223932,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 223932,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 225932,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 232162,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 236576,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 243264,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 244372,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 250297,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 255395,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 262199,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 267139,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 268639,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 272379,
+      "type": "reveal",
+      "ms": 2230
+    },
+    {
+      "at": 274859,
+      "type": "replay",
+      "ms": 2880
+    },
+    {
+      "at": 277989,
+      "type": "replay",
+      "ms": 3840
+    },
+    {
+      "at": 282079,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 286329,
+      "type": "pick",
+      "ms": 6350
+    },
+    {
+      "at": 293579,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 299759,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 300759,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 306112,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 310042,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 315759,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 316759,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 316759,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 316759,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 316759,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 320189,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 322439
+}

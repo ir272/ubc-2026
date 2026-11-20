@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ringout capture stand-in</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b1522; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #hud { position: fixed; left: 24px; bottom: 20px; color: #f4f8ff; font: 700 40px/1 sans-serif; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"></div>
+<script>
+// Stand-in for the harness capture hooks (ARCH.md "Capture hooks"): virtual clock,
+// nothing moves unless step() or seek() is called. Draws with WebGL (no
+// preserveDrawingBuffer, like three.js) plus a DOM overlay so captures test both.
+(() => {
+  const q = new URLSearchParams(location.search);
+  const c = document.getElementById('c');
+  const hud = document.getElementById('hud');
+  const gl = c.getContext('webgl2', { antialias: true });
+  const S = { scene: null, params: {}, frame: 0 };
+  const SCENES = ['match', 'fight', 'arena', 'broken'];
+  function resize() { c.width = innerWidth; c.height = innerHeight; }
+  function rect(x, y, w, h, r, g, b) {
+    gl.enable(gl.SCISSOR_TEST);
+    gl.scissor(x | 0, y | 0, Math.max(1, w | 0), Math.max(1, h | 0));
+    gl.clearColor(r, g, b, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.disable(gl.SCISSOR_TEST);
+  }
+  function render() {
+    resize();
+    gl.viewport(0, 0, c.width, c.height);
+    gl.clearColor(0.043, 0.082, 0.133, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+    const W = c.width, H = c.height, f = S.frame;
+    rect(W * 0.1, H * 0.3, W * 0.8, H * 0.05, 0.165, 0.212, 0.267);           // deck
+    const x = W * 0.5 + Math.sin(f / 30) * W * 0.3;
+    const y = H * 0.35 + Math.abs(Math.sin(f / 17)) * H * 0.3;
+    rect(x - 30, y, 60, 90, 1, 0.231, 0.188);                                    // red fighter
+    rect(W - x - 30, H * 0.35, 60, 90, 0.184, 0.42, 1);                          // blue fighter
+    rect(0, 0, (f % 240) / 240 * W, 8, 1, 0.76, 0.1);                            // frame bar
+    hud.textContent = `${S.scene} frame ${f}`;
+  }
+  window.__ringout = {
+    ready: true,
+    scenes: SCENES,
+    async load(scene, params = {}) {
+      if (!SCENES.includes(scene)) throw new Error(`unknown scene ${scene}`);
+      if (scene === 'broken') setTimeout(() => { throw new Error('stand-in broken scene threw'); }, 0);
+      S.scene = scene; S.params = params; S.frame = Number(params.at || 0);
+      render();
+    },
+    step(n = 1) { S.frame += n; render(); },
+    seek(ms) { S.frame += Math.round(ms * 60 / 1000); render(); },
+    info() { return { scene: S.scene, frame: S.frame, tick: S.frame, ms: Math.round(S.frame * 1000 / 60), params: S.params }; },
+  };
+})();
+</script>
+</body>
+</html>

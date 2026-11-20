@@ -1,0 +1,36 @@
+{
+  "name": "@arena/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Arena Solana program (node + browser)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./idl.json": "./dist/idl.json",
+    "./deployed.json": "./dist/deployed.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "node scripts/sync.mjs && tsup && node scripts/copy.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.99.0",
+    "buffer": "^6.0.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}

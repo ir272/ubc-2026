@@ -1,0 +1,16 @@
+# Vercel uses this file INSTEAD of .gitignore for CLI deploys, so secrets are repeated here.
+.env
+.env.*
+.spend.json
+.brain-cache.json
+.claude
+.vercel
+node_modules
+refs
+captures
+work
+progress
+tools
+assets/audio/raw
+server.mjs
+README.md

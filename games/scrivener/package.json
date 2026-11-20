@@ -1,0 +1,17 @@
+{
+  "name": "the-scrivener",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Scrivener: two models take turns at an ink-drawn boss. A channel for the Arena platform.",
+  "scripts": {
+    "dev": "vite --config harness/vite.config.mjs",
+    "match": "node tools/match.mjs",
+    "balance": "node tools/balance.mjs",
+    "shots": "node tools/shots.mjs",
+    "legacy": "node server.mjs"
+  },
+  "devDependencies": {
+    "vite": "^6.4.6"
+  }
+}

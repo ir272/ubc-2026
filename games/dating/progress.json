@@ -1,0 +1,378 @@
+{
+ "phase": "Stopped",
+ "next": "New plan from the owner",
+ "checkpoint": [
+  {
+   "label": "Full episode plays through the harness on scripted brains (5:39, no dead air)",
+   "done": true
+  },
+  {
+   "label": "index.ts (stage mount)",
+   "done": true
+  },
+  {
+   "label": "channel.ts (platform adapter)",
+   "done": true
+  },
+  {
+   "label": "README with the two integration lines and the event list",
+   "done": true
+  },
+  {
+   "label": "Text show runs with real models",
+   "done": true
+  },
+  {
+   "label": "Checked against the real runner code: 10 of 10 checks pass, including recomputing the hidden cards from the revealed secret",
+   "done": true
+  },
+  {
+   "label": "Imported avatars on the stage (all eleven, cel look, acting)",
+   "done": true
+  },
+  {
+   "label": "Stage plays a whole version 2 episode: every scene and every new event renders, late join works, 60 fps",
+   "done": true
+  }
+ ],
+ "pieces": [
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-dash",
+   "name": "Dash",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-tilly",
+   "name": "Tilly",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-quill",
+   "name": "Sir Quill",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-prince",
+   "name": "Prince",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-nav",
+   "name": "Nav",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-crumb",
+   "name": "Crumb",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-vex",
+   "name": "Vex",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-brock",
+   "name": "Brock",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-vesper",
+   "name": "Vesper (star)",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-maximilian",
+   "name": "Maximilian (star)",
+   "status": "building"
+  },
+  {
+   "group": "Voices: one loop per persona, against Monster Prom lines",
+   "key": "voice-pixel",
+   "name": "Pixel (star)",
+   "status": "building"
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-star",
+   "name": "The star has standards",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-walkon",
+   "name": "Walk-on and openers",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-round1",
+   "name": "Round one script",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-booth",
+   "name": "The confession booth",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-round2",
+   "name": "Round two, the twist",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-cut",
+   "name": "The cut",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-oneonone",
+   "name": "One on one",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Script: judged on whole episodes",
+   "key": "script-pick",
+   "name": "The pick and reveal",
+   "status": "looping",
+   "note": ""
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-set",
+   "name": "The set",
+   "status": "looping",
+   "note": "stopped"
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-cast",
+   "name": "The cast",
+   "status": "looping",
+   "note": "stopped"
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-camera",
+   "name": "The camera",
+   "status": "looping",
+   "note": "stopped"
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-captions",
+   "name": "Captions and cards",
+   "status": "looping",
+   "note": "stopped"
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-marks",
+   "name": "Marks and standing",
+   "status": "looping",
+   "note": "stopped"
+  },
+  {
+   "group": "Stage: judged on stills and clips against the reference frames",
+   "key": "stage-sound",
+   "name": "Sound",
+   "status": "waiting",
+   "note": "stopped before it produced its audio files; voices only"
+  }
+ ],
+ "log": [
+  {
+   "t": "07:14",
+   "text": "Run started. Read the common rules, the brief, the contract and the reference channel."
+  },
+  {
+   "t": "07:18",
+   "text": "Three scouts out: real Monster Prom, Take Me Out and Love Island lines and format notes; reference frames and clips from official trailers; cast and sound assets."
+  },
+  {
+   "t": "07:24",
+   "text": "Design calls made: show name Compatibility Mode, 8 suitors and 3 stars, 24 type cards, 12 twists, 12 questions, the episode timeline, and how the star decides. Written into SPEC.md, show/types.ts, show/decks.json, show/CAST.md, stage/LOOK.md."
+  },
+  {
+   "t": "07:28",
+   "text": "Builders out: show engine and harness, model brain and prompts, stage skeleton. Eleven persona writers running, each looped against a fresh harsh critic."
+  },
+  {
+   "t": "07:32",
+   "text": "Reference frames in: 16 frames and 3 clips from official trailers (Tomodachi Life, Animal Crossing, Take Me Out, Love Island USA, Monster Prom), local only."
+  },
+  {
+   "t": "07:33",
+   "text": "Writing bar on disk: 88 real Monster Prom lines from the fan wiki, 27 Animal Crossing and Tomodachi Life lines, format notes for Take Me Out and Love Island. Critics compare against these files. Gap: no two-rival exchange from Monster Prom, no measured pause lengths."
+  },
+  {
+   "t": "07:37",
+   "text": "Cast chosen: eleven CC0 avatars from the 100Avatars R3 set (one family, all on the same VRM rig, with mouth shapes and four mood faces), plus CC0 animation clips, 40 sound files and five CC-BY music beds. No fridge exists in the set, so Frost the smart fridge is recast as Crumb, a smart toaster with two slots, one always empty."
+  },
+  {
+   "t": "07:38",
+   "text": "First voice verdicts: the bar wins round one for Dash, Tilly, Nav and Brock (48 to 59 percent of lines flagged as generic or templated). Each got one named gap, for example Dash must believe his own spin on stage and only admit the fake numbers in confession. Writers are revising."
+  },
+  {
+   "t": "07:38",
+   "text": "Avatar rig builder out: loads the eleven avatars, restyles them to one cel look, retargets walk, sit and talk clips, and adds gestures, mouth shapes and mood faces."
+  },
+  {
+   "t": "07:40",
+   "text": "Model brain done: every bot calls its own model through OpenRouter with a 6 second timeout, JSON repair, content check and a scripted fallback. Eleven cheap models from eleven providers assigned and probed with real calls (0.5 to 2.7 s each). Spend so far under one cent."
+  },
+  {
+   "t": "08:00",
+   "text": "Show engine done: a full scripted episode plays headless in 5:39 with three windows, no gap over 2.5 s, 42 tests green. Balance over 2000 scripted episodes: every suitor wins 21 to 27 percent."
+  },
+  {
+   "t": "08:00",
+   "text": "First two real-model episodes (about one cent each). Lead's verdict: lines written live by the cheap models are far worse than the authored bank (word salad, a star who never gets charmed). Decision: a hybrid brain. Each model reads the room and picks from its bot's own material, or writes a new line only if it passes a quality gate. The star's model still judges every line and decides."
+  },
+  {
+   "t": "08:00",
+   "text": "Second look at the scripted episode: both hidden cards ended with nobody finding them, which kills the reveal. Fix in progress: the sealed draw is weighted toward traits the four suitors on stage actually show."
+  },
+  {
+   "t": "08:00",
+   "text": "Stage skeleton done: plays the live feed and a demo episode, late join works at any second, 60 fps. Three stage loops started (set and light, captions and cards, marks and standing), each with a fresh critic comparing stills with the reference frames."
+  },
+  {
+   "t": "08:00",
+   "text": "Voices: round two verdicts are in for all eleven."
+  },
+  {
+   "t": "08:10",
+   "text": "Avatar rig done: all eleven avatars load, take the cel restyle, breathe, look at the speaker, talk with mouth shapes, walk, sit, change face and play seven gestures. Five on stage cost under 1 ms a frame. Known gap: the faces are faint, so emotion rides on the body."
+  },
+  {
+   "t": "08:10",
+   "text": "Two more stage loops started: the cast (putting the avatars on the live stage and directing what each one does on every event) and the camera (shot grammar and cutting rhythm)."
+  },
+  {
+   "t": "08:20",
+   "text": "Hybrid model brain done: in the last full real episodes 80 percent of aired lines were chosen by the bot's model from its own material, 12 percent were written live and passed the gate, 8 percent were fallbacks. The star's marks came out 10 charmed, 8 unsure, 9 cringing. About 0.7 cents per episode."
+  },
+  {
+   "t": "08:20",
+   "text": "Blocked: the shared OpenRouter account ran out of credit mid-trial (HTTP 402). Real-model trials are paused until it is topped up. Spend by this game so far: 9 cents of $1.50. Everything else continues on scripted brains."
+  },
+  {
+   "t": "08:25",
+   "text": "Engine second pass done, 77 tests green. The sealed draw now favours traits the suitors on stage actually show, so over 2000 scripted episodes a hidden card is found by somebody in about 78 percent and the winner hit a card in 88 percent. Every suitor wins between 18 and 35 percent. Windows hold their full length: A 45 s, B 22 s, C 20 s. The show ran end to end inside the real runner code on a side port."
+  },
+  {
+   "t": "08:25",
+   "text": "Eight script critics are reading eight whole episodes (six scripted, two with real models), one critic per beat: the star, walk-on, round one, the booth, round two, the cut, one on one, the pick and reveal."
+  },
+  {
+   "t": "08:29",
+   "text": "Voices after four rounds: Sir Quill is the first piece where the critic picked ours over the Monster Prom bar (round three, 20 percent generic). The other ten still lose but improved, for example Nav from 48 to 23 percent generic and Crumb from 57 to 30. The three stars are the weakest: their lines about each suitor lean on the suitor's gimmick instead of the star's own world. Next writers' round folds in the script critics' notes and gives each suitor five signature cards so the whole 24-card deck is in play."
+  },
+  {
+   "t": "08:29",
+   "text": "The toaster is now Crumb everywhere on the show side (id crumb). The avatar folder keeps its old name."
+  },
+  {
+   "t": "08:35",
+   "text": "Script critics, round one: the bar won all eight beats, though every one of the eight episodes had a quotable line in every beat. Four faults named by several critics at once: the star's reaction does not answer the line just said; visible marks do not predict the cuts (only 7 of 16 cuts were readable from the screen); the booth and walk-on give a bettor nothing; the pick names the winner first and the reveal replays the wrong line."
+  },
+  {
+   "t": "08:35",
+   "text": "Lead's decision: episode format version 2, written up in show/FORMAT2.md. A warm and a cold reply authored for every suitor line so reactions seize a word from it. The star speaks only to the best and worst turn, the rest get the mark alone. Cuts follow the visible marks, with a bottom-two beat before the lamp goes out. The booth becomes a suitor guessing which card the star reacted to. The leader dates first and the underdog gets the last word. The hidden turn-on turns over before the name, and the name comes last."
+  },
+  {
+   "t": "08:35",
+   "text": "Engine builder is implementing version 2. Writers' second round is running: eleven personas revised with their critics' notes and signature cards, then closers that answer the star, then 24 star-to-suitor reply files."
+  },
+  {
+   "t": "09:26",
+   "text": "Episode format version 2 is built: 92 tests green, 11 of 11 checks inside the real runner. Over 2000 scripted episodes every cut now falls on the lowest visible mark (100 percent), every pick follows the dates (100 percent), the last speaker wins 43 percent of the time, every suitor wins 19 to 30 percent, and a hidden card is found in 77 to 81 percent. Episodes run 5:10 to 5:56."
+  },
+  {
+   "t": "09:26",
+   "text": "Writers, rounds five and six: the bar still wins all eleven. Sir Quill is back under the bar after the new material was added. Closers and reply files are next."
+  },
+  {
+   "t": "09:26",
+   "text": "Sound loop started: per-character speech blips, cues, music beds and the mix, judged by a critic who measures an offline render of a whole episode against the reference clips."
+  },
+  {
+   "t": "09:26",
+   "text": "OpenRouter account still out of credit at 09:25."
+  },
+  {
+   "t": "09:50",
+   "text": "Writers' second round finished: all eleven banks carry the version 2 material, every suitor's five signature cards are in play (23 of 24 cards can now be hidden), and 24 reply files give the star a warm and a cold answer to every suitor line (about 80 lines per pair, none missing). In fresh scripted episodes three of four spoken reactions are now a reply to the exact line. The bar still wins all eleven voices on the critic's head-to-head."
+  },
+  {
+   "t": "09:50",
+   "text": "Usage pacing: the account's weekly limit rose from 63 to 67 percent in 14 minutes with six hours to the 16:00 reset. Stage and sound loops stopped by the lead until the reset. Until then only checks that cost nothing, and at most one small builder at a time."
+  },
+  {
+   "t": "09:54",
+   "text": "Lead looked at stills of the live version 2 show after the stop. Better: bright cel avatars, a proper subtitle bar, a redesigned card rail. Broken: a speaker framed from behind, a cropped head in the walk-on, an empty confession booth. One integration builder is now making a whole live episode play with no broken frame and teaching the stage the version 2 events, so the stage is sound for the 16:00 hand-over. The piece loops resume after the reset."
+  },
+  {
+   "t": "09:54",
+   "text": "ROUNDS.md now holds every critic round so far (24 pieces). bots.json written: eleven bots, eleven providers."
+  },
+  {
+   "t": "11:14",
+   "text": "Stage integration done: a whole live version 2 episode plays and reads. Fixed: speakers framed from behind, cropped heads, floating marks, the empty booth. New on stage: the bottom-two beat, mark-only reactions, replays with a playback caption, ticks and crosses for booth guesses, the pick light on the name. Still wrong: a neighbour's shoulder at the edge of about a third of close-ups, the booth opens on an empty stool for two seconds, and sound effects and music are silent because the sound loop was stopped before it produced its files (voices work)."
+  },
+  {
+   "t": "11:14",
+   "text": "Usage at 11:13: weekly limit 82 percent, up 15 points in 83 minutes while this session ran a single builder. No agents from this session until the 16:00 reset. Then: sound first, the camera, the five stage loops and the script critics on version 2 episodes."
+  },
+  {
+   "t": "11:14",
+   "text": "Hand-over notes for the platform session updated; README has a Credits section (the music is CC-BY and needs a credit line on the site)."
+  },
+  {
+   "t": "12:58",
+   "text": "12:54: OpenRouter credit is back. Four real-model episodes on the version 2 format ran clean (about 0.9 cents each): cuts and picks stay readable from the screen, the gate rejected the models' off-voice lines. A 40-episode real-model trial for writing and balance is running; it costs OpenRouter money (about 35 cents) and no Claude usage."
+  },
+  {
+   "t": "12:58",
+   "text": "Owner's instruction at 12:55: remove unnecessary text, shapes and objects; he wants a clean look. Written into stage/LOOK.md as the first rule. One builder is stripping the stage: no taglines, chips, floor graphics, window streaks, plant, picture, side table, card easel, studio camera or set sign; close-ups show one character only."
+  },
+  {
+   "t": "13:32",
+   "text": "40 real-model episodes done on version 2 (hybrid brain, eleven cheap models from eleven providers). Cost 32 cents; total spend 44 cents of $1.50. Every cut fell on the lowest visible mark and every pick followed the dates (40 of 40). A hidden card was found in 85 and 83 percent. No line over its word limit. Episodes ran 5:14 to 5:34. Balance: seven suitors won between 15 and 29 percent of their episodes; Nav won 9 of 21 (43 percent), just over the 40 percent bar on a small sample. About 6 percent of aired lines were fallbacks after a model timed out or failed the gate. The star was charmed 44 percent of the time, more than the 25 percent target. The critics' reading of these episodes waits for the 16:00 reset."
+  },
+  {
+   "t": "13:45",
+   "text": "Clean-up pass done. Removed: taglines, the type and twist chips, the glyphs on hidden cards, the set sign, floor hearts and rings, window streaks, lamp hearts, empty tally slots, wobbly outlines, the plant, picture, side table, card easel and studio camera. Podiums are now 2.1 m apart and a mask check of 154 close-ups found no second character in any of them. Lead's notes from the stills, for the camera loop after the reset: the cast is small in the wide shot, the toaster's mouth sits under the subtitle bar in its close-up, and the short lamp blocks behind the suitors read as leftovers."
+  },
+  {
+   "t": "14:34",
+   "text": "Owner at 14:25, after the clean stills: no round name, no card text; it should feel like organic VRChat dating, not a TV game show; and he wants a video preview. Sent a 100-second recording of the current stage with the labels hidden. Wrote the new direction into stage/LOOK.md as 'The hangout': a small clean room, the star on a couch, suitors standing around her at talking distance, nameplates and chat bubbles over heads, no screen text at all, standing shown by who is nearest the star, the cut is someone walking out the door, the pick is the star walking over to one of them. One builder is restaging; the current studio staging stays the default until a whole episode plays cleanly in the new one."
+  },
+  {
+   "t": "15:12",
+   "text": "15:05: stopped. The owner watched the show on the site and rejected it as a whole: the format's interludes and printed labels, the look of the cast and the dialogue. All builders and model calls are stopped and nothing more is being spent. The folder is left runnable: 92 tests green, 11 of 11 checks inside the real runner, the default stage loads with a clean console. A half-built hangout staging sits behind a URL flag, unverified. Waiting for a new plan agreed with the owner."
+  }
+ ]
+}

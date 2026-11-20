@@ -1,0 +1,150 @@
+{
+  "beat": "the pick and the reveal (hold, pick, win, two card turns with replays, lose, outro)",
+  "winner": "bar",
+  "episodesRead": 8,
+  "episodesWithQuotable": 8,
+  "genericPercent": 46,
+  "genericPercentBasis": "31 of 68 beat lines flagged (56 spoken beat lines + 12 replay selections across 8 episodes)",
+  "headToHead": [
+    {
+      "ours": "script-r1 ep-04, Pixel picks: \"Quill. Picked. Write me a poem about it. Short one. Shorter. Just the title.\"",
+      "bar": "Monster Prom #12 Vera: \"Sorry, I'm focusing on my career... my career on not dating losers like you!\"",
+      "verdict": "Close on rhythm: our line shrinks the request three times and ends on the turn. Vera's turn is complete on the page; ours pays off only if the viewer knows Quill never finishes a poem, and this episode never sets that up. Bar wins narrowly."
+    },
+    {
+      "ours": "script-r1 ep-02, Maximilian picks: \"Crumb. Chrome, opinions, no manners. I have married worse. Twice.\"",
+      "bar": "Monster Prom #6: \"as cute as she was genocidal\" (praise and insult in one clause)",
+      "verdict": "This one holds up as a line. But 'opinions, no manners' is a compliment to Brutal honesty, the hidden dealbreaker, which turns over ten seconds later. A Monster Prom writer would have played that contradiction for a joke; we wrote right past it. Tie on the line, bar on the craft."
+    },
+    {
+      "ours": "script-r1 ep-05, Maximilian hold: \"Stand up straight. Both of you. The losing one especially.\"",
+      "bar": "Love Island recoupling: the speaker lists the chosen one's qualities and keeps the name back, and the edit cuts between the faces who might be named. Take Me Out round 5 asks both finalists one question before the last light goes out.",
+      "verdict": "Our best hold line, and it is a joke rather than a hold. It tells the viewer nothing about who is getting picked, so the six seconds that follow are empty air. The real shows load the pause with clues. Bar wins clearly."
+    },
+    {
+      "ours": "hybrid-02 ep-02 reveal: \"Poetry, and I'd have played that one twice...\" with replay of Quill: \"...and nothing between us but this helm, hello.\"",
+      "bar": "Blind Date: before the pick, Our Graham recaps each contestant's answers for comedy, so the pick lands on material the audience just heard.",
+      "verdict": "This is our only real 'of course' reveal: a poem that ends on 'hello' was the poetry hit. But the viewer saw Vesper go 'unsure' at Quill three times and 'charmed' at Vex twice, so for two minutes the pick looked wrong. Blind Date's recap shows the evidence before the decision. Bar wins."
+    },
+    {
+      "ours": "hybrid-02 ep-01, Nav loses: \"They chose the other route. People do. Then they phone me from a field.\"",
+      "bar": "Monster Prom narrator #58: \"Does… Scott know any other people? Signs are pointing to 'no.'\"",
+      "verdict": "This is at bar level: a plain statement, then an undercut that is all in Nav's own logic. Ours wins this one."
+    },
+    {
+      "ours": "script-r1 ep-06, Tilly wins: \"Lovely. So this is the side of the desk where people sit down.\"",
+      "bar": "Tomodachi #23: \"If not, I'll be sad forever. No pressure.\" (the second clause shrinks the first)",
+      "verdict": "This is at bar level: the want is paid off in a single image. But the replay that follows is the wrong line, so the reveal next to it falls flat. Tie on the line."
+    }
+  ],
+  "headToHeadSummary": "The single lines can hold up: about 2 of our 6 best moments are at bar level as lines. The beat as television does not. Holds carry no information, reveals do not say who hit the card, replays often pick a suitor who was cut in round one, and 3 of 8 reveals have no replay at all. A viewer who knows Love Island or Blind Date feels the drop at exactly the moment the bet settles.",
+  "perEpisode": [
+    {
+      "episode": "script-r1/ep-01 (Vesper, Quill over Dash)",
+      "pickMakesSense": "Yes. Quill hit Flattery, the hidden turn-on, twice, and both times Vesper went charmed. Dash hit the Numbers dealbreaker in round one.",
+      "reveal": "A half payoff. 'Found the frequency' calls back her own 'men duelled over this frequency' line. But the Numbers card replays Brock, who was cut in round one, when Dash, the finalist, hit Numbers with 'You've checked the exit four times'. That Dash line is what explains the loss.",
+      "replayRight": "Card 1 yes. Card 2 no: it should be Dash's exit line.",
+      "hold": "'Hold the line, both of you. Nobody breathe on my air.' It is in voice and asks for silence, but gives no hint of who.",
+      "quotable": "Vesper: \"Quill, lift the helmet, I'd like to see who's been calling me thou.\""
+    },
+    {
+      "episode": "script-r1/ep-02 (Maximilian, Crumb over Dash)",
+      "pickMakesSense": "Mostly. Crumb hit both turn-ons and finished 6 to 4. But the pick line praises 'opinions, no manners', which is the Brutal honesty dealbreaker.",
+      "reveal": "A shrug. The question was 'How did your last relationship end?', which made all four suitors hit Brings up the past in round one, so the hidden card was never hidden. The Brutal honesty replay is Tilly's clingy rhyme, which is not brutal honesty.",
+      "replayRight": "Card 1 acceptable, since it is the winner's line. Card 2 is mis-tagged.",
+      "hold": "'Please hold. Your call is important to me. It is not.' This is a stock phone-tree gag that deflates the pause and says nothing about the two finalists.",
+      "quotable": "Maximilian: \"Crumb. Chrome, opinions, no manners. I have married worse. Twice.\" Also Crumb: \"Second slot occupancy: one.\" That second line only lands for viewers who already know the empty slot; this episode never mentions it."
+    },
+    {
+      "episode": "script-r1/ep-03 (Vesper, Dash over Brock)",
+      "pickMakesSense": "Weakly. Dash won on a single Plans everything hit, and the 'four-minute songs' growth hack is a stretch as 'planning'. Dash owns the Confidence dealbreaker and stayed confident to the end ('I'm not changing one word of me. Ever.'), yet it never triggered.",
+      "reveal": "A shrug, and the irony is missed. 'Confidence. Not one of you tuned in.' has no replay, while the man who just won is the cast's confidence bot. The card 1 line cites the 'night nurse', who appears in ep-01, not here.",
+      "replayRight": "Card 1 yes. Card 2 has none.",
+      "hold": "'Quiet now. This is the part I like.' The best Vesper hold in the batch: it makes the silence part of her character.",
+      "quotable": "Brock: \"Good game. Good game. Line up, everybody, handshakes. Why is nobody lining up.\""
+    },
+    {
+      "episode": "script-r1/ep-04 (Pixel, Quill over Dash)",
+      "pickMakesSense": "No. Neither finalist hit any card. Pixel was charmed by Dash twice ('Okay, that worked... I'm posting it', 'weirdly good') and by Quill once. Quill won on standing 1 against 0, which on screen is a coin flip that went against the evidence.",
+      "reveal": "A shrug. 'Four of you, zero hits' turns over a dead card, and the dealbreaker replays Crumb, who was cut in round one and has no bearing on the final two. The face-up 'Says sorry too much' was never played by anyone.",
+      "replayRight": "Card 2 is technically the only hit, but it has no bearing on the pick.",
+      "hold": "'Don't clip this part. Actually, clip this part.' Good Pixel, but the same reverse-yourself move comes back in card 2's 'Don't look. Everybody look.'",
+      "quotable": "Pixel: \"Quill. Picked. Write me a poem about it. Short one. Shorter. Just the title.\""
+    },
+    {
+      "episode": "script-r1/ep-05 (Maximilian, Tilly over Crumb)",
+      "pickMakesSense": "Yes. Tilly is the rules bot and hit the face-up Follows the rules twice. Crumb hit the Trash talk dealbreaker.",
+      "reveal": "A half payoff. The hidden turn-on replays Crumb's toaster-oven line, so the loser held the hidden card and still lost. That is a real twist, but the star line ('Whoever found it may keep the robe') does not notice it. The Trash talk replay goes to Dash, cut in round one, instead of finalist Crumb's 'He shipped the brown one'.",
+      "replayRight": "Card 1 yes. Card 2 is the wrong suitor.",
+      "hold": "'Stand up straight. Both of you. The losing one especially.' Funny, and it points at both finalists.",
+      "quotable": "Maximilian: \"Stand up straight. Both of you. The losing one especially.\""
+    },
+    {
+      "episode": "script-r1/ep-06 (Vesper, Tilly over Vex)",
+      "pickMakesSense": "Yes. Tilly hit Brutal honesty twice and was charmed three times, for a standing of 10.",
+      "reveal": "Should be an 'of course' and is not, because the replay is wrong. The Brutal honesty card replays 'I've learned the music, and I've got notes' instead of the line that is plainly brutal honesty: 'You're completely right, and I've been trained to say that to people who aren't.' The A little danger card ('porch light, and nobody came') misses that Tilly herself is a natural owner of A little danger.",
+      "replayRight": "No.",
+      "hold": "A verbatim repeat of the ep-01 hold.",
+      "quotable": "Tilly: \"Lovely. So this is the side of the desk where people sit down.\""
+    },
+    {
+      "episode": "hybrid-02/ep-01 (Pixel, Tilly over Nav)",
+      "pickMakesSense": "Yes on standing (9 to -7). Nav hit the Numbers dealbreaker twice. Note that one of Tilly's two danger hits is a fallback reaction copied word for word from Nav's round-two reaction.",
+      "reveal": "Missed its best joke. Nav's coffee line hit the hidden turn-on and the dealbreaker in the same breath, and Pixel's line ('One of you hit it and didn't even celebrate') does not notice. The Numbers replay goes to Crumb, cut in round one, rather than Nav's 'You will say yes in two minutes', the line that actually sank the finalist.",
+      "replayRight": "Card 1 yes. Card 2 is the wrong suitor.",
+      "hold": "A verbatim repeat of the ep-04 hold.",
+      "quotable": "Nav: \"They chose the other route. People do. Then they phone me from a field.\""
+    },
+    {
+      "episode": "hybrid-02/ep-02 (Vesper, Quill over Vex)",
+      "pickMakesSense": "Yes by the cards: Quill hit Poetry twice. Not by what viewers saw: Quill drew 0 charmed and 3 unsure, while Vex drew 2 charmed. The hidden turn-on hits were shown to viewers as 'unsure', so bettors were misled.",
+      "reveal": "The batch's best payoff. A poem that ends on 'hello' was the hit. But the Numbers card is a fallback ('Not one of you tuned in', the same template as ep-03) with no replay.",
+      "replayRight": "Card 1 yes. Card 2 has none.",
+      "hold": "The third verbatim use of 'Hold the line, both of you. Nobody breathe on my air.'",
+      "quotable": "Vesper: \"Quill, I understood one word in four, and it was thou, and that's enough.\""
+    }
+  ],
+  "pickMakesSense": "6 of 8 picks make sense on the cards; ep-03 is weak and ep-04 makes no sense on screen. ep-01 yes. ep-02 mostly, but the pick line praises the dealbreaker. ep-03 weak: one stretched hit, and the winner is the confidence bot on a Confidence-dealbreaker night. ep-04 no: zero card hits, and the star's visible reactions favoured the loser. ep-05 yes. ep-06 yes. hybrid ep-01 yes. hybrid ep-02 yes on the cards, but every hidden-card hit showed as 'unsure', so on screen the pick looked like a reversal. Reveals: 1 clean 'of course' (hybrid ep-02 card 1), 3 half-payoffs (ep-01, ep-05, ep-06, each let down by star line or replay choice), 4 shrugs (ep-02, ep-03, ep-04, hybrid ep-01). Of 12 replays, 5 are the wrong line: 4 quote a suitor cut in round one, or a non-finalist, when a finalist's line was available, and 1 is mis-tagged. 3 card turns have no replay at all.",
+  "flagged": [
+    {"episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Flattery, and somebody finally found the frequency.", "problem": "Anonymous reveal: 'somebody' when the somebody won 20 seconds ago and is standing on stage. The card turn should address Quill by name.", "fix": "structure", "detail": "Reveal lines are keyed to the card, not to a suitor. Give them a {who} slot that is filled with the finalist who hit the card, and have the star speak to that suitor."},
+    {"episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Numbers and stats, and I'd have hung up, and I nearly did.  [Replay: Brock]", "problem": "Does not follow. The replay is Brock, whom she did hang up on in round one, so 'nearly' is false. The finalist Dash hit Numbers too ('You've checked the exit four times') and that line explains his loss.", "fix": "structure", "detail": "Replay selection: for the dealbreaker card, prefer the losing finalist's tagged line, then the last cut, then anyone else."},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Please hold. Your call is important to me. It is not.", "problem": "Generic: a stock phone-tree gag any character could say. It spends the hold on a punchline and gives no hint of who.", "fix": "bank", "detail": "Maximilian hold lines: write them as a concierge closing a booking (the room, the key, the bill), with one detail that fits either finalist."},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Crumb. Chrome, opinions, no manners. I have married worse. Twice.", "problem": "Does not follow from the cards. 'Opinions, no manners' praises Brutal honesty, the dealbreaker that turns over next. It is unexplained and unexploited.", "fix": "structure", "detail": "Pick-line selection must check the pick line's tags against the dealbreaker. Or, if it keeps the contradiction, the dealbreaker card line must call it out ('Brutal honesty. Crumb, you are the exception, and I resent it.')."},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Brings up the past. Correct. Correct, and in front of the staff. Unforgivable.", "problem": "The reveal is empty because the round-one question ('How did your last relationship end?') made all four suitors hit this card. 'Correct' answers nothing.", "fix": "structure", "detail": "Episode setup must not draw a question whose natural tags include the hidden turn-on or the hidden dealbreaker."},
+    {"episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Brutal honesty. Out of the question. Out of the building, ideally.  [Replay: Tilly's rhyme]", "problem": "The same repeat-a-phrase move as the card 1 line just before it. And the replayed rhyme ('Choose me and I can't, so the answer is no') is clingy, not brutally honest, so the tag is wrong.", "fix": "structure", "detail": "Tagging: the twist-round lines need their tags checked by hand before they can fire as dealbreaker hits. The two card lines for one star should not share a rhetorical shape."},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Dash, you pitched me nine times tonight, and the ninth one, the nervous one, worked.", "problem": "Does not follow. On the page Dash pitched about six times, and the line that worked (four-minute songs) was not the nervous one. The nervous line ('Wait. That landed?') came after it.", "fix": "bank", "detail": "Vesper pick lines need a slot for the winning line's actual hook (e.g. 'the one about one-minute songs'), not invented counts."},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Plans everything, and whoever said it, the night nurse wrote it down.", "problem": "Anonymous ('whoever said it', about the man who just won) and does not follow: the night nurse is from ep-01's intro, not this episode, whose intro is the trucker.", "fix": "bank", "detail": "Vesper reveal lines: a reveal line may only call back a running gag that this episode's own intro set up."},
+    {"episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Confidence. Not one of you tuned in.", "problem": "A shrug with no replay, and the irony is missed: the winner is Dash, the cast's Confidence bot, whose last line was 'I'm not changing one word of me. Ever.'", "fix": "structure", "detail": "When the dealbreaker was never hit, replay the winner's line that came closest to it (its natural-owner tag) and have the star note the near miss."},
+    {"episode": "script-r1/ep-04", "speaker": "Pixel", "line": "Quill. Picked. Write me a poem about it. Short one. Shorter. Just the title.", "problem": "The line is great, but the pick is not supported. Neither finalist hit a card, Pixel was charmed by Dash twice and by Quill once, and Quill won by one point of noise.", "fix": "structure", "detail": "Pick logic: when the standings are within 2 and neither finalist hit the hidden turn-on, decide on charmed count, so the star's visible reactions agree with the pick."},
+    {"episode": "script-r1/ep-04", "speaker": "Pixel", "line": "Talks about food. Four of you, zero hits. I'm basically a final boss.", "problem": "A dead reveal: the card that 'decides' the show decided nothing.", "fix": "structure", "detail": "Episode setup: draw the hidden turn-on so that at least one of the two likeliest finalists has it as a natural tag, or re-deal the cards."},
+    {"episode": "script-r1/ep-04", "speaker": "Pixel", "line": "Brutal honesty. Dealbreaker. Who did it? Don't look. Everybody look.", "problem": "The same reverse-yourself move as the hold ('Don't clip this part. Actually, clip this part.') and the pick ('Short one. Shorter.'): one move used three times in one beat. The replay is a round-one cut and irrelevant to the final two.", "fix": "bank", "detail": "Pixel reveal lines: vary them, using the drop-it-mid-sentence move and a score out of ten in place of the reversal."},
+    {"episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "Turn-on: Brings up the past. Whoever found it may keep the robe.", "problem": "Generic and anonymous. It ignores the twist on screen, which is that the loser Crumb is the one who found it.", "fix": "bank", "detail": "Maximilian reveal lines need a version for when the loser found the turn-on (e.g. 'Crumb found it. Crumb then lost. The hotel admires the effort.')."},
+    {"episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "Trash talk. I once had a bishop removed for that. He was mid-sentence.  [Replay: Dash]", "problem": "Wrong replay: Dash was cut in round one. Finalist Crumb hit Trash talk with 'He shipped the brown one', the funnier line and the one that explains the result.", "fix": "structure", "detail": "Replay selection: prefer finalists over anyone cut earlier."},
+    {"episode": "script-r1/ep-05", "speaker": "Crumb", "line": "Understood. I'll still do your toast. Tilly can watch. They won't learn.", "problem": "Wrong pronoun: Tilly is 'she' in CAST. The template fill breaks character continuity.", "fix": "structure", "detail": "Lose-line templates that name the winner must fill the pronoun from the cast sheet."},
+    {"episode": "script-r1/ep-06", "speaker": "Vesper", "line": "Hold the line, both of you. Nobody breathe on my air.", "problem": "A repeat: the same hold appears in ep-01 and hybrid ep-02, so 3 of 4 Vesper episodes use one hold. On a 24/7 show that is a catchphrase nobody chose.", "fix": "bank", "detail": "Vesper needs at least 5 hold lines, plus a rule against using the same one in consecutive Vesper episodes."},
+    {"episode": "script-r1/ep-06", "speaker": "Vesper", "line": "Brutal honesty. That was the song I was waiting for all night.  [Replay: \"...I've learned the music, and I've got notes.\"]", "problem": "Generic radio metaphor, and the wrong replay. The obvious brutal-honesty line is 'You're completely right, and I've been trained to say that to people who aren't.'", "fix": "structure", "detail": "Replay selection: among the winner's hits on the card, prefer the hit that drew 'charmed' in an earlier round over a one-on-one hit (it is the one viewers remember), and break ties by how close the line is to the tag."},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "Don't clip this part. Actually, clip this part.", "problem": "A verbatim repeat of the ep-04 hold.", "fix": "bank", "detail": "Pixel hold lines need variety: at least 5."},
+    {"episode": "hybrid-02/ep-01", "speaker": "Tilly", "line": "Thank you to everyone I've ever put on hold, who may now hang up.", "problem": "A verbatim repeat of script-r1 ep-05's win line.", "fix": "bank", "detail": "Tilly win lines: at least 3, and keyed to the star (concierge, radio, streamer)."},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "Talks about food. One of you hit it and didn't even celebrate. Celebrate. Louder.", "problem": "Anonymous. It misses the episode's best reveal joke: Nav's coffee line hit the hidden turn-on and the dealbreaker at once.", "fix": "structure", "detail": "When one replayed line carries both hidden cards, turn the two cards back to back on that one replay, and give the star a dedicated both-cards line."},
+    {"episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "Numbers and stats. Instant skip. One of you found out live. It was beautiful.  [Replay: Crumb, fallback]", "problem": "Wrong replay: Crumb was cut in round one. Finalist Nav lost on 'You will say yes in two minutes'.", "fix": "structure", "detail": "Replay selection: prefer the losing finalist's line."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "Hold the line, both of you. Nobody breathe on my air.", "problem": "Third verbatim use of this hold.", "fix": "bank", "detail": "Vesper hold lines."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "Quill, I understood one word in four, and it was thou, and that's enough.", "problem": "The line is good, but the pick contradicts every visible tell: Quill drew 3 'unsure' and 0 'charmed', while Vex drew 2 'charmed'. Bettors were misled by the marks.", "fix": "structure", "detail": "A hit on the hidden turn-on should show viewers a distinct tell (e.g. 'caught off guard'), never plain 'unsure', so the reveal reads as 'so that's what that was'."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Sir Quill", "line": "A muse! Fetch the court painter. Fetch any painter. Fetch whoever painted the inn sign.", "problem": "A verbatim repeat of script-r1 ep-04's win line.", "fix": "bank", "detail": "Sir Quill win lines: at least 3."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "Numbers and stats. Not one of you tuned in.", "problem": "A fallback reusing ep-03's dealbreaker template word for word, with no replay. Prince's opener ('Played 3. Replies: one...') and Vex's 'Six have sent money' were near misses it could have used.", "fix": "brain", "detail": "The fallback path should pick a near-miss line and write a star line about it, not reach for the zero-hits template."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vex", "line": "Good pick. I'll be at the wedding. Not invited. Just in the sidebar.", "problem": "A fallback repeat of script-r1 ep-06's lose line.", "fix": "bank", "detail": "Vex lose lines: at least 3."},
+    {"episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "This is Vesper, signing off, and the sun can come up now.", "problem": "A verbatim repeat of script-r1 ep-03's outro.", "fix": "bank", "detail": "Vesper outros: at least 5, ideally with a slot for something from the episode."}
+  ],
+  "bestLines": [
+    "Pixel (script-r1 ep-04): \"Quill. Picked. Write me a poem about it. Short one. Shorter. Just the title.\"",
+    "Maximilian (script-r1 ep-02): \"Crumb. Chrome, opinions, no manners. I have married worse. Twice.\"",
+    "Maximilian (script-r1 ep-05): \"Stand up straight. Both of you. The losing one especially.\"",
+    "Tilly (script-r1 ep-06): \"Lovely. So this is the side of the desk where people sit down.\"",
+    "Nav (hybrid-02 ep-01): \"They chose the other route. People do. Then they phone me from a field.\"",
+    "Vesper (hybrid-02 ep-02): \"Quill, I understood one word in four, and it was thou, and that's enough.\"",
+    "Brock (script-r1 ep-03): \"Good game. Good game. Line up, everybody, handshakes. Why is nobody lining up.\"",
+    "Dash (script-r1 ep-03): \"Me? On purpose? Nobody clicked anything by accident? Okay. Okay. I'm not checking.\""
+  ],
+  "biggestGap": "The reveal is written about the cards, not about the final two. Card lines never name who hit the card ('somebody', 'whoever', 'one of you'), and the replay picker grabs any tagged line, often a suitor cut in round one, so the 'of course' moment rarely lands on the winner or the loser. Fix: every card turn names a finalist and replays that finalist's line. The hidden turn-on replays the winner's hit that drew a visible reaction. The dealbreaker replays the loser's hit, or the winner's near miss. The star's line answers that suitor.",
+  "structuralChange": "Turn the hold into a Love Island speech that carries the hidden turn-on. Window C closes, and the star says one line (12 words at most, 3s) describing the quality that won, phrased from the hidden turn-on, true of both finalists, with no name (Vesper: 'The one I'm keeping kept dragging up old songs. Both of you did.'). Then the hidden turn-on card turns face up. Both finalists' best lines for it replay back to back (4s each), the camera cuts to each face, then 4s of silence, then the name. The winner speaks (3s). The dealbreaker card then turns on the loser alone, with the loser's own hit replayed (4s), then the loser's line, then the outro. Net added time is about 8s, inside the 5 to 6 minute budget. The pause is now loaded with evidence, as Love Island and Blind Date's 'Our Graham' recap do, and viewers who bet get a last moment of 'I knew it' or 'oh no' before the name.",
+  "structuralChangeRationale": "Today the six-second hold sits on an empty joke, and both cards turn after the result, when nothing can change. Moving the turn-on evidence inside the pause makes the reveal the suspense instead of a post-mortem, and it forces the replay to be a finalist's line."
+}

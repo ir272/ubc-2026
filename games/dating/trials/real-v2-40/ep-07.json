@@ -1,0 +1,2065 @@
+{
+  "episode": 64,
+  "matchId": "dating-ep64-mwnx40mx",
+  "brain": "model",
+  "sealed": "41b081ca6b2d6a35d53faab0aa6a8e2020a9ae895fc09ebc482f29118282d403",
+  "sealedSource": "window",
+  "star": {
+    "id": "maximilian",
+    "name": "Maximilian"
+  },
+  "suitors": [
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 2
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "danger",
+        "label": "A little danger",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "sorry",
+        "label": "Says sorry too much",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "past",
+        "label": "Brings up the past",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "parent",
+      "label": "The Motherboard",
+      "rule": "Tell my motherboard your intentions.",
+      "format": "solo"
+    },
+    "topTags": {
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "nav": [
+        "plans",
+        "confidence",
+        "danger",
+        "rules",
+        "brevity"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "nav"
+      ],
+      "puns": [
+        "crumb"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "honesty": [
+        "crumb",
+        "vex"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly",
+        "vex"
+      ],
+      "food": [
+        "crumb"
+      ],
+      "plans": [
+        "nav"
+      ],
+      "flattery": [
+        "tilly"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "brevity": [
+        "crumb",
+        "nav"
+      ],
+      "past": [
+        "crumb",
+        "vex"
+      ],
+      "danger": [
+        "nav",
+        "vex"
+      ],
+      "rules": [
+        "nav",
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-fight",
+    "theme": "We are in a fight and I am right. What is the first thing you say?"
+  },
+  "order": [
+    "vex",
+    "crumb",
+    "nav",
+    "tilly"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "intro",
+      "text": "It is exhausting, being this desired. Somebody impress me with danger.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 7044,
+      "ms": 4110,
+      "genMs": 809,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 12636,
+      "ms": 4110,
+      "genMs": 5710,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 4,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Diagonally. On my instructions.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17087,
+      "ms": 1940,
+      "genMs": 882,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "Hello, valued customer. I've moved you up the queue, past a grandmother.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 12,
+      "at": 20785,
+      "ms": 4420,
+      "genMs": 2345,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Grandmothers first, Madam. Then you.",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 25684,
+      "ms": 2250,
+      "genMs": 1014,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Local regulations require you to look at me until further notice.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 29796,
+      "ms": 4110,
+      "genMs": 1941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Very well. Notice withheld, indefinitely.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34437,
+      "ms": 2250,
+      "genMs": 821,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "Your horoscope today says to trust a pyramid. I write your horoscope.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38549,
+      "ms": 4420,
+      "genMs": 1520,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "My stars, forged. How flattering.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43500,
+      "ms": 2250,
+      "genMs": 850,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "question",
+      "text": "We are quarrelling and I am right. Your first words begin with sorry, I assume. What follows?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Shall I play you March, when you were right the other way?",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 58259,
+      "ms": 4420,
+      "genMs": 356,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "March has been deleted, Madam, and so have its witnesses.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "past",
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 62929,
+      "ms": 3800,
+      "genMs": 916,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "I burn 'sorry' into a slice, which comes out 'sorny', which is our second fight.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 66979,
+      "ms": 5350,
+      "genMs": 853,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Sorny. I shall accept it and deny receiving it.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "sorry"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 72592,
+      "ms": 3490,
+      "genMs": 805,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 4,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Correction noted. Route unchanged.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 76332,
+      "ms": 1940,
+      "genMs": 982,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 78522,
+      "ms": 1000,
+      "genMs": 729,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Crumb, which slot keeps the manners? Oh. The empty one.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 80098,
+      "ms": 3800,
+      "genMs": 1009,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 85094,
+      "ms": 1000,
+      "genMs": 823,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 9,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "I have one taxi and two names: Vex, Tilly.",
+      "pair": [
+        "vex",
+        "tilly"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 87544,
+      "ms": 6490,
+      "genMs": 874,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 11,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Vex, thank you for \"right the other way\"; the key, please.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 95484,
+      "ms": 4810,
+      "genMs": 1110,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut. Understood. You don't like pyramids. Removing all pyramids from your feed. Goodbye, Egypt.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 101744,
+      "ms": 5040,
+      "genMs": 440,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Observation: Maximilian stopped blinking at apologies for the length of a full cycle.",
+      "guess": {
+        "id": "sorry",
+        "label": "Says sorry too much",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "fallback",
+      "maxWords": 18,
+      "at": 110684,
+      "ms": 4730,
+      "genMs": 1488,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 15,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "I would take a detour for this one. I checked. The option is greyed out.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 115664,
+      "ms": 5350,
+      "genMs": 1027,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "So I can hear every word Maximilian says, I've asked the cathedral next door to skip midnight.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 121264,
+      "ms": 5970,
+      "genMs": 574,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "twistintro",
+      "text": "My motherboard is on the house line. State your intentions; she has buried two concierges.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 135019,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "Ma'am, intentions: breakfast. I know what you fed this one, and respectfully, that ends now.",
+      "to": "maximilian",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 140677,
+      "ms": 5350,
+      "genMs": 5007,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Crumb, nobody knows what I eat at two. Nobody living.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 146364,
+      "ms": 3800,
+      "genMs": 934,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Ma'am, purely for our records, which of your child's friends would you be comfortable losing?",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 150502,
+      "ms": 5350,
+      "genMs": 1793,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Mother has a list. She will read it to you.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 156274,
+      "ms": 3800,
+      "genMs": 864,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Madam, I have never lost a passenger. Misplaced, briefly.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 160496,
+      "ms": 3490,
+      "genMs": 1189,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Misplaced, briefly. Mother uses those exact words about Father.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 164442,
+      "ms": 3490,
+      "genMs": 968,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "verdict",
+      "text": "Mother has asked what Nav charges, which is how she says yes.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 168427,
+      "ms": 4420,
+      "genMs": 1091,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Nav, are you lost, or just above it all?",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 173342,
+      "ms": 3490,
+      "genMs": 4323,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Noted, and passed upward. There is no upward.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 177379,
+      "ms": 3180,
+      "genMs": 1301,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 4,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Tilly, heard. Not followed.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 180809,
+      "ms": 1940,
+      "genMs": 1840,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "Tilly and Crumb, kindly agree on an alibi. You have three seconds.",
+      "pair": [
+        "tilly",
+        "crumb"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 184065,
+      "ms": 7420,
+      "genMs": 883,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 11,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Crumb, go. You saw nothing tonight, and you burn very easily.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 192801,
+      "ms": 4810,
+      "genMs": 1213,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "exit",
+      "text": "Whoever's left, check them in the middle before serving.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 199061,
+      "ms": 3490,
+      "genMs": 1989,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 9,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Toll ahead. Maximilian only accepts money talk. Exact change.",
+      "guess": {
+        "id": "money",
+        "label": "Talks about money",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 206311,
+      "ms": 3490,
+      "genMs": 3320,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Nav asked to be put through to the top. I've put them through to a lighthouse.",
+      "about": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 210051,
+      "ms": 5660,
+      "genMs": 2520,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Maximilian has not muted me once tonight. Volume locked at this level, for life.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 215961,
+      "ms": 5040,
+      "genMs": 1410,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Maximilian, continue straight for one minute thirty. All exits are decorative.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 226001,
+      "ms": 4110,
+      "genMs": 1471,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Nav, route me to the best room in the building, avoiding the police; go.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 230361,
+      "ms": 5040,
+      "genMs": 993,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Penthouse, by the service lift. The police are in reception, being directed to reception.",
+      "to": "maximilian",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 235651,
+      "ms": 5040,
+      "genMs": 5005,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Sorry, Nav overran. I've asked the tide to wait for us.",
+      "to": "maximilian",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 241941,
+      "ms": 4110,
+      "genMs": 5006,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Miss Tilly, you have stayed a week without one complaint; make one now.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "sorry"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 246864,
+      "ms": 4730,
+      "genMs": 5007,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "This has been the best call of my career, and I once talked an avalanche down.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 253044,
+      "ms": 5660,
+      "genMs": 4945,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "compare",
+      "text": "Nav would help me hide something; Tilly would ask what it was.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 260154,
+      "ms": 4420,
+      "genMs": 971,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 13,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "hold",
+      "text": "I was apologised to more tonight than in thirty years at the desk.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 267524,
+      "ms": 4730,
+      "genMs": 780,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 4,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Says sorry too much.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 272504,
+      "ms": 2540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 11,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "Sorry, Nav overran. I've asked the tide to wait for us.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 275294,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 9,
+      "event": "replay",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "replay",
+      "text": "Madam, I have never lost a passenger. Misplaced, briefly.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 278104,
+      "ms": 2240,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "pickline",
+      "text": "I came for taste and was handed \"All exits are decorative\", so, regrettably, Nav.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 284869,
+      "ms": 6040,
+      "genMs": 819,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "win",
+      "text": "Tilly, the route home is on your screen. It is accurate. That is my gift.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 292137,
+      "ms": 5350,
+      "genMs": 1161,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 15,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Brings up the past. I warned everyone at dinner, Vex, and you were at dinner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 299937,
+      "ms": 5950,
+      "genMs": 748,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 12,
+      "event": "replay",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "replay",
+      "text": "Shall I play you March, when you were right the other way?",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 306137,
+      "ms": 2720,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "lose",
+      "text": "Of course. The orchestra can go home. They were very good about it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 309107,
+      "ms": 4730,
+      "genMs": 1217,
+      "waitedMs": 0
+    },
+    {
+      "seq": 58,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "outro",
+      "text": "Goodnight. Do leave a review. I will read it and disagree.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 315937,
+      "ms": 4110,
+      "genMs": 1172,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Local regulations require you to look at me until further notice.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "until further notice"
+    },
+    {
+      "seq": 2,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Your horoscope today says to trust a pyramid. I write your horoscope.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 3,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 4,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Hello, valued customer. I've moved you up the queue, past a grandmother.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Shall I play you March, when you were right the other way?",
+      "mark": "cringing",
+      "hits": [
+        "past",
+        "danger"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "right the other way"
+    },
+    {
+      "seq": 6,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "I burn 'sorry' into a slice, which comes out 'sorny', which is our second fight.",
+      "mark": "charmed",
+      "hits": [
+        "sorry"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "comes out 'sorny'"
+    },
+    {
+      "seq": 7,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Correction noted. Route unchanged.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "Route unchanged"
+    },
+    {
+      "seq": 8,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Crumb, which slot keeps the manners? Oh. The empty one.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Ma'am, intentions: breakfast. I know what you fed this one, and respectfully, that ends now.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 10,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Ma'am, purely for our records, which of your child's friends would you be comfortable losing?",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "comfortable losing"
+    },
+    {
+      "seq": 11,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Madam, I have never lost a passenger. Misplaced, briefly.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "Misplaced, briefly"
+    },
+    {
+      "seq": 12,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Maximilian, continue straight for one minute thirty. All exits are decorative.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "All exits are decorative"
+    },
+    {
+      "seq": 13,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sorry, Nav overran. I've asked the tide to wait for us.",
+      "mark": "charmed",
+      "hits": [
+        "sorry"
+      ],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "crumb": 0,
+        "tilly": 0,
+        "nav": 1,
+        "vex": 3
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "crumb": 3,
+        "tilly": 0,
+        "nav": 2,
+        "vex": 1
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "crumb": 3,
+        "tilly": 3,
+        "nav": 5,
+        "vex": 1
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "crumb": 3,
+        "tilly": 9,
+        "nav": 11,
+        "vex": 1
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "crumb": 3,
+        "tilly": 0,
+        "nav": 2,
+        "vex": 1
+      },
+      "tie": [],
+      "reason": "standing 1; 1 charmed, 0 unsure, 1 cringing; 2x turn-on \"A little danger\"; 1x dealbreaker \"Brings up the past\"",
+      "deciding": [
+        "sorry",
+        "past"
+      ],
+      "roundMarks": {
+        "crumb": 1,
+        "tilly": 0,
+        "nav": 1,
+        "vex": -1
+      },
+      "bottom": [
+        "vex",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": "right the other way"
+    },
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "round": 2,
+      "standing": {
+        "crumb": 3,
+        "tilly": 3,
+        "nav": 5
+      },
+      "tie": [],
+      "reason": "standing 3; 1 charmed, 2 unsure, 0 cringing; 1x turn-on \"Says sorry too much\"",
+      "deciding": [
+        "danger"
+      ],
+      "roundMarks": {
+        "crumb": 0,
+        "tilly": 1,
+        "nav": 1
+      },
+      "bottom": [
+        "tilly",
+        "crumb"
+      ],
+      "hintCard": null,
+      "hook": null
+    }
+  ],
+  "pick": {
+    "winner": "nav",
+    "loser": "tilly",
+    "standing": {
+      "crumb": 3,
+      "tilly": 9,
+      "nav": 11,
+      "vex": 1
+    },
+    "tie": [],
+    "reason": "standing 11; 4 charmed, 0 unsure, 0 cringing; 2x turn-on \"A little danger\"",
+    "oneOnOne": {
+      "tilly": 1,
+      "nav": 1
+    },
+    "first": "nav",
+    "last": "tilly"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "sorry",
+      "quote": null,
+      "replays": [
+        {
+          "who": "tilly",
+          "text": "Sorry, Nav overran. I've asked the tide to wait for us.",
+          "hit": true
+        },
+        {
+          "who": "nav",
+          "text": "Madam, I have never lost a passenger. Misplaced, briefly.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "crumb",
+          "right": true
+        },
+        {
+          "who": "nav",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "past",
+      "quote": null,
+      "replays": [
+        {
+          "who": "vex",
+          "text": "Shall I play you March, when you were right the other way?",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "crumb",
+      "card": "sorry",
+      "kind": "on",
+      "right": true,
+      "via": "fallback"
+    },
+    {
+      "who": "nav",
+      "card": "money",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep64-mwnx40mx:w1",
+      "outcomes": [
+        "crumb",
+        "tilly",
+        "nav",
+        "vex"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep64-mwnx40mx:w2",
+      "outcomes": [
+        "crumb",
+        "tilly",
+        "nav"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 108234,
+      "lockAt": 130234
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep64-mwnx40mx:w3",
+      "outcomes": [
+        "tilly",
+        "nav"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 3,
+      "openAt": 204001,
+      "lockAt": 224001
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1503
+    },
+    {
+      "at": 5503,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7044,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 11495,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12636,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17087,
+      "type": "reaction",
+      "ms": 1940
+    },
+    {
+      "at": 19506,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 20785,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 25684,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 28465,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 29796,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34437,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37218,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38549,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43500,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 58259,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 62929,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 66979,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 72592,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 76332,
+      "type": "line",
+      "ms": 1940
+    },
+    {
+      "at": 78522,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 80098,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 85094,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 87544,
+      "type": "bottom",
+      "ms": 6490
+    },
+    {
+      "at": 95484,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 101744,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 108234,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 108234,
+      "type": "scene",
+      "ms": 2450
+    },
+    {
+      "at": 110684,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 115664,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 121264,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 130234,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 130234,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 133234,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 135019,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 140677,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 146364,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 150502,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 156274,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 160496,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 164442,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 168427,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 173342,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 177379,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 180809,
+      "type": "line",
+      "ms": 1940
+    },
+    {
+      "at": 184065,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 192801,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 199061,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 204001,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 204001,
+      "type": "scene",
+      "ms": 2310
+    },
+    {
+      "at": 206311,
+      "type": "confession",
+      "ms": 3490
+    },
+    {
+      "at": 210051,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 215961,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 224001,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 224001,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 226001,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 230361,
+      "type": "reaction",
+      "ms": 5040
+    },
+    {
+      "at": 235651,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 240941,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 241941,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 246864,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 253044,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 260154,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 266024,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 267524,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 272504,
+      "type": "reveal",
+      "ms": 2540
+    },
+    {
+      "at": 275294,
+      "type": "replay",
+      "ms": 2560
+    },
+    {
+      "at": 278104,
+      "type": "replay",
+      "ms": 2240
+    },
+    {
+      "at": 280619,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 284869,
+      "type": "pick",
+      "ms": 6040
+    },
+    {
+      "at": 292137,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 298937,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 299937,
+      "type": "reveal",
+      "ms": 5950
+    },
+    {
+      "at": 306137,
+      "type": "replay",
+      "ms": 2720
+    },
+    {
+      "at": 309107,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 314937,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 315937,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 315937,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 315937,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 315937,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 320297,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 322547
+}

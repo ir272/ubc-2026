@@ -1,0 +1,32 @@
+{
+  "winner": "ref",
+  "charm": "ref",
+  "staging": "ref",
+  "light": "ref",
+  "readability": "ref",
+  "broken": [
+    "01b-heart-960.png does not show what shots.json claims: there is no heart anywhere in the frame. It is a back view of a pink mannequin under a 'Sir Quill' caption, so the only 960x540 proof of the heart is missing.",
+    "07c-pop-settle.png: the small flutter heart sits on the big heart's upper-left lobe and the two keylines collide. It reads as a mistake, not as a deliberate overlap.",
+    "01-heart-peak.png and the middle panel of 07-pop-strip.png: at the 124% peak the heart's tip touches the top of the helmet, and the heart is about 190 px tall against a helmet of about 200 px. That is close to head-sized, against the Animal Crossing ratio of about half the head.",
+    "03-gloom / 03b-gloom-960: the gloom lines run down into the top of the toast and touch it, and unlike the cloud they have no milk keyline. Cloud plus lines reads as a raincloud or a jellyfish with icicles, not as sulking gloom.",
+    "02-sweat-drop.png: the drop is pasted over the hair mass on the crown, not beside the temple off the silhouette, so it overlaps the head instead of reading as a separate mark.",
+    "04 / 04b / 05 / 06: the plates are flat, frontal capsules on podium discs that are seen from slightly above. They straddle the disc rim and run over the coloured floor rings (Quill's plate lies across the purple ring, Tilly's across the green one), so they read as HUD stickers floating in front of the set, not as plates hung on the podium.",
+    "04-standing-wide.png at 1280: the bottom edge of Tilly's plate is about 15 px above the subtitle panel. In 06 the milk 'Your pick' rim makes the gap tighter still.",
+    "05-standing-wide-960.png: the gloom coin is about 28 px and its cloud-with-rain icon is a blur. The drop coin and the gloom coin are both dark slate of nearly the same value, so the two negative marks cannot be told apart at 960.",
+    "04 / 05 / 06: the leftmost podium (the big heart panel) has no plate at all. Nothing says whether a fourth suitor was eliminated, has not walked on yet, or does not exist, even though the show has four suitors.",
+    "Over-head marks and plate coins are drawn in different languages: the marks have a milk keyline, an ink line and a highlight, while the coins are flat icons in tinted discs with no keyline. The tally does not look like it came from the same hand as the pops."
+  ],
+  "slop": [
+    "Standing plates (04, 04b, 05, 06): a dark rounded pill holding round tinted chips with a red heart, a drop and a storm cloud. That is the default reaction bar of a chat or web app (Slack and Discord reactions), not a TV-studio object.",
+    "Gloom coin and gloom mark (03, 04, 05): the rain cloud with hanging streaks is the weather-emoji storm-cloud glyph. It reads as emoji iconography, not as drawn anime gloom lines.",
+    "Heart coins: a glossy red heart with a white shine centred in a mint circle is close to the stock heart emoji in a badge.",
+    "No glows, bloom, gradient balls, particles, shockwave rings, stamps, uppercase monospace or em dashes found in this piece's elements."
+  ],
+  "comprehension": "The round ('Round two') reads, and the name tags, type cards and subtitle make it plain that someone is judging three or four candidates. Who is winning does not read at a glance. You have to read each plate icon by icon and know that heart is good, drop is meh and cloud is bad, and nothing teaches that. In 04b (the real feed), Tilly and Quill show the same heart and drop and Frost shows heart and cloud, so all three plates look about the same and there is no leader. The empty fourth podium with no plate is unexplained. 'Your pick' reads clearly but small. The over-head marks read as emotions in the close-ups (heart charmed, drop unsure), but the gloom cloud reads as weather. Nothing in these stills says viewers are betting, and nothing ties the viewer's pick to odds or a stake.",
+  "biggestGap": "Standing is coded by icons when it needs to be coded by light. Take Me Out lets you count who is ahead from across the room because a lit podium is about 216 luma and an off one about 58 in the accent colour (takemeout-02). Our three plates have the same dark pill, similar mid-value chips and about 34 px coins at 960. Make each heart a lit lamp (flat milk or mint at 200+ luma, coins about 1.5x larger) and every non-heart an unlit dark socket in the suitor's accent at about 25% brightness. Build the slots into the podium face in perspective instead of floating a pill in front of it, so the leader's podium is visibly the brightest thing on stage right in the 960 wide.",
+  "protect": [
+    "The over-head emote construction (thin milk keyline, ink line, two-tone fill, one highlight) on the heart and the sweat drop. It is close to the Animal Crossing '!' and '?' sticker language and reads cleanly against the dark night set.",
+    "The pop timing shown in 07-pop-strip: a squashed seed, a stretched overshoot, then a settle into a tilted rest with a delayed flutter heart. It has real anticipation and follow-through. Only the peak size and the flutter's overlap need fixing.",
+    "Each suitor's standing is attached to that suitor's own podium, with hearts sorted first, and the viewer's pick is a quiet milk 'Your pick' tab in sentence case rather than a glow or a stamp. Keep that restraint and placement logic."
+  ]
+}

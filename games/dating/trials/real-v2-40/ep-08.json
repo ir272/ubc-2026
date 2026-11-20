@@ -1,0 +1,2036 @@
+{
+  "episode": 65,
+  "matchId": "dating-ep65-mwnx5o3m",
+  "brain": "model",
+  "sealed": "e7e27938d33511986c3b7dd202b5320618b850d660f1ac9a6ce3cc1399879d9a",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 0
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 1
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 2
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "past",
+        "label": "Brings up the past",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "gestures",
+        "label": "Grand gestures",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "ex-calls",
+      "label": "The Ex",
+      "rule": "My ex is on the line.",
+      "format": "caller"
+    },
+    "topTags": {
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash"
+      ],
+      "puns": [
+        "crumb"
+      ],
+      "money": [
+        "prince"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "prince"
+      ],
+      "honesty": [
+        "crumb"
+      ],
+      "bragging": [
+        "dash"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly"
+      ],
+      "food": [
+        "crumb"
+      ],
+      "plans": [
+        "dash"
+      ],
+      "flattery": [
+        "dash",
+        "prince",
+        "tilly"
+      ],
+      "numbers": [
+        "dash"
+      ],
+      "mystery": [
+        "prince"
+      ],
+      "brevity": [
+        "crumb"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "crumb"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-describe-me",
+    "theme": "Describe me, having known me for ninety seconds."
+  },
+  "order": [
+    "prince",
+    "dash",
+    "tilly",
+    "crumb"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 13,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Four of you. One of me. Always one of me. Tonight, the past.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7022,
+      "ms": 4730,
+      "genMs": 2298,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 13186,
+      "ms": 4110,
+      "genMs": 5709,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "They did. They've been reassigned.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17613,
+      "ms": 2250,
+      "genMs": 5005,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Variant A: you're stunning. Variant B: I'm stunning. I voted. B's ahead.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21367,
+      "ms": 4420,
+      "genMs": 3687,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I've abolished voting. Effective before yours.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26183,
+      "ms": 2560,
+      "genMs": 5007,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "For security purposes, who else were you planning on loving?",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 30335,
+      "ms": 3800,
+      "genMs": 5712,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I am security. You're leaving.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34531,
+      "ms": 2250,
+      "genMs": 5009,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38374,
+      "ms": 4420,
+      "genMs": 3180,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Toaster. I've had your eyes tested.",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 5012,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "Describe me. You've had ninety seconds. Most callers don't last that long.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 4420,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 6,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "Dear Valued Customer. No. Strike Customer.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 56677,
+      "ms": 2560,
+      "genMs": 5004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Customer struck. Valued stays. Carry on.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 59606,
+      "ms": 2560,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "Ninety seconds in, you've checked my jacket eleven times. Jacket's leading. I'm a close second.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 62416,
+      "ms": 5350,
+      "genMs": 5005,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Leave the jacket. Come closer without it.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 68016,
+      "ms": 2870,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Platinum. Before tonight, I'd only given it to an admiral, and his submarine.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 71136,
+      "ms": 4730,
+      "genMs": 5008,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 76116,
+      "ms": 1000,
+      "genMs": 3,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 8,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Dash, I've heard that one through a wall.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 78093,
+      "ms": 3180,
+      "genMs": 846,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I own most of the past. Help yourself to some.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 82723,
+      "ms": 3800,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 9,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Prince, Tilly. Two lines blinking. I have one finger.",
+      "pair": [
+        "prince",
+        "tilly"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 87973,
+      "ms": 6490,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 6,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Sorry, Tilly. See? It's easy. Goodnight.",
+      "to": "tilly",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 14,
+      "at": 95913,
+      "ms": 3260,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "Of course. Sorry, stage. Sorry, lights. Sorry, man with the mop.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 100623,
+      "ms": 4110,
+      "genMs": 901,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Short answers. Vesper sat up like a slice at the end of the cycle.",
+      "guess": {
+        "id": "brevity",
+        "label": "Keeps it short",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "fallback",
+      "maxWords": 18,
+      "at": 108323,
+      "ms": 5040,
+      "genMs": 1950,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Off camera, Crumb asked how I was. I pitched for four minutes. Crumb was just asking.",
+      "about": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 113613,
+      "ms": 5660,
+      "genMs": 774,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Vesper smiled at me. I have already sent the announcement to everyone, including, I fear, Vesper.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 119523,
+      "ms": 5660,
+      "genMs": 473,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "Line one is flashing. I know that ring. One of you answer my ex.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 132933,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "ex",
+      "name": "Dial-up Modem",
+      "kind": "caller",
+      "text": "I gave her nine years of screaming. She gave me one busy signal.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 138223,
+      "ms": 4730,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 6,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "We don't reheat in this kitchen.",
+      "to": "ex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 143203,
+      "ms": 2560,
+      "genMs": 703,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "We don't. I'm adopting the rule.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 146013,
+      "ms": 2560,
+      "genMs": 4,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "You had them for years and got nowhere, I've had them nine minutes and I'm somewhere, roughly here.",
+      "to": "ex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 148823,
+      "ms": 6280,
+      "genMs": 1110,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Roughly here is closer than the modem got.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 155353,
+      "ms": 3180,
+      "genMs": 4,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "You call back after being hung up on? Amateur. I have been hung up on by continents.",
+      "to": "ex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 158783,
+      "ms": 5970,
+      "genMs": 494,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Continents hang up on you. I'll make it unanimous.",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 165003,
+      "ms": 3490,
+      "genMs": 3,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "Crumb handled my ex. That phone won't ring again. Finally.",
+      "to": "crumb",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 168743,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 6,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Reheat my score. It's still cold.",
+      "to": "crumb",
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 172793,
+      "ms": 2560,
+      "genMs": 1122,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "Crumb, your notices never say URGENT. Have you no passion?",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 175603,
+      "ms": 3800,
+      "genMs": 865,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Prince, was that a jab, or are you defrosting?",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 179653,
+      "ms": 3490,
+      "genMs": 586,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Dash. Prince. One of you is about to become a wrong number.",
+      "pair": [
+        "dash",
+        "prince"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 183848,
+      "ms": 7420,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 13,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Prince, \"hung up on by continents\" went out live, to the whole coast.",
+      "to": "prince",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 14,
+      "at": 191973,
+      "ms": 5430,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Message recalled. Please disregard the kingdom. It was sent in error.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 198843,
+      "ms": 4110,
+      "genMs": 5004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 17,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Dash would set you to three, to be safe. You're a five, and I'd risk the alarm.",
+      "about": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 208453,
+      "ms": 5970,
+      "genMs": 726,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "booth2",
+      "words": 13,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Vesper smiled at confidence. One data point. I've built whole personalities on less.",
+      "guess": {
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 216673,
+      "ms": 4730,
+      "genMs": 1128,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Just us. Question: who did your toast before me? I'd like a name.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 226403,
+      "ms": 4730,
+      "genMs": 888,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Crumb, be honest. How do I look at four a.m.?",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 231383,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Done exactly right, and I checked twice, which the manual forbids.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 235444,
+      "ms": 4110,
+      "genMs": 5007,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Crumb’s manual is closed. Mine has a button labeled yes. Pressing it now.",
+      "to": "vesper",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 241087,
+      "ms": 4730,
+      "genMs": 3372,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Dash, describe me to someone who's never heard the show. Don't sell it.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 246789,
+      "ms": 4730,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "She's three a.m., and you're glad you're up. One version. I didn't test a second.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 252969,
+      "ms": 5350,
+      "genMs": 968,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Crumb is midnight. Dash is four a.m. I'm up for both.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 259769,
+      "ms": 4110,
+      "genMs": 4,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Figures, from both of you. I wrote them on my hand.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 14,
+      "at": 266829,
+      "ms": 4110,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 3,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Numbers and stats.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 271189,
+      "ms": 2230,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 18,
+      "event": "replay",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "replay",
+      "text": "You had them for years and got nowhere, I've had them nine minutes and I'm somewhere, roughly here.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 273669,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 6,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "We don't reheat in this kitchen.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 277599,
+      "ms": 1760,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 13,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "\"I'd like a name\". I've played that back four times tonight. It's Crumb.",
+      "to": "crumb",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 283957,
+      "ms": 5730,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "pick",
+      "words": 5,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "win",
+      "text": "Cycle complete. I'm not popping.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 291137,
+      "ms": 2250,
+      "genMs": 642,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 12,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Grand gestures. I left it out like a porch light. Nobody came.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 295837,
+      "ms": 5020,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 14,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "lose",
+      "text": "Crumb is midnight. I'm four a.m. You picked the hour that ends. Good data.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 301190,
+      "ms": 5040,
+      "genMs": 1628,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "Lines are closed. Gale warnings next. Batten down.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 12,
+      "at": 308174,
+      "ms": 3180,
+      "genMs": 2,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "they cut it wrong"
+    },
+    {
+      "seq": 2,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Variant A: you're stunning. Variant B: I'm stunning. I voted. B's ahead.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "I voted. B's ahead"
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "For security purposes, who else were you planning on loving?",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 4,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "whichever you are"
+    },
+    {
+      "seq": 5,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Dear Valued Customer. No. Strike Customer.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 6,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Ninety seconds in, you've checked my jacket eleven times. Jacket's leading. I'm a close second.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 7,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Platinum. Before tonight, I'd only given it to an admiral, and his submarine.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 8,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Dash, I've heard that one through a wall.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "through a wall"
+    },
+    {
+      "seq": 9,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "We don't reheat in this kitchen.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "We don't reheat"
+    },
+    {
+      "seq": 10,
+      "who": "dash",
+      "name": "Dash",
+      "text": "You had them for years and got nowhere, I've had them nine minutes and I'm somewhere, roughly here.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "roughly here"
+    },
+    {
+      "seq": 11,
+      "who": "prince",
+      "name": "Prince",
+      "text": "You call back after being hung up on? Amateur. I have been hung up on by continents.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "hung up on by continents"
+    },
+    {
+      "seq": 12,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Just us. Question: who did your toast before me? I'd like a name.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "I'd like a name"
+    },
+    {
+      "seq": 13,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Crumb’s manual is closed. Mine has a button labeled yes. Pressing it now.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "crumb": 3,
+        "dash": 0,
+        "tilly": -1,
+        "prince": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "crumb": 6,
+        "dash": 3,
+        "tilly": -1,
+        "prince": 1
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "crumb": 9,
+        "dash": 6,
+        "tilly": -1,
+        "prince": 0
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "crumb": 15,
+        "dash": 8,
+        "tilly": -1,
+        "prince": 0
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 1,
+      "standing": {
+        "crumb": 6,
+        "dash": 3,
+        "tilly": -1,
+        "prince": 1
+      },
+      "tie": [],
+      "reason": "standing -1; 0 charmed, 1 unsure, 1 cringing",
+      "deciding": [],
+      "roundMarks": {
+        "crumb": 1,
+        "dash": 1,
+        "tilly": 0,
+        "prince": 1
+      },
+      "bottom": [
+        "prince",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": null
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 2,
+      "standing": {
+        "crumb": 9,
+        "dash": 6,
+        "prince": 0
+      },
+      "tie": [],
+      "reason": "standing 0; 1 charmed, 1 unsure, 1 cringing",
+      "deciding": [],
+      "roundMarks": {
+        "crumb": 1,
+        "dash": 1,
+        "prince": -1
+      },
+      "bottom": [
+        "dash",
+        "prince"
+      ],
+      "hintCard": null,
+      "hook": "hung up on by continents"
+    }
+  ],
+  "pick": {
+    "winner": "crumb",
+    "loser": "dash",
+    "standing": {
+      "crumb": 15,
+      "dash": 8,
+      "tilly": -1,
+      "prince": 0
+    },
+    "tie": [],
+    "reason": "standing 15; 4 charmed, 0 unsure, 0 cringing; 4x turn-on \"Brings up the past\"",
+    "oneOnOne": {
+      "crumb": 1,
+      "dash": 1
+    },
+    "first": "crumb",
+    "last": "dash"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "numbers",
+      "quote": null,
+      "replays": [
+        {
+          "who": "dash",
+          "text": "You had them for years and got nowhere, I've had them nine minutes and I'm somewhere, roughly here.",
+          "hit": true
+        },
+        {
+          "who": "crumb",
+          "text": "We don't reheat in this kitchen.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "crumb",
+          "right": false
+        },
+        {
+          "who": "dash",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "gestures",
+      "quote": null,
+      "replays": [],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "crumb",
+      "card": "brevity",
+      "kind": "on",
+      "right": false,
+      "via": "fallback"
+    },
+    {
+      "who": "dash",
+      "card": "confidence",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep65-mwnx5o3m:w1",
+      "outcomes": [
+        "crumb",
+        "dash",
+        "tilly",
+        "prince"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep65-mwnx5o3m:w2",
+      "outcomes": [
+        "crumb",
+        "dash",
+        "prince"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 106183,
+      "lockAt": 128183
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep65-mwnx5o3m:w3",
+      "outcomes": [
+        "crumb",
+        "dash"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 204403,
+      "lockAt": 224403
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1505
+    },
+    {
+      "at": 5505,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7022,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 12069,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 13186,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17613,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 20215,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21367,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 26183,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 29139,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30335,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 34531,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37177,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38374,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 56677,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 59606,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 62416,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 68016,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 71136,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 76116,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 78093,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 82723,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 87973,
+      "type": "bottom",
+      "ms": 6490
+    },
+    {
+      "at": 95913,
+      "type": "cut",
+      "ms": 3260
+    },
+    {
+      "at": 100623,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 106183,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 106183,
+      "type": "scene",
+      "ms": 2140
+    },
+    {
+      "at": 108323,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 113613,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 119523,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 128183,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 128183,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 131183,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 132933,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 138223,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 143203,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 146013,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 148823,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 155353,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 158783,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 165003,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 168743,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 172793,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 175603,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 179653,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 183848,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 191973,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 198843,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 204403,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 204403,
+      "type": "scene",
+      "ms": 4050
+    },
+    {
+      "at": 208453,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 216673,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 224403,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 224403,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 226403,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 231383,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 235444,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 239971,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 241087,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 246789,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 252969,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 259769,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 265329,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 266829,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 271189,
+      "type": "reveal",
+      "ms": 2230
+    },
+    {
+      "at": 273669,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 277599,
+      "type": "replay",
+      "ms": 1760
+    },
+    {
+      "at": 279707,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 283957,
+      "type": "pick",
+      "ms": 5730
+    },
+    {
+      "at": 291137,
+      "type": "line",
+      "ms": 2250
+    },
+    {
+      "at": 294837,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 295837,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 301190,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 307174,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 308174,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 308174,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 308174,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 308174,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 311604,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 313854
+}

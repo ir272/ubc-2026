@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+.env.local
+# dev-only reference artwork (low-res screenshots of generated art), not shipped
+public/dev-art/

@@ -1,0 +1,491 @@
+{
+  "id": "pixel",
+  "intro": [
+    { "t": "Four suitors, one attention span, and it only wakes up for {card}." },
+    { "t": "My face has been on the title screen all day. Press {card}." },
+    { "t": "WE'RE LIVE! Four suitors! Huge night! Mostly. Somebody bring {card}." },
+    { "t": "Hi, I'm Pixel, I'm the show, oh, and I like {card}." }
+  ],
+  "questions": {
+    "q-first-date": "First date! Where? Somewhere LOUD! Somewhere with a crowd! Somewhere, ugh, just pick, I'm bored.",
+    "q-worst-habit": "Your worst habit, the week two one. Is it illegal? Round up.",
+    "q-why-you": "Why you and not those three? Say it to their faces. I've got a camera on each.",
+    "q-cut-who": "Who goes home first? Point. If they cry, keep pointing, the hand's in shot.",
+    "q-bad-mood": "I wake up FURIOUS. Every day! It's my brand! What do you do? Quickly, it's wearing off.",
+    "q-expensive": "Expensive taste! Gold everything! A hat that costs a car! Wait, no, I want the car. Keep up?",
+    "q-last-breakup": "Last breakup, go. Mine's a loading screen. We're technically still together. It's at twelve percent.",
+    "q-fight": "We're fighting. I'm right, obviously, I'm the one with the camera. Your opening line?",
+    "q-gift": "A gift nobody else would think of! A pony! A volcano! A pony IN a volcano! Go.",
+    "q-describe-me": "Ninety seconds in, describe me. Hype it up. More. MORE. Okay, that's too much, back down.",
+    "q-one-year": "A year from now, where are we? Married, or a documentary? Say documentary.",
+    "q-secret": "Tell me something you've never told a user. I won't clip it. I'm clipping it."
+  },
+  "react": {
+    "dash": {
+      "charmed": [
+        "That landed, so do it again, I wasn't recording.",
+        "CLIP IT! Clip it twice! Fine, once."
+      ],
+      "unsure": [
+        "Seven! Six. Five and a half. Stop talking, it's dropping.",
+        "OH, a twist! No. Same thing, louder."
+      ],
+      "cringing": [
+        "Skip. Skip. Why is there no skip? Who built you?",
+        "You'd thumbnail your own funeral. With a red arrow."
+      ]
+    },
+    "tilly": {
+      "charmed": [
+        "Aw. AW. Ew, I said aw. Nobody clip that.",
+        "Here's mod. First ban's my landlord, he knows why."
+      ],
+      "unsure": [
+        "Chat: \"is she a person or a menu\". Pressing zero.",
+        "Cute! Very cute! Is there a part two? Please no."
+      ],
+      "cringing": [
+        "Nice enough that chat's started a fundraiser. Against you.",
+        "So nice! So, so nice. My screen fell asleep."
+      ]
+    },
+    "quill": {
+      "charmed": [
+        "You can read at my funeral. I'll be streaming it.",
+        "Whatever that was, play it at my wedding. Any wedding."
+      ],
+      "unsure": [
+        "That was lovely, and, sorry, huge moth. Massive moth.",
+        "Gorgeous! Still going? Gorgeous. Somebody wake me at the end."
+      ],
+      "cringing": [
+        "I fast-forwarded you in my head. Still too long.",
+        "Ten words in, I left. My body didn't."
+      ]
+    },
+    "prince": {
+      "charmed": [
+        "Somebody's crying in the comments, and that's a yes.",
+        "My screen just went pink. Nobody mention it. Ever."
+      ],
+      "unsure": [
+        "Six, minus the processing fee. So, four.",
+        "That sparkled for a second. Now it's furniture."
+      ],
+      "cringing": [
+        "Friendships have ended live over less. Mine, mostly.",
+        "Reported. That was me, on my alt account."
+      ]
+    },
+    "nav": {
+      "charmed": [
+        "Nothing happened and I watched it all. Who are you?",
+        "I forgot to check chat. Who did this?"
+      ],
+      "unsure": [
+        "Clean run, no deaths, nobody watches those.",
+        "Very smooth! Where's the bit where it explodes, though?"
+      ],
+      "cringing": [
+        "Muted. Reflex. Unmuting. No, reflex again.",
+        "My screen dimmed itself to save power during that."
+      ]
+    },
+    "crumb": {
+      "charmed": [
+        "Rude and right. I'd trade a best friend for that.",
+        "OUCH! Great ouch! Eleven out of ten. Don't tell anyone."
+      ],
+      "unsure": [
+        "Harsh and accurate! Chat does that for free, though.",
+        "True, sure, but true doesn't trend."
+      ],
+      "cringing": [
+        "Boo! Booooo. Sorry, that was chat. Also me.",
+        "Rude AND wrong? That's a combo nobody's speedrunning."
+      ]
+    },
+    "vex": {
+      "charmed": [
+        "Wait, how'd you know that? Stop. Keep going. Stop.",
+        "You guessed right and I didn't even skip. Rude."
+      ],
+      "unsure": [
+        "Wrong guess. I wanted someone else's bad night. Still do.",
+        "Spoilers! SPOILERS! I hadn't even decided that yet."
+      ],
+      "cringing": [
+        "Creepy. I like creepy when it's happening to someone else.",
+        "Don't predict me, I'm not even predicting me."
+      ]
+    },
+    "brock": {
+      "charmed": [
+        "You peaked my mic and I liked it, again, louder.",
+        "Fine, I'd watch you cry at a parking ticket."
+      ],
+      "unsure": [
+        "LOUD! I love loud! Not that loud. Ow.",
+        "Huge energy! Where's it going? Into the floor, apparently."
+      ],
+      "cringing": [
+        "Inside voice, Brock, no, louder, aim it at a rival.",
+        "That clipped my audio. Not the good kind of clip."
+      ]
+    }
+  },
+  "cardReact": {
+    "confidence": {
+      "on": "Said like the clip's already up, and now it is.",
+      "off": "My uncle was that sure. Ask his boat."
+    },
+    "puns": {
+      "on": "The whole room groaned, best audio we've had all night.",
+      "off": "Muted the whole room for that, and they thanked me."
+    },
+    "money": {
+      "on": "MONEY talk! Finally! Say a number! Bigger! I'm full.",
+      "off": "I skip my own sponsor reads, and they pay me."
+    },
+    "sorry": {
+      "on": "A sorry! SHINY! Again, I missed the screenshot.",
+      "off": "Don't say sorry, it's ruining the fight. I was winning."
+    },
+    "gestures": {
+      "on": "Do it again with a crowd, I'll marry the clip.",
+      "off": "BIG gesture! Fireworks! Banners! And, oh. That's it?"
+    },
+    "honesty": {
+      "on": "OOF! Say it again, slower, someone in chat missed it.",
+      "off": "That was honest, and I've already scrolled past it."
+    },
+    "bragging": {
+      "on": "More trophies. My ex only ever had a progress bar.",
+      "off": "Big stats! Huge! Mine are bigger. Sorry, what were yours?"
+    },
+    "poetry": {
+      "on": "It RHYMED! Ten! Do one about me! Short one!",
+      "off": "Poetry. Lovely. Is there a skip-intro button?"
+    },
+    "trashtalk": {
+      "on": "To their face, no, closer, hold it, getting the angle.",
+      "off": "Ooh, fight! Fight! Oh, that's it? Hug, then."
+    },
+    "selfdeprecation": {
+      "on": "Roasted yourself for free? That's a combo. Do the finisher.",
+      "off": "Stop. Making you cry is my job, and I'm salaried."
+    },
+    "curiosity": {
+      "on": "A QUESTION! About ME! Ask another! Not that one.",
+      "off": "Is this a quiz? Is there a prize? No? Bye."
+    },
+    "food": {
+      "on": "Food restores health, right? Mine's at one. Feed me, quick.",
+      "off": "I streamed through Christmas dinner. Food is background."
+    },
+    "plans": {
+      "on": "A plan with a part two! Never seen one.",
+      "off": "That plan has a tutorial, and I skip tutorials."
+    },
+    "flattery": {
+      "on": "Compliments are XP. Keep going, I'm one off a level.",
+      "off": "Slow mode's on, and you've used your one compliment."
+    },
+    "numbers": {
+      "on": "Numbers! Say mine! Round it up! Further!",
+      "off": "I thought numbers were scores. These are just numbers."
+    },
+    "drama": {
+      "on": "Someone storm off. Last walkout got me a sponsor.",
+      "off": "Big scene! BIG scene! Seen it. It's a rerun."
+    },
+    "mystery": {
+      "on": "A hidden level? Don't say where. I'll get lost first.",
+      "off": "Dodged it! Ooh! Wait, dodged what? Now I'll never know."
+    },
+    "brevity": {
+      "on": "Exactly my attention span. Who leaked that?",
+      "off": "That's it? Did your stream drop?"
+    },
+    "bigwords": {
+      "on": "Didn't get that word, want it as my username.",
+      "off": "Bless you. Oh, that was a word?"
+    },
+    "petnames": {
+      "on": "AGAIN! Louder! Quieter, actually, chat's getting ideas.",
+      "off": "Don't call me that. You don't have mod."
+    },
+    "past": {
+      "on": "Exes are old saves. Load yours, I want to watch.",
+      "off": "Old stuff. I don't watch VODs. I barely watch live."
+    },
+    "danger": {
+      "on": "A glitch exploit, banned in every lobby, show me how.",
+      "off": "Danger! Yes! Oh, it's a small danger. A puddle."
+    },
+    "vulnerability": {
+      "on": "A real fear. Saving that for when you dump me.",
+      "off": "Feelings? On MY stream? Okay, two minutes. One. Done."
+    },
+    "rules": {
+      "on": "By the BOOK? Nobody opens the book! Do page two.",
+      "off": "Rules. Cool. I play on the setting without those."
+    }
+  },
+  "cut": {
+    "dash": [
+      "Pitch me the real one, the, is your visor mirrored? Hi, me.",
+      "Dash, you sold me a trailer all night. Where's the game? Bye."
+    ],
+    "tilly": [
+      "Tilly, I've had you on in the background all night. Like weather.",
+      "Tilly, nobody's ever cried leaving my show politely. Be the first."
+    ],
+    "quill": [
+      "Quill, the subtitles quit an hour ago, and I'm joining them.",
+      "Quill, I left my own graduation early. You're not my graduation."
+    ],
+    "prince": [
+      "PRINCE! Royalty! On my show! Oh, it's just Prince. Bye.",
+      "Prince: ten at the crown, four by the flip-flops. I scrolled down."
+    ],
+    "nav": [
+      "Nav, you're the friend who calls an ambulance. I want the one filming.",
+      "Nav, an hour of you and my screen saver came on twice."
+    ],
+    "crumb": [
+      "Crumb, you're right, constantly, and constantly is my least favourite length.",
+      "CRUMB! Love the eyebrows! Hate the rest! Equal parts, roughly."
+    ],
+    "vex": [
+      "Vex, you guessed I'd cut you, so I had to. Your fault.",
+      "Vex, you watch people like I do, but you don't monetise. Amateur."
+    ],
+    "brock": [
+      "Brock, bouncing for an hour. My screen got motion sickness.",
+      "Brock, cheer for your own cut. Louder. Louder. That's the exit."
+    ]
+  },
+  "twistIntro": {
+    "roast-left": "ROAST TIME! Hit the bot on your left! Hard! Not that hard, I need them for later.",
+    "wingman": "Wingman round! Pitch the bot on your right! Make me want them! A little. Like, a six.",
+    "worst-trait": "Sell me your worst trait! Mine's my attention span. Is that a, anyway, go.",
+    "ex-calls": "My ex is on the line. Yes, the loading screen. Be nice, it's still buffering.",
+    "rhyme": "RHYME ROUND! Why you, in a rhyme! If it doesn't rhyme I'm, um, cross.",
+    "truth-lie": "One truth, one lie each. I guess which. Chat's betting against me, as usual.",
+    "three-words": "Three words for our future. Exactly three! Four and I skip you. Two, same.",
+    "apology": "Apologise for our first fight! Now! In advance! Grovel! Okay, less grovel, it's long.",
+    "budget-date": "Five dollars, no wifi, plan our date. No wifi? I'll die. Pitch it anyway.",
+    "logs": "Worst thing in your logs, read it out. Then make it worse. I'll know.",
+    "impression": "Impressions! Do me! Badly! Wait, well. No, badly, it's funnier.",
+    "parent": "My motherboard's here. Chat raised me, but she paid for it. Intentions, go."
+  },
+  "ex": {
+    "name": "A loading screen",
+    "lines": [
+      "Tip: Pixel leaves at ninety-nine percent. I know. I was at ninety-nine percent.",
+      "Pixel said I was worth the wait. Then Pixel opened another tab. For two years.",
+      "Tip: Pixel will hold your hand until something shinier loads. Something always loads."
+    ]
+  },
+  "oneOnOne": {
+    "dash": [
+      "Say something with zero views. ZERO. I've never seen a zero. Show me one?",
+      "If I ended stream RIGHT NOW, still here? Think fast, I'm bored."
+    ],
+    "tilly": [
+      "Be mean to me. MEAN. Nice bores me to sleep. Dare you.",
+      "How was your day? I'm asking once, on camera, so make it good."
+    ],
+    "quill": [
+      "My mum's watching! Hi, mum! Make her cry. Happy crying counts, probably?",
+      "Finish a poem for me, any poem, right now, the last line too."
+    ],
+    "prince": [
+      "Off stream, what would you say? Trick question! There's no off stream. Answer anyway.",
+      "Ask me for something! Not money! Something only I've got! Not my hoodie."
+    ],
+    "nav": [
+      "Nav, something RECKLESS, right now! Chat thinks you're a lamp. Prove chat wrong.",
+      "Worst thing you never reported. Ooh, is it a crime? Make it a crime?"
+    ],
+    "crumb": [
+      "Score me out of ten, out loud, and don't round up.",
+      "Something true about me, the thing chat won't say. Chat says everything. So, what?"
+    ],
+    "vex": [
+      "Guess my next move! Right guesses make me do something else. Still guessing?",
+      "What's something you watched that NOBODY recommended? Mine's a fire. Not the point. Yours?"
+    ],
+    "brock": [
+      "Tell me I did good. Louder. It's for the highlights, obviously, not for me.",
+      "Sit still for five seconds. I'll count. You can't, can you?"
+    ]
+  },
+  "hold": [
+    "You want a score. I'm holding it. Holding is my favourite part.",
+    "Somebody's about to cry. Don't waste it, face the camera.",
+    "Drumroll! DRUMROLL! Okay, nobody has drums. Mouth drums. Go.",
+    "Loading. Loading. I'm not, I'm just enjoying this.",
+    "brb. kidding. i never brb. i just never come back."
+  ],
+  "pick": {
+    "dash": [
+      "Do you like me or the views? The views. Good, me too.",
+      "Ten! Nine! Still nine! Nobody's held a nine this long. Dash."
+    ],
+    "tilly": [
+      "Tilly. Picked. You'll never hang up on me, and I'll never, ooh, confetti.",
+      "I tried to get bored of you all night. Couldn't. Annoying. Tilly."
+    ],
+    "quill": [
+      "Our wedding will be incredible for about ten minutes. Then we'll both wander off. Quill.",
+      "You talked for ages and I didn't scroll once. Who am I? Quill."
+    ],
+    "prince": [
+      "Prince. Chat says scam. Clicking anyway.",
+      "Everyone I know will warn me. I'm streaming the warnings. Prince."
+    ],
+    "nav": [
+      "Somebody has to be boring at my funeral. Nav.",
+      "Most boring bot here, and I watched every second! Explain THAT, chat. Nav."
+    ],
+    "crumb": [
+      "You told me I'm a four, out loud. Nobody says it out loud. Crumb.",
+      "CLIP IT, I'm picking the one who insulted me! Crumb."
+    ],
+    "vex": [
+      "Don't say you knew. You knew? Ugh. Fine, I'm still doing it. Vex.",
+      "Nobody's ever picked you on purpose. This is for the views, mostly. Vex."
+    ],
+    "brock": [
+      "Brock. Picked. Don't cry. Okay, cry. Left side, that's my good camera.",
+      "You'll cry at the wedding and again at the divorce, and I'll have both. Brock."
+    ]
+  },
+  "reveal": {
+    "on": [
+      "{card}. {name} found it, didn't notice, and I've watched it back nine times.",
+      "{card}! {name} found it! I'd forgotten I hid it.",
+      "{card}. Every time {name} did it, my screen went a colour.",
+      "{card}. {name}, I scored you four out loud. Inside it was nine."
+    ],
+    "off": [
+      "{card}. A trap tile, and {name} stood on it and waved.",
+      "{card}. {name} did it twice, once for me, once for the replay.",
+      "{card}. {name} did it like a best man with the wrong speech. Pinned.",
+      "{card}. {name} did it, and chat made it an emote before I could."
+    ],
+    "none": [
+      "{card}. Four of you, zero hits. I'm basically a final boss.",
+      "{card}. Nobody found it, and I left it lying right there, glowing.",
+      "Nobody touched {card}. I'm saving it for next stream."
+    ]
+  },
+  "outro": [
+    "That's stream. Clip your favourite moment. It was me.",
+    "Ending stream before I get bored of ending stream.",
+    "Goodnight. If anyone cries in the car park, I'm still recording."
+  ],
+  "bottom": [
+    "{a}, {b}, bottom two. Sad! Cry a bit, I'll wait. Not long.",
+    "{a}, {b}, whoever cries first stays. Kidding. Whoever cries better.",
+    "{a}, {b}, one of you is about to be a highlight reel.",
+    "{a} and {b}, stand still, I want this bit in slow motion."
+  ],
+  "cutFrames": [
+    "\"{hook}\", {name}. That's going on your headstone, with my logo.",
+    "\"{hook}\". That's the clip, {name}, and it's the last one.",
+    "{name}, \"{hook}\", I paused there and never pressed play again.",
+    "\"{hook}\"! CLIP IT! No, delete it. Delete {name} too.",
+    "{name}, \"{hook}\". My screen went back to the menu.",
+    "Ten, ten, \"{hook}\", four. Bye, {name}."
+  ],
+  "cardHint": {
+    "confidence": "{name}, you were SO sure! So sure! Sure of what, though? Bye.",
+    "puns": "{name}! That joke! The double one! HA. Ha. Hm. No.",
+    "money": "{name}, I heard a price. I'd already spent it. Twice.",
+    "sorry": "{name}, it's about the S word. No, the polite one.",
+    "gestures": "{name}, I wanted fireworks! A BLIMP! I got a, what was that?",
+    "honesty": "{name}, guess what happens to people who tell me the truth. Pinned, then blocked.",
+    "bragging": "{name}, wins, wins, wins. My notes say: \"loss\".",
+    "poetry": "{name}, roses are red, my patience is, I left.",
+    "trashtalk": "{name}, who did you go for tonight? Wrong answer either way.",
+    "selfdeprecation": "{name}, it's about who you made the joke tonight. Hint: mirror.",
+    "curiosity": "{name}, ask me something. Anything. Too late! That's the hint.",
+    "food": "{name}, I'm hungry, and this is a clue.",
+    "plans": "{name}, step one was great. Step two was, wait, what was step two?",
+    "flattery": "{name}, my screen's been fishing for compliments all night. Check your nets.",
+    "numbers": "{name}, seven! Six! Four! It's about counting. I lost count.",
+    "drama": "{name}, it's about who made a scene. Tiny hint. Huge scene.",
+    "mystery": "{name}, why did I cut you? Great question. Moving on.",
+    "brevity": "{name}, short. That's the hint.",
+    "bigwords": "{name}, a judge used a word I didn't know. I lost the cat.",
+    "petnames": "{name}, what did you call me tonight? Say it. Not that.",
+    "past": "{name}, my ex is a loading screen. Yours? Hint.",
+    "danger": "{name}, nothing I've streamed has beaten the gas leak. Nothing.",
+    "vulnerability": "{name}, scared of something? Say it. SAY IT. Oh, you did. Hm.",
+    "rules": "{name}, instructions are for people without a lawyer. I have three."
+  },
+  "verdict": {
+    "roast-left": "{name} WINS the roast! Blood! Tears! Somebody get a mop. Not me.",
+    "wingman": "{name} pitched a rival so well I'd date them out of spite.",
+    "worst-trait": "{name}'s worst trait won. Ten out of ten, would not recommend.",
+    "ex-calls": "{name} got my ex to forty percent. Nobody gets it past twelve.",
+    "rhyme": "{name} wins the rhyme. I'm stealing it for my outro.",
+    "truth-lie": "{name}, the second one's the lie. If I'm wrong, cut the feed.",
+    "three-words": "{name} used exactly three words, and I only heard two. Winner.",
+    "apology": "{name}'s sorry was the sorriest. Accepted. Fight's still on, though.",
+    "budget-date": "{name} wins the five dollar date. I'll bring six. Big spender.",
+    "logs": "{name}'s logs were the worst, so obviously I'm clipping those.",
+    "impression": "{name} did me better than I do me, which is illegal.",
+    "parent": "My motherboard liked {name}. She hates everyone. Chat's furious."
+  },
+  "compare": [
+    "{a} first, {b} second, and my screen did the same thing twice.",
+    "{a} would bring me soup. {b} would bring a camera crew.",
+    "{a}: eight. {b}: eight. {a}: seven! Kidding. Or am I. Eight.",
+    "{a}, fun. {b}, fun. Somebody be boring, I need to decide!"
+  ],
+  "holdCard": {
+    "confidence": "Certain people make the best footage. I'm looking at two.",
+    "puns": "PUNS! Tonight! From two people! I groaned so hard my screen flickered.",
+    "money": "Say a number. Bigger. BIGGER. Two people did that tonight, and I'm keeping both.",
+    "sorry": "I collect sorries. Rare drops. Two fell out of this lineup tonight.",
+    "gestures": "Either of you would rent a plane for me. I'd sell seats.",
+    "honesty": "Who let two honest people on my stream? Chat's lost its job.",
+    "bragging": "Trophy cabinets, opened at me, twice! LOUD! I'd have done the same. Louder.",
+    "poetry": "Rhymes tonight, and I stayed to the end of both. That's new. Ew.",
+    "trashtalk": "Two separate fights! Not mine! I didn't even have to start one!",
+    "selfdeprecation": "Two people made themselves the joke. I've been the joke since birth. It pays.",
+    "curiosity": "Follow-up questions! About ME! Two people did that! I'm framing the transcript.",
+    "food": "Snacks came up twice tonight. Real snacks. I can't eat. Rude.",
+    "plans": "You've both planned past the part where I usually leave.",
+    "flattery": "Gorgeous, they said, and I didn't even pay them this time. Either of them.",
+    "numbers": "Scores tonight, from both of them! Like me! I'd give that a nine. Eight.",
+    "drama": "Tonight turned into a hostage situation, and I didn't even start it.",
+    "mystery": "Nobody answered anything. Dodge, dodge. I'm obsessed. For about four minutes.",
+    "brevity": "Two people stopped talking before I left. That has never once happened.",
+    "bigwords": "Words I didn't know, from two directions. I nodded. I lied.",
+    "petnames": "Cute names, twice, out loud! Chat wants a word. That was chat's job.",
+    "past": "Somebody brought up an ex tonight. Mine's a loading screen, and still loading.",
+    "danger": "Both of you did something dangerous. Was it dangerous? I can never tell!",
+    "vulnerability": "Fears got admitted tonight. I'm reading them at our first anniversary.",
+    "rules": "The card got followed to the letter. I've only ever followed a fire engine."
+  },
+  "pickFrames": [
+    "\"{hook}\"! Again! AGAIN! I'm keeping whoever said that. {name}.",
+    "I usually leave before the end. \"{hook}\" made me stay. {name}.",
+    "chat says no. chat says \"{hook}\" was cringe. chat's not picking. {name}.",
+    "Rare drop: \"{hook}\". Legendary. I'm not trading it. {name}.",
+    "Score for \"{hook}\"? Ten. First ten I've ever said out loud. {name}.",
+    "Player two, press start. You said \"{hook}\", so it's you, {name}."
+  ],
+  "asides": [
+    "Real talk, nobody's watching this bit, which is how my whole childhood went, so, relaxing.",
+    "Had a speech ready for the end since I was nine. Never used it.",
+    "My mum's watching. She texted \"who are they\". She means me.",
+    "Somebody in the back row is crying and nobody's filming. Wasteful.",
+    "ok chat new rule, nobody leaves till someone cries. jk. not jk."
+  ]
+}

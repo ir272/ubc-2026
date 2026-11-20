@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="45">
+<title>The Scrivener: progress</title>
+<style>
+  :root { --paper: #e7e0cc; --ink: #0d0c0b; --soft: #4a443b; --rule: #b9ae93; --red: #8e1b12; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 "Iowan Old Style", Palatino, Georgia, serif; }
+  main { max-width: 1060px; margin: 0 auto; padding: 44px 28px 80px; }
+  h1 { font: 44px/1.05 "Big Caslon", "Iowan Old Style", Palatino, serif; letter-spacing: 0.14em; margin: 0 0 6px; }
+  .status { font-style: italic; color: var(--soft); margin: 0 0 30px; }
+  h2 { font: 21px "Big Caslon", "Iowan Old Style", Palatino, serif; letter-spacing: 0.12em; margin: 44px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--ink); }
+  ul.plain { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 40px; }
+  ul.plain li { padding: 3px 0 3px 26px; position: relative; break-inside: avoid; }
+  ul.plain li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 12px; height: 12px; border: 1.5px solid var(--ink); }
+  ul.plain li.done::before { background: var(--ink); }
+  table { border-collapse: collapse; width: 100%; font-size: 16px; }
+  td, th { text-align: left; padding: 6px 12px 6px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: normal; font-style: italic; color: var(--soft); }
+  td.pass { color: var(--ink); font-weight: bold; }
+  td.fail { color: var(--red); font-weight: bold; }
+  td.open { color: var(--soft); font-style: italic; }
+  .round { display: grid; grid-template-columns: 92px 1fr; gap: 0 22px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .round .n { font: 40px/1 Baskerville, "Iowan Old Style", serif; }
+  .round .time { font-style: italic; color: var(--soft); font-size: 15px; }
+  .round h3 { margin: 0 0 4px; font: bold 20px "Iowan Old Style", Palatino, serif; }
+  .round p { margin: 4px 0; }
+  .round .gap { border-left: 4px solid var(--red); padding-left: 12px; margin: 10px 0; }
+  .round .lab { font-style: italic; color: var(--soft); }
+  .stills { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 12px; }
+  .stills a { display: block; border: 1.5px solid var(--ink); background: #000; }
+  .stills img { display: block; width: 100%; height: auto; }
+  ol { padding-left: 22px; margin: 0; }
+  @media (max-width: 640px) { ul.plain { columns: 1; } .round { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>THE SCRIVENER</h1>
+  <p class="status">Round 10 done: the stage is stripped to the strict text rule (names, health, try pips, the clock, picks as names, the winner), the site's volume and unlock hooks are in, and a sound pass rebuilt the bells, the fight music and the mix. No person has listened to the sound yet. Updated 16:00 CST, Thu 19 Nov.</p>
+
+  <h2>CHECKPOINT</h2>
+  <ul class="plain">
+    <li class="done">A full match plays through the harness on mock brains</li>
+    <li class="done">index.ts (mount, onFeed, highlight, destroy)</li>
+    <li class="done">channel.ts (default export, runs one match as a script)</li>
+    <li class="done">npm run dev (port 5200) and npm run match</li>
+    <li class="done">README: how to run, env vars, feed events, the two integration lines</li>
+    <li class="done">Loadouts and tempers in the sim, balance checks</li>
+    <li class="done">Decision moment stays on the fight</li>
+    <li class="done">Any OpenRouter model through bots.json</li>
+  </ul>
+
+  <h2>THE BAR</h2>
+  <table>
+    <tr><th>check</th><th>target</th><th>now</th><th></th></tr>
+    <tr><td>Completion: mock matches finish with no stall</td><td>200 of 200</td><td>200 of 200 through the real channel script, no stall (re-run on the round 9 build)</td><td class="pass">met</td></tr>
+    <tr><td>Match length (mock brains)</td><td>6 to 8 minutes</td><td>median 6 min 22 s, 90th percentile 8 min 51 s</td><td class="pass">met</td></tr>
+    <tr><td>Something to bet on at least every 90 s</td><td>90 s</td><td>longest stretch with no open window: 76 s</td><td class="pass">met</td></tr>
+    <tr><td>No dead air (2.5 s with nothing moving)</td><td>0 stretches</td><td>a whole 499 s match on the round 10 build: longest still stretch 2.25 s</td><td class="pass">met</td></tr>
+    <tr><td>Phases read instantly (five 8 s clips)</td><td>4 of 5 named</td><td>5 of 5 in every round, 1 to 10</td><td class="pass">met</td></tr>
+    <tr><td>Comprehension (30 to 45 s clip)</td><td>4 of 5 critics</td><td>5 of 5 cold viewers in round 3; 1 of 1 in rounds 6, 7 and 8; 3 of 3 in round 9</td><td class="pass">met</td></tr>
+    <tr><td>Decision moment (what was chosen, what it led to)</td><td>4 of 5 clips</td><td>Round 10 (options, pick, result from numbers and bars): 5 of 5. Round 9: 4 of 5 three times. Round 8: 5 of 5.</td><td class="pass">met</td></tr>
+    <tr><td>Loadouts visible in a fight still</td><td>classes told apart, one item named</td><td>Warden and Penitent told apart; Lamplighter's Pole named in use</td><td class="pass">met</td></tr>
+    <tr><td>Class balance over 400 mock matches</td><td>every class 40 to 60%</td><td>seed 1: 44 to 57%. seed 2: 40 to 54%. 1,600 matches: 48 to 52%. One of four 400-match seeds had a class at 60.2%</td><td class="pass">met</td></tr>
+    <tr><td>Each temper moves a class by 10 points</td><td>all six tempers</td><td>all six on seeds 1, 2 and 3; seed 4 had two tempers at 7 and 9 points</td><td class="pass">met</td></tr>
+    <tr><td>Tape predicts the winner</td><td>55 to 70%</td><td>12 of 20 tapes (60%), two critics at 6 of 10 each; sim heuristic 64 to 69%</td><td class="pass">met</td></tr>
+    <tr><td>Look: blind picks against today's build</td><td>at least 50%</td><td>Round 9 build against round 8 build: 10 of 10 screens. Round 8 against the old game: 5 of 6 pairs (83%)</td><td class="pass">met</td></tr>
+    <tr><td>Real-model spend</td><td>under $1.50</td><td>$0.115 (one full real match, plus 13 listening calls by an audio model)</td><td class="pass">met</td></tr>
+    <tr><td>Plays through the platform's real runner code</td><td>one full match</td><td>clean pass, re-run in round 9: one full mock match, 9 windows opened, locked and settled, snapshot holds</td><td class="pass">met</td></tr>
+    <tr><td>Replay from the window seed and the published moves</td><td>every try identical</td><td>550 of 550 tries across 139 recorded matches</td><td class="pass">met</td></tr>
+  </table>
+
+  <h2>ROUNDS</h2>
+  <section class="round">
+    <div><div class="n">10</div><div class="time">15:10 to 16:00</div></div>
+    <div>
+      <h3>The strict text rule, sound hooks, a sound pass</h3>
+      <p>Every sentence is off the stage: records, rule lines, card blurbs, reasons, the menu's threat and stake lines, the caption band, labels under bars. What stays: names, picks as names, try pips, health, the stroke count, best figures, the clock, the winner. mount returns setVolume and unlockAudio. Sound: a bell per phase, fight music that builds across tries, per-weapon steel, a balanced mix (phases within 2.2 LU, were 12.9).</p>
+      <p><span class="lab">Critic:</span> Against the owner's rule: 6 to 9 per screen, &quot;the explanatory slop is gone&quot;. Phases 5 of 5. Decision clips 5 of 5. Cold viewer passed. An audio model preferred the new fight mix in both orders.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The try count was missing in the fight (pips added after, not judged). No person has listened to the sound.</p>
+      <div class="stills"><a href="shots/r10/final/call.png"><img src="shots/r10/final/call.png" alt="" loading="lazy"></a><a href="shots/r10/final/choosing_offer.png"><img src="shots/r10/final/choosing_offer.png" alt="" loading="lazy"></a><a href="shots/r10/final/tape.png"><img src="shots/r10/final/tape.png" alt="" loading="lazy"></a><a href="shots/r10/final/fight_ready.png"><img src="shots/r10/final/fight_ready.png" alt="" loading="lazy"></a><a href="shots/r10/final/fight_menu.png"><img src="shots/r10/final/fight_menu.png" alt="" loading="lazy"></a><a href="shots/r10/final/fight_result.png"><img src="shots/r10/final/fight_result.png" alt="" loading="lazy"></a><a href="shots/r10/final/fight_endcard.png"><img src="shots/r10/final/fight_endcard.png" alt="" loading="lazy"></a><a href="shots/r10/final/fight_pair.png"><img src="shots/r10/final/fight_pair.png" alt="" loading="lazy"></a><a href="shots/r10/final/verdict_late.png"><img src="shots/r10/final/verdict_late.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">9</div><div class="time">12:55 to 14:00</div></div>
+    <div>
+      <h3>The clean-look pass, and a real-model match</h3>
+      <p>Three removal passes: frame lines, rules, ornaments, the candle, the choosing tray, the tape's icons and extra figures, the fight's class tag, pips, try boxes, banners and tally tab. The boss bar is now a progress bar that fills as ink is cut. One caption line says what an answer did to both sides. The window question is now &quot;Who wins the match?&quot;.</p>
+      <p><span class="lab">Critic:</span> Blind old against new: new picked on 10 of 10 screens. Cleanliness 5 to 8, 3 to 7 (stricter critic), then 5.5 to 8.5. Phases 5 of 5. Decision moment 4 of 5 in each pass. Cold viewer passed.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The fight HUD's overlay zones (passes one and two); then the real-model call with no figures and a text collision on the verdict (pass three). The last fixes are not judged.</p>
+      <div class="stills"><a href="shots/r9/final4/call.png"><img src="shots/r9/final4/call.png" alt="" loading="lazy"></a><a href="shots/r9/final4/choosing_last.png"><img src="shots/r9/final4/choosing_last.png" alt="" loading="lazy"></a><a href="shots/r9/final4/tape.png"><img src="shots/r9/final4/tape.png" alt="" loading="lazy"></a><a href="shots/r9/final4/fight_ready.png"><img src="shots/r9/final4/fight_ready.png" alt="" loading="lazy"></a><a href="shots/r9/final4/fight_menu.png"><img src="shots/r9/final4/fight_menu.png" alt="" loading="lazy"></a><a href="shots/r9/final4/fight_result.png"><img src="shots/r9/final4/fight_result.png" alt="" loading="lazy"></a><a href="shots/r9/final4/fight_pair.png"><img src="shots/r9/final4/fight_pair.png" alt="" loading="lazy"></a><a href="shots/r9/final4/verdict_late.png"><img src="shots/r9/final4/verdict_late.png" alt="" loading="lazy"></a><a href="shots/r9/final4/real_ready.png"><img src="shots/r9/final4/real_ready.png" alt="" loading="lazy"></a><a href="shots/r9/before/tape.png"><img src="shots/r9/before/tape.png" alt="" loading="lazy"></a><a href="shots/r9/before/fight_menu.png"><img src="shots/r9/before/fight_menu.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">8</div><div class="time">10:05 to 10:20</div></div>
+    <div>
+      <h3>The last collisions, and every bar passed</h3>
+      <p>The end of a try is a ledger page with the contender on it and the figure at 210 px. The hall continues past its walls when the camera slides. The tally says who cut (&quot;CANDLEFLAME TAKES 17%&quot;, &quot;THEN MARROW CUTS BACK 5%&quot;). One wording everywhere. After the critics: a lead-change call (&quot;MARROW TAKES THE LEAD&quot;).</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Decision moment 5 of 5. Blind look 5 of 6. Cold viewer passed. Per-screen polish 5 to 7.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> Too much small explanatory text; figure framing and a title-safe margin; a few web-component tells (hard shadows, the flat menu column).</p>
+      <div class="stills"><a href="shots/r8/screens/fight_menu.png"><img src="shots/r8/screens/fight_menu.png" alt="" loading="lazy"></a><a href="shots/r8/screens/fight_result.png"><img src="shots/r8/screens/fight_result.png" alt="" loading="lazy"></a><a href="shots/r8/lead.jpg"><img src="shots/r8/lead.jpg" alt="" loading="lazy"></a><a href="shots/r8/screens/fight_endcard.png"><img src="shots/r8/screens/fight_endcard.png" alt="" loading="lazy"></a><a href="shots/r8/screens/tape.png"><img src="shots/r8/screens/tape.png" alt="" loading="lazy"></a><a href="shots/r8/screens/verdict_late.png"><img src="shots/r8/screens/verdict_late.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">7</div><div class="time">09:45 to 10:05</div></div>
+    <div>
+      <h3>The fight as broadcast graphics</h3>
+      <p>The fight's five boxed panels were thrown away for one thin package: an ink strip top and bottom, a brushed paper caption, a slim choice column. A cut on the boss flashes in the contender's own colour, so red only ever means the fighter was hurt. The fighter is drawn larger. The pair break became a ledger page on paper.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Blind look 5 of 6, then 4 of 6. Cold viewer passed. Decision moment 3 of 5 twice. Per-screen polish 5 to 7, then 3 to 6.5 from a harsher critic.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The picture contradicted the words: the boss's red hurt-flash read as the fighter being struck. Then the end card: plain text on black, the one screen that dropped the package.</p>
+      <div class="stills"><a href="shots/r7/menu.png"><img src="shots/r7/menu.png" alt="" loading="lazy"></a><a href="shots/r7/d_a.jpg"><img src="shots/r7/d_a.jpg" alt="" loading="lazy"></a><a href="shots/r7/pair.png"><img src="shots/r7/pair.png" alt="" loading="lazy"></a><a href="shots/r7/call.png"><img src="shots/r7/call.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">6</div><div class="time">09:15 to 09:40</div></div>
+    <div>
+      <h3>The choice tied to its result; tape, verdict and call redrawn</h3>
+      <p>The stake is printed on the menu from the sim's own look-ahead (&quot;A wrong answer costs up to 30 health.&quot;). The result names the answer as the cause (&quot;Step In gets clear of the long chop: Ashby untouched.&quot;). Nothing in the menu is marked until the answer is in. Tape, verdict and call redrawn for one dominant thing per screen; one shared prediction block.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Decision moment 2 of 5, then 3 of 5, then 3 of 5 across three critics (bar 4). Blind look 4 of 6. Cold viewer passed. Per-screen polish 4 to 6. Dead air over a whole match 1.5 s: pass.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The fight is &quot;a boxed game HUD, not broadcast graphics&quot;: five framed panels around the illustration.</p>
+      <div class="stills"><a href="shots/r6/screens/tape.png"><img src="shots/r6/screens/tape.png" alt="" loading="lazy"></a><a href="shots/r6/screens/verdict_late.png"><img src="shots/r6/screens/verdict_late.png" alt="" loading="lazy"></a><a href="shots/r6/menu.png"><img src="shots/r6/menu.png" alt="" loading="lazy"></a><a href="shots/r7/call.png"><img src="shots/r7/call.png" alt="" loading="lazy"></a><a href="shots/r7/ch_pick.png"><img src="shots/r7/ch_pick.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">5</div><div class="time">09:00 to 09:15</div></div>
+    <div>
+      <h3>The result call tells both sides; the temper reveal moves</h3>
+      <p>The result band in two halves that cannot contradict each other: what the boss's attack did to the fighter, and what the answer cost the boss, counted up from the first frame it lands. A kill has its own sentence. The fighter's damage is one number pinned to its body through the camera. The temper reveal lays down the pieces that suit tonight's temper one at a time.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Decision moment 4 of 5. Blind look 4 of 6. Per-screen polish 4 to 7 (tape 4, verdict 4). Dead air failed: 3.0 s still on the temper reveal.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The result call graded only the defence (&quot;Candleflame fails: Vesper takes 41&quot; while it cut a third of the boss's ink) and once called a kill a failure.</p>
+      <div class="stills"><a href="shots/r6/d_kill.jpg"><img src="shots/r6/d_kill.jpg" alt="" loading="lazy"></a><a href="shots/r6/temper2.png"><img src="shots/r6/temper2.png" alt="" loading="lazy"></a><a href="shots/r6/ch_pick.png"><img src="shots/r6/ch_pick.png" alt="" loading="lazy"></a><a href="shots/r6/pair.png"><img src="shots/r6/pair.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">4</div><div class="time">08:50 to 09:15</div></div>
+    <div>
+      <h3>Third art pass, one number per beat, the call as a versus card</h3>
+      <p>One damage figure per side on the bar's own scale. The boss's intent as the menu headline; the cursor rests on the pick. Calls from the fighter's side. A one-strip top HUD. The choosing rebuilt with large plates and both builds growing in the middle. The call as a versus card with each contender drawn as it last fought. A larger replay on the verdict.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Decision moment 5 of 5. Blind look 4 of 6. Per-screen polish 4 to 6.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The fighters, a third time. Then the choosing (&quot;three small pale index cards&quot;) and the fight HUD covering the boss.</p>
+      <div class="stills"><a href="shots/r5/call.png"><img src="shots/r5/call.png" alt="" loading="lazy"></a><a href="shots/r5/ch_pick.png"><img src="shots/r5/ch_pick.png" alt="" loading="lazy"></a><a href="shots/r5/tape.png"><img src="shots/r5/tape.png" alt="" loading="lazy"></a><a href="shots/r5/menu0.png"><img src="shots/r5/menu0.png" alt="" loading="lazy"></a><a href="shots/r5/strip.jpg"><img src="shots/r5/strip.jpg" alt="" loading="lazy"></a><a href="shots/r5/verdict.png"><img src="shots/r5/verdict.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">3</div><div class="time">08:20 to 08:50</div></div>
+    <div>
+      <h3>Final sim, eleven critics, the measured bars</h3>
+      <p>Tape: temper-fit marks, a reader that says what each piece does, history against the boss, who goes first. Fighter at 1.7x with a paper contour. HUD as ruled slips. A full-frame end-of-try card in the old death card's composition. Results called only when known, with a large flash. Second art pass in, third under way.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5. Decision 4 of 5. Cold viewers 5 of 5. Loadouts told apart. Tape picks the winner 12 of 20. Blind look 4 of 6 against today's build. Per-screen polish 3 to 6 of 10.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The fighters, again: weapons not gripped, no idle motion, a look that follows the class instead of the contender. Then the break between tries.</p>
+      <div class="stills"><a href="shots/r4/call.png"><img src="shots/r4/call.png" alt="" loading="lazy"></a><a href="shots/r4/choosing.png"><img src="shots/r4/choosing.png" alt="" loading="lazy"></a><a href="shots/r4/tape.png"><img src="shots/r4/tape.png" alt="" loading="lazy"></a><a href="shots/r4/menu.png"><img src="shots/r4/menu.png" alt="" loading="lazy"></a><a href="shots/r4/end.png"><img src="shots/r4/end.png" alt="" loading="lazy"></a><a href="shots/r4/verdict.png"><img src="shots/r4/verdict.png" alt="" loading="lazy"></a></div>
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">2</div><div class="time">08:08 to 08:20</div></div>
+    <div>
+      <h3>Second critics, the result line, the verdict on paper</h3>
+      <p>The result of each exchange is one fixed sentence naming the boss's move, the answer and the outcome. The menu states the threat and is tied to the fighter by a leader line. The stroke clock says its rule; the rival's best try is flagged on the boss bar. The verdict was rebuilt on paper with a printed red block, a full-height winner and the fallen rival. The call shows two unwritten figures. The channel was played through the platform's real runner code.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5 again. Decision moment 4 of 5 (was 2). Cold viewer 6 / 7 / 6 / 8 (was 4 / 3 / 2 / 8). Per-screen polish 4 to 7 of 10.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> The fighter figures: flat glossy vector bodies next to a cross-hatched engraving of a boss.</p>
+      
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">1</div><div class="time">07:50 to 08:08</div></div>
+    <div>
+      <h3>First critics, then the fight HUD and every page scene rebuilt</h3>
+      <p>A fixed narration band tells each exchange in three beats (what the boss is doing, the answer, the result as it lands). The move menu has one place. The fighter sheet names class and gear. The walk-on no longer covers the boss. Call, choosing, tape and verdict were redrawn for motion, collisions and type size. Six class bodies and 31 emblems arrived from the art builder.</p>
+      <p><span class="lab">Critic:</span> Phases 5 of 5 named. Decision moment 2 of 5. Cold viewer: understood the game 4 of 10, knew who was ahead 3, reason to bet 2, looks professional 8.</p>
+      <p class="gap"><span class="lab">Biggest gap:</span> Dead air on three screens; the result of a choice came late, small and brief; ledger numbers had no unit.</p>
+      
+    </div>
+  </section>
+  <section class="round">
+    <div><div class="n">0</div><div class="time">07:14 to 07:50</div></div>
+    <div>
+      <h3>Foundation: the show's spine, end to end</h3>
+      <p>Contract (DESIGN.md), match rules, the five-phase script, the fake runner with a virtual clock, the stage with a feed reducer and five scenes, the in-fight move menu, the verdict replay, mock and OpenRouter brains. Two builders are still on the sim (loadouts, balance) and the art (six classes, emblems).</p>
+      
+      <p class="gap"><span class="lab">Biggest gap:</span> Unjudged. Known by eye: item emblems are not drawn yet, large figures crowd the tape, a match runs long.</p>
+      
+    </div>
+  </section>
+
+  <h2>NEXT</h2>
+  <ol><li>Listen to the mix (clips in shots/r10/sound/)</li><li>Approve or decline three recordings: fire, a chain rattle, wood knocks</li><li>Run more real matches</li><li>A critic pass on the last round 10 fixes</li></ol>
+</main>
+</body>
+</html>

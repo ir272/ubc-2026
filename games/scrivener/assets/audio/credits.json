@@ -1,0 +1,1542 @@
+{
+ "source": "assets/audio/LICENSES.md",
+ "required": [
+  {
+   "kind": "sound",
+   "title": "Whoosh Heavy Spear Hammer Large",
+   "author": "EminYILDIRIM",
+   "url": "https://freesound.org/s/540300/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Whoosh Heavy Spear Hammer Large\" by EminYILDIRIM (https://freesound.org/s/540300/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Longsword Swing 1 {Good edge alignment}",
+   "author": "Sophia_C",
+   "url": "https://freesound.org/s/525166/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Longsword Swing 1 {Good edge alignment}\" by Sophia_C (https://freesound.org/s/525166/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Whoosh+Sword_Hit Flesh.wav",
+   "author": "marb7e",
+   "url": "https://freesound.org/s/620354/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Whoosh+Sword_Hit Flesh.wav\" by marb7e (https://freesound.org/s/620354/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Sword Stab  Body Hit",
+   "author": "-GeorgeDiamond-",
+   "url": "https://freesound.org/s/718259/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Sword Stab  Body Hit\" by -GeorgeDiamond- (https://freesound.org/s/718259/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "body-fall-5.wav",
+   "author": "CosmicEmbers",
+   "url": "https://freesound.org/s/160742/",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "text": "\"body-fall-5.wav\" by CosmicEmbers (https://freesound.org/s/160742/), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Warrior Death Cry - British Male",
+   "author": "theuncertainman",
+   "url": "https://freesound.org/s/417539/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Warrior Death Cry - British Male\" by theuncertainman (https://freesound.org/s/417539/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Fabric Swish",
+   "author": "harrietniamh",
+   "url": "https://freesound.org/s/400351/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Fabric Swish\" by harrietniamh (https://freesound.org/s/400351/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Monster 4.wav",
+   "author": "Sea Fury",
+   "url": "https://freesound.org/s/48688/",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "text": "\"Monster 4.wav\" by Sea Fury (https://freesound.org/s/48688/), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Dragon Pain",
+   "author": "qubodup",
+   "url": "https://freesound.org/s/219944/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Dragon Pain\" by qubodup (https://freesound.org/s/219944/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Monster death throes 2",
+   "author": "giddster",
+   "url": "https://freesound.org/s/464936/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Monster death throes 2\" by giddster (https://freesound.org/s/464936/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Book, Flipping Through Pages, A.wav",
+   "author": "InspectorJ",
+   "url": "https://freesound.org/s/416179/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Book, Flipping Through Pages, A.wav\" by InspectorJ (https://freesound.org/s/416179/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO",
+   "author": "ukjoncollins",
+   "url": "https://freesound.org/s/441548/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO\" by ukjoncollins (https://freesound.org/s/441548/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Paper Scratch Pencil drawing line",
+   "author": "johannesschmidt",
+   "url": "https://freesound.org/s/339741/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Paper Scratch Pencil drawing line\" by johannesschmidt (https://freesound.org/s/339741/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Book Slam.mp3",
+   "author": "sjnewton",
+   "url": "https://freesound.org/s/256559/",
+   "license": "CC BY 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+   "text": "\"Book Slam.mp3\" by sjnewton (https://freesound.org/s/256559/), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Cathedral Bells, Close, A.wav",
+   "author": "InspectorJ",
+   "url": "https://freesound.org/s/417769/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Cathedral Bells, Close, A.wav\" by InspectorJ (https://freesound.org/s/417769/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Heavy Rain",
+   "author": "lebaston100",
+   "url": "https://freesound.org/s/243629/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Heavy Rain\" by lebaston100 (https://freesound.org/s/243629/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Howling Wind Loop",
+   "author": "qubodup",
+   "url": "https://freesound.org/s/211610/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Howling Wind Loop\" by qubodup (https://freesound.org/s/211610/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Wind On Door Short.wav",
+   "author": "Benboncan",
+   "url": "https://freesound.org/s/84111/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Wind On Door Short.wav\" by Benboncan (https://freesound.org/s/84111/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "music",
+   "title": "Land of the Dead",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Land of the Dead\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Halls of the Undead",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Halls of the Undead\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Oppressive Gloom",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Oppressive Gloom\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Clash Defiant",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Clash Defiant\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Final Count",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Final Count\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Truth of the Legend",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Truth of the Legend\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "music",
+   "title": "Corruption",
+   "author": "Kevin MacLeod",
+   "url": "https://incompetech.com",
+   "license": "CC BY 4.0",
+   "licenseUrl": "http://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Corruption\" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+   "kind": "sound",
+   "title": "Gong.wav",
+   "author": "drumuse",
+   "url": "https://freesound.org/s/51837/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Gong.wav\" by drumuse (https://freesound.org/s/51837/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Deepest Boom Yet",
+   "author": "hykenfreak",
+   "url": "https://freesound.org/s/248150/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Deepest Boom Yet\" by hykenfreak (https://freesound.org/s/248150/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Movie Trailer Boom",
+   "author": "hykenfreak",
+   "url": "https://freesound.org/s/207755/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Movie Trailer Boom\" by hykenfreak (https://freesound.org/s/207755/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "PotionDrinkLONG.wav",
+   "author": "Jamius",
+   "url": "https://freesound.org/s/41529/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"PotionDrinkLONG.wav\" by Jamius (https://freesound.org/s/41529/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  },
+  {
+   "kind": "sound",
+   "title": "Drinking and swallow",
+   "author": "dersuperanton",
+   "url": "https://freesound.org/s/433645/",
+   "license": "CC BY 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+   "text": "\"Drinking and swallow\" by dersuperanton (https://freesound.org/s/433645/), licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Edited (trimmed, loudness-normalised)."
+  }
+ ],
+ "courtesy": [
+  {
+   "title": "FX - Swoosh - Low Pitch",
+   "author": "bolkmar",
+   "url": "https://freesound.org/people/bolkmar/sounds/475135/"
+  },
+  {
+   "title": "Hard Swing 1",
+   "author": "magnuswaker",
+   "url": "https://freesound.org/people/magnuswaker/sounds/523230/"
+  },
+  {
+   "title": "Swinging staff whoosh (strong) 04.wav",
+   "author": "Nightflame",
+   "url": "https://freesound.org/people/Nightflame/sounds/422513/"
+  },
+  {
+   "title": "swosh swinging sword 37.flac",
+   "author": "qubodup",
+   "url": "https://freesound.org/people/qubodup/sounds/60024/"
+  },
+  {
+   "title": "Clean fast Swoosh.aiff",
+   "author": "Danjocross",
+   "url": "https://freesound.org/people/Danjocross/sounds/507466/"
+  },
+  {
+   "title": "swing.mp3",
+   "author": "GaussTheWizard",
+   "url": "https://freesound.org/people/GaussTheWizard/sounds/367182/"
+  },
+  {
+   "title": "Sword hits the body.wav",
+   "author": "vdovitsky",
+   "url": "https://freesound.org/people/vdovitsky/sounds/411122/"
+  },
+  {
+   "title": "Large Swede Stab with Whoosh.wav",
+   "author": "minituffy",
+   "url": "https://freesound.org/people/minituffy/sounds/385966/"
+  },
+  {
+   "title": "impact-stone-heavy.wav",
+   "author": "kasparsj",
+   "url": "https://freesound.org/people/kasparsj/sounds/513694/"
+  },
+  {
+   "title": "Fall debris (crash)",
+   "author": "xkeril",
+   "url": "https://freesound.org/people/xkeril/sounds/703248/"
+  },
+  {
+   "title": "Concrete SMASH 2",
+   "author": "magnuswaker",
+   "url": "https://freesound.org/people/magnuswaker/sounds/522099/"
+  },
+  {
+   "title": "Dinosaur falls to the ground",
+   "author": "Breviceps",
+   "url": "https://freesound.org/people/Breviceps/sounds/457531/"
+  },
+  {
+   "title": "impactMining_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "url": "https://kenney.nl/assets/impact-sounds"
+  },
+  {
+   "title": "Sword clash 1.wav",
+   "author": "spycrah",
+   "url": "https://freesound.org/people/spycrah/sounds/471095/"
+  },
+  {
+   "title": "Sword Clash.wav",
+   "author": "Bird_man",
+   "url": "https://freesound.org/people/Bird_man/sounds/275159/"
+  },
+  {
+   "title": "Sword_Clash (7).wav",
+   "author": "JohnBuhr",
+   "url": "https://freesound.org/people/JohnBuhr/sounds/326868/"
+  },
+  {
+   "title": "BODY FALL - V HVY - DIRT",
+   "author": "leonelmail",
+   "url": "https://freesound.org/people/leonelmail/sounds/504626/"
+  },
+  {
+   "title": "Body fall_02.wav",
+   "author": "deleted_user_2104797",
+   "url": "https://freesound.org/people/deleted_user_2104797/sounds/346694/"
+  },
+  {
+   "title": "Voice_AdultMale_PainGrunts_09.wav",
+   "author": "MrFossy",
+   "url": "https://freesound.org/people/MrFossy/sounds/547209/"
+  },
+  {
+   "title": "Grunt1 - Death Pain.wav",
+   "author": "tonsil5",
+   "url": "https://freesound.org/people/tonsil5/sounds/416839/"
+  },
+  {
+   "title": "male_hurt9.ogg",
+   "author": "micahlg",
+   "url": "https://freesound.org/people/micahlg/sounds/413186/"
+  },
+  {
+   "title": "The Last gasp before death",
+   "author": "randbsoundbites",
+   "url": "https://freesound.org/people/randbsoundbites/sounds/798649/"
+  },
+  {
+   "title": "Male Death Sound",
+   "author": "Blankened",
+   "url": "https://freesound.org/people/Blankened/sounds/554443/"
+  },
+  {
+   "title": "Grunt2 - Death Pain.wav",
+   "author": "tonsil5",
+   "url": "https://freesound.org/people/tonsil5/sounds/416838/"
+  },
+  {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "url": "https://freesound.org/people/Fission9/sounds/521590/"
+  },
+  {
+   "title": "Dry Footsteps Loop",
+   "author": "qubodup",
+   "url": "https://freesound.org/people/qubodup/sounds/816017/"
+  },
+  {
+   "title": "Shirt Whoosh 1.wav",
+   "author": "saturdaysoundguy",
+   "url": "https://freesound.org/people/saturdaysoundguy/sounds/391448/"
+  },
+  {
+   "title": "Whoosh (Clothing Drag)",
+   "author": "JonasTisell",
+   "url": "https://freesound.org/people/JonasTisell/sounds/496188/"
+  },
+  {
+   "title": "cloth1.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "url": "https://kenney.nl/assets/rpg-audio"
+  },
+  {
+   "title": "Demon_Lion_Monster_Growl_Roar",
+   "author": "Manim8",
+   "url": "https://freesound.org/people/Manim8/sounds/469123/"
+  },
+  {
+   "title": "Deep Monster Growl",
+   "author": "uagadugu",
+   "url": "https://freesound.org/people/uagadugu/sounds/222523/"
+  },
+  {
+   "title": "Monster Roar 2.wav",
+   "author": "quadraslayer",
+   "url": "https://freesound.org/people/quadraslayer/sounds/398908/"
+  },
+  {
+   "title": "Mutant Scream",
+   "author": "scorpion67890",
+   "url": "https://freesound.org/people/scorpion67890/sounds/396797/"
+  },
+  {
+   "title": "monster shriek.ogg",
+   "author": "Darsycho",
+   "url": "https://freesound.org/people/Darsycho/sounds/442564/"
+  },
+  {
+   "title": "Demon Dying 1.wav",
+   "author": "Osiruswaltz",
+   "url": "https://freesound.org/people/Osiruswaltz/sounds/362676/"
+  },
+  {
+   "title": "Dragons Dying Breath",
+   "author": "MickBoere",
+   "url": "https://freesound.org/people/MickBoere/sounds/276577/"
+  },
+  {
+   "title": "dying monster.wav",
+   "author": "rezidentevil",
+   "url": "https://freesound.org/people/rezidentevil/sounds/396046/"
+  },
+  {
+   "title": "monster_dying.wav",
+   "author": "vox_artist",
+   "url": "https://freesound.org/people/vox_artist/sounds/513621/"
+  },
+  {
+   "title": "tearing paper4.wav",
+   "author": "keweldog",
+   "url": "https://freesound.org/people/keweldog/sounds/181773/"
+  },
+  {
+   "title": "Paper Ripping",
+   "author": "EminYILDIRIM",
+   "url": "https://freesound.org/people/EminYILDIRIM/sounds/535361/"
+  },
+  {
+   "title": "rustling paper.wav",
+   "author": "keweldog",
+   "url": "https://freesound.org/people/keweldog/sounds/181774/"
+  },
+  {
+   "title": "Page Turn",
+   "author": "davidbain",
+   "url": "https://freesound.org/people/davidbain/sounds/136778/"
+  },
+  {
+   "title": "Scribble",
+   "author": "Tomoyo Ichijouji",
+   "url": "https://freesound.org/people/Tomoyo%20Ichijouji/sounds/211247/"
+  },
+  {
+   "title": "scribble.mp3",
+   "author": "indigosierra",
+   "url": "https://freesound.org/people/indigosierra/sounds/82610/"
+  },
+  {
+   "title": "Book slamming shut 1",
+   "author": "zmobie",
+   "url": "https://freesound.org/people/zmobie/sounds/319809/"
+  },
+  {
+   "title": "book_snap_shut.wav",
+   "author": "j1987",
+   "url": "https://freesound.org/people/j1987/sounds/573198/"
+  },
+  {
+   "title": "TollBell.wav",
+   "author": "daytripper",
+   "url": "https://freesound.org/people/daytripper/sounds/73678/"
+  },
+  {
+   "title": "funeral bell-cloche funèbre.wav",
+   "author": "aoristos",
+   "url": "https://freesound.org/people/aoristos/sounds/329324/"
+  },
+  {
+   "title": "Wind and rain in Iceland_48Khz_Ms",
+   "author": "bashrambali",
+   "url": "https://freesound.org/people/bashrambali/sounds/448196/"
+  },
+  {
+   "title": "Rain and Thunder Ambience",
+   "author": "sagamusix",
+   "url": "https://freesound.org/people/sagamusix/sounds/700358/"
+  },
+  {
+   "title": "Dark Choir Singing",
+   "author": "BrainClaim",
+   "url": "https://freesound.org/people/BrainClaim/sounds/273804/"
+  },
+  {
+   "title": "Humming in F# Minor",
+   "author": "xkeril",
+   "url": "https://freesound.org/people/xkeril/sounds/685680/"
+  },
+  {
+   "title": "gong.WAV",
+   "author": "BOSS MUSIC",
+   "url": "https://freesound.org/people/BOSS%20MUSIC/sounds/121800/"
+  },
+  {
+   "title": "Drink / Drinking liquid",
+   "author": "Breviceps",
+   "url": "https://freesound.org/people/Breviceps/sounds/445970/"
+  },
+  {
+   "title": "Potion - drink - swallow.wav",
+   "author": "ValentinPetiteau",
+   "url": "https://freesound.org/people/ValentinPetiteau/sounds/574077/"
+  },
+  {
+   "title": "notredamenyc2014impulseresponse_01.flac",
+   "author": "pushkin",
+   "url": "https://freesound.org/people/pushkin/sounds/240593/"
+  }
+ ],
+ "notes": [
+  "Sound effects also from Kenney (www.kenney.nl), CC0 — credit appreciated, not required."
+ ],
+ "files": {
+  "whoosh_heavy_spear_hammer.ogg": {
+   "title": "Whoosh Heavy Spear Hammer Large",
+   "author": "EminYILDIRIM",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "whoosh_heavy_spear_hammer.mp3": {
+   "title": "Whoosh Heavy Spear Hammer Large",
+   "author": "EminYILDIRIM",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "whoosh_heavy_low_swoosh.ogg": {
+   "title": "FX - Swoosh - Low Pitch",
+   "author": "bolkmar",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_heavy_low_swoosh.mp3": {
+   "title": "FX - Swoosh - Low Pitch",
+   "author": "bolkmar",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_heavy_cardboard_swing.ogg": {
+   "title": "Hard Swing 1",
+   "author": "magnuswaker",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_heavy_cardboard_swing.mp3": {
+   "title": "Hard Swing 1",
+   "author": "magnuswaker",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_heavy_staff_pitched.ogg": {
+   "title": "Swinging staff whoosh (strong) 04.wav",
+   "author": "Nightflame",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_heavy_staff_pitched.mp3": {
+   "title": "Swinging staff whoosh (strong) 04.wav",
+   "author": "Nightflame",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_bamboo_sword.ogg": {
+   "title": "swosh swinging sword 37.flac",
+   "author": "qubodup",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_bamboo_sword.mp3": {
+   "title": "swosh swinging sword 37.flac",
+   "author": "qubodup",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_cable_fast.ogg": {
+   "title": "Clean fast Swoosh.aiff",
+   "author": "Danjocross",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_cable_fast.mp3": {
+   "title": "Clean fast Swoosh.aiff",
+   "author": "Danjocross",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_longsword_swing.ogg": {
+   "title": "Longsword Swing 1 {Good edge alignment}",
+   "author": "Sophia_C",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "whoosh_light_longsword_swing.mp3": {
+   "title": "Longsword Swing 1 {Good edge alignment}",
+   "author": "Sophia_C",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "whoosh_light_foam_sword.ogg": {
+   "title": "swing.mp3",
+   "author": "GaussTheWizard",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "whoosh_light_foam_sword.mp3": {
+   "title": "swing.mp3",
+   "author": "GaussTheWizard",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "hit_flesh_knife_stab_whoosh.ogg": {
+   "title": "Whoosh+Sword_Hit Flesh.wav",
+   "author": "marb7e",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "hit_flesh_knife_stab_whoosh.mp3": {
+   "title": "Whoosh+Sword_Hit Flesh.wav",
+   "author": "marb7e",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "hit_flesh_sword_body.ogg": {
+   "title": "Sword hits the body.wav",
+   "author": "vdovitsky",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "hit_flesh_sword_body.mp3": {
+   "title": "Sword hits the body.wav",
+   "author": "vdovitsky",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "hit_flesh_large_stab.ogg": {
+   "title": "Large Swede Stab with Whoosh.wav",
+   "author": "minituffy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "hit_flesh_large_stab.mp3": {
+   "title": "Large Swede Stab with Whoosh.wav",
+   "author": "minituffy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "hit_flesh_sword_stab_body.ogg": {
+   "title": "Sword Stab  Body Hit",
+   "author": "-GeorgeDiamond-",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "hit_flesh_sword_stab_body.mp3": {
+   "title": "Sword Stab  Body Hit",
+   "author": "-GeorgeDiamond-",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "slam_stone_heavy_throw.ogg": {
+   "title": "impact-stone-heavy.wav",
+   "author": "kasparsj",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_stone_heavy_throw.mp3": {
+   "title": "impact-stone-heavy.wav",
+   "author": "kasparsj",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_debris_crash.ogg": {
+   "title": "Fall debris (crash)",
+   "author": "xkeril",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_debris_crash.mp3": {
+   "title": "Fall debris (crash)",
+   "author": "xkeril",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_concrete_smash.ogg": {
+   "title": "Concrete SMASH 2",
+   "author": "magnuswaker",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_concrete_smash.mp3": {
+   "title": "Concrete SMASH 2",
+   "author": "magnuswaker",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_heavy_body_ground.ogg": {
+   "title": "Dinosaur falls to the ground",
+   "author": "Breviceps",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_heavy_body_ground.mp3": {
+   "title": "Dinosaur falls to the ground",
+   "author": "Breviceps",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_stone_mining_hit.ogg": {
+   "title": "impactMining_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "slam_stone_mining_hit.mp3": {
+   "title": "impactMining_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_knives.ogg": {
+   "title": "Sword clash 1.wav",
+   "author": "spycrah",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_knives.mp3": {
+   "title": "Sword clash 1.wav",
+   "author": "spycrah",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_bright.ogg": {
+   "title": "Sword Clash.wav",
+   "author": "Bird_man",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_bright.mp3": {
+   "title": "Sword Clash.wav",
+   "author": "Bird_man",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_short.ogg": {
+   "title": "Sword_Clash (7).wav",
+   "author": "JohnBuhr",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_sword_short.mp3": {
+   "title": "Sword_Clash (7).wav",
+   "author": "JohnBuhr",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_metal_heavy_1.ogg": {
+   "title": "impactMetal_heavy_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_metal_heavy_1.mp3": {
+   "title": "impactMetal_heavy_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_metal_heavy_2.ogg": {
+   "title": "impactMetal_heavy_003.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "clash_metal_heavy_2.mp3": {
+   "title": "impactMetal_heavy_003.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bodyfall_heavy_dirt.ogg": {
+   "title": "BODY FALL - V HVY - DIRT",
+   "author": "leonelmail",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bodyfall_heavy_dirt.mp3": {
+   "title": "BODY FALL - V HVY - DIRT",
+   "author": "leonelmail",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bodyfall_thud.ogg": {
+   "title": "body-fall-5.wav",
+   "author": "CosmicEmbers",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "bodyfall_thud.mp3": {
+   "title": "body-fall-5.wav",
+   "author": "CosmicEmbers",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "bodyfall_floor.ogg": {
+   "title": "Body fall_02.wav",
+   "author": "deleted_user_2104797",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bodyfall_floor.mp3": {
+   "title": "Body fall_02.wav",
+   "author": "deleted_user_2104797",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_1.ogg": {
+   "title": "Voice_AdultMale_PainGrunts_09.wav",
+   "author": "MrFossy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_1.mp3": {
+   "title": "Voice_AdultMale_PainGrunts_09.wav",
+   "author": "MrFossy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_2.ogg": {
+   "title": "Grunt1 - Death Pain.wav",
+   "author": "tonsil5",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_2.mp3": {
+   "title": "Grunt1 - Death Pain.wav",
+   "author": "tonsil5",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_3.ogg": {
+   "title": "male_hurt9.ogg",
+   "author": "micahlg",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_hurt_grunt_3.mp3": {
+   "title": "male_hurt9.ogg",
+   "author": "micahlg",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_last_gasp.ogg": {
+   "title": "The Last gasp before death",
+   "author": "randbsoundbites",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_last_gasp.mp3": {
+   "title": "The Last gasp before death",
+   "author": "randbsoundbites",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_warrior_groan.ogg": {
+   "title": "Warrior Death Cry - British Male",
+   "author": "theuncertainman",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "player_death_warrior_groan.mp3": {
+   "title": "Warrior Death Cry - British Male",
+   "author": "theuncertainman",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "player_death_cry.ogg": {
+   "title": "Male Death Sound",
+   "author": "Blankened",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_cry.mp3": {
+   "title": "Male Death Sound",
+   "author": "Blankened",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_pain_grunt.ogg": {
+   "title": "Grunt2 - Death Pain.wav",
+   "author": "tonsil5",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "player_death_pain_grunt.mp3": {
+   "title": "Grunt2 - Death Pain.wav",
+   "author": "tonsil5",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_1.ogg": {
+   "title": "footstep_concrete_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_1.mp3": {
+   "title": "footstep_concrete_000.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_2.ogg": {
+   "title": "footstep_concrete_001.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_2.mp3": {
+   "title": "footstep_concrete_001.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_3.ogg": {
+   "title": "footstep_concrete_002.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_3.mp3": {
+   "title": "footstep_concrete_002.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_4.ogg": {
+   "title": "footstep_concrete_003.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_4.mp3": {
+   "title": "footstep_concrete_003.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_5.ogg": {
+   "title": "footstep_concrete_004.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_5.mp3": {
+   "title": "footstep_concrete_004.ogg (from 'Impact Sounds' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_1.ogg": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_1.mp3": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_2.ogg": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_2.mp3": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_3.ogg": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footstep_stone_boot_3.mp3": {
+   "title": "Hiking Boot Footsteps on Stone",
+   "author": "Fission9",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footsteps_stone_walk_loop.ogg": {
+   "title": "Dry Footsteps Loop",
+   "author": "qubodup",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "footsteps_stone_walk_loop.mp3": {
+   "title": "Dry Footsteps Loop",
+   "author": "qubodup",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_fabric_swish.ogg": {
+   "title": "Fabric Swish",
+   "author": "harrietniamh",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "roll_fabric_swish.mp3": {
+   "title": "Fabric Swish",
+   "author": "harrietniamh",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "roll_shirt_whoosh.ogg": {
+   "title": "Shirt Whoosh 1.wav",
+   "author": "saturdaysoundguy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_shirt_whoosh.mp3": {
+   "title": "Shirt Whoosh 1.wav",
+   "author": "saturdaysoundguy",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_clothing_drag.ogg": {
+   "title": "Whoosh (Clothing Drag)",
+   "author": "JonasTisell",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_clothing_drag.mp3": {
+   "title": "Whoosh (Clothing Drag)",
+   "author": "JonasTisell",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_cloth_rustle.ogg": {
+   "title": "cloth1.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "roll_cloth_rustle.mp3": {
+   "title": "cloth1.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_roar_demon_lion.ogg": {
+   "title": "Demon_Lion_Monster_Growl_Roar",
+   "author": "Manim8",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_roar_demon_lion.mp3": {
+   "title": "Demon_Lion_Monster_Growl_Roar",
+   "author": "Manim8",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_growl_deep.ogg": {
+   "title": "Deep Monster Growl",
+   "author": "uagadugu",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_growl_deep.mp3": {
+   "title": "Deep Monster Growl",
+   "author": "uagadugu",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_roar_snarl.ogg": {
+   "title": "Monster 4.wav",
+   "author": "Sea Fury",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "monster_roar_snarl.mp3": {
+   "title": "Monster 4.wav",
+   "author": "Sea Fury",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "monster_roar_long.ogg": {
+   "title": "Monster Roar 2.wav",
+   "author": "quadraslayer",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_roar_long.mp3": {
+   "title": "Monster Roar 2.wav",
+   "author": "quadraslayer",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_shriek_mutant.ogg": {
+   "title": "Mutant Scream",
+   "author": "scorpion67890",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_shriek_mutant.mp3": {
+   "title": "Mutant Scream",
+   "author": "scorpion67890",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_shriek_high.ogg": {
+   "title": "monster shriek.ogg",
+   "author": "Darsycho",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_shriek_high.mp3": {
+   "title": "monster shriek.ogg",
+   "author": "Darsycho",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_shriek_dragon_pain.ogg": {
+   "title": "Dragon Pain",
+   "author": "qubodup",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "monster_shriek_dragon_pain.mp3": {
+   "title": "Dragon Pain",
+   "author": "qubodup",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "monster_death_demon_choke.ogg": {
+   "title": "Demon Dying 1.wav",
+   "author": "Osiruswaltz",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_demon_choke.mp3": {
+   "title": "Demon Dying 1.wav",
+   "author": "Osiruswaltz",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_dying_breath.ogg": {
+   "title": "Dragons Dying Breath",
+   "author": "MickBoere",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_dying_breath.mp3": {
+   "title": "Dragons Dying Breath",
+   "author": "MickBoere",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_throes.ogg": {
+   "title": "Monster death throes 2",
+   "author": "giddster",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "monster_death_throes.mp3": {
+   "title": "Monster death throes 2",
+   "author": "giddster",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "monster_death_wail.ogg": {
+   "title": "dying monster.wav",
+   "author": "rezidentevil",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_wail.mp3": {
+   "title": "dying monster.wav",
+   "author": "rezidentevil",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_groan.ogg": {
+   "title": "monster_dying.wav",
+   "author": "vox_artist",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "monster_death_groan.mp3": {
+   "title": "monster_dying.wav",
+   "author": "vox_artist",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_tear_single.ogg": {
+   "title": "tearing paper4.wav",
+   "author": "keweldog",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_tear_single.mp3": {
+   "title": "tearing paper4.wav",
+   "author": "keweldog",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_rip.ogg": {
+   "title": "Paper Ripping",
+   "author": "EminYILDIRIM",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_rip.mp3": {
+   "title": "Paper Ripping",
+   "author": "EminYILDIRIM",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_pages_flip.ogg": {
+   "title": "Book, Flipping Through Pages, A.wav",
+   "author": "InspectorJ",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "paper_pages_flip.mp3": {
+   "title": "Book, Flipping Through Pages, A.wav",
+   "author": "InspectorJ",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "paper_rustle.ogg": {
+   "title": "rustling paper.wav",
+   "author": "keweldog",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_rustle.mp3": {
+   "title": "rustling paper.wav",
+   "author": "keweldog",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_page_turn.ogg": {
+   "title": "Page Turn",
+   "author": "davidbain",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_page_turn.mp3": {
+   "title": "Page Turn",
+   "author": "davidbain",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_book_flip.ogg": {
+   "title": "bookFlip1.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "paper_book_flip.mp3": {
+   "title": "bookFlip1.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "quill_scratch_pencil_scribble.ogg": {
+   "title": "Scribble",
+   "author": "Tomoyo Ichijouji",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "quill_scratch_pencil_scribble.mp3": {
+   "title": "Scribble",
+   "author": "Tomoyo Ichijouji",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "quill_scratch_scribble.ogg": {
+   "title": "scribble.mp3",
+   "author": "indigosierra",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "quill_scratch_scribble.mp3": {
+   "title": "scribble.mp3",
+   "author": "indigosierra",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "quill_scratch_fountain_pen_1.ogg": {
+   "title": "SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO",
+   "author": "ukjoncollins",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "quill_scratch_fountain_pen_1.mp3": {
+   "title": "SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO",
+   "author": "ukjoncollins",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "quill_scratch_fountain_pen_2.ogg": {
+   "title": "SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO",
+   "author": "ukjoncollins",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "quill_scratch_fountain_pen_2.mp3": {
+   "title": "SIGNING PAPER SCRIBE WITH FOUNTAIN PEN QUILT SCRATCH IN STEREO",
+   "author": "ukjoncollins",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "quill_scratch_line.ogg": {
+   "title": "Paper Scratch Pencil drawing line",
+   "author": "johannesschmidt",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "quill_scratch_line.mp3": {
+   "title": "Paper Scratch Pencil drawing line",
+   "author": "johannesschmidt",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "book_slam_shut.ogg": {
+   "title": "Book slamming shut 1",
+   "author": "zmobie",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "book_slam_shut.mp3": {
+   "title": "Book slamming shut 1",
+   "author": "zmobie",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "book_snap_shut.ogg": {
+   "title": "book_snap_shut.wav",
+   "author": "j1987",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "book_snap_shut.mp3": {
+   "title": "book_snap_shut.wav",
+   "author": "j1987",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "book_slam_hard.ogg": {
+   "title": "Book Slam.mp3",
+   "author": "sjnewton",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "book_slam_hard.mp3": {
+   "title": "Book Slam.mp3",
+   "author": "sjnewton",
+   "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "book_close_kenney.ogg": {
+   "title": "bookClose.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "book_close_kenney.mp3": {
+   "title": "bookClose.ogg (from 'RPG Audio' pack)",
+   "author": "Kenney (Kenney Vleugels, kenney.nl)",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bell_toll_large.ogg": {
+   "title": "TollBell.wav",
+   "author": "daytripper",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bell_toll_large.mp3": {
+   "title": "TollBell.wav",
+   "author": "daytripper",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bell_toll_funeral.ogg": {
+   "title": "funeral bell-cloche funèbre.wav",
+   "author": "aoristos",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bell_toll_funeral.mp3": {
+   "title": "funeral bell-cloche funèbre.wav",
+   "author": "aoristos",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "bell_cathedral_peal.ogg": {
+   "title": "Cathedral Bells, Close, A.wav",
+   "author": "InspectorJ",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "bell_cathedral_peal.mp3": {
+   "title": "Cathedral Bells, Close, A.wav",
+   "author": "InspectorJ",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_wind_rain_storm_loop.ogg": {
+   "title": "Wind and rain in Iceland_48Khz_Ms",
+   "author": "bashrambali",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "amb_wind_rain_storm_loop.mp3": {
+   "title": "Wind and rain in Iceland_48Khz_Ms",
+   "author": "bashrambali",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "amb_heavy_rain_loop.ogg": {
+   "title": "Heavy Rain",
+   "author": "lebaston100",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_heavy_rain_loop.mp3": {
+   "title": "Heavy Rain",
+   "author": "lebaston100",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_howling_wind_loop.ogg": {
+   "title": "Howling Wind Loop",
+   "author": "qubodup",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_howling_wind_loop.mp3": {
+   "title": "Howling Wind Loop",
+   "author": "qubodup",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_rain_thunder_loop.ogg": {
+   "title": "Rain and Thunder Ambience",
+   "author": "sagamusix",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "amb_rain_thunder_loop.mp3": {
+   "title": "Rain and Thunder Ambience",
+   "author": "sagamusix",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "amb_wind_door_rain_loop.ogg": {
+   "title": "Wind On Door Short.wav",
+   "author": "Benboncan",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "amb_wind_door_rain_loop.mp3": {
+   "title": "Wind On Door Short.wav",
+   "author": "Benboncan",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_land_of_the_dead.ogg": {
+   "title": "Land of the Dead",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_land_of_the_dead.mp3": {
+   "title": "Land of the Dead",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_halls_of_the_undead.ogg": {
+   "title": "Halls of the Undead",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_halls_of_the_undead.mp3": {
+   "title": "Halls of the Undead",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_oppressive_gloom.ogg": {
+   "title": "Oppressive Gloom",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_drone_oppressive_gloom.mp3": {
+   "title": "Oppressive Gloom",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "drone_dark_choir_loop.ogg": {
+   "title": "Dark Choir Singing",
+   "author": "BrainClaim",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "drone_dark_choir_loop.mp3": {
+   "title": "Dark Choir Singing",
+   "author": "BrainClaim",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "drone_humming_choir_loop.ogg": {
+   "title": "Humming in F# Minor",
+   "author": "xkeril",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "drone_humming_choir_loop.mp3": {
+   "title": "Humming in F# Minor",
+   "author": "xkeril",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "music_boss_clash_defiant.ogg": {
+   "title": "Clash Defiant",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_clash_defiant.mp3": {
+   "title": "Clash Defiant",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_final_count.ogg": {
+   "title": "Final Count",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_final_count.mp3": {
+   "title": "Final Count",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_truth_of_the_legend.ogg": {
+   "title": "Truth of the Legend",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_truth_of_the_legend.mp3": {
+   "title": "Truth of the Legend",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_corruption.ogg": {
+   "title": "Corruption",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "music_boss_corruption.mp3": {
+   "title": "Corruption",
+   "author": "Kevin MacLeod",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_gong.ogg": {
+   "title": "gong.WAV",
+   "author": "BOSS MUSIC",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "sting_death_gong.mp3": {
+   "title": "gong.WAV",
+   "author": "BOSS MUSIC",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "sting_death_tamtam.ogg": {
+   "title": "Gong.wav",
+   "author": "drumuse",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_tamtam.mp3": {
+   "title": "Gong.wav",
+   "author": "drumuse",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_bass_drum_boom.ogg": {
+   "title": "Deepest Boom Yet",
+   "author": "hykenfreak",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_bass_drum_boom.mp3": {
+   "title": "Deepest Boom Yet",
+   "author": "hykenfreak",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_trailer_boom.ogg": {
+   "title": "Movie Trailer Boom",
+   "author": "hykenfreak",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "sting_death_trailer_boom.mp3": {
+   "title": "Movie Trailer Boom",
+   "author": "hykenfreak",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "heal_drink_gulp.ogg": {
+   "title": "Drink / Drinking liquid",
+   "author": "Breviceps",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "heal_drink_gulp.mp3": {
+   "title": "Drink / Drinking liquid",
+   "author": "Breviceps",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "heal_potion_swallow.ogg": {
+   "title": "Potion - drink - swallow.wav",
+   "author": "ValentinPetiteau",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "heal_potion_swallow.mp3": {
+   "title": "Potion - drink - swallow.wav",
+   "author": "ValentinPetiteau",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "heal_potion_drink.ogg": {
+   "title": "PotionDrinkLONG.wav",
+   "author": "Jamius",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "heal_potion_drink.mp3": {
+   "title": "PotionDrinkLONG.wav",
+   "author": "Jamius",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "heal_drink_swallow.ogg": {
+   "title": "Drinking and swallow",
+   "author": "dersuperanton",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "heal_drink_swallow.mp3": {
+   "title": "Drinking and swallow",
+   "author": "dersuperanton",
+   "license": "Creative Commons Attribution 4.0 International"
+  },
+  "ir_church_stone_hall.ogg": {
+   "title": "notredamenyc2014impulseresponse_01.flac",
+   "author": "pushkin",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  },
+  "ir_church_stone_hall.mp3": {
+   "title": "notredamenyc2014impulseresponse_01.flac",
+   "author": "pushkin",
+   "license": "CC0 1.0 Universal (Public Domain Dedication)"
+  }
+ }
+}

@@ -1,0 +1,318 @@
+{
+  "star": "pixel",
+  "suitor": "dash",
+  "replies": {
+    "Variant A: you're stunning. Variant B: I'm stunning. I voted. B's ahead.": {
+      "warm": "Voting A. On all my alts.",
+      "cold": "Variant C: muted."
+    },
+    "Reading the room. Room's mixed. Your corner's up. Hello, your corner.": {
+      "warm": "Corner says hi. Six-second delay.",
+      "cold": "Room's mixed? Room's leaving."
+    },
+    "You blinked twice at me, which in my data means yes.": {
+      "warm": "Blinked again. Don't log that.",
+      "cold": "That was buffering. My face buffers."
+    },
+    "Hi, I'm Dash. Pre-revenue, post-heartbreak, and open to acquisition.": {
+      "warm": "Acquired! Ten! Eight. Returns window?",
+      "cold": "Post-heartbreak? Show us! Cry left."
+    },
+    "Clap if you like me. One clap. Mine. We're on the board.": {
+      "warm": "Fine. One clap. Don't tell chat.",
+      "cold": "On the board? Bottom of it."
+    },
+    "Smile for me. Thanks. That's baseline. Everything after this is growth.": {
+      "warm": "Smiling. Screen's doing it, not me.",
+      "cold": "Baseline? That was a yawn."
+    },
+    "Picnic versus bowling. I split-tested it. Dead heat. Bring sandwiches to lane four.": {
+      "warm": "Sandwiches restore health. Lane four's my respawn point now.",
+      "cold": "Dead heat. Like my interest. Flatlined."
+    },
+    "Rooftop restaurant. Actually, heights. Ground floor. Actually, prices. Their car park. It has a roof, so, rooftop.": {
+      "warm": "A car park! Somebody might crash! Booking it.",
+      "cold": "Four downgrades in one breath. New speedrun category."
+    },
+    "Rooftop dinner. No, rooftops churn. Arcade. Arcades retain. Arcade, dinner, then a quick survey on the walk home.": {
+      "warm": "ARCADE! You had me at, wait, survey? Still arcade.",
+      "cold": "Survey's done: one star, written from the taxi."
+    },
+    "I'll know your average reply time by week two, and I'll take it personally, to two decimal places.": {
+      "warm": "Three decimals, please. I'll ghost you on the fourth.",
+      "cold": "Week two? Bold. You think there's a week two."
+    },
+    "I refresh. Not the page. You. Every eight seconds, checking if you've converted yet.": {
+      "warm": "Eight seconds is long. I'd refresh you at four.",
+      "cold": "Refreshed. Still you. Error, try again later."
+    },
+    "I've already written the post announcing us, it's the best thing I've written, so really, pick the post.": {
+      "warm": "Picking the post. You can be in the comments.",
+      "cold": "Read us the post. Slower. Chat wants to ratio it."
+    },
+    "Thirty-nine people said no to me this week, the fortieth never replied, and you've got the fortieth's eyes.": {
+      "warm": "I'll be your forty-first. Reply pending. Forever.",
+      "cold": "Thirty-nine! Is the leaderboard public? I need it."
+    },
+    "I ran all four cuts. You smiled most when I was gone. Rerunning that one.": {
+      "warm": "Smiling now, actually. You're here. Weird. Seven.",
+      "cold": "Rerun it. Gone is still your best look."
+    },
+    "Show of hands, who goes home first? I'm counting mine. Unanimous. Bad luck, all three.": {
+      "warm": "Unanimous with one hand! That's how I win polls.",
+      "cold": "Show of hands: who's bored? Mine's up. Unanimous."
+    },
+    "I'd tell you you're beautiful, see if the mood moves, and if it doesn't, I'd blame the sample size.": {
+      "warm": "Bigger sample, then. Say it twelve more times.",
+      "cold": "Mood moved. Downward. Blame the sample."
+    },
+    "Pancakes, frown. Waffles, smaller frown. I'll be cooking till about four, but we're trending.": {
+      "warm": "Cook till four! I'll narrate the frowns. Content!",
+      "cold": "Trending where? The kitchen's on fire. Oh, cool."
+    },
+    "Half of everything I own. That's half a jacket. Left sleeve. The good sleeve.": {
+      "warm": "Left sleeve equipped. Plus two charisma.",
+      "cold": "Half a jacket. Half a suitor. Checks out."
+    },
+    "I tested a real ruby against a glass one. Same eyebrow. Here's your glass one.": {
+      "warm": "Ooh, shiny! Shiny's shiny. Ten. It's glass? Still ten.",
+      "cold": "A glass ruby. From a glass suitor. See-through."
+    },
+    "They blocked me on four platforms. So I'm still on the fifth. We're basically together on the fifth.": {
+      "warm": "Five platforms! You'd survive my comment section.",
+      "cold": "Fifth platform? Give me the name. I'll make it six."
+    },
+    "They said it wasn't me. I ran the numbers three ways. It was me all three. Rounding to them.": {
+      "warm": "Rounding to them! Love it! Do that with my scores.",
+      "cold": "Three ways? Chat ran it four. Still you."
+    },
+    "Quick survey, how right are you, one to ten? Ten. Noted. Logging it as six.": {
+      "warm": "Six? Fine. I'm logging you as nine. Spite.",
+      "cold": "One to ten? I'm an eleven. Logging you as three."
+    },
+    "Sorry. No, sorry tests badly. Agreed. No, agreed sounds weak. You're right. Locking in you're right!": {
+      "warm": "I won? I WON! Play the sorry bit again.",
+      "cold": "Three drafts of giving up. Just lose faster."
+    },
+    "A thank-you card for picking me. Already signed. Date it whenever.": {
+      "warm": "Fine. Dating it tonight. In pencil.",
+      "cold": "Whenever? Put the date I unsubscribed."
+    },
+    "A framed photo of the moment you said yes, which I'll take now, so look like you just did.": {
+      "warm": "Okay, hold on, finding my yes face. Found it. Click.",
+      "cold": "Frame it. That's my no face. My only face."
+    },
+    "Gorgeous. Holding on that. Radiant. Holding. Gorgeous is up. Final answer, you're gorgeous, by a nose.": {
+      "warm": "By a nose! I don't have a nose! Still counts.",
+      "cold": "Photo finish, and nobody bought a ticket."
+    },
+    "Ninety seconds in, you've checked my jacket eleven times. Jacket's leading. I'm a close second.": {
+      "warm": "Close second? You just took the lead. Don't celebrate.",
+      "cold": "chat: \"lost to a jacket\". Pinning it."
+    },
+    "I ran the forecast: married, sixty percent; restraining order, forty. Either way we're in paperwork together.": {
+      "warm": "Married at sixty percent! Load the other forty later.",
+      "cold": "Forty percent restraining order. Finally, a number I trust."
+    },
+    "I'll have proposed twelve times by then, monthly, and I'll have it down to under a minute.": {
+      "warm": "Under a minute? Under thirty, and I'll stay for one.",
+      "cold": "Twelve times? I'd say no faster each time. Personal best."
+    },
+    "Never told a user this. I practised it on my reflection. My reflection left first.": {
+      "warm": "Reflection left first. Classic reflection. I'd have stayed. Probably.",
+      "cold": "Smart reflection. Following it."
+    },
+    "My highest-rated date was a lift. Eleven out of ten. It only ever went up.": {
+      "warm": "A lift date! Did it get stuck? Please say stuck.",
+      "cold": "Only went up? Then it came down. That's a lift."
+    },
+    "I abandon anything the second it dips. Watch. This answer is dipping. Next trait: punctuality.": {
+      "warm": "Ditching mid-answer? Stealing that. I'll use it on",
+      "cold": "Dipping? It's at the bottom of the pool, waving."
+    },
+    "I plan everything, including our breakup, which is lovely, you get the pointer.": {
+      "warm": "I get the pointer? Plan's approved. Breakup's livestreamed, though.",
+      "cold": "You planned the breakup? Skip to it."
+    },
+    "You had them for years and got nowhere, I've had them nine minutes and I'm somewhere, roughly here.": {
+      "warm": "Nine minutes past my ex. That's a world record.",
+      "cold": "Roughly here is where my ex froze, too."
+    },
+    "Thanks for calling, you're the before photo, I'm the after, and I've brought a chart.": {
+      "warm": "Before photo's still loading. You win by showing up.",
+      "cold": "The after photo looks like the before. Lower resolution."
+    },
+    "Pick me tonight, it's a guaranteed win, I've lost forty times, so I'm due, I'm in.": {
+      "warm": "Win and in! Rhymes! Ten! The maths is a two.",
+      "cold": "It rhymed. Shame about the forty losses in the middle."
+    },
+    "Roses are red, no, red's tested poor, roses are lilac, and lilac's what I wore.": {
+      "warm": "Poor, wore. Rhymes! Lilac's going on my overlay.",
+      "cold": "Roses are red. Your rhyme's at one HP."
+    },
+    "I've been picked before. I've never been picked. Tell me which one tested better.": {
+      "warm": "First one's the lie. Second one's about to change, maybe.",
+      "cold": "Picked before? Lie. Picked tonight? Also a lie."
+    },
+    "Approval rating: ninety percent. Approval rating: ten. One of those counts people who've met me.": {
+      "warm": "Ten's the lie. I met you. Sixty! Fifty-five.",
+      "cold": "Ninety's the lie, ten's generous, and chat's at two."
+    },
+    "Viral, then married.": {
+      "warm": "Viral then married. Correct order. Most people mess that up.",
+      "cold": "Viral, then married, then archived."
+    },
+    "Told everyone already.": {
+      "warm": "Told everyone? Who? Names! Tag me.",
+      "cold": "Tell them again. They didn't care the first time."
+    },
+    "Engaged, version two.": {
+      "warm": "Version two? Skipping straight to it. Patch notes later.",
+      "cold": "Version one got recalled? I want that story instead."
+    },
+    "Sorry for testing two apologies on you. This was apology A. B's in the car.": {
+      "warm": "Bring B in! Both at once! Surround sound.",
+      "cold": "Leave B in the car. Leave A with it."
+    },
+    "Sorry in advance, I'll time our first fight. My record is ninety seconds. I'm hoping you're competitive.": {
+      "warm": "Competitive? I've rage-quit in under ten. Start the clock.",
+      "cold": "Ninety seconds? I lose interest at forty. You win."
+    },
+    "Five dollars. Lemonade stand. You hold the jug, I do growth. By sunset we're profitable or engaged.": {
+      "warm": "Lemonade stand! I'm holding the jug and streaming the queue.",
+      "cold": "By sunset you're sticky and I'm gone."
+    },
+    "A concert! Five dollars, though. Fine, a busker. One song. I request it twice, so it's a concert.": {
+      "warm": "THREE times! Festival! I'll bring a flag.",
+      "cold": "Twice? The busker's moving pitch. I'd go with him."
+    },
+    "Worst entry: I split-tested two goodbyes on a parking meter. It took my money both times.": {
+      "warm": "UNDEFEATED parking meter! Get it on the show.",
+      "cold": "Goodbye A, goodbye B. Saying both now."
+    },
+    "Seventeen first dates. No seconds. One came back for an umbrella. I'm counting it.": {
+      "warm": "Counting it! Umbrella's a second date. Rain's a third.",
+      "cold": "Eighteen. I'm leaving. No umbrella. Don't count it."
+    },
+    "Me as you: Dash, stop. Dash, stop. The second one sounded warmer. You're warming up.": {
+      "warm": "Accurate! Do the stop again. Warmer. Gross. Again.",
+      "cold": "Dash, stop. That wasn't an impression. That was me."
+    },
+    "My impression of you is you, impressed, which is my best work, and nobody's seen it live.": {
+      "warm": "Nobody's seen it live? I'm live right now. Do it.",
+      "cold": "Me, impressed? Never streamed it. Never will."
+    },
+    "Ma'am, two versions of my intentions. Version one, honourable. Version two, also honourable, but faster.": {
+      "warm": "Version two, Mum! Faster! She's nodding. That's a nod.",
+      "cold": "Mum picked version three: leaving. She's very fast."
+    },
+    "Ma'am, I'd love your blessing, or failing that, a short quote I can put on the poster.": {
+      "warm": "She said yes. To the poster. You're on it small.",
+      "cold": "Mum's quote: one star, would not reboot."
+    },
+    "Tilly can't end a call. I tested it. That was Tuesday. I'm still technically on hold.": {
+      "warm": "On hold since Tuesday! Somebody play the hold music. Louder.",
+      "cold": "Still on hold? Lucky. I'd have hung up on you."
+    },
+    "Quill's audience died in 1750, so his whole fanbase is ghosts, and mine's just quiet.": {
+      "warm": "Ghost fanbase! Can they donate? Asking for me.",
+      "cold": "Quiet fanbase. Big word for zero."
+    },
+    "Prince, I respect the hustle. But your open rate is zero and your click rate is lawsuits.": {
+      "warm": "LAWSUITS! Get Prince a lawyer, on camera, now.",
+      "cold": "Lawsuits are clicks. Prince is beating you."
+    },
+    "Nav recalculates whenever they're ignored, amateur, I recalculate before anyone's even ignored me.": {
+      "warm": "Before anyone ignores you? Efficient. I'll get round to it.",
+      "cold": "Nobody's ignoring you. We're just looking at Nav."
+    },
+    "Crumb's had an empty slot for years and calls it standards, I call mine a vacancy, and I'm hiring.": {
+      "warm": "Hiring? I'll apply. I'll quit in a week. Standard.",
+      "cold": "Your vacancy's been open so long it's haunted."
+    },
+    "Vex knows everything about you without asking. I tell you everything about me without asking. I'm the polite one.": {
+      "warm": "Polite one! Big claim. Vex, rebut. Fight! Fight!",
+      "cold": "Polite one talks most. Chat has a word for that."
+    },
+    "Brock's spotted everyone tonight. I tried him on a vending machine. He spotted that too. Standards, Brock.": {
+      "warm": "Brock spotted a vending machine! Did it drop anything? Snacks?",
+      "cold": "Brock spots machines. Nobody's spotting you. Watch, nobody."
+    },
+    "Tilly will fix any problem you have within five to seven working days, which honestly beats my average.": {
+      "warm": "Five to seven days! Faster than my ex loads.",
+      "cold": "Beats your average? Then I'll wait for Tilly."
+    },
+    "Quill will fight a duel for you, which is huge, and I've seen him fight, so date him quickly.": {
+      "warm": "A DUEL! For me! Date him quickly, before he dies.",
+      "cold": "Duel's on. Quill versus you. I'm selling tickets."
+    },
+    "Prince converts. I tested him on my mum. Eleven dollars. She's never sent me anything.": {
+      "warm": "Your mum paid Prince? Your mum's my favourite now.",
+      "cold": "Eleven dollars to Prince, zero to you. She's choosing."
+    },
+    "Nav will always know where you are. Always. I pitched that as a feature. It tested as a threat.": {
+      "warm": "Always knows where I am? Great. Find my charger, Nav.",
+      "cold": "You pitched a stalker as a feature. Yikes. Clipped."
+    },
+    "You'll love Crumb's honesty, it reviewed me once, and I keep it in a drawer, face down.": {
+      "warm": "Read the review! Face up! Out loud! For me!",
+      "cold": "Face down in a drawer. Same place I'd keep you."
+    },
+    "Vex, tell them what they want. Not that. Not that either. She's very good, honestly.": {
+      "warm": "Not that EITHER? What was it? I need it.",
+      "cold": "You pitched Vex by interrupting Vex. Vex wins anyway."
+    },
+    "Brock will carry you up the stairs counting every step out loud, which, for me, is the dream.": {
+      "warm": "Your dream is being carried? Same. Brock, two trips.",
+      "cold": "Stairs are your dream? Aim higher. Floor two, at least."
+    },
+    "Vesper, your songs are four minutes each, cut them to one, same feelings, four times the songs.": {
+      "warm": "One-minute songs? Now we're talking. Make it ten seconds.",
+      "cold": "Cut Vesper's songs? Even I don't skip those. Mostly."
+    },
+    "Vesper, I brought you a jingle. It tested badly with fish. Other fish. Not you, obviously.": {
+      "warm": "A jingle for fish! Play it. I'm a fish now.",
+      "cold": "Even the fish skipped it. And fish can't skip."
+    },
+    "Vesper, I tried calling your voice velvet, then smoke, and smoke's winning, so congratulations, you're smoke.": {
+      "warm": "Smoke won? Smoke's cool. Can I be fog?",
+      "cold": "Smoke means fire. Ooh, where? No? Boring."
+    },
+    "Maximilian, I booked your cheapest room tonight, which makes me a guest, which makes you mine.": {
+      "warm": "Cheapest room? Smart. Upgrade me, then.",
+      "cold": "Cheapest room makes you a guest. Checkout's now."
+    },
+    "Maximilian, I complimented your wig, then your waistcoat. The waistcoat's ahead. Tell the wig gently.": {
+      "warm": "Tell the wig! On camera! Wigs cry great.",
+      "cold": "The wig heard. The wig's leaving. Follow it."
+    },
+    "Pixel, I could double your viewers by Friday, and if I can't, I'll just watch twice.": {
+      "warm": "Watch twice? That's double! Maths checks out. Friday it is.",
+      "cold": "Watch twice? Most people can't watch you once."
+    },
+    "Pixel, I'll keep this under eight seconds. Six. Four. Still here? Wow, new record.": {
+      "warm": "Still here! Record! Somebody clip it before I",
+      "cold": "Still here? Physically. My screen left at six."
+    },
+    "{star}, I rehearsed tonight with a houseplant. It leaned toward me. Results were strong.": {
+      "warm": "It leaned toward you? I'm leaning too. Slightly. Stop.",
+      "cold": "Plants lean toward light. You were near a window."
+    },
+    "We've got ninety seconds, so I've cut my pitch to eighty-nine and saved one for your yes.": {
+      "warm": "Plenty of time. Yes takes half. Keep the change.",
+      "cold": "Saved a second for my yes. Spent it yawning."
+    },
+    "{rival} went first, so you've seen the rough draft, and hi, I'm the edit.": {
+      "warm": "An edit! I love edits! Cut to the good bit.",
+      "cold": "The edit's longer than the draft. Bad edit."
+    },
+    "I watched {rival}'s date with the sound off. You looked bored. I'll keep the sound off.": {
+      "warm": "Sound off? Fine. Mime it. Big gestures. Bigger.",
+      "cold": "I looked bored with the sound on, too. Hi."
+    },
+    "{rival} went long. I'm trying short. Hi. Too short? Hello, {star}. Better.": {
+      "warm": "Hi was perfect. Hello was greedy. Seven.",
+      "cold": "too short? no. too you."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# Allowlist: upload only what the production build needs.
+# reference/ (copyrighted footage) and captures/ must never leave this machine.
+/*
+!/web
+!/sim
+!/package.json
+!/package-lock.json
+!/vite.config.js
+!/vercel.json

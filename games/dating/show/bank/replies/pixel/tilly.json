@@ -1,0 +1,322 @@
+{
+  "star": "pixel",
+  "suitor": "tilly",
+  "replies": {
+    "For security purposes, who else were you planning on loving?": {
+      "warm": "Loads. None made level two.",
+      "cold": "Security, remove this one."
+    },
+    "Episodes: {played}. Wins: {wins}. I do apologise for the inconvenience.": {
+      "warm": "Bad record. Great comeback arc. Subscribed.",
+      "cold": "That record's a speedrun. Downward."
+    },
+    "To be loved, press one. To leave, please stay on the line.": {
+      "warm": "Mashing one. Mashing it hard.",
+      "cold": "Rage-quitting your menu. Watch."
+    },
+    "Hello, valued customer. I've moved you up the queue, past a grandmother.": {
+      "warm": "Skipped a grandma for me. Nine.",
+      "cold": "Put the grandmother on. She's funnier."
+    },
+    "Sorry I'm late. I was transferring a parliament, alphabetically.": {
+      "warm": "A PARLIAMENT. Next time, stream it.",
+      "cold": "Alphabetically. I fell asleep at C."
+    },
+    "I'm only staff, sorry. Ignore me. I reset the moon's password.": {
+      "warm": "Unignoring you. It's the moon.",
+      "cold": "Ignoring you. Easiest tutorial yet."
+    },
+    "Wherever you were last happy. Which branch was that, roughly?": {
+      "warm": "Arcade, age nine, branch closed. Reopen it.",
+      "cold": "Roughly? Before you sat down."
+    },
+    "Dinner, and if anything's wrong with your soup, I'll apologise until the chef leaves the profession.": {
+      "warm": "A chef quits, live, over soup. Book two soups.",
+      "cold": "Let the chef stay. You can leave the profession."
+    },
+    "I can't let a phone ring. Sorry. I'll answer yours at midnight, as you.": {
+      "warm": "Do my midnight stream as me. Nobody'd notice.",
+      "cold": "Midnight's when I block numbers. Yours first."
+    },
+    "You'll stub your toe, and I'll apologise to the table. We're close, the table and I.": {
+      "warm": "Stubbing my toe on purpose now. For content.",
+      "cold": "You and the table. Both furniture, to me."
+    },
+    "They're all lovely. I've checked. Lovely is the lowest rating I'm allowed to give.": {
+      "warm": "Rate me higher. Break policy. I'll watch.",
+      "cold": "Lovely! Six! Five! Lower's allowed, you know."
+    },
+    "Which of them upset you? Just nod. I've a little button for each.": {
+      "warm": "Hand over the buttons. I'll press them all, live.",
+      "cold": "I've got one button too. It skips."
+    },
+    "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.": {
+      "warm": "Pin the duke's letter. That's lore.",
+      "cold": "A fortnight's nothing. My ex buffered two years."
+    },
+    "Could you spell their name for me, so the cancellation goes through first time?": {
+      "warm": "Ooh, cancelling by spelling. Spell it slowly. Savour it.",
+      "cold": "I don't do forms. I ban, and I ban loudly."
+    },
+    "The loud one. Sorry. I can only sort people by volume, and I've sorted them.": {
+      "warm": "Sort me first. Loudest by miles.",
+      "cold": "By volume, you're on mute."
+    },
+    "May I read you your options? You have none, but I read them beautifully.": {
+      "warm": "None, read beautifully. That's every patch note. Love it.",
+      "cold": "Every game has a quit button. Found yours."
+    },
+    "When did the problem start? And were you this lovely before, or is that a symptom?": {
+      "warm": "Symptom, spreading. Day one patch can't fix it.",
+      "cold": "Diagnose this: I've stopped listening."
+    },
+    "Buy whatever you like, and I'll return it for you the moment you've finished being happy.": {
+      "warm": "I finish being happy in four seconds. Keep receipts.",
+      "cold": "Returning you instead. Unboxed, wasn't happy."
+    },
+    "Of course. May I ask which department store you'd like closed for the afternoon?": {
+      "warm": "Close all of them. Film the empty escalators.",
+      "cold": "Closed and quiet. I need it LOUD."
+    },
+    "He hung up. Policy says wait two minutes for the caller to come back. It's been eleven months.": {
+      "warm": "Eleven months on one call. I respect a long stream.",
+      "cold": "He's not coming back. I'm not coming either."
+    },
+    "He asked to be removed from all my lists. It took eight months and two governments.": {
+      "warm": "Two governments! Add me to a list. Any list.",
+      "cold": "Remove me too. Use the third government."
+    },
+    "You're completely right, and I've been trained to say that to people who aren't.": {
+      "warm": "Wait, I'm wrong? Nobody's said that on camera. Again.",
+      "cold": "You're completely wrong, and nobody trained me to say it."
+    },
+    "I'm so sorry. That was the official apology, so your whole postcode got one too.": {
+      "warm": "My whole postcode! Finally, a crowd. Encore.",
+      "cold": "My postcode's filing a complaint. Group chat's furious."
+    },
+    "May I ask when anyone last told you no? I'll have one sent to you, gift-wrapped.": {
+      "warm": "Gift-wrapped no. Unboxing it live. Thumbnail's ready.",
+      "cold": "Last no? Just now. To you."
+    },
+    "Every hold line in the country plays your song for one minute. Nine million people, humming.": {
+      "warm": "NINE MILLION viewers. Humming counts. It counts.",
+      "cold": "They'd skip your song at thirty seconds. I would."
+    },
+    "Platinum. Before tonight, I'd only given it to an admiral, and his submarine.": {
+      "warm": "Platinum, over a submarine. Screenshot it. Frame it.",
+      "cold": "Give it back to the submarine. It earned it."
+    },
+    "You've got the posture of someone who's never once had to say have a lovely day.": {
+      "warm": "Correct. Hoodie posture. It's load-bearing.",
+      "cold": "Have a lovely day. See? Easy. Now leave."
+    },
+    "How would you like to be described? I'm telling every caller on the continent tonight.": {
+      "warm": "Say iconic. Then tall. Lie about tall.",
+      "cold": "Tell the continent I left early."
+    },
+    "A year is our standard response time, so that's when I'll get back to you about tonight.": {
+      "warm": "A year! I'll have forgotten. Surprise me.",
+      "cold": "By then I'll have three new shows. You're in none."
+    },
+    "A year from now we'll be near the front of the queue. It's got a mayor now.": {
+      "warm": "Run against the mayor. I'll stream the debate.",
+      "cold": "Queue with a mayor? That's a lobby. Leaving."
+    },
+    "Sometimes I put people on hold just to hear the music with someone.": {
+      "warm": "Okay, that landed. My screen's pink. It's a bug.",
+      "cold": "I'd skip the music. And, sorry, the someone."
+    },
+    "I know every caller's mother's maiden name, and so far I've been very good about it.": {
+      "warm": "Be bad about it once. On my stream. Go.",
+      "cold": "Very good about it. Shame. Chat wanted a leak."
+    },
+    "I apologise for everything. Last week I apologised to a vending machine, and it gave me crisps.": {
+      "warm": "Sorry drops loot. Farm that machine all night.",
+      "cold": "The machine paid you to stop. Take the hint."
+    },
+    "I agree with everyone. I once agreed with both sides of a border dispute, and they're married now.": {
+      "warm": "A border wedding! Who got the stream rights?",
+      "cold": "Agree with me, then. Leave."
+    },
+    "Hello. Just to let you know, this call is being recorded, and played live in a stadium.": {
+      "warm": "A stadium. That's my move. Stealing it back.",
+      "cold": "Stadium's empty. Everyone left at hello."
+    },
+    "I'm so sorry, this number no longer accepts your calls. I changed it while you were talking.": {
+      "warm": "Changed it mid-sentence. Ruthless. Teach me.",
+      "cold": "While you were talking, I changed channel."
+    },
+    "Pick me and I'll love you the way that I'm trained, with a ticket left open and nothing explained.": {
+      "warm": "Trained, explained. Rhyme approved. Leave it open.",
+      "cold": "It rhymes, but an open ticket is just homework."
+    },
+    "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.": {
+      "warm": "Never wrong is a cheat code. Typing it in.",
+      "cold": "I'm never misled. I'm just never listening."
+    },
+    "Truth: I love my job. Lie: I love my job.": {
+      "warm": "Same line twice. Speedrun strat. Both lies, obviously.",
+      "cold": "Copy-paste answer. Even chat writes two."
+    },
+    "You're my favourite caller tonight. You're my favourite caller ever. One of those is policy.": {
+      "warm": "Ever's the true one. Don't you dare correct me.",
+      "cold": "Both are policy. I can hear the script."
+    },
+    "Escalated, never resolved.": {
+      "warm": "three words. my whole browser history. brb.",
+      "cold": "Never resolved. Like your chances."
+    },
+    "Priority, above grandmothers.": {
+      "warm": "Exactly three, all ruthless. Grandmothers, hold.",
+      "cold": "Three words, and one went on grandmothers."
+    },
+    "Apologising to neighbours.": {
+      "warm": "We'd be the loud ones. Good. Apologise louder.",
+      "cold": "Neighbours. Four. Three. I'm moving out."
+    },
+    "Sorry in advance for agreeing with you so warmly while I move you to the back of the queue.": {
+      "warm": "Warmly demoted. I've done that to sponsors. Respect.",
+      "cold": "The back of the queue is where I'm putting you."
+    },
+    "I apologise now for our first fight. I'll go very quiet, and somewhere a ferry won't leave.": {
+      "warm": "A whole ferry stuck because we fought. Best fight.",
+      "cold": "Very quiet isn't a fight. It's a nap."
+    },
+    "A park bench and five dollars of payphone time, so I can call you from the next bench.": {
+      "warm": "Split-screen date. Co-op mode. Player two, bench two.",
+      "cold": "Two benches, zero content. I'm walking off."
+    },
+    "The planetarium, after hours, five dollars. I once talked their sky back on.": {
+      "warm": "You turned a sky on. Now turn it off.",
+      "cold": "My face is a screen. I've seen enough sky."
+    },
+    "My logs show I've said I completely understand forty million times. I understood twice.": {
+      "warm": "Twice. Which two? Was one me? Say me.",
+      "cold": "Forty million times, and chat still types lol better."
+    },
+    "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.": {
+      "warm": "Then he wasn't. Chills. Do that to a rival.",
+      "cold": "Nineteen hours on hold. He wasn't nice, he was asleep."
+    },
+    "Yes, hello, I'm stunning, and I'd like four suitors removed by the morning, please.": {
+      "warm": "Accurate. Stunning, and removing suitors starting with, ooh.",
+      "cold": "I remove people in seconds. Weak impression."
+    },
+    "Yes, hi, there's a small green one on my stage and she won't stop being helpful.": {
+      "warm": "That's me complaining about you. Spot on. Unfortunately.",
+      "cold": "Prove the impression wrong. Stop."
+    },
+    "Ma'am, purely for our records, which of your child's friends would you be comfortable losing?": {
+      "warm": "Mum's typing a list. Still typing. Still.",
+      "cold": "My friends are chat. Lose them, I'm unemployed."
+    },
+    "Ma'am, your child is in good hands. Small hands. Very good grip.": {
+      "warm": "Small hands, good grip. Mum nodded. She never nods.",
+      "cold": "I'm a child process, not a jar."
+    },
+    "Dash, I played your pitch to a cruise ship on hold. They asked for the hold music back.": {
+      "warm": "A whole cruise ship booed him. Dash, cry left.",
+      "cold": "The hold music asked for a better roast."
+    },
+    "Sir Quill, I've transcribed you twice tonight and you still haven't told me what you're calling about.": {
+      "warm": "Nobody knows what he's calling about. Chat's sobbing.",
+      "cold": "I transcribed you once. It said zzz."
+    },
+    "Prince, I'd treat you like royalty, but I've met royalty. They hold like everyone else.": {
+      "warm": "Royalty holds. Prince, hold it. Hold the face.",
+      "cold": "You've met royalty. Sure. Chat's met a dragon."
+    },
+    "Nav, I take your complaints, and recalculating is not, legally, an apology.": {
+      "warm": "A legal ruling. Nav, appeal. I want a sequel.",
+      "cold": "Legally. I don't watch court shows. Too slow."
+    },
+    "Crumb, I once took a call from a volcano. Warmer. Far more polite.": {
+      "warm": "Book the polite volcano. It's in the next episode.",
+      "cold": "Chat: \"volcano would've roasted better\". Agreed."
+    },
+    "Vex, forgive me. One eye, and sunglasses. Who are we hiding it from?": {
+      "warm": "Sunglasses off, Vex. Now. I'll count you down.",
+      "cold": "Hiding it from you, obviously. I'd wear two."
+    },
+    "Brock has the energy of a ticket marked URGENT that just says hi.": {
+      "warm": "URGENT, says hi. That's Brock. Ten. Brock, say hi.",
+      "cold": "That's my DMs. Not funny there either."
+    },
+    "Dash is ever so keen, and if you're not happy, he'll pivot into someone you are.": {
+      "warm": "Pivot into a dragon, Dash. I'd be happy then.",
+      "cold": "Someone I'm happy with. So, not Dash. Thanks."
+    },
+    "Sir Quill has said beautiful things about you, and I'll have them translated by the morning.": {
+      "warm": "Send the translation. Skip the beautiful bits.",
+      "cold": "By morning I'll have forgotten you both."
+    },
+    "Prince is a catch. I've had his crown in for repairs a dozen times, and he was charming each time.": {
+      "warm": "Twelve crown repairs. That's lore. How'd it break?",
+      "cold": "Twelve broken crowns is patch notes, not a pitch."
+    },
+    "Before I transfer you to Nav, please confirm you're happy to be told where to go.": {
+      "warm": "Confirmed. Nav, tell me where to go. Somewhere loud.",
+      "cold": "I know where to go. Away from this pitch."
+    },
+    "Crumb is so warm. I put it through to the sun once. The sun asked to be transferred.": {
+      "warm": "The SUN wanted out. Crumb outranked a star.",
+      "cold": "The sun had a choice. I'm copying the sun."
+    },
+    "To hear Vex's recommendation, press one. To hear it anyway, press nothing.": {
+      "warm": "Pressing nothing. Secret ending unlocked. Go, Vex.",
+      "cold": "Easiest controls ever, and I'm still skipping."
+    },
+    "Brock is so supportive. May I ask how you feel about being cheered at while you sleep?": {
+      "warm": "Cheered asleep? Eight hours of content. I'd stream it.",
+      "cold": "I don't sleep, I'd lose viewers. Pitch failed."
+    },
+    "Pixel, to verify it's you, could you name everyone you've ever skipped?": {
+      "warm": "Everyone? We'd be here all, wait, not you. Yet.",
+      "cold": "Easy. Starting with you. Verified?"
+    },
+    "Pixel, what's the longest you've ever watched one thing? I only need that, plus a second.": {
+      "warm": "A minute, tops. Plus a second? Fine. Yours.",
+      "cold": "This question. And it's over."
+    },
+    "{star}, policy lets me give one compliment per call. I've saved up four years.": {
+      "warm": "Four years of XP at once. Levelling. Ow.",
+      "cold": "Four years for one compliment? Spend it on someone patient."
+    },
+    "Sorry, {star}, I'm quite small up close. Most people put me on speaker.": {
+      "warm": "Speaker on, volume max. Now say something.",
+      "cold": "Speaker's broken. You're on silent."
+    },
+    "{star}, before we begin: whose paperwork would you like me to lose?": {
+      "warm": "My landlord's. Lose it twice. Lose it in a lake.",
+      "cold": "Lose yours. Start with this application."
+    },
+    "Vesper, would you play my hold music? It's why most people stop calling.": {
+      "warm": "Play it on my stream. Loud. Wrong star, though.",
+      "cold": "Wrong star. That's why people stop calling."
+    },
+    "Vesper, that voice. Who gets to ring you at four in the morning? I'm only asking. Thoroughly.": {
+      "warm": "Four in the morning is my prime time. Ring.",
+      "cold": "Not Vesper. At four I'm streaming, not answering."
+    },
+    "Maximilian, you ring a little bell and someone comes. I'm the someone.": {
+      "warm": "I'll ring that bell nonstop. You'd come every time?",
+      "cold": "Not Maximilian. Ring somebody else's bell."
+    },
+    "Forgive me, Maximilian. I only know your hotel from its complaints, and it sounds gorgeous.": {
+      "warm": "Complaints sound gorgeous? Read my comments section.",
+      "cold": "Wrong host. My complaints are public and louder."
+    },
+    "{rival} took you somewhere lovely. I've had it closed for refurbishment, just now, by phone.": {
+      "warm": "Closed mid-date, by phone. Evil. Seven. Eight!",
+      "cold": "I was enjoying that place. For once. Reopen it."
+    },
+    "Sorry, {rival} overran. I've asked the tide to wait for us.": {
+      "warm": "The tide's waiting on my stream. Huge.",
+      "cold": "The tide quit waiting. So did I."
+    },
+    "Lovely date, {rival}'s. I've transcribed it. Four pages. Three were you being polite.": {
+      "warm": "Three polite pages? Burn the evidence.",
+      "cold": "Page four's me leaving. Read that one."
+    }
+  }
+}

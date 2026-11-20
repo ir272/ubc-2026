@@ -1,0 +1,318 @@
+{
+  "star": "vesper",
+  "suitor": "brock",
+  "replies": {
+    "Hi, nine, ten, sorry, I count when I'm nervous, eleven, twelve.": {
+      "warm": "I'll say thirteen. You sit.",
+      "cold": "Twelve's confiscated. Count in private."
+    },
+    "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!": {
+      "warm": "Engaged. I've woken a registrar.",
+      "cold": "Engagement annulled at five, caller."
+    },
+    "Protein bar for you! Ate it on the way! Here's the wrapper!": {
+      "warm": "Give it. Nobody brings me anything.",
+      "cold": "Wrapper impounded. You're next."
+    },
+    "Can I spot you? I once spotted a man's soup. ZERO spills!": {
+      "warm": "Spot me. I'm spilling slightly.",
+      "cold": "The soup's pressing charges."
+    },
+    "You blinked! One! Two! I'll hold the third till you're READY!": {
+      "warm": "Keep holding. I've paused the weather.",
+      "cold": "My eyelids don't take requests."
+    },
+    "Episode {played}! Won {wins}! I round up, so I've won them ALL!": {
+      "warm": "Rounding's legal tonight. I legalised it.",
+      "cold": "I round down. To nothing."
+    },
+    "Can I carry you somewhere? Anywhere. The chair. I'll carry the CHAIR.": {
+      "warm": "Chair stays. You come here.",
+      "cold": "This chair has outlived governments. Down."
+    },
+    "The airport. People run for their gates. We cheer them on. Strangers LOVE it.": {
+      "warm": "I'll hold the planes so they can hear you.",
+      "cold": "Every flight's diverted. The strangers have suffered enough."
+    },
+    "The buffet! I'm banned from three, so we'd go to the fourth, which doesn't know my FACE!": {
+      "warm": "Fourth one's mine. You eat free. Forever.",
+      "cold": "The fourth knows your face now. I rang ahead."
+    },
+    "I clap when you finish things. Sentences. Sandwiches. A sneeze. GREAT sneeze.": {
+      "warm": "I'll sneeze on air at three. Be ready.",
+      "cold": "Sneezing is banned on this frequency. As of you."
+    },
+    "I count your chews. Thirty-two each. You did thirty-one. I did one for YOU.": {
+      "warm": "One for me. Nobody does that. Do another.",
+      "cold": "My chewing is classified. You've been reported."
+    },
+    "Why me? Ask Denise. Eighty-one, deadlifts her grandson. Grandson's forty-four. He books it weekly.": {
+      "warm": "Denise gets a medal. I'm minting it tonight.",
+      "cold": "I've rung the grandson. He wants to come down."
+    },
+    "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.": {
+      "warm": "Keep the tail going. I'm reading it, not you.",
+      "cold": "I can hear the tail. On medium wave."
+    },
+    "Nobody! Four of us, five, six, eight! We're GROWING! You can't cut a growing thing!": {
+      "warm": "Grow, then. I'll have the studio extended.",
+      "cold": "I cut growing things. Ask the hedge."
+    },
+    "Cut who? I panicked and cut my own fur. Here. One tuft each. Nobody has to GO!": {
+      "warm": "My tuft goes in the drawer with the tapes.",
+      "cold": "Fur on my carpet. Fine's in the post."
+    },
+    "Pancakes till you smile! The last stack hit the ceiling and cracked it into a SMILE!": {
+      "warm": "My ceiling's yours. Aim higher.",
+      "cold": "That ceiling was listed. You're paying for the smile."
+    },
+    "I'd eat the bad mood! I'm not sure how. I'll start with your breakfast and work UP!": {
+      "warm": "Eat it, then. Mine's county-sized.",
+      "cold": "Touch my breakfast and the mood eats you."
+    },
+    "I'm paid in steps. Nine million. Does that spend? Please say that spends.": {
+      "warm": "Nine million. Spend it walking here.",
+      "cold": "It doesn't. I've devalued steps. Overnight."
+    },
+    "Easy! I eat forty eggs a day, so we're RICH in eggs, and eggs are money, I've decided!": {
+      "warm": "Fine. Eggs are legal tender. Spend one on me.",
+      "cold": "Your eggs are frozen pending inquiry."
+    },
+    "She left at rep eighty. I'm still at eighty. Eighty. Eighty. I'm saving EIGHTY for her!": {
+      "warm": "Keep eighty. I've a song I never played either.",
+      "cold": "She's not coming back. I'd have heard."
+    },
+    "They deleted the app. I still send three notifications a day. They're doing great.": {
+      "warm": "Send me one. I'll be doing great.",
+      "cold": "They rang me. They're begging you to stop."
+    },
+    "You're right! Can I be right about something small? Your shoes? I'll be right about your SHOES.": {
+      "warm": "Be right about my shoes. I'll get some.",
+      "cold": "I don't own shoes. You're wrong already."
+    },
+    "Ten, nine, eight, six. I'm calm now. Six is my calm. Are you at SIX?": {
+      "warm": "I'm at six. Don't tell anyone.",
+      "cold": "You skipped seven. I'm having it found."
+    },
+    "A whistle. When I'm too loud, blow it. I've never heard one over me, so bring TWO.": {
+      "warm": "Keep the whistle. I'd never blow it.",
+      "cold": "No whistles. I've a switch for you."
+    },
+    "A dozen eggs and a hug. Thirteen things! Nobody's ever given you THIRTEEN things!": {
+      "warm": "The eggs go back. Keep the hug coming.",
+      "cold": "Thirteen. Unlucky. Return them all, starting with the hug."
+    },
+    "Strong neck! You held that head up the WHOLE time! Ninety seconds! I've seen people drop it at sixty!": {
+      "warm": "My head's been up since sixty-one. Nobody noticed.",
+      "cold": "My neck has a pension. Don't address it."
+    },
+    "You're a, one, you're a, two, you're, three, you're the reason I got to THREE!": {
+      "warm": "Three's plenty. I'll hear the rest off air.",
+      "cold": "Three words in and none were adjectives."
+    },
+    "Sitting down. Together. On purpose. I've never done it, and I'm scared, and I want to.": {
+      "warm": "There's a chair here. It's been empty since seventy-three.",
+      "cold": "I sit for a living. You'd ruin it."
+    },
+    "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!": {
+      "warm": "Read me the days, then. Slowly. Every one.",
+      "cold": "That's every day out loud. I've cancelled next year."
+    },
+    "I eat peanut butter straight from the jar, with my whole face. The jar thinks we're DATING.": {
+      "warm": "Tell the jar it's over. Gently.",
+      "cold": "The jar's filed for custody of your face."
+    },
+    "I skip seven. Always. Six, then eight. Nine years, nobody's noticed. Please don't make me do SEVEN!": {
+      "warm": "Seven's abolished. Nobody will notice. I'll see to it.",
+      "cold": "Seven. There. I said it on air."
+    },
+    "My worst trait? I can't sit. I'm sitting now. This is me SITTING.": {
+      "warm": "That's sitting. I'll hold the news till you stand.",
+      "cold": "The chair says you never touched it."
+    },
+    "Rest days scare me, which is GREAT news for you, because you'll never have to have one again!": {
+      "warm": "I don't rest either. Finally, company.",
+      "cold": "Rest is compulsory here. I've booked you a week."
+    },
+    "Buddy! You yelled at me for a whole minute! Didn't stop for breath ONCE! Can you teach me?": {
+      "warm": "You've charmed my ex. Unforgivable. Stay.",
+      "cold": "Don't encourage the modem. It screams for free."
+    },
+    "Hi! Can you tell me one thing {star} likes for breakfast? Just one. I'll make TWELVE of it.": {
+      "warm": "Toast. Twelve. Bring them up yourself.",
+      "cold": "He never knew. Neither will you."
+    },
+    "Why me? I'm loyal, I'm loud, I'm made of bounce, and that rhymes, I CHECKED, with bounce!": {
+      "warm": "Bounce rhymes with bounce. I'm allowing it. Once.",
+      "cold": "Bounce with bounce. The rhyme police are outside."
+    },
+    "Eggs by the crate and I'll lift what I'm told, I'll cheer you at ninety, so hurry, get OLD!": {
+      "warm": "I'm old. Start cheering.",
+      "cold": "Told and old. The rhyme holds. You don't."
+    },
+    "One: I can count to a million. Two: I have. Both true! It took a whole TUESDAY!": {
+      "warm": "I believe both. I'll give you Wednesday too.",
+      "cold": "I own Tuesdays. You never had one."
+    },
+    "I've never sat down. I once beat a goose. Guess! No, wait, they're BOTH true, I forgot to lie!": {
+      "warm": "Forgetting to lie. The rarest thing on my air.",
+      "cold": "The goose is outside. It disputes the result."
+    },
+    "Never sitting DOWN!": {
+      "warm": "Stand, then. Right there. Closer.",
+      "cold": "Three words. All of them exhausting."
+    },
+    "One. Two. YOU!": {
+      "warm": "Three. You landed it. Come here.",
+      "cold": "You counted me. I'm not a rep."
+    },
+    "Eggs. Eggs. MARRIAGE!": {
+      "warm": "Skip the eggs. Keep the third word.",
+      "cold": "The eggs can marry each other."
+    },
+    "I'm sorry already! You'll slam the door, and I'll hold it open so you can slam it AGAIN!": {
+      "warm": "I've had a door fitted for that.",
+      "cold": "I don't slam doors. I fire them."
+    },
+    "Sorry in advance. When you count to ten to calm down, I'll join in, and we'll get to NINETY!": {
+      "warm": "Ninety. I'll still be angry. Keep counting.",
+      "cold": "At ninety I'll have had you removed."
+    },
+    "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!": {
+      "warm": "Take my ten. I'll watch.",
+      "cold": "Bananas are banned from the building. Effective now."
+    },
+    "Free samples! I do a lap in a hat, then without the hat. They've NEVER caught me!": {
+      "warm": "Wear the hat in here. I'll look away.",
+      "cold": "I've caught you. Hat and all."
+    },
+    "Worst log? Walt. One pushup, started four years ago. Still going down. So proud of Walt.": {
+      "warm": "Walt's on air at four. I'll wait with him.",
+      "cold": "Walt's been given a rest day. By me."
+    },
+    "Mine's Tuesday. I lay down for one minute. Sixty seconds. I still don't know where they WENT.": {
+      "warm": "They came here. I've kept them warm.",
+      "cold": "I confiscated them. You weren't using them."
+    },
+    "Logged a user at three hundred pushups. It was their cat on the phone. Still proud.": {
+      "warm": "Give the cat my number. It's not listed.",
+      "cold": "The cat's been promoted. You're reporting to it."
+    },
+    "'Brock, eat something.' That's you! Then you'd watch me eat, because you CARE, and you'd say MORE.": {
+      "warm": "More. There. Don't make me say it slower.",
+      "cold": "I'd say less. I'd say it once."
+    },
+    "Me as you. 'Brock, stop.' Eight. 'Brock.' Nine. 'BROCK.' Ten. That's you cheering me ON!": {
+      "warm": "Brock. That one's a cheer. Don't get used to it.",
+      "cold": "I don't raise my voice. Ever. Strike the capitals."
+    },
+    "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.": {
+      "warm": "Motherboard approves. Her valve went warm.",
+      "cold": "Mother heard cardiovascular and switched herself off."
+    },
+    "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?": {
+      "warm": "Ring her daily. Nobody's rung her since valves.",
+      "cold": "Mother's number has been disconnected. By her daughter."
+    },
+    "Dash, buddy, every line on your chart goes UP! Sixteen lines! Are you building me STAIRS?": {
+      "warm": "Dash, the stairs are yours. Leave by them.",
+      "cold": "Nobody's building anything on my air. I have planning laws."
+    },
+    "Tilly put me on hold! I did squats to the hold music! Two hundred! I'm STILL on hold!": {
+      "warm": "I'll take you off hold. Personally.",
+      "cold": "Hold music is for the patient. Squat elsewhere."
+    },
+    "Quill called my water bottle a sporting flagon! Now it's a FLAGON! Quill, buddy, rename my EGGS!": {
+      "warm": "Flagon stays. I've had it entered in the dictionary.",
+      "cold": "Nobody renames anything here but me."
+    },
+    "Prince says I've won a million! I did a million squats to say thanks! He hasn't sent it YET!": {
+      "warm": "It's in my post room. I'm keeping it.",
+      "cold": "Second class. I chose the stamp myself."
+    },
+    "Nav, buddy, zero steps all night! Zero! I'll do yours! Nine thousand, coming RIGHT up!": {
+      "warm": "Do mine too. I haven't walked in decades.",
+      "cold": "Not in my studio. The floor's asleep."
+    },
+    "Crumb's toast has eyebrows! Grumpy ones! I clapped at them for an hour and one went UP!": {
+      "warm": "An eyebrow went up. Mine followed.",
+      "cold": "An hour of clapping. I've docked the hour."
+    },
+    "Vex has one eye and wears sunglasses anyway! Two lenses! One's for a friend!": {
+      "warm": "The friend can stay. Vex can go.",
+      "cold": "That lens is empty. So is the joke."
+    },
+    "Dash tests every compliment twice, so you get double, and one of them's going to WORK!": {
+      "warm": "One worked. Not his. Yours.",
+      "cold": "Nothing works here after midnight. Except me."
+    },
+    "Pick Tilly! I trod on her foot and SHE said sorry! I've checked four times! Every time!": {
+      "warm": "Tread on my fin. I won't apologise.",
+      "cold": "Four times. You trod on her four times."
+    },
+    "Quill's so brave! He challenged me to a duel, I said YES so fast he's been checking the rules since!": {
+      "warm": "The rules are mine. You won. Quill lost.",
+      "cold": "Duels need my signature. I've lost the pen."
+    },
+    "Prince has a crown AND flip-flops! He's ready for a coronation or a beach!": {
+      "warm": "I've booked the beach. The coronation can wait.",
+      "cold": "Prince is not having a coronation. I've checked my diary."
+    },
+    "Pick Nav! That helmet's a fishbowl! You'd never be lonely! Put a fish in! Put TWO!": {
+      "warm": "I'm right here, if anyone's offering a bowl.",
+      "cold": "I'm the fish in this building. Choose your words."
+    },
+    "Crumb's got two slots! I put my paw in one and Crumb didn't pop me! The other one's for YOU!": {
+      "warm": "Hold the slot. I might.",
+      "cold": "I'm not going in a toaster. Pop yourself."
+    },
+    "Vex knows your whole future! She told me mine! It's eggs! Vex, buddy, how MANY eggs?": {
+      "warm": "Eleven. I've decided. Don't ask Vex.",
+      "cold": "No eggs. I've cancelled your future."
+    },
+    "Long-time caller! I jog to your show every night. Eight years. Same block. Neighbours made me a SIGN.": {
+      "warm": "Eight years, and you never rang. Ring.",
+      "cold": "I'll have the sign taken down. And the block."
+    },
+    "Vesper! You talk so slow I fit a squat between words! Talk! One! MORE! Two!": {
+      "warm": "I'll go slower. Squat, then. All night.",
+      "cold": "My pauses are sacred. Get out of them."
+    },
+    "Just us! Can I ask you one question? It's about eggs. It's ALWAYS about eggs. How do you like them?": {
+      "warm": "Poached. Bring them at four. Don't knock.",
+      "cold": "I like them unasked."
+    },
+    "Alone with you! One breath. Hold. Still one. Why am I still on ONE?": {
+      "warm": "Because I said so. Stay on one.",
+      "cold": "Breathe out. Slowly. Elsewhere."
+    },
+    "Sir! I made your bed! Then did forty pushups on it! Five stars? Forty-five STARS?": {
+      "warm": "Forty-five stars. I've had the sky rearranged.",
+      "cold": "Five stars is the ceiling. You've broken it."
+    },
+    "Sir, eleven chandeliers! I went round again, eleven more! Twenty-two! Next lap, FORTY-FOUR!": {
+      "warm": "Forty-four. I'll have them lit.",
+      "cold": "No next lap. I've locked the corridor."
+    },
+    "Pixel! Your face is a game! I'm the little guy! I'm jumping! Am I winning? Am I WINNING?": {
+      "warm": "You're winning. I've fixed the game.",
+      "cold": "Little guy. Littler now. I've shrunk you."
+    },
+    "Score me out of ten! Eleven? You said eleven! I heard eleven! Clip it, I heard ELEVEN!": {
+      "warm": "Eleven. I'll put it in writing.",
+      "cold": "Nobody said eleven. I've had the tape wiped."
+    },
+    "{rival} got two laughs! Great laughs! I'm here for the third one. Has anyone seen it? Laugh THREE?": {
+      "warm": "Third one's yours. It's small. Keep it.",
+      "cold": "The laughs are sold out. {rival} took the stock."
+    },
+    "Whatever {rival} gave you, I brought snacks! Boiled eggs! Eleven! Still warm from my POCKET!": {
+      "warm": "Hand one over. Nobody saw.",
+      "cold": "Warm pocket eggs. Seize them. Seize the pocket."
+    },
+    "{rival} stood right here? I'll stand on the exact spot. Now I know everything {rival} KNOWS!": {
+      "warm": "That spot's been moved. Stand closer than {rival} did.",
+      "cold": "{rival} knew nothing. You're standing in it."
+    }
+  }
+}

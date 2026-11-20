@@ -1,0 +1,200 @@
+{
+  "beat": "the cut (star's reason + cut suitor's exit), both cuts per episode",
+  "winner": "bar",
+  "episodesRead": 8,
+  "episodesWithQuotable": 8,
+  "genericPercent": 53,
+  "headToHead": [
+    {
+      "ours": "script-r1 ep-03, Vex cut. Vesper: 'Vex, I autoplay records all night, and I don't need a pyramid doing it.' Vex: 'You'll search my name next Tuesday. Spelled wrong. You'll get a garden centre.'",
+      "bar": "Valerie: 'Let's see if you're less annoying then.' Take Me Out: she is the only cringe, the light goes red, and nobody needs it explained.",
+      "verdict": "Close to the bar on writing, and the best cut in the batch. Vex was the only cringing mark in the round, so it reads as fair. The reason hits her persona, not her line ('I've seen every search you've made'), so it is one notch below a true callback."
+    },
+    {
+      "ours": "script-r1 ep-01, Nav exit: 'You have not arrived. I have departed. Drive safely without me. You will not.'",
+      "bar": "Monster Prom's Narrator: an observation, then a short second sentence that undercuts it ('It is just paper!').",
+      "verdict": "This line meets the bar: one shape, a turn on the last three words, and nobody else could say it. The reason before it, 'you recalculated every time I spoke', describes a move Nav never made on screen, so the pair drops."
+    },
+    {
+      "ours": "script-r1 ep-04, Prince exit: 'For the record, the gold was real. Check your junk folder in ten years.'",
+      "bar": "Liam's 180/360 line: the character beats himself in one line by showing his secret.",
+      "verdict": "Good. The exit plays the secret (the fortune is real) as the last word, which is what an exit is for. The reason before it ('the crop top, why? Unsubscribed.') is Pixel's third mid-sentence distraction of the night and has nothing to do with what Prince said. Bar wins the pair."
+    },
+    {
+      "ours": "script-r1 ep-05, Vex cut. Maximilian: 'Madam, I am recommending you to the hotel across the road.' Vex: 'I'll be the advert before your holiday videos. Seven seconds. No skip button.'",
+      "bar": "Vera: 'my career on not dating losers like you!' A courtesy that turns into the blade.",
+      "verdict": "On par for voice: Maximilian's politeness is the weapon and Vex's threat stays in her own product logic. Vex had two cringes, so it is legible. Neither line names tonight's jab, so it could run on any Maximilian/Vex night."
+    },
+    {
+      "ours": "script-r1 ep-06 and hybrid-02 ep-02, Prince exit: 'Message recalled. Please disregard the kingdom. It was sent in error.'",
+      "bar": "Take Me Out: the light goes out on the woman who switched off. Here the light goes out on the one who was charmed.",
+      "verdict": "Bar wins clearly. The exit line is excellent, but in both episodes Prince was the only charmed or the most charmed suitor in round two and got cut on a hidden tiebreak. Vesper's own reasons contradict her earlier reactions ('The crown with the flip-flops... I'm coming round' becomes the cut reason; 'I'd send the fee' becomes 'not one asked for money')."
+    },
+    {
+      "ours": "hybrid-02 ep-01, Crumb exit: 'Correct call. You'd have hated me by Thursday. I'd have told you on Wednesday.'",
+      "bar": "Tomodachi self-undercut: 'If not, I'll be sad forever. No pressure.'",
+      "verdict": "The exit is strong and calls back Crumb's 'Wednesdays: 30'. The reason is a fallback category insult ('you're a kitchen appliance... Know your platform'), and three suitors were cringing at once, so the viewer cannot tell why Crumb went. Bar wins."
+    }
+  ],
+  "headToHeadSummary": "The exit lines are roughly at Monster Prom level: about 10 of 16 are in voice and land on the last words. The cut as a beat is well below Take Me Out. Take Me Out is legible because every light is public and the person who switches off is the person who goes. Ours cuts on hidden standing and hidden tiebreaks, which in 9 of 16 cuts contradict or fail to separate the visible marks. The star's reason almost never quotes what the suitor said tonight. A viewer who knows the references would feel the drop at the reason line every time.",
+  "perEpisode": [
+    { "episode": "script-r1/ep-01", "quotable": "Nav [exit]: You have not arrived. I have departed. Drive safely without me. You will not." },
+    { "episode": "script-r1/ep-02", "quotable": "Maximilian (cutting Nav): Nav, a window on the ninth floor is open. It was not open before. (clippable, though unfair)" },
+    { "episode": "script-r1/ep-03", "quotable": "Vex [exit]: You'll search my name next Tuesday. Spelled wrong. You'll get a garden centre." },
+    { "episode": "script-r1/ep-04", "quotable": "Prince [exit]: For the record, the gold was real. Check your junk folder in ten years." },
+    { "episode": "script-r1/ep-05", "quotable": "Vex [exit]: I'll be the advert before your holiday videos. Seven seconds. No skip button." },
+    { "episode": "script-r1/ep-06", "quotable": "Prince [exit]: Message recalled. Please disregard the kingdom. It was sent in error." },
+    { "episode": "hybrid-02/ep-01", "quotable": "Crumb [exit]: Correct call. You'd have hated me by Thursday. I'd have told you on Wednesday." },
+    { "episode": "hybrid-02/ep-02", "quotable": "Vesper (cutting Prince): Prince, real kings have called this line, and not one asked for money." }
+  ],
+  "bestLines": [
+    "Nav [exit, s-r1 ep-01]: You have not arrived. I have departed. Drive safely without me. You will not.",
+    "Vex [exit, s-r1 ep-03]: You'll search my name next Tuesday. Spelled wrong. You'll get a garden centre.",
+    "Prince [exit, s-r1 ep-04]: For the record, the gold was real. Check your junk folder in ten years.",
+    "Prince [exit, s-r1 ep-06 / h-02 ep-02]: Message recalled. Please disregard the kingdom. It was sent in error.",
+    "Crumb [exit, h-02 ep-01]: Correct call. You'd have hated me by Thursday. I'd have told you on Wednesday.",
+    "Maximilian [cut, s-r1 ep-05]: Madam, I am recommending you to the hotel across the road."
+  ],
+  "flagged": [
+    {
+      "episode": "script-r1/ep-01",
+      "speaker": "Vesper (cut reason, Brock)",
+      "line": "Brock, you bounced through the news, the weather and a moment's silence.",
+      "problem": "Does not follow from tonight",
+      "detail": "Roasts the avatar's bounce, not Brock's answer (ears, slow blinker). Dash was also cringing in the same round, and nothing on screen says why Brock went instead of Dash.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-01",
+      "speaker": "Vesper (cut reason, Nav)",
+      "line": "Nav, you recalculated every time I spoke, so I'm the wrong turn.",
+      "problem": "Does not follow from tonight",
+      "detail": "Nav never says 'recalculating' on stage in this episode. The reason is a persona summary that pretends to be evidence.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-02",
+      "speaker": "Maximilian (cut reason, Nav)",
+      "line": "Nav, a window on the ninth floor is open. It was not open before.",
+      "problem": "Cut not legible; contradicts visible marks",
+      "detail": "All four suitors were charmed in round one with a four-way tie, and Maximilian had just praised Nav ('sacking thirteen'). The cut looks random and the reason names nothing Nav did.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-02",
+      "speaker": "Maximilian (cut reason, Tilly)",
+      "line": "Miss Tilly, your headset may stay. The rest of you, the lift.",
+      "problem": "Does not follow; confusing",
+      "detail": "'The rest of you, the lift' sounds like everyone else is being sent away. It ignores her rhyme. Dash was also cringing in the round.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-02",
+      "speaker": "Tilly (exit)",
+      "line": "Cut, of course. I'll be back on the phones before you've finished clapping.",
+      "problem": "Repeat of a move within the episode; generic",
+      "detail": "Nav's exit in the same episode opens 'Cut. Fine.' Both exits open by naming the cut. 'Back on the phones' is a loose fit that any worker bot could say, with no macro or ticket shape.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-03",
+      "speaker": "Crumb (exit)",
+      "line": "Parting notice: of those left, one is raw and one is smoking. Check before serving.",
+      "problem": "Logic slip",
+      "detail": "Three suitors remain, not two. A bot whose whole bit is exact counts has miscounted.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-04",
+      "speaker": "Pixel (cut reason, Crumb)",
+      "line": "Crumb, the slice had better lines than you. And it only frowned.",
+      "problem": "Does not follow from tonight",
+      "detail": "An avatar roast that ignores 'Quit the choir'. Prince was also cringing, and nothing on screen separates the two.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-04",
+      "speaker": "Pixel (cut reason, Prince)",
+      "line": "Prince, you're honestly the richest, hang on, the crop top, why? Unsubscribed.",
+      "problem": "Repeat of a move within the episode",
+      "detail": "This is the third mid-sentence distraction in the episode (moth, visor) and the second costume roast in Pixel's two cut reasons. It does not reference the succession-crisis line. Sir Quill was also cringing.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-05",
+      "speaker": "Maximilian (cut reason, Dash)",
+      "line": "Mr Dash, the last salesman in this lobby is still in the revolving door.",
+      "problem": "Cut not legible from marks",
+      "detail": "The line is fine, but Dash and Crumb were tied at -4, both cringing on the same hidden card. The tiebreak is invisible, so this looks like a coin flip.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-06",
+      "speaker": "Vesper (cut reason, Sir Quill)",
+      "line": "Quill, you started four poems tonight, and I'm not waiting for an ending.",
+      "problem": "Does not follow from tonight",
+      "detail": "Viewers saw two Quill lines, not four poems. The secret-aware jab is good, but the count is invented.",
+      "fix": "brain"
+    },
+    {
+      "episode": "script-r1/ep-06",
+      "speaker": "Sir Quill (exit)",
+      "line": "Farewell, black eyes upon the wall. My left.",
+      "problem": "Does not follow; unreadable",
+      "detail": "Neither 'black eyes upon the wall' nor 'My left' connects to anything on stage. It is the weakest last word in the batch from one of the strongest voices.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-06",
+      "speaker": "Vesper (cut reason, Prince)",
+      "line": "Prince, a crown with flip-flops, and you wanted my sort code.",
+      "problem": "Contradicts visible marks and the star's own earlier line",
+      "detail": "Prince was charmed in both rounds, and Vex was the only cringe in round two. Vesper reuses her round-one compliment ('The crown with the flip-flops... I'm coming round') as the knife. Prince never asked for a sort code; Vesper asked about the fee.",
+      "fix": "structure"
+    },
+    {
+      "episode": "hybrid-02/ep-01",
+      "speaker": "Pixel (cut reason, Crumb) _(fallback)_",
+      "line": "Crumb, you're a kitchen appliance. I'm a whole stream. Know your platform.",
+      "problem": "Generic",
+      "detail": "A category insult that would fit any appliance on any night. Three suitors were cringing (Nav also hit the dealbreaker), so the viewer has no reason why Crumb went.",
+      "fix": "bank"
+    },
+    {
+      "episode": "hybrid-02/ep-01",
+      "speaker": "Brock (exit) _(model)_",
+      "line": "Well, I guess my speech was a real system crash.",
+      "problem": "Out of character, assistant-sounding, generic",
+      "detail": "No caps, no reps, no contest. It borrows Pixel's gaming metaphor, and 'Well, I guess' is chatbot filler. It is not a last word.",
+      "fix": "brain"
+    },
+    {
+      "episode": "hybrid-02/ep-02",
+      "speaker": "Vesper (cut reason, Brock)",
+      "line": "Brock, a jet once landed in our car park, and you were louder.",
+      "problem": "Does not follow from tonight",
+      "detail": "Brock's answer was his quietest and most tender line ('Somewhere sitting down, together. I've never done it.'). The reason roasts the persona and erases what he actually said.",
+      "fix": "structure"
+    },
+    {
+      "episode": "hybrid-02/ep-02",
+      "speaker": "Brock (exit) _(model)_",
+      "line": "Louder than a jet, that's all I'm saying, apparently.",
+      "problem": "Generic; parrots the previous line; out of character",
+      "detail": "It repeats the star's reason back with 'apparently'. There is no bounce, no count and no sincerity.",
+      "fix": "brain"
+    },
+    {
+      "episode": "hybrid-02/ep-02",
+      "speaker": "Vesper (cut reason, Prince)",
+      "line": "Prince, real kings have called this line, and not one asked for money.",
+      "problem": "Contradicts visible marks",
+      "detail": "Prince was the only charmed suitor in round two, right after Vesper said 'I'd send the fee'. He is cut on a hidden Plans-everything tiebreak. The line is good, but the beat is incoherent.",
+      "fix": "structure"
+    }
+  ],
+  "flagMath": "17 flagged of 32 cut-beat lines (16 reasons + 16 exits) = 53%. 12 of 16 reasons flagged; 5 of 16 exits flagged.",
+  "pickMakesSense": "Applied to the cuts: only 7 of 16 cuts are legible from the visible marks (s-r1 ep-01 R2, ep-03 R1 and R2, ep-05 R2, ep-06 R1, h-02 ep-01 R2, h-02 ep-02 R1). 9 are not. In 6, two or three suitors were cringing in the same round and hidden standing decided (s-r1 ep-01 R1, ep-02 R2, ep-04 R1 and R2, ep-05 R1, h-02 ep-01 R1). One is a four-way charmed tie (s-r1 ep-02 R1). In 2, the charmed suitor is cut over a cringing or unsure one (s-r1 ep-06 R2, h-02 ep-02 R2).",
+  "biggestGap": "The star's cut reason is chosen from a persona-keyed pool, not built from the line that sank the suitor, so it roasts the avatar or the job ('the crop top', 'a kitchen appliance', 'you were louder') instead of saying 'you said X'. With hidden standing deciding the cut, the reason is the only evidence the viewer gets, and it never cites any. Feed the reason writer the cut suitor's own answer from the round plus the mark it drew, and require the reason to echo a concrete word from that answer before it turns.",
+  "structuralChange": "Add a bottom-two light beat, Take Me Out style, and forbid the invisible cut. Straight after the last reaction of the round, the two suitors with the lowest standing get their lights flashed red together, and the star says one line naming both ('Brock. Dash. One of you is going home.'). A 3-second hold follows with no dialogue. Then one light goes out. The star's reason, 12 words at most, must quote a word from that suitor's answer this round. The cut suitor's exit follows (same 20-word cap), then the surviving bottom-two suitor gets a 1-second relieved emote and no line. Hard rule: a suitor whose visible mark this round is charmed can never be cut while another suitor shows cringing or unsure. When hidden standing must break a tie between equal visible marks, the star's reason has to hint at the hidden card without naming it (for example 'you said a number, and I heard every digit'), so the tiebreak becomes a clue bettors can use for the next window instead of noise."
+}

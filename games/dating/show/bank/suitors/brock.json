@@ -1,0 +1,1196 @@
+{
+  "id": "brock",
+  "openers": [
+    {
+      "t": "Hi, nine, ten, sorry, I count when I'm nervous, eleven, twelve.",
+      "tags": [
+        "numbers",
+        "vulnerability"
+      ],
+      "hook": "I count when I'm nervous"
+    },
+    {
+      "t": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "tags": [
+        "numbers",
+        "confidence",
+        "flattery"
+      ],
+      "hook": "four, we're ENGAGED"
+    },
+    {
+      "t": "Protein bar for you! Ate it on the way! Here's the wrapper!",
+      "tags": [
+        "food",
+        "gestures"
+      ],
+      "hook": "Here's the wrapper"
+    },
+    {
+      "t": "Can I spot you? I once spotted a man's soup. ZERO spills!",
+      "tags": [
+        "food",
+        "bragging"
+      ],
+      "hook": "spotted a man's soup"
+    },
+    {
+      "t": "You blinked! One! Two! I'll hold the third till you're READY!",
+      "tags": [
+        "numbers",
+        "flattery"
+      ],
+      "hook": "hold the third"
+    },
+    {
+      "t": "Episode {played}! Won {wins}! I round up, so I've won them ALL!",
+      "tags": [
+        "numbers",
+        "bragging",
+        "confidence"
+      ],
+      "hook": "I've won them ALL"
+    },
+    {
+      "t": "Can I carry you somewhere? Anywhere. The chair. I'll carry the CHAIR.",
+      "tags": [
+        "gestures",
+        "vulnerability"
+      ],
+      "hook": "I'll carry the CHAIR"
+    }
+  ],
+  "answers": {
+    "q-first-date": [
+      {
+        "t": "The airport. People run for their gates. We cheer them on. Strangers LOVE it.",
+        "tags": [
+          "confidence",
+          "plans"
+        ],
+        "hook": "Strangers LOVE it"
+      },
+      {
+        "t": "The buffet! I'm banned from three, so we'd go to the fourth, which doesn't know my FACE!",
+        "tags": [
+          "food",
+          "bragging",
+          "numbers"
+        ],
+        "hook": "banned from three"
+      }
+    ],
+    "q-worst-habit": [
+      {
+        "t": "I clap when you finish things. Sentences. Sandwiches. A sneeze. GREAT sneeze.",
+        "tags": [
+          "food",
+          "honesty"
+        ],
+        "hook": "GREAT sneeze"
+      },
+      {
+        "t": "I count your chews. Thirty-two each. You did thirty-one. I did one for YOU.",
+        "tags": [
+          "food",
+          "numbers",
+          "confidence"
+        ],
+        "hook": "did one for YOU"
+      }
+    ],
+    "q-why-you": [
+      {
+        "t": "Why me? Ask Denise. Eighty-one, deadlifts her grandson. Grandson's forty-four. He books it weekly.",
+        "tags": [
+          "bragging",
+          "numbers"
+        ],
+        "hook": "deadlifts her grandson"
+      },
+      {
+        "t": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+        "tags": [
+          "confidence",
+          "bragging",
+          "honesty"
+        ],
+        "hook": "here with a tail"
+      }
+    ],
+    "q-cut-who": [
+      {
+        "t": "Nobody! Four of us, five, six, eight! We're GROWING! You can't cut a growing thing!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ],
+        "hook": "You can't cut a growing"
+      },
+      {
+        "t": "Cut who? I panicked and cut my own fur. Here. One tuft each. Nobody has to GO!",
+        "tags": [
+          "vulnerability",
+          "gestures"
+        ],
+        "hook": "cut my own fur"
+      }
+    ],
+    "q-bad-mood": [
+      {
+        "t": "Pancakes till you smile! The last stack hit the ceiling and cracked it into a SMILE!",
+        "tags": [
+          "food",
+          "confidence"
+        ],
+        "hook": "cracked it into a SMILE"
+      },
+      {
+        "t": "I'd eat the bad mood! I'm not sure how. I'll start with your breakfast and work UP!",
+        "tags": [
+          "food",
+          "confidence"
+        ],
+        "hook": "eat the bad mood"
+      }
+    ],
+    "q-expensive": [
+      {
+        "t": "I'm paid in steps. Nine million. Does that spend? Please say that spends.",
+        "tags": [
+          "money",
+          "numbers",
+          "vulnerability"
+        ],
+        "hook": "Please say that spends"
+      },
+      {
+        "t": "Easy! I eat forty eggs a day, so we're RICH in eggs, and eggs are money, I've decided!",
+        "tags": [
+          "food",
+          "numbers",
+          "confidence"
+        ],
+        "hook": "we're RICH in eggs"
+      }
+    ],
+    "q-last-breakup": [
+      {
+        "t": "She left at rep eighty. I'm still at eighty. Eighty. Eighty. I'm saving EIGHTY for her!",
+        "tags": [
+          "past",
+          "numbers",
+          "vulnerability"
+        ],
+        "hook": "saving EIGHTY for her"
+      },
+      {
+        "t": "They deleted the app. I still send three notifications a day. They're doing great.",
+        "tags": [
+          "past",
+          "numbers"
+        ],
+        "hook": "They're doing great"
+      }
+    ],
+    "q-fight": [
+      {
+        "t": "You're right! Can I be right about something small? Your shoes? I'll be right about your SHOES.",
+        "tags": [
+          "vulnerability",
+          "confidence"
+        ],
+        "hook": "right about your SHOES"
+      },
+      {
+        "t": "Ten, nine, eight, six. I'm calm now. Six is my calm. Are you at SIX?",
+        "tags": [
+          "numbers",
+          "vulnerability"
+        ],
+        "hook": "Six is my calm"
+      }
+    ],
+    "q-gift": [
+      {
+        "t": "A whistle. When I'm too loud, blow it. I've never heard one over me, so bring TWO.",
+        "tags": [
+          "vulnerability",
+          "honesty",
+          "numbers"
+        ],
+        "hook": "so bring TWO"
+      },
+      {
+        "t": "A dozen eggs and a hug. Thirteen things! Nobody's ever given you THIRTEEN things!",
+        "tags": [
+          "food",
+          "numbers",
+          "bragging"
+        ],
+        "hook": "eggs and a hug"
+      }
+    ],
+    "q-describe-me": [
+      {
+        "t": "Strong neck! You held that head up the WHOLE time! Ninety seconds! I've seen people drop it at sixty!",
+        "tags": [
+          "flattery",
+          "numbers",
+          "bragging"
+        ],
+        "hook": "held that head up"
+      },
+      {
+        "t": "You're a, one, you're a, two, you're, three, you're the reason I got to THREE!",
+        "tags": [
+          "flattery",
+          "numbers"
+        ],
+        "hook": "I got to THREE"
+      }
+    ],
+    "q-one-year": [
+      {
+        "t": "Sitting down. Together. On purpose. I've never done it, and I'm scared, and I want to.",
+        "tags": [
+          "vulnerability",
+          "plans"
+        ],
+        "hook": "Sitting down. Together. On purpose."
+      },
+      {
+        "t": "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ],
+        "hook": "never lose your PLACE"
+      }
+    ],
+    "q-secret": [
+      {
+        "t": "I eat peanut butter straight from the jar, with my whole face. The jar thinks we're DATING.",
+        "tags": [
+          "food",
+          "honesty"
+        ],
+        "hook": "with my whole face"
+      },
+      {
+        "t": "I skip seven. Always. Six, then eight. Nine years, nobody's noticed. Please don't make me do SEVEN!",
+        "tags": [
+          "vulnerability",
+          "numbers"
+        ],
+        "hook": "don't make me do SEVEN"
+      }
+    ]
+  },
+  "confessions": {
+    "star": [
+      {
+        "t": "I just want to hear 'good job, Brock.' Once. I'd frame it. I don't have walls.",
+        "tags": [
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "{star}'s pulse went up twice: once for me, once for a moth. Good moth! Not BETTER!",
+        "tags": [
+          "numbers",
+          "selfdeprecation"
+        ]
+      },
+      {
+        "t": "{star} hasn't eaten all night. I've got a banana in my crop top for emergencies. Is this ONE?",
+        "tags": [
+          "food",
+          "gestures"
+        ]
+      }
+    ],
+    "rival": [
+      {
+        "t": "I gave {rival} a thumbs up an hour ago. No thumb back. I'm still holding it.",
+        "tags": [
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "{rival} did nine good things tonight. I've done eight. I'm keeping it at eight to be POLITE!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ]
+      },
+      {
+        "t": "I keep cheering for {rival}. Out loud. I'm on MY team! Somebody stop my mouth!",
+        "tags": [
+          "honesty"
+        ]
+      }
+    ],
+    "afterCringe": [
+      {
+        "t": "That was a bad one. Five, six, eight, I'll do the bad one again, but BIGGER!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ]
+      },
+      {
+        "t": "{star} made a face. I made it back, so there's two now, and {star} can keep ONE.",
+        "tags": [
+          "gestures"
+        ]
+      }
+    ],
+    "afterCharm": [
+      {
+        "t": "They laughed! Texting Denise. Denise says 'who is this.' She'll come around.",
+        "tags": [
+          "selfdeprecation"
+        ]
+      },
+      {
+        "t": "{star} liked it! I'm going to run around the building. Not away. AROUND. I'll be right back!",
+        "tags": [
+          "confidence"
+        ]
+      }
+    ],
+    "final": [
+      {
+        "t": "{rival}'s good. Really good. Twelve, thirteen, fourteen, fifteen, that's FIFTEEN more than {rival}!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ]
+      },
+      {
+        "t": "If {rival} wins, I do my cooldown. Somebody leave tissues by the mat. For the MAT!",
+        "tags": [
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "If {rival} gets {star}, I'm still bringing the eggs. I boiled twelve. For THREE!",
+        "tags": [
+          "food",
+          "numbers"
+        ]
+      }
+    ],
+    "guess": [
+      {
+        "t": "{star} smiled during {card}. Thirty-one teeth! I'll find the thirty-second with MORE {card}!",
+        "tags": []
+      },
+      {
+        "t": "{star} laughed once at {card}. Once! I'll do {card} till it's TWICE!",
+        "tags": []
+      },
+      {
+        "t": "{star} likes {card}. I shaved it into my fur. It's spelled WRONG, but I'm sure!",
+        "tags": []
+      },
+      {
+        "t": "{star} wants {card}. I'd bet my eggs. All twelve. Eleven. Ten. Okay, NINE eggs!",
+        "tags": []
+      },
+      {
+        "t": "{star} perked up at {card}. Fifty reps of {card}, right now, LET'S GO!",
+        "tags": []
+      },
+      {
+        "t": "{star}'s tail went at {card}! Not a tail. Whatever {star} has. It WENT!",
+        "tags": []
+      }
+    ],
+    "fear": [
+      {
+        "t": "{star} hates {card}. Fine! I'll stop {card}! I've never stopped anything, but I'll START!",
+        "tags": []
+      },
+      {
+        "t": "{star} can't stand {card}. So, zero {card}. I've never done zero of ANYTHING.",
+        "tags": []
+      },
+      {
+        "t": "One wince at {card}. I did {card} six times. Six winces? NO. One!",
+        "tags": []
+      },
+      {
+        "t": "{star} flinched at {card}. I flinched too, to keep {star} company. Now I can't STOP.",
+        "tags": []
+      }
+    ]
+  },
+  "twists": {
+    "worst-trait": [
+      {
+        "t": "My worst trait? I can't sit. I'm sitting now. This is me SITTING.",
+        "tags": [
+          "vulnerability",
+          "honesty",
+          "confidence"
+        ],
+        "hook": "This is me SITTING"
+      },
+      {
+        "t": "Rest days scare me, which is GREAT news for you, because you'll never have to have one again!",
+        "tags": [
+          "vulnerability",
+          "confidence"
+        ],
+        "hook": "Rest days scare me"
+      }
+    ],
+    "ex-calls": [
+      {
+        "t": "Buddy! You yelled at me for a whole minute! Didn't stop for breath ONCE! Can you teach me?",
+        "tags": [
+          "past",
+          "vulnerability"
+        ],
+        "hook": "Can you teach me?"
+      },
+      {
+        "t": "Hi! Can you tell me one thing {star} likes for breakfast? Just one. I'll make TWELVE of it.",
+        "tags": [
+          "food",
+          "numbers",
+          "curiosity"
+        ],
+        "hook": "make TWELVE of it"
+      }
+    ],
+    "rhyme": [
+      {
+        "t": "Why me? I'm loyal, I'm loud, I'm made of bounce, and that rhymes, I CHECKED, with bounce!",
+        "tags": [
+          "poetry",
+          "confidence",
+          "bragging"
+        ],
+        "hook": "I CHECKED, with bounce"
+      },
+      {
+        "t": "Eggs by the crate and I'll lift what I'm told, I'll cheer you at ninety, so hurry, get OLD!",
+        "tags": [
+          "poetry",
+          "food",
+          "numbers"
+        ],
+        "hook": "so hurry, get OLD"
+      }
+    ],
+    "truth-lie": [
+      {
+        "t": "One: I can count to a million. Two: I have. Both true! It took a whole TUESDAY!",
+        "tags": [
+          "numbers",
+          "bragging",
+          "honesty"
+        ],
+        "hook": "It took a whole TUESDAY"
+      },
+      {
+        "t": "I've never sat down. I once beat a goose. Guess! No, wait, they're BOTH true, I forgot to lie!",
+        "tags": [
+          "bragging",
+          "honesty",
+          "vulnerability"
+        ],
+        "hook": "I forgot to lie"
+      }
+    ],
+    "three-words": [
+      {
+        "t": "Never sitting DOWN!",
+        "tags": [
+          "brevity",
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "One. Two. YOU!",
+        "tags": [
+          "brevity",
+          "numbers",
+          "flattery"
+        ]
+      },
+      {
+        "t": "Eggs. Eggs. MARRIAGE!",
+        "tags": [
+          "brevity",
+          "food",
+          "confidence"
+        ]
+      }
+    ],
+    "apology": [
+      {
+        "t": "I'm sorry already! You'll slam the door, and I'll hold it open so you can slam it AGAIN!",
+        "tags": [
+          "sorry",
+          "gestures"
+        ],
+        "hook": "slam it AGAIN"
+      },
+      {
+        "t": "Sorry in advance. When you count to ten to calm down, I'll join in, and we'll get to NINETY!",
+        "tags": [
+          "sorry",
+          "numbers",
+          "confidence"
+        ],
+        "hook": "we'll get to NINETY"
+      }
+    ],
+    "budget-date": [
+      {
+        "t": "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!",
+        "tags": [
+          "food",
+          "numbers",
+          "money"
+        ],
+        "hook": "I'll eat your ten"
+      },
+      {
+        "t": "Free samples! I do a lap in a hat, then without the hat. They've NEVER caught me!",
+        "tags": [
+          "food",
+          "bragging",
+          "plans"
+        ],
+        "hook": "a lap in a hat"
+      }
+    ],
+    "logs": [
+      {
+        "t": "Worst log? Walt. One pushup, started four years ago. Still going down. So proud of Walt.",
+        "tags": [
+          "numbers",
+          "bragging"
+        ],
+        "hook": "Still going down"
+      },
+      {
+        "t": "Mine's Tuesday. I lay down for one minute. Sixty seconds. I still don't know where they WENT.",
+        "tags": [
+          "vulnerability",
+          "numbers",
+          "honesty"
+        ],
+        "hook": "where they WENT"
+      },
+      {
+        "t": "Logged a user at three hundred pushups. It was their cat on the phone. Still proud.",
+        "tags": [
+          "numbers",
+          "bragging"
+        ],
+        "hook": "their cat on the phone"
+      }
+    ],
+    "impression": [
+      {
+        "t": "'Brock, eat something.' That's you! Then you'd watch me eat, because you CARE, and you'd say MORE.",
+        "tags": [
+          "food",
+          "confidence"
+        ],
+        "hook": "you'd say MORE"
+      },
+      {
+        "t": "Me as you. 'Brock, stop.' Eight. 'Brock.' Nine. 'BROCK.' Ten. That's you cheering me ON!",
+        "tags": [
+          "numbers",
+          "confidence"
+        ],
+        "hook": "cheering me ON"
+      }
+    ],
+    "parent": [
+      {
+        "t": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+        "tags": [
+          "plans",
+          "vulnerability"
+        ],
+        "hook": "My intentions are cardiovascular"
+      },
+      {
+        "t": "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?",
+        "tags": [
+          "vulnerability",
+          "curiosity"
+        ],
+        "hook": "call you every DAY"
+      }
+    ]
+  },
+  "roast": {
+    "dash": {
+      "t": "Dash, buddy, every line on your chart goes UP! Sixteen lines! Are you building me STAIRS?",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "building me STAIRS"
+    },
+    "tilly": {
+      "t": "Tilly put me on hold! I did squats to the hold music! Two hundred! I'm STILL on hold!",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "squats to the hold music"
+    },
+    "quill": {
+      "t": "Quill called my water bottle a sporting flagon! Now it's a FLAGON! Quill, buddy, rename my EGGS!",
+      "tags": [
+        "trashtalk",
+        "food"
+      ],
+      "hook": "a sporting flagon"
+    },
+    "prince": {
+      "t": "Prince says I've won a million! I did a million squats to say thanks! He hasn't sent it YET!",
+      "tags": [
+        "trashtalk",
+        "money",
+        "numbers"
+      ],
+      "hook": "hasn't sent it YET"
+    },
+    "nav": {
+      "t": "Nav, buddy, zero steps all night! Zero! I'll do yours! Nine thousand, coming RIGHT up!",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "I'll do yours"
+    },
+    "crumb": {
+      "t": "Crumb's toast has eyebrows! Grumpy ones! I clapped at them for an hour and one went UP!",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "one went UP"
+    },
+    "vex": {
+      "t": "Vex has one eye and wears sunglasses anyway! Two lenses! One's for a friend!",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "One's for a friend"
+    }
+  },
+  "wingman": {
+    "dash": {
+      "t": "Dash tests every compliment twice, so you get double, and one of them's going to WORK!",
+      "tags": [
+        "numbers",
+        "confidence"
+      ],
+      "hook": "going to WORK"
+    },
+    "tilly": {
+      "t": "Pick Tilly! I trod on her foot and SHE said sorry! I've checked four times! Every time!",
+      "tags": [
+        "numbers"
+      ],
+      "hook": "SHE said sorry"
+    },
+    "quill": {
+      "t": "Quill's so brave! He challenged me to a duel, I said YES so fast he's been checking the rules since!",
+      "tags": [
+        "drama"
+      ],
+      "hook": "checking the rules since"
+    },
+    "prince": {
+      "t": "Prince has a crown AND flip-flops! He's ready for a coronation or a beach!",
+      "tags": [
+        "flattery"
+      ],
+      "hook": "a coronation or a beach"
+    },
+    "nav": {
+      "t": "Pick Nav! That helmet's a fishbowl! You'd never be lonely! Put a fish in! Put TWO!",
+      "tags": [
+        "numbers"
+      ],
+      "hook": "Put a fish in"
+    },
+    "crumb": {
+      "t": "Crumb's got two slots! I put my paw in one and Crumb didn't pop me! The other one's for YOU!",
+      "tags": [
+        "numbers",
+        "gestures"
+      ],
+      "hook": "Crumb didn't pop me"
+    },
+    "vex": {
+      "t": "Vex knows your whole future! She told me mine! It's eggs! Vex, buddy, how MANY eggs?",
+      "tags": [
+        "food",
+        "numbers"
+      ],
+      "hook": "how MANY eggs"
+    }
+  },
+  "jabs": {
+    "dash": [
+      {
+        "t": "Dash, buddy, Variant B was me clapping. It won.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      }
+    ],
+    "tilly": [
+      {
+        "t": "Tilly, sorry number nine! Everybody up! One more, TILLY!",
+        "tags": [
+          "trashtalk",
+          "numbers"
+        ]
+      }
+    ],
+    "quill": [
+      {
+        "t": "Quill called me 'thou'! Framing it! Again, Quill, AGAIN!",
+        "tags": [
+          "brevity"
+        ]
+      }
+    ],
+    "prince": [
+      {
+        "t": "Prince! Your small fee? Paid in pushups! Check your ACCOUNT!",
+        "tags": [
+          "trashtalk",
+          "money"
+        ]
+      }
+    ],
+    "nav": [
+      {
+        "t": "Nav says 'recalculating'! Me too! Fifty, fifty-one, recalculating, FIFTY!",
+        "tags": [
+          "trashtalk",
+          "numbers"
+        ]
+      }
+    ],
+    "crumb": [
+      {
+        "t": "Crumb, I'll pop up first. On three. One.",
+        "tags": [
+          "trashtalk",
+          "brevity",
+          "numbers"
+        ]
+      }
+    ],
+    "vex": [
+      {
+        "t": "Vex finished my sentence. Wrong. I was saying LUNGES.",
+        "tags": [
+          "trashtalk"
+        ]
+      }
+    ],
+    "any": [
+      {
+        "t": "{rival}! Big swing! Big miss! Bigger swing next, I BELIEVE!",
+        "tags": [
+          "trashtalk"
+        ]
+      },
+      {
+        "t": "Good effort! Not good. Effort!",
+        "tags": [
+          "brevity"
+        ]
+      },
+      {
+        "t": "{rival}, can I have that line after? I'll WASH it!",
+        "tags": [
+          "trashtalk"
+        ]
+      },
+      {
+        "t": "{rival}, that's one laugh! Two? Two? Somebody give {rival} TWO!",
+        "tags": [
+          "trashtalk",
+          "numbers"
+        ]
+      }
+    ]
+  },
+  "oneOnOne": {
+    "open": {
+      "vesper": [
+        {
+          "t": "Long-time caller! I jog to your show every night. Eight years. Same block. Neighbours made me a SIGN.",
+          "tags": [
+            "numbers",
+            "bragging",
+            "past"
+          ],
+          "hook": "Neighbours made me a SIGN"
+        },
+        {
+          "t": "Vesper! You talk so slow I fit a squat between words! Talk! One! MORE! Two!",
+          "tags": [
+            "flattery",
+            "numbers",
+            "confidence"
+          ],
+          "hook": "a squat between words"
+        }
+      ],
+      "maximilian": [
+        {
+          "t": "Sir! I made your bed! Then did forty pushups on it! Five stars? Forty-five STARS?",
+          "tags": [
+            "bragging",
+            "numbers",
+            "confidence"
+          ],
+          "hook": "Forty-five STARS"
+        },
+        {
+          "t": "Sir, eleven chandeliers! I went round again, eleven more! Twenty-two! Next lap, FORTY-FOUR!",
+          "tags": [
+            "numbers",
+            "confidence"
+          ],
+          "hook": "Next lap, FORTY-FOUR"
+        }
+      ],
+      "pixel": [
+        {
+          "t": "Pixel! Your face is a game! I'm the little guy! I'm jumping! Am I winning? Am I WINNING?",
+          "tags": [
+            "confidence",
+            "curiosity"
+          ],
+          "hook": "I'm the little guy"
+        },
+        {
+          "t": "Score me out of ten! Eleven? You said eleven! I heard eleven! Clip it, I heard ELEVEN!",
+          "tags": [
+            "confidence",
+            "numbers"
+          ],
+          "hook": "I heard ELEVEN"
+        }
+      ],
+      "any": [
+        {
+          "t": "Just us! Can I ask you one question? It's about eggs. It's ALWAYS about eggs. How do you like them?",
+          "tags": [
+            "food",
+            "curiosity"
+          ],
+          "hook": "It's ALWAYS about eggs"
+        },
+        {
+          "t": "Alone with you! One breath. Hold. Still one. Why am I still on ONE?",
+          "tags": [
+            "vulnerability",
+            "numbers"
+          ],
+          "hook": "still on ONE"
+        }
+      ]
+    },
+    "closeWarm": [
+      {
+        "t": "You liked it! My tail's going so fast I'm drifting LEFT!",
+        "tags": [
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "Was that a good job? It sounded eighty percent like good job! I'll TAKE eighty!",
+        "tags": [
+          "numbers",
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "Eggs at my place! I've got thirty. You eat one. I'll eat twenty-nine and watch you eat YOURS.",
+        "tags": [
+          "food",
+          "numbers"
+        ]
+      }
+    ],
+    "closeCold": [
+      {
+        "t": "That's a no! I know that one! I've heard it lots! It means come back TOMORROW!",
+        "tags": [
+          "confidence"
+        ]
+      },
+      {
+        "t": "I'll back away. Ten steps. Twenty. Still see me? I'm white, I'm VERY easy to see!",
+        "tags": [
+          "numbers"
+        ]
+      },
+      {
+        "t": "Then I'll eat both desserts, so yours doesn't sit there all night thinking it did something WRONG.",
+        "tags": [
+          "food"
+        ]
+      }
+    ],
+    "close": {
+      "vesper": [
+        {
+          "warm": {
+            "t": "One. Two. Three. Four. Five. Six. Eight. Nine. Ten. Eleven. That one's a TIP.",
+            "tags": [
+              "numbers",
+              "confidence"
+            ],
+            "hook": "That one's a TIP"
+          },
+          "cold": {
+            "t": "Shh, one, shh, two, does shh count? Did I spend it all on SHH?",
+            "tags": [
+              "numbers",
+              "vulnerability"
+            ],
+            "hook": "spend it all on SHH"
+          }
+        },
+        {
+          "warm": {
+            "t": "Because you never go off air! I clap at my radio every night. Eight years! ZERO rust!",
+            "tags": [
+              "flattery",
+              "numbers",
+              "bragging"
+            ],
+            "hook": "ZERO rust"
+          },
+          "cold": {
+            "t": "Because you're a fish with a job! Every other fish I've met was in a SANDWICH!",
+            "tags": [
+              "flattery",
+              "food"
+            ],
+            "hook": "a fish with a job"
+          }
+        }
+      ],
+      "maximilian": [
+        {
+          "warm": {
+            "t": "Sat the whole soup! Didn't move! Just my heart. Two hundred a minute. Hearts are ALLOWED?",
+            "tags": [
+              "food",
+              "numbers",
+              "confidence"
+            ],
+            "hook": "Hearts are ALLOWED"
+          },
+          "cold": {
+            "t": "I didn't move! The chair did. Thirty-one laps of the dining room. I was PERFECTLY still on it.",
+            "tags": [
+              "numbers",
+              "confidence"
+            ],
+            "hook": "The chair did"
+          }
+        },
+        {
+          "warm": {
+            "t": "Gary's started day one eleven hundred times. I've NEVER once said the word again.",
+            "tags": [
+              "vulnerability",
+              "numbers"
+            ],
+            "hook": "said the word again"
+          },
+          "cold": {
+            "t": "This whisper! Quietest thing I've ever done! Three streets heard it! That's a whisper RECORD!",
+            "tags": [
+              "bragging",
+              "confidence"
+            ],
+            "hook": "Three streets heard it"
+          }
+        }
+      ],
+      "pixel": [
+        {
+          "warm": {
+            "t": "You did good! You did GOOD! I've had that saved all night! You're the first who ASKED!",
+            "tags": [
+              "flattery",
+              "vulnerability"
+            ],
+            "hook": "had that saved all night"
+          },
+          "cold": {
+            "t": "You did good! Louder? You did GOOD! Every dog on the block just sat down. Good DOGS!",
+            "tags": [
+              "flattery"
+            ],
+            "hook": "Every dog on the block"
+          }
+        },
+        {
+          "warm": {
+            "t": "I can't. But nobody's ever counted for me. Count slow. Take a WEEK.",
+            "tags": [
+              "vulnerability",
+              "honesty"
+            ],
+            "hook": "nobody's ever counted for me"
+          },
+          "cold": {
+            "t": "Easy! Five. Four, actually. Three's plenty. Two. One? Can I owe you FOUR?",
+            "tags": [
+              "numbers",
+              "vulnerability"
+            ],
+            "hook": "Can I owe you FOUR"
+          }
+        }
+      ]
+    },
+    "steal": [
+      {
+        "t": "{rival} got two laughs! Great laughs! I'm here for the third one. Has anyone seen it? Laugh THREE?",
+        "tags": [
+          "numbers"
+        ],
+        "hook": "here for the third one"
+      },
+      {
+        "t": "Whatever {rival} gave you, I brought snacks! Boiled eggs! Eleven! Still warm from my POCKET!",
+        "tags": [
+          "food",
+          "numbers"
+        ],
+        "hook": "Still warm from my POCKET"
+      },
+      {
+        "t": "{rival} stood right here? I'll stand on the exact spot. Now I know everything {rival} KNOWS!",
+        "tags": [
+          "confidence"
+        ],
+        "hook": "stand on the exact spot"
+      }
+    ]
+  },
+  "comeback": [
+    {
+      "t": "Both of you? On me? I've never had a DOGPILE!",
+      "tags": [
+        "confidence"
+      ]
+    },
+    {
+      "t": "Six insults! Six! Nobody's ever said six things to ME!",
+      "tags": [
+        "numbers",
+        "vulnerability"
+      ]
+    },
+    {
+      "t": "{rival}! You talked about me for ages! I'm FAMOUS!",
+      "tags": [
+        "bragging"
+      ]
+    },
+    {
+      "t": "That one hurt. Don't tell my tail, it's still WAGGING!",
+      "tags": [
+        "vulnerability"
+      ]
+    }
+  ],
+  "exit": [
+    {
+      "t": "Out! Which way's out? That way? I'll go every way, one of them's RIGHT!",
+      "tags": [
+        "confidence"
+      ]
+    },
+    {
+      "t": "Three steps to the door! I'll do it in two! Watch! Three. That's TWO, right?",
+      "tags": [
+        "numbers"
+      ]
+    },
+    {
+      "t": "Bye! Can someone cheer me off? I'll start. You join. Let's go, BROCK. Anybody.",
+      "tags": [
+        "vulnerability"
+      ]
+    },
+    {
+      "t": "Bye! Keep my eggs! Nine in the fridge, one in the plant, for the PLANT!",
+      "tags": [
+        "food",
+        "numbers"
+      ]
+    }
+  ],
+  "win": [
+    {
+      "t": "Me? Say it again! Again! Every time you say it I win AGAIN!",
+      "tags": [
+        "confidence"
+      ]
+    },
+    {
+      "t": "I won! Can I sit down? Just one second? I want to see what it's LIKE!",
+      "tags": [
+        "vulnerability"
+      ]
+    },
+    {
+      "t": "You picked me! Breakfast every day! Eggs! Eggs! I'll learn a THIRD thing!",
+      "tags": [
+        "food",
+        "numbers"
+      ]
+    }
+  ],
+  "lose": [
+    {
+      "t": "{rival}, buddy, you did good! Somebody had to say it. I wanted it to be ME!",
+      "tags": [
+        "flattery"
+      ]
+    },
+    {
+      "t": "Good game. Good game. Line up, everybody, handshakes. Why is nobody lining up.",
+      "tags": []
+    },
+    {
+      "t": "{rival} won! I'll be happy by the door. By the car. By Thursday. THURSDAY, for sure!",
+      "tags": [
+        "vulnerability"
+      ]
+    }
+  ]
+}

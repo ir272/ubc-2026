@@ -1,0 +1,22 @@
+[toolchain]
+anchor_version = "0.32.1"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+arena = "GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P"
+
+[programs.devnet]
+arena = "GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P"
+
+[provider]
+cluster = "localnet"
+wallet = ".keys/admin.json"
+
+[scripts]
+test = "npx tsx --test tests/arena.test.ts"
+
+[test]
+startup_wait = 10000

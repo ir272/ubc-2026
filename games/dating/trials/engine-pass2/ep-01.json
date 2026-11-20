@@ -1,0 +1,1582 @@
+{
+  "episode": 5,
+  "matchId": "dating-ep5-mwnn4lx4",
+  "brain": "scripted",
+  "sealed": "09ec6059f87a1dd1bf378ef4a9bbd0bac3cfd186dfc67104655d9c3fd82f41ea",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 0
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 1
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "money",
+        "label": "Talks about money",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "past",
+        "label": "Brings up the past",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "wingman",
+      "label": "The Wingman",
+      "rule": "Pitch the suitor on your right. Not yourself.",
+      "format": "target-right"
+    },
+    "topTags": {
+      "quill": [
+        "poetry",
+        "trashtalk",
+        "past",
+        "flattery"
+      ],
+      "nav": [
+        "numbers",
+        "confidence",
+        "danger",
+        "trashtalk"
+      ],
+      "brock": [
+        "numbers",
+        "honesty",
+        "plans",
+        "trashtalk"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "honesty",
+        "past"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash",
+        "nav"
+      ],
+      "honesty": [
+        "brock",
+        "dash"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "trashtalk": [
+        "brock",
+        "nav",
+        "quill"
+      ],
+      "plans": [
+        "brock"
+      ],
+      "flattery": [
+        "quill"
+      ],
+      "numbers": [
+        "brock",
+        "dash",
+        "nav"
+      ],
+      "past": [
+        "dash",
+        "quill"
+      ],
+      "danger": [
+        "nav"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-describe-me",
+    "theme": "Describe me, having known me for ninety seconds."
+  },
+  "order": [
+    "brock",
+    "nav",
+    "dash",
+    "quill"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Four lines lit tonight. Normally it's one, and it's a wrong number.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 11614,
+      "ms": 4860,
+      "genMs": 5,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Be my muse. The post hath stood open since the Restoration.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 19908,
+      "ms": 4530,
+      "genMs": 5,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Bear left past the others and stop at the one floating.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 27872,
+      "ms": 4530,
+      "genMs": 5,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "1 wins! I high-five the floor for each. Floor's never once missed.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 35836,
+      "ms": 4860,
+      "genMs": 5,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 9,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Introducing: me! Now with listening! Listening ships in March.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 44130,
+      "ms": 3870,
+      "genMs": 5,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "Describe me, and be careful, the baker has known me thirty years.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 56000,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 20,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 61735,
+      "ms": 7500,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Listeners come here for lies, caller, so lie, it's polite.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 70077,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "You brake before every compliment, Vesper, which is how I know to accelerate.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 75118,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Nav, I muted the moon landing. I can mute you.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 81397,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 19,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "You've checked the exit four times. You're a planner. I love a planner. I'm also standing by the exit.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 86686,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Listeners, he's pointing at a chart. On the radio.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 94945,
+      "ms": 3870,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "Thou art a rose. I know not what thou art.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 99970,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Fourth thou, Quill, and the night porter's gone for tea.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 105670,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Brock, you shouted let's go at four a.m., and nobody here goes anywhere.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 111370,
+      "ms": 6190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "exit",
+      "text": "Sent home? Fine! Home is an app. See you on your phone. Six a.m.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 119060,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Lifetime conversions: zero. But it's a really nice zero. I picked the font myself.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 128580,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "The road moved under that line, Vesper, and I have reported the road.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 134895,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "booth1",
+      "words": 10,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "A wince. I have been winced at by a queen.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 140880,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "Sell me the caller on your right, and remember I can hear you smiling.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 156080,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "Dash is as promising as a tulip in sixteen thirty-seven. Much admired. Briefly. Then worth an onion.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 162100,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Ah, an old flame. I play those after three.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "past",
+        "money"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 169119,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Sir Quill is a fine choice, Vesper, if you have always wanted to arrive in the wrong century.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 173535,
+      "ms": 6840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "That's the third recalculating, Nav, and the gritter's turned round.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 180962,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "Nav will always know where you are. Always. I pitched that as a feature. It tested as a threat.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 185749,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I cut that on the delay, Dash. You're still going.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 193506,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Sir Quill, in two hundred feet, a full stop.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 198293,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Thou floating bell jar, turn thou left, and go.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 202832,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 12,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Nav, you floated all night, and never once landed anywhere near me.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 207481,
+      "ms": 5860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 6,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Trip summary. One wrong turn. Yours.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 214286,
+      "ms": 2880,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 18,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "No contest. Dash hath never been in a ballad. Nor, strictly, have I, but I have read several.",
+      "about": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 221166,
+      "ms": 6840,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "booth2",
+      "words": 17,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Sir Quill asked me for advice earlier. I gave good advice. Most useful I've been all year.",
+      "about": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 229156,
+      "ms": 6510,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 19,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Vesper, every song you play is four minutes. What if it was one? Same feelings. Four times the songs.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 241666,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Off air now, Dash, the audience is me and a moth, so pitch.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 249827,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Noted! Shipping a patch overnight. Patch notes: fewer words, same jacket.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 256009,
+      "ms": 4530,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 264438,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Quill, nobody's listening now, so give me the last line of one.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 272448,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "oneonone",
+      "words": 18,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "I am, at this moment, as glad as a highwayman with a full moon and a slow coach.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 278808,
+      "ms": 6840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 6,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Nobody move, the baker's stopped kneading.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 289148,
+      "ms": 2880,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "Quill, I understood one word in four, and it was thou, and that's enough.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 299028,
+      "ms": 6720,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "win",
+      "text": "A muse! Fetch the court painter. Fetch any painter. Fetch whoever painted the inn sign.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 306248,
+      "ms": 5850,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 14,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Brings up the past. That was the song I was waiting for all night.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 314098,
+      "ms": 9710,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "quill",
+        "name": "Sir Quill",
+        "text": "Dash is as promising as a tulip in sixteen thirty-seven. Much admired. Briefly. Then worth an onion."
+      }
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 11,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Brutal honesty, and I'd have hung up, and I nearly did.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 324308,
+      "ms": 9230,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "brock",
+        "name": "Brock",
+        "text": "Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you."
+      }
+    },
+    {
+      "seq": 44,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "lose",
+      "text": "Congratulations, Sir Quill! Genuinely. I'm copying everything you did. Starting with the winning.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 334038,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "Lines are closed, and the trucker's crying, so that went well.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 344728,
+      "ms": 4530,
+      "genMs": 0,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "nav",
+      "name": "Nav",
+      "text": "You brake before every compliment, Vesper, which is how I know to accelerate.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "dash",
+      "name": "Dash",
+      "text": "You've checked the exit four times. You're a planner. I love a planner. I'm also standing by the exit.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Thou art a rose. I know not what thou art.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Dash is as promising as a tulip in sixteen thirty-seven. Much admired. Briefly. Then worth an onion.",
+      "mark": "charmed",
+      "hits": [
+        "past",
+        "money"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Sir Quill is a fine choice, Vesper, if you have always wanted to arrive in the wrong century.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Nav will always know where you are. Always. I pitched that as a feature. It tested as a threat.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Vesper, every song you play is four minutes. What if it was one? Same feelings. Four times the songs.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "quill": -4,
+        "nav": -4,
+        "brock": -4,
+        "dash": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "quill": 1,
+        "nav": -5,
+        "brock": -4,
+        "dash": -4
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "quill": 3,
+        "nav": -5,
+        "brock": -4,
+        "dash": -4
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "brock",
+      "name": "Brock",
+      "round": 1,
+      "standing": {
+        "quill": -4,
+        "nav": -4,
+        "brock": -4,
+        "dash": 0
+      },
+      "tie": [
+        "quill",
+        "nav",
+        "brock"
+      ],
+      "reason": "standing -4; 0 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Brutal honesty\"",
+      "deciding": [
+        "honesty"
+      ]
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 2,
+      "standing": {
+        "quill": 1,
+        "nav": -5,
+        "dash": -4
+      },
+      "tie": [],
+      "reason": "standing -5; 0 charmed, 0 unsure, 2 cringing; 1x dealbreaker \"Brutal honesty\"",
+      "deciding": []
+    }
+  ],
+  "pick": {
+    "winner": "quill",
+    "loser": "dash",
+    "standing": {
+      "quill": 3,
+      "nav": -5,
+      "brock": -4,
+      "dash": -4
+    },
+    "tie": [],
+    "reason": "standing 3; 2 charmed, 0 unsure, 1 cringing; 1x turn-on \"Talks about money\"; 1x turn-on \"Brings up the past\"; 1x dealbreaker \"Brutal honesty\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "past",
+      "quote": {
+        "who": "quill",
+        "text": "Dash is as promising as a tulip in sixteen thirty-seven. Much admired. Briefly. Then worth an onion."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "honesty",
+      "quote": {
+        "who": "brock",
+        "text": "Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep5-mwnn4lx4:w1",
+      "outcomes": [
+        "quill",
+        "nav",
+        "brock",
+        "dash"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 10,
+      "openAt": 6000,
+      "lockAt": 51000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep5-mwnn4lx4:w2",
+      "outcomes": [
+        "quill",
+        "nav",
+        "dash"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 126080,
+      "lockAt": 148080
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep5-mwnn4lx4:w3",
+      "outcomes": [
+        "quill",
+        "dash"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 218666,
+      "lockAt": 238666
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2497
+    },
+    {
+      "at": 8497,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11614,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 17391,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 19908,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 25355,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 27872,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 33319,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35836,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 41613,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 44130,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 51000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 51000,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 56000,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 61735,
+      "type": "line",
+      "ms": 7500
+    },
+    {
+      "at": 70077,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 75118,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 81397,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 86686,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 94945,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 99970,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 105670,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 111370,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 119060,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 126080,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 126080,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 128580,
+      "type": "confession",
+      "ms": 5520
+    },
+    {
+      "at": 134895,
+      "type": "confession",
+      "ms": 5190
+    },
+    {
+      "at": 140880,
+      "type": "confession",
+      "ms": 4200
+    },
+    {
+      "at": 148080,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 148080,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 153080,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 156080,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 162100,
+      "type": "line",
+      "ms": 6510
+    },
+    {
+      "at": 169119,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 173535,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 180962,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 185749,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 193506,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 198293,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 202832,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 207481,
+      "type": "cut",
+      "ms": 5860
+    },
+    {
+      "at": 214286,
+      "type": "line",
+      "ms": 2880
+    },
+    {
+      "at": 218666,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 218666,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 221166,
+      "type": "confession",
+      "ms": 6840
+    },
+    {
+      "at": 229156,
+      "type": "confession",
+      "ms": 6510
+    },
+    {
+      "at": 238666,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 238666,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 241666,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 249827,
+      "type": "reaction",
+      "ms": 5190
+    },
+    {
+      "at": 256009,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 262039,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 264438,
+      "type": "line",
+      "ms": 6510
+    },
+    {
+      "at": 272448,
+      "type": "reaction",
+      "ms": 4860
+    },
+    {
+      "at": 278808,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 287148,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 289148,
+      "type": "line",
+      "ms": 2880
+    },
+    {
+      "at": 292528,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 299028,
+      "type": "pick",
+      "ms": 6720
+    },
+    {
+      "at": 306248,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 312598,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 314098,
+      "type": "reveal",
+      "ms": 9710
+    },
+    {
+      "at": 324308,
+      "type": "reveal",
+      "ms": 9230
+    },
+    {
+      "at": 334038,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 339728,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 341228,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 341228,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 341228,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 341228,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 344728,
+      "type": "line",
+      "ms": 4530
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 349758
+}

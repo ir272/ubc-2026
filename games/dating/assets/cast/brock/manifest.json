@@ -1,0 +1,56 @@
+{
+  "id": "brock",
+  "model": "vendor/cast/213-kiba/213_Kiba.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.82,
+  "scale": 0.95,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#FF8A1F",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/Nf6SIdJuYGYzUMJKNgKq44Zr-lCZS4No_FYtR6BFBYM",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/213-kiba/213_Kiba_thumbnail.png",
+  "headTop": 0.45,
+  "style": {
+    "energy": 0.95,
+    "bounce": 0.7,
+    "posture": 0.02,
+    "gesture": 1.15,
+    "body": 1.2,
+    "head": 0.65,
+    "tempo": 1.3,
+    "rest": "happy",
+    "restWeight": 0.55,
+    "gait": "bound"
+  }
+}

@@ -1,0 +1,45 @@
+/* The switchable parts of a look (see src/themes/look.tsx): the dither texture and motion.
+   Each is a data attribute on <html>, so any combination can be tried in the lab (/lab). */
+
+/* title font: wordmark, section heads, channel names */
+.wm-look { font-family: var(--font-title); font-weight: var(--title-weight); font-size: 22px; letter-spacing: var(--title-track); line-height: 1; }
+:root[data-theme^='look-'] .home-h,
+:root[data-theme^='look-'] .car-name,
+:root[data-theme^='look-'] .rail-h span,
+:root[data-theme^='look-'] .pc-q { font-family: var(--font-title); font-weight: var(--title-weight); text-transform: var(--title-case); letter-spacing: var(--title-track); }
+:root[data-theme^='look-'] .home-h { font-size: 22px; }
+:root[data-theme^='look-'] .hw-bal, :root[data-theme^='look-'] .hw-wallet, :root[data-theme^='look-'] .hw-me, :root[data-theme^='look-'] .menu { border-radius: var(--radius-card); }
+:root[data-theme^='look-'] .hw-wallet, :root[data-theme^='look-'] .hw-bal { border-radius: var(--radius); }
+:root[data-theme^='look-'] .card-thumb, :root[data-theme^='look-'] .car-slide { border-radius: var(--radius-card); overflow: hidden; }
+
+/* ───────── texture ───────── */
+/* dither: pictures are really dithered (SVG filter in FxDefs.tsx); fills get a checker pattern */
+:root[data-fx='dither'] .thumb-img, :root[data-fx='dither'] .stage-still { filter: url(#fx-dither); }
+:root[data-fx^='dither'] :is(.out, .orow, .amt, .btn, .hw-bal, .hw-me, .pill, .pills .tag, .cams, .bal) { background-image: conic-gradient(var(--line) 25%, transparent 0); background-size: 4px 4px; }
+:root[data-fx^='dither'] :is(.out, .orow, .amt, .btn, .hw-bal, .hw-me, .rail-item):hover { background-image: conic-gradient(var(--keyline) 25%, transparent 0 50%, var(--keyline) 0 75%, transparent 0); background-size: 4px 4px; }
+:root[data-fx^='dither'] .timebar { background-image: conic-gradient(var(--text-3) 25%, transparent 0 50%, var(--text-3) 0 75%, transparent 0); background-size: 2px 2px; }
+:root[data-fx^='dither'] .car-slide.side .thumb-img { opacity: 0.6; }
+
+/* ───────── motion ───────── */
+:root[data-motion='off'] *, :root[data-motion='off'] *::before, :root[data-motion='off'] *::after { transition: none !important; animation: none !important; }
+
+@keyframes fx-live { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes fx-menu { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@keyframes fx-menu-pop { 0% { opacity: 0; transform: translateY(-10px) scale(0.92); } 100% { opacity: 1; transform: none; } }
+@keyframes fx-pick { 0% { transform: scale(1); } 40% { transform: scale(1.06); } 100% { transform: scale(1); } }
+@keyframes fx-ping { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 70%, transparent); } 100% { box-shadow: 0 0 0 7px transparent; } }
+
+:root[data-motion='snappy'] :is(.out, .orow, .amt, .btn, .bet, .btn-primary, .hw-bal, .hw-wallet, .hw-me, .card-thumb, .rail-item) { transition: transform 120ms ease-out, background-color 120ms linear, box-shadow 120ms linear, filter 120ms linear; }
+:root[data-motion='snappy'] .card:hover .card-thumb { transform: translateY(-3px); }
+:root[data-motion='snappy'] :is(.btn, .bet, .btn-primary, .hw-bal, .hw-wallet, .hw-me, .amt):active { transform: scale(0.97); }
+:root[data-motion='snappy'] .menu { animation: fx-menu 130ms ease-out; }
+:root[data-motion='snappy'] :is(.live-dot, .tag-live::before) { animation: fx-live 1.6s ease-in-out infinite; }
+
+:root[data-motion='bouncy'] :is(.out, .orow, .amt, .btn, .bet, .btn-primary, .hw-bal, .hw-wallet, .hw-me, .card-thumb, .rail-item) { transition: transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 140ms linear, box-shadow 200ms linear; }
+:root[data-motion='bouncy'] .card:hover .card-thumb { transform: translateY(-5px) scale(1.025); }
+:root[data-motion='bouncy'] :is(.out, .orow, .amt, .btn, .hw-bal, .hw-wallet, .hw-me):hover { transform: scale(1.03); }
+:root[data-motion='bouncy'] :is(.btn, .bet, .btn-primary, .hw-bal, .hw-wallet, .hw-me, .amt, .out, .orow):active { transform: scale(0.94); }
+:root[data-motion='bouncy'] :is(.out.on, .orow.on) { animation: fx-pick 320ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+:root[data-motion='bouncy'] .menu { animation: fx-menu-pop 260ms cubic-bezier(0.34, 1.56, 0.64, 1); transform-origin: top right; }
+:root[data-motion='bouncy'] .car-slide { transition: transform 460ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 280ms linear; }
+:root[data-motion='bouncy'] :is(.live-dot, .tag-live::before) { animation: fx-ping 1.4s ease-out infinite; }

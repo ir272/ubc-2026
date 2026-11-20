@@ -1,0 +1,72 @@
+{
+  "id": "frost",
+  "model": "vendor/cast/206-cool-toaster/206_CoolToaster.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.699,
+  "scale": 1.0,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#8FDBFF",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/y0T6yKovy5Udzs4LlzRioFv8_yZlTc7orRDbxCHjOfk",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/206-cool-toaster/206_CoolToaster_thumbnail.png",
+  "headTop": 0.213,
+  "style": {
+    "energy": 0.3,
+    "gesture": 0.8,
+    "body": 1.3,
+    "head": 0.3,
+    "armRaise": 0.5,
+    "tempo": 0.8,
+    "hipsAmp": 0.5,
+    "rest": "angry",
+    "restWeight": 0.35,
+    "gait": "waddle",
+    "walk": "hop"
+  },
+  "face": {
+    "kind": "toast",
+    "brows": true,
+    "rest": "flat",
+    "scale": 1.3,
+    "anchor": [
+      3,
+      4
+    ],
+    "offset": [
+      0,
+      0,
+      0.075
+    ]
+  },
+  "topPad": 0.16
+}

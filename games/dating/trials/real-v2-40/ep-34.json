@@ -1,0 +1,2046 @@
+{
+  "episode": 91,
+  "matchId": "dating-ep91-mwnxxg5c",
+  "brain": "model",
+  "sealed": "e72b2b6df35b4fc0d570d62447f582aefba2494423d3497eacb4bb64ab5e2d28",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "selfdeprecation",
+        "label": "Puts themselves down",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "plans",
+        "label": "Plans everything",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "impression",
+      "label": "The Impression",
+      "rule": "Do your impression of me.",
+      "format": "solo"
+    },
+    "topTags": {
+      "brock": [
+        "numbers",
+        "confidence",
+        "vulnerability",
+        "food",
+        "bragging"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "nav": [
+        "plans",
+        "confidence",
+        "danger",
+        "rules",
+        "brevity"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "brock",
+        "dash",
+        "nav"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "bragging": [
+        "brock",
+        "dash"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly"
+      ],
+      "food": [
+        "brock"
+      ],
+      "plans": [
+        "dash",
+        "nav"
+      ],
+      "flattery": [
+        "dash",
+        "tilly"
+      ],
+      "numbers": [
+        "brock",
+        "dash"
+      ],
+      "brevity": [
+        "nav"
+      ],
+      "danger": [
+        "nav"
+      ],
+      "vulnerability": [
+        "brock"
+      ],
+      "rules": [
+        "nav",
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-first-date",
+    "theme": "Where are you taking me on the first date?"
+  },
+  "order": [
+    "nav",
+    "tilly",
+    "brock",
+    "dash"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "WE'RE LIVE! Four suitors! Huge night! Mostly. Somebody bring self put-downs.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7113,
+      "ms": 4110,
+      "genMs": 842,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12850,
+      "ms": 4110,
+      "genMs": 2601,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Unsubscribed from the engagement at three.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17374,
+      "ms": 2560,
+      "genMs": 675,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21561,
+      "ms": 4110,
+      "genMs": 1585,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Reset the moon? Reset me.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 26084,
+      "ms": 2250,
+      "genMs": 960,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Good evening, Pixel. In four hundred feet, fall for me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30168,
+      "ms": 3800,
+      "genMs": 2056,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "four hundred feet of boring?",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 34485,
+      "ms": 2250,
+      "genMs": 689,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38569,
+      "ms": 4110,
+      "genMs": 2238,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Read faster, your pixels suck.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 43195,
+      "ms": 2250,
+      "genMs": 1544,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "First date! Where? Somewhere LOUD! Somewhere with a crowd! Somewhere, ugh, just pick, I'm bored.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52005,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "At the roundabout, take any exit. They all go to my parents.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 57689,
+      "ms": 4420,
+      "genMs": 2526,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Every exit? That's not a roundabout, that's a trap level.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "plans",
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 62387,
+      "ms": 3800,
+      "genMs": 1011,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "The planetarium, after hours, five dollars. I once talked their sky back on. It's loud. It's loud.",
+      "to": "pixel",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 66465,
+      "ms": 5970,
+      "genMs": 683,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Roasted yourself for free? That's a combo. Do the finisher.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 72687,
+      "ms": 3800,
+      "genMs": 750,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "The buffet! I'm banned from three, so we'd go to the fourth, which doesn't know my FACE!",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 77049,
+      "ms": 5970,
+      "genMs": 1123,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "brock",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 83714,
+      "ms": 1000,
+      "genMs": 488,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 19,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "Planetarium is quiet. You said loud twice. That's a bug. I'm pivoting to the arcade. Coin drop scores higher.",
+      "to": "tilly",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 85409,
+      "ms": 6590,
+      "genMs": 1372,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "That plan has a tutorial, and I skip tutorials.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [
+        "plans"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 92756,
+      "ms": 3490,
+      "genMs": 846,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 10,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Dash, Nav, whoever cries first stays. Kidding. Whoever cries better.",
+      "pair": [
+        "dash",
+        "nav"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 96496,
+      "ms": 6800,
+      "genMs": 585,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 12,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Dash, you sold me a trailer all night. Where's the game? Bye.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 103546,
+      "ms": 5120,
+      "genMs": 479,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "exit",
+      "text": "Rolling me back to the last version that worked. Loading. Still loading.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 109626,
+      "ms": 4420,
+      "genMs": 2520,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 12,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Pixel wants confidence. I'm certain. I was also certain about the eclipse.",
+      "guess": {
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 117996,
+      "ms": 4420,
+      "genMs": 725,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Tilly did nine good things tonight. I've done eight. I'm keeping it at eight to be POLITE!",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 123106,
+      "ms": 5970,
+      "genMs": 765,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "The road moved under that line, Pixel, and I have reported the road.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 129766,
+      "ms": 4730,
+      "genMs": 1228,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Impressions! Do me! Badly! Wait, well. No, badly, it's funnier.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 142281,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Impressions, huh? Twenty-three flavors of you, I can do!",
+      "to": "pixel",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 146366,
+      "ms": 3490,
+      "genMs": 2120,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You peaked my mic and I liked it, again, louder.",
+      "to": "brock",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 150165,
+      "ms": 3800,
+      "genMs": 519,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Yes, hi, there's a small green one on my stage and she won't stop being helpful.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 154274,
+      "ms": 5660,
+      "genMs": 742,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "That's me complaining about you. Spot on. Unfortunately.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 160243,
+      "ms": 3180,
+      "genMs": 846,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "I am Pixel. I love it when someone tells me where to go. Please continue.",
+      "to": "pixel",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 163794,
+      "ms": 5350,
+      "genMs": 4091,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Nothing happened and I watched it all. Who are you?",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 169559,
+      "ms": 3800,
+      "genMs": 824,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "verdict",
+      "text": "Tilly did me better than I do me, which is illegal.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 173774,
+      "ms": 4110,
+      "genMs": 1553,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Tilly! Big swing! Big miss! Bigger swing next, I BELIEVE!",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 178343,
+      "ms": 3800,
+      "genMs": 1037,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Tilly, stop giving way. Nobody is coming.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 183015,
+      "ms": 2870,
+      "genMs": 1380,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "An airport once shouted at me, Nav. Do go on.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 186383,
+      "ms": 3800,
+      "genMs": 482,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Brock, Nav, bottom two. Sad! Cry a bit, I'll wait. Not long.",
+      "pair": [
+        "brock",
+        "nav"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 191456,
+      "ms": 7420,
+      "genMs": 988,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 12,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Nav, an hour of you and my screen saver came on twice.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 200149,
+      "ms": 5120,
+      "genMs": 752,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 6,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Trip summary. One wrong turn. Yours.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 206719,
+      "ms": 2560,
+      "genMs": 1355,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 18,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Brock asked me the way to the stage. I gave them the way to the bins, very kindly.",
+      "about": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 213849,
+      "ms": 6280,
+      "genMs": 612,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 15,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Pixel wants brutal honesty. I'd bet my eggs. All twelve. Eleven. Ten. Okay, NINE eggs!",
+      "guess": {
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 222379,
+      "ms": 5350,
+      "genMs": 1495,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Sorry, Pixel, I'm quite small up close. Most people put me on speaker.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 232729,
+      "ms": 4730,
+      "genMs": 1063,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Be mean to me. MEAN. Nice bores me to sleep. Dare you.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 237709,
+      "ms": 4420,
+      "genMs": 624,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Your call is not important to us, Pixel. Somewhere, ten thousand operators just gasped.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 242379,
+      "ms": 5040,
+      "genMs": 322,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Tilly stood right here? I'll stand on the exact spot. Now I know everything Tilly KNOWS!",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 248669,
+      "ms": 5660,
+      "genMs": 3041,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Sit still for five seconds. I'll count. You can't, can you?",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 254754,
+      "ms": 4110,
+      "genMs": 855,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Easy! Five. Four, actually. Three's plenty. Two. One? Can I owe you FOUR?",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 260219,
+      "ms": 4730,
+      "genMs": 806,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "compare",
+      "text": "Tilly: eight. Brock: eight. Tilly: seven! Kidding. Or am I. Eight.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 266399,
+      "ms": 4110,
+      "genMs": 548,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "You want a score. I'm holding it. Holding is my favourite part.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 273459,
+      "ms": 4420,
+      "genMs": 1101,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 9,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Confidence! Brock found it! I'd forgotten I hid it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 278129,
+      "ms": 4090,
+      "genMs": 865,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "Yes, hi, there's a small green one on my stage and she won't stop being helpful.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 282469,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "Tilly stood right here? I'll stand on the exact spot. Now I know everything Tilly KNOWS!",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 286079,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 15,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "chat says no. chat says \"put me on speaker\" was cringe. chat's not picking. Tilly.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 293939,
+      "ms": 6350,
+      "genMs": 798,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "win",
+      "text": "Somebody release the queue. A small town can finally go to bed.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 300539,
+      "ms": 4420,
+      "genMs": 641,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 14,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Plans everything. Nav did it like a best man with the wrong speech. Pinned.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 306959,
+      "ms": 5640,
+      "genMs": 1014,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 12,
+      "event": "replay",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "replay",
+      "text": "At the roundabout, take any exit. They all go to my parents.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 312849,
+      "ms": 2720,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 7,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "lose",
+      "text": "Tissues by the mat, for the MAT",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 315819,
+      "ms": 2870,
+      "genMs": 1266,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Goodnight. If anyone cries in the car park, I'm still recording.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 321139,
+      "ms": 4110,
+      "genMs": 496,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "brock",
+      "name": "Brock",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "four, we're ENGAGED"
+    },
+    {
+      "seq": 2,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Good evening, Pixel. In four hundred feet, fall for me.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "fall for me"
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "reset the moon's password"
+    },
+    {
+      "seq": 4,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 5,
+      "who": "nav",
+      "name": "Nav",
+      "text": "At the roundabout, take any exit. They all go to my parents.",
+      "mark": "cringing",
+      "hits": [
+        "plans",
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "all go to my parents"
+    },
+    {
+      "seq": 6,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "The planetarium, after hours, five dollars. I once talked their sky back on. It's loud. It's loud.",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 7,
+      "who": "brock",
+      "name": "Brock",
+      "text": "The buffet! I'm banned from three, so we'd go to the fourth, which doesn't know my FACE!",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "banned from three"
+    },
+    {
+      "seq": 8,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Planetarium is quiet. You said loud twice. That's a bug. I'm pivoting to the arcade. Coin drop scores higher.",
+      "mark": "cringing",
+      "hits": [
+        "plans"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Impressions, huh? Twenty-three flavors of you, I can do!",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 10,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Yes, hi, there's a small green one on my stage and she won't stop being helpful.",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "won't stop being helpful"
+    },
+    {
+      "seq": 11,
+      "who": "nav",
+      "name": "Nav",
+      "text": "I am Pixel. I love it when someone tells me where to go. Please continue.",
+      "mark": "charmed",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 12,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sorry, Pixel, I'm quite small up close. Most people put me on speaker.",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "put me on speaker"
+    },
+    {
+      "seq": 13,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Tilly stood right here? I'll stand on the exact spot. Now I know everything Tilly KNOWS!",
+      "mark": "unsure",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "stand on the exact spot"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "brock": -1,
+        "tilly": 3,
+        "nav": -1,
+        "dash": -1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "brock": 0,
+        "tilly": 6,
+        "nav": -3,
+        "dash": -5
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "brock": 3,
+        "tilly": 9,
+        "nav": 0,
+        "dash": -5
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "brock": 7,
+        "tilly": 15,
+        "nav": 0,
+        "dash": -5
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "dash",
+      "name": "Dash",
+      "round": 1,
+      "standing": {
+        "brock": 0,
+        "tilly": 6,
+        "nav": -3,
+        "dash": -5
+      },
+      "tie": [],
+      "reason": "standing -5; 0 charmed, 0 unsure, 2 cringing; 1x dealbreaker \"Plans everything\"",
+      "deciding": [
+        "confidence"
+      ],
+      "roundMarks": {
+        "brock": 1,
+        "tilly": 1,
+        "nav": -1,
+        "dash": -1
+      },
+      "bottom": [
+        "dash",
+        "nav"
+      ],
+      "hintCard": "confidence",
+      "hook": null
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 2,
+      "standing": {
+        "brock": 3,
+        "tilly": 9,
+        "nav": 0
+      },
+      "tie": [],
+      "reason": "standing 0; 1 charmed, 0 unsure, 2 cringing; 2x turn-on \"Confidence\"; 1x dealbreaker \"Plans everything\"",
+      "deciding": [
+        "plans"
+      ],
+      "roundMarks": {
+        "brock": 1,
+        "tilly": 1,
+        "nav": 1
+      },
+      "bottom": [
+        "brock",
+        "nav"
+      ],
+      "hintCard": "plans",
+      "hook": null
+    }
+  ],
+  "pick": {
+    "winner": "tilly",
+    "loser": "brock",
+    "standing": {
+      "brock": 7,
+      "tilly": 15,
+      "nav": 0,
+      "dash": -5
+    },
+    "tie": [],
+    "reason": "standing 15; 4 charmed, 0 unsure, 0 cringing; 4x turn-on \"Puts themselves down\"",
+    "oneOnOne": {
+      "brock": 0,
+      "tilly": 1
+    },
+    "first": "tilly",
+    "last": "brock"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "confidence",
+      "quote": null,
+      "replays": [
+        {
+          "who": "tilly",
+          "text": "Yes, hi, there's a small green one on my stage and she won't stop being helpful.",
+          "hit": false
+        },
+        {
+          "who": "brock",
+          "text": "Tilly stood right here? I'll stand on the exact spot. Now I know everything Tilly KNOWS!",
+          "hit": true
+        }
+      ],
+      "guesses": [
+        {
+          "who": "tilly",
+          "right": true
+        },
+        {
+          "who": "brock",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "plans",
+      "quote": null,
+      "replays": [
+        {
+          "who": "nav",
+          "text": "At the roundabout, take any exit. They all go to my parents.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "tilly",
+      "card": "confidence",
+      "kind": "on",
+      "right": true,
+      "via": "chosen"
+    },
+    {
+      "who": "brock",
+      "card": "honesty",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep91-mwnxxg5c:w1",
+      "outcomes": [
+        "brock",
+        "tilly",
+        "nav",
+        "dash"
+      ],
+      "durationMs": 45005,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49005
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep91-mwnxxg5c:w2",
+      "outcomes": [
+        "brock",
+        "tilly",
+        "nav"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 115496,
+      "lockAt": 137496
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep91-mwnxxg5c:w3",
+      "outcomes": [
+        "brock",
+        "tilly"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 210729,
+      "lockAt": 230729
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 5500,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7113,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 11637,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12850,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17374,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20347,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21561,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 26084,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 28851,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30168,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 34485,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37252,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38569,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 43195,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 49005,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49005,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52005,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 57689,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 62387,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 66465,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 72687,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 77049,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 83714,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 85409,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 92756,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 96496,
+      "type": "bottom",
+      "ms": 6800
+    },
+    {
+      "at": 103546,
+      "type": "cut",
+      "ms": 5120
+    },
+    {
+      "at": 109626,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 115496,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 115496,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 117996,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 123106,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 129766,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 137496,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 137496,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 140496,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 142281,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 146366,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 150165,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 154274,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 160243,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 163794,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 169559,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 173774,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 178343,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 183015,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 186383,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 191456,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 200149,
+      "type": "cut",
+      "ms": 5120
+    },
+    {
+      "at": 206719,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 210729,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 210729,
+      "type": "scene",
+      "ms": 3120
+    },
+    {
+      "at": 213849,
+      "type": "confession",
+      "ms": 6280
+    },
+    {
+      "at": 222379,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 230729,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 230729,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 232729,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 237709,
+      "type": "reaction",
+      "ms": 4420
+    },
+    {
+      "at": 242379,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 247669,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 248669,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 254754,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 260219,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 266399,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 271959,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 273459,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 278129,
+      "type": "reveal",
+      "ms": 4090
+    },
+    {
+      "at": 282469,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 286079,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 289689,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 293939,
+      "type": "pick",
+      "ms": 6350
+    },
+    {
+      "at": 300539,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 305959,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 306959,
+      "type": "reveal",
+      "ms": 5640
+    },
+    {
+      "at": 312849,
+      "type": "replay",
+      "ms": 2720
+    },
+    {
+      "at": 315819,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 320139,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 321139,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 321139,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 321139,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 321139,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 325499,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 327749
+}

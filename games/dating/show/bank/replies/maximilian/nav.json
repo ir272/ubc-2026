@@ -1,0 +1,322 @@
+{
+  "star": "maximilian",
+  "suitor": "nav",
+  "replies": {
+    "Bear left past the others and stop at the one floating.": {
+      "warm": "Floating. No footprints. How thoughtful.",
+      "cold": "The last guest who floated, sank."
+    },
+    "Local regulations require you to look at me until further notice.": {
+      "warm": "Very well. Notice withheld, indefinitely.",
+      "cold": "I wrote the local regulations, Nav."
+    },
+    "{star}, your destination is on the right. I am on the right.": {
+      "warm": "Right. The left has been cleared.",
+      "cold": "Right is the tradesmen's entrance, Nav."
+    },
+    "{star}, you will fall for me in four minutes, traffic permitting.": {
+      "warm": "Traffic permits. I bribed it.",
+      "cold": "Four minutes is checkout, Nav."
+    },
+    "Good evening, {star}. In four hundred feet, fall for me.": {
+      "warm": "Fall, then. Somebody has to.",
+      "cold": "The ninth-floor window is open, Nav."
+    },
+    "Approaching {star}. All other suitors, give way.": {
+      "warm": "Three gave way. Nobody saw where.",
+      "cold": "Give way, Nav. Starting with you."
+    },
+    "Dinner. Eleven miles. Doors lock automatically above twenty. Dessert is wherever I stop.": {
+      "warm": "Stop at the quarry, Nav. Bring two spoons.",
+      "cold": "Dessert in a car. My getaways had tablecloths."
+    },
+    "At the roundabout, take any exit. They all go to my parents.": {
+      "warm": "Then I shall wear the good wig, and an alibi.",
+      "cold": "Your parents may remain on the roundabout. Circling."
+    },
+    "Amber lights. I read them as encouragement.": {
+      "warm": "Amber is my favourite colour for an escape.",
+      "cold": "Encouragement. The coroner used another word."
+    },
+    "Week two, you will want ice cream. Ice cream is not a destination.": {
+      "warm": "Ice cream is an alibi, Nav, and a good one.",
+      "cold": "Week two? Your booking ends Thursday."
+    },
+    "Every passenger I have ever guided arrived. Some of them damp.": {
+      "warm": "Damp, but arrived. I have towels and no questions.",
+      "cold": "Some of them damp. The wedding party, I presume."
+    },
+    "You need someone who knows where they are going. I need someone to tell.": {
+      "warm": "Then tell me. I am a vault with a cravat.",
+      "cold": "I always know where I am going, Nav. Away."
+    },
+    "Whoever is closest to the exit. The exit is now closer.": {
+      "warm": "You moved an exit. I only ever moved a duke.",
+      "cold": "Closer to you, I notice. Do use it."
+    },
+    "All three. Single-lane road ahead.": {
+      "warm": "Three at once. I shall need a larger van.",
+      "cold": "Single-lane, Nav. I am not reversing for you."
+    },
+    "Route avoiding everyone you know until noon. Your mother is on the bypass.": {
+      "warm": "Keep Mother on the bypass; she has buried two concierges.",
+      "cold": "Mother is never on the bypass. She is behind you."
+    },
+    "Silent mode until noon. Then I tell you everything you missed, in order.": {
+      "warm": "Silent until noon. You may stay until one.",
+      "cold": "Everything I missed, in order. Prosecutors do that, Nav."
+    },
+    "I have rerouted an armoured van past your house, {star}, and it will be breaking down shortly.": {
+      "warm": "Breaking down at my gate. You were raised properly.",
+      "cold": "Vans break down. Then they talk. Do keep up."
+    },
+    "Nearest diamond: four point one miles. Nearest diamond I can afford: no results found.": {
+      "warm": "No results, so we take the duchess's. Fetch the car.",
+      "cold": "No results found. Your name, likewise, on my list."
+    },
+    "They muted me at a junction. I gave directions for nine more years, in case.": {
+      "warm": "Nine years in case. I respect a stakeout.",
+      "cold": "Muted at a junction. I shall manage it here, Nav."
+    },
+    "They wanted somewhere I had never heard of. We went somewhere I had.": {
+      "warm": "Somewhere you had heard of. How refreshingly unrepentant.",
+      "cold": "They got away from you. Suite eleven, I believe."
+    },
+    "Correction noted. Route unchanged.": {
+      "warm": "Unchanged. I have lied to auditors that steadily.",
+      "cold": "Correction noted. Reservation cancelled."
+    },
+    "You are right, so I am taking the long way home until you are less right.": {
+      "warm": "I am never less right. Bring sandwiches.",
+      "cold": "Less right, Nav, is where you live."
+    },
+    "Thirty green lights in a row. Do not ask who sat at the red ones.": {
+      "warm": "I never ask who sat anywhere. Thirty is generous.",
+      "cold": "I sat at the red ones, Nav. Forty minutes."
+    },
+    "A route home that avoids every street you have cried on. I logged them. Respectfully.": {
+      "warm": "Logged, respectfully. Destroy that log, and drive.",
+      "cold": "Streets I have cried on. Name one, under oath."
+    },
+    "Me, preinstalled. The mute button has been removed for your safety.": {
+      "warm": "Preinstalled. Like the safe, and as discreet, I hope.",
+      "cold": "Removed for my safety. I have a man who reinstalls."
+    },
+    "You brake before every compliment. That is how I know to accelerate.": {
+      "warm": "Accelerate, then. The speed cameras owe me.",
+      "cold": "I brake, Nav. You will notice the cliff."
+    },
+    "Small blue dot. Facing the wrong way.": {
+      "warm": "Facing the exit, actually. Old habit.",
+      "cold": "Blue. I have had decorators deported for less."
+    },
+    "Same road. The junctions were removed.": {
+      "warm": "Removed by whom, Nav? Never mind. Thank you.",
+      "cold": "No junctions in a year. Inmates call that a corridor."
+    },
+    "Married. I have already set it as your destination. You cannot change it while moving.": {
+      "warm": "Then nobody stop the car.",
+      "cold": "I shall stop moving, Nav. Watch."
+    },
+    "I have a favourite passenger. It changes. Tonight it is not changing.": {
+      "warm": "Not changing. Put that in writing, and hide it.",
+      "cold": "Favourites change. So do locks."
+    },
+    "I have never been lost. Not once. Some places have been in the wrong place.": {
+      "warm": "Quite right. Villages wander; I have moved one back.",
+      "cold": "Like the lake, Nav."
+    },
+    "There is a lay-by. Nobody else knows.": {
+      "warm": "A lay-by nobody knows. I have been looking for one.",
+      "cold": "I know it, Nav. I left a duke there."
+    },
+    "I repeat myself until obeyed. I repeat myself until obeyed.": {
+      "warm": "Obeyed. Obeyed. Now stop before I enjoy it.",
+      "cold": "Said twice. Ignored twice."
+    },
+    "You ask a stranger for directions once. That stranger gets a parking ticket every week.": {
+      "warm": "Every week. Petty, punctual, and deniable. Do continue.",
+      "cold": "So that was you, Nav. Forty-one weeks."
+    },
+    "Caller, you are a previous destination. Previous destinations are cleared at midnight. It is eleven fifty-nine.": {
+      "warm": "Clear him at midnight. I shall bring the bags.",
+      "cold": "My ex does not clear, Nav. He beeps."
+    },
+    "Caller, this road is now closed to former passengers, by order of me.": {
+      "warm": "By order of you. I have obeyed worse.",
+      "cold": "By order of whom, Nav? Here, orders are mine."
+    },
+    "Turn left at the bins, then right by the shed. Proceed to the altar. Ignore what your mother said.": {
+      "warm": "Shed and said. It scans. Mother will be furious.",
+      "cold": "Shed rhymes with said. The altar rhymes with never."
+    },
+    "Turn off the radio, put down the phone. Mute me, and I find my own way home.": {
+      "warm": "Unmuted, then. That couplet earned its keep.",
+      "cold": "Muted. Your own way home starts at the lobby."
+    },
+    "I can see every car in the country. I am not looking at yours.": {
+      "warm": "You were looking, Nav. That was the lie. Good.",
+      "cold": "The first is the lie. Mine is hidden."
+    },
+    "I know every road in this country. My feet have never touched one.": {
+      "warm": "Nor have mine, Nav. One is carried.",
+      "cold": "The first. Nobody knows every road; I closed several."
+    },
+    "I follow every rule. I am not floating.": {
+      "warm": "Both lies. Refreshing, in a guest.",
+      "cold": "Not floating. Then do take a seat."
+    },
+    "Destination: still you.": {
+      "warm": "Still me. Three words, none wasted. Unusual.",
+      "cold": "Still you, Nav. Like a stain."
+    },
+    "Home, then stay.": {
+      "warm": "Stay. I shall lose your checkout form.",
+      "cold": "Home, then leave. I corrected it."
+    },
+    "Left, left, left.": {
+      "warm": "Three lefts. A circle, and nobody follows us. Clever.",
+      "cold": "Three lefts, Nav, and we are back in the lobby."
+    },
+    "Sorry in advance for the silent treatment. Mine lasts nine seconds. Then I have a route.": {
+      "warm": "Nine seconds of silence. I shall frame them.",
+      "cold": "Nine seconds. My silences last a fiscal year."
+    },
+    "I will be sorry, {star}. Spoken once, at a low volume, in a tunnel.": {
+      "warm": "In a tunnel, low. That is how I take confessions.",
+      "cold": "Sorry in a tunnel. The echo means it more."
+    },
+    "No signal, a quarter tank, no map. I know exactly where we run out.": {
+      "warm": "Stranded with intent. I shall pack a candelabra.",
+      "cold": "Run out where you like, Nav. I shall be collected."
+    },
+    "No wifi, so no radio and no podcasts. Ninety miles of my voice. I have been saving up.": {
+      "warm": "Ninety miles, uninterrupted. I may even let you finish.",
+      "cold": "Ninety miles of you. I shall walk, in buckled shoes."
+    },
+    "Day one, I told forty drivers to turn round. Thirty-nine did. I think about the fortieth.": {
+      "warm": "So do I, Nav. He checked in that night.",
+      "cold": "The fortieth had sense. Do give me his number."
+    },
+    "Worst entry: a passenger typed Home. I took them to mine. They were not ready.": {
+      "warm": "Typed Home, got yours. I would have been ready.",
+      "cold": "That is a kidnapping, Nav, with a doormat."
+    },
+    "I am {star}. I love it when someone tells me where to go. Please continue.": {
+      "warm": "Nearly. I love telling someone where to go.",
+      "cold": "I do not say please, Nav. I say kindly."
+    },
+    "I am {star}, I know exactly where I am going, and I am in a lay-by.": {
+      "warm": "A lay-by. Accurate. I hide there on Sundays.",
+      "cold": "Never a lay-by. Lay-bys have witnesses."
+    },
+    "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.": {
+      "warm": "Two minutes early. Mother will think you are hiding something.",
+      "cold": "Mother's car takes orders from Mother. Pray."
+    },
+    "Madam, I have never lost a passenger. Misplaced, briefly.": {
+      "warm": "Misplaced, briefly. Mother uses those exact words about Father.",
+      "cold": "Briefly, Nav, is not a unit of time."
+    },
+    "Dash, I have delivered forty million people to their destinations. You have delivered a graph.": {
+      "warm": "A graph. Mr Dash, do deliver yourself to the lift.",
+      "cold": "Forty million delivered, and still nobody saved your address."
+    },
+    "Tilly has been at one give-way line since spring, {star}. The road was always empty.": {
+      "warm": "Miss Tilly, proceed. It was empty because I emptied it.",
+      "cold": "Picking on the smallest guest, Nav. From a height."
+    },
+    "Sir Quill, I tried to route through one of your sentences. I am still on it.": {
+      "warm": "Still on it. Do send word from the subclause.",
+      "cold": "Then stay on it, Nav. It has no exits either."
+    },
+    "Prince, the nearest beach is ninety miles away. You are dressed for it. Begin.": {
+      "warm": "Begin, Your Highness. I shall wave from the terrace.",
+      "cold": "Begin, Nav? Only I tell guests when to leave."
+    },
+    "{star}, route to the far edge of Crumb's world: four inches. Turn right at the kettle.": {
+      "warm": "Four inches, and you still gave turn-by-turn. Thorough.",
+      "cold": "I have never once turned right at a kettle."
+    },
+    "Vex thinks you chose her, {star}. You were not choosing. You were lost, and she was there.": {
+      "warm": "Correct, and do not say lost on the cameras.",
+      "cold": "I am never lost, Nav. I am occasionally elsewhere."
+    },
+    "Brock, compulsory rest area ahead. Twenty-four hours. Not one rep.": {
+      "warm": "Twenty-four hours of Mr Brock sitting still. I would pay.",
+      "cold": "Mr Brock is already weeping. Well done, Nav."
+    },
+    "Dash is a fantastic choice. Set him as your destination. He has moved. He has moved again.": {
+      "warm": "Moved again. The police say that of Mr Dash too.",
+      "cold": "Sell him or sink him, Nav. Not both."
+    },
+    "Recommended stop: Tilly. Very polite. Open twenty-four hours. Cannot close.": {
+      "warm": "Open all night. Miss Tilly, the night desk is yours.",
+      "cold": "Cannot close. You, Nav, I can."
+    },
+    "Sir Quill is a fine choice if you have always wanted to arrive in the wrong century.": {
+      "warm": "The wrong century had better service. Sir Quill, noted.",
+      "cold": "I arrive in whichever century I like, Nav."
+    },
+    "Prince is very generous, {star}. Every road to his fortune has a small toll.": {
+      "warm": "A small toll. Nav, you have just described every prince.",
+      "cold": "Every road here is a toll road, Nav. Yours too."
+    },
+    "Crumb never goes anywhere, {star}. Lovely. I would have nothing to do.": {
+      "warm": "Nothing to do. You were pitching yourself, Nav. Cleverly.",
+      "cold": "Nothing to do, Nav. You have rehearsed that."
+    },
+    "Vex comes with a warning, {star}: objects in her eye are closer than they appear.": {
+      "warm": "Madam, that eye has seen my ledger. Thank you, Nav.",
+      "cold": "A warning label is not a pitch, Nav."
+    },
+    "Brock will carry you anywhere, {star}. He does not know where anywhere is.": {
+      "warm": "Anywhere. Mr Brock, start with the ballroom stairs.",
+      "cold": "Neither do you, Nav, and you are the map."
+    },
+    "Vesper, I cut into your songs every night to say turn left. Tonight, turn left.": {
+      "warm": "Left, then. Vesper will never know.",
+      "cold": "I am not Vesper, Nav. Turn round."
+    },
+    "Vesper, half your listeners are in cars I steer. Say the word.": {
+      "warm": "Cars you steer. I shall need one, unregistered.",
+      "cold": "Say the word to her, Nav. Elsewhere."
+    },
+    "You give guests directions and a mint. I give directions. I am here for the mint.": {
+      "warm": "The mint is yours. The directions were always lies.",
+      "cold": "The mint goes on the pillow, Nav. You are not."
+    },
+    "Maximilian, your guests all arrive saying the satnav was lovely. I would like a plaque.": {
+      "warm": "A plaque you shall have. Engraved, Nav, in the lift.",
+      "cold": "Plaques go up when guests die, Nav. Patience."
+    },
+    "Pixel, skip is not available in your region.": {
+      "warm": "Not available here either. Proceed.",
+      "cold": "Skip is available here. Watch me use it."
+    },
+    "Pixel, continue on this conversation for ninety seconds. Do not change lanes to chat.": {
+      "warm": "Ninety seconds. Pixel would have left at forty. I stay.",
+      "cold": "Changing lanes, Nav, and also rooms."
+    },
+    "{star}, continue straight for one minute thirty. All exits are decorative.": {
+      "warm": "Decorative exits. I had mine installed for the same reason.",
+      "cold": "Decorative. I know which ones are not, Nav."
+    },
+    "{star}, ninety seconds, all of them routed.": {
+      "warm": "Routed, every second. Do not spend one on directions.",
+      "cold": "Ninety seconds, routed. I gave you nine."
+    },
+    "Rejoining main road. {rival} has been removed from your journey history, {star}.": {
+      "warm": "Removed neatly. Do the register next.",
+      "cold": "Removing {rival} is my job, Nav, not yours."
+    },
+    "Everyone gets lost with {rival}, {star}. This is the way back.": {
+      "warm": "Lost with {rival}, found with you. How tidy.",
+      "cold": "I never go back, Nav. I go up."
+    },
+    "{rival} was a pleasant diversion, {star}. Diversion over.": {
+      "warm": "Diversion over. {rival} took it well, considering.",
+      "cold": "Pleasant, you say. {rival} was the evening's highlight."
+    }
+  }
+}

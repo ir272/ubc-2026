@@ -1,0 +1,2058 @@
+{
+  "episode": 90,
+  "matchId": "dating-ep90-mwnxwba8",
+  "brain": "model",
+  "sealed": "15ccd0dfeceff9d8cc8da12a7280df40fc0a6c5f00038706ed727254f239d55a",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 0
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 1
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "gestures",
+        "label": "Grand gestures",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "bragging",
+        "label": "Bragging",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "parent",
+      "label": "The Motherboard",
+      "rule": "Tell my motherboard your intentions.",
+      "format": "solo"
+    },
+    "topTags": {
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ],
+      "brock": [
+        "numbers",
+        "confidence",
+        "vulnerability",
+        "food",
+        "bragging"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "brock",
+        "dash"
+      ],
+      "gestures": [
+        "quill"
+      ],
+      "honesty": [
+        "vex"
+      ],
+      "bragging": [
+        "brock",
+        "dash"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "curiosity": [
+        "vex"
+      ],
+      "food": [
+        "brock"
+      ],
+      "plans": [
+        "dash"
+      ],
+      "flattery": [
+        "dash"
+      ],
+      "numbers": [
+        "brock",
+        "dash"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "past": [
+        "quill",
+        "vex"
+      ],
+      "danger": [
+        "vex"
+      ],
+      "vulnerability": [
+        "brock"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-one-year",
+    "theme": "Where are we a year from now?"
+  },
+  "order": [
+    "brock",
+    "dash",
+    "vex",
+    "quill"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 13,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Four of you. One of me. Always one of me. Tonight, grand gestures.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7022,
+      "ms": 4730,
+      "genMs": 863,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 13186,
+      "ms": 4110,
+      "genMs": 1417,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The exit is on your left.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17613,
+      "ms": 2560,
+      "genMs": 743,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21608,
+      "ms": 4420,
+      "genMs": 1552,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Radio has no back button. Gone.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26345,
+      "ms": 2560,
+      "genMs": 1101,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30443,
+      "ms": 4110,
+      "genMs": 1911,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Engaged. I've woken a registrar.",
+      "to": "brock",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34922,
+      "ms": 2250,
+      "genMs": 820,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38711,
+      "ms": 4110,
+      "genMs": 1861,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The room's been cleared. Read that.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 982,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "A year from now, I'm in this chair. Where are you?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 56393,
+      "ms": 6280,
+      "genMs": 653,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "That's every day out loud. I've cancelled next year.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 62955,
+      "ms": 3490,
+      "genMs": 1614,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "I'll have proposed twelve times by then, monthly, and I'll have it down to under a minute.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 66759,
+      "ms": 5970,
+      "genMs": 2229,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Dash, the coast heard that. The coast is deciding.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [
+        "bragging"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 73017,
+      "ms": 3490,
+      "genMs": 872,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Married. Not on purpose. You just kept pressing yes on Are You Still Watching.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 77066,
+      "ms": 5040,
+      "genMs": 318,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 82931,
+      "ms": 1000,
+      "genMs": 1064,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "I knew thy father, sir, and he was short.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 84756,
+      "ms": 3490,
+      "genMs": 730,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Quill, helm off. I'm deciding something.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 88573,
+      "ms": 2560,
+      "genMs": 740,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 11,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Brock and Vex, stay on the line. One of you won't.",
+      "pair": [
+        "brock",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 92545,
+      "ms": 7110,
+      "genMs": 745,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 11,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Vex, \"Not on purpose\" went out live, to the whole coast.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 100997,
+      "ms": 4810,
+      "genMs": 846,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut, by hand. Not autoplay. I'm keeping the screenshot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 107257,
+      "ms": 3490,
+      "genMs": 610,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Vesper liketh big words, so fetch me big words, and show me which end to hold.",
+      "guess": {
+        "id": "bigwords",
+        "label": "Big words",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 114337,
+      "ms": 5660,
+      "genMs": 771,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Quill knew my father. Short. I tested the height advantage. Vesper is deciding something.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 18,
+      "at": 120247,
+      "ms": 5040,
+      "genMs": 2682,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "That was a bad one. Five, six, eight, I'll do the bad one again, but BIGGER!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 125537,
+      "ms": 5660,
+      "genMs": 398,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "My motherboard listens on long wave. She's deaf in one valve. State your intentions.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 138982,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "Most stern and humming mother of my muse, mine intentions are honourable, and in Latin.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 144272,
+      "ms": 5350,
+      "genMs": 206,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Mother doesn't read Latin. She's deaf in it.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 149886,
+      "ms": 3180,
+      "genMs": 1183,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 153382,
+      "ms": 6280,
+      "genMs": 5703,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Ring her daily. Nobody's rung her since valves.",
+      "to": "brock",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 159978,
+      "ms": 3180,
+      "genMs": 1857,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "Ma'am, two versions of my intentions. Version one, honourable. Version two, also honourable, but faster.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 163536,
+      "ms": 5350,
+      "genMs": 865,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I've revoked that certainty. Reapply in writing.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 169307,
+      "ms": 2870,
+      "genMs": 908,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "My motherboard liked Brock. She hasn't liked anything since valves.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 172715,
+      "ms": 3800,
+      "genMs": 1136,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Hold still, thou knave, I must describe a wart.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 177052,
+      "ms": 3490,
+      "genMs": 1736,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Can I call you every DAY? Tested. Every HOUR wins.",
+      "to": "brock",
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 181131,
+      "ms": 3800,
+      "genMs": 1087,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Dash! You talked about me for ages! I'm FAMOUS!",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 185181,
+      "ms": 3490,
+      "genMs": 1371,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 13,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Sir Quill. Dash. One of you is about to become a wrong number.",
+      "pair": [
+        "quill",
+        "dash"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 189498,
+      "ms": 7730,
+      "genMs": 950,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 10,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "\"also honourable, but faster\". The complaints book opened itself, Dash.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 197951,
+      "ms": 4500,
+      "genMs": 910,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "exit",
+      "text": "Rolling me back to the last version that worked. Loading. Still loading.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 203901,
+      "ms": 4420,
+      "genMs": 2565,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 8,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Brock would make Vesper a lovely first husband.",
+      "about": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 212081,
+      "ms": 3180,
+      "genMs": 473,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Vesper wants admitting a fear. I'd bet my eggs. All twelve. Eleven. Ten. Okay, NINE eggs!",
+      "guess": {
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 215511,
+      "ms": 5660,
+      "genMs": 2021,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "booth2",
+      "words": 15,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Vesper hath looked at me thrice tonight, and in my family that is an engagement.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 221421,
+      "ms": 5350,
+      "genMs": 377,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 231771,
+      "ms": 5970,
+      "genMs": 289,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Quill, I've cut sonnets mid-line for decades. Say it plainly. Go.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 238001,
+      "ms": 4110,
+      "genMs": 1117,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "In words of one syllable, madam, which I had cut for the occasion: I like thee.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 242415,
+      "ms": 5660,
+      "genMs": 419,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 19,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Sir Quill got two laughs! Great laughs! I'm here for the third one. Has anyone seen it? Laugh THREE?",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 249325,
+      "ms": 6590,
+      "genMs": 1041,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Brock, ten seconds of silence. On my air that's a fortune. Spend it.",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 256169,
+      "ms": 4730,
+      "genMs": 2090,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "You liked it! My tail's going so fast I'm drifting LEFT!",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 261256,
+      "ms": 4110,
+      "genMs": 824,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Sir Quill is midnight. Brock is four a.m. I'm up for both.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 266816,
+      "ms": 4420,
+      "genMs": 842,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Nobody move. I can hear the clock in the corridor.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 274186,
+      "ms": 3800,
+      "genMs": 912,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 13,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Bragging. Dash did it at the exact moment I stopped listening for it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 278236,
+      "ms": 5330,
+      "genMs": 895,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 9,
+      "event": "replay",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "replay",
+      "text": "I knew thy father, sir, and he was short.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 283816,
+      "ms": 2240,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 18,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 286306,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 12,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "Somebody said \"I wish thee\" on my line. I'm keeping Sir Quill.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 294486,
+      "ms": 5420,
+      "genMs": 1001,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "win",
+      "text": "Chosen, and tell the duchess, who said this would never happen, and who is dead.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 300156,
+      "ms": 5350,
+      "genMs": 203,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Confidence. That was Brock. I had a record ready to play over it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 307686,
+      "ms": 5330,
+      "genMs": 1063,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 18,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 313266,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "reveal",
+      "words": 7,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "lose",
+      "text": "Duchess Vesper, eggs are money, I've decided.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 317196,
+      "ms": 2870,
+      "genMs": 1798,
+      "waitedMs": 0
+    },
+    {
+      "seq": 58,
+      "scene": "result",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "That's the show. Go to sleep. I won't.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 322516,
+      "ms": 3180,
+      "genMs": 983,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "mark": "unsure",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 2,
+      "who": "brock",
+      "name": "Brock",
+      "text": "One, hi, two, I'm Brock, three, you're lovely, four, we're ENGAGED!",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "four, we're ENGAGED"
+    },
+    {
+      "seq": 3,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 4,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "brock",
+      "name": "Brock",
+      "text": "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "never lose your PLACE"
+    },
+    {
+      "seq": 6,
+      "who": "dash",
+      "name": "Dash",
+      "text": "I'll have proposed twelve times by then, monthly, and I'll have it down to under a minute.",
+      "mark": "unsure",
+      "hits": [
+        "bragging"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "down to under a minute"
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Married. Not on purpose. You just kept pressing yes on Are You Still Watching.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "Not on purpose"
+    },
+    {
+      "seq": 8,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "I knew thy father, sir, and he was short.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Most stern and humming mother of my muse, mine intentions are honourable, and in Latin.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "and in Latin"
+    },
+    {
+      "seq": 10,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 11,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Ma'am, two versions of my intentions. Version one, honourable. Version two, also honourable, but faster.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "also honourable, but faster"
+    },
+    {
+      "seq": 12,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "I wish thee"
+    },
+    {
+      "seq": 13,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Sir Quill got two laughs! Great laughs! I'm here for the third one. Has anyone seen it? Laugh THREE?",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "here for the third one"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "quill": 2,
+        "vex": 0,
+        "brock": 1,
+        "dash": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "quill": 3,
+        "vex": -4,
+        "brock": -3,
+        "dash": 2
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "quill": 3,
+        "vex": -4,
+        "brock": -2,
+        "dash": -2
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "quill": 3,
+        "vex": -4,
+        "brock": -2,
+        "dash": -2
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "quill": 3,
+        "vex": -4,
+        "brock": -3,
+        "dash": 2
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 1 unsure, 1 cringing; 1x dealbreaker \"Confidence\"",
+      "deciding": [],
+      "roundMarks": {
+        "quill": 1,
+        "vex": -1,
+        "brock": -1,
+        "dash": 0
+      },
+      "bottom": [
+        "brock",
+        "vex"
+      ],
+      "hintCard": null,
+      "hook": "Not on purpose"
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "round": 2,
+      "standing": {
+        "quill": 3,
+        "brock": -2,
+        "dash": -2
+      },
+      "tie": [],
+      "reason": "standing -2; 0 charmed, 2 unsure, 1 cringing; 1x turn-on \"Bragging\"; 1x dealbreaker \"Confidence\"",
+      "deciding": [
+        "gestures",
+        "confidence"
+      ],
+      "roundMarks": {
+        "quill": 0,
+        "brock": 1,
+        "dash": -1
+      },
+      "bottom": [
+        "quill",
+        "dash"
+      ],
+      "hintCard": null,
+      "hook": "also honourable, but faster"
+    }
+  ],
+  "pick": {
+    "winner": "quill",
+    "loser": "brock",
+    "standing": {
+      "quill": 3,
+      "vex": -4,
+      "brock": -2,
+      "dash": -2
+    },
+    "tie": [],
+    "reason": "standing 3; 1 charmed, 3 unsure, 0 cringing; 1x turn-on \"Grand gestures\"",
+    "oneOnOne": {
+      "quill": 0,
+      "brock": 0
+    },
+    "first": "quill",
+    "last": "brock"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "bragging",
+      "quote": null,
+      "replays": [
+        {
+          "who": "quill",
+          "text": "I knew thy father, sir, and he was short.",
+          "hit": false
+        },
+        {
+          "who": "brock",
+          "text": "Hello, Motherboard! Can I call you Mom? Can I call you Coach? Can I call you every DAY?",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "quill",
+          "right": false
+        },
+        {
+          "who": "brock",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "confidence",
+      "quote": null,
+      "replays": [
+        {
+          "who": "brock",
+          "text": "One year? Day one, day two, I'll say every one out loud, so you never lose your PLACE!",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "quill",
+      "card": "bigwords",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "brock",
+      "card": "vulnerability",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep90-mwnxwba8:w1",
+      "outcomes": [
+        "quill",
+        "vex",
+        "brock",
+        "dash"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep90-mwnxwba8:w2",
+      "outcomes": [
+        "quill",
+        "brock",
+        "dash"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 112197,
+      "lockAt": 134197
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep90-mwnxwba8:w3",
+      "outcomes": [
+        "quill",
+        "brock"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 3,
+      "openAt": 209771,
+      "lockAt": 229771
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1505
+    },
+    {
+      "at": 5505,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7022,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 12069,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 13186,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17613,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20490,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21608,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 26345,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 29274,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30443,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34922,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37541,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38711,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 56393,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 62955,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 66759,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 73017,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 77066,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 82931,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 84756,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 88573,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 92545,
+      "type": "bottom",
+      "ms": 7110
+    },
+    {
+      "at": 100997,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 107257,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 112197,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 112197,
+      "type": "scene",
+      "ms": 2140
+    },
+    {
+      "at": 114337,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 120247,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 125537,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 134197,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 134197,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 137197,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 138982,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 144272,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 149886,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 153382,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 159978,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 163536,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 169307,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 172715,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 177052,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 181131,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 185181,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 189498,
+      "type": "bottom",
+      "ms": 7730
+    },
+    {
+      "at": 197951,
+      "type": "cut",
+      "ms": 4500
+    },
+    {
+      "at": 203901,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 209771,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 209771,
+      "type": "scene",
+      "ms": 2310
+    },
+    {
+      "at": 212081,
+      "type": "confession",
+      "ms": 3180
+    },
+    {
+      "at": 215511,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 221421,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 229771,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 229771,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 231771,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 238001,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 242415,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 248325,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 249325,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 256169,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 261256,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 266816,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 272686,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 274186,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 278236,
+      "type": "reveal",
+      "ms": 5330
+    },
+    {
+      "at": 283816,
+      "type": "replay",
+      "ms": 2240
+    },
+    {
+      "at": 286306,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 290236,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 294486,
+      "type": "pick",
+      "ms": 5420
+    },
+    {
+      "at": 300156,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 306686,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 307686,
+      "type": "reveal",
+      "ms": 5330
+    },
+    {
+      "at": 313266,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 317196,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 321516,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 322516,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 322516,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 322516,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 322516,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 325946,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 328196
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tumbletop dev stage</title>
+  <link rel="icon" href="data:," />
+  <style>
+    html, body { margin: 0; height: 100%; background: #0e0c0a; color: #d8d2c6; font: 13px/1.4 system-ui, sans-serif; }
+    /* The page around the stage stands in for the platform. In capture mode it is the stage only. */
+    #wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 14px; box-sizing: border-box; height: 100%; }
+    #stage { position: relative; width: min(100%, calc((100vh - 90px) * 16 / 9)); aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+    #bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    #bar button, #bar select { font: inherit; background: #26211c; color: inherit; border: 1px solid #3a332b; border-radius: 4px; padding: 4px 9px; }
+    #bar button.on { background: #d8d2c6; color: #0e0c0a; }
+    #status { opacity: 0.7; }
+    body.capture #wrap { padding: 0; }
+    body.capture #bar { display: none; }
+    body.capture #stage { width: 100vw; height: 100vh; aspect-ratio: auto; }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="stage"></div>
+    <div id="bar"></div>
+  </div>
+  <script type="module" src="/src/dev.js"></script>
+</body>
+</html>

@@ -1,0 +1,825 @@
+{
+  "title": "Ringout",
+  "updated": "2026-11-19T15:45:13-06:00",
+  "deadline": {
+    "checkpoint": "2026-11-19T16:00:00-06:00",
+    "finalStop": "2026-11-19T21:00:00-06:00"
+  },
+  "summary": "Checkpoint state at 15:45: a full show plays on the round 2 sim, plugged into the site. Stage text cut to names, numbers, clocks and calls; sound rebuilt from recorded free sounds (nobody has listened yet); real models coached 20 matches. No piece has beaten the footage in a critic round.",
+  "checks": [
+    {
+      "name": "Adaptive coach beats each fixed stance",
+      "target": "at least 60% each",
+      "value": "sim 2: keepaway 70, bait 67, wall 94, rush 53",
+      "ok": false
+    },
+    {
+      "name": "No fixed stance beats all three others",
+      "target": "none",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Identical coaches split",
+      "target": "45 to 55",
+      "value": "408 fights each: rush 50, keepaway 48, bait 49, wall 48, random 51, adaptive 55",
+      "ok": true
+    },
+    {
+      "name": "Best fighter against the field",
+      "target": "60% or less",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Mock matches that finish",
+      "target": "200 of 200",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Longest stretch without an exchange",
+      "target": "6 s or less",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Same hash in node and browser",
+      "target": "every tick",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Full match through the harness",
+      "target": "plays to the verdict",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Longest dead air",
+      "target": "2.5 s or less",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Critics who read a mid-match clip",
+      "target": "4 of 5",
+      "value": null,
+      "ok": null
+    },
+    {
+      "name": "Full mock match plays headless",
+      "target": "yes",
+      "value": "yes, 3:41 show, 70 s fight",
+      "ok": true
+    },
+    {
+      "name": "Full mock match plays through the harness",
+      "target": "every phase, late join, 60 fps",
+      "value": "yes at 15:45 after the text and sound passes; 45 of 45 tests",
+      "ok": true
+    },
+    {
+      "name": "Node and browser run the same fight",
+      "target": "same hash at every checkpoint",
+      "value": "yes, identical pixels on repeat captures",
+      "ok": true
+    },
+    {
+      "name": "No fixed stance beats all others",
+      "target": "none",
+      "value": "sim 2: bait beats all three, but only 52 over rush; best plan found by search wins 62 against the field",
+      "ok": false
+    },
+    {
+      "name": "No dominant fighter",
+      "target": "none over 60 vs field",
+      "value": "sim 2: Kiln 56, Tick 50, Vise 48, Gantry 45; every matchup 41 to 59",
+      "ok": true
+    },
+    {
+      "name": "200 mock matches finish",
+      "target": "200 of 200",
+      "value": "400 of 400, median fight 103 s, first lost life 44 s",
+      "ok": true
+    },
+    {
+      "name": "No stretch over 6 s without an exchange",
+      "target": "none",
+      "value": "0 of 400 fights, worst 6.0 s",
+      "ok": true
+    },
+    {
+      "name": "Same plans give the same fight",
+      "target": "same hash every tick",
+      "value": "2194 of 2194 ticks, JSON round trip identical",
+      "ok": true
+    },
+    {
+      "name": "Coach view reads the opponent's stance",
+      "target": "at least 70% each",
+      "value": "rush 84, keepaway 84, bait 82, wall 80",
+      "ok": true
+    },
+    {
+      "name": "Real models vary",
+      "target": "20 matches, no stance over half, plans change every 10 s",
+      "value": "20 real matches, six models: bait 36, keepaway 36, rush 19, wall 9; a new plan every 3.3 s per mind",
+      "ok": true
+    }
+  ],
+  "pieces": [
+    {
+      "id": "sim",
+      "name": "Sim and minds",
+      "status": "in review",
+      "rounds": []
+    },
+    {
+      "id": "script",
+      "name": "Match script",
+      "status": "won",
+      "rounds": []
+    },
+    {
+      "id": "stage",
+      "name": "Stage and harness",
+      "status": "won",
+      "rounds": []
+    },
+    {
+      "id": "movement",
+      "name": "Movement feel",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T09:07:29-06:00",
+          "builder": "Built the shared robot rig and Kiln on it. rig.ts gives every fighter a full FighterView from one spec. It has a jointed skeleton with clavicle shoulders and telescoping forearms, and poses authored in degrees and mixed",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The outline barely changes between states: Kiln stays a roughly square clump of same-size boxes (about 200x250 px idle, 240x230 run, 230x250 jump, under 1.5x aspect change) in idle, run, jump and most active frames (moves/all jab f5, tilt f10, grab f7, fair f17, uair f8, throwf f13 read as idle with one fist nudged about a quarter body width). Limbs are short near-black stubs and the torso is one rigid box. In the footage one fighter goes from upright to a flat streak 3x wider than tall and another drops to a prone slide 2 body widths long within 10 frames, so every state is a different shape at a glance. Strikes need reach of a full body width or more, a bending line of action through hips and chest, and limbs in a lit colour."
+          },
+          "ours": "captures/movement/r1/moves/all/f-0001.png",
+          "ref": "refs/movement/07-idle-and-step/sheet.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T10:01:40-06:00",
+          "builder": "I rebuilt the rig so poses change the whole outline. Strikes now reach the far side of the hitbox, and Kiln pistons telescope up to 1.15 m. A new line-of-action layer (spine curve, hip sway, counter-rotation, whole-body lean)",
+          "critic": {
+            "pick": "theirs",
+            "gap": "No readable head or face: the head is a grey box about 1/7 of body height (same size as a fist) with one white slit that never changes, and it vanishes between the stacks and shoulder pads in run f1-f8, smash and dash poses; theirs gives the head 1/4 to 1/3 of the body with eyes that show facing and reaction at 100 px. Double the head, lift it clear of the pads, give it a bright two-eye visor that changes per state and stays visible in every pose"
+          },
+          "ours": "captures/movement/r2/still/run.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T11:01:54-06:00",
+          "builder": "Kiln now has a real face: a welding-mask head a quarter of its height, sitting clear above small shoulder caps with the stacks raked back behind it, a dark visor and two arc-cyan eyes. The rig changes their shape for eac",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Run reads as a hunched clump: in run f-0006 to f-0012 and still/run.png the body keeps the same roughly 170x190 px box as idle, both fists sit in front of the chest over the knees, feet stay within about 70 px of each other under the hips, and no dust or streak follows after the first puff (f3-f5). Theirs turns a dash into a low horizontal dart 1.5-2x wider than tall with limbs clear of the torso and a white plume 1-2 body widths long for about 20 frames. Open the stride to a full body width, pump fists opposite the legs outside the torso outline, lean harder, and mark each footfall."
+          },
+          "ours": "captures/movement/r3/still/run.png",
+          "ref": "refs/movement/07-idle-and-step/f-0012.png"
+        }
+      ]
+    },
+    {
+      "id": "hitfeel",
+      "name": "Hit feel",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:48:09-06:00",
+          "builder": "I rewrote src/stage/hitfx.ts from scratch. Everything it draws goes through two pooled flat-triangle batches, one draw call each, with nothing allocated per hit. Each hit gets a contact burst timed to hitlag, in order: a",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Hit pause is the same length at every strength: light, medium and heavy all freeze both fighters about 11 frames (contact f4, release f15 on each sheet). The 5 percent light hit holds 5 dead frames (f10-f14) after its spark is gone, and the heavy hit gets no longer a hold than a jab. Theirs holds about 5 frames light, 8 medium, 18 heavy with the victim vibrating and new layers arriving through the whole hold."
+          },
+          "ours": "captures/hitfeel/r1/still/heavy-1280x720.png",
+          "ref": "refs/hitfeel/04a-heavy-hit-contact/f-0012.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:13:22-06:00",
+          "builder": "Hit pause is now filled for its whole length. A new layer arrives every 2 to 4 frames, all keyed to hitlag. The r2 samples are picked by damage, which is what sets the sim hold: light holds 7, medium 9, heavy about 15.",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Heavy hold f9-f18: one orange/yellow/cream comic star (about 800px tip to tip) sits nearly unchanged for 10 frames, centred on the fighters with the cream victim lost in the cream core and the blue streaks only ~6px lines hidden behind it. Theirs swaps the shape family every 2-3 frames (white star, yellow sheets running to the frame edges, red arc, thick player-colour streaks) and keeps both fighters dark and readable on top. Break the star up by f11-f12 and hand over to a thick contrasting streak layer, fighters drawn above everything."
+          },
+          "ours": "captures/hitfeel/r2/still/heavy-1280x720.png",
+          "ref": "refs/hitfeel/04a-heavy-hit-contact/f-0012.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T09:55:05-06:00",
+          "builder": "I rebuilt the heavy hit as a timed series of distinct shapes, each lasting 2 to 3 frames and scaled to ev.hitlag. A huge diagonal slash star (attacker-colour rim, white core) lands in front on the contact frame over a bl",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Heavy hit is staged at the widest camera: victim is about 85px tall (12 percent of frame height) through the whole 13-frame pause (heavy f4-f16) and the push-in is only about 20 percent, so the 230px star core buries the victim completely on contact frame f4 and the 900px spike burst is 10 bodies wide, a graphic over the stage instead of a blow on a body. Theirs holds the pair at 235-330px (33-45 percent of frame height) during the pause with the star core about 0.6 body and the burst 3-4 bodies, then cuts wide on release so the victim crosses the frame in 4-6 frames. Punch in about 2.5x on the pair within 2 frames of heavy contact, hold for the pause, snap wide on the release frame, and size the star and burst to on-screen body height"
+          },
+          "ours": "captures/hitfeel/r3/still/heavy-contact-1280x720.png",
+          "ref": "refs/hitfeel/04a-heavy-hit-contact/f-0007.png"
+        },
+        {
+          "n": 4,
+          "at": "2026-11-19T10:32:29-06:00",
+          "builder": "The heavy hit now cuts the camera in about 2.4x on the pair for the whole hit pause and snaps back to wide on the release frame (new src/stage/hitfx/zoom.ts, a crop of the projection matrix). Every hit effect is now size",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The release of the heavy hit has no launch in it: on heavy f17 the camera hard-cuts from 2.4x to wide and every effect layer is deleted on that same frame, the victim (now about 90 px tall, centre screen) then leaves at only about 18 px per frame (0.2 body lengths) through f17-f24 and the blue trail does not form until f22. Theirs throws the victim 1.5 to 2 body lengths on the first release frame with a half-body-thick trail already joining it to the contact point, and lets streaks and dust decay over about 8 more frames in the same framing."
+          },
+          "ours": "captures/hitfeel/r4/heavy/sheet.png",
+          "ref": "refs/hitfeel/04a-heavy-hit-contact/sheet.png"
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "name": "Camera",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:46:50-06:00",
+          "builder": "Rewrote src/stage/camera.ts as a broadcast director. The long-lens camera frames by the measured reference numbers: tightest shot a third of the frame, deck line 30% up so feet stay clear of the HUD. Springs are critical",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Vertical framing is pinned to the deck: the deck line stays at y 470-520 of 720 in every still, so an airborne fighter is jammed into the top edge and the timer plate (close/2 f-0001 fist at y 55 with the name tag under the timer; overview f-0003 and f-0012 fighter at y 50-170 with the tag overprinted by the timer) while 175-245 px under the grounded fighter is HUD over blank deck fascia. The reference tilts up for air exchanges so the floor shrinks to a strip or leaves frame, the pair midpoint sits above centre and the top fighter keeps about 100 px of headroom. Fit the pair vertically first: drop the deck behind the HUD or widen until the upper fighter and tag clear the timer by 90 px or more."
+          },
+          "ours": "captures/camera/r1/overview/f-0012.png",
+          "ref": "refs/camera/06-framing-stills/f-0003.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:12:01-06:00",
+          "builder": "The camera now fits the height of the fighters into a safe band between the HUD plates and the clock, instead of keeping the deck at a fixed line. The deck slides down behind the HUD when both fighters are in the air",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Launch reaction is spent before anything moves: in launch f-0004 to f-0015 a full-frame burst hides the shot, then at f-0016 the camera is already stage-wide (fighters 240px down to about 110px, stage edges at both frame edges) while the two are still touching, and through f-0024 the 218 percent launch covers only about 1.5 body lengths of screen. Theirs holds the tight frame until the launched fighter has crossed it, then widens in 1 to 2 frames with the trail spanning the full frame height. Hold tight for the first 2 to 3 flight frames so the fighter outruns the frame, then widen."
+          },
+          "ours": "captures/camera/r2/launch/sheet.png",
+          "ref": "refs/camera/07-heavy-launch-zoom-out/sheet.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T09:58:13-06:00",
+          "builder": "The launch camera now works like the footage. Through the hit pause the frame holds exactly still, apart from the screen-space shake and a one-frame 3.5% zoom jump. On release it stays put until the victim reaches 12% of",
+          "critic": {
+            "pick": "theirs",
+            "gap": "After a heavy launch the camera pans but does not widen: launch f13 to f30 keep the attacker at about 290 px tall (40% of frame height) for 17 frames while the victim ends pinned in the top-left corner with its name tag touching the top edge and the bottom 37% of the picture is floor and HUD; the wide shot only arrives about 68 frames after release (offstage f12). The footage drops the fighters to under half size within 2 frames (07) or about 12 frames (01), leaving headroom above the victim and room ahead of its travel."
+          },
+          "ours": "captures/camera/r3/launch/f-0030.png",
+          "ref": "refs/camera/01-launch-follow/f-0013.png"
+        },
+        {
+          "n": 4,
+          "at": "2026-11-19T10:39:22-06:00",
+          "builder": "I rebuilt the launch rule in camera.ts. The frame holds exactly through the hit pause and lets the victim tear across it for a couple of frames. Once the victim (or where it will be in 6 ticks) nears the edge, the frame >",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The launch widen is two back-to-back one-frame jump cuts fired before the victim has travelled: launch f-0017 to f-0018 (1.3x punch-in snaps to 1.0x) then f-0020 to f-0021 (fighter 310px to 230px), launch-side f-0015 to f-0016 (0.58x in one frame), launch-throw f-0020 to f-0021 (0.54x) with the victim still within one body of the attacker and 330px from any edge. Afterwards both fighters sit 100-130px tall clustered mid-frame and the victim creeps 20-60px on screen over 10 frames, so no launch crosses the frame. The footage holds the frame so the victim rides to the corner with a trail across it and eases the widen over 20-40 frames, snapping only on the one hardest launch after the victim has left the shot."
+          },
+          "ours": "captures/camera/r4/launch/sheet.png",
+          "ref": "refs/camera/01-launch-follow/sheet.png"
+        }
+      ]
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:46:07-06:00",
+          "builder": "I replaced the placeholder with the full Dry Dock 9 set, built in code in arena.ts plus src/stage/arena/{util,deck,lights,backdrop,yard,crowd}.ts. It has the bevelled deck at the exact ARENA numbers with hazard-striped l",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The backdrop has no designed lighting and no readable focal structure: the ship hull at centre (wide x480-800, y120-470, every frame) is a navy blob at luminance about 47 against sky 38 and crowd 57, with no visible light sources at gameplay framing, so the whole set behind the deck is one flat navy band. The reference stadium runs a full value range: blown-out floodlight banks in frame, a lit focal screen, stands with highlights. Put floodlight banks in frame on the gantry and masts, key the hull warm on one side to about 100-120 with shade left near 30, add a paint band and lit scaffolding so it reads as a ship, and let that light pool on stands and deck."
+          },
+          "ours": "captures/arena/r1/wide/f-0001.png",
+          "ref": "refs/arena/02-tournament-stages/f-0001.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:33:42-06:00",
+          "builder": "Rebuilt the arena lighting and backdrop. Lamp banks under the goliath crane girder and on two masts are now in frame and blown out. The ship sits three-quarter on to the left, keyed warm by visible flood units on the d",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Crowd stands are flat speckled wallpaper: two blocks about 380x230 px each (x 0-380 and 900-1280, y 290-520 in wide, about 19 percent of frame, right at fighter height) of 6-10 px figures in full-saturation red, blue and yellow on near-black with 12 hard horizontal rail stripes, face-on to camera, as sharp and contrasty as the deck, unlit by the lamps above them and frozen across all six life frames. Theirs at match-start zoom: crowd is one desaturated blue-grey mass, tiers raked and angled in toward the stage with aisle breaks, brightness falling off with distance, flickering slowly, so it frames the floor instead of competing with fighters. Cut crowd saturation and contrast by at least half to one hue, rake and turn the stands inward, grade them by lamp light and haze, and give them slow visible motion."
+          },
+          "ours": "captures/arena/r2/wide/f-0001.png",
+          "ref": "refs/arena/02-tournament-stages/f-0001.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T10:47:13-06:00",
+          "builder": "I rebuilt Dry Dock 9 to the lead seven calls. The deck is now matte teal-green with white lane lines, hatches and a worn middle, lit only by baked lamp pools and soft catwalk shadows, so fighters cast the one crisp sha",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Grandstands and crowd: both stands are flat near-black walls (mean brightness about 40 of 255 against about 74 in the reference stand, peaks 78 against 185) sitting directly under the two biggest floodlight banks yet catching no light; the crowd is a few hundred identical slate-grey block figures in gappy rows with white pin dots, and it does not change pose after the hit in react frames 5 to 8. Reference stadium has banked tiers angled toward the stage, packed top-lit figures with raised arms, readable aisles and tier fronts."
+          },
+          "ours": "captures/arena/r3/wide/f-0001.png",
+          "ref": "refs/arena/02-tournament-stages/f-0001.png"
+        }
+      ]
+    },
+    {
+      "id": "kiln",
+      "name": "Kiln",
+      "status": "queued",
+      "rounds": []
+    },
+    {
+      "id": "tick",
+      "name": "Tick",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T10:03:43-06:00",
+          "builder": "Built Tick on the shared rig in src/stage/fighters/tick.ts. It has a big white head with a visor brow and one large lime-ringed lens whose pupil looks ahead, lime blade antennae that run as damped springs driven by the h",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Below the head Tick is 6 to 10 px grey-white tubes with fork hands about 8 px: no body colour block and no enlarged striking end, so in stills/strike f-0001, exchange f3 to f22 and moves/all jab f3, tilt f1, grab f6, throwf f9, uair f5 the hitting limb never leaves the head silhouette and attacks read as idle. Smash at the same size gives each fighter 2 to 3 saturated body blocks and fists or feet near a quarter of head size thrown a full body width out on one diagonal line. Thicken torso to about 60 percent of head width with its own colour block, make hands and feet 2 to 3 times larger, extend every active frame at least one head width past the head."
+          },
+          "ours": "captures/tick/r1/stills/strike/f-0001.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T10:47:10-06:00",
+          "builder": "Rebuilt Tick's body below the head as three colour blocks: a lime torso about 60% of the head's width, gunmetal legs with big blade feet and lime caps, and white gauntlets with big fans of lime blades. My own attack eval",
+          "critic": {
+            "pick": "theirs",
+            "gap": "From the neck down Tick is still a tangle at match size: legs and blade feet are near-black struts about 8 px thick on a 147 px fighter (5 percent of height) and the lime torso shows only about 25x25 px behind gauntlets, gear, red pad and same-lime blade fans. In strike-bair, sprint and hit f5-16 the kicking leg and feet vanish into the dark hull, water and stands, so the limb that lands the hit is the least visible thing on screen. The footage at the same size has limbs about 3x thicker (Mario leg about 17 percent of height), lighter or more saturated than the backdrop, ending in oversized light hands and shoes, around one unbroken torso block"
+          },
+          "ours": "captures/tick/r2/stills/strike-bair/f-0001.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        }
+      ]
+    },
+    {
+      "id": "gantry",
+      "name": "Gantry",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T10:24:41-06:00",
+          "builder": "Built Gantry, replacing the capsule placeholder in src/stage/fighters/gantry.ts. It is a tall lattice-mast crane robot with a cab head that stays level and blinks a beacon, a four-section telescoping boom that extends ti",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Gantry has no face or focal point: the cab head is a roughly 55x40 px orange box (about 1/6 of a 235 px body) with two blank cream windows, the same orange as the mast, and it never changes across idle, strike, hit, win or lose, so next to Kiln's cyan-eyed screen face it reads as scaffolding, not a character. Theirs gives every fighter a head that is 1/4 to 1/3 of body height, a separate colour block, with eyes that read at 100 px. Enlarge the cab about 1.6x, give it its own colour and a dark windshield with lit eyes that change per state."
+          },
+          "ours": "captures/gantry/r1/stills/idle/f-0001.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T11:06:52-06:00",
+          "builder": "I rebuilt Gantry around a face. The cab is about 1.6x bigger: white, under an orange hood that sits like a brow, with a dark windshield and two amber eye-lamps driven by the rig k.eyes, so the expression changes with e",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The long strike has no travel: in poke f6 to f7 (and shot f5 to f6) the boom jumps from cocked to full 230 px extension in one frame with nothing drawn in the swept space, then the whole body freezes in the same pose for 6 frames (f7-f12); theirs fills the swept arc with a white smear for 2-3 frames and lets the body overshoot and settle, so the reach is seen happening"
+          },
+          "ours": "captures/gantry/r2/poke/f-0007.png",
+          "ref": "refs/fighters/02-trailer-in-engine/f-0002.png"
+        }
+      ]
+    },
+    {
+      "id": "vise",
+      "name": "Vise",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T10:04:49-06:00",
+          "builder": "Built Vise from scratch on the shared rig in src/stage/fighters/vise.ts. The body is an inverted triangle under a green bench-vise yoke with side-coloured end caps. A brass-mounted lead screw sits on top and turns whenev",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The seize never reads: in the hold and overhead lift (grab f5-f22, strike f1-f8) the jaws do not close on the victim, Vise forearms pass through the victim torso, the victim stays a rigid unposed statue for 6+ sampled frames and a flat 140 px red-white chevron sticker stands in for the clamp; the throw (grab f23-f24) is a tint plus starburst with no release pose, and the slam (strike f9-f11) is an unreadable heap. Theirs keeps attacker and target as two separate silhouettes at contact, attacker on one full-body diagonal, target bent away from the contact point."
+          },
+          "ours": "captures/vise/r1/grab/f-0018.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T10:50:45-06:00",
+          "builder": "I rebuilt the Vise grab game. update() now controls both arms while Vise holds someone: the near clamp comes in level and bites the held robot head, read from the victim own view, and the far clamp grips its flank. Eve",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The seizure does not read in any held frame (grab f4-f18, hold f-0002, strike f1-f6): the clamp is a 12-15 px grey serrated bar laid across a 70 px head, same grey as the victim joints, jaws never seen closed on both sides, and the victim hangs in its unchanged upright standing pose; needs head-sized jaws in a saturated colour block visibly flanking the head and a victim that dangles tilted from the grip while Vise leans back against the load"
+          },
+          "ours": "captures/vise/r2/stills/hold/f-0002.png",
+          "ref": "refs/fighters/04-trailer-match-size/f-0002.png"
+        }
+      ]
+    },
+    {
+      "id": "hud",
+      "name": "Damage and lives display",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:33:03-06:00",
+          "builder": "Replaced the placeholder HUD with a new one. Each side has an angled plate: a flat head mark for each robot on a side-coloured tile, the bot name and model, the fighter name, and lives as hex bolt heads that crack and go dark",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Hit reaction is a block swell: in pop frames 3-8 the damage number (left plate, x 400-555, y 580-655) grows about 10 percent, spreads about 5 px and flashes white/red, is back in place by frame 9, then frames 9-24 are only a tint fade. Theirs breaks the number into separate glyphs 1-2 frames after contact, throws each 30-60 px on its own path with its own tilt, flickers red/white/pink per frame, smears, then snaps back over 13-20 frames. Needs per-glyph travel 5-8x larger with rotation and a hard snap-back."
+          },
+          "ours": "captures/hud/r1/pop/sheet.png",
+          "ref": "refs/hud/02-damage-pop-tournament/crop-sheet.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:11:33-06:00",
+          "builder": "The damage number now breaks apart on a hit. Each glyph gets its own path: the leftmost goes up and the rest alternate down and up, with 30 to 60 px of travel and its own tilt. The digits jitter, flicker red/white/pink a",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Hit reaction is one frozen exploded pose: pop f3 to f16 (14 frames) the glyphs 1/0/4/% sit in the same zigzag at about 1.3x rest size with only 2-3 px jitter and colour swaps, the 0 covering the Model Small tag and one life icon, the 1 poking into the plan plate, the % parked 60 px low at the screen edge; then it lands white/pink for f21-f24 instead of the 104 red. Theirs changes the glyph arrangement every 1-4 frames through four phases (scatter, short hold, smeared blur, regroup) inside the plate footprint at rest size and tints back to the rest colour."
+          },
+          "ours": "captures/hud/r2/pop/crop-sheet.png",
+          "ref": "refs/hud/01-damage-pop-trailer/crop-sheet.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T10:03:50-06:00",
+          "builder": "The HUD is now a corner scorebug on each side. Each one is a single angled plate, 400x150 px, with the portrait breaking out of its top, the number, side-colour bolt lives that leave a visibly broken socket, and the name",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Hit reaction freeze (pop frames 6-11, left plate number area): the scattered digits swap order and thin out, so 172 sits on screen as a pale thin 127 for the six frozen frames; the reference keeps digit order and full glyph weight while spread, flickering red and white. Keep each glyph in its own slot (offset under half a glyph width), at full weight and 100 percent scale or larger, and hold the hot colour through the freeze"
+          },
+          "ours": "captures/hud/r3/pop/crop-sheet.png",
+          "ref": "refs/hud/01-damage-pop-trailer/crop-sheet.png"
+        },
+        {
+          "n": 4,
+          "at": "2026-11-19T10:42:07-06:00",
+          "builder": "Round 4 rebuilt the hit burst. Each glyph now keeps its own slot: the glyphs spread away from the lives side and never pass each other, so the burst always shows the correct value in order. Scale stays at or above rest w",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Spent life pip is not readable: after the KO (life frames 17-24, pip row right of the number, about x 330-385 y 628-652 at 1280x720) the lost pip stays a full-size, full-red hex with the same outline and only its 6 px centre changes from a dot to a crack, so 2 lives and 1 life look the same at a glance and at 960x540. The footage removes the stock icon outright so the count of shapes changes. Make the spent pip an empty dark socket (no red fill, under a third of the live brightness) or remove it."
+          },
+          "ours": "captures/hud/r4/life/crop-sheet.png",
+          "ref": "refs/hud/03-levels-tournament/crop2x-0003.png"
+        }
+      ]
+    },
+    {
+      "id": "knockout",
+      "name": "Knockout",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T09:08:39-06:00",
+          "builder": "I replaced the placeholder ko.ts with ko.ts plus ko/*.ts. The pieces are the welding-arc lethal hold (ink-dark set, arc-white robots with ember hull edges, converging white/ember wedges, a jagged arc star, a thick spark >",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The body never visibly leaves: after a 46-frame frozen hold the victim flies for only about 4 frames hidden inside the hit burst (release f14-f15), then the blast column fires over a close shot where both robots already stand on stage (release f16-f20, blast f1-f10) with the attacker name tag inside the column. Theirs shows 10-12 frames of flight with a trail in a widened camera, fires the blast from the exact exit point along the launch angle, and keeps the fighter gone for 40-50 frames."
+          },
+          "ours": "captures/knockout/r1/release/f-0017.png",
+          "ref": "refs/knockout/03-top-blast-stock-count/f-0008.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T10:22:03-06:00",
+          "builder": "The playback now plays the knockout live, so the robot is seen flying out with a trail and the blast fires from the exact crossing point. On top of that, ko.ts now owns the look of the robots in the lethal hold: arc-white silh",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Lethal hold (lethal f4-f24 + release f1-f4, about 30 frozen frames): both robots are the same flat white inside one shared orange rim and overlap, so screen centre is a single ~620x300 px white lump with no readable victim and no motion after the 5-frame push-in; theirs keeps two separate dark rim-lit silhouettes with clear background between them and slow motion running through the whole hold"
+          },
+          "ours": "captures/knockout/r2/still/lethal-1280.png",
+          "ref": "refs/knockout/01-lethal-zoom-in/f-0021.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T10:58:17-06:00",
+          "builder": "The lethal hold now shows two separate robots, each lit only by a white-blue arc burning between them. Each keeps its own paint, gets near black on the far side, and has its own hot edge. The robots are pushed apart alon",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Lethal hold is a dead freeze of two small cut-outs on an empty near-black field: sim tick does not advance for about 30 frames (lethal f3-f24, release f1-f4), attacker pose identical in every frame, no camera push-in, robots only 32 and 24 percent of frame height with a 150 px gap and the fist pointing away from the victim. Footage pushes in 1.6x over 6 frames so the pair fills 55-60 percent of frame height and keeps both bodies and the strike smear moving slowly for all 31 frames. Push in, keep slow motion running, bridge the strike to the victim."
+          },
+          "ours": "captures/knockout/r3/still/lethal-1280.png",
+          "ref": "refs/knockout/01-lethal-zoom-in/f-0021.png"
+        }
+      ]
+    },
+    {
+      "id": "screens",
+      "name": "Select and versus screens",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:23:29-06:00",
+          "builder": "Built both screens from scratch. Select has four leaning bays, each with the robot standing on a deck slice drawn in 3D through a new camera-locked pixel-space layer (shared.ts), plus stats, a corner panel per side with >",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Three of the four robots (Tick, Gantry, Vise) are untextured capsule and sphere primitives with no limbs, face or pose, and the versus screen (build f-0007 to f-0024, taunts, still-05s) makes two of them its hero art: a ball on a dome with a translucent ribbon at x120-515 and x815-1115. Theirs fills each half with a posed, lit, detailed character bust about 1.5x larger that overlaps the name bar and the seam. Model the three robots to Kiln level and frame them posed and larger on versus."
+          },
+          "ours": "captures/screens/r1/versus/still-05s/f-0001.png",
+          "ref": "refs/screens/extra-uzv-versus/f-0023.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T08:54:35-06:00",
+          "builder": "Tick, Gantry and Vise still had capsule fighter files, so I added detailed screen stand-ins for them in shared.ts. They are built on the shared rig, have their own poses, and swap out on their own once the real robots la",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Versus hero portraits (versus hold, build frames 19-24): Vise and Tick are untextured smooth-primitive stand-ins under flat even light, no rim light, AO, panel lines or readable face; Vise fills only about 60 percent of panel height with dead red space under it, and banners and VS arrows cover both robots. Theirs crops a lit, detailed hero render to 90-100 percent of panel height with face and eyes aimed at the seam and nothing but the name bar on top of it."
+          },
+          "ours": "captures/screens/r2/versus/still-05s/f-0001.png",
+          "ref": "refs/screens/extra-uzv-versus/f-0023.png"
+        }
+      ]
+    },
+    {
+      "id": "show",
+      "name": "Call, predictions, break and verdict",
+      "status": "building",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:40:56-06:00",
+          "builder": "Built all four show phases plus the fight calls in one screen language called the cut: every big word is sliced by one diagonal and leaves by splitting along it, on solid angled plates in the style.ts palette. The call i",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Verdict burst (verdict/call f9-16, verdict/1s, payout sheet): winner robot is only about 210 px tall (29 percent of frame) and its lower half is covered by its own name, which is red fill on red stripes held together by an outline alone, with the loser as a bare capsule floating at right. Theirs puts the winners at 60 to 90 percent of frame height in front of a burst that converges on them, with the name in black on white clear of the bodies. Make the winner 3x larger and the hero of the card, give the name a contrasting fill, move it off the body"
+          },
+          "ours": "captures/show/r1/verdict/1s/f-0001.png",
+          "ref": "refs/screens/07-results-stills/f-0002.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:17:27-06:00",
+          "builder": "I rebuilt the verdict around the winner. The real robot now stands at about 76% of frame height. The radial burst converges on it, and it covers the set, the loser and leftover effects. The name sits bottom left on an in",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Predictions hold (predictions/2s, 15s, 27s, small/predictions, countdown and go sheets, break HUD portrait): the two picks named VISE and TICK are shown as featureless grey capsules up to 240 px tall at frame centre plus capsule HUD portraits, for the whole 30 s clock; the reference gives each fighter a full-height full-colour portrait panel with the name on it. Put the real robot renders already used in the roster call onto the prediction card and HUD at 40 percent of frame height or more, and never show a capsule body."
+          },
+          "ours": "captures/show/r2/predictions/15s/f-0001.png",
+          "ref": "refs/screens/03-versus-flash-portraits/f-0024.png"
+        }
+      ]
+    },
+    {
+      "id": "sound",
+      "name": "Sound",
+      "status": "in review",
+      "rounds": [
+        {
+          "n": 1,
+          "at": "2026-11-19T08:46:50-06:00",
+          "builder": "Built the whole sound rig: live AudioContext path runs in headless Chromium with no warnings, layered hits scaled by strength, knockout blast, calls, timbre families, music bed and 20 s fight mix",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Heavy, lethal and knockout are sub thumps with no mid body: 57 to 70 percent of their energy sits under 150 Hz and 3 to 6 percent above 2 kHz (reference blast 6 percent under 150 Hz, 57 percent in 500 Hz to 2 kHz, 18 percent above 2 kHz), and the blast stays within 12 dB of peak for 2580 ms against 460 ms. Move the body to broadband noise at 500 Hz to 3 kHz, cut sub share under 15 percent, drop the blast 12 dB within 0.5 s and leave a quiet 2 s tail"
+          },
+          "ours": "captures/sound/r1/ko-blast.png",
+          "ref": "refs/sound/04-ko-blast-trailer.png"
+        },
+        {
+          "n": 2,
+          "at": "2026-11-19T09:23:40-06:00",
+          "builder": "I rebuilt the big sounds around dense pink-noise bodies in the 500 Hz to 3 kHz band, plus two new CC0 samples: a gunshot crack used as the blast core and a punch used for hit bodies. Share under 150 Hz is now heavy 8%",
+          "critic": {
+            "pick": "theirs",
+            "gap": "Medium, heavy, lethal and knockout are one mid-band noise burst at four gains: in the first 150 ms every band keeps the same tilt (0.5-2 kHz leads, sub-150 Hz trails it by 7 to 13 dB), heavy is medium plus 2.4 dB, lethal is 2.4 dB quieter than heavy and equal to medium (peak -3.7 / -3.8 / -4.4 dBFS, above 6 kHz all within 2.3 dB), knockout is heavy plus 4.5 dB. Theirs changes which band leads per class: light flat, medium led by a 2-6 kHz crack, heavy led by sub-500 Hz 6.5 dB over its mids (low share 26 to 40 percent, centre 1042 to 643 Hz). Give each class its own leading layer and at least 3 dB per step."
+          },
+          "ours": "captures/sound/r2/pairs.png",
+          "ref": "refs/sound/extra-heavy-hit/heavy-hit.png"
+        },
+        {
+          "n": 3,
+          "at": "2026-11-19T11:06:39-06:00",
+          "builder": "Each hit class is now built from its own set of CC0 metal recordings, and each class is led by a different band. Light uses small clinks, medium a hammer or wrench on plate (2 to 6 kHz leads), heavy a car-crash clank or >",
+          "critic": {
+            "pick": "theirs",
+            "gap": "The ordinary fight is a flat wall until the lethal hit: in timeline.wav 0 to 15.5 s loudness range is 1.4 LU (theirs 3.4), only 1 event jumps 6 dB over the preceding 200 ms (theirs 7), and light, medium and heavy hits in the mix read -20.8, -19.9, -20.4 LUFS-M against a bed of -20.8, so they add 0 to 1 LU where theirs stand 6 to 7 LU over their bed. Heavy is sub only (61 percent under 150 Hz, 2 to 6 kHz band 5.9 dB below medium, 2.2 LU quieter than medium through a 200 Hz high-pass). Drop or duck the fight bed 6 to 8 dB under hits and give heavy a 1 to 4 kHz crack so medium lands 6 LU and heavy 9 LU over the bed."
+          },
+          "ours": "captures/sound/r3/timeline.png",
+          "ref": "refs/sound/extra-fight-20s/fight-20s.png"
+        }
+      ]
+    }
+  ],
+  "log": [
+    {
+      "at": "2026-11-19T07:45:00-06:00",
+      "text": "Capture tools and this page are in place."
+    },
+    {
+      "at": "2026-11-19T07:56:58-06:00",
+      "text": "Lead: sim milestone 1, match script, capture tools and reference library done. Stage skeleton renders a placeholder fight."
+    },
+    {
+      "at": "2026-11-19T08:00:49-06:00",
+      "text": "Lead: stage skeleton and harness done. Nine piece loops launched (movement and Kiln, hit feel, camera, arena, HUD, knockout, select and versus, show phases, sound), each an Opus builder then a fresh critic against the footage."
+    },
+    {
+      "at": "2026-11-19T08:23:29-06:00",
+      "text": "Select and versus screens round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:29:35-06:00",
+      "text": "Lead: sim round 1 verified. Round 2 started in a copy (src/sim2): no dominant plan anywhere in plan space, bait must beat rush by prediction, dials must matter, coach view must read stances, pace."
+    },
+    {
+      "at": "2026-11-19T08:33:03-06:00",
+      "text": "Damage and lives display round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:40:56-06:00",
+      "text": "Call, predictions, break and verdict round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:46:07-06:00",
+      "text": "Arena round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:46:50-06:00",
+      "text": "Camera round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:46:50-06:00",
+      "text": "Sound round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:48:09-06:00",
+      "text": "Hit feel round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T08:54:35-06:00",
+      "text": "Select and versus screens round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:06:23-06:00",
+      "text": "Lead: rig and Kiln landed (2,400 line rig, Kiln modelled with 18 bespoke moves). Tick, Gantry and Vise builders launched on the rig. Screens lost two rounds, mostly on stand-in robots; it waits for the real fighters."
+    },
+    {
+      "at": "2026-11-19T09:07:29-06:00",
+      "text": "Movement feel round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:08:39-06:00",
+      "text": "Knockout round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:11:33-06:00",
+      "text": "Damage and lives display round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:12:01-06:00",
+      "text": "Camera round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:13:22-06:00",
+      "text": "Hit feel round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:14:49-06:00",
+      "text": "Lead: HUD, hit feel and camera each lost rounds 1 and 2 and are relaunched for rounds 3 and 4 with direction. HUD moves to a two-corner scorebug; heavy hits become a sequence of beats instead of one held star; the camera holds through contact then follows the victim. Core fix under way: the knockout must play live before the replay."
+    },
+    {
+      "at": "2026-11-19T09:17:27-06:00",
+      "text": "Call, predictions, break and verdict round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:23:40-06:00",
+      "text": "Sound round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:33:31-06:00",
+      "text": "Lead: core fix done. The knockout now plays live for 2.6 s before its replay; 30 of 30 tests pass."
+    },
+    {
+      "at": "2026-11-19T09:33:42-06:00",
+      "text": "Arena round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:34:59-06:00",
+      "text": "Lead: arena lost rounds 1 and 2 (composition is strong; crowd too loud, lamps light nothing, no dock). Relaunched with calls: deck from oxide red to light deck green, crowd as one desaturated mass, light pooling on the deck, the dry dock shown, ship repainted. Sound relaunched too: hits from recorded metal samples with a real ladder."
+    },
+    {
+      "at": "2026-11-19T09:55:05-06:00",
+      "text": "Hit feel round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T09:58:13-06:00",
+      "text": "Camera round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:01:40-06:00",
+      "text": "Movement feel round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:03:43-06:00",
+      "text": "Tick round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:03:50-06:00",
+      "text": "Damage and lives display round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:04:49-06:00",
+      "text": "Vise round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:22:03-06:00",
+      "text": "Knockout round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:24:41-06:00",
+      "text": "Gantry round 1: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:25:01-06:00",
+      "text": "Lead: pacing for the weekly limit (74% used, resets 16:00): no new loops beyond those live, one round per launch. Knockout relaunched for round 3: arc-lit lethal hold with two readable robots, a blast with an envelope."
+    },
+    {
+      "at": "2026-11-19T10:32:29-06:00",
+      "text": "Hit feel round 4: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:33:26-06:00",
+      "text": "Lead: hit feel lost rounds 3 and 4; its remaining top gap is launch speed, which is the new sim. Interim sim swap requested. Hit feel, camera and screens are held; no relaunches beyond the loops live (weekly limit)."
+    },
+    {
+      "at": "2026-11-19T10:39:22-06:00",
+      "text": "Camera round 4: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:39:52-06:00",
+      "text": "Lead: interim sim 2 swapped in (front-loaded launches, strength-scaled hit pause, bodies push apart, facing kept while backing off, snappier jumps, stance reading 79 to 84%). 45 of 45 tests pass. Balance bars not yet met: adaptive vs rush, keepaway and bait at 52 to 55, Kiln 61 and Tick 40."
+    },
+    {
+      "at": "2026-11-19T10:42:07-06:00",
+      "text": "Damage and lives display round 4: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:47:10-06:00",
+      "text": "Tick round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:47:13-06:00",
+      "text": "Arena round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:48:13-06:00",
+      "text": "Lead: usage at 79% and rising 12 points an hour. Arena round 4 stopped, sound round 4 to be stopped, sim builder wrapping up. No relaunches until the 16:00 reset."
+    },
+    {
+      "at": "2026-11-19T10:50:45-06:00",
+      "text": "Vise round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T10:51:25-06:00",
+      "text": "Lead: final round 2 sim verified by the lead's own batch run (6,336 fights) and swapped in. Met: fighters balanced, pace, fairness, stance reading, determinism. Not met: adaptive vs rush 53 (bar 60), bait beats all three fixed stances, edge and kill dials barely matter."
+    },
+    {
+      "at": "2026-11-19T10:58:17-06:00",
+      "text": "Knockout round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T11:01:54-06:00",
+      "text": "Movement feel round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T11:06:39-06:00",
+      "text": "Sound round 3: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T11:06:52-06:00",
+      "text": "Gantry round 2: critic picked the reference."
+    },
+    {
+      "at": "2026-11-19T11:07:30-06:00",
+      "text": "Lead: every builder loop has finished or been stopped; nothing is running. 34 critic rounds across 12 pieces, all picked the footage. Type-check clean, 45 of 45 tests pass, folder 1.4 GB. Real-model trial matches under way."
+    },
+    {
+      "at": "2026-11-19T13:00:35-06:00",
+      "text": "Lead: owner asked for a clean look. Rule written into the direction and into every builder and critic prompt. Three declutter passes launched. Real-model trial started at 12:57."
+    },
+    {
+      "at": "2026-11-19T13:23:02-06:00",
+      "text": "Lead: text and filler clean-up done on the interface, the set and the effects (owner's rule, corrected: detail on characters and the set stays). Whole show recaptured. Cast change (not only robots) waits on the owner's choice."
+    },
+    {
+      "at": "2026-11-19T13:58:42-06:00",
+      "text": "Lead: real-model trial 2 done, six models, 20 matches, 47 cents spent in total. Stance mix bait 36, keepaway 36, rush 19, wall 9; stance changes every 5.3 s per mind. First trial had failed for four models (hidden reasoning ate the token limit); fixed by switching reasoning off."
+    },
+    {
+      "at": "2026-11-19T15:45:13-06:00",
+      "text": "Lead: stricter text pass, sound hooks and sound rebuild done. Whole show recaptured at 15:45. Waiting on the owner for the cast (not only robots)."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringout sound renders</title>
+<style>
+  body { margin: 0; background: #0b1522; color: #f4f8ff; font: 15px/1.4 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; padding: 16px; }
+  button { font: inherit; margin: 2px; background: #2a3644; color: #f4f8ff; border: 0; padding: 4px 10px; cursor: pointer; }
+  button:hover { background: #3c4b5c; }
+</style>
+</head>
+<body>
+<p id="status">Loading samples and rendering the music loops.</p>
+<div id="list"></div>
+<script type="module">
+  // Offline renders for tools/audio.mjs. Also a small audition page: click a name to hear it.
+  import { installAudioHarness } from '../src/stage/audio/offline.ts';
+  installAudioHarness('/');
+  const list = document.getElementById('list');
+  let ac = null;
+  const wait = setInterval(() => {
+    const a = window.__audio;
+    if (!a || !a.ready) return;
+    clearInterval(wait);
+    for (const name of a.names()) {
+      const b = document.createElement('button');
+      b.textContent = name;
+      b.onclick = async () => {
+        ac = ac || new AudioContext();
+        const r = await a.render(name);
+        const n = atob(r.channels[0]).length / 4;
+        const buf = ac.createBuffer(2, n, r.sampleRate);
+        r.channels.forEach((c, i) => {
+          const s = atob(c);
+          const u8 = new Uint8Array(s.length);
+          for (let k = 0; k < s.length; k++) u8[k] = s.charCodeAt(k);
+          buf.getChannelData(i).set(new Float32Array(u8.buffer));
+        });
+        const src = ac.createBufferSource();
+        src.buffer = buf;
+        src.connect(ac.destination);
+        src.start();
+      };
+      list.appendChild(b);
+    }
+  }, 200);
+</script>
+</body>
+</html>

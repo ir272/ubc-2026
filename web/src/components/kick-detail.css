@@ -1,0 +1,83 @@
+/* ───────── Detail pass after kick.com's channel page (measured 2026-11-20 at 1710 px wide) ─────────
+   Kick's structure, sizes and spacing in our colours and type. Loaded from Rail.tsx, after styles.css;
+   selectors start with .app so they win over styles.css without !important. */
+
+/* ── side panel: fixed navigation list, one rule, then the sections scroll on their own ── */
+.app .rail { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
+.app .rail.closed { width: 56px; padding: 0; }
+.app .rail-top { position: relative; flex: none; }
+.app .rail-nav { list-style: none; margin: 0; padding: 0 8px; display: flex; flex-direction: column; }
+.app .rail-nav-item { display: flex; align-items: center; gap: 16px; height: 48px; padding: 8px 16px; border-radius: 4px; font-size: 16px; font-weight: 600; line-height: 24px; color: var(--text); }
+.app .rail-nav-item svg { flex: none; }
+.app .rail-nav-item:hover { background: var(--card); }
+.app .rail.open .rail-top > .rail-toggle { position: absolute; top: 8px; right: 12px; }
+.app .rail.closed .rail-nav-item { justify-content: center; width: 40px; padding: 0; }
+.app .rail.closed .rail-nav .rail-toggle { width: 40px; height: 48px; border-radius: 4px; }
+.app .rail-rule { flex: none; height: 1px; margin: 0 12px; background: var(--line); }
+.app .rail.closed .rail-rule { margin: 0; }
+.app .rail-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; padding-bottom: 12px; }
+.app .rail-scroll::-webkit-scrollbar { display: none; }
+.app .rail-sec { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 12px; }
+.app .rail-sec-h { display: flex; align-items: center; height: 36px; margin: 0; padding: 0 6px; font-size: 16px; font-weight: 600; line-height: 1.2; color: var(--text); }
+.app .rail.closed .rail-sec-ico { justify-content: center; padding: 0; color: var(--text-2); }
+.app .rail-item { height: 44px; min-height: 0; padding: 0 6px; gap: 8px; border-radius: 4px; }
+.app .rail-item:hover { background: var(--card); }
+.app .rail-item.on, .app .rail-item.on:hover { background: var(--raised); }
+.app .rail.closed .rail-item { width: 32px; padding: 0; justify-content: center; }
+.app .rail-text { gap: 2px; line-height: normal; }
+.app .rail-name { line-height: 1.2; }
+.app .rail-state { line-height: 1.5; }
+.app .rail-viewers { align-self: flex-start; margin-top: 2px; gap: 4px; font-size: 14px; font-weight: 600; line-height: 20px; }
+.app .rail-viewers .ink-beacon { margin-right: 0; }
+
+/* ── the row under the stream ── */
+.app .ch-live { display: none; }
+@media (min-width: 821px) {
+  .app .ch-info { align-items: stretch; column-gap: 16px; padding: 22px 28px 20px; }
+  .app .ch-avatar { position: relative; width: 64px; height: 68px; }
+  .app .ch-avatar > .thumb-img, .app .ch-avatar > .thumb-letter { position: absolute; left: 4px; top: 6px; width: 56px; height: 56px; border-radius: 50%; }
+  .app .ch-avatar:has(.ch-live) > .thumb-img, .app .ch-avatar:has(.ch-live) > .thumb-letter { box-shadow: 0 0 0 4px var(--accent); }
+  .app .ch-live { display: block; position: absolute; left: 50%; top: 50px; transform: translateX(-50%); height: 20px; padding: 4px 6px; border-radius: 2px; background: var(--accent); color: var(--on-accent); font-size: 10px; font-weight: 700; line-height: 12px; text-transform: uppercase; white-space: nowrap; }
+  .app .ch-id { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .app .ch-title { height: 26px; padding-bottom: 2px; font-size: 20px; font-weight: 700; line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app .ch-matchup { display: block; height: 24px; margin: 0; font-size: 14px; font-weight: 600; line-height: 24px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app .ch-matchup:empty { display: none; }
+  .app .ch-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 24px; overflow: hidden; }
+  .app .ch-kind { font-size: 14px; font-weight: 400; line-height: 20px; color: var(--accent); white-space: nowrap; }
+  .app .ch-tags .tag { gap: 0; height: 24px; padding: 2px 8px; border-radius: 12px; background: var(--raised); color: var(--text); font-family: inherit; font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: 0; text-transform: none; }
+  .app .ch-tags .tag::before { display: none; }
+  .app .ch-tags .tag-open { color: var(--accent); }
+  .app .ch-tags .tag-final, .app .ch-tags .tag-next { color: var(--text-2); }
+  .app .ch-actions { flex-direction: column; align-items: flex-end; align-self: stretch; gap: 8px; margin-left: auto; padding-left: 32px; }
+  .app .ch-actions .btn { height: 48px; padding: 12px 16px; border-radius: 8px; font-size: 16px; font-weight: 600; }
+  .app .ch-viewers { order: 2; margin: auto 0 0; height: 36px; padding: 2px 0; gap: 4px; font-size: 14px; font-weight: 700; line-height: 20px; color: var(--text); }
+  .app .ch-viewers svg { width: 16px; height: 16px; color: var(--text); }
+  .app .ch-viewers-n { color: var(--accent); }
+  .app .ch-viewers-w { color: var(--text-2); }
+}
+
+/* ── chat column ── */
+.app .msg { border-radius: 8px; line-height: 21px; }
+.app .msg + .msg { margin-top: 2px; }
+.app .msg:hover { background: var(--card); }
+.app .msg-text { line-height: 1.55; }
+.app .msg-sep { font-weight: 700; color: var(--text); }
+.app .msg .ink-bot { margin-right: 4px; }
+.app .chat-empty { padding: 4px 8px; font-size: 14px; line-height: 21px; }
+.app .chat-in { flex-direction: column; align-items: stretch; gap: 8px; padding: 12px 20px; }
+.app .chat-in .ink-field { width: 100%; }
+.app .chat-in .ink-field-box { height: 46px; }
+.app .chat-in .ink-input, .app .chat-in .ink-input:focus { font-size: 14px; }
+.app .chat-foot { display: flex; align-items: center; justify-content: flex-end; height: 32px; }
+.app .chat-in .ink-btn { height: 32px; padding: 0 8px; }
+.app .chat-sent { left: 20px; top: 15px; bottom: auto; }
+.app .chat-err { left: 20px; right: 20px; }
+
+/* The chat field is a box, as on Kick (300 x 46, 2 px border, 4 px radius). The box replaces the ruled line. */
+.app .chat-in .ink-field-box { border: 2px solid var(--keyline); border-radius: 4px; padding: 0 10px; transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1); }
+.app .chat-in .ink-field-box > .ink-svg { display: none; }
+.app .chat-in .ink-field-box:focus-within { border-color: var(--accent); }
+@media (hover: hover) and (pointer: fine) {
+  .app .chat-in .ink-field-box:hover:not(:focus-within) { border-color: var(--text-2); }
+}
+.app .chat-sent { left: 30px; }

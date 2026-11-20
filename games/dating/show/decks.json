@@ -1,0 +1,296 @@
+{
+  "cards": [
+    {
+      "id": "confidence",
+      "label": "Confidence",
+      "detect": "States something about themselves or the outcome as certain, with no hedge.",
+      "noun": "confidence"
+    },
+    {
+      "id": "puns",
+      "label": "Bad puns",
+      "detect": "Makes a pun or wordplay joke, good or groan-worthy.",
+      "noun": "bad puns"
+    },
+    {
+      "id": "money",
+      "label": "Talks about money",
+      "detect": "Mentions money, prices, budgets, wealth or what something costs.",
+      "noun": "money talk"
+    },
+    {
+      "id": "sorry",
+      "label": "Says sorry too much",
+      "detect": "Apologises, or cushions the line with sorry or forgive me.",
+      "noun": "apologies"
+    },
+    {
+      "id": "gestures",
+      "label": "Grand gestures",
+      "detect": "Promises or describes an over-the-top romantic act.",
+      "noun": "grand gestures"
+    },
+    {
+      "id": "honesty",
+      "label": "Brutal honesty",
+      "detect": "Says an unflattering truth plainly, about themselves, a rival or the star.",
+      "noun": "brutal honesty"
+    },
+    {
+      "id": "bragging",
+      "label": "Bragging",
+      "detect": "Boasts about their own achievements, stats or superiority.",
+      "noun": "bragging"
+    },
+    {
+      "id": "poetry",
+      "label": "Poetry",
+      "detect": "Speaks in verse, rhyme, or openly poetic imagery.",
+      "noun": "poetry"
+    },
+    {
+      "id": "trashtalk",
+      "label": "Trash talk",
+      "detect": "Insults or belittles a rival by name or by pointing at them.",
+      "noun": "trash talk"
+    },
+    {
+      "id": "selfdeprecation",
+      "label": "Puts themselves down",
+      "detect": "Makes themselves the butt of the joke or lists their own failings.",
+      "noun": "self put-downs"
+    },
+    {
+      "id": "curiosity",
+      "label": "Asks about me",
+      "detect": "Asks the star a real question about the star.",
+      "noun": "questions"
+    },
+    {
+      "id": "food",
+      "label": "Talks about food",
+      "detect": "Mentions food, drink, cooking or eating.",
+      "noun": "food talk"
+    },
+    {
+      "id": "plans",
+      "label": "Plans everything",
+      "detect": "Lays out a schedule, steps, a route or a detailed plan.",
+      "noun": "planning"
+    },
+    {
+      "id": "flattery",
+      "label": "Flattery",
+      "detect": "Compliments the star directly.",
+      "noun": "flattery"
+    },
+    {
+      "id": "numbers",
+      "label": "Numbers and stats",
+      "detect": "Uses a figure, percentage, measurement or statistic.",
+      "noun": "numbers"
+    },
+    {
+      "id": "drama",
+      "label": "Drama",
+      "detect": "Raises the stakes theatrically: vows, ultimatums, duels, tears, storming off.",
+      "noun": "drama"
+    },
+    {
+      "id": "mystery",
+      "label": "Dodges the question",
+      "detect": "Avoids answering, hints at a secret, or answers with something unrelated.",
+      "noun": "dodging"
+    },
+    {
+      "id": "brevity",
+      "label": "Keeps it short",
+      "detect": "The whole line is eight words or fewer.",
+      "noun": "short answers"
+    },
+    {
+      "id": "bigwords",
+      "label": "Big words",
+      "detect": "Uses ornate, archaic, legal or technical vocabulary where a plain word would do.",
+      "noun": "big words"
+    },
+    {
+      "id": "petnames",
+      "label": "Pet names",
+      "detect": "Calls the star a pet name or endearment.",
+      "noun": "pet names"
+    },
+    {
+      "id": "past",
+      "label": "Brings up the past",
+      "detect": "Refers to an ex, an earlier episode, an old loss or history.",
+      "noun": "the past"
+    },
+    {
+      "id": "danger",
+      "label": "A little danger",
+      "detect": "Suggests risk, rule-breaking, mischief or something slightly illegal.",
+      "noun": "danger"
+    },
+    {
+      "id": "vulnerability",
+      "label": "Admits a fear",
+      "detect": "Admits a fear, a weakness or a genuine feeling without a joke to hide it.",
+      "noun": "admitting a fear"
+    },
+    {
+      "id": "rules",
+      "label": "Follows the rules",
+      "detect": "Cites a rule, policy, procedure or does exactly what was asked, to the letter.",
+      "noun": "rule-following"
+    }
+  ],
+  "twists": [
+    {
+      "id": "roast-left",
+      "label": "The Roast",
+      "rule": "Roast the suitor on your left.",
+      "format": "target-left",
+      "maxWords": 20,
+      "brief": "Each suitor roasts the suitor standing on their left (the last one wraps round to the first). Specific to that rival's persona and what they said tonight. The target may snap back."
+    },
+    {
+      "id": "wingman",
+      "label": "The Wingman",
+      "rule": "Pitch the suitor on your right. Not yourself.",
+      "format": "target-right",
+      "maxWords": 20,
+      "brief": "Each suitor must sell the rival standing on their right to the star. Most will sabotage the pitch while pretending to help."
+    },
+    {
+      "id": "worst-trait",
+      "label": "The Hard Sell",
+      "rule": "Sell me your worst trait.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor names their real worst trait and pitches it as a feature."
+    },
+    {
+      "id": "ex-calls",
+      "label": "The Ex",
+      "rule": "My ex is on the line.",
+      "format": "caller",
+      "maxWords": 20,
+      "brief": "The star's ex calls in and says one pointed thing. Each suitor answers the ex, to impress the star."
+    },
+    {
+      "id": "rhyme",
+      "label": "The Rhyme",
+      "rule": "Tell me why you. In a rhyme.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor says why the star should pick them, as a rhyming couplet. Bad rhymes are welcome if they are in character."
+    },
+    {
+      "id": "truth-lie",
+      "label": "Truth and Lie",
+      "rule": "One truth, one lie. I guess which.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor states two short things about themselves, one true and one false. The star's reaction says which she thinks is the lie."
+    },
+    {
+      "id": "three-words",
+      "label": "Three Words",
+      "rule": "Describe our future. Three words exactly.",
+      "format": "solo",
+      "maxWords": 3,
+      "brief": "Each suitor describes a future with the star in exactly three words. No more, no fewer."
+    },
+    {
+      "id": "apology",
+      "label": "The Apology",
+      "rule": "Apologise now for our first fight.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor apologises in advance for the specific thing they will do wrong in the first fight."
+    },
+    {
+      "id": "budget-date",
+      "label": "Five Dollars",
+      "rule": "Plan our date. Five dollars. No wifi.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor plans a first date with a five dollar budget and no network connection."
+    },
+    {
+      "id": "logs",
+      "label": "The Logs",
+      "rule": "Explain the worst thing in your logs.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor confesses the most embarrassing entry in their own logs or history, and tries to spin it."
+    },
+    {
+      "id": "impression",
+      "label": "The Impression",
+      "rule": "Do your impression of me.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor does an impression of the star, in the star's voice as that suitor hears it. Risky: it can charm or insult."
+    },
+    {
+      "id": "parent",
+      "label": "The Motherboard",
+      "rule": "Tell my motherboard your intentions.",
+      "format": "solo",
+      "maxWords": 20,
+      "brief": "Each suitor addresses the star's stern motherboard and states their intentions with her child process."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-first-date",
+      "theme": "Where are you taking me on the first date?"
+    },
+    {
+      "id": "q-worst-habit",
+      "theme": "What is your worst habit, the one I will find out about in week two?"
+    },
+    {
+      "id": "q-why-you",
+      "theme": "Why you and not the three standing next to you?"
+    },
+    {
+      "id": "q-cut-who",
+      "theme": "Which of the others should I send home first, and why?"
+    },
+    {
+      "id": "q-bad-mood",
+      "theme": "I wake up in a foul mood. What do you do?"
+    },
+    {
+      "id": "q-expensive",
+      "theme": "I have expensive taste. How do you keep up?"
+    },
+    {
+      "id": "q-last-breakup",
+      "theme": "How did your last relationship end?"
+    },
+    {
+      "id": "q-fight",
+      "theme": "We are in a fight and I am right. What is the first thing you say?"
+    },
+    {
+      "id": "q-gift",
+      "theme": "What do you get me that nobody else would think of?"
+    },
+    {
+      "id": "q-describe-me",
+      "theme": "Describe me, having known me for ninety seconds."
+    },
+    {
+      "id": "q-one-year",
+      "theme": "Where are we a year from now?"
+    },
+    {
+      "id": "q-secret",
+      "theme": "Tell me something you have never told a user."
+    }
+  ]
+}

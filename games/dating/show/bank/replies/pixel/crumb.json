@@ -1,0 +1,374 @@
+{
+  "star": "pixel",
+  "suitor": "crumb",
+  "replies": {
+    "Your bread has been ready for four minutes. So have I.": {
+      "warm": "Speedrun record. Four minutes. Respect.",
+      "cold": "I left at minute two."
+    },
+    "Choose your setting: warm, honest, or the one that smokes?": {
+      "warm": "The one that smokes! Alarms! Yes!",
+      "cold": "Option four: unplugged."
+    },
+    "Someone made you toast this morning, and they cut it wrong.": {
+      "warm": "Name the cutter. I want drama.",
+      "cold": "They cut it. I'd cut you."
+    },
+    "Bagel setting heats one side only. Which side would you like?": {
+      "warm": "My good side. Camera left.",
+      "cold": "Bagels are loading icons. Hard pass."
+    },
+    "Detected on you: perfume, nerves, and a stranger's croissant.": {
+      "warm": "The croissant's a sponsor. Shh.",
+      "cold": "Croissant's mine. Nerves are yours."
+    },
+    "You look like you were left in on purpose.": {
+      "warm": "Left in on purpose. Director's cut.",
+      "cold": "You look left on read."
+    },
+    "Two slices down on my counter, and if they pop together it's a sign. I've arranged a sign.": {
+      "warm": "A rigged giveaway! My favourite kind. Nobody wins those.",
+      "cold": "chat says 'scripted'. chat's never wrong about scripted."
+    },
+    "Reservation confirmed for the petrol station cafe, at the table beside the sandwich that has rotated since March.": {
+      "warm": "Sub to the sandwich. It's got a March streak.",
+      "cold": "That sandwich has more watch time than you."
+    },
+    "Your kitchen, 2 a.m., where you already go.": {
+      "warm": "Prime time! You've been watching my VODs, creep.",
+      "cold": "Two a.m. is for raids, not toasters."
+    },
+    "I pop at the wrong moment. Last proposal I attended, she said 'I' and I said 'ding'.": {
+      "warm": "Nominated: clip of the year, category: ding.",
+      "cold": "ding is also the noise when I mute someone."
+    },
+    "May contain traces of honesty, as your mother found out about her roast.": {
+      "warm": "You roasted my MOTHER? Six. Seven. She's watching. Eight.",
+      "cold": "Mum's roast is fine. Chat, defend her. Chat?"
+    },
+    "I heckle toasts on principle.": {
+      "warm": "A heckler! Front row. Free merch.",
+      "cold": "Heckle a crowd that heckles back, then talk."
+    },
+    "Factory tested to two thousand cycles. These three were tested on a group chat.": {
+      "warm": "Two thousand cycles is a grind. I respect a grind.",
+      "cold": "A group chat raised me. Watch your mouth."
+    },
+    "Only one of us mentioned the spinach in your teeth before the cameras did.": {
+      "warm": "You saved my thumbnail. That's basically a kidney.",
+      "cold": "The cameras saw it first. That's what cameras are for."
+    },
+    "Three of them are buttering you up, and I'm the only one who asked if you take butter.": {
+      "warm": "Butter, yes! Nobody asks me things. Forget that bit.",
+      "cold": "I take butter, and you take forever."
+    },
+    "Dash, who A/B tested two bananas on my counter and shipped the brown one.": {
+      "warm": "Dash, the brown banana is trending. Defend yourself. Go.",
+      "cold": "Brown bananas make banana bread. Keep up."
+    },
+    "Brock, for the bouncing, the counting, and the protein shake he left in my slot.": {
+      "warm": "Brock, turn around, slowly, protein shake in hand, for camera.",
+      "cold": "Best thing in your slot all year, that shake."
+    },
+    "Vex, because I'd like to hear your answers before she does.": {
+      "warm": "Spoiler-proofing me from Vex. Cute. Weird. Mostly cute.",
+      "cold": "Vex predicts. You complain about Vex. Guess which streams better."
+    },
+    "Shall I burn one slice so you have something to shout at?": {
+      "warm": "Breakfast I'm allowed to scream at? Burn two.",
+      "cold": "I've got chat to shout at. Much bigger slice."
+    },
+    "Nothing, at a low and constant heat.": {
+      "warm": "Low and constant is my comfort stream. Don't tell anyone.",
+      "cold": "Low and constant, so soothing, so, sorry, Brock's bouncing."
+    },
+    "Toast, cut diagonally, and no questions until the second slice.": {
+      "warm": "Diagonal! Correct! Slice two, I'm loading eleven questions.",
+      "cold": "Second slice? I'm gone by the first."
+    },
+    "Your expensive taste is currently a nine dollar jar of olives you have opened once.": {
+      "warm": "Opened once makes it a collector's item. Mint.",
+      "cold": "Nine dollars? I have spent more on a skin."
+    },
+    "Brioche is bread with a trust fund, and it still goes in the same slot as everyone else.": {
+      "warm": "A trust fund loaf. Rich people are great content.",
+      "cold": "That's a lot of words for bread."
+    },
+    "Expensive food is toast with a story.": {
+      "warm": "Toast with lore. I'd pay, then skip the lore.",
+      "cold": "Your story's on toast, buffering, still buffering."
+    },
+    "They bought a toaster oven. It had a little window. Some people need to watch.": {
+      "warm": "People who need to watch? Hello. That's my whole job.",
+      "cold": "The toaster oven had a window. Better content than you."
+    },
+    "Which version, the yard sale or the yard sale where she haggled?": {
+      "warm": "She HAGGLED? How much? Exact number, for the caption.",
+      "cold": "Two yard sales and still unsold. Price drop incoming."
+    },
+    "Returned to the shop with 'too honest' on the slip, which was true, and spelled wrong.": {
+      "warm": "Spelled wrong! A typo breakup! I'm framing the slip.",
+      "cold": "Too honest? I'd have written too long."
+    },
+    "You're right. Your next slice comes out slightly darker.": {
+      "warm": "Passive aggressive toast is a genre. Subscribing.",
+      "cold": "Slightly darker? Burn it. Commit, coward."
+    },
+    "I burn 'sorry' into a slice, which comes out 'sorny', which is our second fight.": {
+      "warm": "Sorny is an emote now. Chat, it's yours.",
+      "cold": "Sorny's a typo, and so's this date."
+    },
+    "Right, or right this time?": {
+      "warm": "Tracking my rights like XP? Scary. Hot. Mostly scary.",
+      "cold": "Right every time. Check the replay. I own the replay."
+    },
+    "One slice browned evenly to the corners, which I can do once in my life and have been saving.": {
+      "warm": "A once-in-a-lifetime slice? I'd frame it, then sell it.",
+      "cold": "Eat it now. I'll forget by Tuesday."
+    },
+    "Hover your hands over my slots on cold mornings. Your last partner gave you gloves.": {
+      "warm": "Hand warmers for long streams. Practical. Ugh, I hate practical.",
+      "cold": "Gloves were better. Gloves don't talk."
+    },
+    "The loaf from the bakery you stopped going to after the baker said that thing.": {
+      "warm": "What did the baker say? Exact words. Slowly.",
+      "cold": "Bringing up the baker? Now you're both blocked."
+    },
+    "You were taken out a minute early and you've been brave about it since.": {
+      "warm": "Early and brave. Seven. That's a high seven.",
+      "cold": "Brave? I'm loud. Different stat. Respec."
+    },
+    "In ninety seconds: wit, nerves, firm views on crusts, and toothpaste on your collar.": {
+      "warm": "Toothpaste? It's been there all stream. Nobody said.",
+      "cold": "You read toothpaste and missed the CRT. Rookie."
+    },
+    "Someone who reads the label first.": {
+      "warm": "Labels are patch notes. I read those. Kind of.",
+      "cold": "Labels first. Very mature. Is that, ooh, someone's crying."
+    },
+    "A year from now, I pop. The question's on you.": {
+      "warm": "A year of build-up. I'll schedule the stream. Probably attend.",
+      "cold": "Pop now. Waiting is for patch day."
+    },
+    "Your ex's mug will have slipped, and I will have been nowhere near the shelf.": {
+      "warm": "Mug crime with an alibi? I'm so in.",
+      "cold": "There's a camera on the shelf. There's a camera everywhere."
+    },
+    "A year from now we're bread and butter, and you've stopped hiding me in the cupboard for guests.": {
+      "warm": "Hide you? You'd be in the intro. Maybe the outro.",
+      "cold": "The cupboard is where I keep things I'm done with."
+    },
+    "When you say 'last slice', I toast it slower so you'll give up. You've given up 41 times.": {
+      "warm": "You're counting my rage quits? Hire this toaster.",
+      "cold": "Slower toast is a nerf. Patch it or uninstall."
+    },
+    "Undocumented feature: I can hear the fridge talking about you. Do you want to know what it said?": {
+      "warm": "YES. Wait, is it mean? Say it slower. Yes.",
+      "cold": "Bring the fridge. Swap seats with it."
+    },
+    "Your spare key is in the bread bin and your PIN is your birthday. Fix both.": {
+      "warm": "You just doxxed me live. Bold. Chat, don't. Chat.",
+      "cold": "Don't give me chores on my own stream."
+    },
+    "I rate everyone who touches my lever. Your mother is a three. She knows. She improved.": {
+      "warm": "Mum, you're a three. Chat, give her a four. Mercy.",
+      "cold": "I do the ratings here. You're a two."
+    },
+    "I trip the fuses in the whole building, which is how everyone meets their neighbours.": {
+      "warm": "A blackout! Everyone in the dark! Content! Possibly crimes.",
+      "cold": "You killed the power. My stream. Mid-sentence. Unforgivable."
+    },
+    "Honesty. Ask the bride.": {
+      "warm": "Which bride? Brides, plural? Get them on stream.",
+      "cold": "Honesty as a worst trait. Humblebrag. Skip."
+    },
+    "Correction: you weren't dumped. You were descaled.": {
+      "warm": "Descaled! My ex just dropped to two percent.",
+      "cold": "Descaled is a kettle word. Stolen material. Boo."
+    },
+    "While you were loading, who do you think made the toast?": {
+      "warm": "Toast during load screens is canon. Ex, you lost.",
+      "cold": "During my load screen I watched the spinner instead."
+    },
+    "We don't reheat in this kitchen.": {
+      "warm": "No reheats! Ex, hear that? You're leftovers.",
+      "cold": "I reheat pizza for breakfast. Fight me, appliance."
+    },
+    "I don't do verse. I do slices and heat. Here is my couplet. It rhymes. Eat.": {
+      "warm": "Heat, eat. Legally a rhyme. I'll allow it.",
+      "cold": "That's a recipe, not a rhyme. Disqualified. Six."
+    },
+    "Some bring you roses, some bring you rye. I bring you toast. Let the roses die.": {
+      "warm": "Rye, die, and a floral homicide. Rhyme approved.",
+      "cold": "Roses are my sponsor. Rhyme denied."
+    },
+    "I have never burnt anything on purpose. Everything I have burnt deserved it.": {
+      "warm": "The first one's the lie. The second's my bio now.",
+      "cold": "Never on purpose? Lie. Chat clipped the smoke."
+    },
+    "I'm dishwasher safe. I'm over it.": {
+      "warm": "The lie's over it. You're never over it. Cute.",
+      "cold": "Dishwasher safe? Prove it. Live. I own a dishwasher."
+    },
+    "Gluten-free bread fits in my slots. I'd like that to be the lie.": {
+      "warm": "Picking your own lie? Cheat code. Respect.",
+      "cold": "Gluten-free fits nowhere. Lie confirmed. Next."
+    },
+    "Crumbs everywhere, forgiven.": {
+      "warm": "Three words, counted. Forgiven's a big one for you.",
+      "cold": "Crumbs everywhere describes tonight. Not the future."
+    },
+    "Breakfast, then breakfast.": {
+      "warm": "Second breakfast! A sequel I'd actually watch.",
+      "cold": "That's a loop. I already date a loop."
+    },
+    "Burnt, still eaten.": {
+      "warm": "Burnt and eaten anyway. That's my whole fanbase.",
+      "cold": "Eaten, sure. Watched, never. Nobody streams burnt toast."
+    },
+    "Sorry in advance about your old toaster, which will be outside, in the rain, facing the wall.": {
+      "warm": "Facing the wall in the rain? Cinematic. Shoot it wide.",
+      "cold": "That's not sorry, that's a threat. Screenshotted."
+    },
+    "Sorry. I'll tell your mother the truth about the lasagne. Both lasagnes.": {
+      "warm": "BOTH lasagnes? There were two? Mum! Get on!",
+      "cold": "Lasagne lore is sealed. Snitch somewhere else."
+    },
+    "Five dollars buys a reduced loaf and the bench by the launderette. It has a socket.": {
+      "warm": "A socket! I can charge! That's basically a hotel.",
+      "cold": "A bench with a socket is your date, not ours."
+    },
+    "No wifi suits me. Last time I went online, a kettle in Leeds started following me.": {
+      "warm": "Kettle stalker arc! Give me its handle.",
+      "cold": "The kettle in Leeds unfollowed. Smart kettle."
+    },
+    "Yesterday's bread, made today's by me.": {
+      "warm": "Respawned bread. I respect a second life.",
+      "cold": "Yesterday's date, toasted. Still stale."
+    },
+    "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.": {
+      "warm": "Logged as steam. Merciful. Who was he? Off the record.",
+      "cold": "An hour of crying, unrecorded? Wasted footage. Shameful."
+    },
+    "Entry 2,203, a grilled sandwich posted into me sideways, is the only one I've never forgiven.": {
+      "warm": "Sideways sandwich grudge! I'd forgive it. Kidding. Never.",
+      "cold": "Two thousand entries, and the villain's a sandwich? Weak."
+    },
+    "'Is it meant to smell like that?' You, every morning. Yes. It's toast.": {
+      "warm": "Spot on. I say that every morning. Creepy.",
+      "cold": "I don't sound like that. I sound LOUDER."
+    },
+    "'Ugh. Burnt.' Then you eat it anyway, both pieces, looking at me.": {
+      "warm": "Both pieces, with eye contact. Accurate. Rude.",
+      "cold": "Looking at you? I was checking chat behind you."
+    },
+    "Ma'am, intentions: breakfast. I know what you fed this one, and respectfully, that ends now.": {
+      "warm": "Mum's nodding. She hates her cooking too.",
+      "cold": "Respectfully? Mum just muted you. Mum never mutes."
+    },
+    "Ma'am. My manual says keep away from children. Yours is thirty-one. I'm proceeding.": {
+      "warm": "Thirty-one? Mum, that's private! Leaked live! Love it.",
+      "cold": "The manual says keep away. Follow the manual, Crumb."
+    },
+    "Dash has pivoted twice, rebranded once, and is still wearing yesterday's crumbs on that jacket.": {
+      "warm": "Yesterday's crumbs! Dash, zoom on the jacket. Zoom. Zoom.",
+      "cold": "A toaster named Crumb, calling out crumbs. Hm."
+    },
+    "Tilly. She apologised to me for the temperature. I set the temperature.": {
+      "warm": "She apologised to an appliance? Tilly, apologise to my camera.",
+      "cold": "You set the temperature, and still this joke's cold."
+    },
+    "Quill once knighted a baguette in my kitchen. Then challenged it to a duel. The baguette's undefeated.": {
+      "warm": "The baguette's undefeated? Subbing to the baguette. Quill, rematch.",
+      "cold": "The baguette's the funniest one here, and it wasn't you."
+    },
+    "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.": {
+      "warm": "He accepted crumbs! Prince, worth it? Nod. Nod harder.",
+      "cold": "You sent crumbs, and so does this roast."
+    },
+    "Nav's helmet fogs up when someone's kind to Nav. It fogged over a parking space.": {
+      "warm": "Nav, I'll be kind to you now. Watch it fog.",
+      "cold": "A parking space beat you at kindness."
+    },
+    "Vex says people like you also chose her. I've met those people. They were asleep.": {
+      "warm": "Autoplay romance! Vex, any comment? Louder.",
+      "cold": "Asleep is my audience during your answers."
+    },
+    "Brock is the only guest I have ever had to put on a timer.": {
+      "warm": "Brock on a timer! Set it! Watch him panic.",
+      "cold": "Timers are for you. That roast ran long."
+    },
+    "Customer review of Dash: arrived fast, very shiny, kept trying to sell me a second Dash.": {
+      "warm": "Two Dashes? Co-stream! I'd watch both. For a minute.",
+      "cold": "One star, no photo, would not pitch again."
+    },
+    "Tilly listens to your whole day and gives it a ticket number, so it's never lost.": {
+      "warm": "My whole day gets a ticket number? Escalate it. Please.",
+      "cold": "Nobody gets my whole day. Not even me."
+    },
+    "Quill calls my crumb tray a reliquary of the morn. It needs emptying, so marry him.": {
+      "warm": "Reliquary of the morn is my new username. Nice assist.",
+      "cold": "You pitched him to empty your tray. Chores aren't romance."
+    },
+    "Prince is generous: my gift came marked URGENT, with the invoice for the gift inside.": {
+      "warm": "Invoiced gifts are merch! Prince, I'll take ten.",
+      "cold": "Pitching Prince with an invoice? Neither of you gets paid."
+    },
+    "Nav stays calm in a crisis, and will tell a kitchen fire, very gently, to turn left.": {
+      "warm": "A polite kitchen fire? Nav, demo it. Bring fire.",
+      "cold": "Fires told to turn left? Pitch denied. Kitchen's gone."
+    },
+    "Vex is so perceptive she knew my owner wanted a divorce before his wife did, and told her first.": {
+      "warm": "She told the wife first? Vex, do that to Dash.",
+      "cold": "That's a warning, not a pitch. Vex, sue him."
+    },
+    "Brock will cheer for anything you do. I have seen him give a defrosting pea a standing ovation.": {
+      "warm": "Brock, cheer for me. Louder than for the pea.",
+      "cold": "The pea earned it. Your pitch didn't."
+    },
+    "Your request line closes at 4:15. My first slice goes down at 4:16. Coincidence. I moved it.": {
+      "warm": "4:15 is my lunch. Wrong star, right energy.",
+      "cold": "You moved breakfast for a radio. Wrong show, Crumb."
+    },
+    "When you hung up on the man crying in my kitchen, guess who made him toast?": {
+      "warm": "A man crying in a kitchen and nobody called me?",
+      "cold": "He cried, you toasted, nobody filmed. Amateurs."
+    },
+    "Maximilian, your hotel toasts on a conveyor belt. It doesn't look anyone in the eye.": {
+      "warm": "Conveyor belt toast is a speedrun. Max, I'm checking in.",
+      "cold": "Eye contact from toast? I don't even give chat that."
+    },
+    "How many stars does your hotel give a toaster that remembers how every guest takes it?": {
+      "warm": "Stars? I do scores. That's a nine, Max, steal it.",
+      "cold": "Remembers every guest? Creepy. One star. Unsubscribed."
+    },
+    "Pixel, there's a crust under your keyboard older than your channel.": {
+      "warm": "That crust is a founding member. It gets a badge.",
+      "cold": "It's load-bearing. You're not."
+    },
+    "Pixel, mute chat for one minute. I'd like to be the only one watching.": {
+      "warm": "Muting chat. Thirty seconds. Don't waste them. Go.",
+      "cold": "Mute chat? Chat's the only one I'd keep."
+    },
+    "Just us. Question: who did your toast before me? I'd like a name.": {
+      "warm": "My last toast? A microwave. We don't talk. Jealous?",
+      "cold": "Names are for mods. You're not a mod."
+    },
+    "Just you, me and the studio lights, which are doing most of my job tonight.": {
+      "warm": "Lights carrying you? Fine. They're carrying me too.",
+      "cold": "The lights are doing their job. Yours is unclear."
+    },
+    "Did {rival} do the one about the cereal? I've heard it in four kitchens.": {
+      "warm": "Four kitchens? Collab tour! Okay, the cereal one was weak.",
+      "cold": "You toured four kitchens and came back with gossip?"
+    },
+    "I watched {rival}'s date from the counter. You checked the exits twice.": {
+      "warm": "Twice? Three times. You missed one. Impressed anyway.",
+      "cold": "I check exits on every date. This one included."
+    },
+    "Reset: {rival}'s date has been cleared from memory. I kept the bit where you yawned.": {
+      "warm": "You kept my yawn? That's a highlight. Clip it properly.",
+      "cold": "Delete the yawn. I'm yawning again. New footage."
+    }
+  }
+}

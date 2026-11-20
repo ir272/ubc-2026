@@ -1,0 +1,45 @@
+/* The design lab's own chrome: plain and neutral on purpose, so it never competes with the looks. */
+.lab-root, .lab-root body { background: #17181b; }
+.lab { min-height: 100dvh; display: flex; flex-direction: column; color: #e8e9ec; font: 13px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.lab select, .lab button, .lab a { font: inherit; color: inherit; }
+.lab-bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 10px 16px; background: #1f2126; border-bottom: 1px solid #33363d; }
+.lab-bar strong { font-size: 15px; margin-right: 8px; }
+.lab label { display: inline-flex; align-items: center; gap: 6px; color: #a4a8b1; white-space: nowrap; }
+.lab select { height: 28px; max-width: 100%; padding: 0 6px; border-radius: 5px; border: 1px solid #454952; background: #2a2d33; color: #f1f2f4; }
+.lab button, .lab-row a { height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border-radius: 5px; border: 1px solid #454952; background: #2a2d33; color: #f1f2f4; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.lab button:hover:not(:disabled), .lab-row a:hover { background: #363a42; }
+.lab button:disabled { opacity: 0.45; cursor: default; }
+.lab button.on { background: #f1f2f4; color: #17181b; border-color: #f1f2f4; }
+.lab-site { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; color: #a4a8b1; }
+.lab-site a { color: #f1f2f4; }
+.lab-cols { flex: 1; display: grid; gap: 12px; padding: 12px; align-items: start; }
+.lab-col { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.lab-ctl { display: flex; flex-direction: column; gap: 8px; padding: 10px; border-radius: 8px; background: #1f2126; border: 1px solid #33363d; }
+.lab-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.lab-preset { flex: 1 1 140px; font-weight: 600; }
+.lab-opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px 10px; }
+.lab-opts label { display: flex; flex-direction: column; align-items: stretch; gap: 2px; font-size: 11px; }
+.lab-note { margin: 0; color: #8d919b; font-size: 12px; }
+.lab-view { position: relative; overflow: hidden; border-radius: 8px; border: 1px solid #33363d; background: #000; }
+.lab-view iframe { position: absolute; top: 0; left: 0; border: 0; transform-origin: 0 0; display: block; }
+
+/* columns: the selected one takes clicked, pasted or dropped pictures */
+.lab-col.active .lab-ctl { border-color: #f1f2f4; }
+.lab-num { width: 24px; height: 28px; display: inline-grid; place-items: center; border-radius: 5px; background: #33363d; font-weight: 700; }
+.lab-col.active .lab-num { background: #f1f2f4; color: #17181b; }
+.lab-src { height: 28px; width: 44px; object-fit: cover; border-radius: 4px; }
+.lab-sw { display: inline-flex; border-radius: 5px; overflow: hidden; border: 1px solid #454952; }
+.lab .lab-sw button { width: 24px; height: 26px; padding: 0; border: 0; border-radius: 0; }
+.lab-msg { color: #ffd479; }
+
+/* reference shelf */
+.lab-shelf { padding: 4px 12px 40px; }
+.lab-shelf-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 10px 2px; color: #a4a8b1; }
+.lab-shelf-h strong { color: #f1f2f4; font-size: 15px; }
+.lab-shelf-h a { color: #f1f2f4; }
+.lab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.lab .lab-grid button { height: auto; padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; background: #000; aspect-ratio: 4 / 3; display: block; }
+.lab .lab-grid button:hover { border-color: #a4a8b1; }
+.lab .lab-grid button.used { border-color: #f1f2f4; }
+.lab-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lab .lab-more { margin: 12px auto 0; display: flex; }

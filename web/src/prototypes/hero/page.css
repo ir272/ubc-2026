@@ -1,0 +1,36 @@
+/* The prototype page around the hero (/prototypes/hero). The dark ground and off-white text are set
+   here, on this page's root only, by giving the theme's own tokens new values for everything inside
+   it. Nothing global and nothing in the theme system is changed. */
+
+.app.hero-proto {
+  --ink-paper: #0d100b;
+  --bg: #0d100b;
+  --surface: #0d100b;
+  --raised: #22241f;
+  --hover: #2c2f28;
+  --line: #1f221b;
+  --keyline: #32352c;
+  --text: #e9e6dc;
+  --text-2: #a3a196;
+  --text-3: #85837a;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.hero-proto-main { padding-bottom: 48px; }
+
+/* the slogan is not written yet: two pale bars hold its place */
+.hero-proto-slogan { display: flex; flex-direction: column; align-items: center; gap: 14px; width: min(100%, 460px); }
+.hero-proto-slogan span { display: block; height: 20px; border-radius: 4px; background: rgba(233, 230, 220, 0.16); }
+.hero-proto-slogan span:first-child { width: 100%; }
+.hero-proto-slogan span:last-child { width: 62%; }
+
+/* one row of stand-in cards, lapping 30px over the hero's faded bottom edge */
+.hero-proto-cards { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: -30px; padding: 0 24px; }
+.hero-proto-card { aspect-ratio: 16 / 9; border-radius: 10px; background: #22241f; }
+
+@media (max-width: 900px) {
+  .hero-proto-cards { padding: 0 16px; gap: 8px; }
+  .hero-proto-slogan { gap: 10px; }
+  .hero-proto-slogan span { height: 14px; }
+}

@@ -1,0 +1,34 @@
+{
+  "winner": "ref",
+  "charm": "ref",
+  "staging": "ref",
+  "light": "ref",
+  "readability": "ref",
+  "broken": [
+    "05-star-reaction: a black hook or crescent shape sits on the coral chair at frame left (about x 0-95, y 320-450). It reads as an outline-hull artifact or a detached chair arm, not as furniture.",
+    "Floating yellow squares (city windows) read as confetti hanging in front of the cast in the row shots. In 06 they sit at about (425,175), (450,140), (805,80) and (975,195), between columns and name tags. In 04 they sit at (298,310) and (800,240), in 01 at (580,280). Nothing tells the eye they are behind glass.",
+    "A solid coral or pink bar floats in the window like a sticker: 04 at about x 540-610, y 163-187; 06 at x 578-660, y 80-100; 02 at x 757-780, y 172-188. It does not read as part of a building.",
+    "Window city: muddy grey-navy rectangles with a lighter grey panel inside the window (01, x 930-1250, y 90-330). It looks like unshaded placeholder boxes, not cut-paper city shapes, and at 960x540 (07, 09) it is unreadable mush.",
+    "Lamp columns stand directly behind the heads and make tangents. Tilly's column has a black pointed cap that pokes up behind her tag (06 and 03, about x 520-560, y 145-185). Sir Quill's cone hat merges with his column. In every row shot the columns collide with the name tags.",
+    "Light shafts start at the frame top with no fixture or rig, so the beams come from nowhere. In the row shots (03, 06) they also cross each other and overlap, which turns the back wall into a grey-lavender veil.",
+    "01/07: the star's shaft cuts across the clock, so the left half of the face is pale yellow and the right half orange. That two-tone competes with the coral time-left wedge, which is the clock's whole job.",
+    "01/02/07/09: the framed sunset picture top left is cropped by the left frame edge and half hidden under the round label. The sign's top bulb row touches the frame top. Both read as set pieces placed without checking the wide.",
+    "Foreground camera silhouette (bottom left of 01, 02, 07, 09) is an unreadable dark slab with a ring. At 960x540 it reads as a pipe or a dark glitch, not as a TV camera.",
+    "Lighting states are inconsistent with the manifest. shots.json says that in 04 'every other light down', but Tilly's podium top is still a saturated mint (28,101,91), clearly brighter than the cut podiums (61,41,87). That makes an unexplained third state between lit and cut.",
+    "Footlights are orange dashes along the floor edge and read as hazard tape or a road marking (01, 07). House down (02, 09), they turn into grey cleats that look like unlit debris rather than dark lamps."
+  ],
+  "slop": [
+    "Translucent grey-white volumetric cones on every suitor and the star (01, 03, 06, 07, 08). They are the default 'god ray' look of an AI-made 3D scene, they wash the wall to a milky lavender haze, and functionally they act as glow.",
+    "Floating yellow squares around the suitors in the row shots (06, 03, 04) read as decorative particles or confetti.",
+    "Stacked-segment lamp columns look like a generic audio-equalizer or VU-meter motif. House down (02, 09, 04) the segments fill to different heights and read as score meters.",
+    "Lavender-purple wash on the back wall where the cones overlap, plus purple columns for two of the four suitors. It is not a gradient, but the overall row-shot palette slides toward the purple-haze look the owner rejects.",
+    "Marquee sign: a flat navy panel ringed by evenly spaced dot bulbs and a coral offset drop shadow on the letters. That is a stock web 'marquee' treatment, not a built lightbox."
+  ],
+  "comprehension": "From the wides you can tell it is a studio show: a seated person on one side, four on podiums under a show sign. House up versus house down (01 against 02) is clearly a phase change, and the single milk spotlight in 02 and 04 tells you who won. Unclear: (1) the clock does not read as a betting clock. It looks like a decorative wall clock, and its wedge is muddied by the shaft crossing it, so nobody knows bets are open or how long is left. (2) The lamp columns read as score meters with different fill levels, so a new viewer will think they show who is ahead, which they do not. (3) In the lit state (01, 06) nothing in the set says who is leading. All four lamps are equal. (4) In 04 the second finalist's half-lit podium leaves it unclear whether she is still in. (5) It reads as a game show more than a dating show: nothing in the set (a heart motif, a couch, a romantic cue) says dating except the sign text.",
+  "biggestGap": "The light hierarchy is upside down compared with takemeout-02 and loveisland-01. The milky translucent cones lift the back wall to mean luma 71-87 in the lit states (the references sit at 20-45), so the lit podiums (about 150) are only about 2x the background and the room reads as grey haze instead of a late-night stage. Remove the grey cones, or make them thin, tinted, under 10% opacity and fixture-anchored. Drop the back wall, window and city to about 30-40 luma. The lit podium tops, pools and star pool should be the only near-white shapes in frame, at 4x or more the wall, as the white podiums are the only bright shapes in takemeout-02.",
+  "protect": [
+    "Lit versus cut podium language: a lit pastel top with a matching accent ring, dropping in one step to a dark saturated accent (about 150 to 48 luma, 3.2x). It follows the Take Me Out rule (an off light shifts to the accent colour, not black), and the dark lamps stay countable even at 960x540 (08, 09).",
+    "House-down wide with one milk spotlight (02, 09, 04): one hard-edged cone and a cream floor pool on the winner, against a sunk room. It is the clearest and most professional frame in the set, so keep its simplicity.",
+    "The star's lounge as its own graphic world: dark riser with a hard yellow pool, coral rim, teal dotted rug, coral chair, lamp table and plant. It separates her side from the suitors' side at a glance and is the closest thing to Tomodachi/Animal Crossing room charm in the stills."
+  ]
+}

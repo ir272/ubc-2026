@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/brain.js": {
+      "maxDuration": 60
+    }
+  },
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "cache-control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/spend",
+      "destination": "/api/brain"
+    }
+  ]
+}

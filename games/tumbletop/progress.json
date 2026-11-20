@@ -1,0 +1,227 @@
+{
+ "updated": "Thu Nov 19, 15:55 CST",
+ "now": "Round 8: stage text cut hard (comprehension still 15 of 15), unlockAudio() added, and the sound is now recorded: one looping CC0 music track and thirteen CC0 one-shots. Nobody has listened to the new sound yet. Nothing is committed.",
+ "steps": [
+  {
+   "name": "Roster of 24 with permanent names, looks, stats and records",
+   "state": "done",
+   "note": "sim/roster.js, show/records.js, a 36-show pre-season in data/records.json"
+  },
+  {
+   "name": "Three seeded rounds from the seven course sections",
+   "state": "done",
+   "note": "Lengthened as the owner asked: races about 41, 35 and 23 s; each round overlaps the next by one section"
+  },
+  {
+   "name": "Determinism, completion, balance, drama checks",
+   "state": "done",
+   "note": "All pass over 2000 shows on the longer rounds; node and browser agree on 9 of 9 rounds"
+  },
+  {
+   "name": "Show script, channel.ts, index.ts, simulate, SIM_HASH",
+   "state": "done",
+   "note": "Smoke test on the real runner (memory chain) passes"
+  },
+  {
+   "name": "Stage driven by the feed, joins mid-show",
+   "state": "done",
+   "note": "Rejoin checked at seven points of a show"
+  },
+  {
+   "name": "Broadcast: cameras that follow the cut line, highlight",
+   "state": "done",
+   "note": "One tracking shot on the fight for the last place, see-through maze blocks, one cut to the line camera. Blind picks 3 of 3; lone critics still 3 to 4"
+  },
+  {
+   "name": "Stage display cut down to the cut line",
+   "state": "done",
+   "note": "Tower, one event line, name tags, show cards; five critic rounds"
+  },
+  {
+   "name": "Comprehension test on each round, blind look test",
+   "state": "done",
+   "note": "Re-run on this build: 5 of 5, 5 of 5, 5 of 5"
+  },
+  {
+   "name": "README, REPORT",
+   "state": "done",
+   "note": "Both rewritten for the second pass"
+  },
+  {
+   "name": "Race camera judged on video (4 frames a second)",
+   "state": "done",
+   "note": "Seven versions, three fresh critics each; see ROUNDS.md round 7"
+  },
+  {
+   "name": "Dead air, idle state, mid-show join",
+   "state": "done",
+   "note": "Worst still stretch 0.2 s; join matched on every fact in 6 of 6 pairs; idle card now says the format"
+  },
+  {
+   "name": "Sound measured and remixed",
+   "state": "done",
+   "note": "Four mixes; critic by measurement 4, 6, 6, 7 of 10"
+  },
+  {
+   "name": "Blind test against reference frames",
+   "state": "todo",
+   "note": "Needs the owner to allow saving reference footage frames to disk"
+  },
+  {
+   "name": "Remove vercel.json, .vercelignore, SPEC.md",
+   "state": "todo",
+   "note": "The delete was refused by the permission check; the owner can remove them"
+  },
+  {
+   "name": "Cut the stage text (owner: \"straight slop\")",
+   "state": "done",
+   "note": "Audited by a fresh critic; comprehension 15 of 15 on the stripped build"
+  },
+  {
+   "name": "unlockAudio() on the handle, no sound button",
+   "state": "done",
+   "note": "CONTRACT.md sound hooks"
+  },
+  {
+   "name": "Recorded sounds and a proper music track",
+   "state": "done",
+   "note": "14 CC0 files in web/src/audio/ (ASSETS.md); chosen without hearing them; critic by measurement 5, then 6 of 10; a one-minute clip with sound sent to the owner"
+  }
+ ],
+ "checks": [
+  {
+   "name": "Determinism",
+   "state": "pass",
+   "value": "same seed, same state hash; node and browser agree on 9 of 9 rounds",
+   "bar": "identical round"
+  },
+  {
+   "name": "Completion",
+   "state": "pass",
+   "value": "2000 shows, 0 rounds ended on the clock",
+   "bar": "200 shows, none stuck"
+  },
+  {
+   "name": "Balance",
+   "state": "pass",
+   "value": "4.3% to 9.0% win rate per Gumble",
+   "bar": "2% to 15%"
+  },
+  {
+   "name": "Stats matter",
+   "state": "pass",
+   "value": "fastest third against slowest third: 1.33 times",
+   "bar": "above 1, under 2 times"
+  },
+  {
+   "name": "Drama",
+   "state": "pass",
+   "value": "4.61 and 4.08 changes of the last place in the final 10 s",
+   "bar": "2 in rounds one and two"
+  },
+  {
+   "name": "Comprehension, each round",
+   "state": "pass",
+   "value": "Round One 5 of 5, Round Two 5 of 5, the Final 5 of 5 (15 fresh critics, this build)",
+   "bar": "4 of 5 critics, all three rounds"
+  },
+  {
+   "name": "Look against today's build",
+   "state": "pass",
+   "value": "picked 21 of 24 times (88%) by three blind judges",
+   "bar": "50% blind-pick wins on readability"
+  },
+  {
+   "name": "A bet every 90 s",
+   "state": "pass",
+   "value": "windows about a minute apart, 65 s across the result",
+   "bar": "90 s"
+  },
+  {
+   "name": "Frame rate",
+   "state": "pass",
+   "value": "median 16.7 ms, 0.05% of frames over 25 ms",
+   "bar": "60 fps"
+  },
+  {
+   "name": "No dead air",
+   "state": "pass",
+   "value": "longest stretch with nothing moving: 0.2 s (tools/deadair.mjs)",
+   "bar": "2.5 s"
+  },
+  {
+   "name": "Blind picks against reference frames",
+   "state": "todo",
+   "value": "not run: needs the owner to allow saving reference frames",
+   "bar": "shared bar 4"
+  },
+  {
+   "name": "Camera, blind picks",
+   "state": "pass",
+   "value": "Director picked 3 of 3 against Leader and Overview; the final's cut picked 3 of 3 against two alternatives",
+   "bar": "picked more than half the time"
+  },
+  {
+   "name": "Sound levels",
+   "state": "pass",
+   "value": "recorded mix: -17.5 LUFS at the dev default volume, range 6.8 LU, true peak -1.8 dBFS; critic by measurement 6 of 10",
+   "bar": "about -16 LUFS, peak under -1 dBFS"
+  }
+ ],
+ "rounds": [
+  {
+   "title": "Round 0: roster, three rounds, checks",
+   "summary": "Sim reworked into three seeded rounds over a fixed roster. Show script, fake show, channel and tests written.",
+   "critic": ""
+  },
+  {
+   "title": "Round 1: the stage, first critics",
+   "summary": "Feed-driven stage, new race display and show cards, cut-line director, synthesised sound.",
+   "critic": "Readability 5, 5, 6; looks 6, 7, 6; camera 4, 3, 4. The camera is not on what the graphics talk about; no single lock moment."
+  },
+  {
+   "title": "Round 2: follow the line to the line",
+   "summary": "Title call opens the line-up, a lock beat, finish-line camera, tags only on visible Gumbles.",
+   "critic": "Readability 5, 5, 6; looks 6; camera 4, 4, 3. Ticker contradicts the tower, the final is a runaway, the lock is too quiet."
+  },
+  {
+   "title": "Round 3: the lock, the lens, a closer final",
+   "summary": "Full-width lock card, per-round camera set-ups, final tightened in the sim, incidents-only event line.",
+   "critic": "Readability 6, 6, 5; looks 6, 6, 5; camera 4.5, 4, 3. Tags float over the wrong creature; the open window has no state."
+  },
+  {
+   "title": "Round 4: stay with the same Gumbles",
+   "summary": "Sticky home shot, side-on final, clock to the lock, one winner card, tags that point at heads.",
+   "critic": "Readability 7, 6, 6; looks 7, 6, 6; camera 6, 4, 3. Hidden places in the tower; the pick loses its place off camera."
+  },
+  {
+   "title": "Round 5: the open bar, the chase",
+   "summary": "White open bar that swells into the lock band, finish camera only for the last-place fight, leader and chase alternate in a runaway final.",
+   "critic": "Readability 7, 7, 7; looks 6; camera 4, 3, 4; phases 7, betting rhythm 7.",
+   "stills": [
+    "docs/round-one.png",
+    "docs/round-two.png",
+    "docs/lineup-final.png"
+   ]
+  },
+  {
+   "title": "Round 6: formal tests",
+   "summary": "Comprehension 4 of 5, 5 of 5, 5 of 5. Blind look test 21 of 24. A whole show at real window lengths: 4:18, no errors, 60 fps.",
+   "critic": "",
+   "stills": [
+    "docs/final-show.png",
+    "docs/before.png"
+   ]
+  },
+  {
+   "title": "Round 7: longer rounds, the camera on video, dead air, sound",
+   "summary": "Rounds One and Two lengthened. Race camera rebuilt as one tracking shot with see-through maze blocks and one cut to a line camera; judged on 4 fps strips over seven versions. Dead air, idle, mid-show join and sound measured and fixed.",
+   "critic": "Camera alone 3 to 4 throughout; in blind picks the Director won 3 of 3 and the final's cut 3 of 3. Sound by measurement 4, 6, 6, 7. Comprehension 15 of 15."
+  },
+  {
+   "title": "Round 8: the owner watched it",
+   "summary": "Stage text cut hard, twice. unlockAudio() added. Sound now recorded: one looping CC0 track and thirteen CC0 one-shots, with synthesised stand-ins as fallback.",
+   "critic": "Text audit \"nearly\", then its list was cut. Comprehension 15 of 15. Recorded sound by measurement 5, then 6 of 10. Nobody has listened to it yet."
+  }
+ ]
+}

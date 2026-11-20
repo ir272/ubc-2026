@@ -1,0 +1,76 @@
+{
+  "id": "quill",
+  "model": "vendor/cast/202-good-knight/202_GoodKnight.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.889,
+  "scale": 0.9,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "lookup",
+    "lookdown",
+    "lookleft",
+    "lookright",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#B565D9",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/GssJhnk0HJsS6u3ZNN6fTk4TEL7g4AbVGoCztUgjAu0",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/202-good-knight/202_GoodKnight_thumbnail.png",
+  "headTop": 0.286,
+  "style": {
+    "energy": 0.35,
+    "posture": -0.05,
+    "gesture": 0.7,
+    "body": 0.9,
+    "head": 0.2,
+    "tempo": 0.8,
+    "walk": "Walk_Formal_Loop",
+    "gait": "stride"
+  },
+  "face": {
+    "kind": "visor",
+    "scale": 2.9,
+    "anchor": [
+      0,
+      1
+    ],
+    "offset": [
+      0,
+      -0.012,
+      0.05
+    ],
+    "plate": [
+      0.9,
+      0.5
+    ]
+  },
+  "topPad": 0.24
+}

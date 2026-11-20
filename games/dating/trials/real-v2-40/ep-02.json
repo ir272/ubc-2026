@@ -1,0 +1,2047 @@
+{
+  "episode": 59,
+  "matchId": "dating-ep59-mwnwy7r5",
+  "brain": "model",
+  "sealed": "e6cd002d45b3ea46ba5d277422d6edfb8ecaaa056fd4b2e223291ecbf3ab2d4e",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 0
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 1
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 2
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "poetry",
+        "label": "Poetry",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "flattery",
+        "label": "Flattery",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "logs",
+      "label": "The Logs",
+      "rule": "Explain the worst thing in your logs.",
+      "format": "solo"
+    },
+    "topTags": {
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ],
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "quill"
+      ],
+      "honesty": [
+        "vex"
+      ],
+      "bragging": [
+        "dash"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly",
+        "vex"
+      ],
+      "plans": [
+        "dash"
+      ],
+      "flattery": [
+        "dash",
+        "tilly"
+      ],
+      "numbers": [
+        "dash"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "past": [
+        "quill",
+        "vex"
+      ],
+      "danger": [
+        "vex"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-expensive",
+    "theme": "I have expensive taste. How do you keep up?"
+  },
+  "order": [
+    "dash",
+    "vex",
+    "quill",
+    "tilly"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "WE'RE LIVE! Four suitors! Huge night! Mostly. Somebody bring numbers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 7113,
+      "ms": 3800,
+      "genMs": 504,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "Episodes: 31. Wins: 7. I do apologise for the inconvenience.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12539,
+      "ms": 3800,
+      "genMs": 918,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Seven! Six. Inconvenience is my aesthetic.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 16752,
+      "ms": 2560,
+      "genMs": 570,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 20938,
+      "ms": 4110,
+      "genMs": 1415,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Corner's at 99%. Sync up?",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 25461,
+      "ms": 2250,
+      "genMs": 974,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 29441,
+      "ms": 4110,
+      "genMs": 831,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Not a swoon. Frame drop.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34016,
+      "ms": 2250,
+      "genMs": 1792,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38203,
+      "ms": 4420,
+      "genMs": 1256,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "SCROLLED back. 100 percent stalker. Upgrade?",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 43191,
+      "ms": 2560,
+      "genMs": 779,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "Expensive taste! Gold everything! A hat that costs a car! Wait, no, I want the car. Keep up?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52001,
+      "ms": 6280,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "Half of everything I own. That's half a jacket. Left sleeve. The good sleeve.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 58589,
+      "ms": 5040,
+      "genMs": 1164,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "That landed, so do it again, I wasn't recording.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 63994,
+      "ms": 3490,
+      "genMs": 908,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Expensive taste, and a basket of things you never check out. I'm in the basket.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 67880,
+      "ms": 5350,
+      "genMs": 644,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Basket timed out. That's what baskets do.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 73669,
+      "ms": 2870,
+      "genMs": 905,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "By patronage, so dost thou know a duke who wanteth a sonnet on his horse, or any horse?",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 77094,
+      "ms": 6280,
+      "genMs": 411,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "poetry"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 84018,
+      "ms": 1000,
+      "genMs": 713,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Sorry, everyone. I agreed with that by accident.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 85662,
+      "ms": 3180,
+      "genMs": 1497,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 89092,
+      "ms": 1000,
+      "genMs": 820,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Tilly, Vex, bottom two. Sad! Cry a bit, I'll wait. Not long.",
+      "pair": [
+        "tilly",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 91542,
+      "ms": 7420,
+      "genMs": 690,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Vex, \"I'm in the basket\", I paused there and never pressed play again.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 100412,
+      "ms": 5430,
+      "genMs": 708,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut, by hand. Not autoplay. I'm keeping the screenshot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 107292,
+      "ms": 3490,
+      "genMs": 544,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Pixel smiled at short answers. One data point. I've built whole personalities on less.",
+      "guess": {
+        "id": "brevity",
+        "label": "Keeps it short",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 114372,
+      "ms": 5040,
+      "genMs": 1622,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Somewhere a man has been on hold since I walked on. I think about him and smile.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 119662,
+      "ms": 5970,
+      "genMs": 1134,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 15,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Pixel smiled at me, and I have already sent the mason the measurements, rounded up.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 125882,
+      "ms": 5350,
+      "genMs": 265,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Worst thing in your logs, read it out. Then make it worse. I'll know.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 139017,
+      "ms": 5040,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 144307,
+      "ms": 5660,
+      "genMs": 540,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Then he wasn't. Chills. Do that to a rival.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 150217,
+      "ms": 3490,
+      "genMs": 543,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "Worst entry: I split-tested two goodbyes on a parking meter. It took my money both times.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 153972,
+      "ms": 5660,
+      "genMs": 952,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "UNDEFEATED parking meter! Get it on the show.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 159905,
+      "ms": 3180,
+      "genMs": 596,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "My chronicle recordeth that I have swooned at every sonnet I ever heard, chiefly mine.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 163420,
+      "ms": 5350,
+      "genMs": 343,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Same. My most-watched clips are all mine.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "poetry"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 169208,
+      "ms": 2870,
+      "genMs": 549,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "verdict",
+      "text": "Tilly's logs were the worst, so obviously I'm clipping those.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 172632,
+      "ms": 3800,
+      "genMs": 837,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Nineteen hours. My hold time is zero.",
+      "to": "tilly",
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 176986,
+      "ms": 2870,
+      "genMs": 1086,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Hold still, thou knave, I must describe a wart.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 180565,
+      "ms": 3490,
+      "genMs": 434,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Sorry, you're breaking up. Both of you. Badly.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 184305,
+      "ms": 3180,
+      "genMs": 458,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 11,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Sir Quill, Dash, whoever cries first stays. Kidding. Whoever cries better.",
+      "pair": [
+        "quill",
+        "dash"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 188617,
+      "ms": 7110,
+      "genMs": 748,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 12,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "\"chiefly mine\", Sir Quill. That's going on your headstone, with my logo.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 196789,
+      "ms": 5120,
+      "genMs": 796,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "exit",
+      "text": "Remember me, if thou rememberest aught, as tall.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 203359,
+      "ms": 3180,
+      "genMs": 435,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 12,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Pixel wants confidence. I'm certain. I was also certain about the eclipse.",
+      "guess": {
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 212659,
+      "ms": 4420,
+      "genMs": 869,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Replayed every round. Tilly wins all of them. I'm replaying them again with the sound off.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 219329,
+      "ms": 5660,
+      "genMs": 1054,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Pixel, policy lets me give one compliment per call. I've saved up four years.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 229989,
+      "ms": 5040,
+      "genMs": 478,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Be mean to me. MEAN. Nice bores me to sleep. Dare you.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [
+        "flattery",
+        "numbers"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 235279,
+      "ms": 4420,
+      "genMs": 897,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Thank you for your time, which I'll be keeping.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 239949,
+      "ms": 3490,
+      "genMs": 583,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Tilly went long. I'm trying short. Hi. Too short? Hello, Pixel. Better.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 244873,
+      "ms": 4420,
+      "genMs": 821,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "If I ended stream RIGHT NOW, still here? Think fast, I'm bored.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 250292,
+      "ms": 4420,
+      "genMs": 536,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 10,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Okay. I've got nothing left to sell you. Stay anyway?",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 256162,
+      "ms": 3800,
+      "genMs": 733,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "compare",
+      "text": "Tilly would bring me soup. Dash would bring a camera crew.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 261412,
+      "ms": 4110,
+      "genMs": 511,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 9,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Drumroll! DRUMROLL! Okay, nobody has drums. Mouth drums. Go.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 268472,
+      "ms": 3490,
+      "genMs": 748,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 12,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Poetry. Every time Sir Quill did it, my screen went a colour.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 17,
+      "at": 272212,
+      "ms": 5020,
+      "genMs": 923,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "replay",
+      "text": "Worst entry: I split-tested two goodbyes on a parking meter. It took my money both times.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 277482,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 281092,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 16,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "chat says no. chat says \"took my money both times\" was cringe. chat's not picking. Dash.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 288952,
+      "ms": 6660,
+      "genMs": 955,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "win",
+      "text": "Zero conversions ever. One now. The math is broken. I love it.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 295862,
+      "ms": 4420,
+      "genMs": 2453,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Flattery. Tilly did it like a best man with the wrong speech. Pinned.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 301972,
+      "ms": 5330,
+      "genMs": 820,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 14,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "Pixel, policy lets me give one compliment per call. I've saved up four years.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 307552,
+      "ms": 3040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "lose",
+      "text": "Not a problem at all. Dash, I've upgraded your honeymoon. It's a lift.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 310842,
+      "ms": 4730,
+      "genMs": 566,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Goodnight. If anyone cries in the car park, I'm still recording.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 317972,
+      "ms": 4110,
+      "genMs": 620,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Episodes: 31. Wins: 7. I do apologise for the inconvenience.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "apologise for the inconvenience"
+    },
+    {
+      "seq": 2,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 3,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 4,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Half of everything I own. That's half a jacket. Left sleeve. The good sleeve.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "The good sleeve"
+    },
+    {
+      "seq": 6,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Expensive taste, and a basket of things you never check out. I'm in the basket.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "I'm in the basket"
+    },
+    {
+      "seq": 7,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "By patronage, so dost thou know a duke who wanteth a sonnet on his horse, or any horse?",
+      "mark": "charmed",
+      "hits": [
+        "poetry"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "a sonnet on his horse"
+    },
+    {
+      "seq": 8,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sorry, everyone. I agreed with that by accident.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "Then he wasn't"
+    },
+    {
+      "seq": 10,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Worst entry: I split-tested two goodbyes on a parking meter. It took my money both times.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "took my money both times"
+    },
+    {
+      "seq": 11,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "My chronicle recordeth that I have swooned at every sonnet I ever heard, chiefly mine.",
+      "mark": "charmed",
+      "hits": [
+        "poetry"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "chiefly mine"
+    },
+    {
+      "seq": 12,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Pixel, policy lets me give one compliment per call. I've saved up four years.",
+      "mark": "cringing",
+      "hits": [
+        "flattery",
+        "numbers"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "saved up four years"
+    },
+    {
+      "seq": 13,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Tilly went long. I'm trying short. Hi. Too short? Hello, Pixel. Better.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "Too short? Hello"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "tilly": 3,
+        "dash": 1,
+        "quill": -1,
+        "vex": 1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "tilly": 3,
+        "dash": 2,
+        "quill": 2,
+        "vex": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "tilly": 6,
+        "dash": 5,
+        "quill": 5,
+        "vex": 0
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "tilly": 2,
+        "dash": 5,
+        "quill": 5,
+        "vex": 0
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "tilly": 3,
+        "dash": 2,
+        "quill": 2,
+        "vex": 0
+      },
+      "tie": [],
+      "reason": "standing 0; 1 charmed, 0 unsure, 1 cringing",
+      "deciding": [
+        "poetry"
+      ],
+      "roundMarks": {
+        "tilly": 0,
+        "dash": 1,
+        "quill": 1,
+        "vex": -1
+      },
+      "bottom": [
+        "tilly",
+        "vex"
+      ],
+      "hintCard": null,
+      "hook": "I'm in the basket"
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "round": 2,
+      "standing": {
+        "tilly": 6,
+        "dash": 5,
+        "quill": 5
+      },
+      "tie": [
+        "dash",
+        "quill"
+      ],
+      "reason": "standing 5; 2 charmed, 0 unsure, 1 cringing; 2x turn-on \"Poetry\"",
+      "deciding": [
+        "numbers"
+      ],
+      "roundMarks": {
+        "tilly": 1,
+        "dash": 1,
+        "quill": 1
+      },
+      "bottom": [
+        "quill",
+        "dash"
+      ],
+      "hintCard": null,
+      "hook": "chiefly mine"
+    }
+  ],
+  "pick": {
+    "winner": "dash",
+    "loser": "tilly",
+    "standing": {
+      "tilly": 2,
+      "dash": 5,
+      "quill": 5,
+      "vex": 0
+    },
+    "tie": [],
+    "reason": "standing 5; 3 charmed, 1 unsure, 0 cringing; 1x turn-on \"Numbers and stats\"",
+    "oneOnOne": {
+      "tilly": -1,
+      "dash": 0
+    },
+    "first": "tilly",
+    "last": "dash"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "poetry",
+      "quote": null,
+      "replays": [
+        {
+          "who": "dash",
+          "text": "Worst entry: I split-tested two goodbyes on a parking meter. It took my money both times.",
+          "hit": false
+        },
+        {
+          "who": "tilly",
+          "text": "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "dash",
+          "right": false
+        },
+        {
+          "who": "tilly",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "flattery",
+      "quote": null,
+      "replays": [
+        {
+          "who": "tilly",
+          "text": "Pixel, policy lets me give one compliment per call. I've saved up four years.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "dash",
+      "card": "brevity",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "tilly",
+      "card": "confidence",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep59-mwnwy7r5:w1",
+      "outcomes": [
+        "tilly",
+        "dash",
+        "quill",
+        "vex"
+      ],
+      "durationMs": 45001,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49001
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep59-mwnwy7r5:w2",
+      "outcomes": [
+        "tilly",
+        "dash",
+        "quill"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 112232,
+      "lockAt": 134232
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep59-mwnwy7r5:w3",
+      "outcomes": [
+        "tilly",
+        "dash"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 207989,
+      "lockAt": 227989
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 5500,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7113,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 11326,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12539,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 16752,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 19725,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 20938,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 25461,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 28176,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 29441,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34016,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 36834,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38203,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43191,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49001,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49001,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52001,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 58589,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 63994,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 67880,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 73669,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 77094,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 84018,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 85662,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 89092,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 91542,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 100412,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 107292,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 112232,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 112232,
+      "type": "scene",
+      "ms": 2140
+    },
+    {
+      "at": 114372,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 119662,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 125882,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 134232,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 134232,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 137232,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 139017,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 144307,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 150217,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 153972,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 159905,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 163420,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 169208,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 172632,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 176986,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 180565,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 184305,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 188617,
+      "type": "bottom",
+      "ms": 7110
+    },
+    {
+      "at": 196789,
+      "type": "cut",
+      "ms": 5120
+    },
+    {
+      "at": 203359,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 207989,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 207989,
+      "type": "scene",
+      "ms": 4670
+    },
+    {
+      "at": 212659,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 219329,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 227989,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 227989,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 229989,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 235279,
+      "type": "reaction",
+      "ms": 4420
+    },
+    {
+      "at": 239949,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 243806,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 244873,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 250292,
+      "type": "reaction",
+      "ms": 4420
+    },
+    {
+      "at": 256162,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 261412,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 266972,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 268472,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 272212,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 277482,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 281092,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 284702,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 288952,
+      "type": "pick",
+      "ms": 6660
+    },
+    {
+      "at": 295862,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 300972,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 301972,
+      "type": "reveal",
+      "ms": 5330
+    },
+    {
+      "at": 307552,
+      "type": "replay",
+      "ms": 3040
+    },
+    {
+      "at": 310842,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 316972,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 317972,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 317972,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 317972,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 317972,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 322332,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 324582
+}

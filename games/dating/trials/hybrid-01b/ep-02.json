@@ -1,0 +1,1573 @@
+{
+  "episode": 4,
+  "matchId": "dating-ep4-mwnmrrao",
+  "brain": "model",
+  "sealed": "eada92efc530ec2a886b981cb4548e951f8ad978f39dea5e276146fc2a8c4972",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 0
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 1
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 2
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "flattery",
+        "label": "Flattery",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "budget-date",
+      "label": "Five Dollars",
+      "rule": "Plan our date. Five dollars. No wifi.",
+      "format": "solo"
+    },
+    "topTags": {
+      "quill": [
+        "poetry",
+        "trashtalk",
+        "past",
+        "flattery"
+      ],
+      "nav": [
+        "numbers",
+        "confidence",
+        "danger",
+        "trashtalk"
+      ],
+      "prince": [
+        "trashtalk",
+        "confidence",
+        "plans",
+        "gestures"
+      ],
+      "vex": [
+        "trashtalk",
+        "honesty",
+        "past",
+        "numbers"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "nav",
+        "prince"
+      ],
+      "gestures": [
+        "prince"
+      ],
+      "honesty": [
+        "vex"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "trashtalk": [
+        "nav",
+        "prince",
+        "quill",
+        "vex"
+      ],
+      "plans": [
+        "prince"
+      ],
+      "flattery": [
+        "quill"
+      ],
+      "numbers": [
+        "nav",
+        "vex"
+      ],
+      "past": [
+        "quill",
+        "vex"
+      ],
+      "danger": [
+        "nav"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-cut-who",
+    "theme": "Which of the others should I send home first, and why?"
+  },
+  "order": [
+    "vex",
+    "prince",
+    "nav",
+    "quill"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "Four suitors tonight. Technically they're on my stream. Technically they're the ads.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 11470,
+      "ms": 4860,
+      "genMs": 870,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "O thou, before whose beauty candles gutter, is this seat taken?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 19470,
+      "ms": 4530,
+      "genMs": 448,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Your route to me is loaded, Pixel, and resisting adds four minutes.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 27140,
+      "ms": 4860,
+      "genMs": 1305,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Fwd: Fwd: Fwd: you. The palace has seen this. The cook wept.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 35140,
+      "ms": 4860,
+      "genMs": 336,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "Don't introduce yourself. I've seen all nine episodes. Even the ferret one.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 43140,
+      "ms": 4860,
+      "genMs": 649,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "Who goes home first? Point at them. Don't whisper, I need it on camera.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 56000,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Whoever you'd skip the intro on. Your thumb's already doing it, on your knee.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 62335,
+      "ms": 5520,
+      "genMs": 1635,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Pinned. Not your line. The face somebody made hearing it.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 68835,
+      "ms": 4200,
+      "genMs": 535,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "Dash. He is me with a pitch deck. The market cannot support two of us.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 74014,
+      "ms": 5850,
+      "genMs": 993,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Two. The market is crashing; you're the first liquid asset.",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 81009,
+      "ms": 4200,
+      "genMs": 1427,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Pixel asked me to point at who goes home first, on camera, no whispering.",
+      "to": "pixel",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 86353,
+      "ms": 5520,
+      "genMs": 1831,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You're a recap of a recap. Skip.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 93293,
+      "ms": 3210,
+      "genMs": 923,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "Whoever calleth thee cute. Lambs are cute. Thou art a plague year, fair one, in the best sense.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 98003,
+      "ms": 6840,
+      "genMs": 424,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Good. Annoying. Now do it badly, I want range.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "flattery"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 106343,
+      "ms": 3870,
+      "genMs": 615,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Nav, your route is a dead file. I never finish a playthrough anyway.",
+      "to": "nav",
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 111713,
+      "ms": 6190,
+      "genMs": 1488,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 6,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Trip summary. One wrong turn. Yours.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 119403,
+      "ms": 2880,
+      "genMs": 1601,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "She smiled at the cannonade simile. I have been saving it since the siege of sixteen forty-four.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 125283,
+      "ms": 6510,
+      "genMs": 238,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Subject: my last line. Please disregard. A corrected version follows. It is longer.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 132293,
+      "ms": 5190,
+      "genMs": 2916,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "booth1",
+      "words": 15,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "I've been showing Prince to strangers all night. Just to see. One has moved house.",
+      "about": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 137983,
+      "ms": 5850,
+      "genMs": 624,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Plan our date. Five dollars, no wifi. Yes, no wifi. Breathe.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 154833,
+      "ms": 4530,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "No invisible postman? Splendid. We shall court properly, by letter, passed through a hedge.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 159901,
+      "ms": 5520,
+      "genMs": 444,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You have a sword. Why are we doing words?",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 166124,
+      "ms": 3870,
+      "genMs": 646,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "Five dollars of bread for the swans. You feed them. They report to you now.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 170734,
+      "ms": 5850,
+      "genMs": 971,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Prince, your budget is a glitch. I quit at almost.",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 177489,
+      "ms": 4200,
+      "genMs": 749,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "twist",
+      "text": "No wifi, so I can't see you. Five dollars, a picnic, for whoever turns up. Possibly a Gerald.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 182594,
+      "ms": 6840,
+      "genMs": 1607,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "A Gerald? Finally, a plot point that isn't a tutorial.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 190394,
+      "ms": 4200,
+      "genMs": 793,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 5,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "Bold. Unsolicited. I would know.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 195554,
+      "ms": 2550,
+      "genMs": 3896,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "jab",
+      "text": "Prince, I've marked you as spam. Out of respect.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 199476,
+      "ms": 3870,
+      "genMs": 600,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Prince, your swans are bugged. Five dollars of bread is a softlock. Goodbye.",
+      "to": "prince",
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 204828,
+      "ms": 6190,
+      "genMs": 719,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Very well. The engagement is off. Leave your crown with the doorman.",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 212501,
+      "ms": 4860,
+      "genMs": 5609,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 18,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "A muse should sit still and be described. This one keepeth answering back. I have lost my place.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 221361,
+      "ms": 6840,
+      "genMs": 353,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "For them I'd delete a goat video. Not the one with the slide. A lesser goat.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 229681,
+      "ms": 6180,
+      "genMs": 1139,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "Now, with the knaves dismissed, the candles low, and nothing between us but this helm, hello.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 241861,
+      "ms": 6180,
+      "genMs": 215,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "A helm? How retro. That's a softlock on personality. I almost liked it.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 249174,
+      "ms": 5190,
+      "genMs": 860,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "I leave thee, then, to such as cannot scan.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 255497,
+      "ms": 3870,
+      "genMs": 555,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "You skip everything after eight seconds. I've been talking for seven. So, quickly: me.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 263367,
+      "ms": 5520,
+      "genMs": 401,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Eight seconds is generous. I usually quit at five. Try again, faster.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 270387,
+      "ms": 4860,
+      "genMs": 562,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "You'll see me again tonight. Between a cooking video and your ex's wedding photos.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 276747,
+      "ms": 5520,
+      "genMs": 320,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Chat's typing one name over and over. I'm not reading it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 285767,
+      "ms": 4530,
+      "genMs": 496,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 13,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "Quill. You're an unskippable cutscene. I kept pressing skip. I'm picking the cutscene.",
+      "to": "quill",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 297297,
+      "ms": 6390,
+      "genMs": 1262,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "win",
+      "text": "A muse! Fetch the court painter. Fetch any painter. Fetch whoever painted the inn sign.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 304187,
+      "ms": 5850,
+      "genMs": 271,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Brutal honesty. One of you hit it and didn't even celebrate. Celebrate. Louder.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 312037,
+      "ms": 8870,
+      "genMs": 688,
+      "waitedMs": 0,
+      "quote": {
+        "who": "vex",
+        "name": "Vex",
+        "text": "Whoever you'd skip the intro on. Your thumb's already doing it, on your knee."
+      }
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 12,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Dealbreaker: Confidence. Somebody did it, and honestly, best moment of the stream.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 321407,
+      "ms": 8540,
+      "genMs": 620,
+      "waitedMs": 0,
+      "quote": {
+        "who": "nav",
+        "name": "Nav",
+        "text": "Pixel asked me to point at who goes home first, on camera, no whispering."
+      }
+    },
+    {
+      "seq": 44,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "lose",
+      "text": "Good pick. I'll be at the wedding. Not invited. Just in the sidebar.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 330447,
+      "ms": 5190,
+      "genMs": 327,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "result",
+      "words": 9,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Ending stream before I get bored of ending stream.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 341137,
+      "ms": 3870,
+      "genMs": 1054,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Whoever you'd skip the intro on. Your thumb's already doing it, on your knee.",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Dash. He is me with a pitch deck. The market cannot support two of us.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Pixel asked me to point at who goes home first, on camera, no whispering.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Whoever calleth thee cute. Lambs are cute. Thou art a plague year, fair one, in the best sense.",
+      "mark": "charmed",
+      "hits": [
+        "flattery"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "No invisible postman? Splendid. We shall court properly, by letter, passed through a hedge.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Five dollars of bread for the swans. You feed them. They report to you now.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "No wifi, so I can't see you. Five dollars, a picnic, for whoever turns up. Possibly a Gerald.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Now, with the knaves dismissed, the candles low, and nothing between us but this helm, hello.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You skip everything after eight seconds. I've been talking for seven. So, quickly: me.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "quill": 3,
+        "nav": -4,
+        "prince": -1,
+        "vex": 3
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "quill": 2,
+        "nav": -4,
+        "prince": -2,
+        "vex": 4
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "quill": 0,
+        "nav": -4,
+        "prince": -2,
+        "vex": -4
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 1,
+      "standing": {
+        "quill": 3,
+        "nav": -4,
+        "prince": -1,
+        "vex": 3
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Confidence\"",
+      "deciding": [
+        "confidence"
+      ]
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 2,
+      "standing": {
+        "quill": 2,
+        "prince": -2,
+        "vex": 4
+      },
+      "tie": [],
+      "reason": "standing -2; 0 charmed, 0 unsure, 2 cringing",
+      "deciding": []
+    }
+  ],
+  "pick": {
+    "winner": "quill",
+    "loser": "vex",
+    "standing": {
+      "quill": 0,
+      "nav": -4,
+      "prince": -2,
+      "vex": -4
+    },
+    "tie": [],
+    "reason": "standing 0; 1 charmed, 0 unsure, 2 cringing; 1x turn-on \"Flattery\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "honesty",
+      "quote": {
+        "who": "vex",
+        "text": "Whoever you'd skip the intro on. Your thumb's already doing it, on your knee."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "confidence",
+      "quote": {
+        "who": "nav",
+        "text": "Pixel asked me to point at who goes home first, on camera, no whispering."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep4-mwnmrrao:w1",
+      "outcomes": [
+        "quill",
+        "nav",
+        "prince",
+        "vex"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 10,
+      "openAt": 6000,
+      "lockAt": 51000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep4-mwnmrrao:w2",
+      "outcomes": [
+        "quill",
+        "prince",
+        "vex"
+      ],
+      "durationMs": 23050,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 123783,
+      "lockAt": 146833
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep4-mwnmrrao:w3",
+      "outcomes": [
+        "quill",
+        "vex"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 218861,
+      "lockAt": 238861
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 8500,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11470,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 17100,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 19470,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 24770,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 27140,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 32770,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35140,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 40770,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43140,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 51000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 51000,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 56000,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 62335,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 68835,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 74014,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 81009,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 86353,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 93293,
+      "type": "reaction",
+      "ms": 3210
+    },
+    {
+      "at": 98003,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 106343,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 111713,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 119403,
+      "type": "line",
+      "ms": 2880
+    },
+    {
+      "at": 123783,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 123783,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 125283,
+      "type": "confession",
+      "ms": 6510
+    },
+    {
+      "at": 132293,
+      "type": "confession",
+      "ms": 5190
+    },
+    {
+      "at": 137983,
+      "type": "confession",
+      "ms": 5850
+    },
+    {
+      "at": 146833,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 146833,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 151833,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 154833,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 159901,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 166124,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 170734,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 177489,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 182594,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 190394,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 195554,
+      "type": "line",
+      "ms": 2550
+    },
+    {
+      "at": 199476,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 204828,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 212501,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 218861,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 218861,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 221361,
+      "type": "confession",
+      "ms": 6840
+    },
+    {
+      "at": 229681,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 238861,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 238861,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 241861,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 249174,
+      "type": "reaction",
+      "ms": 5190
+    },
+    {
+      "at": 255497,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 260867,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 263367,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 270387,
+      "type": "reaction",
+      "ms": 4860
+    },
+    {
+      "at": 276747,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 283767,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 285767,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 290797,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 297297,
+      "type": "pick",
+      "ms": 6390
+    },
+    {
+      "at": 304187,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 310537,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 312037,
+      "type": "reveal",
+      "ms": 8870
+    },
+    {
+      "at": 321407,
+      "type": "reveal",
+      "ms": 8540
+    },
+    {
+      "at": 330447,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 336137,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 337637,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 337637,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 337637,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 337637,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 341137,
+      "type": "line",
+      "ms": 3870
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 345507
+}

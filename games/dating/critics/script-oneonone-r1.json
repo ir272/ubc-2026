@@ -1,0 +1,193 @@
+{
+  "beat": "one on one (suitor, star, suitor x2) and the last line before the pick",
+  "winner": "bar",
+  "episodesRead": 8,
+  "episodesWithQuotable": 8,
+  "genericPercent": 38,
+  "headToHead": [
+    {
+      "ours": "script-r1/ep-06. Tilly: \"Vesper, I've held for this line so long that I've learned the music, and I've got notes.\" / Vesper: \"Tilly, I've never ended a call, I outlast them, so you end this one.\" / Tilly: \"I'm going to leave this ticket open, if that's all right, just to look at it.\"",
+      "bar": "Valerie #86, \"Next time you'll just get me, no shop.\" Both are a confession made in the character's own job language. Monster Prom's #61/#62 Krok'to'az exchanges have each line turning on the exact words of the line before.",
+      "verdict": "Ours holds up. It is the one exchange in the batch where the star's line gives the suitor a task based on her flaw (she cannot end a conversation) and the closer answers that task in voice. It is a near tie, and it happens once in eight episodes."
+    },
+    {
+      "ours": "script-r1/ep-04. Sir Quill: \"Thy face is a little window with a battle in it. Pray, which side are we on?\" / Pixel: \"Every time you say thou I lose a life. I'm on two. Say it.\" / Sir Quill: \"That sound thou madest, which from a lesser mouth were a cough, was it a yes? Again, please.\"",
+      "bar": "Liam #10 (180/360) and the Normal/Cranky misread in Animal Crossing #13, where the second speaker takes the first one's words and turns them.",
+      "verdict": "The first two lines match the bar. The third drops the ball. Pixel dares him to say thou, and Quill instead asks whether a cough was a yes. In Monster Prom the dare always gets taken. Bar wins."
+    },
+    {
+      "ours": "script-r1/ep-05. Maximilian: \"Crumb, tell me how done I am. Precisely. I can take it.\" / Crumb: \"Rating revised. Five to a six. Six is where things catch.\"",
+      "bar": "Vera #48, \"Right. Now.\", and Vera #12's fake-out turn on the last word.",
+      "verdict": "Comparable. The punch lands on the last word and calls back to Crumb's booth line (\"setting six\"). It is the cleanest star-prompt and suitor-answer pair in the batch."
+    },
+    {
+      "ours": "hybrid-02/ep-02. Sir Quill: \"Now, with the knaves dismissed, the candles low, and nothing between us but this helm, hello.\" / Vesper: \"Poets have waded in for me, and that came close.\" / Sir Quill: \"Then go, and love a knave who rhymes with lunch.\"",
+      "bar": "Monster Prom #23 (\"...only the dinner is arson and the movie is also arson\"), where the turn sits on the last word.",
+      "verdict": "Quill's first line is at the bar. Vesper's reply is vague (\"waded in\" means nothing), and Quill's closer is a non sequitur sulk just before he is picked. Bar wins."
+    },
+    {
+      "ours": "script-r1/ep-01. Dash: \"You laughed. I'm not going to count it. I'm not. First thing I haven't counted.\"",
+      "bar": "Liam #32, \"I have no reason to care about this, but suddenly it's all I care about!\" It is the same kind of secret-earnest crack.",
+      "verdict": "The line is as good as Liam's, but it answers something that never happened. Vesper did not laugh. She told him to take the visor off. A viewer who knows the references feels the seam. Bar wins."
+    },
+    {
+      "ours": "script-r1/ep-05. Tilly: \"Before we start, for training purposes, may I record you being nice to me?\"",
+      "bar": "Tomodachi #23, \"If not, I'll be sad forever. No pressure.\" Both are a self-undercut plea.",
+      "verdict": "Comparable as a single line. Structurally, Maximilian's reply ignores the request and Tilly's closer ignores his order to \"Fix it\", so the exchange never connects."
+    }
+  ],
+  "structureVsBar": "Take Me Out round 5 and The Dating Game put one question to both finalists back to back, so the comparison is built in, and the decision follows straight away. Blind Date adds Our Graham's comic recap before the pick. Our beat runs two unrelated mini-dates. The star never compares them. The suitor's closing line reacts to the mood tag (charmed, unsure or cringing) rather than to what the star said. And the suitor who leads on standing always speaks last, which signals the pick (see structuralChange). On structure the bar wins clearly.",
+  "perEpisode": [
+    { "episode": "script-r1/ep-01", "quotable": "Dash: \"You laughed. I'm not going to count it. I'm not. First thing I haven't counted.\"" },
+    { "episode": "script-r1/ep-02", "quotable": "Crumb: \"Rate me like a stay. Breakfast was included. It was me. I'll take my stars now.\"" },
+    { "episode": "script-r1/ep-03", "quotable": "Dash: \"Vesper, every song you play is four minutes. What if it was one? Same feelings. Four times the songs.\"" },
+    { "episode": "script-r1/ep-04", "quotable": "Sir Quill: \"Thy face is a little window with a battle in it. Pray, which side are we on?\"" },
+    { "episode": "script-r1/ep-05", "quotable": "Crumb: \"Rating revised. Five to a six. Six is where things catch.\"" },
+    { "episode": "script-r1/ep-06", "quotable": "Tilly: \"I'm going to leave this ticket open, if that's all right, just to look at it.\"" },
+    { "episode": "hybrid-02/ep-01", "quotable": "Tilly: \"Pixel, before you skip me, you should know I'm also the skip button.\"" },
+    { "episode": "hybrid-02/ep-02", "quotable": "Sir Quill: \"Now, with the knaves dismissed, the candles low, and nothing between us but this helm, hello.\"" }
+  ],
+  "flagged": [
+    {
+      "episode": "script-r1/ep-01",
+      "speaker": "Dash",
+      "line": "You laughed. I'm not going to count it. I'm not. First thing I haven't counted.",
+      "problem": "does not follow",
+      "detail": "Vesper's line was \"take the visor off, I'd like one answer with no reflection in it\". Nobody laughed, and the visor request goes unanswered. The closer was picked because the reaction was 'charmed', not because of anything she said.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-01",
+      "speaker": "Sir Quill",
+      "line": "Thou art charmed. Mark the date. I shall want it for the title page.",
+      "problem": "does not follow; repeat of move in episode; reads the UI state aloud",
+      "detail": "Vesper says men duelled over the frequency but never over her. Quill is the cast's duellist, and that is the obvious opening, but he ignores it. Instead he names the on-screen mood tag ('charmed'), which is the same 'react to the reaction' move Dash used three lines earlier.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-02",
+      "speaker": "Maximilian",
+      "line": "Mr Dash, I can see myself in your visor. I look wonderful. Keep still.",
+      "problem": "does not follow; cross-episode repeated gag",
+      "detail": "This ignores Dash's line about the staff letting him in twice. The mirrored-visor gag is the stars' default reaction to Dash: Vesper uses it in ep-01, Maximilian in ep-02 and Pixel in ep-04. On a 24/7 stream that is one joke told three times.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-02",
+      "speaker": "Crumb",
+      "line": "Fine. I'll be on the counter, rating whoever you pick. Low.",
+      "problem": "does not follow",
+      "detail": "Maximilian asks a direct question: \"which guests eat at two in the morning? Names. All of them.\" Crumb's flaw is honesty that burns, and its secret knowledge is what people eat at 2 a.m. It should name names. Instead it gives a sulk line chosen for the 'unsure' reaction. The suitor who is then picked last spoke without answering the star.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-03",
+      "speaker": "Vesper",
+      "line": "Whole night planned, and I'd only need to stand up.",
+      "problem": "out of character; generic",
+      "detail": "Vesper hates anything rehearsed and lets silence do the work, yet she is charmed by a plan to cut her songs to one minute. The hidden card (Plans everything) forced a 'charmed' reaction that her voice cannot support, and the line itself is muddy. Vesper's reaction lines for Plans everything need to like the plan while still sounding like Vesper, for example charmed despite herself.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-03",
+      "speaker": "Dash",
+      "line": "Wait. That landed? Don't move. I'm not changing one word of me. Ever.",
+      "problem": "repeat of move in episode",
+      "detail": "Brock's closer opened \"You liked it. Okay.\" Both suitors end their date by reading the star's reaction back to her, so the two dates finish on the same beat.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-04",
+      "speaker": "Sir Quill",
+      "line": "That sound thou madest, which from a lesser mouth were a cough, was it a yes? Again, please.",
+      "problem": "does not follow",
+      "detail": "Pixel's line ends on a dare: \"I'm on two. Say it.\" The payoff is Quill saying thou on purpose to cost Pixel a life. Instead he asks whether a cough was a yes, which is the generic 'did that land' closer.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-04",
+      "speaker": "Pixel",
+      "line": "Pitch me the real one, the, is your visor mirrored? Hi, me.",
+      "problem": "repeat of move in episode; cross-episode repeated gag",
+      "detail": "This is Pixel's third mid-sentence distraction in one episode (\"huge moth\" in round one, \"hang on, the crop top\" at the round two cut), and it uses the visor-reflection gag Maximilian already did. Pixel's bank needs other ways to lose interest: scoring out of ten, 'next', chat reading, 'clip that'.",
+      "fix": "bank"
+    },
+    {
+      "episode": "script-r1/ep-04",
+      "speaker": "Dash",
+      "line": "That was a no. But it was a no to me, personally. That's a start.",
+      "problem": "does not follow; repeat of move in episode",
+      "detail": "Pixel asked for \"the real one\", meaning Dash's sincere pitch, which is the whole point of a one on one, and Dash never gives it. The line reads the 'cringing' tag instead, which is the same move as Quill's \"was it a yes?\" in the same beat. It is also the last line before the pick.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-05",
+      "speaker": "Tilly",
+      "line": "I'll stay on the line. Not because I have to. I have to. But also.",
+      "problem": "does not follow",
+      "detail": "Maximilian has just ordered her to \"Fix it\", meaning to make a complaint. A polite, steel-lined complaint from Tilly was the payoff. The closer is lovely on its own but answers nothing he said.",
+      "fix": "structure"
+    },
+    {
+      "episode": "hybrid-02/ep-01",
+      "speaker": "Pixel",
+      "line": "Your math is a frame rate drop. I'm bored of the calculation already.",
+      "problem": "generic; explains its own joke",
+      "detail": "This is a stock gamer metaphor, and the second sentence restates the first. Any streamer-flavoured bot could say it. There is no Pixel tic in it (no score, no dropped sentence, no 'next').",
+      "fix": "brain"
+    },
+    {
+      "episode": "hybrid-02/ep-01",
+      "speaker": "Pixel",
+      "line": "Is that legal? Don't answer. Do it on camera.",
+      "problem": "verbatim repeat in episode; does not follow",
+      "detail": "The fallback reused Pixel's round two line to Nav word for word. It also does not answer \"I'm also the skip button\". The fallback pool must exclude lines already used in the episode.",
+      "fix": "structure"
+    },
+    {
+      "episode": "hybrid-02/ep-01",
+      "speaker": "Tilly",
+      "line": "Is there anything else I can help you with, because I'd really like there to be.",
+      "problem": "does not follow; near-generic",
+      "detail": "It answers \"Is that legal?\" with a stock support macro. The turn (\"I'd really like there to be\") is good, but the line is unconnected to anything the star said, and it is the last line before the pick.",
+      "fix": "structure"
+    },
+    {
+      "episode": "script-r1/ep-01, hybrid-02/ep-01, hybrid-02/ep-02",
+      "speaker": "Dash / Nav / Vex",
+      "line": "Just us. No rivals in the room. / Just us. You will say yes in two minutes. / Just us. Last time you were this quiet...",
+      "problem": "generic (3 lines)",
+      "detail": "Three personas open the date with the same 'Just us.' stem, and 'No rivals in the room' could be anyone's. The duo-opener lines for Dash, Nav and Vex should open in their own register (a variant test, a distance, a 'Because you watched').",
+      "fix": "bank"
+    },
+    {
+      "episode": "hybrid-02/ep-02",
+      "speaker": "Vesper",
+      "line": "Poets have waded in for me, and that came close.",
+      "problem": "generic",
+      "detail": "'Waded in' means nothing, and the line does not touch the 'hello' joke it answers. It is Vesper's Poetry turn-on reaction, and it needs a specific radio image (a dedication, a request, dead air) and an answer to the actual line.",
+      "fix": "bank"
+    },
+    {
+      "episode": "hybrid-02/ep-02",
+      "speaker": "Sir Quill",
+      "line": "Then go, and love a knave who rhymes with lunch.",
+      "problem": "does not follow",
+      "detail": "Vesper just paid him a near-compliment, and he storms off with a joke nobody can parse. A minute later he is picked. The closer was selected by the 'unsure' tag (take offence) rather than by her words, and it is the last line before the pick.",
+      "fix": "structure"
+    }
+  ],
+  "bestLines": [
+    "Sir Quill (script-r1/ep-04): Thy face is a little window with a battle in it. Pray, which side are we on?",
+    "Pixel (script-r1/ep-04): Every time you say thou I lose a life. I'm on two. Say it.",
+    "Tilly (script-r1/ep-06): I'm going to leave this ticket open, if that's all right, just to look at it.",
+    "Crumb (script-r1/ep-05): Rating revised. Five to a six. Six is where things catch.",
+    "Tilly (script-r1/ep-05): Before we start, for training purposes, may I record you being nice to me?",
+    "Sir Quill (hybrid-02/ep-02): Now, with the knaves dismissed, the candles low, and nothing between us but this helm, hello.",
+    "Vesper (script-r1/ep-06): Tilly, I've never ended a call, I outlast them, so you end this one.",
+    "Tilly (hybrid-02/ep-01): Pixel, before you skip me, you should know I'm also the skip button."
+  ],
+  "biggestGap": "The suitor's closing line is chosen by the star's reaction tag (charmed, unsure or cringing) instead of by what the star actually said, so in 8 of 16 exchanges the third line ignores the star's line. Three examples: \"Names. All of them.\" gets a sulk, \"Pitch me the real one\" gets \"That was a no\", and \"Say it\" gets \"was it a yes?\". Where both suitors do it, the same episode ends its two dates on the same 'did that land?' beat. Fix: every star line in this beat must end in a concrete prompt (a question, an order or a dare), labelled by type, and the closer must be written or chosen to answer that prompt, with the mood only setting its temperature.",
+  "pickMakesSense": "Mostly, and too predictably. In 7 of 8 episodes the suitor who speaks last wins, because the leader on standing always goes second (ep-04 is the only exception: Dash led, spoke last and lost to Quill). After both dates the favourite is usually clear, but because it can be read from the order, the beat confirms the result rather than deciding it. Two picks contradict the beat. In script-r1/ep-02, Dash's date reads 'charmed' and Crumb's 'unsure', yet Crumb is picked. In hybrid-02/ep-02, Quill's last line is a non sequitur sulk, yet he is picked. In script-r1/ep-03 the pick line cites a 'ninth, nervous' pitch that is not in the transcript. The last line before the pick is strong only in script-r1/ep-06 (Tilly's open ticket) and script-r1/ep-05 (Tilly), and weak or unconnected in ep-02, ep-04, hybrid-01 and hybrid-02.",
+  "structuralChange": "Stop putting the leader last. At present the lower-standing finalist always speaks first and the leader closes, and the closer wins 7 of 8. The bar does the reverse: Love Island producers seat islanders for misdirection and 'the last one is always a shocker', and Take Me Out ends on a direct comparison. Proposed order. The leader on standing goes first (suitor, star, suitor, about 18 seconds). The trailing suitor goes second and closes the beat. Their opening line must steal from or undercut the leader's date, as rivals already do in jabs, so the underdog gets the last word and a real chance to swing it. Then the star gets one comparison line, at most 12 words and naming both, in the style of Blind Date's Our Graham recap, and only then the six-second hold. That adds about 4 seconds to a 345 to 354 second episode, keeps window C locked, and removes the tell that the last speaker wins."
+}

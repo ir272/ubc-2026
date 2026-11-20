@@ -1,0 +1,318 @@
+{
+  "star": "vesper",
+  "suitor": "quill",
+  "replies": {
+    "Name thine enemies, and I shall insult them, from a distance.": {
+      "warm": "Closer. Insult them from here.",
+      "cold": "Distance granted. I'm adding a county."
+    },
+    "Swoon leftward, should thou swoon, for that is where I stand.": {
+      "warm": "Stay left. I'll tilt the room.",
+      "cold": "The exit is on your left."
+    },
+    "{wins} wins in {played} tourneys, which in Roman numerals looketh enormous.": {
+      "warm": "Read them in Latin. Slower.",
+      "cold": "Decimalised. Listen to them shrink."
+    },
+    "Is thy little lit slate painting me, and from which side?": {
+      "warm": "My good side. Rarely issued.",
+      "cold": "It's painting the wall behind you."
+    },
+    "Behold the last of the great knights, the others having been sensible.": {
+      "warm": "Sensible's banned after midnight. Stay.",
+      "cold": "The others rang. They're fine."
+    },
+    "The post of muse is thine, fair one, and payeth in exposure.": {
+      "warm": "Exposed since sixty-one. Hired.",
+      "cold": "I set the rates here. Declined."
+    },
+    "To the pillory, where I have engaged a knave, at some expense, for thee to pelt with turnips.": {
+      "warm": "I throw left-handed. Tell the knave.",
+      "cold": "The knave walks. You're in the pillory now."
+    },
+    "A tour of mine ancestral castle, and if they ask, I am not with the coach party.": {
+      "warm": "Then I'm not with the coach party either. Lead.",
+      "cold": "The coach party rang. They want a refund."
+    },
+    "I correct everyone's Latin, loudly, at table, including people who were speaking French.": {
+      "warm": "Correct me at table. I'll be speaking French.",
+      "cold": "Latin's revoked. The French may stay."
+    },
+    "I duel all who mispronounce thy name, which hath, alas, twice included thee.": {
+      "warm": "Get it wrong again. I'll hold your coat.",
+      "cold": "My name is pronounced however I say. Sword down."
+    },
+    "Why I, of all who stand before thee, plumed and polished, hopeful, glinting in the lamplight? Height.": {
+      "warm": "Stay in the lamplight. I've dimmed the county.",
+      "cold": "Height. The ceiling comes down tomorrow."
+    },
+    "These three would love thee for a season, whereas I would have thee bound in calfskin and shelved forever.": {
+      "warm": "Shelve me at eye level. Yours.",
+      "cold": "I don't get shelved. I do the shelving."
+    },
+    "Cut whichever of them hath a coach, but not until after he hath driven me home.": {
+      "warm": "Nobody's driven me since seventy-three. Keys.",
+      "cold": "Coaches stopped at midnight. I stopped them. Walk."
+    },
+    "Whoever calleth thee cute, a word for lambs, when thou art plainly the Great Fire of London.": {
+      "warm": "Say fire again. Lower.",
+      "cold": "You're out. The sea helped."
+    },
+    "Pray be foul by the window, in profile, and hold it there whilst I find my pencil.": {
+      "warm": "Take your time with the pencil. I'm not going anywhere.",
+      "cold": "There's no window in here. I had it bricked."
+    },
+    "I summon the barber to bleed thee, as physic requireth, and since he is there, a fringe.": {
+      "warm": "The fringe, fine. Bleed the morning man instead.",
+      "cold": "Barbers are deported on sight. You're harbouring one."
+    },
+    "By patronage, so dost thou know a duke who wanteth a sonnet on his horse, or any horse?": {
+      "warm": "I own a duke. Start on his horse.",
+      "cold": "A horse rang in. It wants prose."
+    },
+    "Easily. My helm alone cost a fortune, from the finest bucket maker in Kent.": {
+      "warm": "Lift it. Show me what the money bought.",
+      "cold": "The bucket maker heard that. He's denying everything."
+    },
+    "She was a milkmaid in a pastoral. She left the pastoral. I am still standing in the field.": {
+      "warm": "Leave the field. There's a chair in here.",
+      "cold": "Stay in the field. The gate's sold."
+    },
+    "My horse, who bore me through eleven battles, and now, I am told, belongeth to a nicer man.": {
+      "warm": "The horse is coming back. I've made a call.",
+      "cold": "The nicer man has my blessing. The horse, too."
+    },
+    "Thou art correct, and I shall die of it.": {
+      "warm": "Correct. Die slowly. We have all night.",
+      "cold": "Brief funeral. I'm hosting. Nobody's coming."
+    },
+    "A preamble, setting forth our quarrel from the Norman Conquest onward, then, time permitting, sorry.": {
+      "warm": "Skip the Conquest. I covered it live.",
+      "cold": "Time doesn't permit. Time works for me."
+    },
+    "A silver skull upon a ribbon, that thou mayest think on death daily, and on me, who bought it.": {
+      "warm": "Wrap it. Death daily, you weekly. Fair.",
+      "cold": "The skull goes to lost property. So do you."
+    },
+    "An acrostic sonnet with thy name running down the side, so pray tell me thy name is long.": {
+      "warm": "It's Vesper. Add whatever letters you need.",
+      "cold": "Six letters. That's your whole sonnet. Go."
+    },
+    "Sit for me a twelvemonth, for ninety seconds hath got me only as far as thine eyebrows.": {
+      "warm": "Take the twelvemonth. The eyebrows were a promising start.",
+      "cold": "The eyebrows have lodged a complaint."
+    },
+    "Thou art a rose. I know not what thou art.": {
+      "warm": "Good. Nobody's known since sixty-one.",
+      "cold": "I'm a fish. Look again."
+    },
+    "Wed, by a parson some years dead, irregular, I grant, but he was free.": {
+      "warm": "Free is my favourite price. Fetch him.",
+      "cold": "Free. And still too dear."
+    },
+    "In Venice, upon a gondola, thou rowing and I reciting, until one of us learneth to swim.": {
+      "warm": "I'll row. You recite. I choose the ending.",
+      "cold": "I don't row. The canal's been drained."
+    },
+    "I am of royal blood, on the evidence of my chin, and nobody else's.": {
+      "warm": "Chin up. It's royal now. I signed it.",
+      "cold": "I've examined the chin. It's a commoner."
+    },
+    "Swear first upon thy mother's grave, or, she being alive, upon her hat.": {
+      "warm": "Fetch the hat. Tonight I swear on anything.",
+      "cold": "The hat refuses. It has standards."
+    },
+    "I forgive no slight to thee or me, and I have kept a book of them, with an index.": {
+      "warm": "Lend me the index. Mine needs one.",
+      "cold": "Burn the book. Index first."
+    },
+    "My worst trait is that I outlive everyone, chiefly by arriving at battles somewhat late.": {
+      "warm": "Arrive late here. I'm open till dawn.",
+      "cold": "The battle's over. You lost it on the way."
+    },
+    "Speak on, sir or madam or thing, and slowly, I am writing down what {star} hated.": {
+      "warm": "Thing. Keep writing. Use both sides.",
+      "cold": "Stop writing. That list is classified."
+    },
+    "I would strike thee with my glove, wert thou anywhere at all.": {
+      "warm": "It lives in the wall. Aim low.",
+      "cold": "It's in the phone line. It would win."
+    },
+    "Peace, thou bygone voice, {star} hath moved on, to a knight with land, some of it dry.": {
+      "warm": "Some of it dry. I'll take the wet half.",
+      "cold": "Your land's reassigned to the sea. Effective now."
+    },
+    "Choose me, fair one, and I shall be thy knight, for of these four I am the most upright.": {
+      "warm": "Knight, upright. Rhyme passed. Lean on it.",
+      "cold": "Rhyme disallowed. Stand without the sword, then."
+    },
+    "Choose me, and all thy virtues I shall prove. In sixteen hundred, that rhymed with love.": {
+      "warm": "It rhymes now. I moved the century.",
+      "cold": "Overruled. Rhymes older than my licence don't count."
+    },
+    "I would swim the moat for thee in all my plate, so, fair one, bring a rope, and wait.": {
+      "warm": "The rope stays with me. I decide when to pull.",
+      "cold": "Rope declined. The moat's been deepened."
+    },
+    "I have fought forty duels. I have lost none. Thou art welcome to inspect my wounds.": {
+      "warm": "Lost none is the lie. Show me anyway.",
+      "cold": "The lie was forty. The truth was none."
+    },
+    "I have slain a dragon, and geese affright me, and whilst thou guessest, stand between me and that pond.": {
+      "warm": "The dragon's the lie. Come here, away from the pond.",
+      "cold": "Lie: the dragon. Geese: released."
+    },
+    "Thou, in marble.": {
+      "warm": "Three words. The quarry's yours.",
+      "cold": "Marble's spoken for. You get gravel."
+    },
+    "Kneeling, then assistance.": {
+      "warm": "Kneel. Assistance arrives when I feel like it.",
+      "cold": "Assistance is cancelled. Stay down there."
+    },
+    "Thee, immortalised, eventually.": {
+      "warm": "Eventually suits me. I never close.",
+      "cold": "Eventually begins once you leave. Arranged."
+    },
+    "Forgive me, beforehand, for the night I compare thee to the moon and thou noticest I mean the craters.": {
+      "warm": "Mention the craters. I own the moon.",
+      "cold": "Noticed already. The moon's suing."
+    },
+    "Pardon, in advance, the supper at which I recite to thy friends, standing, until they climb out the window.": {
+      "warm": "I don't have friends. Recite to me. Standing.",
+      "cold": "Every window in the county is open for them."
+    },
+    "Keep thy five green portraits of a stranger, and come picnic where they used to hang people.": {
+      "warm": "Lunch at the gallows. Reopened, for us.",
+      "cold": "They still do. Ask for me by name."
+    },
+    "No invisible postman, so we shall court properly, by letters passed through a hedge.": {
+      "warm": "Write. The hedge is planted. It grew while you spoke.",
+      "cold": "Hedge letters go out with the corrections. Unread."
+    },
+    "My chronicle recordeth that I have swooned at every sonnet I ever heard, chiefly mine.": {
+      "warm": "Next time, swoon at me. Chiefly.",
+      "cold": "Your chronicle's confiscated. Chiefly the sonnets."
+    },
+    "I challenged the little red clerk who underlineth my words to a duel. He underlined the challenge.": {
+      "warm": "I'll be your second. The clerk won't see daylight.",
+      "cold": "The clerk was right. I've promoted him."
+    },
+    "Sir Quill, I beg thee, read it again, the bit about my nose, which I adored.": {
+      "warm": "I don't have a nose. Read it anyway.",
+      "cold": "I never beg. It's in my licence."
+    },
+    "Hush, every one of you, the knight is clearing his throat, and I have waited all my life.": {
+      "warm": "I've waited longer. Clear it.",
+      "cold": "Throat cleared. The nation went to bed."
+    },
+    "Most stern and humming mother of my muse, mine intentions are honourable, and in Latin.": {
+      "warm": "Mother reads Latin. Her valve is glowing.",
+      "cold": "Mother doesn't read Latin. She's deaf in it."
+    },
+    "Madam of a thousand copper roads, I ask thy child's hand, or whatever thy child hath instead of one.": {
+      "warm": "A fin. Hold it. Briefly.",
+      "cold": "It's a fin. It's slapping you."
+    },
+    "Dash courteth like a mountebank selling two cures for the same plague, and asketh the corpse which it preferred.": {
+      "warm": "The corpse rang in. It preferred you.",
+      "cold": "Trading standards have been called. On you."
+    },
+    "Tilly is less a lady than an apology that someone hath watered.": {
+      "warm": "Unedited. Keep watering.",
+      "cold": "Tilly's been watered. You've been weeded."
+    },
+    "A true nobleman, Prince, asketh not a processing fee but a dowry, and in person, on a horse.": {
+      "warm": "Dowry, in person, on a horse. Prince, take notes.",
+      "cold": "No dowries on my air. Off the horse."
+    },
+    "Nav calleth out every turning before it cometh, and hath been ignored at all of them.": {
+      "warm": "I'll ignore Nav for you. It's no trouble.",
+      "cold": "I've been ignoring you since the turning before."
+    },
+    "Crumb keepeth one slot for bread and one for love, and the bread is winning.": {
+      "warm": "Bread is winning. Results at the top of the hour.",
+      "cold": "Bread winning. You're not entered."
+    },
+    "Vex knoweth what thou wantest before thou dost, and so did every fortune-teller I ever paid in advance.": {
+      "warm": "I'll get your money back. I write the horoscopes.",
+      "cold": "The fortune-tellers knew. That's why they charged first."
+    },
+    "Brock, good hound, fetch me a lady's glove, any lady's, and I shall say she threw it.": {
+      "warm": "Fetch. I'll throw it myself.",
+      "cold": "Nobody threw anything. The glove goes back."
+    },
+    "Dash is as promising as a tulip in sixteen thirty-seven. Much admired. Briefly. Then worth an onion.": {
+      "warm": "Sold. I'll take the onion.",
+      "cold": "I've priced you. You're the onion."
+    },
+    "Tilly would make thee a most devoted page, and in a year or two, with feeding, a squire.": {
+      "warm": "Feed her. Send me the bill.",
+      "cold": "No feeding the callers. House rule. Mine."
+    },
+    "I vouch for Prince, having sent him my horse against his kingdom, which arriveth shortly.": {
+      "warm": "If the kingdom arrives, I'll share it with you.",
+      "cold": "The kingdom's not coming. Neither is the horse."
+    },
+    "Follow Nav, who shall bring thee to the finest knight in the land in under a yard.": {
+      "warm": "Under a yard. Come the rest of it.",
+      "cold": "A yard's too close. Back up a mile."
+    },
+    "Crumb shall keep thee warm, fair one, and I have lost three houses to things that kept me warm.": {
+      "warm": "Three houses. I'd have lent you a fourth.",
+      "cold": "Keep losing them. I've stood the fire brigade down."
+    },
+    "Vex hath foreseen thy perfect match, and described him to me at length, and he soundeth very familiar.": {
+      "warm": "Familiar's fine. Everything on air is a repeat.",
+      "cold": "He sounds like you. Blocked."
+    },
+    "Brock would die for thee, fair one, as would I, but on paper.": {
+      "warm": "Paper's enough. Sign it.",
+      "cold": "Tear up the paper. You live, sadly."
+    },
+    "O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.": {
+      "warm": "Granted. Don't tell the others.",
+      "cold": "Wishes closed at midnight. You're late."
+    },
+    "Madam, thou art the only fish I have ever wished to court and not to eat on Friday.": {
+      "warm": "Friday's cancelled. Court away.",
+      "cold": "I've moved Friday. You're the fish."
+    },
+    "Good innkeeper, thy wig is the finest I have seen on any creature, and I have seen judges.": {
+      "warm": "Innkeeper. I'll answer to it tonight.",
+      "cold": "I am the judge. Wrong building."
+    },
+    "Thy finest chamber, innkeeper, and send the bill to whichever knight loseth tonight.": {
+      "warm": "Chamber's ready. The bill goes to the others.",
+      "cold": "No chambers. One knight loses tonight. Guess."
+    },
+    "Thy face is a little window with a battle in it. Pray, which side are we on?": {
+      "warm": "My side. It's winning.",
+      "cold": "The losing side. Yours, specifically."
+    },
+    "Fair one, thy head is a box of tiny people, and I would speak to whoever is in charge.": {
+      "warm": "You're speaking to her. Carry on.",
+      "cold": "Nobody's in charge but me. Hang up."
+    },
+    "We are alone at last, fair one, save for my biographer, who is behind the curtain.": {
+      "warm": "The biographer stays. Give him a chapter.",
+      "cold": "Your biographer left. He asked me to tell you."
+    },
+    "Tonight, fair one, I shall speak plainly, and I have brought a man to explain it.": {
+      "warm": "Send the man home. I'll manage.",
+      "cold": "The man's hired. As your replacement."
+    },
+    "Tell me what {rival} said, word for word, that I may say the reverse, at greater length.": {
+      "warm": "They said goodnight. Say good morning. Slowly.",
+      "cold": "Length is rationed. You've had yours."
+    },
+    "Whatever {rival} vowed thee, I vow the same in rhyme, and rhyme, as all men know, is binding.": {
+      "warm": "Binding. The rhyme's notarised. Vow.",
+      "cold": "Rhyme isn't binding here. I am."
+    },
+    "{rival} hath warmed the chair for me, the first useful thing {rival} hath done all night.": {
+      "warm": "Sit. The chair's warm. So am I, slightly.",
+      "cold": "That chair's cold now. On my order."
+    }
+  }
+}

@@ -1,0 +1,296 @@
+{
+ "updated": "16:00 CST, Thu 19 Nov",
+ "status": "Round 10 done: the stage is stripped to the strict text rule (names, health, try pips, the clock, picks as names, the winner), the site's volume and unlock hooks are in, and a sound pass rebuilt the bells, the fight music and the mix. No person has listened to the sound yet.",
+ "checkpoint": [
+  {
+   "item": "A full match plays through the harness on mock brains",
+   "done": true
+  },
+  {
+   "item": "index.ts (mount, onFeed, highlight, destroy)",
+   "done": true
+  },
+  {
+   "item": "channel.ts (default export, runs one match as a script)",
+   "done": true
+  },
+  {
+   "item": "npm run dev (port 5200) and npm run match",
+   "done": true
+  },
+  {
+   "item": "README: how to run, env vars, feed events, the two integration lines",
+   "done": true
+  },
+  {
+   "item": "Loadouts and tempers in the sim, balance checks",
+   "done": true
+  },
+  {
+   "item": "Decision moment stays on the fight",
+   "done": true
+  },
+  {
+   "item": "Any OpenRouter model through bots.json",
+   "done": true
+  }
+ ],
+ "checks": [
+  {
+   "name": "Completion: mock matches finish with no stall",
+   "target": "200 of 200",
+   "value": "200 of 200 through the real channel script, no stall (re-run on the round 9 build)",
+   "pass": true
+  },
+  {
+   "name": "Match length (mock brains)",
+   "target": "6 to 8 minutes",
+   "value": "median 6 min 22 s, 90th percentile 8 min 51 s",
+   "pass": true
+  },
+  {
+   "name": "Something to bet on at least every 90 s",
+   "target": "90 s",
+   "value": "longest stretch with no open window: 76 s",
+   "pass": true
+  },
+  {
+   "name": "No dead air (2.5 s with nothing moving)",
+   "target": "0 stretches",
+   "value": "a whole 499 s match on the round 10 build: longest still stretch 2.25 s",
+   "pass": true
+  },
+  {
+   "name": "Phases read instantly (five 8 s clips)",
+   "target": "4 of 5 named",
+   "value": "5 of 5 in every round, 1 to 10",
+   "pass": true
+  },
+  {
+   "name": "Comprehension (30 to 45 s clip)",
+   "target": "4 of 5 critics",
+   "value": "5 of 5 cold viewers in round 3; 1 of 1 in rounds 6, 7 and 8; 3 of 3 in round 9",
+   "pass": true
+  },
+  {
+   "name": "Decision moment (what was chosen, what it led to)",
+   "target": "4 of 5 clips",
+   "value": "Round 10 (options, pick, result from numbers and bars): 5 of 5. Round 9: 4 of 5 three times. Round 8: 5 of 5.",
+   "pass": true
+  },
+  {
+   "name": "Loadouts visible in a fight still",
+   "target": "classes told apart, one item named",
+   "value": "Warden and Penitent told apart; Lamplighter's Pole named in use",
+   "pass": true
+  },
+  {
+   "name": "Class balance over 400 mock matches",
+   "target": "every class 40 to 60%",
+   "value": "seed 1: 44 to 57%. seed 2: 40 to 54%. 1,600 matches: 48 to 52%. One of four 400-match seeds had a class at 60.2%",
+   "pass": true
+  },
+  {
+   "name": "Each temper moves a class by 10 points",
+   "target": "all six tempers",
+   "value": "all six on seeds 1, 2 and 3; seed 4 had two tempers at 7 and 9 points",
+   "pass": true
+  },
+  {
+   "name": "Tape predicts the winner",
+   "target": "55 to 70%",
+   "value": "12 of 20 tapes (60%), two critics at 6 of 10 each; sim heuristic 64 to 69%",
+   "pass": true
+  },
+  {
+   "name": "Look: blind picks against today's build",
+   "target": "at least 50%",
+   "value": "Round 9 build against round 8 build: 10 of 10 screens. Round 8 against the old game: 5 of 6 pairs (83%)",
+   "pass": true
+  },
+  {
+   "name": "Real-model spend",
+   "target": "under $1.50",
+   "value": "$0.115 (one full real match, plus 13 listening calls by an audio model)",
+   "pass": true
+  },
+  {
+   "name": "Plays through the platform's real runner code",
+   "target": "one full match",
+   "value": "clean pass, re-run in round 9: one full mock match, 9 windows opened, locked and settled, snapshot holds",
+   "pass": true
+  },
+  {
+   "name": "Replay from the window seed and the published moves",
+   "target": "every try identical",
+   "value": "550 of 550 tries across 139 recorded matches",
+   "pass": true
+  }
+ ],
+ "rounds": [
+  {
+   "n": 0,
+   "time": "07:14 to 07:50",
+   "title": "Foundation: the show's spine, end to end",
+   "built": "Contract (DESIGN.md), match rules, the five-phase script, the fake runner with a virtual clock, the stage with a feed reducer and five scenes, the in-fight move menu, the verdict replay, mock and OpenRouter brains. Two builders are still on the sim (loadouts, balance) and the art (six classes, emblems).",
+   "critic": "",
+   "gap": "Unjudged. Known by eye: item emblems are not drawn yet, large figures crowd the tape, a match runs long.",
+   "stills": []
+  },
+  {
+   "n": 1,
+   "time": "07:50 to 08:08",
+   "title": "First critics, then the fight HUD and every page scene rebuilt",
+   "built": "A fixed narration band tells each exchange in three beats (what the boss is doing, the answer, the result as it lands). The move menu has one place. The fighter sheet names class and gear. The walk-on no longer covers the boss. Call, choosing, tape and verdict were redrawn for motion, collisions and type size. Six class bodies and 31 emblems arrived from the art builder.",
+   "critic": "Phases 5 of 5 named. Decision moment 2 of 5. Cold viewer: understood the game 4 of 10, knew who was ahead 3, reason to bet 2, looks professional 8.",
+   "gap": "Dead air on three screens; the result of a choice came late, small and brief; ledger numbers had no unit.",
+   "stills": []
+  },
+  {
+   "n": 2,
+   "time": "08:08 to 08:20",
+   "title": "Second critics, the result line, the verdict on paper",
+   "built": "The result of each exchange is one fixed sentence naming the boss's move, the answer and the outcome. The menu states the threat and is tied to the fighter by a leader line. The stroke clock says its rule; the rival's best try is flagged on the boss bar. The verdict was rebuilt on paper with a printed red block, a full-height winner and the fallen rival. The call shows two unwritten figures. The channel was played through the platform's real runner code.",
+   "critic": "Phases 5 of 5 again. Decision moment 4 of 5 (was 2). Cold viewer 6 / 7 / 6 / 8 (was 4 / 3 / 2 / 8). Per-screen polish 4 to 7 of 10.",
+   "gap": "The fighter figures: flat glossy vector bodies next to a cross-hatched engraving of a boss.",
+   "stills": []
+  },
+  {
+   "n": 3,
+   "time": "08:20 to 08:50",
+   "title": "Final sim, eleven critics, the measured bars",
+   "built": "Tape: temper-fit marks, a reader that says what each piece does, history against the boss, who goes first. Fighter at 1.7x with a paper contour. HUD as ruled slips. A full-frame end-of-try card in the old death card's composition. Results called only when known, with a large flash. Second art pass in, third under way.",
+   "critic": "Phases 5 of 5. Decision 4 of 5. Cold viewers 5 of 5. Loadouts told apart. Tape picks the winner 12 of 20. Blind look 4 of 6 against today's build. Per-screen polish 3 to 6 of 10.",
+   "gap": "The fighters, again: weapons not gripped, no idle motion, a look that follows the class instead of the contender. Then the break between tries.",
+   "stills": [
+    "shots/r4/call.png",
+    "shots/r4/choosing.png",
+    "shots/r4/tape.png",
+    "shots/r4/menu.png",
+    "shots/r4/end.png",
+    "shots/r4/verdict.png"
+   ]
+  },
+  {
+   "n": 4,
+   "time": "08:50 to 09:15",
+   "title": "Third art pass, one number per beat, the call as a versus card",
+   "built": "One damage figure per side on the bar's own scale. The boss's intent as the menu headline; the cursor rests on the pick. Calls from the fighter's side. A one-strip top HUD. The choosing rebuilt with large plates and both builds growing in the middle. The call as a versus card with each contender drawn as it last fought. A larger replay on the verdict.",
+   "critic": "Phases 5 of 5. Decision moment 5 of 5. Blind look 4 of 6. Per-screen polish 4 to 6.",
+   "gap": "The fighters, a third time. Then the choosing (\"three small pale index cards\") and the fight HUD covering the boss.",
+   "stills": [
+    "shots/r5/call.png",
+    "shots/r5/ch_pick.png",
+    "shots/r5/tape.png",
+    "shots/r5/menu0.png",
+    "shots/r5/strip.jpg",
+    "shots/r5/verdict.png"
+   ]
+  },
+  {
+   "n": 5,
+   "time": "09:00 to 09:15",
+   "title": "The result call tells both sides; the temper reveal moves",
+   "built": "The result band in two halves that cannot contradict each other: what the boss's attack did to the fighter, and what the answer cost the boss, counted up from the first frame it lands. A kill has its own sentence. The fighter's damage is one number pinned to its body through the camera. The temper reveal lays down the pieces that suit tonight's temper one at a time.",
+   "critic": "Phases 5 of 5. Decision moment 4 of 5. Blind look 4 of 6. Per-screen polish 4 to 7 (tape 4, verdict 4). Dead air failed: 3.0 s still on the temper reveal.",
+   "gap": "The result call graded only the defence (\"Candleflame fails: Vesper takes 41\" while it cut a third of the boss's ink) and once called a kill a failure.",
+   "stills": [
+    "shots/r6/d_kill.jpg",
+    "shots/r6/temper2.png",
+    "shots/r6/ch_pick.png",
+    "shots/r6/pair.png"
+   ]
+  },
+  {
+   "n": 6,
+   "time": "09:15 to 09:40",
+   "title": "The choice tied to its result; tape, verdict and call redrawn",
+   "built": "The stake is printed on the menu from the sim's own look-ahead (\"A wrong answer costs up to 30 health.\"). The result names the answer as the cause (\"Step In gets clear of the long chop: Ashby untouched.\"). Nothing in the menu is marked until the answer is in. Tape, verdict and call redrawn for one dominant thing per screen; one shared prediction block.",
+   "critic": "Phases 5 of 5. Decision moment 2 of 5, then 3 of 5, then 3 of 5 across three critics (bar 4). Blind look 4 of 6. Cold viewer passed. Per-screen polish 4 to 6. Dead air over a whole match 1.5 s: pass.",
+   "gap": "The fight is \"a boxed game HUD, not broadcast graphics\": five framed panels around the illustration.",
+   "stills": [
+    "shots/r6/screens/tape.png",
+    "shots/r6/screens/verdict_late.png",
+    "shots/r6/menu.png",
+    "shots/r7/call.png",
+    "shots/r7/ch_pick.png"
+   ]
+  },
+  {
+   "n": 7,
+   "time": "09:45 to 10:05",
+   "title": "The fight as broadcast graphics",
+   "built": "The fight's five boxed panels were thrown away for one thin package: an ink strip top and bottom, a brushed paper caption, a slim choice column. A cut on the boss flashes in the contender's own colour, so red only ever means the fighter was hurt. The fighter is drawn larger. The pair break became a ledger page on paper.",
+   "critic": "Phases 5 of 5. Blind look 5 of 6, then 4 of 6. Cold viewer passed. Decision moment 3 of 5 twice. Per-screen polish 5 to 7, then 3 to 6.5 from a harsher critic.",
+   "gap": "The picture contradicted the words: the boss's red hurt-flash read as the fighter being struck. Then the end card: plain text on black, the one screen that dropped the package.",
+   "stills": [
+    "shots/r7/menu.png",
+    "shots/r7/d_a.jpg",
+    "shots/r7/pair.png",
+    "shots/r7/call.png"
+   ]
+  },
+  {
+   "n": 8,
+   "time": "10:05 to 10:20",
+   "title": "The last collisions, and every bar passed",
+   "built": "The end of a try is a ledger page with the contender on it and the figure at 210 px. The hall continues past its walls when the camera slides. The tally says who cut (\"CANDLEFLAME TAKES 17%\", \"THEN MARROW CUTS BACK 5%\"). One wording everywhere. After the critics: a lead-change call (\"MARROW TAKES THE LEAD\").",
+   "critic": "Phases 5 of 5. Decision moment 5 of 5. Blind look 5 of 6. Cold viewer passed. Per-screen polish 5 to 7.",
+   "gap": "Too much small explanatory text; figure framing and a title-safe margin; a few web-component tells (hard shadows, the flat menu column).",
+   "stills": [
+    "shots/r8/screens/fight_menu.png",
+    "shots/r8/screens/fight_result.png",
+    "shots/r8/lead.jpg",
+    "shots/r8/screens/fight_endcard.png",
+    "shots/r8/screens/tape.png",
+    "shots/r8/screens/verdict_late.png"
+   ]
+  },
+  {
+   "n": 9,
+   "time": "12:55 to 14:00",
+   "title": "The clean-look pass, and a real-model match",
+   "built": "Three removal passes: frame lines, rules, ornaments, the candle, the choosing tray, the tape's icons and extra figures, the fight's class tag, pips, try boxes, banners and tally tab. The boss bar is now a progress bar that fills as ink is cut. One caption line says what an answer did to both sides. The window question is now \"Who wins the match?\".",
+   "critic": "Blind old against new: new picked on 10 of 10 screens. Cleanliness 5 to 8, 3 to 7 (stricter critic), then 5.5 to 8.5. Phases 5 of 5. Decision moment 4 of 5 in each pass. Cold viewer passed.",
+   "gap": "The fight HUD's overlay zones (passes one and two); then the real-model call with no figures and a text collision on the verdict (pass three). The last fixes are not judged.",
+   "stills": [
+    "shots/r9/final4/call.png",
+    "shots/r9/final4/choosing_last.png",
+    "shots/r9/final4/tape.png",
+    "shots/r9/final4/fight_ready.png",
+    "shots/r9/final4/fight_menu.png",
+    "shots/r9/final4/fight_result.png",
+    "shots/r9/final4/fight_pair.png",
+    "shots/r9/final4/verdict_late.png",
+    "shots/r9/final4/real_ready.png",
+    "shots/r9/before/tape.png",
+    "shots/r9/before/fight_menu.png"
+   ]
+  },
+  {
+   "n": 10,
+   "time": "15:10 to 16:00",
+   "title": "The strict text rule, sound hooks, a sound pass",
+   "built": "Every sentence is off the stage: records, rule lines, card blurbs, reasons, the menu's threat and stake lines, the caption band, labels under bars. What stays: names, picks as names, try pips, health, the stroke count, best figures, the clock, the winner. mount returns setVolume and unlockAudio. Sound: a bell per phase, fight music that builds across tries, per-weapon steel, a balanced mix (phases within 2.2 LU, were 12.9).",
+   "critic": "Against the owner's rule: 6 to 9 per screen, \"the explanatory slop is gone\". Phases 5 of 5. Decision clips 5 of 5. Cold viewer passed. An audio model preferred the new fight mix in both orders.",
+   "gap": "The try count was missing in the fight (pips added after, not judged). No person has listened to the sound.",
+   "stills": [
+    "shots/r10/final/call.png",
+    "shots/r10/final/choosing_offer.png",
+    "shots/r10/final/tape.png",
+    "shots/r10/final/fight_ready.png",
+    "shots/r10/final/fight_menu.png",
+    "shots/r10/final/fight_result.png",
+    "shots/r10/final/fight_endcard.png",
+    "shots/r10/final/fight_pair.png",
+    "shots/r10/final/verdict_late.png"
+   ]
+  }
+ ],
+ "next": [
+  "Listen to the mix (clips in shots/r10/sound/)",
+  "Approve or decline three recordings: fire, a chain rattle, wood knocks",
+  "Run more real matches",
+  "A critic pass on the last round 10 fixes"
+ ]
+}

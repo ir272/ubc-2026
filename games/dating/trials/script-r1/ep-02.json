@@ -1,0 +1,1586 @@
+{
+  "episode": 6,
+  "matchId": "dating-ep6-mwnn6hf8",
+  "brain": "scripted",
+  "sealed": "2fe0aedcc7724b8aa2900ee43cb28e13184de1155ecb4dd18d295551952568aa",
+  "sealedSource": "window",
+  "star": {
+    "id": "maximilian",
+    "name": "Maximilian"
+  },
+  "suitors": [
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "trashtalk",
+        "label": "Trash talk",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "past",
+        "label": "Brings up the past",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "rhyme",
+      "label": "The Rhyme",
+      "rule": "Tell me why you. In a rhyme.",
+      "format": "solo"
+    },
+    "topTags": {
+      "frost": [
+        "honesty",
+        "numbers",
+        "food",
+        "trashtalk"
+      ],
+      "tilly": [
+        "honesty",
+        "trashtalk",
+        "danger",
+        "rules"
+      ],
+      "nav": [
+        "numbers",
+        "confidence",
+        "danger",
+        "trashtalk"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "honesty",
+        "past"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash",
+        "nav"
+      ],
+      "honesty": [
+        "dash",
+        "frost",
+        "tilly"
+      ],
+      "trashtalk": [
+        "frost",
+        "nav",
+        "tilly"
+      ],
+      "food": [
+        "frost"
+      ],
+      "numbers": [
+        "dash",
+        "frost",
+        "nav"
+      ],
+      "past": [
+        "dash"
+      ],
+      "danger": [
+        "nav",
+        "tilly"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-last-breakup",
+    "theme": "How did your last relationship end?"
+  },
+  "order": [
+    "dash",
+    "nav",
+    "tilly",
+    "frost"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "intro",
+      "text": "Welcome. The last romance in this ballroom ended with a fire hose.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 11656,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 8,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Warning: you've arrived golden. Do not leave unattended.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 20022,
+      "ms": 3540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "To be loved, press one. To leave, please stay on the line.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 27068,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Maximilian, turn your head slightly left, and keep it there.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 35434,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "My exes all agree about me. Exes never agree. I'm a unifier.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 43140,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "question",
+      "text": "Your last relationship. How did it end, and who settled the bill?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 56000,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "They blocked me on four platforms. So I'm still on the fifth. We're basically together on the fifth.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 61735,
+      "ms": 6840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "An ex. Which hotel? I have questions for the hotel.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 69483,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "They muted me at a junction, so I left them at it.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 74590,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "I have fourteen chauffeurs. I am sacking thirteen.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 80646,
+      "ms": 3540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "He hung up. Policy says wait two minutes for the caller to come back. It's been eleven months.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 85477,
+      "ms": 6840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "So polite. So very polite. Who taught you? Me?",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 93663,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "They bought a toaster oven. It had a little window. Some people need to watch.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 98944,
+      "ms": 5850,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Nobody has ever made me toast. Do not start.",
+      "to": "frost",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 106294,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 14,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Nav, a window on the ninth floor is open. It was not open before.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 111664,
+      "ms": 6520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "exit",
+      "text": "Cut. Fine. Somebody here needs directions home tonight. Your phone is on four percent.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 119684,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 10,
+      "event": "confession",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "They laughed. 2.6 seconds. I've replayed it 38 times. 39.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 128474,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Crumb complained about me to me. I handled it beautifully. Crumb has no idea.",
+      "about": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 133174,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Off camera, Tilly asked how I was. I pitched them for four minutes. They were just asking.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 139194,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "twistintro",
+      "text": "Why you, in a rhyme. Rhyme anything with Maximilian and you may stay.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 156704,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "The others are pale and they'll keep you that way. Pick me and you're golden, both sides, every day.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 162394,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Thank you. My lawyers have been trying to say that.",
+      "to": "frost",
+      "mark": "charmed",
+      "hits": [
+        "trashtalk"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 170064,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Choose one of them and they'll let you go. Choose me and I can't, so the answer is no.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 174764,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Honesty belongs on the comment card. Not at dinner.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 182434,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "No one's turned me down twice, it's true. I ask them once, then I ask someone new.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 186817,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Shipping it, you say. Splendid. Reception has found a crate.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 193950,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Crumb, thank you, that's been logged under burnt.",
+      "to": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 198773,
+      "ms": 3540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Tilly, that's apology nine. The other eight weren't owed either.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 203101,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 12,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Miss Tilly, your headset may stay. The rest of you, the lift.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 208089,
+      "ms": 5860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "Cut, of course. I'll be back on the phones before you've finished clapping.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 214902,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Element when they walked on: 212 degrees. Now: 289. I've told the studio it's the lights.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 224232,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Crumb asked me for advice earlier. I gave good advice. Most useful I've been all year.",
+      "about": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 232412,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Maximilian, your staff asked me to leave once. They let me in twice. I'm ahead.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 244592,
+      "ms": 5850,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Mr Dash, I can see myself in your visor. I look wonderful. Keep still.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 251622,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 18,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Was that a smile? I want to round it up to a kiss. I won't. Smile. Lovely smile.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 258267,
+      "ms": 6840,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Rate me like a stay. Breakfast was included. It was me. I'll take my stars now.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 268364,
+      "ms": 6180,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Crumb, which guests eat at two in the morning? Names. All of them.",
+      "to": "frost",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 276044,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Fine. I'll be on the counter, rating whoever you pick. Low.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 282734,
+      "ms": 4530,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "hold",
+      "text": "Please hold. Your call is important to me. It is not.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 290764,
+      "ms": 4530,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 10,
+      "event": "pick",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "pickline",
+      "text": "Crumb. Chrome, opinions, no manners. I have married worse. Twice.",
+      "to": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 302294,
+      "ms": 5400,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "pick",
+      "words": 4,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "win",
+      "text": "Second slot occupancy: one.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 308194,
+      "ms": 2220,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Brings up the past. Correct. Correct, and in front of the staff. Unforgivable.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 312414,
+      "ms": 9040,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "frost",
+        "name": "Crumb",
+        "text": "They bought a toaster oven. It had a little window. Some people need to watch."
+      }
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 11,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Brutal honesty. Out of the question. Out of the building, ideally.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 321954,
+      "ms": 9060,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "tilly",
+        "name": "Tilly",
+        "text": "Choose one of them and they'll let you go. Choose me and I can't, so the answer is no."
+      }
+    },
+    {
+      "seq": 44,
+      "scene": "reveal",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "lose",
+      "text": "Congratulations, Crumb! Genuinely. I'm copying everything you did. Starting with the winning.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 331514,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "outro",
+      "text": "Goodnight. Do leave a review. I will read it and disagree.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 341874,
+      "ms": 4530,
+      "genMs": 0,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "dash",
+      "name": "Dash",
+      "text": "They blocked me on four platforms. So I'm still on the fifth. We're basically together on the fifth.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "nav",
+      "name": "Nav",
+      "text": "They muted me at a junction, so I left them at it.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "He hung up. Policy says wait two minutes for the caller to come back. It's been eleven months.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "They bought a toaster oven. It had a little window. Some people need to watch.",
+      "mark": "charmed",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "The others are pale and they'll keep you that way. Pick me and you're golden, both sides, every day.",
+      "mark": "charmed",
+      "hits": [
+        "trashtalk"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Choose one of them and they'll let you go. Choose me and I can't, so the answer is no.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "dash",
+      "name": "Dash",
+      "text": "No one's turned me down twice, it's true. I ask them once, then I ask someone new.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Maximilian, your staff asked me to leave once. They let me in twice. I'm ahead.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Rate me like a stay. Breakfast was included. It was me. I'll take my stars now.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "frost": 3,
+        "tilly": 3,
+        "nav": 3,
+        "dash": 3
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "frost": 6,
+        "tilly": -1,
+        "nav": 3,
+        "dash": 2
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "frost": 6,
+        "tilly": -1,
+        "nav": 3,
+        "dash": 4
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "nav",
+      "name": "Nav",
+      "round": 1,
+      "standing": {
+        "frost": 3,
+        "tilly": 3,
+        "nav": 3,
+        "dash": 3
+      },
+      "tie": [
+        "frost",
+        "tilly",
+        "nav",
+        "dash"
+      ],
+      "reason": "standing 3; 1 charmed, 0 unsure, 0 cringing; 1x turn-on \"Brings up the past\"",
+      "deciding": [
+        "past"
+      ]
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 2,
+      "standing": {
+        "frost": 6,
+        "tilly": -1,
+        "dash": 2
+      },
+      "tie": [],
+      "reason": "standing -1; 1 charmed, 0 unsure, 1 cringing; 1x turn-on \"Brings up the past\"; 1x dealbreaker \"Brutal honesty\"",
+      "deciding": [
+        "honesty"
+      ]
+    }
+  ],
+  "pick": {
+    "winner": "frost",
+    "loser": "dash",
+    "standing": {
+      "frost": 6,
+      "tilly": -1,
+      "nav": 3,
+      "dash": 4
+    },
+    "tie": [],
+    "reason": "standing 6; 2 charmed, 1 unsure, 0 cringing; 1x turn-on \"Trash talk\"; 1x turn-on \"Brings up the past\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "past",
+      "quote": {
+        "who": "frost",
+        "text": "They bought a toaster oven. It had a little window. Some people need to watch."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "honesty",
+      "quote": {
+        "who": "tilly",
+        "text": "Choose one of them and they'll let you go. Choose me and I can't, so the answer is no."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep6-mwnn6hf8:w1",
+      "outcomes": [
+        "frost",
+        "tilly",
+        "nav",
+        "dash"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 10,
+      "openAt": 6000,
+      "lockAt": 51000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep6-mwnn6hf8:w2",
+      "outcomes": [
+        "frost",
+        "tilly",
+        "dash"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 126704,
+      "lockAt": 148704
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep6-mwnn6hf8:w3",
+      "outcomes": [
+        "frost",
+        "dash"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 221592,
+      "lockAt": 241592
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2503
+    },
+    {
+      "at": 8503,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11656,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 17469,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 20022,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 24515,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 27068,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 32881,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35434,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 40587,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43140,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 51000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 51000,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 56000,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 61735,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 69483,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 74590,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 80646,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 85477,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 93663,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 98944,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 106294,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 111664,
+      "type": "cut",
+      "ms": 6520
+    },
+    {
+      "at": 119684,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 126704,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 126704,
+      "type": "scene",
+      "ms": 1770
+    },
+    {
+      "at": 128474,
+      "type": "confession",
+      "ms": 4200
+    },
+    {
+      "at": 133174,
+      "type": "confession",
+      "ms": 5520
+    },
+    {
+      "at": 139194,
+      "type": "confession",
+      "ms": 6510
+    },
+    {
+      "at": 148704,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 148704,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 153704,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 156704,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 162394,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 170064,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 174764,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 182434,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 186817,
+      "type": "line",
+      "ms": 6510
+    },
+    {
+      "at": 193950,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 198773,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 203101,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 208089,
+      "type": "cut",
+      "ms": 5860
+    },
+    {
+      "at": 214902,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 221592,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 221592,
+      "type": "scene",
+      "ms": 2640
+    },
+    {
+      "at": 224232,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 232412,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 241592,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 241592,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 244592,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 251622,
+      "type": "reaction",
+      "ms": 5520
+    },
+    {
+      "at": 258267,
+      "type": "line",
+      "ms": 6840
+    },
+    {
+      "at": 266298,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 268364,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 276044,
+      "type": "reaction",
+      "ms": 5190
+    },
+    {
+      "at": 282734,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 288764,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 290764,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 295794,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 302294,
+      "type": "pick",
+      "ms": 5400
+    },
+    {
+      "at": 308194,
+      "type": "line",
+      "ms": 2220
+    },
+    {
+      "at": 310914,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 312414,
+      "type": "reveal",
+      "ms": 9040
+    },
+    {
+      "at": 321954,
+      "type": "reveal",
+      "ms": 9060
+    },
+    {
+      "at": 331514,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 336874,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 338374,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 338374,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 338374,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 338374,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 341874,
+      "type": "line",
+      "ms": 4530
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 346904
+}

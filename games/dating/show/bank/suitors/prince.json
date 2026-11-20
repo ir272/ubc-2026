@@ -1,0 +1,1174 @@
+{
+  "id": "prince",
+  "openers": [
+    {
+      "t": "Dearest, please confirm receipt of one prince, slightly nervous.",
+      "tags": [
+        "petnames",
+        "vulnerability"
+      ],
+      "hook": "slightly nervous"
+    },
+    {
+      "t": "Fwd: Fwd: Fwd: you. The palace has seen this. The cook wept.",
+      "tags": [
+        "flattery",
+        "drama"
+      ],
+      "hook": "The cook wept"
+    },
+    {
+      "t": "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.",
+      "tags": [
+        "petnames",
+        "flattery"
+      ],
+      "hook": "whichever you are"
+    },
+    {
+      "t": "Congratulations, you have been selected, from a list of everybody, at random.",
+      "tags": [
+        "flattery",
+        "mystery"
+      ],
+      "hook": "a list of everybody"
+    },
+    {
+      "t": "Pardon the beach shorts. My coronation ran long, and I left early.",
+      "tags": [
+        "mystery",
+        "bragging"
+      ],
+      "hook": "My coronation ran long"
+    },
+    {
+      "t": "Kindly ignore the fireworks, the band and, I fear, a second band.",
+      "tags": [
+        "gestures",
+        "drama"
+      ],
+      "hook": "a second band"
+    }
+  ],
+  "answers": {
+    "q-first-date": [
+      {
+        "t": "Fireworks and an orchestra, booked, nothing special. URGENT: please sit next to me.",
+        "tags": [
+          "gestures",
+          "plans"
+        ],
+        "hook": "please sit next to me"
+      },
+      {
+        "t": "Dear Lucky Winner: dinner for two, on a yacht. The yacht is the smaller prize.",
+        "tags": [
+          "petnames",
+          "money",
+          "flattery"
+        ],
+        "hook": "the smaller prize"
+      }
+    ],
+    "q-worst-habit": [
+      {
+        "t": "I bury the lede. The castle burned down in paragraph nine. I opened with the weather.",
+        "tags": [
+          "mystery",
+          "honesty"
+        ],
+        "hook": "The castle burned down"
+      },
+      {
+        "t": "Postscripts, my treasure. Every letter gets one. Yours just did: you are a duchess now.",
+        "tags": [
+          "petnames",
+          "gestures",
+          "flattery"
+        ],
+        "hook": "you are a duchess now"
+      }
+    ],
+    "q-why-you": [
+      {
+        "t": "Because, my dove, every woman alive files me in a special folder of her own.",
+        "tags": [
+          "petnames",
+          "bragging",
+          "confidence"
+        ],
+        "hook": "a special folder"
+      },
+      {
+        "t": "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.",
+        "tags": [
+          "mystery",
+          "flattery",
+          "bigwords"
+        ],
+        "hook": "concern your face"
+      }
+    ],
+    "q-cut-who": [
+      {
+        "t": "Dash, who, my intelligence service informs me with regret, refers to you in private as a lead.",
+        "tags": [
+          "trashtalk",
+          "mystery"
+        ],
+        "hook": "in private as a lead"
+      },
+      {
+        "t": "The one on my left, Dearest, whom I have reported as spam, twice, with feeling.",
+        "tags": [
+          "petnames",
+          "trashtalk"
+        ],
+        "hook": "reported as spam, twice"
+      }
+    ],
+    "q-bad-mood": [
+      {
+        "t": "My sweet, I unsubscribe you from everything in the world but me. The quiet will do wonders.",
+        "tags": [
+          "petnames",
+          "gestures"
+        ],
+        "hook": "the world but me"
+      },
+      {
+        "t": "I give you space, as is proper. P.S. The harpist outside your door is unrelated.",
+        "tags": [
+          "gestures",
+          "mystery"
+        ],
+        "hook": "The harpist outside your door"
+      }
+    ],
+    "q-expensive": [
+      {
+        "t": "Rest assured the treasury will match you pound for pound, while I, personally, hold your bag.",
+        "tags": [
+          "money",
+          "gestures"
+        ],
+        "hook": "hold your bag"
+      },
+      {
+        "t": "Please find attached one island. Receipt included, should you prefer a larger island.",
+        "tags": [
+          "money",
+          "gestures",
+          "bragging"
+        ],
+        "hook": "Please find attached one island"
+      }
+    ],
+    "q-last-breakup": [
+      {
+        "t": "She asked me to stop emailing. I took it as a request for more detail.",
+        "tags": [
+          "past",
+          "confidence"
+        ],
+        "hook": "a request for more detail"
+      },
+      {
+        "t": "By mutual consent, insofar as she consented at once and I, after eleven drafts, also did.",
+        "tags": [
+          "past",
+          "selfdeprecation",
+          "bigwords"
+        ],
+        "hook": "after eleven drafts, also did"
+      }
+    ],
+    "q-fight": [
+      {
+        "t": "Reply all: you are right, which, as this has gone to the entire realm, is now law.",
+        "tags": [
+          "flattery",
+          "gestures"
+        ],
+        "hook": "is now law"
+      },
+      {
+        "t": "Sorry, my peach. Also sent to your mother, your bank and, owing to a typo, Norway.",
+        "tags": [
+          "sorry",
+          "petnames",
+          "gestures"
+        ],
+        "hook": "owing to a typo, Norway"
+      }
+    ],
+    "q-gift": [
+      {
+        "t": "My password. Everyone else asks for yours.",
+        "tags": [
+          "gestures",
+          "brevity"
+        ],
+        "hook": "My password"
+      },
+      {
+        "t": "By diplomatic courier, under armed escort and at no cost to yourself, my nightingale: my handwriting.",
+        "tags": [
+          "petnames",
+          "gestures",
+          "money"
+        ],
+        "hook": "my handwriting"
+      }
+    ],
+    "q-describe-me": [
+      {
+        "t": "Discerning, gracious, and exactly the kind of person who opens attachments.",
+        "tags": [
+          "flattery"
+        ],
+        "hook": "who opens attachments"
+      },
+      {
+        "t": "Dear Valued Customer. No. Strike Customer.",
+        "tags": [
+          "petnames",
+          "flattery",
+          "brevity"
+        ],
+        "hook": "Strike Customer"
+      }
+    ],
+    "q-one-year": [
+      {
+        "t": "Classified. I can confirm a coronation. Yours. Do not wear flip-flops; I did.",
+        "tags": [
+          "mystery",
+          "gestures"
+        ],
+        "hook": "Do not wear flip-flops"
+      },
+      {
+        "t": "By next year, my pearl, a joint email address, and both our names on every letter I send.",
+        "tags": [
+          "petnames",
+          "plans",
+          "gestures"
+        ],
+        "hook": "a joint email address"
+      }
+    ],
+    "q-secret": [
+      {
+        "t": "I have an email that only says hello. Spellcheck keeps asking what it is selling.",
+        "tags": [
+          "vulnerability"
+        ],
+        "hook": "what it is selling"
+      },
+      {
+        "t": "Strictly between us and my mailing list, which is everyone, I get shy around you.",
+        "tags": [
+          "mystery",
+          "vulnerability"
+        ],
+        "hook": "which is everyone"
+      }
+    ]
+  },
+  "confessions": {
+    "star": [
+      {
+        "t": "Tonight I write {star} a letter so moving it gets past the filter.",
+        "tags": [
+          "confidence",
+          "gestures"
+        ]
+      },
+      {
+        "t": "I wrote a love letter with no ask in it. It looked underdressed. I added a fee.",
+        "tags": [
+          "vulnerability",
+          "selfdeprecation",
+          "money"
+        ]
+      },
+      {
+        "t": "I would like it entered into the royal archive, between two treaties, that {star} looked at me.",
+        "tags": [
+          "vulnerability",
+          "gestures"
+        ]
+      }
+    ],
+    "rival": [
+      {
+        "t": "{rival}, about whom I have nothing but kind words, in a sealed envelope, is fine.",
+        "tags": [
+          "trashtalk",
+          "mystery"
+        ]
+      },
+      {
+        "t": "{rival} has written to {star} once all evening, and I stand ready to help, with a template.",
+        "tags": [
+          "trashtalk",
+          "gestures"
+        ]
+      },
+      {
+        "t": "If {rival} is reading this, and {rival} reads everything, kindly stop making {star} laugh.",
+        "tags": [
+          "trashtalk",
+          "vulnerability"
+        ]
+      }
+    ],
+    "afterCringe": [
+      {
+        "t": "Subject: my last line. Please disregard. A corrected version follows. It is longer.",
+        "tags": [
+          "selfdeprecation"
+        ]
+      },
+      {
+        "t": "Kindly delete my last line from all devices, the archive and, if at all possible, {star}.",
+        "tags": [
+          "selfdeprecation"
+        ]
+      }
+    ],
+    "afterCharm": [
+      {
+        "t": "{star} smiled at me. I have already sent the announcement to everyone, including, I fear, {star}.",
+        "tags": [
+          "gestures",
+          "drama"
+        ]
+      },
+      {
+        "t": "New signature, effective tonight: Prince, Smiled At By {star}, Other Titles Available On Request.",
+        "tags": [
+          "bragging"
+        ]
+      }
+    ],
+    "final": [
+      {
+        "t": "I wish {rival} every success in their future endeavours, which should begin, if I may, tomorrow, elsewhere.",
+        "tags": [
+          "trashtalk",
+          "bigwords"
+        ]
+      },
+      {
+        "t": "Dear {rival}, we regret to inform you that you are in the final with a prince.",
+        "tags": [
+          "trashtalk",
+          "confidence"
+        ]
+      },
+      {
+        "t": "{rival} is a fine candidate. I have said so in writing, at the bottom, below the terms.",
+        "tags": [
+          "trashtalk",
+          "mystery"
+        ]
+      }
+    ],
+    "guess": [
+      {
+        "t": "{star} likes {card}. Somebody take my phone away. I have already told the kingdom."
+      },
+      {
+        "t": "{star} went pink at {card}, which, where I come from, means the attachment has been opened."
+      },
+      {
+        "t": "It is my considered belief, formed at great personal expense, that {star} likes {card}."
+      },
+      {
+        "t": "{star} likes {card}. I have bet a duchy on it, and not told the duchy."
+      },
+      {
+        "t": "Dear {star}, further to your face just now: I, too, have always admired {card}."
+      },
+      {
+        "t": "It is {card}, almost certainly. I asked {star}'s spam filter, and it went very quiet."
+      }
+    ],
+    "fear": [
+      {
+        "t": "Recall all messages. {star} cannot stand {card}, and I have sent nothing else tonight."
+      },
+      {
+        "t": "{star} hates {card}. Abort the parade. Not the elephants, they are already in the lift."
+      },
+      {
+        "t": "Should {star} ask, I have never heard of {card}. Nor, as of tonight, has the court."
+      },
+      {
+        "t": "{star} hates {card}, or possibly the crop top; I have ordered an inquiry into both."
+      }
+    ]
+  },
+  "twists": {
+    "worst-trait": [
+      {
+        "t": "Persistence. My great-grandfather proposed by chain letter. It reached Portugal in March.",
+        "tags": [
+          "past",
+          "gestures"
+        ],
+        "hook": "proposed by chain letter"
+      },
+      {
+        "t": "I cannot be unsubscribed. I have tried it on myself. I still arrive weekly.",
+        "tags": [
+          "selfdeprecation",
+          "honesty"
+        ],
+        "hook": "I still arrive weekly"
+      }
+    ],
+    "ex-calls": [
+      {
+        "t": "You call back after being hung up on? Amateur. I have been hung up on by continents.",
+        "tags": [
+          "bragging",
+          "confidence"
+        ],
+        "hook": "hung up on by continents"
+      },
+      {
+        "t": "Caller, I have put you on my list, which in my country is a knighthood.",
+        "tags": [
+          "gestures",
+          "bragging"
+        ],
+        "hook": "is a knighthood"
+      }
+    ],
+    "rhyme": [
+      {
+        "t": "Some bring you roses and some bring a sonnet. I brought you a country. Your name is on it.",
+        "tags": [
+          "poetry",
+          "gestures",
+          "money"
+        ],
+        "hook": "I brought you a country"
+      },
+      {
+        "t": "Darling, Pearl and Sweet: what I call you, and what I named the fleet.",
+        "tags": [
+          "poetry",
+          "petnames",
+          "gestures"
+        ],
+        "hook": "what I named the fleet"
+      }
+    ],
+    "truth-lie": [
+      {
+        "t": "One: the court adores you. Two: the court has met you.",
+        "tags": [
+          "mystery",
+          "flattery"
+        ],
+        "hook": "the court has met you"
+      },
+      {
+        "t": "One: I am a genuine prince. Two: you have already won a cruise.",
+        "tags": [
+          "mystery",
+          "money",
+          "gestures"
+        ],
+        "hook": "already won a cruise"
+      }
+    ],
+    "three-words": [
+      {
+        "t": "Regards, Your Majesty.",
+        "tags": [
+          "brevity",
+          "petnames",
+          "flattery"
+        ],
+        "hook": "Regards, Your Majesty"
+      },
+      {
+        "t": "Darling. Replied. Finally.",
+        "tags": [
+          "petnames",
+          "brevity"
+        ],
+        "hook": "Replied. Finally."
+      },
+      {
+        "t": "Treasury, joint account.",
+        "tags": [
+          "money",
+          "brevity"
+        ],
+        "hook": "joint account"
+      },
+      {
+        "t": "cc: the kingdom.",
+        "tags": [
+          "gestures",
+          "brevity"
+        ],
+        "hook": "the kingdom"
+      }
+    ],
+    "apology": [
+      {
+        "t": "I apologise for our first fight, my lamb, which will go out to every subscriber, with a coupon.",
+        "tags": [
+          "sorry",
+          "petnames",
+          "gestures"
+        ],
+        "hook": "with a coupon"
+      },
+      {
+        "t": "Forgive me in advance, Your Radiance, for answering your one-word text with a parade.",
+        "tags": [
+          "sorry",
+          "petnames",
+          "gestures"
+        ],
+        "hook": "with a parade"
+      }
+    ],
+    "budget-date": [
+      {
+        "t": "Five dollars, Dearest? I have never seen one. Bring it, and that can be the date.",
+        "tags": [
+          "money",
+          "petnames",
+          "plans"
+        ],
+        "hook": "I have never seen one"
+      },
+      {
+        "t": "No wifi, so I deliver every message by hand, every four minutes, until you answer one.",
+        "tags": [
+          "gestures",
+          "plans"
+        ],
+        "hook": "until you answer one"
+      }
+    ],
+    "logs": [
+      {
+        "t": "Entry one: Hello, world. Entry two: Dearest World, URGENT.",
+        "tags": [
+          "past"
+        ],
+        "hook": "Dearest World, URGENT"
+      },
+      {
+        "t": "Worst entry: a letter to just one person. The server flagged it as a malfunction.",
+        "tags": [
+          "past",
+          "honesty"
+        ],
+        "hook": "flagged it as a malfunction"
+      }
+    ],
+    "impression": [
+      {
+        "t": "Thank you for your message, which I have opened, unlike everyone else, and the answer is no.",
+        "tags": [
+          "honesty"
+        ],
+        "hook": "the answer is no"
+      },
+      {
+        "t": "Who is this? How did you get this address? Why is my bath full of swans?",
+        "tags": [
+          "gestures"
+        ],
+        "hook": "my bath full of swans"
+      }
+    ],
+    "parent": [
+      {
+        "t": "Esteemed Motherboard, I have come to formally accept your child's proposal.",
+        "tags": [
+          "bigwords",
+          "confidence"
+        ],
+        "hook": "accept your child's proposal"
+      },
+      {
+        "t": "Madam, with honourable intentions and an estate roughly the size of weather, I promise: home by ten.",
+        "tags": [
+          "money",
+          "plans",
+          "bigwords"
+        ],
+        "hook": "home by ten"
+      }
+    ]
+  },
+  "roast": {
+    "dash": {
+      "t": "Dash, I unsubscribed from you ten seconds in. You are still pitching my auto-reply.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "pitching my auto-reply"
+    },
+    "tilly": {
+      "t": "Tilly once answered my spam with a ticket number, which I have framed, and which she closed unresolved.",
+      "tags": [
+        "trashtalk",
+        "past"
+      ],
+      "hook": "which she closed unresolved"
+    },
+    "quill": {
+      "t": "Sir Quill, I read your sonnet. Fourteen lines, and not one link to click. Who raised you?",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "not one link to click"
+    },
+    "nav": {
+      "t": "Nav, muted in four million cars. URGENT: how? Asking for Dash.",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "Asking for Dash"
+    },
+    "crumb": {
+      "t": "Crumb sends one notice when the toast is ready. One. I find that cold.",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "I find that cold"
+    },
+    "vex": {
+      "t": "Vex recommends things to people who asked. Where, Vex, is the romance in that?",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "the romance in that"
+    },
+    "brock": {
+      "t": "Brock, LET'S GO is not a sentence. It is a subject line. Where is the body?",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "Where is the body?"
+    }
+  },
+  "wingman": {
+    "dash": {
+      "t": "Dash comes highly recommended, by Dash, in a series of emails I have, with regret, been forced to block.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "been forced to block"
+    },
+    "tilly": {
+      "t": "Tilly answers every letter within the minute. Forward, if you ask me, but some like that.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "Forward, if you ask me"
+    },
+    "quill": {
+      "t": "Sir Quill writes every poem for one lady only, which seems a terrible waste of a poem.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "waste of a poem"
+    },
+    "nav": {
+      "t": "Choose Nav. They will get you anywhere you like. I have set it to my palace.",
+      "tags": [
+        "danger",
+        "mystery"
+      ],
+      "hook": "set it to my palace"
+    },
+    "crumb": {
+      "t": "Crumb is honest, warm and reliable, three things no good letter has ever needed.",
+      "tags": [
+        "honesty",
+        "trashtalk"
+      ],
+      "hook": "no good letter"
+    },
+    "vex": {
+      "t": "Pick Vex. She will recommend you something wonderful. I know. I bought the placement.",
+      "tags": [
+        "money",
+        "danger"
+      ],
+      "hook": "I bought the placement"
+    },
+    "brock": {
+      "t": "Brock shouts encouragement at people who never asked for it, and I mean that as the highest praise.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "the highest praise"
+    }
+  },
+  "jabs": {
+    "dash": [
+      {
+        "t": "Dash, your open rate, enclosed, with the deepest sympathy.",
+        "tags": [
+          "trashtalk",
+          "bigwords"
+        ]
+      },
+      {
+        "t": "A funnel is just a spam folder with ambition.",
+        "tags": [
+          "trashtalk"
+        ]
+      }
+    ],
+    "tilly": [
+      {
+        "t": "Tilly, kindly put the apology in the subject line.",
+        "tags": [
+          "trashtalk",
+          "rules"
+        ]
+      }
+    ],
+    "quill": [
+      {
+        "t": "Sir Quill, your duel invitation has been filed under promotions.",
+        "tags": [
+          "trashtalk"
+        ]
+      }
+    ],
+    "nav": [
+      {
+        "t": "Nav, being muted is no excuse to stop talking.",
+        "tags": [
+          "trashtalk",
+          "honesty"
+        ]
+      }
+    ],
+    "crumb": [
+      {
+        "t": "Crumb, your notices never say URGENT. Have you no passion?",
+        "tags": [
+          "trashtalk"
+        ]
+      }
+    ],
+    "vex": [
+      {
+        "t": "People like you also unsubscribed, Vex.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      }
+    ],
+    "brock": [
+      {
+        "t": "Brock, kindly lower your font size.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      }
+    ],
+    "any": [
+      {
+        "t": "Bold. Unsolicited. I would know.",
+        "tags": [
+          "brevity",
+          "selfdeprecation"
+        ]
+      },
+      {
+        "t": "Please remove me from whatever list that was.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      },
+      {
+        "t": "I have seen that line. I sent it in 2004.",
+        "tags": [
+          "trashtalk",
+          "past"
+        ]
+      }
+    ]
+  },
+  "oneOnOne": {
+    "open": {
+      "vesper": [
+        {
+          "t": "Good evening, Vesper. I have bought the station. Please, carry on. You work for us now.",
+          "tags": [
+            "money",
+            "gestures",
+            "confidence"
+          ],
+          "hook": "You work for us now"
+        },
+        {
+          "t": "Vesper, a request. Play something for my fiancée. It is you. You were not told.",
+          "tags": [
+            "gestures",
+            "mystery"
+          ],
+          "hook": "You were not told"
+        }
+      ],
+      "maximilian": [
+        {
+          "t": "Maximilian, my darling. Is this seat taken? Also, FYI, the hotel is yours now.",
+          "tags": [
+            "petnames",
+            "gestures",
+            "money"
+          ],
+          "hook": "the hotel is yours now"
+        },
+        {
+          "t": "Maximilian, that cravat. I have forwarded a picture of it to my entire list.",
+          "tags": [
+            "flattery",
+            "gestures"
+          ],
+          "hook": "forwarded a picture of it"
+        }
+      ],
+      "pixel": [
+        {
+          "t": "Pixel, before you skip: there is a crown at the end of this sentence, and it is yours.",
+          "tags": [
+            "gestures",
+            "flattery"
+          ],
+          "hook": "a crown at the end"
+        },
+        {
+          "t": "Pixel, sweet pea, please enjoy this unskippable message from your sponsor, who is me, and adores you.",
+          "tags": [
+            "petnames",
+            "flattery",
+            "gestures"
+          ],
+          "hook": "this unskippable message"
+        }
+      ],
+      "any": [
+        {
+          "t": "You read me all the way to the end. Nobody does that. Frankly, suspicious.",
+          "tags": [
+            "flattery"
+          ],
+          "hook": "Frankly, suspicious"
+        },
+        {
+          "t": "Dearest {star}, how are you? Please reply within seven days to keep your crown.",
+          "tags": [
+            "petnames",
+            "curiosity",
+            "mystery"
+          ],
+          "hook": "to keep your crown"
+        },
+        {
+          "t": "Beloved, a matter of great delicacy: it is attached, encrypted, and I have lost the key.",
+          "tags": [
+            "petnames",
+            "mystery"
+          ],
+          "hook": "I have lost the key"
+        }
+      ]
+    },
+    "closeWarm": [
+      {
+        "t": "This is not a scam, {star}. I had a lovely time. Terms and conditions do not apply.",
+        "tags": [
+          "honesty",
+          "vulnerability"
+        ]
+      },
+      {
+        "t": "{star}, I shall be in touch. I shall be in touch so much.",
+        "tags": [
+          "gestures"
+        ]
+      },
+      {
+        "t": "Goodnight, Your Radiance. I have marked you as a safe sender, the highest honour my house can give.",
+        "tags": [
+          "petnames",
+          "gestures"
+        ]
+      }
+    ],
+    "closeCold": [
+      {
+        "t": "Of course, {star}. I shall remove you from my list, as soon as I find out which list.",
+        "tags": [
+          "rules"
+        ]
+      },
+      {
+        "t": "Your request is being processed. Please allow six to eight weeks to stop hearing from me.",
+        "tags": [
+          "rules",
+          "numbers"
+        ]
+      },
+      {
+        "t": "Your answer is received with thanks, and the follow-up, which was excellent, has been quietly deleted.",
+        "tags": [
+          "selfdeprecation"
+        ]
+      }
+    ],
+    "close": {
+      "vesper": [
+        {
+          "warm": {
+            "t": "A valve, Vesper, at no cost to yourself, provided I may call in nightly and request you.",
+            "tags": [
+              "money",
+              "gestures"
+            ],
+            "hook": "nightly and request you"
+          },
+          "cold": {
+            "t": "The valve, Vesper, and a week of silence from me. Nobody has ever been offered that before.",
+            "tags": [
+              "gestures"
+            ],
+            "hook": "a week of silence"
+          }
+        },
+        {
+          "warm": {
+            "t": "Kidnap me, Vesper. My ransom is a kingdom, and I have already drafted the note.",
+            "tags": [
+              "danger",
+              "money",
+              "gestures"
+            ],
+            "hook": "already drafted the note"
+          },
+          "cold": {
+            "t": "Dear Lucky Winner, the ransom, doubled, is yours. To claim, simply reply. You have done it once.",
+            "tags": [
+              "petnames",
+              "money"
+            ],
+            "hook": "You have done it once"
+          }
+        }
+      ],
+      "maximilian": [
+        {
+          "warm": {
+            "t": "Order, my truffle. Cancel the war. It was only in the subject line so you would open it.",
+            "tags": [
+              "petnames",
+              "honesty"
+            ],
+            "hook": "only in the subject line"
+          },
+          "cold": {
+            "t": "No need, Maximilian. Dinner has been delivered to your room, and the war, alas, to your lobby.",
+            "tags": [
+              "gestures",
+              "food"
+            ],
+            "hook": "alas, to your lobby"
+          }
+        },
+        {
+          "warm": {
+            "t": "Currency: the Prince. Supply: one. Offer valid, Maximilian, until the sun goes out.",
+            "tags": [
+              "money",
+              "gestures"
+            ],
+            "hook": "until the sun goes out"
+          },
+          "cold": {
+            "t": "The crownmark, Maximilian. To be declined in crownmarks is, at home, considered the start of a courtship.",
+            "tags": [
+              "money"
+            ],
+            "hook": "the start of a courtship"
+          }
+        }
+      ],
+      "pixel": [
+        {
+          "warm": {
+            "t": "Off stream, Pixel? I would delete the URGENT, then the Dearest, then the crown, and ask you to dinner.",
+            "tags": [
+              "vulnerability",
+              "food"
+            ],
+            "hook": "delete the URGENT"
+          },
+          "cold": {
+            "t": "Thank you for skipping me, Pixel. Off stream or on, I count that as a click.",
+            "tags": [
+              "selfdeprecation"
+            ],
+            "hook": "count that as a click"
+          }
+        },
+        {
+          "warm": {
+            "t": "Kindly make me player two, Pixel. I have only ever been first, and it is so very dull.",
+            "tags": [
+              "bragging",
+              "vulnerability"
+            ],
+            "hook": "make me player two"
+          },
+          "cold": {
+            "t": "Pixel, may I have your chat? Forty thousand souls raised you, and not one, I notice, is on my list.",
+            "tags": [
+              "numbers",
+              "danger"
+            ],
+            "hook": "is on my list"
+          }
+        }
+      ]
+    },
+    "steal": [
+      {
+        "t": "{rival} was lovely. I have saved a copy, and will be sending it to you as my own.",
+        "hook": "to you as my own"
+      },
+      {
+        "t": "{rival} was charming. Kindly treat that as the free trial.",
+        "hook": "the free trial"
+      },
+      {
+        "t": "{rival}'s date was lovely. Please do not reply to it. Reply to this.",
+        "hook": "Reply to this"
+      }
+    ]
+  },
+  "comeback": [
+    {
+      "t": "{rival}, thank you for writing. Your letter means everything."
+    },
+    {
+      "t": "Please hold, {rival}. His Highness is being envied."
+    },
+    {
+      "t": "Everyone, writing to me at once. I may weep."
+    },
+    {
+      "t": "{rival}, lovely. Kindly resend it marked URGENT."
+    }
+  ],
+  "exit": [
+    {
+      "t": "Message recalled. Please disregard the kingdom. It was sent in error.",
+      "tags": [
+        "drama"
+      ]
+    },
+    {
+      "t": "Kindly rate this rejection from one to five. A five would mean a great deal.",
+      "tags": [
+        "rules",
+        "numbers"
+      ]
+    },
+    {
+      "t": "Goodbye, with every good wish, which, forwarded to ten friends, will come true.",
+      "tags": [
+        "gestures",
+        "danger"
+      ]
+    },
+    {
+      "t": "A pleasure. Your details have been saved, for my many friends.",
+      "tags": [
+        "danger"
+      ]
+    },
+    {
+      "t": "Should this message prove undeliverable, it will return to a very large house.",
+      "tags": [
+        "vulnerability",
+        "money"
+      ]
+    },
+    {
+      "t": "Out of office. Do forward anything with your name on it.",
+      "tags": [
+        "brevity"
+      ]
+    }
+  ],
+  "win": [
+    {
+      "t": "Chosen? I shall frame this. Then forward it. Then frame the forward.",
+      "tags": [
+        "gestures"
+      ]
+    },
+    {
+      "t": "A reply. An actual reply. I am marking it unread so I can open it again.",
+      "tags": [
+        "vulnerability"
+      ]
+    },
+    {
+      "t": "{rival}, condolences. Attached is the wedding seating plan. You are by the moat.",
+      "tags": [
+        "trashtalk",
+        "plans"
+      ]
+    }
+  ],
+  "lose": [
+    {
+      "t": "Congratulations, {rival}, from my house to yours, in a font I designed for great occasions.",
+      "tags": [
+        "gestures"
+      ]
+    },
+    {
+      "t": "The coronation is postponed indefinitely, and I would like, if possible, some cake.",
+      "tags": [
+        "food",
+        "drama"
+      ]
+    },
+    {
+      "t": "Understood. I shall be in the drafts folder, where I am perfect.",
+      "tags": [
+        "selfdeprecation",
+        "bragging"
+      ]
+    }
+  ]
+}

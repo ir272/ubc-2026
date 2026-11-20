@@ -1,0 +1,2044 @@
+{
+  "episode": 74,
+  "matchId": "dating-ep74-mwnxf52u",
+  "brain": "model",
+  "sealed": "b933d521be18a765ac049c6b6e55e5a00220a6ba4b660e0324757768dbfe4373",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 0
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 1
+    },
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 2
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "plans",
+        "label": "Plans everything",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "mystery",
+        "label": "Dodges the question",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "logs",
+      "label": "The Logs",
+      "rule": "Explain the worst thing in your logs.",
+      "format": "solo"
+    },
+    "topTags": {
+      "nav": [
+        "plans",
+        "confidence",
+        "danger",
+        "rules",
+        "brevity"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ],
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "nav"
+      ],
+      "puns": [
+        "crumb"
+      ],
+      "money": [
+        "prince"
+      ],
+      "gestures": [
+        "prince"
+      ],
+      "honesty": [
+        "crumb",
+        "vex"
+      ],
+      "curiosity": [
+        "vex"
+      ],
+      "food": [
+        "crumb"
+      ],
+      "plans": [
+        "nav"
+      ],
+      "flattery": [
+        "prince"
+      ],
+      "mystery": [
+        "prince",
+        "vex"
+      ],
+      "brevity": [
+        "crumb",
+        "nav"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "crumb",
+        "vex"
+      ],
+      "danger": [
+        "nav",
+        "vex"
+      ],
+      "rules": [
+        "nav"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-bad-mood",
+    "theme": "I wake up in a foul mood. What do you do?"
+  },
+  "order": [
+    "prince",
+    "crumb",
+    "vex",
+    "nav"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Request line. I don't take requests. Tonight I take planning.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 7068,
+      "ms": 3800,
+      "genMs": 875,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Vesper, your destination is on the right. I am on the right.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12398,
+      "ms": 4420,
+      "genMs": 1962,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Wrong. I moved the right inland.",
+      "to": "nav",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17183,
+      "ms": 2560,
+      "genMs": 1758,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21343,
+      "ms": 4420,
+      "genMs": 1364,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Radio has no back button. Gone.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26163,
+      "ms": 2560,
+      "genMs": 941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Choose your setting: warm, honest, or the one that smokes?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30322,
+      "ms": 3800,
+      "genMs": 2708,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I pick the settings. Off.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34522,
+      "ms": 2250,
+      "genMs": 997,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38371,
+      "ms": 4420,
+      "genMs": 3372,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Toaster. I've had your eyes tested.",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 992,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 16,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "I wake up foul. The whole county whispers till I've had tea. What do you do?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 5660,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "My sweet, I unsubscribe you from everything in the world but me. The quiet will do wonders.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 57968,
+      "ms": 5970,
+      "genMs": 527,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Quiet. Yes. Turn the world off on your way.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 64225,
+      "ms": 3490,
+      "genMs": 942,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 7,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Nothing, at a low and constant heat.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 68034,
+      "ms": 2870,
+      "genMs": 5003,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Nothing. Correct. That's what I heard.",
+      "to": "crumb",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 71326,
+      "ms": 2560,
+      "genMs": 846,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 7,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Bad mood, or the other bad mood?",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 74136,
+      "ms": 2870,
+      "genMs": 1911,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 77256,
+      "ms": 1000,
+      "genMs": 966,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 6,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Prince, red light. I have decided.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 79043,
+      "ms": 2560,
+      "genMs": 988,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Nav, come down an inch. I'm allowing it.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 83053,
+      "ms": 3180,
+      "genMs": 875,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Crumb. Vex. One of you is about to become a wrong number.",
+      "pair": [
+        "crumb",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 87683,
+      "ms": 7420,
+      "genMs": 775,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 12,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Vex, \"the other bad mood\" went out live, to the whole coast.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 96553,
+      "ms": 5120,
+      "genMs": 1338,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut, by hand. Not autoplay. I'm keeping the screenshot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 103123,
+      "ms": 3490,
+      "genMs": 442,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Downloading flattery for Vesper. Eighty percent. Please do not turn off your face.",
+      "guess": {
+        "id": "flattery",
+        "label": "Flattery",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 110563,
+      "ms": 4730,
+      "genMs": 1291,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "If Nav is reading this, and Nav reads everything, kindly stop making Vesper laugh.",
+      "about": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 115828,
+      "ms": 5040,
+      "genMs": 451,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Vesper made the face people make at the first slice, and they always eat the second.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 121403,
+      "ms": 5660,
+      "genMs": 728,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "Read out the worst thing in your logs. I'll play a record under it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 134848,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Worst entry: a passenger typed Home. I took them to mine. They were not ready.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 140138,
+      "ms": 5350,
+      "genMs": 954,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Take me to yours. I've never been ready. Drive.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "plans"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 145752,
+      "ms": 3490,
+      "genMs": 863,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 149532,
+      "ms": 5970,
+      "genMs": 971,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Four a.m. tears are my jurisdiction. Hand him over.",
+      "to": "crumb",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 155771,
+      "ms": 3490,
+      "genMs": 1034,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "Worst entry: a letter to just one person. The server flagged it as a malfunction.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 159561,
+      "ms": 5350,
+      "genMs": 438,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The server was right. I've given it a raise.",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 165315,
+      "ms": 3490,
+      "genMs": 975,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "Nav's log I'd read out at three a.m., with a warning.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 169247,
+      "ms": 4110,
+      "genMs": 2053,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Nav, I've heard that one through a wall.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 173755,
+      "ms": 3180,
+      "genMs": 654,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "Please remove me from whatever list that was.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 177436,
+      "ms": 3180,
+      "genMs": 1068,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 4,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "jab",
+      "text": "Prince, heard. Not followed.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 180866,
+      "ms": 1940,
+      "genMs": 1326,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 9,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Prince, Crumb. Two lines blinking. I have one finger.",
+      "pair": [
+        "prince",
+        "crumb"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 184065,
+      "ms": 6490,
+      "genMs": 941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 14,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "\"flagged it as a malfunction\". I'd have bleeped it, Prince, if I'd had time.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 191951,
+      "ms": 5740,
+      "genMs": 950,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Kindly rate this rejection from one to five. A five would mean a great deal.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 199141,
+      "ms": 5350,
+      "genMs": 4291,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "I was this sure of a route once. A wedding. Then a lake. Crumb looks buoyant.",
+      "about": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 209991,
+      "ms": 5660,
+      "genMs": 1108,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Do not mention brutal honesty near Vesper. Same warning as forks in the slot.",
+      "guess": {
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "off",
+        "right": true
+      },
+      "source": "bank",
+      "via": "fallback",
+      "maxWords": 18,
+      "at": 217901,
+      "ms": 5040,
+      "genMs": 5004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Vesper, I cut into your songs every night to say turn left. Tonight, turn left.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 227941,
+      "ms": 5350,
+      "genMs": 1136,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Nav, I haven't left this booth since seventy-three. Describe outside, slowly.",
+      "to": "nav",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 233541,
+      "ms": 4110,
+      "genMs": 818,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Slowly, then. Fifty years of roadworks. Finished this morning. Your lane is open.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 237901,
+      "ms": 4730,
+      "genMs": 1118,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Did Nav do the one about the cereal? I've heard it in four kitchens.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 243881,
+      "ms": 5040,
+      "genMs": 825,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Crumb, I've had sixty years of careful callers. Tell me what burns you.",
+      "to": "crumb",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 249501,
+      "ms": 4730,
+      "genMs": 1326,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Careful. Sixty years of careful isn't toast. It's bread.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 255534,
+      "ms": 3490,
+      "genMs": 5004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Nav is midnight. Crumb is four a.m. I'm up for both.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 260474,
+      "ms": 4110,
+      "genMs": 941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Two callers, one frequency. The static and I are thinking.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 267534,
+      "ms": 3800,
+      "genMs": 866,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 10,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Dodges the question. Four callers. Not one dialled that number.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 271584,
+      "ms": 4400,
+      "genMs": 754,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 15,
+      "event": "replay",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "replay",
+      "text": "Worst entry: a passenger typed Home. I took them to mine. They were not ready.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 276234,
+      "ms": 3200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 17,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 279684,
+      "ms": 3520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 13,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "Somebody said \"I took them to mine\" on my line. I'm keeping Nav.",
+      "to": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 287704,
+      "ms": 5730,
+      "genMs": 971,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "win",
+      "text": "Crumb, the route home is on your screen. It is accurate. That is my gift.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 293684,
+      "ms": 5350,
+      "genMs": 977,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 11,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Brutal honesty. Crumb did it on my air. The air remembers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 301034,
+      "ms": 4710,
+      "genMs": 1105,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 14,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "Did Nav do the one about the cereal? I've heard it in four kitchens.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 306181,
+      "ms": 3040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 8,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "lose",
+      "text": "Fair. Ask Nav what happens to the crusts.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 309498,
+      "ms": 3180,
+      "genMs": 775,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "This is Vesper, signing off. The sun can come up now.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 315128,
+      "ms": 4110,
+      "genMs": 851,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 2,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Dear Sir, Madam or Valued Toaster, whichever you are, you look wonderful.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "whichever you are"
+    },
+    {
+      "seq": 3,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Choose your setting: warm, honest, or the one that smokes?",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "the one that smokes"
+    },
+    {
+      "seq": 4,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Vesper, your destination is on the right. I am on the right.",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "I am on the right"
+    },
+    {
+      "seq": 5,
+      "who": "prince",
+      "name": "Prince",
+      "text": "My sweet, I unsubscribe you from everything in the world but me. The quiet will do wonders.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "the world but me"
+    },
+    {
+      "seq": 6,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Nothing, at a low and constant heat.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Bad mood, or the other bad mood?",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "the other bad mood"
+    },
+    {
+      "seq": 8,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Prince, red light. I have decided.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Worst entry: a passenger typed Home. I took them to mine. They were not ready.",
+      "mark": "charmed",
+      "hits": [
+        "plans"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "I took them to mine"
+    },
+    {
+      "seq": 10,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "Logged as steam"
+    },
+    {
+      "seq": 11,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Worst entry: a letter to just one person. The server flagged it as a malfunction.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "flagged it as a malfunction"
+    },
+    {
+      "seq": 12,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Vesper, I cut into your songs every night to say turn left. Tonight, turn left.",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "Tonight, turn left"
+    },
+    {
+      "seq": 13,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Did Nav do the one about the cereal? I've heard it in four kitchens.",
+      "mark": "cringing",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "heard it in four kitchens"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "nav": 2,
+        "vex": 0,
+        "crumb": 0,
+        "prince": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "nav": 3,
+        "vex": -4,
+        "crumb": -1,
+        "prince": 1
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "nav": 6,
+        "vex": -4,
+        "crumb": -2,
+        "prince": -3
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "nav": 10,
+        "vex": -4,
+        "crumb": -10,
+        "prince": -3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "nav": 3,
+        "vex": -4,
+        "crumb": -1,
+        "prince": 1
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 1 unsure, 1 cringing; 1x dealbreaker \"Brutal honesty\"",
+      "deciding": [
+        "honesty"
+      ],
+      "roundMarks": {
+        "nav": 1,
+        "vex": -1,
+        "crumb": -1,
+        "prince": 1
+      },
+      "bottom": [
+        "crumb",
+        "vex"
+      ],
+      "hintCard": "honesty",
+      "hook": "the other bad mood"
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 2,
+      "standing": {
+        "nav": 6,
+        "crumb": -2,
+        "prince": -3
+      },
+      "tie": [],
+      "reason": "standing -3; 1 charmed, 1 unsure, 1 cringing; 1x dealbreaker \"Brutal honesty\"",
+      "deciding": [
+        "honesty"
+      ],
+      "roundMarks": {
+        "nav": 1,
+        "crumb": -1,
+        "prince": -1
+      },
+      "bottom": [
+        "prince",
+        "crumb"
+      ],
+      "hintCard": "honesty",
+      "hook": "flagged it as a malfunction"
+    }
+  ],
+  "pick": {
+    "winner": "nav",
+    "loser": "crumb",
+    "standing": {
+      "nav": 10,
+      "vex": -4,
+      "crumb": -10,
+      "prince": -3
+    },
+    "tie": [],
+    "reason": "standing 10; 2 charmed, 2 unsure, 0 cringing; 3x turn-on \"Plans everything\"",
+    "oneOnOne": {
+      "nav": 0,
+      "crumb": -1
+    },
+    "first": "nav",
+    "last": "crumb"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "mystery",
+      "quote": null,
+      "replays": [
+        {
+          "who": "nav",
+          "text": "Worst entry: a passenger typed Home. I took them to mine. They were not ready.",
+          "hit": false
+        },
+        {
+          "who": "crumb",
+          "text": "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "nav",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "honesty",
+      "quote": null,
+      "replays": [
+        {
+          "who": "crumb",
+          "text": "Did Nav do the one about the cereal? I've heard it in four kitchens.",
+          "hit": true
+        }
+      ],
+      "guesses": [
+        {
+          "who": "crumb",
+          "right": true
+        }
+      ]
+    }
+  ],
+  "guesses": [
+    {
+      "who": "nav",
+      "card": "flattery",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "crumb",
+      "card": "honesty",
+      "kind": "off",
+      "right": true,
+      "via": "fallback"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep74-mwnxf52u:w1",
+      "outcomes": [
+        "nav",
+        "vex",
+        "crumb",
+        "prince"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep74-mwnxf52u:w2",
+      "outcomes": [
+        "nav",
+        "crumb",
+        "prince"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 108063,
+      "lockAt": 130063
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep74-mwnxf52u:w3",
+      "outcomes": [
+        "nav",
+        "crumb"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 205941,
+      "lockAt": 225941
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1503
+    },
+    {
+      "at": 5503,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7068,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 11233,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12398,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 17183,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20143,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21343,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 26163,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 29123,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30322,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 34522,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37171,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38371,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 57968,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 64225,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 68034,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 71326,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 74136,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 77256,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 79043,
+      "type": "line",
+      "ms": 2560
+    },
+    {
+      "at": 83053,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 87683,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 96553,
+      "type": "cut",
+      "ms": 5120
+    },
+    {
+      "at": 103123,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 108063,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 108063,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 110563,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 115828,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 121403,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 130063,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 130063,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 133063,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 134848,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 140138,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 145752,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 149532,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 155771,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 159561,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 165315,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 169247,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 173755,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 177436,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 180866,
+      "type": "line",
+      "ms": 1940
+    },
+    {
+      "at": 184065,
+      "type": "bottom",
+      "ms": 6490
+    },
+    {
+      "at": 191951,
+      "type": "cut",
+      "ms": 5740
+    },
+    {
+      "at": 199141,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 205941,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 205941,
+      "type": "scene",
+      "ms": 4050
+    },
+    {
+      "at": 209991,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 217901,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 225941,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 225941,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 227941,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 233541,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 237901,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 242881,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 243881,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 249501,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 255534,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 260474,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 266034,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 267534,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 271584,
+      "type": "reveal",
+      "ms": 4400
+    },
+    {
+      "at": 276234,
+      "type": "replay",
+      "ms": 3200
+    },
+    {
+      "at": 279684,
+      "type": "replay",
+      "ms": 3520
+    },
+    {
+      "at": 283454,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 287704,
+      "type": "pick",
+      "ms": 5730
+    },
+    {
+      "at": 293684,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 300034,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 301034,
+      "type": "reveal",
+      "ms": 4710
+    },
+    {
+      "at": 306181,
+      "type": "replay",
+      "ms": 3040
+    },
+    {
+      "at": 309498,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 314128,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 315128,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 315128,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 315128,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 315128,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 319488,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 321738
+}

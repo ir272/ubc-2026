@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>ink bake</title>
+<body style="margin:0;background:#e7e0cc">
+<script type="module">
+  // tools/ink_bake.mjs drives this page: window.bake(names, S) paints every part.
+  import { bakeParts } from './parts.js';
+  window.bake = bakeParts;
+  window.bakeReady = true;
+</script>
+</body>

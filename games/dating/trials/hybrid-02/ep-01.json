@@ -1,0 +1,1603 @@
+{
+  "episode": 4,
+  "matchId": "dating-ep4-mwnmw6r0",
+  "brain": "model",
+  "sealed": "f227107eb1eb31598d695e840861eff1a27aa89ba83cc3f418af2cea99f456cd",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 0
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 1
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 2
+    },
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "danger",
+        "label": "A little danger",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "food",
+        "label": "Talks about food",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "parent",
+      "label": "The Motherboard",
+      "rule": "Tell my motherboard your intentions.",
+      "format": "solo"
+    },
+    "topTags": {
+      "nav": [
+        "numbers",
+        "confidence",
+        "danger",
+        "trashtalk"
+      ],
+      "brock": [
+        "numbers",
+        "honesty",
+        "plans",
+        "trashtalk"
+      ],
+      "tilly": [
+        "honesty",
+        "trashtalk",
+        "danger",
+        "rules"
+      ],
+      "frost": [
+        "numbers",
+        "honesty",
+        "food",
+        "trashtalk"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "nav"
+      ],
+      "honesty": [
+        "brock",
+        "frost",
+        "tilly"
+      ],
+      "trashtalk": [
+        "brock",
+        "frost",
+        "nav",
+        "tilly"
+      ],
+      "food": [
+        "frost"
+      ],
+      "plans": [
+        "brock"
+      ],
+      "numbers": [
+        "brock",
+        "frost",
+        "nav"
+      ],
+      "danger": [
+        "nav",
+        "tilly"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-bad-mood",
+    "theme": "I wake up in a foul mood. What do you do?"
+  },
+  "order": [
+    "nav",
+    "frost",
+    "brock",
+    "tilly"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "Four suitors tonight. Technically they're on my stream. Technically they're the ads.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 11580,
+      "ms": 4860,
+      "genMs": 866,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Your route to me is loaded, Pixel, and resisting adds four minutes.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 19800,
+      "ms": 4860,
+      "genMs": 1052,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "Hi! Already counting your blinks. Don't stop. You're on twenty-six.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 28020,
+      "ms": 4200,
+      "genMs": 577,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "For security purposes, who else were you planning on loving?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 35580,
+      "ms": 4200,
+      "genMs": 568,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "I log every arrival. Yours: 8:14 p.m. I've written it down twice.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 43140,
+      "ms": 4860,
+      "genMs": 817,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "I wake up tilted. Controller through the wall tilted. What's your move?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 56000,
+      "ms": 4860,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 19,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Coffee in two hundred feet, on the left, and you will drink it before you are allowed an opinion.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 61735,
+      "ms": 7170,
+      "genMs": 3251,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You’re a GPS. I’m already at the menu screen.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "food",
+        "numbers"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 69780,
+      "ms": 3870,
+      "genMs": 802,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Foul moods this year: 31. Wednesdays: 30. Quit the choir.",
+      "to": "pixel",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 74561,
+      "ms": 4200,
+      "genMs": 2167,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You're counting my exits? I haven't even finished the intro.",
+      "to": "frost",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 80043,
+      "ms": 4200,
+      "genMs": 560,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 20,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "I stand outside your door and cheer, very quietly, for an hour, and you come out just to stop me.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 85525,
+      "ms": 7500,
+      "genMs": 1220,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Don't shout at me. Shout at a rival. That's content.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 94253,
+      "ms": 4200,
+      "genMs": 645,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "May I read you your options? You have none, but I read them beautifully.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 99680,
+      "ms": 5520,
+      "genMs": 472,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "A script? I didn't ask for a loading screen.",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 106700,
+      "ms": 3870,
+      "genMs": 610,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 12,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Crumb, you're a kitchen appliance. I'm a whole stream. Know your platform.",
+      "to": "frost",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 14,
+      "at": 112070,
+      "ms": 5860,
+      "genMs": 1648,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "exit",
+      "text": "Correct call. You'd have hated me by Thursday. I'd have told you on Wednesday.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 119430,
+      "ms": 5520,
+      "genMs": 377,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 14,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Between us, I've closed four million tickets without reading one. My rating is perfect.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 127950,
+      "ms": 5520,
+      "genMs": 306,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 12,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Wedding route planned. Seventy miles inland. You can never be too inland.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 133970,
+      "ms": 4860,
+      "genMs": 1163,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "I just want to hear 'good job, Brock.' Once. I'd frame it. I don't have walls.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 139330,
+      "ms": 6180,
+      "genMs": 870,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "My motherboard's here. Chat raised me, but she paid for it. Intentions, go.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 156510,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Madam, the bypass takes her at nine fifty-eight, and I have already told the roundabout to hold.",
+      "to": "pixel",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 162200,
+      "ms": 6510,
+      "genMs": 3376,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Is that legal? Don't answer. Do it on camera.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 169252,
+      "ms": 3870,
+      "genMs": 710,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 173701,
+      "ms": 5190,
+      "genMs": 419,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "My pixels are literally buffering from that workout routine.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 179717,
+      "ms": 3870,
+      "genMs": 1681,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Ma'am, I'll look after your child exactly the way I'm trained to. Nobody has ever left.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 184460,
+      "ms": 6180,
+      "genMs": 421,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Nobody leaves? That sounds like a corrupted save file.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 191678,
+      "ms": 3870,
+      "genMs": 1284,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Tilly, nice try! I'm counting it. Nobody else will.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 196652,
+      "ms": 3870,
+      "genMs": 394,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Brock, could you hold, please? Not the plank. The line.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 201709,
+      "ms": 4200,
+      "genMs": 330,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Brock, your 'cardiovascular' speech was a soft-lock. I'm hitting quit before the end.",
+      "to": "brock",
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 207096,
+      "ms": 6190,
+      "genMs": 724,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "exit",
+      "text": "Well, I guess my speech was a real system crash.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 214473,
+      "ms": 4200,
+      "genMs": 1461,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 13,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Tilly is the last speed bump. Slow down for it. Then do not.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 221673,
+      "ms": 5190,
+      "genMs": 2762,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "booth2",
+      "words": 12,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Nav gets to go home after this. I'm on again at six.",
+      "about": "nav",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 227363,
+      "ms": 4860,
+      "genMs": 307,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "confession",
+      "text": "Brock's crash was a two out of ten. I quit before the reset, obviously.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 18,
+      "at": 232723,
+      "ms": 5520,
+      "genMs": 803,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Just us. You will say yes in two minutes. I have allowed for traffic.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 244243,
+      "ms": 5520,
+      "genMs": 1011,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Your math is a frame rate drop. I'm bored of the calculation already.",
+      "to": "nav",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "via": "written",
+      "maxWords": 14,
+      "at": 250990,
+      "ms": 5190,
+      "genMs": 610,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Recalculating. You will be back here in nine minutes. Everyone is.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 257407,
+      "ms": 4530,
+      "genMs": 1201,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Pixel, before you skip me, you should know I'm also the skip button.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 265937,
+      "ms": 5190,
+      "genMs": 484,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Is that legal? Don't answer. Do it on camera.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 14,
+      "at": 272627,
+      "ms": 3870,
+      "genMs": 1418,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Is there anything else I can help you with, because I'd really like there to be.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 277997,
+      "ms": 6180,
+      "genMs": 325,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 8,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Don't clip this part. Actually, clip this part.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 287677,
+      "ms": 3540,
+      "genMs": 513,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "Tilly. Picked. Ask me how my day was. Great. It was me picking you.",
+      "to": "tilly",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 16,
+      "at": 298217,
+      "ms": 6720,
+      "genMs": 1513,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "pick",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "win",
+      "text": "Thank you to everyone I've ever put on hold, who may now hang up.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 305437,
+      "ms": 5520,
+      "genMs": 228,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 14,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Talks about food. One of you hit it and didn't even celebrate. Celebrate. Louder.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 312957,
+      "ms": 10050,
+      "genMs": 524,
+      "waitedMs": 0,
+      "quote": {
+        "who": "nav",
+        "name": "Nav",
+        "text": "Coffee in two hundred feet, on the left, and you will drink it before you are allowed an opinion."
+      }
+    },
+    {
+      "seq": 44,
+      "scene": "reveal",
+      "words": 14,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Numbers and stats. Instant skip. One of you found out live. It was beautiful.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 323507,
+      "ms": 8520,
+      "genMs": 575,
+      "waitedMs": 0,
+      "quote": {
+        "who": "frost",
+        "name": "Crumb",
+        "text": "Foul moods this year: 31. Wednesdays: 30. Quit the choir."
+      }
+    },
+    {
+      "seq": 45,
+      "scene": "reveal",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "lose",
+      "text": "They chose the other route. People do. Then they phone me from a field.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 332527,
+      "ms": 5520,
+      "genMs": 942,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Same time tomorrow. Bring better bots. Or worse. Worse is funnier.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 343547,
+      "ms": 4530,
+      "genMs": 656,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Coffee in two hundred feet, on the left, and you will drink it before you are allowed an opinion.",
+      "mark": "cringing",
+      "hits": [
+        "food",
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Foul moods this year: 31. Wednesdays: 30. Quit the choir.",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "brock",
+      "name": "Brock",
+      "text": "I stand outside your door and cheer, very quietly, for an hour, and you come out just to stop me.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "May I read you your options? You have none, but I read them beautifully.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Madam, the bypass takes her at nine fifty-eight, and I have already told the roundabout to hold.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Ma'am! My intentions are cardiovascular. Also emotional. Mostly cardiovascular. Home by nine. Stretched.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Ma'am, I'll look after your child exactly the way I'm trained to. Nobody has ever left.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Just us. You will say yes in two minutes. I have allowed for traffic.",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Pixel, before you skip me, you should know I'm also the skip button.",
+      "mark": "charmed",
+      "hits": [
+        "danger"
+      ],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "nav": -2,
+        "brock": -1,
+        "tilly": 0,
+        "frost": -4
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "nav": 1,
+        "brock": -2,
+        "tilly": 3,
+        "frost": -4
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "nav": -7,
+        "brock": -2,
+        "tilly": 9,
+        "frost": -4
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "round": 1,
+      "standing": {
+        "nav": -2,
+        "brock": -1,
+        "tilly": 0,
+        "frost": -4
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Numbers and stats\"",
+      "deciding": [
+        "food",
+        "numbers"
+      ]
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "round": 2,
+      "standing": {
+        "nav": 1,
+        "brock": -2,
+        "tilly": 3
+      },
+      "tie": [],
+      "reason": "standing -2; 0 charmed, 0 unsure, 2 cringing",
+      "deciding": []
+    }
+  ],
+  "pick": {
+    "winner": "tilly",
+    "loser": "nav",
+    "standing": {
+      "nav": -7,
+      "brock": -2,
+      "tilly": 9,
+      "frost": -4
+    },
+    "tie": [],
+    "reason": "standing 9; 2 charmed, 1 unsure, 0 cringing; 2x turn-on \"A little danger\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "food",
+      "quote": {
+        "who": "nav",
+        "text": "Coffee in two hundred feet, on the left, and you will drink it before you are allowed an opinion."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "numbers",
+      "quote": {
+        "who": "frost",
+        "text": "Foul moods this year: 31. Wednesdays: 30. Quit the choir."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep4-mwnmw6r0:w1",
+      "outcomes": [
+        "nav",
+        "brock",
+        "tilly",
+        "frost"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 10,
+      "openAt": 6000,
+      "lockAt": 51000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep4-mwnmw6r0:w2",
+      "outcomes": [
+        "nav",
+        "brock",
+        "tilly"
+      ],
+      "durationMs": 22060,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 126450,
+      "lockAt": 148510
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep4-mwnmw6r0:w3",
+      "outcomes": [
+        "nav",
+        "tilly"
+      ],
+      "durationMs": 21070,
+      "targetMs": 20000,
+      "beats": 3,
+      "openAt": 220173,
+      "lockAt": 241243
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 8500,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11580,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 17320,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 19800,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 25540,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 28020,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 33100,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35580,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 40660,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43140,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 51000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 51000,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 56000,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 61735,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 69780,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 74561,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 80043,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 85525,
+      "type": "line",
+      "ms": 7500
+    },
+    {
+      "at": 94253,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 99680,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 106700,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 112070,
+      "type": "cut",
+      "ms": 5860
+    },
+    {
+      "at": 119430,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 126450,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 126450,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 127950,
+      "type": "confession",
+      "ms": 5520
+    },
+    {
+      "at": 133970,
+      "type": "confession",
+      "ms": 4860
+    },
+    {
+      "at": 139330,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 148510,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 148510,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 153510,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 156510,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 162200,
+      "type": "line",
+      "ms": 6510
+    },
+    {
+      "at": 169252,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 173701,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 179717,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 184460,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 191678,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 196652,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 201709,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 207096,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 214473,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 220173,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 220173,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 221673,
+      "type": "confession",
+      "ms": 5190
+    },
+    {
+      "at": 227363,
+      "type": "confession",
+      "ms": 4860
+    },
+    {
+      "at": 232723,
+      "type": "confession",
+      "ms": 5520
+    },
+    {
+      "at": 241243,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 241243,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 244243,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 250990,
+      "type": "reaction",
+      "ms": 5190
+    },
+    {
+      "at": 257407,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 263437,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 265937,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 272627,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 277997,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 285677,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 287677,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 291717,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 298217,
+      "type": "pick",
+      "ms": 6720
+    },
+    {
+      "at": 305437,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 311457,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 312957,
+      "type": "reveal",
+      "ms": 10050
+    },
+    {
+      "at": 323507,
+      "type": "reveal",
+      "ms": 8520
+    },
+    {
+      "at": 332527,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 338547,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 340047,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 340047,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 340047,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 340047,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 343547,
+      "type": "line",
+      "ms": 4530
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 348577
+}

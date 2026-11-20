@@ -1,0 +1,28 @@
+{
+  "name": "tumbletop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Tumbletop: a three-round knockout obstacle race show for 16 Gumbles, built for watching.",
+  "scripts": {
+    "dev": "vite --port 5201 --strictPort",
+    "build": "vite build",
+    "match": "node tools/match.mjs",
+    "checks": "node tools/checks.mjs",
+    "simhash": "node tools/simhash.mjs --write",
+    "sim": "node sim/cli.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@fontsource/barlow-semi-condensed": "^5.3.0",
+    "@fontsource/bricolage-grotesque": "^5.3.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0",
+    "vite": "^5.4.11"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

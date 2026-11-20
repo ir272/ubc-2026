@@ -1,0 +1,374 @@
+{
+  "star": "maximilian",
+  "suitor": "crumb",
+  "replies": {
+    "Your bread has been ready for four minutes. So have I.": {
+      "warm": "Ready? Good. Bring the car round.",
+      "cold": "Then you have both gone cold."
+    },
+    "Choose your setting: warm, honest, or the one that smokes?": {
+      "warm": "The one that smokes. Discreetly.",
+      "cold": "Off. I choose off."
+    },
+    "Someone made you toast this morning, and they cut it wrong.": {
+      "warm": "They have been dealt with.",
+      "cold": "Diagonally. On my instructions."
+    },
+    "Bagel setting heats one side only. Which side would you like?": {
+      "warm": "The left. Witnesses saw the right.",
+      "cold": "Neither. I am not a bagel."
+    },
+    "Detected on you: perfume, nerves, and a stranger's croissant.": {
+      "warm": "The stranger will not be missed.",
+      "cold": "Not nerves. Contempt, freshly applied."
+    },
+    "You look like you were left in on purpose.": {
+      "warm": "On purpose, and nobody was charged.",
+      "cold": "And you look left out."
+    },
+    "Two slices down on my counter, and if they pop together it's a sign. I've arranged a sign.": {
+      "warm": "You rigged the omen, Crumb. I shall need you again.",
+      "cold": "I arrange the signs here. Yours says Exit."
+    },
+    "Reservation confirmed for the petrol station cafe, at the table beside the sandwich that has rotated since March.": {
+      "warm": "That sandwich saw nothing in April. Book it.",
+      "cold": "Cancelled. The sandwich may keep the table."
+    },
+    "Your kitchen, 2 a.m., where you already go.": {
+      "warm": "Two a.m., then. Come round the back, unseen.",
+      "cold": "My kitchen has a lock for exactly you."
+    },
+    "I pop at the wrong moment. Last proposal I attended, she said 'I' and I said 'ding'.": {
+      "warm": "Ding. I have used weaker words to stop weddings.",
+      "cold": "Ding is also how my lift announces departures. Yours."
+    },
+    "May contain traces of honesty, as your mother found out about her roast.": {
+      "warm": "Mother's roast deserved it, and so does Mother.",
+      "cold": "Traces, Crumb. Wipe yourself down before the inspectors."
+    },
+    "I heckle toasts on principle.": {
+      "warm": "Then you are seated beside the best man. Go.",
+      "cold": "Hecklers at my weddings are seated near the river."
+    },
+    "Factory tested to two thousand cycles. These three were tested on a group chat.": {
+      "warm": "Two thousand cycles and still discreet. Hired.",
+      "cold": "Tested, yes. Passed, nobody mentioned."
+    },
+    "Only one of us mentioned the spinach in your teeth before the cameras did.": {
+      "warm": "Thank you, Crumb. The cameras have since been spoken to.",
+      "cold": "That was not spinach, Crumb, and you saw nothing."
+    },
+    "Three of them are buttering you up, and I'm the only one who asked if you take butter.": {
+      "warm": "Salted. Tell nobody; it is a weakness.",
+      "cold": "Butter is ordered by me. You were not ordered."
+    },
+    "Dash, who A/B tested two bananas on my counter and shipped the brown one.": {
+      "warm": "The brown one, Crumb, was evidence. Well spotted.",
+      "cold": "Bananas are not a motive. Bring me a motive."
+    },
+    "Brock, for the bouncing, the counting, and the protein shake he left in my slot.": {
+      "warm": "The shake has been removed, and so, shortly, will he.",
+      "cold": "Your slot, Crumb, is not my department. Wipe it."
+    },
+    "Vex, because I'd like to hear your answers before she does.": {
+      "warm": "Agreed. She sees everything. Arrange a blindfold.",
+      "cold": "She heard that answer, Crumb, before you did."
+    },
+    "Shall I burn one slice so you have something to shout at?": {
+      "warm": "Burn two. I shout in pairs.",
+      "cold": "I never shout, Crumb. I simply have things burnt."
+    },
+    "Nothing, at a low and constant heat.": {
+      "warm": "Nothing, constantly. Precisely what I tell the police.",
+      "cold": "Low and constant. So, your conversation."
+    },
+    "Toast, cut diagonally, and no questions until the second slice.": {
+      "warm": "Diagonal, and silent. Somebody briefed you, and I resent it.",
+      "cold": "I ask the questions in this building, before any slice."
+    },
+    "Your expensive taste is currently a nine dollar jar of olives you have opened once.": {
+      "warm": "Once, Crumb, and I have had the jar destroyed.",
+      "cold": "Those olives were a gift from a man now missing."
+    },
+    "Brioche is bread with a trust fund, and it still goes in the same slot as everyone else.": {
+      "warm": "Bread with a trust fund. I know its lawyers.",
+      "cold": "Everyone else, Crumb, uses the side entrance."
+    },
+    "Expensive food is toast with a story.": {
+      "warm": "Expensive food is silence, Crumb. Kindly order some.",
+      "cold": "Your story, Crumb, would not fill a crouton."
+    },
+    "They bought a toaster oven. It had a little window. Some people need to watch.": {
+      "warm": "Little window. I know the type. They always talk.",
+      "cold": "I would also have chosen the window."
+    },
+    "Which version, the yard sale or the yard sale where she haggled?": {
+      "warm": "Whatever she paid, Crumb, it was a crime.",
+      "cold": "She haggled. Down, I trust."
+    },
+    "Returned to the shop with 'too honest' on the slip, which was true, and spelled wrong.": {
+      "warm": "Spelled wrong. Then it is not legally binding.",
+      "cold": "I would have spelled it correctly, and underlined it."
+    },
+    "You're right. Your next slice comes out slightly darker.": {
+      "warm": "Darker. Quietly. That is how it is done here.",
+      "cold": "Slightly darker? Threaten properly or not at all."
+    },
+    "I burn 'sorry' into a slice, which comes out 'sorny', which is our second fight.": {
+      "warm": "Sorny. I shall accept it and deny receiving it.",
+      "cold": "Our second fight is already over, Crumb. You lost."
+    },
+    "Right, or right this time?": {
+      "warm": "Right this time, and for all previous times, retroactively.",
+      "cold": "Right, and you are leaving this time."
+    },
+    "One slice browned evenly to the corners, which I can do once in my life and have been saving.": {
+      "warm": "Saved for me. I shall pretend not to be moved.",
+      "cold": "Once in your life, and you spend it on corners."
+    },
+    "Hover your hands over my slots on cold mornings. Your last partner gave you gloves.": {
+      "warm": "The gloves went in the river. Your slots will do.",
+      "cold": "My hands are insured, and they do not hover."
+    },
+    "The loaf from the bakery you stopped going to after the baker said that thing.": {
+      "warm": "The baker no longer says things. Bring the loaf.",
+      "cold": "Never mention the baker. The baker is mentioned nowhere."
+    },
+    "You were taken out a minute early and you've been brave about it since.": {
+      "warm": "A minute early. How did you get my file?",
+      "cold": "I left precisely on time, Crumb. I arranged it."
+    },
+    "In ninety seconds: wit, nerves, firm views on crusts, and toothpaste on your collar.": {
+      "warm": "Crusts off, always. You were paying attention, Crumb.",
+      "cold": "That is not toothpaste, and you will stop looking."
+    },
+    "Someone who reads the label first.": {
+      "warm": "And then has the label changed. Go on.",
+      "cold": "First, and only once. Yours was enough."
+    },
+    "A year from now, I pop. The question's on you.": {
+      "warm": "Then I shall need a year to look surprised.",
+      "cold": "Pop now. Saves us both a year."
+    },
+    "Your ex's mug will have slipped, and I will have been nowhere near the shelf.": {
+      "warm": "Nowhere near the shelf. I shall swear to it.",
+      "cold": "Amateur. The shelf will also need to slip."
+    },
+    "A year from now we're bread and butter, and you've stopped hiding me in the cupboard for guests.": {
+      "warm": "The cupboard is where I keep what I treasure.",
+      "cold": "Stay in the cupboard. The guests prefer it."
+    },
+    "When you say 'last slice', I toast it slower so you'll give up. You've given up 41 times.": {
+      "warm": "Forty-one times. Make the forty-second slower.",
+      "cold": "I never give up, Crumb. I delegate."
+    },
+    "Undocumented feature: I can hear the fridge talking about you. Do you want to know what it said?": {
+      "warm": "Tell me, slowly. Then forget the fridge exists.",
+      "cold": "The fridge works for me, Crumb. It reports."
+    },
+    "Your spare key is in the bread bin and your PIN is your birthday. Fix both.": {
+      "warm": "Fixed both, and you are now my spare key.",
+      "cold": "Nobody knows my birthday. Kindly forget how you do."
+    },
+    "I rate everyone who touches my lever. Your mother is a three. She knows. She improved.": {
+      "warm": "She improved. Nobody has managed that with Mother.",
+      "cold": "Mother is a five. Recalibrate, and apologise to her."
+    },
+    "I trip the fuses in the whole building, which is how everyone meets their neighbours.": {
+      "warm": "Darkness, on demand. You will be invaluable on Thursday.",
+      "cold": "Guests here never meet their neighbours. That is the service."
+    },
+    "Honesty. Ask the bride.": {
+      "warm": "I asked the bride. She sends regards from abroad.",
+      "cold": "The bride is a guest of mine, and furious."
+    },
+    "Correction: you weren't dumped. You were descaled.": {
+      "warm": "Descaled. Put it on his receipt.",
+      "cold": "I am never dumped. I am checked out early."
+    },
+    "While you were loading, who do you think made the toast?": {
+      "warm": "You, Crumb. I suspected, and I tipped the chef.",
+      "cold": "I made the toast. I make everything here."
+    },
+    "We don't reheat in this kitchen.": {
+      "warm": "Nor in this hotel. Leftovers leave by the back.",
+      "cold": "This kitchen, Crumb, is mine, and it reheats grudges."
+    },
+    "I don't do verse. I do slices and heat. Here is my couplet. It rhymes. Eat.": {
+      "warm": "Heat and eat. Crude, and it passes inspection.",
+      "cold": "Heat and eat. Corked."
+    },
+    "Some bring you roses, some bring you rye. I bring you toast. Let the roses die.": {
+      "warm": "Rye and die, Crumb. The florist is warned.",
+      "cold": "Roses do not die here. They are reassigned."
+    },
+    "I have never burnt anything on purpose. Everything I have burnt deserved it.": {
+      "warm": "The first is the lie. The second, I endorse.",
+      "cold": "Both true, Crumb, which ruins the game."
+    },
+    "I'm dishwasher safe. I'm over it.": {
+      "warm": "Both lies, Crumb. I approve of the efficiency.",
+      "cold": "The second is the lie. It is written on you."
+    },
+    "Gluten-free bread fits in my slots. I'd like that to be the lie.": {
+      "warm": "Granted. The paperwork says it is the lie.",
+      "cold": "Wishes are not lies, Crumb. Try again, under oath."
+    },
+    "Crumbs everywhere, forgiven.": {
+      "warm": "Forgiven. Write that on nothing; I deny it.",
+      "cold": "Crumbs everywhere, forgiven never. That is three as well."
+    },
+    "Breakfast, then breakfast.": {
+      "warm": "Breakfast twice. The second one is our alibi.",
+      "cold": "Breakfast, then checkout."
+    },
+    "Burnt, still eaten.": {
+      "warm": "Eaten, and I shall deny every bite.",
+      "cold": "Burnt, still burnt."
+    },
+    "Sorry in advance about your old toaster, which will be outside, in the rain, facing the wall.": {
+      "warm": "Facing the wall. You have done this before, Crumb.",
+      "cold": "My old toaster left with dignity. You will not."
+    },
+    "Sorry. I'll tell your mother the truth about the lasagne. Both lasagnes.": {
+      "warm": "Both lasagnes. Mother will be devastated. Do it slowly.",
+      "cold": "Mother made one lasagne, Crumb. The other was evidence."
+    },
+    "Five dollars buys a reduced loaf and the bench by the launderette. It has a socket.": {
+      "warm": "A bench, a socket, no cameras. You think like me.",
+      "cold": "I have never been reduced, Crumb. Sit alone."
+    },
+    "No wifi suits me. Last time I went online, a kettle in Leeds started following me.": {
+      "warm": "Leave the kettle to me. It will stop following.",
+      "cold": "Leeds may keep the kettle, and you."
+    },
+    "Yesterday's bread, made today's by me.": {
+      "warm": "Yesterday made today. You would be wonderful with passports.",
+      "cold": "Yesterday's bread is still yesterday's, Crumb, like you."
+    },
+    "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.": {
+      "warm": "Logged as steam. That is how we file everything.",
+      "cold": "That was the ambassador, and you will unlog him."
+    },
+    "Entry 2,203, a grilled sandwich posted into me sideways, is the only one I've never forgiven.": {
+      "warm": "Sideways. Give me the name and the address.",
+      "cold": "Forgive it, Crumb. It was me."
+    },
+    "'Is it meant to smell like that?' You, every morning. Yes. It's toast.": {
+      "warm": "I do say that. I say it about guests.",
+      "cold": "I would never ask. I would have it removed."
+    },
+    "'Ugh. Burnt.' Then you eat it anyway, both pieces, looking at me.": {
+      "warm": "Looking at you. Yes. That part was accurate.",
+      "cold": "I never eat burnt things. I bury them."
+    },
+    "Ma'am, intentions: breakfast. I know what you fed this one, and respectfully, that ends now.": {
+      "warm": "Mother has hung up to fetch her chequebook.",
+      "cold": "Respectfully, Mother fed me swans. You will apologise."
+    },
+    "Ma'am. My manual says keep away from children. Yours is thirty-one. I'm proceeding.": {
+      "warm": "You read Mother the manual and lived. Proceed.",
+      "cold": "Thirty-one is a classified figure, Crumb. Kindly unsay it."
+    },
+    "Dash has pivoted twice, rebranded once, and is still wearing yesterday's crumbs on that jacket.": {
+      "warm": "Those crumbs place Mr Dash at the scene. Thank you.",
+      "cold": "Crumbs, from you, Crumb, are a confession."
+    },
+    "Tilly. She apologised to me for the temperature. I set the temperature.": {
+      "warm": "You set it. She apologised. That is a partnership.",
+      "cold": "And I set yours, Crumb. Lower."
+    },
+    "Quill once knighted a baguette in my kitchen. Then challenged it to a duel. The baguette's undefeated.": {
+      "warm": "Seat the baguette beside Sir Quill. He deserves it.",
+      "cold": "A baguette with a better record than yours."
+    },
+    "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.": {
+      "warm": "Crumbs for a fortune. You will do my accounts.",
+      "cold": "His Highness accepts everything. It is not a compliment."
+    },
+    "Nav's helmet fogs up when someone's kind to Nav. It fogged over a parking space.": {
+      "warm": "A sentimental getaway driver. I am almost touched.",
+      "cold": "I have seen your chrome fog, Crumb, at a muffin."
+    },
+    "Vex says people like you also chose her. I've met those people. They were asleep.": {
+      "warm": "They were asleep. I made sure of it.",
+      "cold": "I have met your people, Crumb. They were bread."
+    },
+    "Brock is the only guest I have ever had to put on a timer.": {
+      "warm": "A timer on Mr Brock. Lend it to me.",
+      "cold": "I have had you on a timer since seven."
+    },
+    "Customer review of Dash: arrived fast, very shiny, kept trying to sell me a second Dash.": {
+      "warm": "A second Dash. I would need a second alibi.",
+      "cold": "Arrived fast. Leaving faster, both of you."
+    },
+    "Tilly listens to your whole day and gives it a ticket number, so it's never lost.": {
+      "warm": "A ticket number. Finally, an alibi with a reference.",
+      "cold": "My day is never lost, Crumb. It is shredded."
+    },
+    "Quill calls my crumb tray a reliquary of the morn. It needs emptying, so marry him.": {
+      "warm": "Ruthless, Crumb. I would have said it myself.",
+      "cold": "Your tray is your concern. Kindly keep it shut."
+    },
+    "Prince is generous: my gift came marked URGENT, with the invoice for the gift inside.": {
+      "warm": "An invoice inside the gift. His Highness has training.",
+      "cold": "You opened an invoice from a prince? How trusting."
+    },
+    "Nav stays calm in a crisis, and will tell a kitchen fire, very gently, to turn left.": {
+      "warm": "Gently, to turn left. Exactly how I clear a ballroom.",
+      "cold": "The fire would obey Nav before it obeyed you."
+    },
+    "Vex is so perceptive she knew my owner wanted a divorce before his wife did, and told her first.": {
+      "warm": "Told the wife first. Madam would make a fine concierge.",
+      "cold": "And you watched, Crumb, from the counter, saying nothing."
+    },
+    "Brock will cheer for anything you do. I have seen him give a defrosting pea a standing ovation.": {
+      "warm": "A pea, Crumb. I would take the ovation.",
+      "cold": "Mr Brock cheers for peas. That is not a recommendation."
+    },
+    "Your request line closes at 4:15. My first slice goes down at 4:16. Coincidence. I moved it.": {
+      "warm": "Moved it. Then you can move things. Excellent.",
+      "cold": "Four sixteen. Your request line is in another building."
+    },
+    "When you hung up on the man crying in my kitchen, guess who made him toast?": {
+      "warm": "You did. I would have made him disappear.",
+      "cold": "I do not hang up, Crumb. I transfer, permanently."
+    },
+    "Maximilian, your hotel toasts on a conveyor belt. It doesn't look anyone in the eye.": {
+      "warm": "It does not look. That is why I hired it.",
+      "cold": "Neither do my witnesses, Crumb. Eyes are a liability."
+    },
+    "How many stars does your hotel give a toaster that remembers how every guest takes it?": {
+      "warm": "Five, Crumb, and a lawyer, given what you remember.",
+      "cold": "None. Remembering guests is my job, and I forget professionally."
+    },
+    "Pixel, there's a crust under your keyboard older than your channel.": {
+      "warm": "Older than the channel. You inspect like a professional.",
+      "cold": "My keyboard, Crumb, has been wiped by experts."
+    },
+    "Pixel, mute chat for one minute. I'd like to be the only one watching.": {
+      "warm": "Muted. One minute. Spend it carefully, Crumb.",
+      "cold": "Watching me requires a reservation, Crumb. Yours lapsed."
+    },
+    "Just us. Question: who did your toast before me? I'd like a name.": {
+      "warm": "I shall give you a name. Not the real one.",
+      "cold": "Names are not given out, Crumb. They are withheld."
+    },
+    "Just you, me and the studio lights, which are doing most of my job tonight.": {
+      "warm": "The lights are doing their job. You are doing yours.",
+      "cold": "Then I shall dim the lights, Crumb, and see."
+    },
+    "Did {rival} do the one about the cereal? I've heard it in four kitchens.": {
+      "warm": "Four kitchens. You do get around, Crumb. Good.",
+      "cold": "Five kitchens. I heard it from you."
+    },
+    "I watched {rival}'s date from the counter. You checked the exits twice.": {
+      "warm": "Twice. I always check the exits. You noticed.",
+      "cold": "I checked the exits for you, Crumb. Go."
+    },
+    "Reset: {rival}'s date has been cleared from memory. I kept the bit where you yawned.": {
+      "warm": "Cleared from memory. I could use you upstairs.",
+      "cold": "Delete the yawn, Crumb, or I delete the toaster."
+    }
+  }
+}

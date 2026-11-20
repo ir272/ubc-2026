@@ -1,0 +1,266 @@
+{
+  "n": 6,
+  "brain": "scripted",
+  "seed": null,
+  "winners": {
+    "Sir Quill": 2,
+    "Crumb": 1,
+    "Dash": 1,
+    "Tilly": 2
+  },
+  "cards": {
+    "faceUp": {
+      "confidence": 1,
+      "trashtalk": 1,
+      "flattery": 1,
+      "sorry": 1,
+      "rules": 1,
+      "bragging": 1
+    },
+    "hiddenOn": {
+      "flattery": 1,
+      "past": 2,
+      "plans": 1,
+      "food": 1,
+      "honesty": 1
+    },
+    "dealbreaker": {
+      "numbers": 1,
+      "honesty": 2,
+      "confidence": 1,
+      "trashtalk": 1,
+      "danger": 1
+    },
+    "twists": {
+      "ex-calls": 2,
+      "rhyme": 1,
+      "truth-lie": 1,
+      "wingman": 1,
+      "roast-left": 1
+    }
+  },
+  "hits": {
+    "slot1": 0.833,
+    "slot2": 0.667,
+    "both": 0.5,
+    "neither": 0,
+    "winnerHitAny": 0.833
+  },
+  "marksByStar": {
+    "Vesper": {
+      "charmed": 15,
+      "unsure": 5,
+      "cringing": 7
+    },
+    "Maximilian": {
+      "charmed": 10,
+      "unsure": 1,
+      "cringing": 7
+    },
+    "Pixel": {
+      "charmed": 3,
+      "unsure": 1,
+      "cringing": 5
+    }
+  },
+  "marksFixedByCoherence": {
+    "Vesper": 0,
+    "Maximilian": 0,
+    "Pixel": 0
+  },
+  "sources": {
+    "bank": 271
+  },
+  "wordLimitViolations": 0,
+  "rejected": 0,
+  "late": 0,
+  "durationMs": {
+    "mean": 348466,
+    "min": 344915,
+    "max": 353871
+  },
+  "windowsOpenMs": {
+    "A": [
+      45000,
+      45000,
+      45000,
+      45000,
+      45000,
+      45000
+    ],
+    "B": [
+      22000,
+      22000,
+      22000,
+      23710,
+      22060,
+      22000
+    ],
+    "C": [
+      20000,
+      20000,
+      20000,
+      20000,
+      20000,
+      20000
+    ]
+  },
+  "episodes": [
+    {
+      "file": "ep-01.md",
+      "star": "Vesper",
+      "winner": "Sir Quill",
+      "loser": "Dash",
+      "cards": [
+        "confidence",
+        "flattery",
+        "numbers"
+      ],
+      "twist": "ex-calls",
+      "hits": {
+        "slot1": [
+          "Dash",
+          "Sir Quill",
+          "Sir Quill"
+        ],
+        "slot2": [
+          "Dash",
+          "Brock",
+          "Nav"
+        ]
+      },
+      "reveals": [
+        "Sir Quill: O lady of the singing box, who granteth wishes after midnight like a well, I wish thee.",
+        "Brock: Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you."
+      ],
+      "durationMs": 353871
+    },
+    {
+      "file": "ep-02.md",
+      "star": "Maximilian",
+      "winner": "Crumb",
+      "loser": "Dash",
+      "cards": [
+        "trashtalk",
+        "past",
+        "honesty"
+      ],
+      "twist": "rhyme",
+      "hits": {
+        "slot1": [
+          "Dash",
+          "Nav",
+          "Tilly",
+          "Crumb"
+        ],
+        "slot2": [
+          "Tilly"
+        ]
+      },
+      "reveals": [
+        "Crumb: They bought a toaster oven. It had a little window. Some people need to watch.",
+        "Tilly: Choose one of them and they'll let you go. Choose me and I can't, so the answer is no."
+      ],
+      "durationMs": 346904
+    },
+    {
+      "file": "ep-03.md",
+      "star": "Vesper",
+      "winner": "Dash",
+      "loser": "Brock",
+      "cards": [
+        "flattery",
+        "plans",
+        "confidence"
+      ],
+      "twist": "truth-lie",
+      "hits": {
+        "slot1": [
+          "Dash"
+        ],
+        "slot2": []
+      },
+      "reveals": [
+        "Dash: Vesper, every song you play is four minutes. What if it was one? Same feelings. Four times the songs.",
+        null
+      ],
+      "durationMs": 346450
+    },
+    {
+      "file": "ep-04.md",
+      "star": "Pixel",
+      "winner": "Sir Quill",
+      "loser": "Dash",
+      "cards": [
+        "sorry",
+        "food",
+        "honesty"
+      ],
+      "twist": "ex-calls",
+      "hits": {
+        "slot1": [],
+        "slot2": [
+          "Crumb"
+        ]
+      },
+      "reveals": [
+        null,
+        "Crumb: Foul moods this year: 31. Wednesdays: 30. Quit the choir."
+      ],
+      "durationMs": 348821
+    },
+    {
+      "file": "ep-05.md",
+      "star": "Maximilian",
+      "winner": "Tilly",
+      "loser": "Crumb",
+      "cards": [
+        "rules",
+        "past",
+        "trashtalk"
+      ],
+      "twist": "wingman",
+      "hits": {
+        "slot1": [
+          "Crumb"
+        ],
+        "slot2": [
+          "Crumb",
+          "Dash",
+          "Vex"
+        ]
+      },
+      "reveals": [
+        "Crumb: Vex is perceptive. She told my last owner what he really wanted. It was a toaster oven.",
+        "Dash: Cut Tilly. She fixes your problem and you leave happy. I'll never fix anything. You'll be here for years."
+      ],
+      "durationMs": 349836
+    },
+    {
+      "file": "ep-06.md",
+      "star": "Vesper",
+      "winner": "Tilly",
+      "loser": "Vex",
+      "cards": [
+        "bragging",
+        "honesty",
+        "danger"
+      ],
+      "twist": "roast-left",
+      "hits": {
+        "slot1": [
+          "Vex",
+          "Tilly",
+          "Tilly"
+        ],
+        "slot2": []
+      },
+      "reveals": [
+        "Tilly: Vesper, I've held for this line so long that I've learned the music, and I've got notes.",
+        null
+      ],
+      "durationMs": 344915
+    }
+  ],
+  "brainStats": null
+}

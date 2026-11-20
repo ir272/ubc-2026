@@ -1,0 +1,2028 @@
+{
+  "episode": 87,
+  "matchId": "dating-ep87-mwnxt5gt",
+  "brain": "model",
+  "sealed": "547aadfe3683948b139d525d6a4f8a71ef055f32173db8dc6b20c29cb071e7ee",
+  "sealedSource": "window",
+  "star": {
+    "id": "maximilian",
+    "name": "Maximilian"
+  },
+  "suitors": [
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 0
+    },
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 1
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 2
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "brevity",
+        "label": "Keeps it short",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "drama",
+        "label": "Drama",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "past",
+        "label": "Brings up the past",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "worst-trait",
+      "label": "The Hard Sell",
+      "rule": "Sell me your worst trait.",
+      "format": "solo"
+    },
+    "topTags": {
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ],
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash"
+      ],
+      "puns": [
+        "crumb"
+      ],
+      "gestures": [
+        "quill"
+      ],
+      "honesty": [
+        "crumb",
+        "vex"
+      ],
+      "bragging": [
+        "dash"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "curiosity": [
+        "vex"
+      ],
+      "food": [
+        "crumb"
+      ],
+      "plans": [
+        "dash"
+      ],
+      "flattery": [
+        "dash"
+      ],
+      "numbers": [
+        "dash"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "brevity": [
+        "crumb"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "past": [
+        "crumb",
+        "quill",
+        "vex"
+      ],
+      "danger": [
+        "vex"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-worst-habit",
+    "theme": "What is your worst habit, the one I will find out about in week two?"
+  },
+  "order": [
+    "crumb",
+    "dash",
+    "quill",
+    "vex"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "intro",
+      "text": "Welcome, all four, three of whom are leaving; I favour short answers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7066,
+      "ms": 4420,
+      "genMs": 863,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 13016,
+      "ms": 4110,
+      "genMs": 1757,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "The corner accepts. The room abstains.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17491,
+      "ms": 2560,
+      "genMs": 764,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Is there a form? I'd like to be signed for.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 12,
+      "at": 21582,
+      "ms": 3800,
+      "genMs": 1691,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "I will allow it. For now.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "fallback",
+      "via": "fallback",
+      "spoken": true,
+      "maxWords": 6,
+      "at": 25747,
+      "ms": 2560,
+      "genMs": 1889,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "15 wins in 39 tourneys, which in Roman numerals looketh enormous.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 29838,
+      "ms": 4110,
+      "genMs": 1203,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "My accounts are also in Roman.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34314,
+      "ms": 2560,
+      "genMs": 819,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38405,
+      "ms": 4420,
+      "genMs": 1313,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "The side door is open, Madam.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 853,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "question",
+      "text": "Everybody has one habit I end up burying. Yours, please.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "May contain traces of honesty, as your mother found out about her roast.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 56108,
+      "ms": 4730,
+      "genMs": 580,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Crumb, I would trust you with the evidence. Toast it.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 61088,
+      "ms": 3800,
+      "genMs": 787,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "I'll know your average reply time by week two, and I'll take it personally, to two decimal places.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 65295,
+      "ms": 6280,
+      "genMs": 870,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Nearly convincing, Mr Dash. Do it again for the inspector.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 71982,
+      "ms": 3800,
+      "genMs": 861,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "I duel all who mispronounce thy name, which hath, alas, twice included thee.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 76432,
+      "ms": 4730,
+      "genMs": 349,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "drama"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 82122,
+      "ms": 1000,
+      "genMs": 745,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Quill, my oldest users love you. They're in frames.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 84082,
+      "ms": 3490,
+      "genMs": 304,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "I have your file; it is thinner than you hoped.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 88034,
+      "ms": 3800,
+      "genMs": 842,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "Crumb and Vex, kindly agree on an alibi. You have three seconds.",
+      "pair": [
+        "crumb",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 93071,
+      "ms": 7420,
+      "genMs": 881,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Madam, you have seen too much, and I have a man for that.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 101727,
+      "ms": 5430,
+      "genMs": 986,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut, by hand. Not autoplay. I'm keeping the screenshot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 108607,
+      "ms": 3490,
+      "genMs": 288,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Maximilian glanced at my sword, which can only mean poetry, and also, I suspect, the sword.",
+      "guess": {
+        "id": "poetry",
+        "label": "Poetry",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 116047,
+      "ms": 5660,
+      "genMs": 749,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 15,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "The jacket was for my first sale. I bought it in advance. Four years ago.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 122552,
+      "ms": 5350,
+      "genMs": 1004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 10,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Maximilian liked it for 2.6 seconds, replayed 38 times. 39.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 128747,
+      "ms": 3800,
+      "genMs": 608,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "twistintro",
+      "text": "Sell me your worst trait. Present it as an amenity, please.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 140332,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "I abandon anything the second it dips. Watch. This answer is dipping. Next trait: punctuality.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 144705,
+      "ms": 5350,
+      "genMs": 2615,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Punctuality. Splendid. Be at the side door at midnight.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 150342,
+      "ms": 3490,
+      "genMs": 931,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "My door is a one-way mirror, and I'm selling you the view from the inside: a smiley face.",
+      "to": "maximilian",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 154145,
+      "ms": 6280,
+      "genMs": 1365,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Crumb, nobody knows what I eat at two. Nobody living.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 160738,
+      "ms": 3800,
+      "genMs": 820,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "I forgive no slight to thee or me, and I have kept a book of them, with an index.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 164851,
+      "ms": 6590,
+      "genMs": 803,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Kindly burn the book, Sir Quill, index first.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [
+        "drama",
+        "past"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 171788,
+      "ms": 3180,
+      "genMs": 847,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "verdict",
+      "text": "Dash sold me a flaw; it is now in the minibar.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 175393,
+      "ms": 4110,
+      "genMs": 1061,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Who left Dash on the warm setting?",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 179972,
+      "ms": 2870,
+      "genMs": 1204,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Hold still, thou knave, I must describe a wart.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 183466,
+      "ms": 3490,
+      "genMs": 558,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Thanks, Sir Quill. That tested worse out loud, didn't it?",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 188030,
+      "ms": 3800,
+      "genMs": 2383,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 11,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "Would Sir Quill and Crumb please come to the front desk?",
+      "pair": [
+        "quill",
+        "crumb"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 192204,
+      "ms": 7110,
+      "genMs": 841,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 13,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "You said \"kept a book of them\", Sir Quill; your car is outside.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 199618,
+      "ms": 5430,
+      "genMs": 1054,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "exit",
+      "text": "Unhand that door, I wish to slam it twice.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 206088,
+      "ms": 3490,
+      "genMs": 855,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 15,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Maximilian smiled at admitting a fear. One data point. I've built whole personalities on less.",
+      "guess": {
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 216008,
+      "ms": 5350,
+      "genMs": 782,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 12,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Mornings I've spent with one slot empty: 3,281. If Dash wins: 3,282.",
+      "about": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 223608,
+      "ms": 4420,
+      "genMs": 3555,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "We've got ninety seconds, so I've cut my pitch to eighty-nine and saved one for your yes.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 233028,
+      "ms": 5970,
+      "genMs": 859,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Mr Dash, you bribed the inspector with a discount code; how much off?",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 239258,
+      "ms": 4730,
+      "genMs": 941,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "duo",
+      "text": "Thirty percent, and your five stars stayed five. First number I didn't want to grow.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 244292,
+      "ms": 5350,
+      "genMs": 948,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Reset: Dash's date has been cleared from memory. I kept the bit where you yawned.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 250895,
+      "ms": 5350,
+      "genMs": 489,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Crumb, every guest here has eaten your toast; which one has a motive?",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 256495,
+      "ms": 4730,
+      "genMs": 1052,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 15,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Your pastry chef, who has been proving a grudge since you sent back her croissant.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 261893,
+      "ms": 5350,
+      "genMs": 1410,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "compare",
+      "text": "Dash would help me hide something; Crumb would ask what it was.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 268686,
+      "ms": 4420,
+      "genMs": 850,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "hold",
+      "text": "Do stand still. One of you is about to be released.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 276056,
+      "ms": 4110,
+      "genMs": 787,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 12,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Drama, and Sir Quill brought it to my door unasked, like breakfast.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 17,
+      "at": 280416,
+      "ms": 5020,
+      "genMs": 801,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 13,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "May contain traces of honesty, as your mother found out about her roast.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 285686,
+      "ms": 2880,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 15,
+      "event": "replay",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "replay",
+      "text": "I abandon anything the second it dips. Watch. This answer is dipping. Next trait: punctuality.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 288816,
+      "ms": 3200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "pickline",
+      "text": "I came for taste and was handed \"This answer is dipping\", so, regrettably, Dash.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 296516,
+      "ms": 6040,
+      "genMs": 1016,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 14,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "win",
+      "text": "A conversion! An actual person! There's no button for this. Pressing all of them.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 302806,
+      "ms": 5040,
+      "genMs": 892,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 16,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Brings up the past. Vex, you did it before witnesses. I can only hide so much.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 309556,
+      "ms": 6260,
+      "genMs": 780,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 9,
+      "event": "replay",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "replay",
+      "text": "Quill, my oldest users love you. They're in frames.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 316066,
+      "ms": 2240,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "lose",
+      "text": "Dash's toast is burning, but yours is still waiting.",
+      "source": "model",
+      "via": "written",
+      "maxWords": 16,
+      "at": 318601,
+      "ms": 3490,
+      "genMs": 790,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "outro",
+      "text": "Goodnight. Do leave a review. I will read it and disagree.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 324541,
+      "ms": 4110,
+      "genMs": 807,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 2,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "15 wins in 39 tourneys, which in Roman numerals looketh enormous.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 3,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You scrolled past me twice. So, at some point, you scrolled back.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 4,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Is there a form? I'd like to be signed for.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "May contain traces of honesty, as your mother found out about her roast.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "traces of honesty"
+    },
+    {
+      "seq": 6,
+      "who": "dash",
+      "name": "Dash",
+      "text": "I'll know your average reply time by week two, and I'll take it personally, to two decimal places.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "to two decimal places"
+    },
+    {
+      "seq": 7,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "I duel all who mispronounce thy name, which hath, alas, twice included thee.",
+      "mark": "charmed",
+      "hits": [
+        "drama"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "twice included thee"
+    },
+    {
+      "seq": 8,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Quill, my oldest users love you. They're in frames.",
+      "mark": "cringing",
+      "hits": [
+        "past"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "dash",
+      "name": "Dash",
+      "text": "I abandon anything the second it dips. Watch. This answer is dipping. Next trait: punctuality.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "This answer is dipping"
+    },
+    {
+      "seq": 10,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "My door is a one-way mirror, and I'm selling you the view from the inside: a smiley face.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 11,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "I forgive no slight to thee or me, and I have kept a book of them, with an index.",
+      "mark": "cringing",
+      "hits": [
+        "drama",
+        "past"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "kept a book of them"
+    },
+    {
+      "seq": 12,
+      "who": "dash",
+      "name": "Dash",
+      "text": "We've got ninety seconds, so I've cut my pitch to eighty-nine and saved one for your yes.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "saved one for your yes"
+    },
+    {
+      "seq": 13,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Reset: Dash's date has been cleared from memory. I kept the bit where you yawned.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "the bit where you yawned"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "dash": 1,
+        "crumb": 0,
+        "quill": 1,
+        "vex": 1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "dash": 2,
+        "crumb": 1,
+        "quill": 4,
+        "vex": -3
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "dash": 3,
+        "crumb": 1,
+        "quill": 2,
+        "vex": -3
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "dash": 3,
+        "crumb": 1,
+        "quill": 2,
+        "vex": -3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "dash": 2,
+        "crumb": 1,
+        "quill": 4,
+        "vex": -3
+      },
+      "tie": [],
+      "reason": "standing -3; 1 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Brings up the past\"",
+      "deciding": [],
+      "roundMarks": {
+        "dash": 1,
+        "crumb": 1,
+        "quill": 1,
+        "vex": -1
+      },
+      "bottom": [
+        "crumb",
+        "vex"
+      ],
+      "hintCard": null,
+      "hook": null
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "round": 2,
+      "standing": {
+        "dash": 3,
+        "crumb": 1,
+        "quill": 2
+      },
+      "tie": [],
+      "reason": "standing 2; 2 charmed, 0 unsure, 1 cringing; 2x turn-on \"Drama\"; 1x dealbreaker \"Brings up the past\"",
+      "deciding": [
+        "past"
+      ],
+      "roundMarks": {
+        "dash": 1,
+        "crumb": 0,
+        "quill": -1
+      },
+      "bottom": [
+        "quill",
+        "crumb"
+      ],
+      "hintCard": null,
+      "hook": "kept a book of them"
+    }
+  ],
+  "pick": {
+    "winner": "dash",
+    "loser": "crumb",
+    "standing": {
+      "dash": 3,
+      "crumb": 1,
+      "quill": 2,
+      "vex": -3
+    },
+    "tie": [],
+    "reason": "standing 3; 3 charmed, 1 unsure, 0 cringing",
+    "oneOnOne": {
+      "dash": 0,
+      "crumb": 0
+    },
+    "first": "dash",
+    "last": "crumb"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "drama",
+      "quote": null,
+      "replays": [
+        {
+          "who": "crumb",
+          "text": "May contain traces of honesty, as your mother found out about her roast.",
+          "hit": false
+        },
+        {
+          "who": "dash",
+          "text": "I abandon anything the second it dips. Watch. This answer is dipping. Next trait: punctuality.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "quill",
+          "right": false
+        },
+        {
+          "who": "dash",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "past",
+      "quote": null,
+      "replays": [
+        {
+          "who": "vex",
+          "text": "Quill, my oldest users love you. They're in frames.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "quill",
+      "card": "poetry",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "dash",
+      "card": "vulnerability",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep87-mwnxt5gt:w1",
+      "outcomes": [
+        "dash",
+        "crumb",
+        "quill",
+        "vex"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep87-mwnxt5gt:w2",
+      "outcomes": [
+        "dash",
+        "crumb",
+        "quill"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 113547,
+      "lockAt": 135547
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep87-mwnxt5gt:w3",
+      "outcomes": [
+        "dash",
+        "crumb"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 211028,
+      "lockAt": 231028
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1501
+    },
+    {
+      "at": 5501,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7066,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 11851,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 13016,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17491,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20416,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21582,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 25747,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 28673,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 29838,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34314,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 37239,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38405,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 56108,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 61088,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 65295,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 71982,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 76432,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 82122,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 84082,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 88034,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 93071,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 101727,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 108607,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 113547,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 113547,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 116047,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 122552,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 128747,
+      "type": "confession",
+      "ms": 3800
+    },
+    {
+      "at": 135547,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 135547,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 138547,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 140332,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 144705,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 150342,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 154145,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 160738,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 164851,
+      "type": "line",
+      "ms": 6590
+    },
+    {
+      "at": 171788,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 175393,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 179972,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 183466,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 188030,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 192204,
+      "type": "bottom",
+      "ms": 7110
+    },
+    {
+      "at": 199618,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 206088,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 211028,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 211028,
+      "type": "scene",
+      "ms": 4980
+    },
+    {
+      "at": 216008,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 223608,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 231028,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 231028,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 233028,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 239258,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 244292,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 249895,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 250895,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 256495,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 261893,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 268686,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 274556,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 276056,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 280416,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 285686,
+      "type": "replay",
+      "ms": 2880
+    },
+    {
+      "at": 288816,
+      "type": "replay",
+      "ms": 3200
+    },
+    {
+      "at": 292266,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 296516,
+      "type": "pick",
+      "ms": 6040
+    },
+    {
+      "at": 302806,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 308556,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 309556,
+      "type": "reveal",
+      "ms": 6260
+    },
+    {
+      "at": 316066,
+      "type": "replay",
+      "ms": 2240
+    },
+    {
+      "at": 318601,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 323541,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 324541,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 324541,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 324541,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 324541,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 328901,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 331151
+}

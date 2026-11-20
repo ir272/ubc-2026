@@ -1,0 +1,18 @@
+node_modules/
+dist/
+target/
+.anchor/
+test-ledger/
+.keys/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+clips/
+.claude/
+refs/
+
+# demo recordings (large, not needed to run)
+games/tumbletop/docs/**/*.wav
+games/tumbletop/docs/**/*.mp4

@@ -1,0 +1,50 @@
+{
+  "id": "nav",
+  "model": "vendor/cast/269-astro-nacho/269_AstroNacho.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.768,
+  "scale": 0.96,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#00BFA6",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/yN-bc2espBKNBlbd1J5CfKJkv4ukOcwwyHdJiXoidHg",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/269-astro-nacho/269_AstroNacho_thumbnail.png",
+  "headTop": 0.275,
+  "floats": 0.14,
+  "style": {
+    "energy": 0.45,
+    "head": 0.5,
+    "walk": "float",
+    "tempo": 0.8,
+    "gait": "walk"
+  }
+}

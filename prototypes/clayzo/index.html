@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clayzo prototype</title>
+    <style>
+      html, body { margin: 0; background: #141318; color: #e6e4de; font: 15px/1.4 system-ui, sans-serif; }
+      main { min-height: 100dvh; display: grid; place-content: center; justify-items: center; gap: 20px; padding: 24px; }
+      canvas { display: block; cursor: pointer; }
+      .grid { display: grid; grid-template-columns: repeat(2, 320px); gap: 28px; }
+      .grid figure { margin: 0; display: grid; justify-items: center; align-content: end; gap: 12px; min-height: 340px; }
+      button { font: inherit; color: #e6e4de; background: none; border: 1px solid #5a5960; padding: 8px 16px; cursor: pointer; }
+      button:hover { border-color: #c5a559; color: #c5a559; }
+      .sheet { display: grid; grid-template-columns: repeat(5, 220px); gap: 8px; }
+      .sheet figure { margin: 0; }
+      .sheet figcaption { font-size: 12px; color: #8f8e90; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <main id="app"></main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

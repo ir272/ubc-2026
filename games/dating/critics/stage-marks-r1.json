@@ -1,0 +1,30 @@
+{
+  "winner": "ref",
+  "charm": "ref",
+  "staging": "ref",
+  "light": "ref",
+  "readability": "ref",
+  "broken": [
+    "04/04b/05/06 wide: the tally stacks float in empty air between lamp columns, attached to nothing, so ownership is ambiguous. Frost's stack (x~792 at 1280) sits about 25 px right of the 'Sir Quill' name tag and reads as part of Quill's label. Quill's stack (x~597) sits nearer the gap after Tilly's column than his own podium.",
+    "05 and 06b at 960x540: the badges are about 22 to 28 px coins. The heart and drop just about read. The gloom-cloud badge is an unreadable grey smudge on navy, and in 06b it is a dark grey dot next to the 'Frost' tag.",
+    "04, 04b, 05, 06: a coral or salmon rectangle pokes out behind and left of Tilly's top heart badge (about x 318 to 350, y 132 to 156 at 1280). It looks like a clipped chip or a set sign colliding with the tally. Either way it reads as a stray shape glued to the stack.",
+    "06: the milk tally rail sticks up past the top heart badge as a small white stub (about x 365 to 398, y 104 to 116), and below the stack it reads as a loose white stick standing in the air left of Tilly. It does not read as a highlight.",
+    "06/06b: the viewer's-pick collar on Tilly's podium rim is a thin cream line, and the much larger cream floor ring from set.ts does all the work. The ring runs off the podium and under the caption box. At 960 the collar is invisible and the pick reads only through the ring. Nothing names it as the viewer's pick.",
+    "03/03b: the sulking cloud sits on the toast's top edge, overlapping the head silhouette. It looks like a sticker stuck to the bread, not a cloud hovering over it, and the gloom lines run down across the forehead to the brow line.",
+    "01/07c: the heart floats beside Sir Quill's shoulder, level with the bottom of the helmet, not over his head. In 01b (960) it drifts toward frame centre and the toast suitor at frame right, so the mark could belong to either character.",
+    "Inconsistent anchor between stills: in 04/05 the stacks sit well above and left of the name tags, while in 06b they hug the left edge of each name tag. The tally has no fixed home a viewer can learn.",
+    "04/05: Tilly and Sir Quill carry identical stacks (heart over drop), and nothing in the tally itself breaks the tie. The only cue that Quill is behind is his slightly dimmed name tag, and you cannot see it at 960."
+  ],
+  "slop": [
+    "06/06b: the cream floor ring around Tilly's podium (set.ts) plus the milk collar reads close to a target or shockwave ring around the picked suitor, and it spills under the caption box.",
+    "01/07c heart: the thick cream die-cut border around an ink outline makes it a sticker. Not slop on its own, but next to Animal Crossing's thin-bordered '!' it reads as a generic emoji-sticker pack, not a drawn cel mark.",
+    "Outside this piece, for the record: the 'Turn-on' eyebrow label over 'Bad puns' in the top-right card is an eyebrow label."
+  ],
+  "comprehension": "The kind of show half reads. Lit podiums, name tags, a seated speaker's caption and a 'Turn-on: Bad puns' card suggest a dating panel, and the close-up emotes clearly say charmed, unsure and cringing. The phase is clear from 'Round two'. Who is winning is not readable from any still. The tallies are tiny dark coins floating between columns, Tilly and Quill tie, the empty dark purple podium at far left has no tally or explanation, and the viewer's pick is an unlabelled cream ring that could just as well mean 'current speaker' or 'winner'. Someone who just tuned in could not rank the suitors or say what the ring means.",
+  "biggestGap": "From the wide, standing does not read at a glance. In takemeout-02 you count lit white podiums against dark red ones, but here a viewer has to hunt for 25 px coins floating between columns. Move each suitor's tally off the air rail and onto that suitor's own name tag or podium front, as a horizontal row directly under the tag, at roughly 1.6 to 2x the current badge size (about 40 to 48 px at 960). Make good marks bright, filled coins in coral or mint and bad marks dark, low-contrast coins, so the leader's row is visibly the brightest and longest shape in the frame at 960x540.",
+  "protect": [
+    "The close-up emote drawings: flat two-tone fills, an ink outline and one highlight crescent (heart, sweat drop, cloud). They read at 960 and stay inside the cel look, with no glow or gradient.",
+    "The pop timing in 07: a squashed seed, an overshoot to about 124% stretched tall, a settle, and a smaller second heart trailing a beat behind. This is real anticipation and follow-through, and it gives the mark Tomodachi-style comic weight.",
+    "One glyph vocabulary in two sizes: the same heart, drop and cloud appear as the big pop and as the tally coin, so a viewer learns the tally from the close-ups. The manga gloom lines over Frost's forehead are the right convention for 'cringing'."
+  ]
+}

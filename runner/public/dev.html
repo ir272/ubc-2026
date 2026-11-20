@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arena runner debug</title>
+<style>
+  body { font: 13px/1.4 ui-monospace, Menlo, monospace; margin: 12px; background: #fff; color: #111; }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .col { flex: 1 1 420px; min-width: 0; }
+  fieldset { margin: 0 0 12px; border: 1px solid #bbb; }
+  table { border-collapse: collapse; }
+  td, th { border: 1px solid #ddd; padding: 2px 6px; text-align: left; }
+  #events, #chat { height: 260px; overflow: auto; border: 1px solid #ddd; padding: 4px; white-space: pre-wrap; word-break: break-all; }
+  .bot { color: #888; }
+  .muted { color: #777; }
+  .err { color: #b00; }
+  input[type=number] { width: 80px; }
+  code { word-break: break-all; }
+</style>
+</head>
+<body>
+<h3>Arena runner debug console</h3>
+<div>
+  channel <select id="channel"></select>
+  <span id="conn" class="muted">disconnected</span> |
+  chain <b id="chainKind">?</b>
+</div>
+<div class="row">
+  <div class="col">
+    <fieldset><legend>match</legend>
+      phase: <b id="phase">-</b><br>
+      <span id="matchTitle">-</span> <span id="matchId" class="muted"></span><br>
+      <div id="entrants"></div>
+      <div id="result" class="muted"></div>
+    </fieldset>
+    <fieldset><legend>windows</legend><div id="windows">none</div></fieldset>
+    <fieldset><legend>events (newest first)</legend><div id="events"></div></fieldset>
+  </div>
+  <div class="col">
+    <fieldset><legend>wallet</legend>
+      owner: <code id="owner">-</code><br>
+      balance: <b id="balance">-</b> PLAY
+      <button id="faucet">faucet</button>
+      <button id="newKey">new key</button>
+      <div>bet amount: <input id="amount" type="number" value="10" min="1"> PLAY</div>
+      <div id="walletMsg" class="muted"></div>
+      <div id="positions"></div>
+    </fieldset>
+    <fieldset><legend>chat</legend>
+      <div id="chat"></div>
+      name <input id="chatName" size="10" value="dev"> <input id="chatText" size="30"> <button id="chatSend">send</button>
+    </fieldset>
+  </div>
+</div>
+<script>
+const $ = (id) => document.getElementById(id);
+const UNIT = 1_000_000;
+const play = (n) => (n / UNIT).toLocaleString(undefined, { maximumFractionDigits: 6 });
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+const B58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+function b58enc(bytes) { let n = 0n; for (const b of bytes) n = (n << 8n) | BigInt(b); let s = ''; while (n > 0n) { s = B58[Number(n % 58n)] + s; n /= 58n; } for (const b of bytes) { if (b) break; s = '1' + s; } return s; }
+function b58dec(str) { let n = 0n; for (const c of str) n = n * 58n + BigInt(B58.indexOf(c)); const out = []; while (n > 0n) { out.unshift(Number(n & 255n)); n >>= 8n; } for (const c of str) { if (c !== '1') break; out.unshift(0); } return new Uint8Array(out); }
+const unhex = (h) => new Uint8Array(h.match(/../g).map((x) => parseInt(x, 16)));
+const tohex = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, '0')).join('');
+
+let S = null; // current snapshot-ish state
+let ws = null;
+let config = {};
+let owner = null;
+let me = { balance: 0, positions: [] };
+
+// ---- silent wallet: ed25519 keypair in localStorage ----
+async function ensureKey(forceNew) {
+  let k = null;
+  try { k = JSON.parse(localStorage.getItem('arena-dev-key') || 'null'); } catch {}
+  if (!k || forceNew) {
+    try {
+      const kp = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
+      const pub = new Uint8Array(await crypto.subtle.exportKey('raw', kp.publicKey));
+      const priv = new Uint8Array(await crypto.subtle.exportKey('pkcs8', kp.privateKey));
+      k = { owner: b58enc(pub), pkcs8: tohex(priv) };
+    } catch {
+      // No WebCrypto Ed25519: a random 32-byte id is enough for the memory chain.
+      k = { owner: b58enc(crypto.getRandomValues(new Uint8Array(32))), pkcs8: null };
+    }
+    try { localStorage.setItem('arena-dev-key', JSON.stringify(k)); } catch {}
+    owner = k.owner;
+    $('owner').textContent = owner;
+    await faucet();
+  }
+  owner = k.owner;
+  $('owner').textContent = owner;
+}
+async function faucet() {
+  const r = await fetch('/faucet', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ owner }) }).then((r) => r.json());
+  $('walletMsg').textContent = r.error ? 'faucet: ' + r.error : r.granted ? `faucet: +${play(r.granted)} PLAY` : 'faucet: already claimed for this key';
+  refreshMe();
+}
+async function refreshMe() {
+  if (!owner) return;
+  try { me = await fetch('/me/' + owner).then((r) => r.json()); } catch { return; }
+  $('balance').textContent = play(me.balance ?? 0);
+  $('positions').innerHTML = (me.positions || []).slice(0, 8).map((p) => {
+    const stake = p.amounts.map((a, i) => a ? `${play(a)} on ${esc(p.outcomes[i]?.label)}` : '').filter(Boolean).join(', ');
+    const res = p.state === 'settled' ? ` → won by ${esc(p.winnerOutcomeId)}, paid ${play(p.payout || 0)}` : p.state === 'void' ? ` → void, refunded ${play(p.payout || 0)}` : '';
+    return `<div class="muted">${esc(p.windowId)} [${p.state}] ${stake}${res}</div>`;
+  }).join('');
+}
+async function bet(windowId, outcomeId) {
+  const amount = Math.round(Number($('amount').value) * UNIT);
+  const r = await fetch('/dev/bet', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ owner, windowId, outcomeId, amount }) }).then((r) => r.json());
+  $('walletMsg').innerHTML = r.error ? `<span class="err">bet: ${esc(r.error)}</span>` : `bet placed: ${play(amount)} on ${esc(outcomeId)}`;
+  refreshMe();
+}
+
+// ---- feed ----
+function connect(channel) {
+  if (ws) { ws.onclose = null; ws.close(); }
+  S = null;
+  render();
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${location.host}/ws?channel=${encodeURIComponent(channel)}`);
+  ws.onopen = () => ($('conn').textContent = 'connected');
+  ws.onclose = () => { $('conn').textContent = 'disconnected, retrying'; setTimeout(() => connect(channel), 2000); };
+  ws.onmessage = (e) => apply(JSON.parse(e.data));
+}
+const win = (id) => S && S.windows.find((w) => w.windowId === id);
+function apply(m) {
+  if (m.type === 'snapshot') { S = { ...m, events: [...m.recentEvents].reverse(), chat: m.recentChat || [] }; S.offset = m.serverNow - Date.now(); render(); return; }
+  if (!S) return;
+  switch (m.type) {
+    case 'phase': S.phase = m.phase; break;
+    case 'match': S.match = { matchId: m.matchId, title: m.title, entrants: m.entrants, meta: m.meta }; S.windows = []; S.events = []; break;
+    case 'window_open': S.windows.push({ ...m, state: 'open', pools: m.outcomes.map(() => 0), total: 0 }); break;
+    case 'pools': { const w = win(m.windowId); if (w) { w.pools = m.pools; w.total = m.total; } break; }
+    case 'window_locked': { const w = win(m.windowId); if (w) Object.assign(w, { state: 'locked', seed: m.seed, entropy: m.entropy }); break; }
+    case 'window_settled': { const w = win(m.windowId); if (w) Object.assign(w, { state: 'settled', winnerOutcomeId: m.winnerOutcomeId, secret: m.secret, payouts: m.payouts }); refreshMe(); break; }
+    case 'window_void': { const w = win(m.windowId); if (w) Object.assign(w, { state: 'void', payouts: m.refunds }); refreshMe(); break; }
+    case 'event': S.events.unshift(m.event); break;
+    case 'match_end': if (S.match) S.match.result = m.result; break;
+    case 'chat': S.chat.push(m); if (S.chat.length > 100) S.chat.shift(); break;
+    case 'error': $('walletMsg').innerHTML = `<span class="err">${esc(m.message)}</span>`; break;
+  }
+  if (S.events.length > 200) S.events.length = 200;
+  render();
+}
+
+async function verifySeed(w) {
+  const data = new Uint8Array([...unhex(w.secret), ...unhex(w.entropy), ...b58dec(w.market)]);
+  const h = tohex(await crypto.subtle.digest('SHA-256', data));
+  alert(h === w.seed ? 'seed verified: sha256(secret ‖ entropy ‖ market) matches' : `MISMATCH\ncomputed ${h}\npublished ${w.seed}`);
+}
+
+// Only touch the DOM when the markup changed, so buttons are not replaced under the mouse.
+const lastHtml = {};
+function setHtml(id, html) { if (lastHtml[id] !== html) { lastHtml[id] = html; $(id).innerHTML = html; } }
+function render() {
+  if (!S) { $('phase').textContent = '-'; return; }
+  $('phase').textContent = S.phase;
+  const m = S.match;
+  $('matchTitle').textContent = m ? m.title : '(no match yet)';
+  $('matchId').textContent = m ? m.matchId : '';
+  setHtml('entrants', m ? m.entrants.map((e) => `<span style="color:${esc(e.color || '#000')}">■</span> ${esc(e.name)} <span class="muted">${e.record ? `(${e.record.wins}/${e.record.played})` : ''}</span>`).join(' &nbsp; ') : '');
+  $('result').textContent = m && m.result !== undefined ? 'result: ' + JSON.stringify(m.result) : '';
+  const now = Date.now() + (S.offset || 0);
+  // Structure only changes on window state changes; pool numbers are patched in below.
+  const dyn = {};
+  setHtml('windows', S.windows.length ? S.windows.map((w) => {
+    const total = w.total || 0;
+    dyn[`${w.windowId}|t`] = play(total);
+    const rows = w.outcomes.map((o, i) => {
+      const p = w.pools[i] || 0;
+      const share = total ? ((p / total) * 100).toFixed(1) + '%' : '-';
+      const mult = p ? (total / p).toFixed(2) + 'x' : '-';
+      const btn = w.state === 'open' && config.chain === 'memory' ? `<button data-w="${esc(w.windowId)}" data-o="${esc(o.id)}">bet</button>` : '';
+      const win = w.winnerOutcomeId === o.id ? ' ✔' : '';
+      dyn[`${w.windowId}|${i}|p`] = play(p); dyn[`${w.windowId}|${i}|s`] = share; dyn[`${w.windowId}|${i}|m`] = mult;
+      const cell = (k) => `<td data-dyn="${esc(w.windowId)}|${i}|${k}"></td>`;
+      return `<tr><td>${esc(o.label)}${win}</td>${cell('p')}${cell('s')}${cell('m')}<td>${btn}</td></tr>`;
+    }).join('');
+    const left = w.state === 'open' ? ` closes in <span class="cd" data-close="${w.closesAt}"></span>` : '';
+    const seed = w.seed ? `<div class="muted">seed <code>${esc(w.seed)}</code></div>` : '';
+    const secret = w.secret ? `<div class="muted">secret <code>${esc(w.secret)}</code> <button data-verify="${esc(w.windowId)}">verify seed</button></div>` : '';
+    const pays = w.payouts && w.payouts.length ? `<div class="muted">${w.state === 'void' ? 'refunds' : 'payouts'}: ${w.payouts.map((p) => `${p.owner === owner ? '<b>you</b>' : esc(p.owner.slice(0, 6))}${p.bot ? '(bot)' : ''} ${play(p.amount)}`).join(', ')}</div>` : '';
+    return `<div><b>${esc(w.question)}</b> [${w.state}${w.seeded ? ', seeded' : ', live'}]${left} pool <span data-dyn="${esc(w.windowId)}|t"></span>
+      <table><tr><th>outcome</th><th>pool</th><th>implied</th><th>pays</th><th></th></tr>${rows}</table>${seed}${secret}${pays}</div><hr>`;
+  }).join('') : 'none');
+  for (const el of document.querySelectorAll('[data-dyn]')) el.textContent = dyn[el.dataset.dyn] ?? '';
+  for (const el of document.querySelectorAll('.cd')) el.textContent = Math.max(0, Math.ceil((Number(el.dataset.close) - now) / 1000)) + 's';
+  $('events').textContent = S.events.slice(0, 80).map((e) => `${String(e.at).padStart(6)}ms ${e.type} ${JSON.stringify(e.data ?? '')}`).join('\n');
+  const chat = $('chat');
+  const atBottom = chat.scrollTop + chat.clientHeight >= chat.scrollHeight - 5;
+  setHtml('chat', S.chat.map((c) => `<div class="${c.bot ? 'bot' : ''}"><b>${esc(c.from)}</b>${c.bot ? ' [bot]' : ''}: ${esc(c.text)}</div>`).join(''));
+  if (atBottom) chat.scrollTop = chat.scrollHeight;
+}
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+  if (t.dataset.w) bet(t.dataset.w, t.dataset.o);
+  if (t.dataset.verify) verifySeed(win(t.dataset.verify));
+});
+$('faucet').onclick = faucet;
+$('newKey').onclick = () => ensureKey(true);
+$('chatSend').onclick = () => { if (ws && $('chatText').value) { ws.send(JSON.stringify({ type: 'chat', name: $('chatName').value, text: $('chatText').value })); $('chatText').value = ''; } };
+$('chatText').onkeydown = (e) => { if (e.key === 'Enter') $('chatSend').click(); };
+$('channel').onchange = () => { try { localStorage.setItem('arena-dev-channel', $('channel').value); } catch {} connect($('channel').value); };
+
+(async () => {
+  config = await fetch('/config').then((r) => r.json());
+  $('chainKind').textContent = config.chain + (config.chain !== 'memory' ? ' (betting from this page needs CHAIN=memory)' : '');
+  const chans = await fetch('/channels').then((r) => r.json());
+  let saved = null; try { saved = localStorage.getItem('arena-dev-channel'); } catch {}
+  $('channel').innerHTML = chans.map((c) => `<option value="${esc(c.channel)}">${esc(c.title)} (${esc(c.channel)})</option>`).join('');
+  if (saved && chans.some((c) => c.channel === saved)) $('channel').value = saved;
+  await ensureKey(false);
+  connect($('channel').value);
+  setInterval(refreshMe, 3000);
+  setInterval(render, 1000);
+})();
+</script>
+</body>
+</html>

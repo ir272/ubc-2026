@@ -1,0 +1,57 @@
+{
+  "id": "tilly",
+  "model": "vendor/cast/248-leaf-boy/248_LeafBoy.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.125,
+  "scale": 1.25,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#3DDC84",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/U-506llBsdnnXn3uslKggDw5Qt-sdDlQAY4KLKvZsuU",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/248-leaf-boy/248_LeafBoy_thumbnail.png",
+  "headTop": 0.36,
+  "style": {
+    "energy": 0.7,
+    "posture": 0.06,
+    "headAmp": 0.55,
+    "gesture": 0.9,
+    "body": 1.1,
+    "tempo": 1.2,
+    "rest": "sad",
+    "restWeight": 0.25,
+    "gait": "scurry"
+  },
+  "eyeLine": 0.2,
+  "flatten": 0
+}

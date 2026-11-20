@@ -1,0 +1,56 @@
+{
+  "id": "maximilian",
+  "model": "vendor/cast/204-lord-piggington/204_LordPiggington.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.878,
+  "scale": 0.92,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#3D6BFF",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/1TdUiEB97Rsvvx47BiesyOAc1YvzZpeRqIZUZpxqkPU",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/204-lord-piggington/204_LordPiggington_thumbnail.png",
+  "headTop": 0.268,
+  "style": {
+    "energy": 0.4,
+    "posture": -0.07,
+    "gesture": 0.8,
+    "body": 0.85,
+    "head": 0.55,
+    "tempo": 0.75,
+    "walk": "Walk_Formal_Loop",
+    "rest": "relaxed",
+    "restWeight": 0.5,
+    "gait": "stride"
+  }
+}

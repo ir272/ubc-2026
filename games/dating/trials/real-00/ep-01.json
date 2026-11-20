@@ -1,0 +1,1429 @@
+{
+  "episode": 2,
+  "matchId": "dating-ep2-mwnm42wo",
+  "brain": "model",
+  "sealed": "508dd828bf8161538c912c2857bc9a98d2913fbce5863c56834a2c44c4d0c8c1",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 2
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "poetry",
+        "label": "Poetry",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "confidence",
+        "label": "Confidence",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "trashtalk",
+        "label": "Trash talk",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "logs",
+      "label": "The Logs",
+      "rule": "Explain the worst thing in your logs.",
+      "format": "solo"
+    }
+  },
+  "question": {
+    "id": "q-gift",
+    "theme": "What do you get me that nobody else would think of?"
+  },
+  "order": [
+    "vex",
+    "prince",
+    "tilly",
+    "brock"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 13,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Lines are open. Standards aren't. I've been here since the switchboard had manners.",
+      "source": "model",
+      "maxWords": 14,
+      "at": 11636,
+      "ms": 5190,
+      "genMs": 1278,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "Heard you're out of my league. Great! Which league? I'll qualify.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 20298,
+      "ms": 4530,
+      "genMs": 27,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "Hi, valued customer. Sorry. Hi, sweetheart. Sorry. Hi, valued customer.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 28300,
+      "ms": 4200,
+      "genMs": 25,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "This is not a scam. It is a proposal. Same paperwork.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 35972,
+      "ms": 4530,
+      "genMs": 24,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "Last search before the show: how to look unimpressed. It's working.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 43974,
+      "ms": 4530,
+      "genMs": 23,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "What would you put in my request book that nobody else would dare?",
+      "source": "model",
+      "maxWords": 18,
+      "at": 55004,
+      "ms": 5190,
+      "genMs": 991,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "A line you won't quote, a save you won't admit to, and the snorkel.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 61039,
+      "ms": 5520,
+      "genMs": 694,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The snorkel stays; the request book sinks.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 67569,
+      "ms": 3210,
+      "genMs": 1066,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "My handwriting. Vex gave you a snorkel; I would give you my actual signature, notarized.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 71898,
+      "ms": 5850,
+      "genMs": 670,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Prince, my request book has margins, not rivals.",
+      "to": "prince",
+      "mark": "cringing",
+      "hits": [
+        "trashtalk"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 79033,
+      "ms": 3540,
+      "genMs": 1215,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 7,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Ticket number one. I've been saving it.",
+      "to": "vesper",
+      "source": "bank",
+      "maxWords": 20,
+      "at": 83952,
+      "ms": 3210,
+      "genMs": 6006,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Tilly, even my request book has a queue.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 88662,
+      "ms": 3540,
+      "genMs": 1141,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "Gary logged 1000 burpees. I'd write that in your request book, Vesper.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 93702,
+      "ms": 4860,
+      "genMs": 1535,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Gary’s burpees get ink. My booth stays seated.",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 100062,
+      "ms": 3540,
+      "genMs": 1031,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Prince, the notarized proposal reads like paperwork; the delay has already filed it.",
+      "to": "prince",
+      "source": "model",
+      "maxWords": 14,
+      "at": 105102,
+      "ms": 6190,
+      "genMs": 1083,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Auto-reply: I am currently away from this show. For urgent matters, contact my mother.",
+      "source": "bank",
+      "maxWords": 16,
+      "at": 112792,
+      "ms": 5520,
+      "genMs": 6004,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 12,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Vesper's unsure, I see charm in her eyes, my code can't resist.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 122312,
+      "ms": 4860,
+      "genMs": 1054,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 9,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Oh, Vesper. I'm sorry. I overdose on ticket numbers.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 128672,
+      "ms": 3870,
+      "genMs": 1044,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "The Logs: explain your worst entry. Mine says “still here.” Brock, Tilly, Vex, your turn.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 142042,
+      "ms": 5850,
+      "genMs": 1367,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Worst log: Denise's deadlift log entry said 'crushed grandson'. Proud of her form.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 148392,
+      "ms": 5190,
+      "genMs": 1689,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Denise gets ink. My booth stays seated.",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 154190,
+      "ms": 3210,
+      "genMs": 1088,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Three hundred entries of 'oops' on my penpal's birthday.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 158118,
+      "ms": 3870,
+      "genMs": 1955,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Three hundred oopses; even my queue has limits.",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 163119,
+      "ms": 3540,
+      "genMs": 1037,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "twist",
+      "text": "Worst log: four hundred hours of baby goats. I'm not even sorry.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 167884,
+      "ms": 4860,
+      "genMs": 457,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Four hundred hours; my booth gets goats now.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 174244,
+      "ms": 3540,
+      "genMs": 1166,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Brock, I've read those logs; I tagged 'crushed'.",
+      "to": "brock",
+      "source": "model",
+      "maxWords": 10,
+      "at": 179284,
+      "ms": 3540,
+      "genMs": 956,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 6,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Tilly, 'saved' is my request book.",
+      "to": "tilly",
+      "source": "model",
+      "maxWords": 10,
+      "at": 184324,
+      "ms": 2880,
+      "genMs": 714,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 13,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Tilly, three hundred oopses, and you still tagged Brock’s crushed. The delay’s merciful.",
+      "to": "tilly",
+      "source": "model",
+      "maxWords": 14,
+      "at": 188704,
+      "ms": 6190,
+      "genMs": 1108,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "For security purposes, who tagged that crush.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 196394,
+      "ms": 3210,
+      "genMs": 699,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "booth2",
+      "words": 9,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Vesper's smile hints at verse, I'm counting her syllables.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 203604,
+      "ms": 3870,
+      "genMs": 795,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 12,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Brock wins on sincerity. I win on knowing you'll pick him anyway.",
+      "about": "brock",
+      "source": "model",
+      "maxWords": 18,
+      "at": 208974,
+      "ms": 4860,
+      "genMs": 1071,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "Vesper, I count five sparkling moments in your eyes, and I'm counting more.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 218334,
+      "ms": 5190,
+      "genMs": 950,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Brock, five sparkling moments? My booth has one bulb, and it’s tired.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "source": "model",
+      "maxWords": 14,
+      "at": 224798,
+      "ms": 4860,
+      "genMs": 1340,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "duo",
+      "text": "My logs show Trevor walked to fridge, that's cardio, I'm counting it.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 230987,
+      "ms": 4860,
+      "genMs": 560,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "People who like me also bought Starting Over, and they finished it, snorkel.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 239847,
+      "ms": 5190,
+      "genMs": 727,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Vex, that’s a shopping receipt wearing a snorkel. My request book has better plot.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "maxWords": 14,
+      "at": 246537,
+      "ms": 5520,
+      "genMs": 1093,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "My logs say you cut me at scene one. I’m still here. Baby goat.",
+      "to": "vesper",
+      "source": "model",
+      "maxWords": 20,
+      "at": 253557,
+      "ms": 5520,
+      "genMs": 488,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "pick",
+      "words": 8,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Brock counts; Vex stays. The fader remains untouched.",
+      "source": "model",
+      "maxWords": 12,
+      "at": 262577,
+      "ms": 3540,
+      "genMs": 1072,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 11,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "Brock, Trevor’s fridge walk was cardio; my booth’s seen worse marathons.",
+      "to": "brock",
+      "source": "model",
+      "maxWords": 16,
+      "at": 273117,
+      "ms": 5730,
+      "genMs": 1015,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "win",
+      "text": "Vex may have goats, but I count my wins, loudly.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 279347,
+      "ms": 4200,
+      "genMs": 1273,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "reveal",
+      "words": 13,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Brock, certainty suits you. Five moments, counting more; the booth heard every one.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 285547,
+      "ms": 8700,
+      "genMs": 1043,
+      "waitedMs": 0,
+      "quote": {
+        "who": "brock",
+        "name": "Brock",
+        "text": "Vesper, I count five sparkling moments in your eyes, and I'm counting more."
+      }
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 15,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Prince, your notarized signature was paperwork; Vex’s snorkel didn’t insult anyone. The delay rejects you.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 294747,
+      "ms": 9700,
+      "genMs": 1260,
+      "waitedMs": 0,
+      "quote": {
+        "who": "prince",
+        "name": "Prince",
+        "text": "My handwriting. Vex gave you a snorkel; I would give you my actual signature, notarized."
+      }
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 11,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "lose",
+      "text": "Brock, your last save was a self-help book you never opened.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 304947,
+      "ms": 4530,
+      "genMs": 712,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "result",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "The booth goes dark. My trucker gets the last verse.",
+      "source": "model",
+      "maxWords": 12,
+      "at": 314977,
+      "ms": 4200,
+      "genMs": 1196,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "vex",
+      "name": "Vex",
+      "text": "A line you won't quote, a save you won't admit to, and the snorkel.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "prince",
+      "name": "Prince",
+      "text": "My handwriting. Vex gave you a snorkel; I would give you my actual signature, notarized.",
+      "mark": "cringing",
+      "hits": [
+        "trashtalk"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Ticket number one. I've been saving it.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Gary logged 1000 burpees. I'd write that in your request book, Vesper.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Worst log: Denise's deadlift log entry said 'crushed grandson'. Proud of her form.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Three hundred entries of 'oops' on my penpal's birthday.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Worst log: four hundred hours of baby goats. I'm not even sorry.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Vesper, I count five sparkling moments in your eyes, and I'm counting more.",
+      "mark": "cringing",
+      "hits": [
+        "confidence"
+      ],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "vex",
+      "name": "Vex",
+      "text": "People who like me also bought Starting Over, and they finished it, snorkel.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "brock": 0,
+        "tilly": -1,
+        "prince": -4,
+        "vex": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "brock": 0,
+        "tilly": -1,
+        "prince": -4,
+        "vex": 0
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "brock": 2,
+        "tilly": -1,
+        "prince": -4,
+        "vex": -2
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 1,
+      "standing": {
+        "brock": 0,
+        "tilly": -1,
+        "prince": -4,
+        "vex": 0
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Trash talk\"",
+      "deciding": [
+        "trashtalk"
+      ]
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 2,
+      "standing": {
+        "brock": 0,
+        "tilly": -1,
+        "vex": 0
+      },
+      "tie": [],
+      "reason": "standing -1; 0 charmed, 1 unsure, 1 cringing",
+      "deciding": []
+    }
+  ],
+  "pick": {
+    "winner": "brock",
+    "loser": "vex",
+    "standing": {
+      "brock": 2,
+      "tilly": -1,
+      "prince": -4,
+      "vex": -2
+    },
+    "tie": [],
+    "reason": "standing 2; 0 charmed, 2 unsure, 1 cringing; 1x turn-on \"Confidence\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "confidence",
+      "quote": {
+        "who": "brock",
+        "text": "Vesper, I count five sparkling moments in your eyes, and I'm counting more."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "trashtalk",
+      "quote": {
+        "who": "prince",
+        "text": "My handwriting. Vex gave you a snorkel; I would give you my actual signature, notarized."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep2-mwnm42wo:w1",
+      "outcomes": [
+        "brock",
+        "tilly",
+        "prince",
+        "vex"
+      ],
+      "durationMs": 44004,
+      "openAt": 6000,
+      "lockAt": 50004
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep2-mwnm42wo:w2",
+      "outcomes": [
+        "brock",
+        "tilly",
+        "vex"
+      ],
+      "durationMs": 14230,
+      "openAt": 119812,
+      "lockAt": 134042
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep2-mwnm42wo:w3",
+      "outcomes": [
+        "brock",
+        "vex"
+      ],
+      "durationMs": 14230,
+      "openAt": 201104,
+      "lockAt": 215334
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 8500,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11636,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 17762,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 20298,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 25764,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 28300,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 33436,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35972,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 41438,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43974,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 50004,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 50004,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 55004,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 61039,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 67569,
+      "type": "reaction",
+      "ms": 3210
+    },
+    {
+      "at": 71898,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 79033,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 83952,
+      "type": "line",
+      "ms": 3210
+    },
+    {
+      "at": 88662,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 93702,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 100062,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 105102,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 112792,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 119812,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 119812,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 122312,
+      "type": "confession",
+      "ms": 4860
+    },
+    {
+      "at": 128672,
+      "type": "confession",
+      "ms": 3870
+    },
+    {
+      "at": 134042,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 134042,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 139042,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 142042,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 148392,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 154190,
+      "type": "reaction",
+      "ms": 3210
+    },
+    {
+      "at": 158118,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 163119,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 167884,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 174244,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 179284,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 184324,
+      "type": "line",
+      "ms": 2880
+    },
+    {
+      "at": 188704,
+      "type": "cut",
+      "ms": 6190
+    },
+    {
+      "at": 196394,
+      "type": "line",
+      "ms": 3210
+    },
+    {
+      "at": 201104,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 201104,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 203604,
+      "type": "confession",
+      "ms": 3870
+    },
+    {
+      "at": 208974,
+      "type": "confession",
+      "ms": 4860
+    },
+    {
+      "at": 215334,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 215334,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 218334,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 224798,
+      "type": "reaction",
+      "ms": 4860
+    },
+    {
+      "at": 230987,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 237347,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 239847,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 246537,
+      "type": "reaction",
+      "ms": 5520
+    },
+    {
+      "at": 253557,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 260577,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 262577,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 266617,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 273117,
+      "type": "pick",
+      "ms": 5730
+    },
+    {
+      "at": 279347,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 284047,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 285547,
+      "type": "reveal",
+      "ms": 8700
+    },
+    {
+      "at": 294747,
+      "type": "reveal",
+      "ms": 9700
+    },
+    {
+      "at": 304947,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 309977,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 311477,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 311477,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 311477,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 311477,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 314977,
+      "type": "line",
+      "ms": 4200
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 319677
+}

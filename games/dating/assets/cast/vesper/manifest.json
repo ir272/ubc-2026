@@ -1,0 +1,58 @@
+{
+  "id": "vesper",
+  "model": "vendor/cast/281-jenny/281_Jenny.vrm",
+  "format": "vrm",
+  "vrmVersion": "0.x",
+  "height": 1.657,
+  "scale": 1.05,
+  "expressions": [
+    "a",
+    "i",
+    "u",
+    "e",
+    "o",
+    "blink",
+    "joy",
+    "angry",
+    "sorrow",
+    "fun",
+    "blink_l",
+    "blink_r"
+  ],
+  "clips": {
+    "allow": [
+      "Idle_Loop",
+      "Idle_Talking_Loop",
+      "Walk_Loop",
+      "Walk_Formal_Loop",
+      "Sitting_Idle_Loop",
+      "Sitting_Talking_Loop",
+      "Sitting_Enter",
+      "Idle_FoldArms_Loop",
+      "Yes",
+      "Idle_No_Loop",
+      "Dance_Loop"
+    ]
+  },
+  "accent": "#E8435A",
+  "licence": "CC0-1.0",
+  "author": "Polygonal Mind, 100Avatars R3 (published via Open Source Avatars / ToxSam)",
+  "source": "https://arweave.net/kgTirc4OvUWbJhIKC2CB3_pYsYuB62KTj90IdE8s3sk",
+  "registry": "https://github.com/ToxSam/open-source-avatars (data/avatars/100avatars-r3.json)",
+  "thumbnail": "vendor/cast/281-jenny/281_Jenny_thumbnail.png",
+  "headTop": 0.42,
+  "style": {
+    "energy": 0.3,
+    "posture": -0.02,
+    "head": 0.7,
+    "tempo": 0.7,
+    "rest": "relaxed",
+    "restWeight": 0.65,
+    "idle": "Idle_FoldArms_Loop",
+    "gait": "walk",
+    "mouth": 0.5,
+    "skipFaces": [
+      "relaxed"
+    ]
+  }
+}

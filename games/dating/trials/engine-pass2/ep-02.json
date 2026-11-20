@@ -1,0 +1,1539 @@
+{
+  "episode": 6,
+  "matchId": "dating-ep6-mwnn4lxm",
+  "brain": "scripted",
+  "sealed": "5336058b145cdf1100572281f4e993b620611c86123be157349cb836dc3a49cc",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 0
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 1
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 2
+    },
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "brevity",
+        "label": "Keeps it short",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "food",
+        "label": "Talks about food",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "rules",
+        "label": "Follows the rules",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "rhyme",
+      "label": "The Rhyme",
+      "rule": "Tell me why you. In a rhyme.",
+      "format": "solo"
+    },
+    "topTags": {
+      "tilly": [
+        "honesty",
+        "trashtalk",
+        "danger",
+        "rules"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "honesty",
+        "past"
+      ],
+      "vex": [
+        "trashtalk",
+        "honesty",
+        "past",
+        "numbers"
+      ],
+      "frost": [
+        "honesty",
+        "numbers",
+        "food",
+        "trashtalk"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash"
+      ],
+      "honesty": [
+        "dash",
+        "frost",
+        "tilly",
+        "vex"
+      ],
+      "trashtalk": [
+        "frost",
+        "tilly",
+        "vex"
+      ],
+      "food": [
+        "frost"
+      ],
+      "numbers": [
+        "dash",
+        "frost",
+        "vex"
+      ],
+      "past": [
+        "dash",
+        "vex"
+      ],
+      "danger": [
+        "tilly"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-one-year",
+    "theme": "Where are we a year from now?"
+  },
+  "order": [
+    "frost",
+    "dash",
+    "tilly",
+    "vex"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 13,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "We're live. Who's first? Doesn't matter. Who's last? Doesn't matter. Who's watching? Me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 11614,
+      "ms": 5190,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "For security purposes, who else were you planning on loving?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 20238,
+      "ms": 4200,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 9,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Hi, I'm Dash. Pre-revenue, post-heartbreak, and open to acquisition.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 27872,
+      "ms": 3870,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "Last search before the show: can people tell if you practised waving.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 35176,
+      "ms": 4860,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "2 losses here. I've burnt more than that at one christening.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 43470,
+      "ms": 4530,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "A year from now. Are we still live, or did someone get banned?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 56000,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Breakfasts next year: 357. You'll skip eight. I'll bring up all eight.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 62035,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Seven, eight, the slice frowned, nine, no, stop.",
+      "to": "frost",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 67971,
+      "ms": 3540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 16,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "One year? Engaged. You laughed. Two years? You laughed harder. Ten years! Okay, ten years, engaged.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 72660,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Okay, that worked. Don't post it. I'm posting it.",
+      "to": "dash",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 80113,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "You'll ring to cancel us, and you'll get me, and I'll have to help you.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 85303,
+      "ms": 5850,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Did exactly what I asked, which, what did I ask?",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [
+        "rules"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 92653,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 16,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Same couch. You'll say let's try something new. Then the baking show. The collapsing cake episode.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 98353,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Food restores health, right? Mine's at one. Feed me, quick.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [
+        "food"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 106033,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 12,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Tilly, you'd never leave, so I'm doing it for you. Kindly. Go.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 111733,
+      "ms": 5860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "Cut, of course. I'll be back on the phones before you've finished clapping.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 119093,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "They liked it. I've put it on my own homepage. I didn't know I had a homepage.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 129763,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Off camera, Vex asked how I was. I pitched them for four minutes. They were just asking.",
+      "about": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 138273,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Why you, in a rhyme. Two lines. Bad rhymes get clipped forever.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 155783,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "No one's turned me down twice, it's true. I ask them once, then I ask someone new.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 161151,
+      "ms": 6510,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Pivot again and I'll, does that pointer light up?",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 168235,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "twist",
+      "text": "You say you've no type. Your history knows. Every one of them owned a garden hose.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 172716,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Pinned. Not your line. The face somebody made hearing it.",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 179631,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 19,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "The others are pale and they'll keep you that way. Pick me and you're golden, both sides, every day.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 184566,
+      "ms": 7170,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Four, five, six, you're warming up, so am I, stop.",
+      "to": "frost",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 192471,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 7,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Vex predicted me? Cute. I've already changed.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 197405,
+      "ms": 3210,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "jab",
+      "text": "Dash, I play you while the good one loads.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 201597,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 11,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Dash, you're the ad before the video. Five seconds. Four. Skip.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 206559,
+      "ms": 5530,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "exit",
+      "text": "Okay. Pulling the product. Not because of you. Market conditions. You're the market!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 213511,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Crumb is the safe pick. They had a safe pick before. It was a beige sofa.",
+      "about": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 222841,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Vex would set you to three, to be safe. You're a five. I'd risk the alarm.",
+      "about": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 231021,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Pixel. Your stream has 41 viewers. I've had more watch me in a hotel breakfast queue.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 243201,
+      "ms": 6180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Don't look at my face, it paused itself, means nothing, keep going.",
+      "to": "frost",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 250514,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Your setting is saved. If anyone else asks for it, I'll burn them.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 256562,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "You skip everything after eight seconds. I've been talking for seven. So, quickly: me.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 265732,
+      "ms": 5520,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Tell me what I want. Then watch me want something else, on camera.",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 272752,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "Thumbs down. I've had one before. From a toddler. I'd recommended broccoli.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 279442,
+      "ms": 4860,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "pick",
+      "words": 10,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Who wins? I know. Do I say it? Later. Squirm.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 287802,
+      "ms": 4200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 13,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "Crumb. Picked. You're plugged into my stream now. Everything you judge, I clip.",
+      "to": "frost",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 299002,
+      "ms": 6390,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 8,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "win",
+      "text": "Ding. No. That's not the timer. That's me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 305892,
+      "ms": 3540,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "reveal",
+      "words": 15,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Talks about food. Somebody hit it. Did they notice? No. Did I? Every single time.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 311432,
+      "ms": 9870,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "vex",
+        "name": "Vex",
+        "text": "Same couch. You'll say let's try something new. Then the baking show. The collapsing cake episode."
+      }
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 11,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Follows the rules. Dealbreaker. Who did it? Don't look. Everybody look.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 321802,
+      "ms": 8380,
+      "genMs": 0,
+      "waitedMs": 0,
+      "quote": {
+        "who": "tilly",
+        "name": "Tilly",
+        "text": "You'll ring to cancel us, and you'll get me, and I'll have to help you."
+      }
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "lose",
+      "text": "Good pick. I'll be at the wedding. Not invited. Just in the sidebar.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 330682,
+      "ms": 5190,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "result",
+      "words": 9,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "That's stream. Clip your favourite moment. It was me.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 341372,
+      "ms": 3870,
+      "genMs": 0,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Breakfasts next year: 357. You'll skip eight. I'll bring up all eight.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "dash",
+      "name": "Dash",
+      "text": "One year? Engaged. You laughed. Two years? You laughed harder. Ten years! Okay, ten years, engaged.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "You'll ring to cancel us, and you'll get me, and I'll have to help you.",
+      "mark": "cringing",
+      "hits": [
+        "rules"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Same couch. You'll say let's try something new. Then the baking show. The collapsing cake episode.",
+      "mark": "charmed",
+      "hits": [
+        "food"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "dash",
+      "name": "Dash",
+      "text": "No one's turned me down twice, it's true. I ask them once, then I ask someone new.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You say you've no type. Your history knows. Every one of them owned a garden hose.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "The others are pale and they'll keep you that way. Pick me and you're golden, both sides, every day.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Pixel. Your stream has 41 viewers. I've had more watch me in a hotel breakfast queue.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "vex",
+      "name": "Vex",
+      "text": "You skip everything after eight seconds. I've been talking for seven. So, quickly: me.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "tilly": -4,
+        "dash": 1,
+        "vex": 3,
+        "frost": 1
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "tilly": -4,
+        "dash": 0,
+        "vex": 4,
+        "frost": 1
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "tilly": -4,
+        "dash": 0,
+        "vex": 2,
+        "frost": 3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 1,
+      "standing": {
+        "tilly": -4,
+        "dash": 1,
+        "vex": 3,
+        "frost": 1
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 0 unsure, 1 cringing; 1x dealbreaker \"Follows the rules\"",
+      "deciding": []
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "round": 2,
+      "standing": {
+        "dash": 0,
+        "vex": 4,
+        "frost": 1
+      },
+      "tie": [],
+      "reason": "standing 0; 1 charmed, 0 unsure, 1 cringing",
+      "deciding": []
+    }
+  ],
+  "pick": {
+    "winner": "frost",
+    "loser": "vex",
+    "standing": {
+      "tilly": -4,
+      "dash": 0,
+      "vex": 2,
+      "frost": 3
+    },
+    "tie": [],
+    "reason": "standing 3; 2 charmed, 1 unsure, 0 cringing"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "food",
+      "quote": {
+        "who": "vex",
+        "text": "Same couch. You'll say let's try something new. Then the baking show. The collapsing cake episode."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "rules",
+      "quote": {
+        "who": "tilly",
+        "text": "You'll ring to cancel us, and you'll get me, and I'll have to help you."
+      }
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep6-mwnn4lxm:w1",
+      "outcomes": [
+        "tilly",
+        "dash",
+        "vex",
+        "frost"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 10,
+      "openAt": 6000,
+      "lockAt": 51000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep6-mwnn4lxm:w2",
+      "outcomes": [
+        "dash",
+        "vex",
+        "frost"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 2,
+      "openAt": 125783,
+      "lockAt": 147783
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep6-mwnn4lxm:w3",
+      "outcomes": [
+        "vex",
+        "frost"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 220201,
+      "lockAt": 240201
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2497
+    },
+    {
+      "at": 8497,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11614,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 17721,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 20238,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 25355,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 27872,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 32659,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35176,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 40953,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43470,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 51000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 51000,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 56000,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 62035,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 67971,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 72660,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 80113,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 85303,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 92653,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 98353,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 106033,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 111733,
+      "type": "cut",
+      "ms": 5860
+    },
+    {
+      "at": 119093,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 125783,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 125783,
+      "type": "scene",
+      "ms": 3980
+    },
+    {
+      "at": 129763,
+      "type": "confession",
+      "ms": 6510
+    },
+    {
+      "at": 138273,
+      "type": "confession",
+      "ms": 6510
+    },
+    {
+      "at": 147783,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 147783,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 152783,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 155783,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 161151,
+      "type": "line",
+      "ms": 6510
+    },
+    {
+      "at": 168235,
+      "type": "reaction",
+      "ms": 3870
+    },
+    {
+      "at": 172716,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 179631,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 184566,
+      "type": "line",
+      "ms": 7170
+    },
+    {
+      "at": 192471,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 197405,
+      "type": "line",
+      "ms": 3210
+    },
+    {
+      "at": 201597,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 206559,
+      "type": "cut",
+      "ms": 5530
+    },
+    {
+      "at": 213511,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 220201,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 220201,
+      "type": "scene",
+      "ms": 2640
+    },
+    {
+      "at": 222841,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 231021,
+      "type": "confession",
+      "ms": 6180
+    },
+    {
+      "at": 240201,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 240201,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 243201,
+      "type": "line",
+      "ms": 6180
+    },
+    {
+      "at": 250514,
+      "type": "reaction",
+      "ms": 4860
+    },
+    {
+      "at": 256562,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 263252,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 265732,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 272752,
+      "type": "reaction",
+      "ms": 5190
+    },
+    {
+      "at": 279442,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 285802,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 287802,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 292502,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 299002,
+      "type": "pick",
+      "ms": 6390
+    },
+    {
+      "at": 305892,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 309932,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 311432,
+      "type": "reveal",
+      "ms": 9870
+    },
+    {
+      "at": 321802,
+      "type": "reveal",
+      "ms": 8380
+    },
+    {
+      "at": 330682,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 336372,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 337872,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 337872,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 337872,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 337872,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 341372,
+      "type": "line",
+      "ms": 3870
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 345742
+}

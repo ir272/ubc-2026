@@ -1,0 +1,98 @@
+/*
+ * "chart": white ink on near-black paper, as one Looseleaf theme block (no component is edited).
+ * Loaded after index.css (Looseleaf's stylesheet), so at equal specificity it wins.
+ *
+ * Only these seven colours are used, measured from the reference image. Every other value is a mix of them:
+ *   paper #141318, ink #e6e4de, gold #c5a559, pencils: blue #6687ac, coral #b58970, green #69927d, yellow #afa569
+ *
+ * Looseleaf's theming page on dark themes: "a different material system, not a recolor: opaque pens
+ * (--ll-blend: normal), stronger shadows (--ll-shadow-k around 2.5) and a desk lighter than the paper".
+ * Those three are at the bottom of the block.
+ */
+[data-theme="chart"] {
+  /* surfaces */
+  --ll-paper: #141318;
+  --ll-desk: color-mix(in srgb, #e6e4de 7%, #141318);
+  --ll-desk-deep: color-mix(in srgb, #e6e4de 4%, #141318);
+  --ll-paper-shade: color-mix(in srgb, #e6e4de 11%, #141318);
+  --ll-slip: #141318;
+  --ll-card: #141318;
+  --ll-graph: #141318;
+  --ll-check: #141318;
+  --ll-pad: #141318;
+  --ll-kraft: color-mix(in srgb, #b58970 18%, #141318);
+  --ll-photo: color-mix(in srgb, #e6e4de 14%, #141318);
+
+  /* rules, stickies, tape */
+  --ll-rule-blue: #6687ac;
+  --ll-rule-red: #b58970;
+  --ll-pad-rule: #6687ac;
+  --ll-check-rule: #69927d;
+  --ll-sticky-yellow: color-mix(in srgb, #afa569 38%, #141318);
+  --ll-sticky-green: color-mix(in srgb, #69927d 38%, #141318);
+  --ll-sticky-orange: color-mix(in srgb, #b58970 38%, #141318);
+  --ll-sticky-pink: color-mix(in srgb, #b58970 28%, #141318);
+  --ll-sticky-blue: color-mix(in srgb, #6687ac 38%, #141318);
+  --ll-tape: color-mix(in srgb, #e6e4de 16%, transparent);
+  --ll-tape-edge: color-mix(in srgb, #e6e4de 30%, transparent);
+
+  /* inks */
+  --ll-ink: #e6e4de;
+  --ll-ink-soft: color-mix(in srgb, #e6e4de 88%, #141318);
+  --ll-ink-muted: color-mix(in srgb, #e6e4de 60%, #141318);
+  --ll-ink-you: #e6e4de; /* "your pen" (typed text, caret, links): the same white ink; the blue pencil read too dim for an amount */
+  --ll-pencil: color-mix(in srgb, #e6e4de 62%, #141318);
+  --ll-pencil-text: color-mix(in srgb, #e6e4de 60%, #141318);
+  --ll-pencil-mark: color-mix(in srgb, #e6e4de 34%, #141318);
+  --ll-red: #b58970;
+  --ll-green: #69927d;
+  --ll-orange-text: #b58970;
+  --ll-check-ink: #69927d;
+  --ll-check-no: #b58970;
+  --ll-link-hover: #e6e4de;
+  --ll-wet-ink-from: #e6e4de;
+
+  /* the accent: marker, focus; the highlighter is the yellow pencil */
+  --ll-marker: #c5a559;
+  --ll-focus: #c5a559;
+  --ll-hi: #afa569;
+  --ll-hi-deep: #afa569;
+
+  /* the eight stationery accents, folded onto the four pencils */
+  --ll-tomato: #b58970;
+  --ll-tangerine: #b58970;
+  --ll-bubblegum: #b58970;
+  --ll-lemon: #afa569;
+  --ll-grass: #69927d;
+  --ll-teal: #69927d;
+  --ll-sky: #6687ac;
+  --ll-grape: #6687ac;
+
+  /*
+   * Roles. Looseleaf says a theme never sets these (they are derived), but its derivation puts the ink colour on
+   * marker fills, which is light on gold here. A label on a filled shape has to be the paper colour instead.
+   */
+  --primary-foreground: var(--ll-paper);
+  --sidebar-primary-foreground: var(--ll-paper);
+  --destructive-foreground: var(--ll-paper);
+
+  /*
+   * The paper sheen is a derived gradient with white at 38% baked in; on black paper it turns the sheet grey.
+   * Looseleaf's own dark code block replaces it with a faint one, so this does the same, in the ink colour.
+   */
+  --ll-paper-light: linear-gradient(160deg, color-mix(in srgb, #e6e4de 5%, transparent), transparent 55%);
+
+  /* the dark material: opaque pens, black and stronger shadows */
+  --ll-blend: normal;
+  --ll-shade: 0 0 0;
+  --ll-shadow-k: 2.5;
+  color-scheme: dark;
+}
+
+/*
+ * Not a token: the one rule the tokens cannot reach. Looseleaf fills the selected tab with the highlighter at 92%
+ * and keeps the label in the ink colour, which is light on yellow here.
+ */
+[data-theme="chart"] [data-slot="tabs-trigger"][data-state="active"] {
+  color: var(--ll-paper);
+}

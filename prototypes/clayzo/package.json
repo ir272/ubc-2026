@@ -1,0 +1,21 @@
+{
+  "name": "clayzo-prototype",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "author": "tsx author/all.ts",
+    "dev": "vite --port 5193 --strictPort"
+  },
+  "dependencies": {
+    "@clayzo/animation": "^0.3.23",
+    "@clayzo/webgl-player": "^0.3.23"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "clayzo": "^0.3.23",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

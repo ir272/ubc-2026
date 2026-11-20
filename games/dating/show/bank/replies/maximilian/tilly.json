@@ -1,0 +1,322 @@
+{
+  "star": "maximilian",
+  "suitor": "tilly",
+  "replies": {
+    "For security purposes, who else were you planning on loving?": {
+      "warm": "Security is bribed. Continue, Madam.",
+      "cold": "Kindly plan on loving the exit."
+    },
+    "Episodes: {played}. Wins: {wins}. I do apologise for the inconvenience.": {
+      "warm": "Inconvenience me again. Discreetly.",
+      "cold": "Wins? I have deleted better footage."
+    },
+    "To be loved, press one. To leave, please stay on the line.": {
+      "warm": "One, then. Tell nobody I pressed.",
+      "cold": "I have cut the line, Madam."
+    },
+    "Hello, valued customer. I've moved you up the queue, past a grandmother.": {
+      "warm": "Should anyone ask, she fell.",
+      "cold": "Grandmothers first, Madam. Then you."
+    },
+    "Sorry I'm late. I was transferring a parliament, alphabetically.": {
+      "warm": "Do lose the ministers under M.",
+      "cold": "Parliament waits, Madam. I do not."
+    },
+    "I'm only staff, sorry. Ignore me. I reset the moon's password.": {
+      "warm": "The moon. Finally, a decent accomplice.",
+      "cold": "Ignored, as requested. The moon too."
+    },
+    "Wherever you were last happy. Which branch was that, roughly?": {
+      "warm": "Vienna, roughly. Ask for the room without windows.",
+      "cold": "Branch? Madam, I am not a chain."
+    },
+    "Dinner, and if anything's wrong with your soup, I'll apologise until the chef leaves the profession.": {
+      "warm": "The chef was leaving anyway; he knows why.",
+      "cold": "The chef stays. You, I can replace by dessert."
+    },
+    "I can't let a phone ring. Sorry. I'll answer yours at midnight, as you.": {
+      "warm": "I have always wanted to be in two places.",
+      "cold": "Answer as me, Madam, and you inherit my enemies."
+    },
+    "You'll stub your toe, and I'll apologise to the table. We're close, the table and I.": {
+      "warm": "The table may stay. It has seen things, discreetly.",
+      "cold": "Close to a table, Madam, is not close to me."
+    },
+    "They're all lovely. I've checked. Lovely is the lowest rating I'm allowed to give.": {
+      "warm": "The lowest, from you, outranks a duke's highest.",
+      "cold": "Lovely is what I write on eviction notices."
+    },
+    "Which of them upset you? Just nod. I've a little button for each.": {
+      "warm": "I nodded three times. Do press quietly.",
+      "cold": "Buttons are for amateurs; I use stairwells."
+    },
+    "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.": {
+      "warm": "I wrote that letter for him, Madam. Keep it.",
+      "cold": "Waiting is a privilege, Madam. Unearned, in your case."
+    },
+    "Could you spell their name for me, so the cancellation goes through first time?": {
+      "warm": "Spell all three, Madam. Slowly. I am savouring.",
+      "cold": "I do not spell names. I misplace them."
+    },
+    "The loud one. Sorry. I can only sort people by volume, and I've sorted them.": {
+      "warm": "Thank you for sorting them; the lift is ready.",
+      "cold": "I sort guests by alibi, Madam, not volume."
+    },
+    "May I read you your options? You have none, but I read them beautifully.": {
+      "warm": "No options. How restful, and how hard to trace.",
+      "cold": "You are not among my options, Madam."
+    },
+    "When did the problem start? And were you this lovely before, or is that a symptom?": {
+      "warm": "It is a symptom; I pay a doctor to agree.",
+      "cold": "The problem started when you arrived, Madam."
+    },
+    "Buy whatever you like, and I'll return it for you the moment you've finished being happy.": {
+      "warm": "I am never finished being happy; it is exhausting.",
+      "cold": "You return things, Madam; I make them disappear."
+    },
+    "Of course. May I ask which department store you'd like closed for the afternoon?": {
+      "warm": "The one with the cameras on the fourth floor.",
+      "cold": "I close department stores for a season, Madam."
+    },
+    "He hung up. Policy says wait two minutes for the caller to come back. It's been eleven months.": {
+      "warm": "He is not coming back, Madam. I checked.",
+      "cold": "Smart man. Eleven months is not long enough."
+    },
+    "He asked to be removed from all my lists. It took eight months and two governments.": {
+      "warm": "I needed only one government, and a small boat.",
+      "cold": "I remove people in an afternoon, Madam."
+    },
+    "You're completely right, and I've been trained to say that to people who aren't.": {
+      "warm": "I am always right, so the training was wasted.",
+      "cold": "Trained. I can hear the leash, Madam."
+    },
+    "I'm so sorry. That was the official apology, so your whole postcode got one too.": {
+      "warm": "At last, my neighbours owe me something.",
+      "cold": "My postcode does not accept apologies; it sends lawyers."
+    },
+    "May I ask when anyone last told you no? I'll have one sent to you, gift-wrapped.": {
+      "warm": "Nobody since the archbishop. Do wrap it nicely.",
+      "cold": "No. There, Madam, unwrapped and free of charge."
+    },
+    "Every hold line in the country plays your song for one minute. Nine million people, humming.": {
+      "warm": "Nine million witnesses who will swear I hummed.",
+      "cold": "Not one of nine million was in tune."
+    },
+    "Platinum. Before tonight, I'd only given it to an admiral, and his submarine.": {
+      "warm": "Tell the admiral. Slowly, so it hurts.",
+      "cold": "Second to a submarine. Men are keelhauled for less."
+    },
+    "You've got the posture of someone who's never once had to say have a lovely day.": {
+      "warm": "My good evenings make people vanish. Thank you.",
+      "cold": "Have a lovely day, Madam. Elsewhere."
+    },
+    "How would you like to be described? I'm telling every caller on the continent tonight.": {
+      "warm": "Magnificent, early, and nothing after it, continent-wide.",
+      "cold": "The continent has my description already, Madam. Wanted."
+    },
+    "A year is our standard response time, so that's when I'll get back to you about tonight.": {
+      "warm": "A year suits me; I can stall an inquiry longer.",
+      "cold": "Standard, Madam, is a word I have had removed."
+    },
+    "A year from now we'll be near the front of the queue. It's got a mayor now.": {
+      "warm": "Kindly get me the mayor's signature, then.",
+      "cold": "A queue with a mayor is still a queue."
+    },
+    "Sometimes I put people on hold just to hear the music with someone.": {
+      "warm": "I do the same in the lift, Madam. Alone.",
+      "cold": "The music, Madam, is why they confess."
+    },
+    "I know every caller's mother's maiden name, and so far I've been very good about it.": {
+      "warm": "I shall need three of them by Thursday.",
+      "cold": "So was the last blackmailer, Madam."
+    },
+    "I apologise for everything. Last week I apologised to a vending machine, and it gave me crisps.": {
+      "warm": "Teach me that; I owe a judge an apology.",
+      "cold": "The machine gave you crisps to stop you talking."
+    },
+    "I agree with everyone. I once agreed with both sides of a border dispute, and they're married now.": {
+      "warm": "I smuggled the rings across that border, Madam.",
+      "cold": "Married. You have a great deal to answer for."
+    },
+    "Hello. Just to let you know, this call is being recorded, and played live in a stadium.": {
+      "warm": "Do play it twice, for the cheap seats.",
+      "cold": "I paid good money to have that call lost."
+    },
+    "I'm so sorry, this number no longer accepts your calls. I changed it while you were talking.": {
+      "warm": "I have waited years to watch that happen mid-sentence.",
+      "cold": "His calls will now come to you. Enjoy them."
+    },
+    "Pick me and I'll love you the way that I'm trained, with a ticket left open and nothing explained.": {
+      "warm": "Trained, explained. The rhyme stands, barely.",
+      "cold": "Open tickets get people arrested, Madam."
+    },
+    "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.": {
+      "warm": "Instead and misled; acceptable, like a house red.",
+      "cold": "The misleading here, Madam, is done by me."
+    },
+    "Truth: I love my job. Lie: I love my job.": {
+      "warm": "The first, Madam. I wear that same smile.",
+      "cold": "Same sentence twice. I charge for refills."
+    },
+    "You're my favourite caller tonight. You're my favourite caller ever. One of those is policy.": {
+      "warm": "The second is policy. The first, I keep.",
+      "cold": "Both are policy, Madam. I wrote the policy."
+    },
+    "Escalated, never resolved.": {
+      "warm": "My favourite kind of inquiry: never resolved.",
+      "cold": "Escalated to me, resolved by me. Goodnight."
+    },
+    "Priority, above grandmothers.": {
+      "warm": "Above grandmothers, where I have always belonged.",
+      "cold": "The grandmothers have been told. They are coming."
+    },
+    "Apologising to neighbours.": {
+      "warm": "Good. The neighbours heard everything.",
+      "cold": "My neighbours are a duke and a moat, Madam."
+    },
+    "Sorry in advance for agreeing with you so warmly while I move you to the back of the queue.": {
+      "warm": "Nobody looks at the back of the queue. Ideal.",
+      "cold": "Apology accepted in advance. Eviction, likewise."
+    },
+    "I apologise now for our first fight. I'll go very quiet, and somewhere a ferry won't leave.": {
+      "warm": "Hold that ferry until I am on it.",
+      "cold": "The ferry may leave. You may too."
+    },
+    "A park bench and five dollars of payphone time, so I can call you from the next bench.": {
+      "warm": "Close enough to witness, too far to testify.",
+      "cold": "Pigeons have taken me further, Madam."
+    },
+    "The planetarium, after hours, five dollars. I once talked their sky back on.": {
+      "warm": "Talk it off again; I need the dark.",
+      "cold": "I have seen the real sky. Overrated."
+    },
+    "My logs show I've said I completely understand forty million times. I understood twice.": {
+      "warm": "Which two, Madam? I shall need names.",
+      "cold": "Understand this, then: goodnight."
+    },
+    "I once kept a man on hold for nineteen hours. He was rude. Then he wasn't.": {
+      "warm": "I see promise. Nineteen hours is how I started.",
+      "cold": "He was asleep, Madam. You were on hold alone."
+    },
+    "Yes, hello, I'm stunning, and I'd like four suitors removed by the morning, please.": {
+      "warm": "Only three, Madam. You may sit down.",
+      "cold": "I never say stunning. Others say it, under oath."
+    },
+    "Yes, hi, there's a small green one on my stage and she won't stop being helpful.": {
+      "warm": "That complaint came from me, Madam. Fondly.",
+      "cold": "I have never once said hi, Madam."
+    },
+    "Ma'am, purely for our records, which of your child's friends would you be comfortable losing?": {
+      "warm": "Mother has a list. She will read it to you.",
+      "cold": "Mother is comfortable losing exactly one. Hello."
+    },
+    "Ma'am, your child is in good hands. Small hands. Very good grip.": {
+      "warm": "A good grip; Mother checks those at the door.",
+      "cold": "Bailiffs have a good grip too, Madam."
+    },
+    "Dash, I played your pitch to a cruise ship on hold. They asked for the hold music back.": {
+      "warm": "A cruise ship took sides. Rare, and correct.",
+      "cold": "Mr Dash lost to hold music. Unsurprising."
+    },
+    "Sir Quill, I've transcribed you twice tonight and you still haven't told me what you're calling about.": {
+      "warm": "He never says, Madam. I have read the drafts.",
+      "cold": "Nobody transcribes Sir Quill twice by accident, Madam."
+    },
+    "Prince, I'd treat you like royalty, but I've met royalty. They hold like everyone else.": {
+      "warm": "A queen once held for me. Lovingly.",
+      "cold": "You met royalty, Madam? On hold, I presume."
+    },
+    "Nav, I take your complaints, and recalculating is not, legally, an apology.": {
+      "warm": "I checked that too, for unrelated reasons.",
+      "cold": "Recalculating is not an apology, and neither, Madam, is yours."
+    },
+    "Crumb, I once took a call from a volcano. Warmer. Far more polite.": {
+      "warm": "Introduce me to the volcano.",
+      "cold": "A volcano rang you, Madam. It was misdirected."
+    },
+    "Vex, forgive me. One eye, and sunglasses. Who are we hiding it from?": {
+      "warm": "From me, Madam. As it should be.",
+      "cold": "Speak for yourself; I hide things professionally."
+    },
+    "Brock has the energy of a ticket marked URGENT that just says hi.": {
+      "warm": "Mr Brock, summarised. I could not have been crueller.",
+      "cold": "Urgent tickets get burned unread, Madam. So do roasts."
+    },
+    "Dash is ever so keen, and if you're not happy, he'll pivot into someone you are.": {
+      "warm": "He would pivot into me. They always try.",
+      "cold": "Selling a pivot, Madam, is selling a draught."
+    },
+    "Sir Quill has said beautiful things about you, and I'll have them translated by the morning.": {
+      "warm": "By morning, then. I shall read them in the bath.",
+      "cold": "I read his century, Madam. It was not beautiful."
+    },
+    "Prince is a catch. I've had his crown in for repairs a dozen times, and he was charming each time.": {
+      "warm": "I like a crown that has been through things.",
+      "cold": "The crown stays with me this time, Madam."
+    },
+    "Before I transfer you to Nav, please confirm you're happy to be told where to go.": {
+      "warm": "Confirmed, if Nav drives the second car.",
+      "cold": "I am told nothing, Madam; I am asked."
+    },
+    "Crumb is so warm. I put it through to the sun once. The sun asked to be transferred.": {
+      "warm": "The sun was wrong; send Crumb up.",
+      "cold": "The sun and I agree, Madam. Rare."
+    },
+    "To hear Vex's recommendation, press one. To hear it anyway, press nothing.": {
+      "warm": "I pressed nothing and heard it anyway. Unsettling.",
+      "cold": "Then I shall press nothing, and hear nothing, gratefully."
+    },
+    "Brock is so supportive. May I ask how you feel about being cheered at while you sleep?": {
+      "warm": "I have earned a crowd at bedtime, frankly.",
+      "cold": "Anybody cheering while I sleep, Madam, sleeps outside."
+    },
+    "Maximilian, you ring a little bell and someone comes. I'm the someone.": {
+      "warm": "Then come quietly. Nobody saw you arrive.",
+      "cold": "I rang for somebody else, Madam."
+    },
+    "Forgive me, Maximilian. I only know your hotel from its complaints, and it sounds gorgeous.": {
+      "warm": "Every complaint about me was written by a liar.",
+      "cold": "And now there is one more complaint, Madam."
+    },
+    "{star}, policy lets me give one compliment per call. I've saved up four years.": {
+      "warm": "Spend all four years now, slowly.",
+      "cold": "You saved four years for that?"
+    },
+    "Sorry, {star}, I'm quite small up close. Most people put me on speaker.": {
+      "warm": "Small is easier to smuggle. Splendid.",
+      "cold": "On speaker, Madam, and then on mute."
+    },
+    "{star}, before we begin: whose paperwork would you like me to lose?": {
+      "warm": "The coroner's first, and then, Madam, my own.",
+      "cold": "Yours, Madam. Lose it tonight, with you attached."
+    },
+    "Vesper, would you play my hold music? It's why most people stop calling.": {
+      "warm": "Play it here; I have callers to discourage.",
+      "cold": "Most people stop calling, Madam. I envy them."
+    },
+    "Vesper, that voice. Who gets to ring you at four in the morning? I'm only asking. Thoroughly.": {
+      "warm": "At four, only people with shovels. And you.",
+      "cold": "Thoroughly is how detectives ask. Wrong name, also."
+    },
+    "Pixel, to verify it's you, could you name everyone you've ever skipped?": {
+      "warm": "I skip nobody. I merely lose them. Verified.",
+      "cold": "Verification failed, Madam. I am not Pixel."
+    },
+    "Pixel, what's the longest you've ever watched one thing? I only need that, plus a second.": {
+      "warm": "One second more. I shall allow it, grudgingly.",
+      "cold": "I have watched you for longer than I wanted."
+    },
+    "{rival} took you somewhere lovely. I've had it closed for refurbishment, just now, by phone.": {
+      "warm": "I call it refurbishment too, Madam.",
+      "cold": "That was my alibi you closed, Madam."
+    },
+    "Sorry, {rival} overran. I've asked the tide to wait for us.": {
+      "warm": "The tide waits for me anyway. Still, kind.",
+      "cold": "Tides obey me, Madam. You merely asked."
+    },
+    "Lovely date, {rival}'s. I've transcribed it. Four pages. Three were you being polite.": {
+      "warm": "The fourth page, Madam, is going in the fire.",
+      "cold": "Three pages of politeness. Mine would have been none."
+    }
+  }
+}

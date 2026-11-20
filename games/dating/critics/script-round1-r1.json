@@ -1,0 +1,92 @@
+{
+  "beat": "round one: question, four answers, four star reactions (cut line and exit noted only where they bear on the round's shape)",
+  "winner": "bar",
+  "episodesRead": 8,
+  "episodesWithQuotable": 8,
+  "genericPercent": 39,
+  "lineCountNote": "8 episodes x 9 lines (1 question, 4 answers, 4 reactions) = 72 lines. 28 flagged = 39%. Split: answers 7 of 32 flagged (22%), reactions 18 of 32 flagged (56%), questions 2 of 8. The answers are near the bar; the reactions are not.",
+  "headToHead": [
+    {
+      "ours": "Tilly (script-r1/ep-06): \"You're completely right, and I've been trained to say that to people who aren't.\"",
+      "bar": "Vera #12: \"Sorry, I'm focusing on my career... my career on not dating losers like you!\"",
+      "verdict": "Tie on the line. Same fake-out-then-blade shape, and Tilly's is better built to her persona. But Vesper answers it with \"Another headset on my air, Tilly. It's been a while.\", which ignores it. In Monster Prom the line is the end of the beat; here the star steps on it with a non-reaction. Bar wins on the moment."
+    },
+    {
+      "ours": "Crumb (script-r1/ep-05): \"Dash. I watched him A/B test two bananas. He shipped the brown one.\" then Maximilian: \"We do not tidy our colleagues in public.\"",
+      "bar": "Rival player options #78: \"Haven't you heard, Scott? Fishsticks make you worse at sports!...\" and the rival undercut structure (A claims, B states the plain fact).",
+      "verdict": "Ours. A rival's logic used against him, ending on the turn word, and a star reply that actually answers it. The one round in the batch that works like the bar, because the question forces suitors to name each other. But Dash answers two lines later and never hits back at Crumb, so the rivalry dies on the spot."
+    },
+    {
+      "ours": "Maximilian to Nav (script-r1/ep-02): \"I have fourteen chauffeurs. I am sacking thirteen.\" after Nav: \"They muted me at a junction, so I left them at it.\"",
+      "bar": "Narrator #63: \"It is just paper!\" / #58 \"Does... Scott know any other people? Signs are pointing to \"no.\"\"",
+      "verdict": "Close to the bar: the star's status move and the undercut in two short sentences. But it is charmed while sounding like a threat, and every other reaction in that round is charmed too, so the line has nothing to stand against. Bar edges it."
+    },
+    {
+      "ours": "Nav (script-r1/ep-01): \"You are a small blue dot, facing the wrong way. Turn around. There. Me.\"",
+      "bar": "Liam/player #30: \"3.85 billion BC, so you can be into existing before it was cool.\" (escalation by literalism)",
+      "verdict": "Comparable. The bot's interface taken literally and turned into a pick-up line, with the turn on the last word. Star reply \"Said like a forecast, and for once I believed it\" is the wrong machine (weather, not satnav) and a stock phrase. Bar wins on the exchange."
+    },
+    {
+      "ours": "Dash (script-r1/ep-03): \"Private jet! Okay, jet's a stretch. Private bus. Private seat. I'll save you a seat on the bus.\"",
+      "bar": "Damien #19 denial-then-reveal; Valerie #87 deadpan shop blurbs.",
+      "verdict": "Ours holds as a line: a live pivot down a funnel, in Dash's logic. Vesper's reply \"I'm not cutting to the news, Dash, let it run\" is generic radio patter that any answer would get. Bar wins on the exchange."
+    },
+    {
+      "ours": "Structure: a full round, e.g. script-r1/ep-02 (four answers on 'how did your last relationship end', four 'charmed' reactions, four-way tie at 3, cut by tiebreak).",
+      "bar": "The Dating Game (one question, several answers, the chooser follows up) and Take Me Out (lights go off in visible waves; the host asks the women why).",
+      "verdict": "Bar, clearly. In the real formats each answer moves the board where you can see it, and the 'why' is said about the answer just given. Ours reads four unrelated answers in sequence. Only one round in eight (ep-05) has a suitor react to another suitor. Reactions follow the card hit, not the line, so viewers watching window A cannot read who is winning from what was said."
+    }
+  ],
+  "perEpisode": [
+    { "episode": "script-r1/ep-01", "quotable": "Nav: \"You are a small blue dot, facing the wrong way. Turn around. There. Me.\"" },
+    { "episode": "script-r1/ep-02", "quotable": "Crumb: \"They bought a toaster oven. It had a little window. Some people need to watch.\"" },
+    { "episode": "script-r1/ep-03", "quotable": "Dash: \"Private jet! Okay, jet's a stretch. Private bus. Private seat. I'll save you a seat on the bus.\"" },
+    { "episode": "script-r1/ep-04", "quotable": "Crumb: \"Foul moods this year: 31. Wednesdays: 30. Quit the choir.\"" },
+    { "episode": "script-r1/ep-05", "quotable": "Crumb: \"Dash. I watched him A/B test two bananas. He shipped the brown one.\"" },
+    { "episode": "script-r1/ep-06", "quotable": "Tilly: \"You're completely right, and I've been trained to say that to people who aren't.\"" },
+    { "episode": "hybrid-02/ep-01", "quotable": "Tilly: \"May I read you your options? You have none, but I read them beautifully.\"" },
+    { "episode": "hybrid-02/ep-02", "quotable": "Prince: \"In a year? Still in my inbox. Starred. Above the war.\"" }
+  ],
+  "bestLines": [
+    "Tilly (script-r1/ep-06): You're completely right, and I've been trained to say that to people who aren't.",
+    "Crumb (script-r1/ep-05): Dash. I watched him A/B test two bananas. He shipped the brown one.",
+    "Maximilian to Nav (script-r1/ep-02): I have fourteen chauffeurs. I am sacking thirteen.",
+    "Nav (script-r1/ep-01): You are a small blue dot, facing the wrong way. Turn around. There. Me.",
+    "Crumb (script-r1/ep-02): They bought a toaster oven. It had a little window. Some people need to watch.",
+    "Maximilian to Dash (script-r1/ep-05): I am not a lead, sir. I own the building.",
+    "Vesper to Sir Quill (hybrid-02/ep-02): Quill, I've buried four formats younger than that sentence."
+  ],
+  "flagged": [
+    { "episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Describe me, and be careful, the baker has known me thirty years.", "problem": "does not follow / drops the premise", "detail": "The card question is 'having known me for ninety seconds', but the spoken line drops it. Brock then opens 'Ninety seconds?', quoting something the viewer never heard. The baker comes from nowhere.", "fix": "structure" },
+    { "episode": "script-r1/ep-01", "speaker": "Dash", "line": "You've checked the exit four times. You're a planner. I love a planner. I'm also standing by the exit.", "problem": "generic / out of voice", "detail": "Nothing growth-hacker in it: no variant, no metric, no pivot. Any suitor could say it. Bank: Dash needs answers to 'describe me' built on A/B testing the star.", "fix": "bank" },
+    { "episode": "script-r1/ep-01", "speaker": "Brock", "line": "Ninety seconds? You're a slow blinker and a fast judge and you've looked at my ears twice, which, thank you.", "problem": "out of character; at the 20-word limit", "detail": "Languid observational prose. Brock is LOUD short bursts. It also carries the 'Numbers and stats' dealbreaker on 'ninety' and 'twice', which come from the question, so the reveal replay feels unfair. Bank: Brock needs short shouted answers.", "fix": "bank" },
+    { "episode": "script-r1/ep-01", "speaker": "Vesper", "line": "For Brock, eleven minutes of ballad, and nowhere to clap.", "problem": "does not follow", "detail": "Answers Brock the persona (bouncy), not the line he just said (a quiet thank-you about his ears). It was picked for the card and sentiment, not the content.", "fix": "structure" },
+    { "episode": "script-r1/ep-01", "speaker": "Vesper", "line": "Said like a forecast, and for once I believed it.", "problem": "generic / wrong frame", "detail": "A forecast is weather, not satnav, and 'for once I believed it' is a stock phrase. Bank: Vesper's charmed reactions need to name what the suitor did.", "fix": "bank" },
+    { "episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "Your last relationship. How did it end, and who settled the bill?", "problem": "structure: the question asks for the hidden card", "detail": "Hidden turn-on is 'Brings up the past'. A question about exes makes all four answers hit it, so there are four charmed reactions, a four-way tie at 3 and a cut by tiebreak. The round has no shape and window A bettors learn nothing.", "fix": "structure" },
+    { "episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "An ex. Which hotel? I have questions for the hotel.", "problem": "does not follow; canned", "detail": "Dash talked about platforms, not a hotel. It is a card-triggered stock reaction, and it fires again word for word in script-r1/ep-05 (to Crumb).", "fix": "structure" },
+    { "episode": "script-r1/ep-02", "speaker": "Maximilian", "line": "So polite. So very polite. Who taught you? Me?", "problem": "generic / does not follow", "detail": "Tilly's answer was about waiting eleven months on hold, not politeness. It could follow any Tilly line. Bank: Maximilian's reactions should rate the specific thing like a stay.", "fix": "bank" },
+    { "episode": "script-r1/ep-03", "speaker": "Vesper", "line": "That ding went out live, Crumb, and woke the baker.", "problem": "does not follow", "detail": "There is no ding in Crumb's sourdough line. The cringe has no card behind it, yet it decides the cut (-1, 0 hits).", "fix": "structure" },
+    { "episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Sweet and loud, and I let it through the delay.", "problem": "generic / describes rather than reacts", "detail": "Labels the persona and ignores 'paid in steps'. Bank: Vesper needs the dedication-as-insult form, which is her one move that lands.", "fix": "bank" },
+    { "episode": "script-r1/ep-03", "speaker": "Vesper", "line": "Vex, one eye, sunglasses, four a.m., and still squinting.", "problem": "does not follow", "detail": "Describes the costume and drops the soap joke. Vesper's bank leans on costume reads (see ep-06 Prince).", "fix": "bank" },
+    { "episode": "script-r1/ep-04", "speaker": "Dash", "line": "I wait in the hall. Every time I leave a room, people cheer up. It's a gift.", "problem": "generic / borrowed joke", "detail": "This is the old 'brings joy whenever they leave' joke and has no growth logic. Bank: Dash.", "fix": "bank" },
+    { "episode": "script-r1/ep-04", "speaker": "Pixel", "line": "True, nice for you, dull for me, lie next time.", "problem": "explains its own card", "detail": "'True' reads out the Brutal honesty card before the reveal. Pixel's distraction voice is missing.", "fix": "bank" },
+    { "episode": "script-r1/ep-05", "speaker": "Maximilian", "line": "Clause four, quoted exactly. Somebody here has read the door.", "problem": "does not follow", "detail": "Tilly quoted no clause. The reaction was written to the 'Follows the rules' card, not to her line about spelling the name.", "fix": "structure" },
+    { "episode": "script-r1/ep-05", "speaker": "Dash", "line": "Cut Tilly. She fixes your problem and you leave happy. I'll never fix anything. You'll be here for years.", "problem": "does not follow what was just said", "detail": "Crumb named Dash two answers earlier and Dash never answers it. The answer order should put a named suitor straight after the naming and give them a retaliation line.", "fix": "structure" },
+    { "episode": "script-r1/ep-06", "speaker": "Vesper", "line": "True and unkind, and I'm repeating it at sign-off.", "problem": "explains its own joke", "detail": "'True and unkind' names the Brutal honesty card.", "fix": "bank" },
+    { "episode": "script-r1/ep-06", "speaker": "Vesper", "line": "Another headset on my air, Tilly. It's been a while.", "problem": "generic / does not follow", "detail": "Steps on the best answer in the batch with a non-reaction.", "fix": "bank" },
+    { "episode": "script-r1/ep-06", "speaker": "Vesper", "line": "The crown with the flip-flops, Prince. I'm coming round.", "problem": "does not follow; repeated move", "detail": "Costume read that ignores the attachment joke. Vesper uses the same crown-and-flip-flops read again in this episode's round-two cut.", "fix": "bank" },
+    { "episode": "script-r1/ep-06", "speaker": "Prince", "line": "Sorry. Then, by accident, the attachment: forty pages on why I was also right.", "problem": "repeat of move within episode", "detail": "Vex ('You're right. I'm sorry.'), Tilly ('You're completely right') and Prince ('Sorry.') all open on the same concession and none of them notices. It could have been a rule-of-three build if the third suitor called it out.", "fix": "structure" },
+    { "episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "You're a GPS. I'm already at the menu screen.", "problem": "assistant-sounding / states the obvious", "detail": "Summarises who the suitor is instead of reacting. The model is filling in a template.", "fix": "brain" },
+    { "episode": "hybrid-02/ep-01", "speaker": "Crumb", "line": "Foul moods this year: 31. Wednesdays: 30. Quit the choir.", "problem": "repeat (fallback)", "detail": "Same as script-r1/ep-04, word for word. On a 24/7 show a regular viewer hears this answer twice in an hour. Bank: Crumb needs at least 3 answers per question in the pool.", "fix": "bank" },
+    { "episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "You're counting my exits? I haven't even finished the intro.", "problem": "does not follow", "detail": "Crumb counted moods, not exits.", "fix": "brain" },
+    { "episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "Don't shout at me. Shout at a rival. That's content.", "problem": "contradicts what was just said", "detail": "Brock's answer was cheering 'very quietly'. An authored reaction picked on the persona.", "fix": "structure" },
+    { "episode": "hybrid-02/ep-01", "speaker": "Pixel", "line": "A script? I didn't ask for a loading screen.", "problem": "does not follow", "detail": "Pulls in the ex's identity (the loading screen) at random. 'Script' misreads Tilly's line.", "fix": "brain" },
+    { "episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "You planned my night, and I've never had one planned.", "problem": "explains its own card", "detail": "Reads out 'Plans everything', a visible card, flatly, with no turn.", "fix": "bank" },
+    { "episode": "hybrid-02/ep-02", "speaker": "Vesper", "line": "You woke the trucker, Brock. He was doing so well.", "problem": "does not follow", "detail": "Brock's answer was the quietest in the round ('somewhere sitting down'). The 'loud Brock' reaction fires on the persona, and it gets the sincerest suitor cut.", "fix": "structure" },
+    { "episode": "hybrid-02/ep-02", "speaker": "Brock", "line": "A year? Somewhere sitting down, together. I've never done it. I want to try it with you.", "problem": "repeat of move within episode", "detail": "Quill ('A year hence?'), Brock ('A year?') and Prince ('In a year?') all open by repeating the question. Bank: strip question-echo openers from Brock, Quill and Prince answers.", "fix": "bank" },
+    { "episode": "hybrid-02/ep-02", "speaker": "Prince", "line": "In a year? Still in my inbox. Starred. Above the war.", "problem": "repeat of move within episode", "detail": "Third question-echo opener in four answers. The line is good without 'In a year?'.", "fix": "bank" }
+  ],
+  "biggestGap": "Star reactions are chosen by which card an answer hit, or by the suitor's persona and costume, not by what the answer said: 18 of 32 round-one reactions miss the line just spoken (Brock 'very quietly' gets 'Don't shout at me'; Crumb's sourdough gets 'That ding went out live'; Tilly's best line gets 'Another headset on my air'). Monster Prom's narrator and the Dating Game chooser win because the undercut is about the exact line before it. Fix: author each round-one answer with its own star replies, one warm and one cold per star (3 stars x 2), keyed to that answer's id; the selector picks the reply that matches the card sentiment and falls back to card-generic reactions only when none exists.",
+  "pickMakesSense": "Round-one cuts are legible in 5 of 8: ep-01 Brock, ep-04 Crumb, ep-05 Dash, ep-06 Quill, hybrid-01 Crumb, though hybrid-01 has no favourite because all four go negative. They are not legible in 3: ep-02 is a four-way tie at 3, all charmed, decided by a hidden tiebreak, and Nav gets cut straight after Maximilian's warmest reaction. ep-03 cuts Crumb on a cringe with no card behind it, after the strongest answer of the round. hybrid-02 cuts Brock for the sincerest answer, through a reaction that misreads it.",
+  "structuralChange": "Make answer 4 a reply, not a cold answer. After the star reacts to answer 3, the fourth suitor speaks to the current leader's answer (the highest standing so far, or any suitor who named them): a steal or undercut of 14 words or fewer, from a per-rival-pair bank. The round-two [jab] bank already holds most of these. Then the star gives one 10-word reaction that settles the comparison, then the cut. No new line is added, so the timing stays the same. It guarantees one build per round, sets up a visible favourite and a suitor in trouble before window B opens, and copies the one round that works (script-r1/ep-05, where Crumb names Dash). Also, under the same selection logic: never draw a round-one question whose natural answers hit a hidden card for all four suitors (script-r1/ep-02)."
+}

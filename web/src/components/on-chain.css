@@ -1,0 +1,20 @@
+/* The "On chain" card under the stream. Layout only; colours and type come from the site's tokens. */
+.oc { display: grid; gap: 22px; }
+.oc-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.oc-note { color: var(--text-2); font-size: 14px; line-height: 20px; margin: 0; }
+.oc-dim { color: var(--text-2); }
+.oc-link { color: var(--accent); font-size: 14px; white-space: nowrap; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent); text-underline-offset: 3px; }
+.oc-link:hover { text-decoration-color: var(--accent); }
+.oc-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.oc-round { display: grid; gap: 10px; }
+.oc-round-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.oc-round-h h3 { font-size: 15px; font-weight: 600; line-height: 20px; }
+.oc-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+.oc-table th { text-align: left; font-weight: 500; color: var(--text-2); padding: 0 16px 8px 0; white-space: nowrap; }
+.oc-table td { padding: 7px 16px 7px 0; vertical-align: baseline; }
+.oc-table th:last-child, .oc-table td:last-child { padding-right: 0; text-align: right; }
+.oc-step { font-weight: 600; white-space: nowrap; }
+.oc-settle .oc-step, .oc-payout .oc-step { color: var(--accent); }
+@media (max-width: 700px) {
+  .oc-table th:nth-child(3), .oc-table td:nth-child(3) { display: none; }
+}

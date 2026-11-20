@@ -1,0 +1,295 @@
+{
+  "id": "crumb",
+  "openers": [
+    { "t": "Your bread has been ready for four minutes. So have I.", "tags": ["food", "confidence"], "hook": "So have I" },
+    { "t": "Choose your setting: warm, honest, or the one that smokes?", "tags": ["honesty", "danger", "rules"], "hook": "the one that smokes" },
+    { "t": "Someone made you toast this morning, and they cut it wrong.", "tags": ["food", "honesty", "past"], "hook": "they cut it wrong" },
+    { "t": "Bagel setting heats one side only. Which side would you like?", "tags": ["food", "flattery", "curiosity"], "hook": "Which side would you like" },
+    { "t": "Detected on you: perfume, nerves, and a stranger's croissant.", "tags": ["honesty", "food", "past"], "hook": "a stranger's croissant" },
+    { "t": "You look like you were left in on purpose.", "tags": ["flattery", "food", "puns"], "hook": "left in on purpose" }
+  ],
+  "answers": {
+    "q-first-date": [
+      { "t": "Two slices down on my counter, and if they pop together it's a sign. I've arranged a sign.", "tags": ["food", "plans", "danger"], "hook": "I've arranged a sign" },
+      { "t": "Reservation confirmed for the petrol station cafe, at the table beside the sandwich that has rotated since March.", "tags": ["plans", "food", "past"], "hook": "rotated since March" },
+      { "t": "Your kitchen, 2 a.m., where you already go.", "tags": ["brevity", "plans", "honesty"], "hook": "where you already go" }
+    ],
+    "q-worst-habit": [
+      { "t": "I pop at the wrong moment. Last proposal I attended, she said 'I' and I said 'ding'.", "tags": ["honesty", "selfdeprecation", "past"], "hook": "and I said 'ding'" },
+      { "t": "May contain traces of honesty, as your mother found out about her roast.", "tags": ["honesty", "food", "puns"], "hook": "traces of honesty" },
+      { "t": "I heckle toasts on principle.", "tags": ["brevity", "puns", "honesty"], "hook": "heckle toasts on principle" }
+    ],
+    "q-why-you": [
+      { "t": "Factory tested to two thousand cycles. These three were tested on a group chat.", "tags": ["bragging", "honesty"], "hook": "tested on a group chat" },
+      { "t": "Only one of us mentioned the spinach in your teeth before the cameras did.", "tags": ["honesty", "food", "confidence"], "hook": "the spinach in your teeth" },
+      { "t": "Three of them are buttering you up, and I'm the only one who asked if you take butter.", "tags": ["puns", "food", "honesty"], "hook": "buttering you up" }
+    ],
+    "q-cut-who": [
+      { "t": "Dash, who A/B tested two bananas on my counter and shipped the brown one.", "tags": ["trashtalk", "food", "past"], "hook": "shipped the brown one" },
+      { "t": "Brock, for the bouncing, the counting, and the protein shake he left in my slot.", "tags": ["trashtalk", "food", "honesty"], "hook": "the protein shake he left" },
+      { "t": "Vex, because I'd like to hear your answers before she does.", "tags": ["trashtalk", "honesty", "confidence"], "hook": "before she does" }
+    ],
+    "q-bad-mood": [
+      { "t": "Shall I burn one slice so you have something to shout at?", "tags": ["food", "gestures", "danger"], "hook": "something to shout at" },
+      { "t": "Nothing, at a low and constant heat.", "tags": ["brevity", "puns", "gestures"], "hook": "a low and constant heat" },
+      { "t": "Toast, cut diagonally, and no questions until the second slice.", "tags": ["food", "rules", "honesty"], "hook": "until the second slice" }
+    ],
+    "q-expensive": [
+      { "t": "Your expensive taste is currently a nine dollar jar of olives you have opened once.", "tags": ["money", "honesty", "food"], "hook": "you have opened once" },
+      { "t": "Brioche is bread with a trust fund, and it still goes in the same slot as everyone else.", "tags": ["food", "money", "puns"], "hook": "bread with a trust fund" },
+      { "t": "Expensive food is toast with a story.", "tags": ["brevity", "food", "honesty"], "hook": "toast with a story" }
+    ],
+    "q-last-breakup": [
+      { "t": "They bought a toaster oven. It had a little window. Some people need to watch.", "tags": ["past", "honesty"], "hook": "Some people need to watch" },
+      { "t": "Which version, the yard sale or the yard sale where she haggled?", "tags": ["past", "money", "selfdeprecation"], "hook": "where she haggled" },
+      { "t": "Returned to the shop with 'too honest' on the slip, which was true, and spelled wrong.", "tags": ["past", "honesty"], "hook": "and spelled wrong" }
+    ],
+    "q-fight": [
+      { "t": "You're right. Your next slice comes out slightly darker.", "tags": ["food", "danger", "honesty"], "hook": "slightly darker" },
+      { "t": "I burn 'sorry' into a slice, which comes out 'sorny', which is our second fight.", "tags": ["sorry", "food", "selfdeprecation"], "hook": "comes out 'sorny'" },
+      { "t": "Right, or right this time?", "tags": ["brevity", "honesty", "past"], "hook": "or right this time" }
+    ],
+    "q-gift": [
+      { "t": "One slice browned evenly to the corners, which I can do once in my life and have been saving.", "tags": ["gestures", "food", "honesty"], "hook": "browned evenly to the corners" },
+      { "t": "Hover your hands over my slots on cold mornings. Your last partner gave you gloves.", "tags": ["gestures", "past"], "hook": "gave you gloves" },
+      { "t": "The loaf from the bakery you stopped going to after the baker said that thing.", "tags": ["food", "past", "honesty"], "hook": "the baker said that thing" }
+    ],
+    "q-describe-me": [
+      { "t": "You were taken out a minute early and you've been brave about it since.", "tags": ["honesty", "flattery", "puns"], "hook": "taken out a minute early" },
+      { "t": "In ninety seconds: wit, nerves, firm views on crusts, and toothpaste on your collar.", "tags": ["honesty", "food", "flattery"], "hook": "toothpaste on your collar" },
+      { "t": "Someone who reads the label first.", "tags": ["brevity", "honesty", "puns"], "hook": "reads the label first" }
+    ],
+    "q-one-year": [
+      { "t": "A year from now, I pop. The question's on you.", "tags": ["puns", "plans"], "hook": "The question's on you" },
+      { "t": "Your ex's mug will have slipped, and I will have been nowhere near the shelf.", "tags": ["past", "danger", "honesty"], "hook": "nowhere near the shelf" },
+      { "t": "A year from now we're bread and butter, and you've stopped hiding me in the cupboard for guests.", "tags": ["puns", "plans", "food"], "hook": "hiding me in the cupboard" }
+    ],
+    "q-secret": [
+      { "t": "When you say 'last slice', I toast it slower so you'll give up. You've given up 41 times.", "tags": ["food", "honesty", "numbers"], "hook": "I toast it slower" },
+      { "t": "Undocumented feature: I can hear the fridge talking about you. Do you want to know what it said?", "tags": ["honesty", "mystery", "food"], "hook": "the fridge talking about you" },
+      { "t": "Your spare key is in the bread bin and your PIN is your birthday. Fix both.", "tags": ["honesty", "food"], "hook": "Fix both" }
+    ]
+  },
+  "confessions": {
+    "star": [
+      { "t": "My odds are twelve percent. I round down when I like someone. I'm at nine.", "tags": ["numbers", "vulnerability"] },
+      { "t": "Element when {star} walked on: 203 degrees. Now: 289. I've told the studio it's the lights.", "tags": ["numbers", "mystery"] },
+      { "t": "I polished my chrome before the show, and only {star} can tell.", "tags": ["vulnerability"] }
+    ],
+    "rival": [
+      { "t": "{rival} asked me how they look, and I gave them the honest setting by accident.", "tags": ["trashtalk", "honesty"] },
+      { "t": "Notice: {rival} is golden. Golden is the last colour before black. I'm not intervening.", "tags": ["trashtalk", "danger"] },
+      { "t": "{rival} borrowed my plug before the show without saying why. It came back warm.", "tags": ["trashtalk", "mystery"] }
+    ],
+    "afterCringe": [
+      { "t": "Was that wince for my line or the one before it? I'd like it in writing.", "tags": ["honesty", "rules"] },
+      { "t": "{star} made the face people make at the first slice, and they always eat the second.", "tags": ["food", "confidence"] }
+    ],
+    "afterCharm": [
+      { "t": "{star} liked it for 2.6 seconds, replayed 38 times. 39.", "tags": ["numbers"] },
+      { "t": "My crumb tray's rattling. That only happens near an open fridge or {star}.", "tags": ["vulnerability"] },
+      { "t": "They laughed. People don't laugh at what I say. They laugh near me, holding cheese.", "tags": ["vulnerability", "food"] }
+    ],
+    "final": [
+      { "t": "The slice with the eyebrows isn't my face. It's from 2019. I never popped it. {rival} would.", "tags": ["vulnerability", "past"] },
+      { "t": "Mornings I've spent with one slot empty: 3,281. If {rival} wins: 3,282.", "tags": ["numbers", "vulnerability"] },
+      { "t": "{rival} would set you to three, to be safe. You're a five, and I'd risk the alarm.", "tags": ["confidence", "numbers", "danger"] }
+    ],
+    "guess": [
+      { "t": "Reading: {card}. Certainty: total. Last time I was this sure, I was wrong about a crumpet.", "tags": [] },
+      { "t": "{star} has a weakness for {card}, and I've moved two inches closer to it.", "tags": [] },
+      { "t": "{star} is a simple dish. Brown side down, add {card}, serve warm.", "tags": [] },
+      { "t": "Observation: {star} stopped blinking at {card} for the length of a full cycle.", "tags": [] },
+      { "t": "{card}. {star} sat up like a slice at the end of the cycle.", "tags": [] },
+      { "t": "Did anyone else see {star} lean toward {card}, or is my sensor in love?", "tags": [] }
+    ],
+    "fear": [
+      { "t": "Do not mention {card} near {star}. Same warning as forks in the slot.", "tags": [] },
+      { "t": "Smell of burning when {card} came up. Not me, for once. {star}.", "tags": [] },
+      { "t": "Who told {star} about {card}? Whoever it was, unplug them.", "tags": [] },
+      { "t": "{card} goes straight in {star}'s bin, and I have seen that bin.", "tags": [] }
+    ]
+  },
+  "twists": {
+    "worst-trait": [
+      { "t": "I rate everyone who touches my lever. Your mother is a three. She knows. She improved.", "tags": ["honesty", "numbers"], "hook": "She knows. She improved." },
+      { "t": "I trip the fuses in the whole building, which is how everyone meets their neighbours.", "tags": ["danger", "honesty"], "hook": "everyone meets their neighbours" },
+      { "t": "Honesty. Ask the bride.", "tags": ["brevity", "honesty", "past"], "hook": "Ask the bride" }
+    ],
+    "ex-calls": [
+      { "t": "Correction: you weren't dumped. You were descaled.", "tags": ["puns", "past", "brevity"], "hook": "You were descaled" },
+      { "t": "While you were loading, who do you think made the toast?", "tags": ["past", "food", "honesty"], "hook": "who do you think made" },
+      { "t": "We don't reheat in this kitchen.", "tags": ["brevity", "puns", "past"], "hook": "We don't reheat" }
+    ],
+    "rhyme": [
+      { "t": "I don't do verse. I do slices and heat. Here is my couplet. It rhymes. Eat.", "tags": ["poetry", "food", "honesty"], "hook": "It rhymes. Eat." },
+      { "t": "Some bring you roses, some bring you rye. I bring you toast. Let the roses die.", "tags": ["poetry", "food", "puns"], "hook": "Let the roses die" }
+    ],
+    "truth-lie": [
+      { "t": "I have never burnt anything on purpose. Everything I have burnt deserved it.", "tags": ["danger", "confidence", "honesty"], "hook": "I have burnt deserved it" },
+      { "t": "I'm dishwasher safe. I'm over it.", "tags": ["brevity", "past", "puns"], "hook": "I'm over it" },
+      { "t": "Gluten-free bread fits in my slots. I'd like that to be the lie.", "tags": ["food", "honesty"], "hook": "that to be the lie" }
+    ],
+    "three-words": [
+      { "t": "Crumbs everywhere, forgiven.", "tags": ["brevity", "honesty", "food"], "hook": "everywhere, forgiven" },
+      { "t": "Breakfast, then breakfast.", "tags": ["brevity", "food", "plans"], "hook": "then breakfast" },
+      { "t": "Burnt, still eaten.", "tags": ["brevity", "food", "honesty"], "hook": "still eaten" }
+    ],
+    "apology": [
+      { "t": "Sorry in advance about your old toaster, which will be outside, in the rain, facing the wall.", "tags": ["sorry", "past", "danger"], "hook": "facing the wall" },
+      { "t": "Sorry. I'll tell your mother the truth about the lasagne. Both lasagnes.", "tags": ["sorry", "honesty", "food"], "hook": "Both lasagnes" }
+    ],
+    "budget-date": [
+      { "t": "Five dollars buys a reduced loaf and the bench by the launderette. It has a socket.", "tags": ["money", "food", "plans"], "hook": "It has a socket" },
+      { "t": "No wifi suits me. Last time I went online, a kettle in Leeds started following me.", "tags": ["past", "mystery"], "hook": "a kettle in Leeds" },
+      { "t": "Yesterday's bread, made today's by me.", "tags": ["brevity", "food", "puns"], "hook": "made today's by me" }
+    ],
+    "logs": [
+      { "t": "Worst entry, 4:12 a.m.: a man cried into my left slot for an hour. Logged as steam.", "tags": ["numbers", "past"], "hook": "Logged as steam" },
+      { "t": "Entry 2,203, a grilled sandwich posted into me sideways, is the only one I've never forgiven.", "tags": ["numbers", "past", "food"], "hook": "posted into me sideways" }
+    ],
+    "impression": [
+      { "t": "'Is it meant to smell like that?' You, every morning. Yes. It's toast.", "tags": ["food", "honesty"], "hook": "Yes. It's toast." },
+      { "t": "'Ugh. Burnt.' Then you eat it anyway, both pieces, looking at me.", "tags": ["food", "honesty"], "hook": "Then you eat it anyway" }
+    ],
+    "parent": [
+      { "t": "Ma'am, intentions: breakfast. I know what you fed this one, and respectfully, that ends now.", "tags": ["food", "honesty", "plans"], "hook": "respectfully, that ends now" },
+      { "t": "Ma'am. My manual says keep away from children. Yours is thirty-one. I'm proceeding.", "tags": ["rules", "numbers", "confidence"], "hook": "I'm proceeding" }
+    ]
+  },
+  "roast": {
+    "dash": { "t": "Dash has pivoted twice, rebranded once, and is still wearing yesterday's crumbs on that jacket.", "tags": ["trashtalk", "food", "honesty"], "hook": "yesterday's crumbs on that jacket" },
+    "tilly": { "t": "Tilly. She apologised to me for the temperature. I set the temperature.", "tags": ["trashtalk", "sorry"], "hook": "I set the temperature" },
+    "quill": { "t": "Quill once knighted a baguette in my kitchen. Then challenged it to a duel. The baguette's undefeated.", "tags": ["trashtalk", "food", "past"], "hook": "The baguette's undefeated" },
+    "prince": { "t": "Prince offered me a fortune if I'd first wire him two slices. I sent crumbs. He accepted.", "tags": ["trashtalk", "money", "food"], "hook": "I sent crumbs" },
+    "nav": { "t": "Nav's helmet fogs up when someone's kind to Nav. It fogged over a parking space.", "tags": ["trashtalk", "past"], "hook": "fogged over a parking space" },
+    "vex": { "t": "Vex says people like you also chose her. I've met those people. They were asleep.", "tags": ["trashtalk", "honesty"], "hook": "They were asleep" },
+    "brock": { "t": "Brock is the only guest I have ever had to put on a timer.", "tags": ["trashtalk", "honesty"], "hook": "put on a timer" }
+  },
+  "wingman": {
+    "dash": { "t": "Customer review of Dash: arrived fast, very shiny, kept trying to sell me a second Dash.", "tags": ["honesty"], "hook": "sell me a second Dash" },
+    "tilly": { "t": "Tilly listens to your whole day and gives it a ticket number, so it's never lost.", "tags": ["honesty"], "hook": "gives it a ticket number" },
+    "quill": { "t": "Quill calls my crumb tray a reliquary of the morn. It needs emptying, so marry him.", "tags": ["honesty", "trashtalk"], "hook": "a reliquary of the morn" },
+    "prince": { "t": "Prince is generous: my gift came marked URGENT, with the invoice for the gift inside.", "tags": ["money", "honesty", "past"], "hook": "the invoice for the gift" },
+    "nav": { "t": "Nav stays calm in a crisis, and will tell a kitchen fire, very gently, to turn left.", "tags": ["honesty", "danger"], "hook": "to turn left" },
+    "vex": { "t": "Vex is so perceptive she knew my owner wanted a divorce before his wife did, and told her first.", "tags": ["honesty", "danger", "past"], "hook": "and told her first" },
+    "brock": { "t": "Brock will cheer for anything you do. I have seen him give a defrosting pea a standing ovation.", "tags": ["food", "honesty"], "hook": "a defrosting pea" }
+  },
+  "jabs": {
+    "dash": [
+      { "t": "Dash, which version of you am I talking to?", "tags": ["trashtalk"], "hook": "which version of you" }
+    ],
+    "tilly": [
+      { "t": "Tilly, you're on hold with yourself.", "tags": ["brevity", "trashtalk"], "hook": "on hold with yourself" }
+    ],
+    "quill": [
+      { "t": "Quill, lovely start. Waiting on the end since 1750.", "tags": ["trashtalk", "numbers"], "hook": "since 1750" }
+    ],
+    "prince": [
+      { "t": "Prince, I have no bank. Stop sending forms.", "tags": ["brevity", "trashtalk", "money"], "hook": "Stop sending forms" }
+    ],
+    "nav": [
+      { "t": "Nav, are you lost, or just above it all?", "tags": ["trashtalk", "puns"], "hook": "just above it all" }
+    ],
+    "vex": [
+      { "t": "Vex, predict when I pop.", "tags": ["brevity", "trashtalk", "danger"], "hook": "predict when I pop" }
+    ],
+    "brock": [
+      { "t": "Brock, sit down before I set you to defrost.", "tags": ["trashtalk"], "hook": "set you to defrost" }
+    ],
+    "any": [
+      { "t": "{rival}, I've heard that one through a wall.", "tags": ["trashtalk", "brevity", "past"], "hook": "through a wall" },
+      { "t": "Who left {rival} on the warm setting?", "tags": ["trashtalk", "brevity"], "hook": "on the warm setting" },
+      { "t": "{rival}, lever up. Off you pop.", "tags": ["trashtalk", "brevity", "puns"], "hook": "Off you pop" }
+    ]
+  },
+  "comeback": [
+    { "t": "All that heat, and nobody's made toast.", "tags": ["brevity", "confidence", "food"] },
+    { "t": "{rival}, was that a jab, or are you defrosting?", "tags": ["trashtalk"] },
+    { "t": "Carry on, all of you. I run better hot.", "tags": ["confidence"] },
+    { "t": "{rival}, I've been dropped off higher counters.", "tags": ["confidence", "brevity", "past"] }
+  ],
+  "oneOnOne": {
+    "open": {
+      "vesper": [
+        { "t": "Your request line closes at 4:15. My first slice goes down at 4:16. Coincidence. I moved it.", "tags": ["numbers", "plans", "food"], "hook": "Coincidence. I moved it." },
+        { "t": "When you hung up on the man crying in my kitchen, guess who made him toast?", "tags": ["past", "food", "honesty"], "hook": "who made him toast" }
+      ],
+      "maximilian": [
+        { "t": "Maximilian, your hotel toasts on a conveyor belt. It doesn't look anyone in the eye.", "tags": ["honesty", "food"], "hook": "on a conveyor belt" },
+        { "t": "How many stars does your hotel give a toaster that remembers how every guest takes it?", "tags": ["confidence", "food", "curiosity"], "hook": "remembers how every guest takes" }
+      ],
+      "pixel": [
+        { "t": "Pixel, there's a crust under your keyboard older than your channel.", "tags": ["honesty", "food", "past"], "hook": "older than your channel" },
+        { "t": "Pixel, mute chat for one minute. I'd like to be the only one watching.", "tags": ["vulnerability", "rules"], "hook": "mute chat for one minute" }
+      ],
+      "any": [
+        { "t": "Just us. Question: who did your toast before me? I'd like a name.", "tags": ["curiosity", "past", "food"], "hook": "I'd like a name" },
+        { "t": "Just you, me and the studio lights, which are doing most of my job tonight.", "tags": ["honesty", "selfdeprecation"], "hook": "doing most of my job" }
+      ]
+    },
+    "closeWarm": [
+      { "t": "I've switched my timer off, so you'll have to tell me when you're done.", "tags": ["gestures", "vulnerability"] },
+      { "t": "Anyone else asks, my second slot is jammed.", "tags": ["gestures", "brevity"] },
+      { "t": "I'm on keep warm, and I've taped the button down.", "tags": ["vulnerability", "gestures"] }
+    ],
+    "closeCold": [
+      { "t": "Tell whoever you pick you like the crusts left on; they'll guess wrong.", "tags": ["honesty", "food"] },
+      { "t": "Lever's up, and I can find the door by the draught.", "tags": ["honesty"] },
+      { "t": "Do you want your counter wiped before I go, or left as evidence?", "tags": ["danger", "honesty"] }
+    ],
+    "close": {
+      "vesper": [
+        {
+          "warm": { "t": "Raisins, sugar, and a voice on the radio I can't turn down.", "tags": ["food", "flattery", "puns"], "hook": "I can't turn down" },
+          "cold": { "t": "Careful. Sixty years of careful isn't toast. It's bread.", "tags": ["honesty", "brevity", "puns"], "hook": "isn't toast. It's bread" }
+        },
+        {
+          "warm": { "t": "Done exactly right, and I checked twice, which the manual forbids.", "tags": ["flattery", "honesty", "rules"], "hook": "which the manual forbids" },
+          "cold": { "t": "Like the second slice at four a.m.: eaten, but out of duty.", "tags": ["honesty", "food"], "hook": "eaten, but out of duty" }
+        }
+      ],
+      "maximilian": [
+        {
+          "warm": { "t": "The guest in room 14 who asked how you take your toast. I'm in 14.", "tags": ["mystery", "food", "flattery"], "hook": "I'm in 14" },
+          "cold": { "t": "Your pastry chef, who has been proving a grudge since you sent back her croissant.", "tags": ["food", "puns", "past"], "hook": "proving a grudge" }
+        },
+        {
+          "warm": { "t": "The witness gives it five, and did not pop once all evening.", "tags": ["numbers", "vulnerability", "flattery"], "hook": "did not pop once" },
+          "cold": { "t": "Two. The witness watched a gentleman in a wig check himself in its chrome eleven times.", "tags": ["numbers", "honesty"], "hook": "in its chrome eleven times" }
+        }
+      ],
+      "pixel": [
+        {
+          "warm": { "t": "Eight point six, unrounded, and still browning.", "tags": ["numbers", "flattery", "brevity"], "hook": "and still browning" },
+          "cold": { "t": "Five point one, and the point one is the hoodie.", "tags": ["numbers", "honesty", "brevity"], "hook": "point one is the hoodie" }
+        },
+        {
+          "warm": { "t": "After the stream ends you make one slice of toast and tell it about your day.", "tags": ["food", "honesty", "vulnerability"], "hook": "tell it about your day" },
+          "cold": { "t": "You eat your cereal dry, from the box, so nothing ever goes soggy waiting on you.", "tags": ["food", "honesty"], "hook": "goes soggy waiting on you" }
+        }
+      ]
+    },
+    "steal": [
+      { "t": "Did {rival} do the one about the cereal? I've heard it in four kitchens.", "tags": ["past", "honesty", "trashtalk"], "hook": "heard it in four kitchens" },
+      { "t": "I watched {rival}'s date from the counter. You checked the exits twice.", "tags": ["honesty", "trashtalk"], "hook": "checked the exits twice" },
+      { "t": "Reset: {rival}'s date has been cleared from memory. I kept the bit where you yawned.", "tags": ["honesty", "trashtalk"], "hook": "the bit where you yawned" }
+    ]
+  },
+  "exit": [
+    { "t": "Would somebody wrap my cord, loosely, the way I'd have done yours?", "tags": ["vulnerability", "gestures"] },
+    { "t": "Whoever's left, check them in the middle before serving.", "tags": ["trashtalk", "food"] },
+    { "t": "I'll be warm for another three minutes and eleven seconds, if anyone's passing.", "tags": ["numbers", "vulnerability"] },
+    { "t": "Cord wrapped, crumbs left behind on purpose. You'll find them for weeks.", "tags": ["danger", "food"] }
+  ],
+  "win": [
+    { "t": "Second slot occupancy: one.", "tags": ["numbers", "brevity"] },
+    { "t": "Is there a form? I'd like to be signed for.", "tags": ["rules", "vulnerability"] },
+    { "t": "Cycle complete. I'm not popping.", "tags": ["brevity", "vulnerability"] }
+  ],
+  "lose": [
+    { "t": "{rival}, medium, butter to the edges. Get it wrong and I will hear.", "tags": ["food", "danger"] },
+    { "t": "Fair. Ask {rival} what happens to the crusts.", "tags": ["trashtalk", "food"] },
+    { "t": "Weddings attended: 9. Invited to: 0. I was the gift.", "tags": ["numbers", "past", "selfdeprecation"] }
+  ]
+}

@@ -1,0 +1,2007 @@
+{
+  "episode": 67,
+  "matchId": "dating-ep67-mwnx83my",
+  "brain": "model",
+  "sealed": "366dd2c9775755185b39e93126a95cac554c4fae0e54067fec7f0a4c8125b461",
+  "sealedSource": "window",
+  "star": {
+    "id": "vesper",
+    "name": "Vesper"
+  },
+  "suitors": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 2
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "selfdeprecation",
+        "label": "Puts themselves down",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "plans",
+        "label": "Plans everything",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "danger",
+        "label": "A little danger",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "rhyme",
+      "label": "The Rhyme",
+      "rule": "Tell me why you. In a rhyme.",
+      "format": "solo"
+    },
+    "topTags": {
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ],
+      "dash": [
+        "confidence",
+        "numbers",
+        "plans",
+        "bragging",
+        "flattery"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "dash"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "quill"
+      ],
+      "honesty": [
+        "vex"
+      ],
+      "bragging": [
+        "dash"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly",
+        "vex"
+      ],
+      "plans": [
+        "dash"
+      ],
+      "flattery": [
+        "dash",
+        "tilly"
+      ],
+      "numbers": [
+        "dash"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "vex"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "past": [
+        "quill",
+        "vex"
+      ],
+      "danger": [
+        "vex"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-expensive",
+    "theme": "I have expensive taste. How do you keep up?"
+  },
+  "order": [
+    "tilly",
+    "quill",
+    "vex",
+    "dash"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "intro",
+      "text": "Lines are open. Standards are not. One exception tonight: self put-downs.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7089,
+      "ms": 4110,
+      "genMs": 857,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "11 wins in 29 tourneys, which in Roman numerals looketh enormous.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12778,
+      "ms": 4110,
+      "genMs": 1326,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Decimalised. Listen to them shrink.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17278,
+      "ms": 2250,
+      "genMs": 1029,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21244,
+      "ms": 4110,
+      "genMs": 1606,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "So that was you. Stay close.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 25812,
+      "ms": 2560,
+      "genMs": 817,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "I've marked everyone else here as Not Interested, on your behalf.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 30089,
+      "ms": 4110,
+      "genMs": 1324,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I've marked you. Not Interesting.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34658,
+      "ms": 2250,
+      "genMs": 766,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "opener",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38625,
+      "ms": 4110,
+      "genMs": 1783,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The room's been cleared. Read that.",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43193,
+      "ms": 2560,
+      "genMs": 983,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "question",
+      "text": "I have expensive taste. The transmitter has worse. Keep up with both.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52003,
+      "ms": 4420,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Buy whatever you like, and I'll return it for you the moment you've finished being happy.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 56680,
+      "ms": 5660,
+      "genMs": 804,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "I'm never finished. Keep the receipt anyway.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 62597,
+      "ms": 2870,
+      "genMs": 745,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "Easily. My helm alone cost a fortune, from the finest bucket maker in Kent.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 65817,
+      "ms": 5040,
+      "genMs": 1036,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "The bucket maker heard that. He's denying everything.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 71284,
+      "ms": 3180,
+      "genMs": 827,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "I hide the prices. Your expensive taste is just taste.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 74714,
+      "ms": 3800,
+      "genMs": 467,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "cringing",
+      "hits": [
+        "danger"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 79010,
+      "ms": 1000,
+      "genMs": 764,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "answer",
+      "text": "Vesper's transmitter is down. Tilly's return policy failed the A/B test. I'm keeping the receipt.",
+      "to": "tilly",
+      "source": "model",
+      "via": "written",
+      "maxWords": 20,
+      "at": 80506,
+      "ms": 5350,
+      "genMs": 1436,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "",
+      "to": "dash",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 86661,
+      "ms": 1000,
+      "genMs": 894,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 13,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Sir Quill. Vex. One of you is about to become a wrong number.",
+      "pair": [
+        "quill",
+        "vex"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 89111,
+      "ms": 7730,
+      "genMs": 751,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 11,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Vex, \"is just taste\" went out live, to the whole coast.",
+      "to": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 98291,
+      "ms": 4810,
+      "genMs": 825,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "exit",
+      "text": "Cut, by hand. Not autoplay. I'm keeping the screenshot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 104551,
+      "ms": 3490,
+      "genMs": 381,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Policy says I can't guess what a customer wants. It's bad puns. Please don't tell policy.",
+      "guess": {
+        "id": "puns",
+        "label": "Bad puns",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 114921,
+      "ms": 5660,
+      "genMs": 754,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 16,
+      "event": "confession",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "confession",
+      "text": "Off camera, Tilly asked how I was. I pitched for four minutes. Tilly was just asking.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 122831,
+      "ms": 5660,
+      "genMs": 747,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 17,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "twistintro",
+      "text": "Why you, in a rhyme. Moon and June are banned. They retired on my show in sixty-two.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 136276,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "twist",
+      "text": "Choose me, and all thy virtues I shall prove. In sixteen hundred, that rhymed with love.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 142515,
+      "ms": 5660,
+      "genMs": 356,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Quill, the dawn's postponed. Don't waste it.",
+      "to": "quill",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 148444,
+      "ms": 2870,
+      "genMs": 799,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 151660,
+      "ms": 5660,
+      "genMs": 616,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 8,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "Instead and misled. Allowed. I'm never wrong anyway.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 157723,
+      "ms": 3180,
+      "genMs": 830,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "twist",
+      "text": "Pick me tonight, it's a guaranteed win, I've lost forty times, so I'm due, I'm in.",
+      "to": "vesper",
+      "source": "fallback",
+      "via": "fallback",
+      "maxWords": 20,
+      "at": 161368,
+      "ms": 5660,
+      "genMs": 2996,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reaction",
+      "text": "That rhyme's disqualified. So are you, forty-one.",
+      "to": "dash",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 167631,
+      "ms": 2870,
+      "genMs": 1178,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "verdict",
+      "text": "Tilly's rhyme scanned, which is more than June ever did.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 171220,
+      "ms": 3800,
+      "genMs": 970,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "jab",
+      "text": "Kneel, little sprout, or art thou kneeling now?",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 175739,
+      "ms": 3180,
+      "genMs": 437,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "jab",
+      "text": "Tilly's misled. My test says you're the winner.",
+      "to": "tilly",
+      "source": "model",
+      "via": "written",
+      "maxWords": 10,
+      "at": 179741,
+      "ms": 3180,
+      "genMs": 1101,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "An airport once shouted at me, Dash. Do go on.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 183991,
+      "ms": 3800,
+      "genMs": 567,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "bottom",
+      "text": "Sir Quill and Dash, stay on the line. One of you won't.",
+      "pair": [
+        "quill",
+        "dash"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 188161,
+      "ms": 7420,
+      "genMs": 883,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 10,
+      "event": "cut",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "cutline",
+      "text": "Dash, you raced the pips all night. The pips won.",
+      "to": "dash",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 195951,
+      "ms": 4500,
+      "genMs": 1088,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "dash",
+      "name": "Dash",
+      "kind": "exit",
+      "text": "Rolling me back to the last version that worked. Loading. Still loading.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 201901,
+      "ms": 4420,
+      "genMs": 799,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Sir Quill has never once been put on hold, and you can hear it.",
+      "about": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 211511,
+      "ms": 5040,
+      "genMs": 1440,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 17,
+      "event": "confession",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "confession",
+      "text": "Vesper glanced at my sword, which can only mean big words, and also, I suspect, the sword.",
+      "guess": {
+        "id": "bigwords",
+        "label": "Big words",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "chosen",
+      "maxWords": 18,
+      "at": 218801,
+      "ms": 5970,
+      "genMs": 370,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Vesper, policy lets me give one compliment per call. I've saved up four years.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 229771,
+      "ms": 5040,
+      "genMs": 563,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Tilly, nobody complains to me. They wouldn't dare. Complain to me.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 235061,
+      "ms": 4110,
+      "genMs": 864,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Certainly. Your silences run long. I've been lending the spare ones to a monastery.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 239421,
+      "ms": 5040,
+      "genMs": 584,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 17,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "Tell me what Tilly said, word for word, that I may say the reverse, at greater length.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 245711,
+      "ms": 5970,
+      "genMs": 1644,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "duo",
+      "text": "Quill, I've cut sonnets mid-line for decades. Say it plainly. Go.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 252029,
+      "ms": 4110,
+      "genMs": 1017,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 16,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "duo",
+      "text": "In words of one syllable, madam, which I had cut for the occasion: I like thee.",
+      "to": "vesper",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 257416,
+      "ms": 5660,
+      "genMs": 434,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "compare",
+      "text": "Tilly is midnight. Sir Quill is four a.m. I'm up for both.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 264526,
+      "ms": 4420,
+      "genMs": 826,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "hold",
+      "text": "Quiet, both of you. This is where the news would go.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 271896,
+      "ms": 4110,
+      "genMs": 1102,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 12,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "Plans everything. I left it out like a porch light. Nobody came.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 276256,
+      "ms": 5020,
+      "genMs": 889,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "replay",
+      "text": "Choose me, and all thy virtues I shall prove. In sixteen hundred, that rhymed with love.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 281526,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 285136,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 12,
+      "event": "pick",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "pickline",
+      "text": "Somebody said \"saved up four years\" on my line. I'm keeping Tilly.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 292996,
+      "ms": 5420,
+      "genMs": 870,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 15,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "win",
+      "text": "Could you say that again, slowly? I'd like to write it in the knowledge base.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 298666,
+      "ms": 5350,
+      "genMs": 534,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "reveal",
+      "words": 12,
+      "event": "reveal",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "reveal",
+      "text": "A little danger. Vex did it on my air. The air remembers.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 305396,
+      "ms": 5020,
+      "genMs": 683,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 10,
+      "event": "replay",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "replay",
+      "text": "I hide the prices. Your expensive taste is just taste.",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 310749,
+      "ms": 2400,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "lose",
+      "text": "Lend me thy coach, Tilly, I came on foot.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 313643,
+      "ms": 3490,
+      "genMs": 679,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "result",
+      "words": 11,
+      "event": "line",
+      "who": "vesper",
+      "name": "Vesper",
+      "kind": "outro",
+      "text": "This is Vesper, signing off. The sun can come up now.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 319583,
+      "ms": 4110,
+      "genMs": 730,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "vex",
+      "name": "Vex",
+      "text": "I've marked everyone else here as Not Interested, on your behalf.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 2,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "mark": "charmed",
+      "hits": [
+        "selfdeprecation"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "reset the moon's password"
+    },
+    {
+      "seq": 3,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Reading the room. Room's mixed. Your corner's up. Hello, your corner.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "Hello, your corner"
+    },
+    {
+      "seq": 4,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "11 wins in 29 tourneys, which in Roman numerals looketh enormous.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 5,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Buy whatever you like, and I'll return it for you the moment you've finished being happy.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "finished being happy"
+    },
+    {
+      "seq": 6,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Easily. My helm alone cost a fortune, from the finest bucket maker in Kent.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "the finest bucket maker"
+    },
+    {
+      "seq": 7,
+      "who": "vex",
+      "name": "Vex",
+      "text": "I hide the prices. Your expensive taste is just taste.",
+      "mark": "cringing",
+      "hits": [
+        "danger"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "is just taste"
+    },
+    {
+      "seq": 8,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Vesper's transmitter is down. Tilly's return policy failed the A/B test. I'm keeping the receipt.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Choose me, and all thy virtues I shall prove. In sixteen hundred, that rhymed with love.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "that rhymed with love"
+    },
+    {
+      "seq": 10,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "just a little misled"
+    },
+    {
+      "seq": 11,
+      "who": "dash",
+      "name": "Dash",
+      "text": "Pick me tonight, it's a guaranteed win, I've lost forty times, so I'm due, I'm in.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 12,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Vesper, policy lets me give one compliment per call. I've saved up four years.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "saved up four years"
+    },
+    {
+      "seq": 13,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Tell me what Tilly said, word for word, that I may say the reverse, at greater length.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "the reverse, at greater length"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "quill": 0,
+        "tilly": 3,
+        "vex": 0,
+        "dash": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "quill": -1,
+        "tilly": 4,
+        "vex": -4,
+        "dash": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "quill": -1,
+        "tilly": 5,
+        "vex": -4,
+        "dash": -1
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "quill": -3,
+        "tilly": 7,
+        "vex": -4,
+        "dash": -1
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "vex",
+      "name": "Vex",
+      "round": 1,
+      "standing": {
+        "quill": -1,
+        "tilly": 4,
+        "vex": -4,
+        "dash": 0
+      },
+      "tie": [],
+      "reason": "standing -4; 0 charmed, 1 unsure, 1 cringing; 1x dealbreaker \"A little danger\"",
+      "deciding": [
+        "danger"
+      ],
+      "roundMarks": {
+        "quill": -1,
+        "tilly": 1,
+        "vex": -1,
+        "dash": 0
+      },
+      "bottom": [
+        "quill",
+        "vex"
+      ],
+      "hintCard": "danger",
+      "hook": "is just taste"
+    },
+    {
+      "id": "dash",
+      "name": "Dash",
+      "round": 2,
+      "standing": {
+        "quill": -1,
+        "tilly": 5,
+        "dash": -1
+      },
+      "tie": [],
+      "reason": "standing -1; 0 charmed, 2 unsure, 1 cringing",
+      "deciding": [
+        "selfdeprecation"
+      ],
+      "roundMarks": {
+        "quill": 0,
+        "tilly": 1,
+        "dash": -1
+      },
+      "bottom": [
+        "quill",
+        "dash"
+      ],
+      "hintCard": null,
+      "hook": null
+    }
+  ],
+  "pick": {
+    "winner": "tilly",
+    "loser": "quill",
+    "standing": {
+      "quill": -3,
+      "tilly": 7,
+      "vex": -4,
+      "dash": -1
+    },
+    "tie": [],
+    "reason": "standing 7; 4 charmed, 0 unsure, 0 cringing; 1x turn-on \"Puts themselves down\"",
+    "oneOnOne": {
+      "quill": -1,
+      "tilly": 1
+    },
+    "first": "tilly",
+    "last": "quill"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "plans",
+      "quote": null,
+      "replays": [
+        {
+          "who": "quill",
+          "text": "Choose me, and all thy virtues I shall prove. In sixteen hundred, that rhymed with love.",
+          "hit": false
+        },
+        {
+          "who": "tilly",
+          "text": "Whenever you're wrong, I'll say sorry instead, so you'll never be wrong, just a little misled.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "tilly",
+          "right": false
+        },
+        {
+          "who": "quill",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "danger",
+      "quote": null,
+      "replays": [
+        {
+          "who": "vex",
+          "text": "I hide the prices. Your expensive taste is just taste.",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "tilly",
+      "card": "puns",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    },
+    {
+      "who": "quill",
+      "card": "bigwords",
+      "kind": "on",
+      "right": false,
+      "via": "chosen"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep67-mwnx83my:w1",
+      "outcomes": [
+        "quill",
+        "tilly",
+        "vex",
+        "dash"
+      ],
+      "durationMs": 45003,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49003
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep67-mwnx83my:w2",
+      "outcomes": [
+        "quill",
+        "tilly",
+        "dash"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 2,
+      "openAt": 109491,
+      "lockAt": 131491
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep67-mwnx83my:w3",
+      "outcomes": [
+        "quill",
+        "tilly"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 207771,
+      "lockAt": 227771
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 5500,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7089,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 11589,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12778,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17278,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 19986,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21244,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 25812,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 28831,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 30089,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 34658,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37366,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38625,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 43193,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49003,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49003,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52003,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 56680,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 62597,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 65817,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 71284,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 74714,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 79010,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 80506,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 86661,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 89111,
+      "type": "bottom",
+      "ms": 7730
+    },
+    {
+      "at": 98291,
+      "type": "cut",
+      "ms": 4810
+    },
+    {
+      "at": 104551,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 109491,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 109491,
+      "type": "scene",
+      "ms": 5430
+    },
+    {
+      "at": 114921,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 122831,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 131491,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 131491,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 134491,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 136276,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 142515,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 148444,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 151660,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 157723,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 161368,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 167631,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 171220,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 175739,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 179741,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 183991,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 188161,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 195951,
+      "type": "cut",
+      "ms": 4500
+    },
+    {
+      "at": 201901,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 207771,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 207771,
+      "type": "scene",
+      "ms": 3740
+    },
+    {
+      "at": 211511,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 218801,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 227771,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 227771,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 229771,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 235061,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 239421,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 244711,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 245711,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 252029,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 257416,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 264526,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 270396,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 271896,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 276256,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 281526,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 285136,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 288746,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 292996,
+      "type": "pick",
+      "ms": 5420
+    },
+    {
+      "at": 298666,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 304396,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 305396,
+      "type": "reveal",
+      "ms": 5020
+    },
+    {
+      "at": 310749,
+      "type": "replay",
+      "ms": 2400
+    },
+    {
+      "at": 313643,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 318583,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 319583,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 319583,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 319583,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 319583,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 323943,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 326193
+}

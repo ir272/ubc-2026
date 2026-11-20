@@ -1,0 +1,2010 @@
+{
+  "episode": 23,
+  "matchId": "dating-ep23-mwnq8lyg",
+  "brain": "scripted",
+  "sealed": "49f15fff07667aca8ac8ef8a01a313ebadb6ddc7abb59916b8d1ca7512e8f929",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "crumb",
+      "name": "Crumb",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "spot": 2
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "money",
+        "label": "Talks about money",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "mystery",
+        "label": "Dodges the question",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "budget-date",
+      "label": "Five Dollars",
+      "rule": "Plan our date. Five dollars. No wifi.",
+      "format": "solo"
+    },
+    "topTags": {
+      "crumb": [
+        "honesty",
+        "food",
+        "past",
+        "puns",
+        "brevity"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ],
+      "vex": [
+        "honesty",
+        "danger",
+        "past",
+        "mystery",
+        "curiosity"
+      ],
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ]
+    },
+    "owners": {
+      "puns": [
+        "crumb"
+      ],
+      "money": [
+        "prince"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "prince"
+      ],
+      "honesty": [
+        "crumb",
+        "vex"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly",
+        "vex"
+      ],
+      "food": [
+        "crumb"
+      ],
+      "flattery": [
+        "prince",
+        "tilly"
+      ],
+      "mystery": [
+        "prince",
+        "vex"
+      ],
+      "brevity": [
+        "crumb"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "crumb",
+        "vex"
+      ],
+      "danger": [
+        "vex"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-worst-habit",
+    "theme": "What is your worst habit, the one I will find out about in week two?"
+  },
+  "order": [
+    "crumb",
+    "vex",
+    "tilly",
+    "prince"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "WE'RE LIVE! Four suitors! Huge night! Mostly. Somebody bring money talk.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7094,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12782,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "They cut it. I'd cut you.",
+      "to": "crumb",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17281,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "To be loved, press one. To leave, please stay on the line.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21419,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 4,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Rage-quitting your menu. Watch.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 26228,
+      "ms": 1940,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "opener",
+      "text": "Your horoscope today says to trust a pyramid. I write your horoscope.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 29746,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "My horoscope says skip pyramids.",
+      "to": "vex",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34555,
+      "ms": 2250,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Pardon the beach shorts. My coronation ran long, and I left early.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38382,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Long coronation? Should've skipped the cutscene.",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "Your worst habit, the week two one. Is it illegal? Round up.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 5,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "I heckle toasts on principle.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 56677,
+      "ms": 2250,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "A heckler! Front row. Free merch.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 59177,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "answer",
+      "text": "Nothing is ever forgotten, so every fight we have will be a rerun.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 61993,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 67083,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 14,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "I can't let a phone ring. Sorry. I'll answer yours at midnight, as you.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 68443,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 7,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Midnight's when I block numbers. Yours first.",
+      "to": "tilly",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 73943,
+      "ms": 2870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "Crumb, your notices never say URGENT. Have you no passion?",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 77841,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "prince",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 83091,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 12,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Prince and Tilly, stand still, I want this bit in slow motion.",
+      "pair": [
+        "prince",
+        "tilly"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 85541,
+      "ms": 7420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 13,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Tilly, \"at midnight, as you\", I paused there and never pressed play again.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 94411,
+      "ms": 5430,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "exit",
+      "text": "Of course. Sorry, stage. Sorry, lights. Sorry, man with the mop.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 101291,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Pixel is a simple dish. Brown side down, add brutal honesty, serve warm.",
+      "guess": {
+        "id": "honesty",
+        "label": "Brutal honesty",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 109351,
+      "ms": 4730,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 11,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Crumb thinks we're close because I keep recommending Crumb to Crumb.",
+      "about": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 114926,
+      "ms": 4110,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "I wrote a love letter with no ask in it. It looked underdressed. I added a fee.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 119881,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Five dollars, no wifi, plan our date. No wifi? I'll die. Pitch it anyway.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 133636,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "Five dollars buys a reduced loaf and the bench by the launderette. It has a socket.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 138926,
+      "ms": 5660,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "A socket! I can charge! That's basically a hotel.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 144836,
+      "ms": 3490,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 13,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "twist",
+      "text": "Five dollars, which I found in your old coat, which I also found.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 148591,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 0,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 153571,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "Five dollars, Dearest? I have never seen one. Bring it, and that can be the date.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 154821,
+      "ms": 5660,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Five dollars and you, staring? I've streamed worse. Bring it.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 160731,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "verdict",
+      "text": "Crumb wins the five dollar date. I'll bring six. Big spender.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 164781,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "jab",
+      "text": "Crumb, you're in my Continue Watching. Nobody continued.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 169141,
+      "ms": 3180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "I have seen that line. I sent it in 2004.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 172571,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Carry on, all of you. I run better hot.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 177043,
+      "ms": 3490,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 10,
+      "event": "bottom",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "bottom",
+      "text": "Crumb, Prince, whoever cries first stays. Kidding. Whoever cries better.",
+      "pair": [
+        "crumb",
+        "prince"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 181983,
+      "ms": 6800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 14,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "\"I have never seen one\". That's the clip, Prince, and it's the last one.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 190233,
+      "ms": 5740,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "exit",
+      "text": "Kindly rate this rejection from one to five. A five would mean a great deal.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 197423,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 12,
+      "event": "confession",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "confession",
+      "text": "Mornings I've spent with one slot empty: 3,281. If Vex wins: 3,282.",
+      "about": "vex",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 209203,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 15,
+      "event": "confession",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "confession",
+      "text": "Watch: danger, and Pixel leans in. I've had that lean on a loop for weeks.",
+      "guess": {
+        "id": "danger",
+        "label": "A little danger",
+        "kind": "on",
+        "right": false
+      },
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 215873,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Pixel, there's a crust under your keyboard older than your channel.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 226223,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Score me out of ten, out loud, and don't round up.",
+      "to": "crumb",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 230583,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 7,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "duo",
+      "text": "Eight point six, unrounded, and still browning.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 234999,
+      "ms": 2870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "So, how was Crumb? Take your time. I've got all night, and your location.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 239570,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "What's something you watched that NOBODY recommended? Mine's a fire. Not the point. Yours?",
+      "to": "vex",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 245838,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 9,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "duo",
+      "text": "Your first stream. Nobody recommended it. I made sure.",
+      "to": "pixel",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 252328,
+      "ms": 3490,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "compare",
+      "text": "Crumb, fun. Vex, fun. Somebody be boring, I need to decide!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 257268,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Who let two honest people on my stream? Chat's lost its job.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 264328,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 2,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Brutal honesty.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 268998,
+      "ms": 1920,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 13,
+      "event": "replay",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "replay",
+      "text": "Nothing is ever forgotten, so every fight we have will be a rerun.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 271168,
+      "ms": 2880,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 5,
+      "event": "replay",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "replay",
+      "text": "I heckle toasts on principle.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 274298,
+      "ms": 1600,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "I usually leave before the end. \"older than your channel\" made me stay. Crumb.",
+      "to": "crumb",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 280736,
+      "ms": 6040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 4,
+      "event": "line",
+      "who": "crumb",
+      "name": "Crumb",
+      "kind": "win",
+      "text": "Second slot occupancy: one.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 288226,
+      "ms": 1940,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 11,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Nobody touched Dodges the question. I'm saving it for next stream.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 292616,
+      "ms": 4710,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 7,
+      "event": "line",
+      "who": "vex",
+      "name": "Vex",
+      "kind": "lose",
+      "text": "Enjoy Crumb. I'll be the ad before.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 297763,
+      "ms": 2870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "result",
+      "words": 9,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "Ending stream before I get bored of ending stream.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 301995,
+      "ms": 3490,
+      "genMs": 1,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Someone made you toast this morning, and they cut it wrong.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "they cut it wrong"
+    },
+    {
+      "seq": 2,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "To be loved, press one. To leave, please stay on the line.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "please stay on the line"
+    },
+    {
+      "seq": 3,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Your horoscope today says to trust a pyramid. I write your horoscope.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 4,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Pardon the beach shorts. My coronation ran long, and I left early.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "My coronation ran long"
+    },
+    {
+      "seq": 5,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "I heckle toasts on principle.",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "heckle toasts on principle"
+    },
+    {
+      "seq": 6,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Nothing is ever forgotten, so every fight we have will be a rerun.",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 1,
+      "round": 1,
+      "hook": "will be a rerun"
+    },
+    {
+      "seq": 7,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I can't let a phone ring. Sorry. I'll answer yours at midnight, as you.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "at midnight, as you"
+    },
+    {
+      "seq": 8,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Crumb, your notices never say URGENT. Have you no passion?",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Five dollars buys a reduced loaf and the bench by the launderette. It has a socket.",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "It has a socket"
+    },
+    {
+      "seq": 10,
+      "who": "vex",
+      "name": "Vex",
+      "text": "Five dollars, which I found in your old coat, which I also found.",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "which I also found"
+    },
+    {
+      "seq": 11,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Five dollars, Dearest? I have never seen one. Bring it, and that can be the date.",
+      "mark": "charmed",
+      "hits": [
+        "money"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "I have never seen one"
+    },
+    {
+      "seq": 12,
+      "who": "crumb",
+      "name": "Crumb",
+      "text": "Pixel, there's a crust under your keyboard older than your channel.",
+      "mark": "charmed",
+      "hits": [
+        "honesty"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "older than your channel"
+    },
+    {
+      "seq": 13,
+      "who": "vex",
+      "name": "Vex",
+      "text": "So, how was Crumb? Take your time. I've got all night, and your location.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 2,
+      "round": 3,
+      "hook": "and your location"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "crumb": 0,
+        "tilly": -1,
+        "vex": 0,
+        "prince": 0
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "crumb": 3,
+        "tilly": -2,
+        "vex": 3,
+        "prince": 0
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "crumb": 6,
+        "tilly": -2,
+        "vex": 6,
+        "prince": 3
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "crumb": 12,
+        "tilly": -2,
+        "vex": 8,
+        "prince": 3
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "round": 1,
+      "standing": {
+        "crumb": 3,
+        "tilly": -2,
+        "vex": 3,
+        "prince": 0
+      },
+      "tie": [],
+      "reason": "standing -2; 0 charmed, 0 unsure, 2 cringing",
+      "deciding": [],
+      "roundMarks": {
+        "crumb": 1,
+        "tilly": -1,
+        "vex": 1,
+        "prince": 0
+      },
+      "bottom": [
+        "prince",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": "at midnight, as you"
+    },
+    {
+      "id": "prince",
+      "name": "Prince",
+      "round": 2,
+      "standing": {
+        "crumb": 6,
+        "vex": 6,
+        "prince": 3
+      },
+      "tie": [],
+      "reason": "standing 3; 1 charmed, 2 unsure, 0 cringing; 1x turn-on \"Talks about money\"",
+      "deciding": [],
+      "roundMarks": {
+        "crumb": 1,
+        "vex": 1,
+        "prince": 1
+      },
+      "bottom": [
+        "crumb",
+        "prince"
+      ],
+      "hintCard": null,
+      "hook": "I have never seen one"
+    }
+  ],
+  "pick": {
+    "winner": "crumb",
+    "loser": "vex",
+    "standing": {
+      "crumb": 12,
+      "tilly": -2,
+      "vex": 8,
+      "prince": 3
+    },
+    "tie": [],
+    "reason": "standing 12; 3 charmed, 1 unsure, 0 cringing; 1x turn-on \"Talks about money\"; 2x turn-on \"Brutal honesty\"",
+    "oneOnOne": {
+      "crumb": 1,
+      "vex": 1
+    },
+    "first": "crumb",
+    "last": "vex"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "honesty",
+      "quote": null,
+      "replays": [
+        {
+          "who": "vex",
+          "text": "Nothing is ever forgotten, so every fight we have will be a rerun.",
+          "hit": true
+        },
+        {
+          "who": "crumb",
+          "text": "I heckle toasts on principle.",
+          "hit": true
+        }
+      ],
+      "guesses": [
+        {
+          "who": "crumb",
+          "right": true
+        },
+        {
+          "who": "vex",
+          "right": false
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "mystery",
+      "quote": null,
+      "replays": [],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "crumb",
+      "card": "honesty",
+      "kind": "on",
+      "right": true,
+      "via": "bank"
+    },
+    {
+      "who": "vex",
+      "card": "danger",
+      "kind": "on",
+      "right": false,
+      "via": "bank"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep23-mwnq8lyg:w1",
+      "outcomes": [
+        "crumb",
+        "tilly",
+        "vex",
+        "prince"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep23-mwnq8lyg:w2",
+      "outcomes": [
+        "crumb",
+        "vex",
+        "prince"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 106851,
+      "lockAt": 128851
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep23-mwnq8lyg:w3",
+      "outcomes": [
+        "crumb",
+        "vex"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 204223,
+      "lockAt": 224223
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1505
+    },
+    {
+      "at": 5505,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7094,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 11593,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12782,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 17281,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 20230,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21419,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 26228,
+      "type": "reaction",
+      "ms": 1940
+    },
+    {
+      "at": 28557,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 29746,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 34555,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 37193,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38382,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 56677,
+      "type": "line",
+      "ms": 2250
+    },
+    {
+      "at": 59177,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 61993,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 67083,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 68443,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 73943,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 77841,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 83091,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 85541,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 94411,
+      "type": "cut",
+      "ms": 5430
+    },
+    {
+      "at": 101291,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 106851,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 106851,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 109351,
+      "type": "confession",
+      "ms": 4730
+    },
+    {
+      "at": 114926,
+      "type": "confession",
+      "ms": 4110
+    },
+    {
+      "at": 119881,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 128851,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 128851,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 131851,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 133636,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 138926,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 144836,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 148591,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 153571,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 154821,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 160731,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 164781,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 169141,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 172571,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 177043,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 181983,
+      "type": "bottom",
+      "ms": 6800
+    },
+    {
+      "at": 190233,
+      "type": "cut",
+      "ms": 5740
+    },
+    {
+      "at": 197423,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 204223,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 204223,
+      "type": "scene",
+      "ms": 4980
+    },
+    {
+      "at": 209203,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 215873,
+      "type": "confession",
+      "ms": 5350
+    },
+    {
+      "at": 224223,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 224223,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 226223,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 230583,
+      "type": "reaction",
+      "ms": 4110
+    },
+    {
+      "at": 234999,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 238119,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 239570,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 245838,
+      "type": "reaction",
+      "ms": 5040
+    },
+    {
+      "at": 252328,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 257268,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 262828,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 264328,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 268998,
+      "type": "reveal",
+      "ms": 1920
+    },
+    {
+      "at": 271168,
+      "type": "replay",
+      "ms": 2880
+    },
+    {
+      "at": 274298,
+      "type": "replay",
+      "ms": 1600
+    },
+    {
+      "at": 276486,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 280736,
+      "type": "pick",
+      "ms": 6040
+    },
+    {
+      "at": 288226,
+      "type": "line",
+      "ms": 1940
+    },
+    {
+      "at": 291616,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 292616,
+      "type": "reveal",
+      "ms": 4710
+    },
+    {
+      "at": 297763,
+      "type": "line",
+      "ms": 2870
+    },
+    {
+      "at": 300995,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 301995,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 301995,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 301995,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 301995,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 305735,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 307985
+}

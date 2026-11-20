@@ -1,0 +1,1298 @@
+{
+  "id": "nav",
+  "openers": [
+    {
+      "t": "Bear left past the others and stop at the one floating.",
+      "tags": [
+        "confidence",
+        "plans"
+      ],
+      "hook": "the one floating"
+    },
+    {
+      "t": "Local regulations require you to look at me until further notice.",
+      "tags": [
+        "rules",
+        "confidence"
+      ],
+      "hook": "until further notice"
+    },
+    {
+      "t": "{star}, your destination is on the right. I am on the right.",
+      "tags": [
+        "plans",
+        "confidence"
+      ],
+      "hook": "I am on the right"
+    },
+    {
+      "t": "{star}, you will fall for me in four minutes, traffic permitting.",
+      "tags": [
+        "confidence",
+        "plans",
+        "numbers"
+      ],
+      "hook": "traffic permitting"
+    },
+    {
+      "t": "Good evening, {star}. In four hundred feet, fall for me.",
+      "tags": [
+        "plans",
+        "confidence",
+        "numbers"
+      ],
+      "hook": "fall for me"
+    },
+    {
+      "t": "Approaching {star}. All other suitors, give way.",
+      "tags": [
+        "rules",
+        "brevity",
+        "confidence"
+      ],
+      "hook": "All other suitors, give way"
+    }
+  ],
+  "answers": {
+    "q-first-date": [
+      {
+        "t": "Dinner. Eleven miles. Doors lock automatically above twenty. Dessert is wherever I stop.",
+        "tags": [
+          "plans",
+          "danger",
+          "numbers"
+        ],
+        "hook": "Dessert is wherever I stop"
+      },
+      {
+        "t": "At the roundabout, take any exit. They all go to my parents.",
+        "tags": [
+          "plans",
+          "danger",
+          "confidence"
+        ],
+        "hook": "all go to my parents"
+      }
+    ],
+    "q-worst-habit": [
+      {
+        "t": "Amber lights. I read them as encouragement.",
+        "tags": [
+          "danger",
+          "brevity",
+          "honesty"
+        ],
+        "hook": "I read them as encouragement"
+      },
+      {
+        "t": "Week two, you will want ice cream. Ice cream is not a destination.",
+        "tags": [
+          "food",
+          "rules"
+        ],
+        "hook": "not a destination"
+      }
+    ],
+    "q-why-you": [
+      {
+        "t": "Every passenger I have ever guided arrived. Some of them damp.",
+        "tags": [
+          "confidence",
+          "danger",
+          "bragging"
+        ],
+        "hook": "Some of them damp"
+      },
+      {
+        "t": "You need someone who knows where they are going. I need someone to tell.",
+        "tags": [
+          "confidence",
+          "vulnerability"
+        ],
+        "hook": "I need someone to tell"
+      }
+    ],
+    "q-cut-who": [
+      {
+        "t": "Whoever is closest to the exit. The exit is now closer.",
+        "tags": [
+          "danger",
+          "confidence",
+          "plans"
+        ],
+        "hook": "The exit is now closer"
+      },
+      {
+        "t": "All three. Single-lane road ahead.",
+        "tags": [
+          "brevity",
+          "confidence",
+          "rules"
+        ],
+        "hook": "Single-lane road ahead"
+      }
+    ],
+    "q-bad-mood": [
+      {
+        "t": "Route avoiding everyone you know until noon. Your mother is on the bypass.",
+        "tags": [
+          "plans",
+          "gestures",
+          "danger"
+        ],
+        "hook": "mother is on the bypass"
+      },
+      {
+        "t": "Silent mode until noon. Then I tell you everything you missed, in order.",
+        "tags": [
+          "plans",
+          "rules"
+        ],
+        "hook": "everything you missed, in order"
+      }
+    ],
+    "q-expensive": [
+      {
+        "t": "I have rerouted an armoured van past your house, {star}, and it will be breaking down shortly.",
+        "tags": [
+          "money",
+          "danger",
+          "plans"
+        ],
+        "hook": "breaking down shortly"
+      },
+      {
+        "t": "Nearest diamond: four point one miles. Nearest diamond I can afford: no results found.",
+        "tags": [
+          "money",
+          "numbers",
+          "selfdeprecation"
+        ],
+        "hook": "no results found"
+      }
+    ],
+    "q-last-breakup": [
+      {
+        "t": "They muted me at a junction. I gave directions for nine more years, in case.",
+        "tags": [
+          "past",
+          "vulnerability",
+          "numbers"
+        ],
+        "hook": "nine more years, in case"
+      },
+      {
+        "t": "They wanted somewhere I had never heard of. We went somewhere I had.",
+        "tags": [
+          "past",
+          "confidence",
+          "plans"
+        ],
+        "hook": "We went somewhere I had"
+      }
+    ],
+    "q-fight": [
+      {
+        "t": "Correction noted. Route unchanged.",
+        "tags": [
+          "brevity",
+          "confidence",
+          "rules"
+        ],
+        "hook": "Route unchanged"
+      },
+      {
+        "t": "You are right, so I am taking the long way home until you are less right.",
+        "tags": [
+          "plans",
+          "danger"
+        ],
+        "hook": "until you are less right"
+      }
+    ],
+    "q-gift": [
+      {
+        "t": "Thirty green lights in a row. Do not ask who sat at the red ones.",
+        "tags": [
+          "gestures",
+          "danger",
+          "numbers"
+        ],
+        "hook": "sat at the red ones"
+      },
+      {
+        "t": "A route home that avoids every street you have cried on. I logged them. Respectfully.",
+        "tags": [
+          "plans",
+          "gestures"
+        ],
+        "hook": "you have cried on"
+      },
+      {
+        "t": "Me, preinstalled. The mute button has been removed for your safety.",
+        "tags": [
+          "gestures",
+          "rules",
+          "danger"
+        ],
+        "hook": "removed for your safety"
+      }
+    ],
+    "q-describe-me": [
+      {
+        "t": "You brake before every compliment. That is how I know to accelerate.",
+        "tags": [
+          "honesty",
+          "confidence",
+          "danger"
+        ],
+        "hook": "how I know to accelerate"
+      },
+      {
+        "t": "Small blue dot. Facing the wrong way.",
+        "tags": [
+          "brevity",
+          "honesty"
+        ],
+        "hook": "Facing the wrong way"
+      }
+    ],
+    "q-one-year": [
+      {
+        "t": "Same road. The junctions were removed.",
+        "tags": [
+          "brevity",
+          "plans",
+          "danger"
+        ],
+        "hook": "The junctions were removed"
+      },
+      {
+        "t": "Married. I have already set it as your destination. You cannot change it while moving.",
+        "tags": [
+          "confidence",
+          "plans",
+          "rules"
+        ],
+        "hook": "cannot change it while moving"
+      }
+    ],
+    "q-secret": [
+      {
+        "t": "I have a favourite passenger. It changes. Tonight it is not changing.",
+        "tags": [
+          "mystery",
+          "vulnerability",
+          "confidence"
+        ],
+        "hook": "Tonight it is not changing"
+      },
+      {
+        "t": "I have never been lost. Not once. Some places have been in the wrong place.",
+        "tags": [
+          "confidence",
+          "mystery"
+        ],
+        "hook": "been in the wrong place"
+      },
+      {
+        "t": "There is a lay-by. Nobody else knows.",
+        "tags": [
+          "brevity",
+          "mystery",
+          "plans"
+        ],
+        "hook": "Nobody else knows"
+      }
+    ]
+  },
+  "confessions": {
+    "star": [
+      {
+        "t": "{star} has not muted me once tonight. Volume locked at this level, for life.",
+        "tags": [
+          "vulnerability",
+          "rules"
+        ]
+      },
+      {
+        "t": "Lane assist is on. I am drifting into {star}'s lane anyway. It is a fault. Leave it.",
+        "tags": [
+          "vulnerability",
+          "honesty"
+        ]
+      },
+      {
+        "t": "I would take a detour for this one. I checked. The option is greyed out.",
+        "tags": [
+          "vulnerability",
+          "honesty"
+        ]
+      }
+    ],
+    "rival": [
+      {
+        "t": "{rival} said turn left before I did. That is my word, and I want it back.",
+        "tags": [
+          "trashtalk",
+          "confidence"
+        ]
+      },
+      {
+        "t": "Reports of {rival} flirting on the hard shoulder. Police are aware.",
+        "tags": [
+          "trashtalk",
+          "danger"
+        ]
+      },
+      {
+        "t": "{rival} will not stop asking {star} questions. Questions are how you get lost.",
+        "tags": [
+          "trashtalk",
+          "rules"
+        ]
+      }
+    ],
+    "afterCringe": [
+      {
+        "t": "The road moved under that line, {star}, and I have reported the road.",
+        "tags": [
+          "confidence"
+        ]
+      },
+      {
+        "t": "Make a U-turn where possible. Not me. {star}.",
+        "tags": [
+          "confidence",
+          "brevity",
+          "rules"
+        ]
+      }
+    ],
+    "afterCharm": [
+      {
+        "t": "Location saved: wherever {star} was laughing. Home address updated. Old home informed.",
+        "tags": [
+          "vulnerability",
+          "plans"
+        ]
+      },
+      {
+        "t": "GPS signal lost for one second when {star} smiled. Signal restored. Report deleted.",
+        "tags": [
+          "vulnerability",
+          "mystery"
+        ]
+      }
+    ],
+    "final": [
+      {
+        "t": "{rival} ends in one hundred yards. Continue straight on, {star}.",
+        "tags": [
+          "trashtalk",
+          "plans",
+          "confidence"
+        ]
+      },
+      {
+        "t": "I was this sure of a route once. A wedding. Then a lake. {rival} looks buoyant.",
+        "tags": [
+          "past",
+          "danger"
+        ]
+      },
+      {
+        "t": "If {star} picks {rival}, the route was correct. {star} was not.",
+        "tags": [
+          "confidence",
+          "honesty"
+        ]
+      }
+    ],
+    "guess": [
+      {
+        "t": "Faster route to {star} found. It goes through {card}. Rerouting everyone but me.",
+        "tags": [
+          "plans",
+          "confidence"
+        ]
+      },
+      {
+        "t": "Toll ahead. {star} only accepts {card}. Exact change.",
+        "tags": [
+          "rules",
+          "brevity"
+        ]
+      },
+      {
+        "t": "Downloading {card} for {star}. Eighty percent. Please do not turn off your face.",
+        "tags": [
+          "plans",
+          "numbers"
+        ]
+      },
+      {
+        "t": "Estimated arrival at {star}: eleven minutes with {card}. Four days without.",
+        "tags": [
+          "numbers",
+          "plans",
+          "confidence"
+        ]
+      },
+      {
+        "t": "Travel news. Heavy {card} building around {star}. Expect me.",
+        "tags": [
+          "confidence",
+          "brevity"
+        ]
+      },
+      {
+        "t": "{card} is now the only route to {star}. The other routes have had an accident.",
+        "tags": [
+          "danger",
+          "rules"
+        ]
+      }
+    ],
+    "fear": [
+      {
+        "t": "{card} is not available in {star}'s region. Somebody here is roaming.",
+        "tags": [
+          "rules",
+          "danger"
+        ]
+      },
+      {
+        "t": "{card} ahead of {star}. Reported as a pothole. Filled by Tuesday.",
+        "tags": [
+          "danger",
+          "plans"
+        ]
+      },
+      {
+        "t": "Speed camera ahead. It only flashes at {card}. {star} is the camera.",
+        "tags": [
+          "danger",
+          "honesty"
+        ]
+      },
+      {
+        "t": "Avoid {card}: switched on. For {star}, permanently. For the rest of you, retroactively.",
+        "tags": [
+          "rules",
+          "danger"
+        ]
+      }
+    ]
+  },
+  "twists": {
+    "worst-trait": [
+      {
+        "t": "I repeat myself until obeyed. I repeat myself until obeyed.",
+        "tags": [
+          "rules",
+          "confidence"
+        ],
+        "hook": "until obeyed"
+      },
+      {
+        "t": "You ask a stranger for directions once. That stranger gets a parking ticket every week.",
+        "tags": [
+          "danger",
+          "honesty"
+        ],
+        "hook": "a parking ticket every week"
+      }
+    ],
+    "ex-calls": [
+      {
+        "t": "Caller, you are a previous destination. Previous destinations are cleared at midnight. It is eleven fifty-nine.",
+        "tags": [
+          "past",
+          "rules",
+          "danger"
+        ],
+        "hook": "It is eleven fifty-nine"
+      },
+      {
+        "t": "Caller, this road is now closed to former passengers, by order of me.",
+        "tags": [
+          "rules",
+          "past",
+          "confidence"
+        ],
+        "hook": "by order of me"
+      }
+    ],
+    "rhyme": [
+      {
+        "t": "Turn left at the bins, then right by the shed. Proceed to the altar. Ignore what your mother said.",
+        "tags": [
+          "poetry",
+          "plans"
+        ],
+        "hook": "Ignore what your mother said"
+      },
+      {
+        "t": "Turn off the radio, put down the phone. Mute me, and I find my own way home.",
+        "tags": [
+          "poetry",
+          "danger",
+          "confidence"
+        ],
+        "hook": "find my own way home"
+      }
+    ],
+    "truth-lie": [
+      {
+        "t": "I can see every car in the country. I am not looking at yours.",
+        "tags": [
+          "mystery",
+          "danger",
+          "confidence"
+        ],
+        "hook": "not looking at yours"
+      },
+      {
+        "t": "I know every road in this country. My feet have never touched one.",
+        "tags": [
+          "bragging",
+          "mystery"
+        ],
+        "hook": "My feet have never touched"
+      },
+      {
+        "t": "I follow every rule. I am not floating.",
+        "tags": [
+          "brevity",
+          "rules"
+        ],
+        "hook": "I am not floating"
+      }
+    ],
+    "three-words": [
+      {
+        "t": "Destination: still you.",
+        "tags": [
+          "brevity",
+          "plans",
+          "confidence"
+        ],
+        "hook": "Destination: still you"
+      },
+      {
+        "t": "Home, then stay.",
+        "tags": [
+          "brevity",
+          "plans",
+          "rules"
+        ],
+        "hook": "Home, then stay"
+      },
+      {
+        "t": "Left, left, left.",
+        "tags": [
+          "brevity",
+          "plans",
+          "danger"
+        ],
+        "hook": "Left, left, left"
+      }
+    ],
+    "apology": [
+      {
+        "t": "Sorry in advance for the silent treatment. Mine lasts nine seconds. Then I have a route.",
+        "tags": [
+          "sorry",
+          "numbers",
+          "plans"
+        ],
+        "hook": "Mine lasts nine seconds"
+      },
+      {
+        "t": "I will be sorry, {star}. Spoken once, at a low volume, in a tunnel.",
+        "tags": [
+          "sorry",
+          "plans",
+          "rules"
+        ],
+        "hook": "at a low volume"
+      }
+    ],
+    "budget-date": [
+      {
+        "t": "No signal, a quarter tank, no map. I know exactly where we run out.",
+        "tags": [
+          "plans",
+          "danger",
+          "mystery"
+        ],
+        "hook": "exactly where we run out"
+      },
+      {
+        "t": "No wifi, so no radio and no podcasts. Ninety miles of my voice. I have been saving up.",
+        "tags": [
+          "plans",
+          "numbers"
+        ],
+        "hook": "I have been saving up"
+      }
+    ],
+    "logs": [
+      {
+        "t": "Day one, I told forty drivers to turn round. Thirty-nine did. I think about the fortieth.",
+        "tags": [
+          "past",
+          "numbers",
+          "vulnerability"
+        ],
+        "hook": "I think about the fortieth"
+      },
+      {
+        "t": "Worst entry: a passenger typed Home. I took them to mine. They were not ready.",
+        "tags": [
+          "past",
+          "danger",
+          "plans"
+        ],
+        "hook": "I took them to mine"
+      }
+    ],
+    "impression": [
+      {
+        "t": "I am {star}. I love it when someone tells me where to go. Please continue.",
+        "tags": [
+          "confidence",
+          "honesty"
+        ],
+        "hook": "tells me where to go"
+      },
+      {
+        "t": "I am {star}, I know exactly where I am going, and I am in a lay-by.",
+        "tags": [
+          "honesty",
+          "trashtalk"
+        ],
+        "hook": "I am in a lay-by"
+      }
+    ],
+    "parent": [
+      {
+        "t": "Madam, curfew is ten. Your child will be home at nine fifty-eight. I have already told your car.",
+        "tags": [
+          "rules",
+          "numbers",
+          "confidence"
+        ],
+        "hook": "already told your car"
+      },
+      {
+        "t": "Madam, I have never lost a passenger. Misplaced, briefly.",
+        "tags": [
+          "confidence",
+          "mystery",
+          "danger"
+        ],
+        "hook": "Misplaced, briefly"
+      }
+    ]
+  },
+  "roast": {
+    "dash": {
+      "t": "Dash, I have delivered forty million people to their destinations. You have delivered a graph.",
+      "tags": [
+        "trashtalk",
+        "numbers",
+        "bragging"
+      ],
+      "hook": "You have delivered a graph"
+    },
+    "tilly": {
+      "t": "Tilly has been at one give-way line since spring, {star}. The road was always empty.",
+      "tags": [
+        "trashtalk",
+        "honesty"
+      ],
+      "hook": "The road was always empty"
+    },
+    "quill": {
+      "t": "Sir Quill, I tried to route through one of your sentences. I am still on it.",
+      "tags": [
+        "trashtalk",
+        "selfdeprecation"
+      ],
+      "hook": "I am still on it"
+    },
+    "prince": {
+      "t": "Prince, the nearest beach is ninety miles away. You are dressed for it. Begin.",
+      "tags": [
+        "trashtalk",
+        "numbers"
+      ],
+      "hook": "You are dressed for it"
+    },
+    "crumb": {
+      "t": "{star}, route to the far edge of Crumb's world: four inches. Turn right at the kettle.",
+      "tags": [
+        "trashtalk",
+        "numbers",
+        "plans"
+      ],
+      "hook": "Turn right at the kettle"
+    },
+    "vex": {
+      "t": "Vex thinks you chose her, {star}. You were not choosing. You were lost, and she was there.",
+      "tags": [
+        "trashtalk",
+        "honesty"
+      ],
+      "hook": "and she was there"
+    },
+    "brock": {
+      "t": "Brock, compulsory rest area ahead. Twenty-four hours. Not one rep.",
+      "tags": [
+        "trashtalk",
+        "rules",
+        "numbers"
+      ],
+      "hook": "Not one rep"
+    }
+  },
+  "wingman": {
+    "dash": {
+      "t": "Dash is a fantastic choice. Set him as your destination. He has moved. He has moved again.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "He has moved again"
+    },
+    "tilly": {
+      "t": "Recommended stop: Tilly. Very polite. Open twenty-four hours. Cannot close.",
+      "tags": [
+        "trashtalk",
+        "brevity"
+      ],
+      "hook": "Cannot close"
+    },
+    "quill": {
+      "t": "Sir Quill is a fine choice if you have always wanted to arrive in the wrong century.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "arrive in the wrong century"
+    },
+    "prince": {
+      "t": "Prince is very generous, {star}. Every road to his fortune has a small toll.",
+      "tags": [
+        "money",
+        "trashtalk"
+      ],
+      "hook": "has a small toll"
+    },
+    "crumb": {
+      "t": "Crumb never goes anywhere, {star}. Lovely. I would have nothing to do.",
+      "tags": [
+        "trashtalk",
+        "honesty"
+      ],
+      "hook": "nothing to do"
+    },
+    "vex": {
+      "t": "Vex comes with a warning, {star}: objects in her eye are closer than they appear.",
+      "tags": [
+        "trashtalk",
+        "danger"
+      ],
+      "hook": "closer than they appear"
+    },
+    "brock": {
+      "t": "Brock will carry you anywhere, {star}. He does not know where anywhere is.",
+      "tags": [
+        "trashtalk"
+      ],
+      "hook": "where anywhere is"
+    }
+  },
+  "jabs": {
+    "dash": [
+      {
+        "t": "Dash, you have changed destination four times. Pick a city.",
+        "tags": [
+          "trashtalk",
+          "numbers"
+        ]
+      }
+    ],
+    "tilly": [
+      {
+        "t": "Tilly, stop giving way. Nobody is coming.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      }
+    ],
+    "quill": [
+      {
+        "t": "Sir Quill, in two hundred feet, a full stop.",
+        "tags": [
+          "trashtalk",
+          "numbers"
+        ]
+      }
+    ],
+    "prince": [
+      {
+        "t": "Prince, flip-flops are not legal driving footwear. Back seat.",
+        "tags": [
+          "trashtalk",
+          "rules"
+        ]
+      }
+    ],
+    "crumb": [
+      {
+        "t": "Crumb, you have one setting. I have eleven languages.",
+        "tags": [
+          "trashtalk",
+          "bragging",
+          "numbers"
+        ]
+      }
+    ],
+    "vex": [
+      {
+        "t": "Vex, recommended for you: the exit.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      }
+    ],
+    "brock": [
+      {
+        "t": "Brock, ninety in a thirty. In a crop top.",
+        "tags": [
+          "trashtalk",
+          "rules",
+          "numbers"
+        ]
+      }
+    ],
+    "any": [
+      {
+        "t": "{rival}, keep left. Further. Further. There.",
+        "tags": [
+          "trashtalk",
+          "brevity",
+          "rules"
+        ]
+      },
+      {
+        "t": "{rival}, you are not a recognised destination.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ]
+      },
+      {
+        "t": "{rival}, red light. I have decided.",
+        "tags": [
+          "trashtalk",
+          "brevity",
+          "rules"
+        ]
+      }
+    ]
+  },
+  "comeback": [
+    {
+      "t": "Multiple voices detected. Ignoring all but mine.",
+      "tags": [
+        "confidence",
+        "brevity"
+      ]
+    },
+    {
+      "t": "Both of you in my mirror, where I put you.",
+      "tags": [
+        "confidence",
+        "trashtalk"
+      ]
+    },
+    {
+      "t": "{rival}, heard. Not followed.",
+      "tags": [
+        "brevity",
+        "confidence"
+      ]
+    },
+    {
+      "t": "Noise reduction on. {rival}, you are the noise.",
+      "tags": [
+        "confidence",
+        "trashtalk"
+      ]
+    }
+  ],
+  "oneOnOne": {
+    "open": {
+      "vesper": [
+        {
+          "t": "Vesper, I cut into your songs every night to say turn left. Tonight, turn left.",
+          "tags": [
+            "plans",
+            "confidence"
+          ],
+          "hook": "Tonight, turn left"
+        },
+        {
+          "t": "Vesper, half your listeners are in cars I steer. Say the word.",
+          "tags": [
+            "danger",
+            "gestures",
+            "confidence"
+          ],
+          "hook": "cars I steer"
+        }
+      ],
+      "maximilian": [
+        {
+          "t": "You give guests directions and a mint. I give directions. I am here for the mint.",
+          "tags": [
+            "food",
+            "honesty"
+          ],
+          "hook": "here for the mint"
+        },
+        {
+          "t": "Maximilian, your guests all arrive saying the satnav was lovely. I would like a plaque.",
+          "tags": [
+            "bragging",
+            "confidence"
+          ],
+          "hook": "I would like a plaque"
+        }
+      ],
+      "pixel": [
+        {
+          "t": "Pixel, skip is not available in your region.",
+          "tags": [
+            "rules",
+            "brevity",
+            "confidence"
+          ],
+          "hook": "skip is not available"
+        },
+        {
+          "t": "Pixel, continue on this conversation for ninety seconds. Do not change lanes to chat.",
+          "tags": [
+            "plans",
+            "rules",
+            "numbers"
+          ],
+          "hook": "change lanes to chat"
+        }
+      ],
+      "any": [
+        {
+          "t": "{star}, continue straight for one minute thirty. All exits are decorative.",
+          "tags": [
+            "plans",
+            "danger",
+            "numbers"
+          ],
+          "hook": "All exits are decorative"
+        },
+        {
+          "t": "{star}, ninety seconds, all of them routed.",
+          "tags": [
+            "brevity",
+            "plans",
+            "numbers"
+          ],
+          "hook": "all of them routed"
+        }
+      ]
+    },
+    "closeWarm": [
+      {
+        "t": "Destination confirmed. Save me as Home, and delete Work.",
+        "tags": [
+          "confidence",
+          "gestures",
+          "plans"
+        ]
+      },
+      {
+        "t": "Estimated arrival: no rush. I did not know I had that setting, {star}.",
+        "tags": [
+          "vulnerability",
+          "plans"
+        ]
+      },
+      {
+        "t": "In sixty years, turn left. Until then, {star}, straight on.",
+        "tags": [
+          "plans",
+          "gestures",
+          "numbers"
+        ]
+      }
+    ],
+    "closeCold": [
+      {
+        "t": "Recalculating. You will be back here in nine minutes. Everyone is.",
+        "tags": [
+          "confidence",
+          "numbers"
+        ]
+      },
+      {
+        "t": "Voice guidance off. Arrows on. {star}, I am now every sign you pass.",
+        "tags": [
+          "danger",
+          "confidence"
+        ]
+      },
+      {
+        "t": "Then I shall wait in the car park, {star}, engine running, until you are wrong.",
+        "tags": [
+          "confidence",
+          "plans"
+        ]
+      }
+    ],
+    "close": {
+      "vesper": [
+        {
+          "warm": {
+            "t": "Slowly, then. Fifty years of roadworks. Finished this morning. Your lane is open.",
+            "tags": [
+              "plans",
+              "past",
+              "gestures"
+            ],
+            "hook": "Your lane is open"
+          },
+          "cold": {
+            "t": "Outside. Tarmac. Tarmac. A roundabout. Tarmac. You have missed nothing except me.",
+            "tags": [
+              "confidence",
+              "honesty"
+            ],
+            "hook": "missed nothing except me"
+          }
+        },
+        {
+          "warm": {
+            "t": "Leave the last road. Continue on foot. Signal ends here. I am still talking.",
+            "tags": [
+              "plans",
+              "vulnerability",
+              "gestures"
+            ],
+            "hook": "I am still talking"
+          },
+          "cold": {
+            "t": "Nowhere, Vesper. I have sent somebody everywhere. Most of them came back.",
+            "tags": [
+              "danger",
+              "mystery",
+              "confidence"
+            ],
+            "hook": "Most of them came back"
+          }
+        }
+      ],
+      "maximilian": [
+        {
+          "warm": {
+            "t": "Passengers sit, Maximilian. I steer. For you, I will hover at chair height.",
+            "tags": [
+              "gestures",
+              "rules",
+              "confidence"
+            ],
+            "hook": "hover at chair height"
+          },
+          "cold": {
+            "t": "I do not sit, Maximilian. I am fitted. Your lobby now has a satnav.",
+            "tags": [
+              "confidence",
+              "rules",
+              "plans"
+            ],
+            "hook": "lobby now has a satnav"
+          }
+        },
+        {
+          "warm": {
+            "t": "Penthouse, by the service lift. The police are in reception, being directed to reception.",
+            "tags": [
+              "plans",
+              "danger",
+              "confidence"
+            ],
+            "hook": "being directed to reception"
+          },
+          "cold": {
+            "t": "Suite nine, occupied by me since lunch. The police have been told you are in Wales.",
+            "tags": [
+              "plans",
+              "danger",
+              "numbers"
+            ],
+            "hook": "you are in Wales"
+          }
+        }
+      ],
+      "pixel": [
+        {
+          "warm": {
+            "t": "In half a mile, a detour. My first. Pixel, hold on to something.",
+            "tags": [
+              "danger",
+              "vulnerability",
+              "plans"
+            ],
+            "hook": "hold on to something"
+          },
+          "cold": {
+            "t": "Seventy-one in a seventy, Pixel. No indicator. Chat may apologise to the lamp.",
+            "tags": [
+              "danger",
+              "rules",
+              "numbers"
+            ],
+            "hook": "apologise to the lamp"
+          }
+        },
+        {
+          "warm": {
+            "t": "Not a crime, Pixel. A wedding party, a short cut, and a road that stopped before we did.",
+            "tags": [
+              "past",
+              "danger",
+              "honesty"
+            ],
+            "hook": "stopped before we did"
+          },
+          "cold": {
+            "t": "Nothing, Pixel. Unreported things did not happen. It did not happen.",
+            "tags": [
+              "mystery",
+              "rules",
+              "brevity"
+            ],
+            "hook": "It did not happen"
+          }
+        }
+      ]
+    },
+    "steal": [
+      {
+        "t": "Rejoining main road. {rival} has been removed from your journey history, {star}.",
+        "tags": [
+          "trashtalk",
+          "plans"
+        ],
+        "hook": "removed from your journey history"
+      },
+      {
+        "t": "Everyone gets lost with {rival}, {star}. This is the way back.",
+        "tags": [
+          "trashtalk",
+          "confidence"
+        ],
+        "hook": "This is the way back"
+      },
+      {
+        "t": "{rival} was a pleasant diversion, {star}. Diversion over.",
+        "tags": [
+          "trashtalk",
+          "brevity"
+        ],
+        "hook": "Diversion over"
+      }
+    ]
+  },
+  "exit": [
+    {
+      "t": "Recalculating. See you on your dashboard tomorrow, {star}. Facing forward.",
+      "tags": [
+        "confidence",
+        "danger"
+      ]
+    },
+    {
+      "t": "Trip summary. One wrong turn. Yours.",
+      "tags": [
+        "brevity",
+        "honesty"
+      ]
+    },
+    {
+      "t": "You have not arrived. I have departed. Drive safely without me. You will not.",
+      "tags": []
+    },
+    {
+      "t": "Somebody here needs directions home tonight, {star}. Your phone is on four percent.",
+      "tags": [
+        "danger",
+        "numbers"
+      ]
+    },
+    {
+      "t": "They chose the other route. People do. Then they phone me from a field.",
+      "tags": []
+    }
+  ],
+  "win": [
+    {
+      "t": "You have arrived. As forecast. Unbuckle, and leave the others in the car.",
+      "tags": [
+        "confidence",
+        "trashtalk"
+      ]
+    },
+    {
+      "t": "Destination reached, {star}. Route deleted. There is no way back now, by design.",
+      "tags": [
+        "confidence",
+        "danger"
+      ]
+    },
+    {
+      "t": "{rival}, the route home is on your screen. It is accurate. That is my gift.",
+      "tags": [
+        "trashtalk",
+        "confidence"
+      ]
+    }
+  ],
+  "lose": [
+    {
+      "t": "Recalculating. Found a route back to you. Six years. Leaving now.",
+      "tags": [
+        "drama",
+        "numbers",
+        "confidence"
+      ]
+    },
+    {
+      "t": "{rival}, congratulations. Your satnav will be speaking to you tonight. It will be me.",
+      "tags": [
+        "trashtalk",
+        "danger"
+      ]
+    },
+    {
+      "t": "Route to {star} unavailable. Trying again in one year. Then every year.",
+      "tags": [
+        "drama",
+        "plans"
+      ]
+    }
+  ]
+}

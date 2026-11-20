@@ -1,0 +1,41 @@
+{
+  "winner": "ref",
+  "charm": "ref",
+  "staging": "ref",
+  "light": "na",
+  "readability": "ref",
+  "broken": [
+    "10-title-call-booth: 'The booth' is wider than its dashed balloon; the dashed outline cuts through the T (x~290) and the h (x~1000).",
+    "03 / 08-960-walkon: the top-right type hand ('Bad puns' card) collides with the right end of the 'Compatibility Mode' marquee sign; the 'e' of Mode butts into the card and the bulb border is cut off.",
+    "03: tagline boxes are inconsistent: Sir Quill's runs to three lines and hangs ~25 px lower than the others, box widths all differ, so the row of tails sits at different heights.",
+    "04, 06c, 06d, 06e, 09: subtitle text wraps at about 55-60% of the bar width, leaving 350-450 px of dead navy at the right of a fixed ~1000 px bar (02 fills it, so the bar looks different shot to shot).",
+    "06c / 06d / 06e: the hand turns into a pile: 'Vesper's type' label overlaps the bottom of the third card, 'The Ex' tab is wedged under the seam of cards one and two, and the big reveal card starts 10-25 px below, repeating the exact words of the mini card above it.",
+    "06e / 08-960-reveal: the dealbreaker broken-heart pip at the big card's bottom right reads as a closing quotation mark, right next to the red opening quote glyph in the bar.",
+    "06b: the mid-turn big card renders as a thin vertical sliver of noisy, garbled stripe texture; it reads as a render glitch, not a cel flip (05b sliver has the same problem at small size).",
+    "Label inconsistency: the hand is captioned 'The star's type' in 02/03/05 and 'Vesper's type' in 06/09.",
+    "Round bug: rounds get a numbered disc, but walk-on, booth, reveal and 'Tonight' get an empty coloured disc that looks like a missing icon.",
+    "02 / 05 / 09: the round bug sits on top of a half-cropped red disc or clock at the top-left frame edge (x 0-45), crowding the corner.",
+    "07 / 08-960-result: the 'Frost' plate punches out through the card's top edge, the card sits on a black jagged 3D silhouette that reads as a torn black backing, and the heart pips float just above its top-right corner; the result card does not own the frame.",
+    "960x540: 'The star's type' / 'Vesper's type' (~10 px), 'Nobody else can hear this' (~10 px, grey on navy), the 'Next time' line (~11 px) and the walk-on taglines (~11 px) are below comfortable reading size.",
+    "01 / 10-round-two: the title says the number twice ('Round one' plus a giant '1'), and the pair is lopsided with dead space top and bottom.",
+    "10-title-call-walkon: title and the four plates are pushed into the left 70%, right third empty; plates sit on a wobbling baseline that looks accidental rather than tossed.",
+    "04: the confession 'whisper balloon' is a tail-less rectangle, so it reads as a coupon box, not a balloon tied to Sir Quill."
+  ],
+  "slop": [
+    "Every title call (01, 10-show, 10-walkon, 10-round-two, 10-one-on-one, 10-pick, 10-reveal): heavy geometric sans with a hard offset drop shadow, tilted, on a flat colour field with radial speed lines. This is the stock Canva / web-hero template, not a 1980s anime eyecatch; seven shots share it with only the colour swapped.",
+    "04 and 10-title-call-booth: dashed cut-line border on cream paper reads as a coupon or ticket stub.",
+    "05c twist card 'The Ex': double keyline frame with a centred rule under the title reads as a label or stamp.",
+    "Face-down cards (hand in 02/03/05/09, 06a big card, 10-reveal): diagonal candy-stripe fill is a generic placeholder pattern.",
+    "Round bug (03, 04, 06a-e, 07): empty coloured circles used as decoration with no content.",
+    "07 and 09: heart, raindrop and raincloud pip badges read as emoji (may belong to the marks piece, but they sit in the caption layer's space).",
+    "Cream (#FFF3E0-like) is the only light colour on every card, plate and balloon; borderline beige, saved only by the dark ink outline.",
+    "No em dashes, monospace uppercase, glows, bloom or purple gradients found in the on-screen text."
+  ],
+  "comprehension": "Phase: yes, the round bug top left (Round one, The booth, The reveal) and full-screen title calls name it. Show type: partly. 'Compatibility Mode' does not say dating; the hearts, 'Vesper's type' and 'Vesper picks Frost' get there, but nothing on screen says it is bots or that viewers bet; there are no odds, stakes or a 'bet now' cue anywhere. Who is winning: unclear. The pips under suitors (09) mix hearts, raindrops and a raincloud with no key, the dimmed Sir Quill tag shows a cut but is subtle, and the hand ('Bad puns', '?', '?', 'The Ex') does not explain that suitors are matched against hidden turn-ons and a dealbreaker. 'The Ex' tab has no context at all once the twist card is gone. A newcomer would know it is a show with rounds and a picker, not who leads.",
+  "biggestGap": "The top-right type hand is the least professional area and it is on screen in every studio shot: by the reveal it is a six-piece pile (three mini cards, 'The Ex' tab wedged under a seam, the type label overlapping the last card, and the big card 10-25 px below repeating the same words), whereas Animal Crossing and Monster Prom never let more than one text element compete in a zone. Rebuild it as one clean row with a fixed 12 px gap and the label as a plate at the row's left end (like the name tags), move 'The Ex' out to sit beside the round bug as a rule badge, and hide the mini hand entirely while the big card is up so there is at least 40 px of air and no duplicated text.",
+  "protect": [
+    "The subtitle bar's scale and type: ~38 px cream on ink navy, two lines, hand-cut edge, about 78% frame width, bottom anchored; it reads instantly at 960x540 and matches Monster Prom and Animal Crossing proportions.",
+    "Tilted speaker plates in each suitor's accent colour overlapping the bar's top-left corner (Dash, Vesper, 'Sir Quill, earlier', 'Tilly, earlier'), with the bar keyline switching to mint for a turn-on and coral for a dealbreaker; this is the Animal Crossing 'Punchy' tag done right and gives the replay its own voice.",
+    "09's cut treatment: Sir Quill's tag drops to his own colour, dimmed, while the others stay lit; it is the Take Me Out lights-out grammar applied to type and reads without a word."
+  ]
+}

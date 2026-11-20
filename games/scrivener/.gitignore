@@ -1,0 +1,17 @@
+.brain-cache.json
+.env
+.spend.json
+assets/audio/raw/
+captures/
+node_modules/
+refs/
+refs/raw/
+work/
+.env.*
+.vercel/
+.DS_Store
+# blind A/B pairs embed the reference scans (copyrighted bars): local only
+progress/pairs/
+.vercel
+.cache/
+shots/

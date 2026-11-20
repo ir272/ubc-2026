@@ -1,0 +1,28 @@
+{
+  "name": "arena-runner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Arena match runner: runs every channel's show loop, HTTP + WebSocket on :8787",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "start": "node src/index.ts",
+    "dev": "node --watch src/index.ts",
+    "test": "node --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "optionalDependencies": {
+    "@solana/web3.js": "^1.98.0",
+    "@arena/sdk": "file:../program/sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/ws": "^8.5.12",
+    "typescript": "^5.9.0"
+  }
+}

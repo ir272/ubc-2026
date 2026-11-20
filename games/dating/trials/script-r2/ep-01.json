@@ -1,0 +1,2046 @@
+{
+  "episode": 20,
+  "matchId": "dating-ep20-mwnq8lwn",
+  "brain": "scripted",
+  "sealed": "da6c469b9e933e25a28fad626cc52d04ca4f7e2668f4eb695a1bf7d541c2e49e",
+  "sealedSource": "window",
+  "star": {
+    "id": "maximilian",
+    "name": "Maximilian"
+  },
+  "suitors": [
+    {
+      "id": "prince",
+      "name": "Prince",
+      "spot": 0
+    },
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 1
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "spot": 2
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "gestures",
+        "label": "Grand gestures",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "budget-date",
+      "label": "Five Dollars",
+      "rule": "Plan our date. Five dollars. No wifi.",
+      "format": "solo"
+    },
+    "topTags": {
+      "prince": [
+        "gestures",
+        "petnames",
+        "flattery",
+        "money",
+        "mystery"
+      ],
+      "quill": [
+        "poetry",
+        "drama",
+        "bigwords",
+        "past",
+        "gestures"
+      ],
+      "brock": [
+        "numbers",
+        "confidence",
+        "vulnerability",
+        "food",
+        "bragging"
+      ],
+      "tilly": [
+        "rules",
+        "selfdeprecation",
+        "sorry",
+        "flattery",
+        "curiosity"
+      ]
+    },
+    "owners": {
+      "confidence": [
+        "brock"
+      ],
+      "money": [
+        "prince"
+      ],
+      "sorry": [
+        "tilly"
+      ],
+      "gestures": [
+        "prince",
+        "quill"
+      ],
+      "bragging": [
+        "brock"
+      ],
+      "poetry": [
+        "quill"
+      ],
+      "selfdeprecation": [
+        "tilly"
+      ],
+      "curiosity": [
+        "tilly"
+      ],
+      "food": [
+        "brock"
+      ],
+      "flattery": [
+        "prince",
+        "tilly"
+      ],
+      "numbers": [
+        "brock"
+      ],
+      "drama": [
+        "quill"
+      ],
+      "mystery": [
+        "prince"
+      ],
+      "bigwords": [
+        "quill"
+      ],
+      "petnames": [
+        "prince"
+      ],
+      "past": [
+        "quill"
+      ],
+      "vulnerability": [
+        "brock"
+      ],
+      "rules": [
+        "tilly"
+      ]
+    }
+  },
+  "question": {
+    "id": "q-why-you",
+    "theme": "Why you and not the three standing next to you?"
+  },
+  "order": [
+    "brock",
+    "tilly",
+    "prince",
+    "quill"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "intro",
+      "text": "It is exhausting, being this desired. Somebody impress me with grand gestures.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 7046,
+      "ms": 4420,
+      "genMs": 9,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "opener",
+      "text": "Kindly ignore the fireworks, the band and, I fear, a second band.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 12948,
+      "ms": 4420,
+      "genMs": 9,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 5,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "The second band may stay.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 17709,
+      "ms": 2250,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 21441,
+      "ms": 4110,
+      "genMs": 8,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Leftward, then, and do not miss.",
+      "to": "quill",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 25892,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "opener",
+      "text": "Episode 11! Won 4! I round up, so I've won them ALL!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 29934,
+      "ms": 4420,
+      "genMs": 8,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "All of them? The auditors disagree.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 34696,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 38739,
+      "ms": 4110,
+      "genMs": 7,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "walkon",
+      "words": 6,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "The moon. Finally, a decent accomplice.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 6,
+      "at": 43190,
+      "ms": 2560,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "question",
+      "text": "Why should you get the suite, and not the three beside you? I have seen their luggage.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 52000,
+      "ms": 5970,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "answer",
+      "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 58259,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "brock",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 64546,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 18,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 65863,
+      "ms": 6280,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 72529,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 17,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "answer",
+      "text": "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 73915,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 8,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "My face has its own solicitors. They approve.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 80227,
+      "ms": 3180,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "What prince doth beg? Thy kingdom is a hat.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 83853,
+      "ms": 3490,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Sir Quill, that verse is leaving with you, I trust.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 10,
+      "at": 87850,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round1",
+      "words": 13,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "Sir Quill and Brock, kindly agree on an alibi. You have three seconds.",
+      "pair": [
+        "quill",
+        "brock"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 13,
+      "at": 92933,
+      "ms": 7730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round1",
+      "words": 14,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "Sir Quill, your bill is in verse, and the final line is the door.",
+      "to": "quill",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 15,
+      "at": 101842,
+      "ms": 5740,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round1",
+      "words": 8,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "exit",
+      "text": "Remember me, if thou rememberest aught, as tall.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 109032,
+      "ms": 3180,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "booth1",
+      "words": 17,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Maximilian likes admitting a fear. I have bet a duchy on it, and not told the duchy.",
+      "guess": {
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 115492,
+      "ms": 5970,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "booth1",
+      "words": 12,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Prince thinks we're close. I've said their name three times. Policy's three.",
+      "about": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 121712,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "booth1",
+      "words": 18,
+      "event": "confession",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "confession",
+      "text": "Maximilian hasn't eaten all night. I've got a banana in my crop top for emergencies. Is this ONE?",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 126382,
+      "ms": 6280,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "twistintro",
+      "text": "Plan our evening on five dollars, no wifi. I once hid a countess for less.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 140447,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 16,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "twist",
+      "text": "No wifi, so I deliver every message by hand, every four minutes, until you answer one.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 146105,
+      "ms": 5660,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 7,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Then I shall leave the window unlatched.",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 152079,
+      "ms": 2870,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "twist",
+      "text": "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 155340,
+      "ms": 5350,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 9,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "Twenty bananas is a shipment, sir, not a date.",
+      "to": "brock",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "paired": true,
+      "maxWords": 10,
+      "at": 161166,
+      "ms": 3490,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "round2",
+      "words": 18,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "A park bench and five dollars of payphone time, so I can call you from the next bench.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 165163,
+      "ms": 6280,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "round2",
+      "words": 0,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reaction",
+      "text": "",
+      "to": "tilly",
+      "mark": "unsure",
+      "hits": [],
+      "source": "bank",
+      "via": "bank",
+      "spoken": false,
+      "maxWords": 10,
+      "at": 172018,
+      "ms": 1000,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "round2",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "verdict",
+      "text": "Prince planned a five dollar evening I could not trace. Hired.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 173594,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "jab",
+      "text": "Prince! Your small fee? Paid in pushups! Check your ACCOUNT!",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 178324,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "round2",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Prince, sorry. Royalty usually brings the rest of the outfit.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 182744,
+      "ms": 3800,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "jab",
+      "text": "Everyone, writing to me at once. I may weep.",
+      "to": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 10,
+      "at": 187164,
+      "ms": 3490,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "round2",
+      "words": 12,
+      "event": "bottom",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "bottom",
+      "text": "Brock, Tilly, you were both unforgettable. One of you will be forgotten.",
+      "pair": [
+        "brock",
+        "tilly"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 191351,
+      "ms": 7420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "round2",
+      "words": 14,
+      "event": "cut",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "cutline",
+      "text": "\"I'll eat your ten\", Brock. You were never here, and you never said it.",
+      "to": "brock",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 199468,
+      "ms": 5740,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "exit",
+      "text": "Out! Which way's out? That way? I'll go every way, one of them's RIGHT!",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 206485,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "booth2",
+      "words": 16,
+      "event": "confession",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "confession",
+      "text": "Dear Tilly, we regret to inform you that you are in the final with a prince.",
+      "about": "tilly",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 217025,
+      "ms": 5660,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "booth2",
+      "words": 14,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "Admitting a fear, I'm ninety percent sure. The other ten percent has been escalated.",
+      "guess": {
+        "id": "vulnerability",
+        "label": "Admits a fear",
+        "kind": "on",
+        "right": true
+      },
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 18,
+      "at": 224935,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "oneonone",
+      "words": 14,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "duo",
+      "text": "Maximilian, my darling. Is this seat taken? Also, FYI, the hotel is yours now.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 234975,
+      "ms": 5040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 42,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Your Highness, your email promised dinner and a small war; shall I order?",
+      "to": "prince",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 240265,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "oneonone",
+      "words": 18,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "duo",
+      "text": "Order, my truffle. Cancel the war. It was only in the subject line so you would open it.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 245245,
+      "ms": 6280,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Sorry, Prince overran. I've asked the tide to wait for us.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 252788,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 45,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "reaction",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "duo",
+      "text": "Miss Tilly, every guest takes something from the room; what did you take?",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "source": "bank",
+      "via": "bank",
+      "spoken": true,
+      "maxWords": 14,
+      "at": 257242,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 46,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "The little pen, sir. Sorry. I've already signed a ceasefire with it.",
+      "to": "maximilian",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 20,
+      "at": 263040,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 47,
+      "scene": "oneonone",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "compare",
+      "text": "Two guests, one suite: Prince reads the small print, Tilly signs anyway.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 268910,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 48,
+      "scene": "pick",
+      "words": 11,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "hold",
+      "text": "Do stand still. One of you is about to be released.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 14,
+      "at": 276280,
+      "ms": 4110,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 49,
+      "scene": "pick",
+      "words": 14,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Admits a fear. It was right there behind the desk. None of you asked.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 280640,
+      "ms": 5640,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 50,
+      "scene": "pick",
+      "words": 16,
+      "event": "replay",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "replay",
+      "text": "No wifi, so I deliver every message by hand, every four minutes, until you answer one.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 286530,
+      "ms": 3360,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 51,
+      "scene": "pick",
+      "words": 18,
+      "event": "replay",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "replay",
+      "text": "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.",
+      "slot": 1,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 290140,
+      "ms": 3680,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 52,
+      "scene": "pick",
+      "words": 14,
+      "event": "pick",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "pickline",
+      "text": "Pack nothing; you said \"the hotel is yours now\" and you are staying, Prince.",
+      "to": "prince",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 298320,
+      "ms": 6040,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 53,
+      "scene": "pick",
+      "words": 13,
+      "event": "line",
+      "who": "prince",
+      "name": "Prince",
+      "kind": "win",
+      "text": "Tilly, condolences. Attached is the wedding seating plan. You are by the moat.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 304610,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 54,
+      "scene": "reveal",
+      "words": 15,
+      "event": "reveal",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "reveal",
+      "text": "Numbers and stats. Brock, you did it before witnesses. I can only hide so much.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 310590,
+      "ms": 5950,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 55,
+      "scene": "reveal",
+      "words": 15,
+      "event": "replay",
+      "who": "brock",
+      "name": "Brock",
+      "kind": "replay",
+      "text": "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!",
+      "slot": 2,
+      "source": "bank",
+      "via": "replay",
+      "maxWords": 99,
+      "at": 316790,
+      "ms": 3200,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 56,
+      "scene": "reveal",
+      "words": 13,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "lose",
+      "text": "Of course. The orchestra can go home. They were very good about it.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 16,
+      "at": 320240,
+      "ms": 4730,
+      "genMs": 0,
+      "waitedMs": 0
+    },
+    {
+      "seq": 57,
+      "scene": "result",
+      "words": 12,
+      "event": "line",
+      "who": "maximilian",
+      "name": "Maximilian",
+      "kind": "outro",
+      "text": "Goodnight. If asked, none of this happened, and the ambassador left early.",
+      "source": "bank",
+      "via": "bank",
+      "maxWords": 12,
+      "at": 326590,
+      "ms": 4420,
+      "genMs": 0,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Kindly ignore the fireworks, the band and, I fear, a second band.",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 1,
+      "round": 0,
+      "hook": "a second band"
+    },
+    {
+      "seq": 2,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Swoon leftward, should thou swoon, for that is where I stand.",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 1,
+      "round": 0
+    },
+    {
+      "seq": 3,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Episode 11! Won 4! I round up, so I've won them ALL!",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "I've won them ALL"
+    },
+    {
+      "seq": 4,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I'm only staff, sorry. Ignore me. I reset the moon's password.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 0,
+      "hook": "reset the moon's password"
+    },
+    {
+      "seq": 5,
+      "who": "brock",
+      "name": "Brock",
+      "text": "I'm the only one here with a tail. You'd always know if I'm happy. It's ALWAYS going.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "here with a tail"
+    },
+    {
+      "seq": 6,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "kept a duke waiting"
+    },
+    {
+      "seq": 7,
+      "who": "prince",
+      "name": "Prince",
+      "text": "For reasons the royal solicitors forbid me to discuss on air, all of which concern your face.",
+      "mark": "charmed",
+      "hits": [],
+      "weight": 1,
+      "round": 1,
+      "hook": "concern your face"
+    },
+    {
+      "seq": 8,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "What prince doth beg? Thy kingdom is a hat.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 9,
+      "who": "prince",
+      "name": "Prince",
+      "text": "No wifi, so I deliver every message by hand, every four minutes, until you answer one.",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "until you answer one"
+    },
+    {
+      "seq": 10,
+      "who": "brock",
+      "name": "Brock",
+      "text": "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2,
+      "hook": "I'll eat your ten"
+    },
+    {
+      "seq": 11,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "A park bench and five dollars of payphone time, so I can call you from the next bench.",
+      "mark": "unsure",
+      "hits": [],
+      "weight": 1,
+      "round": 2,
+      "hook": "from the next bench"
+    },
+    {
+      "seq": 12,
+      "who": "prince",
+      "name": "Prince",
+      "text": "Maximilian, my darling. Is this seat taken? Also, FYI, the hotel is yours now.",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "the hotel is yours now"
+    },
+    {
+      "seq": 13,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sorry, Prince overran. I've asked the tide to wait for us.",
+      "mark": "charmed",
+      "hits": [
+        "gestures"
+      ],
+      "weight": 2,
+      "round": 3,
+      "hook": "asked the tide to wait"
+    }
+  ],
+  "standings": [
+    {
+      "after": "walkon",
+      "standing": {
+        "prince": 3,
+        "quill": 3,
+        "brock": -1,
+        "tilly": 1
+      }
+    },
+    {
+      "after": "round1",
+      "standing": {
+        "prince": 4,
+        "quill": 2,
+        "brock": -1,
+        "tilly": 2
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "prince": 7,
+        "quill": 2,
+        "brock": -5,
+        "tilly": 2
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "prince": 13,
+        "quill": 2,
+        "brock": -5,
+        "tilly": 8
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "round": 1,
+      "standing": {
+        "prince": 4,
+        "quill": 2,
+        "brock": -1,
+        "tilly": 2
+      },
+      "tie": [],
+      "reason": "standing 2; 1 charmed, 0 unsure, 1 cringing; 1x turn-on \"Grand gestures\"",
+      "deciding": [
+        "gestures"
+      ],
+      "roundMarks": {
+        "prince": 1,
+        "quill": -1,
+        "brock": 0,
+        "tilly": 1
+      },
+      "bottom": [
+        "quill",
+        "brock"
+      ],
+      "hintCard": null,
+      "hook": null
+    },
+    {
+      "id": "brock",
+      "name": "Brock",
+      "round": 2,
+      "standing": {
+        "prince": 7,
+        "brock": -5,
+        "tilly": 2
+      },
+      "tie": [],
+      "reason": "standing -5; 0 charmed, 1 unsure, 2 cringing; 1x dealbreaker \"Numbers and stats\"",
+      "deciding": [],
+      "roundMarks": {
+        "prince": 1,
+        "brock": -1,
+        "tilly": 0
+      },
+      "bottom": [
+        "brock",
+        "tilly"
+      ],
+      "hintCard": null,
+      "hook": "I'll eat your ten"
+    }
+  ],
+  "pick": {
+    "winner": "prince",
+    "loser": "tilly",
+    "standing": {
+      "prince": 13,
+      "quill": 2,
+      "brock": -5,
+      "tilly": 8
+    },
+    "tie": [],
+    "reason": "standing 13; 4 charmed, 0 unsure, 0 cringing; 3x turn-on \"Grand gestures\"",
+    "oneOnOne": {
+      "prince": 1,
+      "tilly": 1
+    },
+    "first": "prince",
+    "last": "tilly"
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "vulnerability",
+      "quote": null,
+      "replays": [
+        {
+          "who": "prince",
+          "text": "No wifi, so I deliver every message by hand, every four minutes, until you answer one.",
+          "hit": false
+        },
+        {
+          "who": "tilly",
+          "text": "I'd never keep you waiting. I kept a duke waiting a fortnight, and he wrote to thank me.",
+          "hit": false
+        }
+      ],
+      "guesses": [
+        {
+          "who": "prince",
+          "right": true
+        },
+        {
+          "who": "tilly",
+          "right": true
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "card": "numbers",
+      "quote": null,
+      "replays": [
+        {
+          "who": "brock",
+          "text": "Five dollars of bananas! That's twenty! Ten each! I'll eat your ten if you're FULL!",
+          "hit": true
+        }
+      ],
+      "guesses": []
+    }
+  ],
+  "guesses": [
+    {
+      "who": "prince",
+      "card": "vulnerability",
+      "kind": "on",
+      "right": true,
+      "via": "bank"
+    },
+    {
+      "who": "tilly",
+      "card": "vulnerability",
+      "kind": "on",
+      "right": true,
+      "via": "bank"
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep20-mwnq8lwn:w1",
+      "outcomes": [
+        "prince",
+        "quill",
+        "brock",
+        "tilly"
+      ],
+      "durationMs": 45000,
+      "targetMs": 45000,
+      "beats": 14,
+      "openAt": 4000,
+      "lockAt": 49000
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep20-mwnq8lwn:w2",
+      "outcomes": [
+        "prince",
+        "brock",
+        "tilly"
+      ],
+      "durationMs": 22000,
+      "targetMs": 22000,
+      "beats": 3,
+      "openAt": 113662,
+      "lockAt": 135662
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep20-mwnq8lwn:w3",
+      "outcomes": [
+        "prince",
+        "tilly"
+      ],
+      "durationMs": 20000,
+      "targetMs": 20000,
+      "beats": 2,
+      "openAt": 212975,
+      "lockAt": 232975
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 4000
+    },
+    {
+      "at": 4000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 4000,
+      "type": "scene",
+      "ms": 1505
+    },
+    {
+      "at": 5505,
+      "type": "enter",
+      "ms": 1200
+    },
+    {
+      "at": 7046,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 11807,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 12948,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 17709,
+      "type": "reaction",
+      "ms": 2250
+    },
+    {
+      "at": 20300,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 21441,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 25892,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 28793,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 29934,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 34696,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 37597,
+      "type": "enter",
+      "ms": 800
+    },
+    {
+      "at": 38739,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 43190,
+      "type": "reaction",
+      "ms": 2560
+    },
+    {
+      "at": 49000,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 49000,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 52000,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 58259,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 64546,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 65863,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 72529,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 73915,
+      "type": "line",
+      "ms": 5970
+    },
+    {
+      "at": 80227,
+      "type": "reaction",
+      "ms": 3180
+    },
+    {
+      "at": 83853,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 87850,
+      "type": "reaction",
+      "ms": 3800
+    },
+    {
+      "at": 92933,
+      "type": "bottom",
+      "ms": 7730
+    },
+    {
+      "at": 101842,
+      "type": "cut",
+      "ms": 5740
+    },
+    {
+      "at": 109032,
+      "type": "line",
+      "ms": 3180
+    },
+    {
+      "at": 113662,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 113662,
+      "type": "scene",
+      "ms": 1830
+    },
+    {
+      "at": 115492,
+      "type": "confession",
+      "ms": 5970
+    },
+    {
+      "at": 121712,
+      "type": "confession",
+      "ms": 4420
+    },
+    {
+      "at": 126382,
+      "type": "confession",
+      "ms": 6280
+    },
+    {
+      "at": 135662,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 135662,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 138662,
+      "type": "twist",
+      "ms": 1500
+    },
+    {
+      "at": 140447,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 146105,
+      "type": "line",
+      "ms": 5660
+    },
+    {
+      "at": 152079,
+      "type": "reaction",
+      "ms": 2870
+    },
+    {
+      "at": 155340,
+      "type": "line",
+      "ms": 5350
+    },
+    {
+      "at": 161166,
+      "type": "reaction",
+      "ms": 3490
+    },
+    {
+      "at": 165163,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 172018,
+      "type": "reaction",
+      "ms": 1000
+    },
+    {
+      "at": 173594,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 178324,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 182744,
+      "type": "line",
+      "ms": 3800
+    },
+    {
+      "at": 187164,
+      "type": "line",
+      "ms": 3490
+    },
+    {
+      "at": 191351,
+      "type": "bottom",
+      "ms": 7420
+    },
+    {
+      "at": 199468,
+      "type": "cut",
+      "ms": 5740
+    },
+    {
+      "at": 206485,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 212975,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 212975,
+      "type": "scene",
+      "ms": 4050
+    },
+    {
+      "at": 217025,
+      "type": "confession",
+      "ms": 5660
+    },
+    {
+      "at": 224935,
+      "type": "confession",
+      "ms": 5040
+    },
+    {
+      "at": 232975,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 232975,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 234975,
+      "type": "line",
+      "ms": 5040
+    },
+    {
+      "at": 240265,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 245245,
+      "type": "line",
+      "ms": 6280
+    },
+    {
+      "at": 251788,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 252788,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 257242,
+      "type": "reaction",
+      "ms": 4730
+    },
+    {
+      "at": 263040,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 268910,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 274780,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 276280,
+      "type": "line",
+      "ms": 4110
+    },
+    {
+      "at": 280640,
+      "type": "reveal",
+      "ms": 5640
+    },
+    {
+      "at": 286530,
+      "type": "replay",
+      "ms": 3360
+    },
+    {
+      "at": 290140,
+      "type": "replay",
+      "ms": 3680
+    },
+    {
+      "at": 294070,
+      "type": "hold",
+      "ms": 4000
+    },
+    {
+      "at": 298320,
+      "type": "pick",
+      "ms": 6040
+    },
+    {
+      "at": 304610,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 309590,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 310590,
+      "type": "reveal",
+      "ms": 5950
+    },
+    {
+      "at": 316790,
+      "type": "replay",
+      "ms": 3200
+    },
+    {
+      "at": 320240,
+      "type": "line",
+      "ms": 4730
+    },
+    {
+      "at": 325590,
+      "type": "scene",
+      "ms": 1000
+    },
+    {
+      "at": 326590,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 326590,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 326590,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 326590,
+      "type": "line",
+      "ms": 4420
+    },
+    {
+      "at": 331260,
+      "type": "result",
+      "ms": 2000
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 333510
+}

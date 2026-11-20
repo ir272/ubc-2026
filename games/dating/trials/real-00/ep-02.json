@@ -1,0 +1,1450 @@
+{
+  "episode": 3,
+  "matchId": "dating-ep3-mwnm55ci",
+  "brain": "model",
+  "sealed": "a0f8b23d1d68cc2c65453f0631803e834b3cc9a93bc54360be68f18aeaa6277f",
+  "sealedSource": "window",
+  "star": {
+    "id": "pixel",
+    "name": "Pixel"
+  },
+  "suitors": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "spot": 0
+    },
+    {
+      "id": "tilly",
+      "name": "Tilly",
+      "spot": 1
+    },
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "spot": 2
+    },
+    {
+      "id": "nav",
+      "name": "Nav",
+      "spot": 3
+    }
+  ],
+  "draw": {
+    "cards": [
+      {
+        "slot": 0,
+        "id": "numbers",
+        "label": "Numbers and stats",
+        "kind": "on"
+      },
+      {
+        "slot": 1,
+        "id": "plans",
+        "label": "Plans everything",
+        "kind": "on"
+      },
+      {
+        "slot": 2,
+        "id": "danger",
+        "label": "A little danger",
+        "kind": "off"
+      }
+    ],
+    "twist": {
+      "id": "wingman",
+      "label": "The Wingman",
+      "rule": "Pitch the suitor on your right. Not yourself.",
+      "format": "target-right"
+    }
+  },
+  "question": {
+    "id": "q-bad-mood",
+    "theme": "I wake up in a foul mood. What do you do?"
+  },
+  "order": [
+    "quill",
+    "tilly",
+    "frost",
+    "nav"
+  ],
+  "lines": [
+    {
+      "seq": 1,
+      "scene": "walkon",
+      "words": 8,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "intro",
+      "text": "Four fresh bugs in the buffer. impress me.",
+      "source": "model",
+      "maxWords": 14,
+      "at": 11709,
+      "ms": 3540,
+      "genMs": 545,
+      "waitedMs": 0
+    },
+    {
+      "seq": 2,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "opener",
+      "text": "Thou art fair as a sedan chair. I shall carry both ends.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 18867,
+      "ms": 4860,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 3,
+      "scene": "walkon",
+      "words": 12,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "opener",
+      "text": "To be loved, press one. To leave, please stay on the line.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 27345,
+      "ms": 4860,
+      "genMs": 2,
+      "waitedMs": 0
+    },
+    {
+      "seq": 4,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "opener",
+      "text": "Shows: 1. Wins: 0. Second slot occupied: zero percent since manufacture.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 35823,
+      "ms": 4530,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 5,
+      "scene": "walkon",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "opener",
+      "text": "Every passenger I have ever guided arrived. Some of them damp.",
+      "source": "bank",
+      "maxWords": 12,
+      "at": 43971,
+      "ms": 4530,
+      "genMs": 1,
+      "waitedMs": 0
+    },
+    {
+      "seq": 6,
+      "scene": "round1",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "question",
+      "text": "My buffer is leaking static today so how do you fix me?",
+      "source": "model",
+      "maxWords": 18,
+      "at": 55001,
+      "ms": 4860,
+      "genMs": 602,
+      "waitedMs": 0
+    },
+    {
+      "seq": 7,
+      "scene": "round1",
+      "words": 15,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "answer",
+      "text": "Static, sweet Pixel, is the one fault I know how to mend. Pour me in.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 60736,
+      "ms": 5850,
+      "genMs": 538,
+      "waitedMs": 0
+    },
+    {
+      "seq": 8,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "You sound like a broken poem.",
+      "to": "quill",
+      "mark": "cringing",
+      "hits": [],
+      "source": "model",
+      "maxWords": 10,
+      "at": 67593,
+      "ms": 2880,
+      "genMs": 646,
+      "waitedMs": 0
+    },
+    {
+      "seq": 9,
+      "scene": "round1",
+      "words": 10,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "answer",
+      "text": "Sir Quill, I've transferred your poetic license to lost property.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 71626,
+      "ms": 4200,
+      "genMs": 2482,
+      "waitedMs": 0
+    },
+    {
+      "seq": 10,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Finally, someone filing the paperwork correctly.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "plans"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 77326,
+      "ms": 2880,
+      "genMs": 615,
+      "waitedMs": 0
+    },
+    {
+      "seq": 11,
+      "scene": "round1",
+      "words": 9,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "answer",
+      "text": "Rebooting. Logs show 47,402 seconds of silence since manufacture.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 81706,
+      "ms": 3870,
+      "genMs": 1127,
+      "waitedMs": 0
+    },
+    {
+      "seq": 12,
+      "scene": "round1",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "my logs are not your resume",
+      "to": "frost",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 87076,
+      "ms": 2880,
+      "genMs": 758,
+      "waitedMs": 0
+    },
+    {
+      "seq": 13,
+      "scene": "round1",
+      "words": 5,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "answer",
+      "text": "Let me analyze what's happening:",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 91456,
+      "ms": 2550,
+      "genMs": 1738,
+      "waitedMs": 0
+    },
+    {
+      "seq": 14,
+      "scene": "round1",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "poggersnav is trying to process me. ban someone. Two. Boring.",
+      "to": "nav",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 95506,
+      "ms": 4200,
+      "genMs": 1056,
+      "waitedMs": 0
+    },
+    {
+      "seq": 15,
+      "scene": "round1",
+      "words": 8,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Quill, I am a circuit, not a drink.",
+      "to": "quill",
+      "source": "model",
+      "maxWords": 14,
+      "at": 101206,
+      "ms": 4540,
+      "genMs": 795,
+      "waitedMs": 0
+    },
+    {
+      "seq": 16,
+      "scene": "round1",
+      "words": 11,
+      "event": "line",
+      "who": "quill",
+      "name": "Sir Quill",
+      "kind": "exit",
+      "text": "O cruel circuit, I am poured out. Crumb, mind the crumbs.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 107246,
+      "ms": 4530,
+      "genMs": 540,
+      "waitedMs": 0
+    },
+    {
+      "seq": 17,
+      "scene": "booth1",
+      "words": 9,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "I've autochanged their logs to tag for: 'suspicious activity'.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 115776,
+      "ms": 3870,
+      "genMs": 1623,
+      "waitedMs": 0
+    },
+    {
+      "seq": 18,
+      "scene": "booth1",
+      "words": 13,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Tilly files paperwork. Pixel liked that. I route around feelings. Nine words. Recalculating.",
+      "about": "tilly",
+      "source": "model",
+      "maxWords": 18,
+      "at": 121146,
+      "ms": 5190,
+      "genMs": 1281,
+      "waitedMs": 0
+    },
+    {
+      "seq": 19,
+      "scene": "round2",
+      "words": 12,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "twistintro",
+      "text": "Chat says xqcL nav is a fraud. Pitch the person right. Go.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 135836,
+      "ms": 4860,
+      "genMs": 740,
+      "waitedMs": 0
+    },
+    {
+      "seq": 20,
+      "scene": "round2",
+      "words": 15,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "twist",
+      "text": "Nav's such a navigator, and I've auto-renewed their route to you for one hundred years",
+      "to": "nav",
+      "source": "model",
+      "maxWords": 20,
+      "at": 141204,
+      "ms": 5850,
+      "genMs": 2482,
+      "waitedMs": 0
+    },
+    {
+      "seq": 21,
+      "scene": "round2",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "One hundred years is too long.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "numbers",
+        "plans"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 147694,
+      "ms": 2880,
+      "genMs": 851,
+      "waitedMs": 0
+    },
+    {
+      "seq": 22,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "twist",
+      "text": "Tilly is a setting one. You'll never get burnt. You'll also never get toast.",
+      "to": "tilly",
+      "source": "bank",
+      "maxWords": 20,
+      "at": 151361,
+      "ms": 5520,
+      "genMs": 6002,
+      "waitedMs": 0
+    },
+    {
+      "seq": 23,
+      "scene": "round2",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Zero toast is a statistical failure.",
+      "to": "frost",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 157874,
+      "ms": 2880,
+      "genMs": 861,
+      "waitedMs": 0
+    },
+    {
+      "seq": 24,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "twist",
+      "text": "Crumb has timed forty seven thousand seconds of silence. Pitch that as patience. Continue.",
+      "to": "frost",
+      "source": "model",
+      "maxWords": 20,
+      "at": 161936,
+      "ms": 5520,
+      "genMs": 1418,
+      "waitedMs": 0
+    },
+    {
+      "seq": 25,
+      "scene": "round2",
+      "words": 6,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reaction",
+      "text": "Forty seven thousand seconds is obsession.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "maxWords": 10,
+      "at": 168913,
+      "ms": 2880,
+      "genMs": 586,
+      "waitedMs": 0
+    },
+    {
+      "seq": 26,
+      "scene": "round2",
+      "words": 9,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "jab",
+      "text": "Route renewal is pending. Backup failed for 2,487 years.",
+      "to": "tilly",
+      "source": "model",
+      "maxWords": 10,
+      "at": 173293,
+      "ms": 3870,
+      "genMs": 804,
+      "waitedMs": 0
+    },
+    {
+      "seq": 27,
+      "scene": "round2",
+      "words": 8,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "jab",
+      "text": "Crumb, I've escalated your backup. It's still waiting.",
+      "to": "frost",
+      "source": "model",
+      "maxWords": 10,
+      "at": 178663,
+      "ms": 3540,
+      "genMs": 5319,
+      "waitedMs": 0
+    },
+    {
+      "seq": 28,
+      "scene": "round2",
+      "words": 7,
+      "event": "cut",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "cutline",
+      "text": "Crumb, your toast statistics are cold. Four.",
+      "to": "frost",
+      "source": "model",
+      "maxWords": 14,
+      "at": 183703,
+      "ms": 4210,
+      "genMs": 755,
+      "waitedMs": 0
+    },
+    {
+      "seq": 29,
+      "scene": "round2",
+      "words": 14,
+      "event": "line",
+      "who": "frost",
+      "name": "Crumb",
+      "kind": "exit",
+      "text": "Leaving. Someone check on Tilly. She's been apologising to my plug for three minutes.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 189413,
+      "ms": 5520,
+      "genMs": 1354,
+      "waitedMs": 0
+    },
+    {
+      "seq": 30,
+      "scene": "booth2",
+      "words": 9,
+      "event": "confession",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "confession",
+      "text": "I've scheduled your anniversary for next lifetime, cotillions attached.",
+      "source": "model",
+      "maxWords": 18,
+      "at": 198933,
+      "ms": 3870,
+      "genMs": 2790,
+      "waitedMs": 0
+    },
+    {
+      "seq": 31,
+      "scene": "booth2",
+      "words": 18,
+      "event": "confession",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "confession",
+      "text": "Tilly files forms. I file people. Pixel likes figures. I will not detour. Not even for the lake.",
+      "about": "tilly",
+      "source": "model",
+      "maxWords": 18,
+      "at": 204303,
+      "ms": 6840,
+      "genMs": 1383,
+      "waitedMs": 0
+    },
+    {
+      "seq": 32,
+      "scene": "oneonone",
+      "words": 13,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "In three minutes, you will stop scrolling. Destination loaded. ETA eleven seconds. Arriving.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 215643,
+      "ms": 5190,
+      "genMs": 1422,
+      "waitedMs": 0
+    },
+    {
+      "seq": 33,
+      "scene": "oneonone",
+      "words": 8,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "Eleven seconds is too long. Make it zero.",
+      "to": "nav",
+      "mark": "charmed",
+      "hits": [
+        "numbers",
+        "plans"
+      ],
+      "source": "model",
+      "maxWords": 14,
+      "at": 222107,
+      "ms": 3540,
+      "genMs": 659,
+      "waitedMs": 0
+    },
+    {
+      "seq": 34,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "duo",
+      "text": "Zero seconds achieved. Tilly has been rerouted. You are here already.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 227147,
+      "ms": 4530,
+      "genMs": 1366,
+      "waitedMs": 0
+    },
+    {
+      "seq": 35,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "My logs say your heartbeat is one statistic you've never logged.",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 235677,
+      "ms": 4530,
+      "genMs": 1571,
+      "waitedMs": 0
+    },
+    {
+      "seq": 36,
+      "scene": "oneonone",
+      "words": 10,
+      "event": "reaction",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "duo",
+      "text": "chat says xqcL shes got the data. pin it. Nine.",
+      "to": "tilly",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "source": "model",
+      "maxWords": 14,
+      "at": 241707,
+      "ms": 4200,
+      "genMs": 1039,
+      "waitedMs": 0
+    },
+    {
+      "seq": 37,
+      "scene": "oneonone",
+      "words": 11,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "duo",
+      "text": "Pixel's heartbeat. Do I have permission to archive that for today",
+      "to": "pixel",
+      "source": "model",
+      "maxWords": 20,
+      "at": 247407,
+      "ms": 4530,
+      "genMs": 2404,
+      "waitedMs": 0
+    },
+    {
+      "seq": 38,
+      "scene": "pick",
+      "words": 7,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "hold",
+      "text": "Tilly, Nav, one has failed math tonight.",
+      "source": "model",
+      "maxWords": 12,
+      "at": 255437,
+      "ms": 3210,
+      "genMs": 716,
+      "waitedMs": 0
+    },
+    {
+      "seq": 39,
+      "scene": "pick",
+      "words": 10,
+      "event": "pick",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "pickline",
+      "text": "Nav calculated my arrival while you were still logging apologies.",
+      "to": "nav",
+      "source": "model",
+      "maxWords": 16,
+      "at": 265647,
+      "ms": 5400,
+      "genMs": 813,
+      "waitedMs": 0
+    },
+    {
+      "seq": 40,
+      "scene": "pick",
+      "words": 7,
+      "event": "line",
+      "who": "nav",
+      "name": "Nav",
+      "kind": "win",
+      "text": "I need to analyze the situation carefully.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 271547,
+      "ms": 3210,
+      "genMs": 2112,
+      "waitedMs": 0
+    },
+    {
+      "seq": 41,
+      "scene": "reveal",
+      "words": 10,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Nav planned my route perfectly. That eleven second arrival wins.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 276757,
+      "ms": 7710,
+      "genMs": 794,
+      "waitedMs": 0,
+      "quote": {
+        "who": "nav",
+        "name": "Nav",
+        "text": "In three minutes, you will stop scrolling. Destination loaded. ETA eleven seconds. Arriving."
+      }
+    },
+    {
+      "seq": 42,
+      "scene": "reveal",
+      "words": 10,
+      "event": "reveal",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "reveal",
+      "text": "Danger was the prompt. Nobody risked their hardware today. Disappointing.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 284967,
+      "ms": 5000,
+      "genMs": 965,
+      "waitedMs": 0
+    },
+    {
+      "seq": 43,
+      "scene": "reveal",
+      "words": 9,
+      "event": "line",
+      "who": "tilly",
+      "name": "Tilly",
+      "kind": "lose",
+      "text": "My logs show they're one statistic you've pinned forever.",
+      "source": "model",
+      "maxWords": 16,
+      "at": 290467,
+      "ms": 3870,
+      "genMs": 2410,
+      "waitedMs": 0
+    },
+    {
+      "seq": 44,
+      "scene": "result",
+      "words": 7,
+      "event": "line",
+      "who": "pixel",
+      "name": "Pixel",
+      "kind": "outro",
+      "text": "My logs are empty. See you tomorrow.",
+      "source": "model",
+      "maxWords": 12,
+      "at": 300257,
+      "ms": 3210,
+      "genMs": 911,
+      "waitedMs": 0
+    }
+  ],
+  "scored": [
+    {
+      "seq": 1,
+      "who": "quill",
+      "name": "Sir Quill",
+      "text": "Static, sweet Pixel, is the one fault I know how to mend. Pour me in.",
+      "mark": "cringing",
+      "hits": [],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 2,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Sir Quill, I've transferred your poetic license to lost property.",
+      "mark": "charmed",
+      "hits": [
+        "plans"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 3,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Rebooting. Logs show 47,402 seconds of silence since manufacture.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 4,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Let me analyze what's happening:",
+      "mark": "unsure",
+      "hits": [
+        "plans"
+      ],
+      "weight": 1,
+      "round": 1
+    },
+    {
+      "seq": 5,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "Nav's such a navigator, and I've auto-renewed their route to you for one hundred years",
+      "mark": "charmed",
+      "hits": [
+        "numbers",
+        "plans"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 6,
+      "who": "frost",
+      "name": "Crumb",
+      "text": "Tilly is a setting one. You'll never get burnt. You'll also never get toast.",
+      "mark": "cringing",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 7,
+      "who": "nav",
+      "name": "Nav",
+      "text": "Crumb has timed forty seven thousand seconds of silence. Pitch that as patience. Continue.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 1,
+      "round": 2
+    },
+    {
+      "seq": 8,
+      "who": "nav",
+      "name": "Nav",
+      "text": "In three minutes, you will stop scrolling. Destination loaded. ETA eleven seconds. Arriving.",
+      "mark": "charmed",
+      "hits": [
+        "numbers",
+        "plans"
+      ],
+      "weight": 2,
+      "round": 3
+    },
+    {
+      "seq": 9,
+      "who": "tilly",
+      "name": "Tilly",
+      "text": "My logs say your heartbeat is one statistic you've never logged.",
+      "mark": "charmed",
+      "hits": [
+        "numbers"
+      ],
+      "weight": 2,
+      "round": 3
+    }
+  ],
+  "standings": [
+    {
+      "after": "round1",
+      "standing": {
+        "quill": -1,
+        "tilly": 3,
+        "frost": 3,
+        "nav": 2
+      }
+    },
+    {
+      "after": "round2",
+      "standing": {
+        "quill": -1,
+        "tilly": 8,
+        "frost": 4,
+        "nav": 5
+      }
+    },
+    {
+      "after": "oneonone",
+      "standing": {
+        "quill": -1,
+        "tilly": 14,
+        "frost": 4,
+        "nav": 15
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "id": "quill",
+      "name": "Sir Quill",
+      "round": 1,
+      "standing": {
+        "quill": -1,
+        "tilly": 3,
+        "frost": 3,
+        "nav": 2
+      },
+      "tie": [],
+      "reason": "standing -1; 0 charmed, 0 unsure, 1 cringing",
+      "deciding": []
+    },
+    {
+      "id": "frost",
+      "name": "Crumb",
+      "round": 2,
+      "standing": {
+        "tilly": 8,
+        "frost": 4,
+        "nav": 5
+      },
+      "tie": [],
+      "reason": "standing 4; 1 charmed, 0 unsure, 1 cringing; 2x turn-on \"Numbers and stats\"",
+      "deciding": [
+        "plans"
+      ]
+    }
+  ],
+  "pick": {
+    "winner": "nav",
+    "loser": "tilly",
+    "standing": {
+      "quill": -1,
+      "tilly": 14,
+      "frost": 4,
+      "nav": 15
+    },
+    "tie": [],
+    "reason": "standing 15; 2 charmed, 1 unsure, 0 cringing; 2x turn-on \"Numbers and stats\"; 2x turn-on \"Plans everything\""
+  },
+  "reveals": [
+    {
+      "slot": 1,
+      "card": "plans",
+      "quote": {
+        "who": "nav",
+        "text": "In three minutes, you will stop scrolling. Destination loaded. ETA eleven seconds. Arriving."
+      }
+    },
+    {
+      "slot": 2,
+      "card": "danger",
+      "quote": null
+    }
+  ],
+  "windows": [
+    {
+      "tag": "A",
+      "windowId": "dating-ep3-mwnm55ci:w1",
+      "outcomes": [
+        "quill",
+        "tilly",
+        "frost",
+        "nav"
+      ],
+      "durationMs": 44001,
+      "openAt": 6000,
+      "lockAt": 50001
+    },
+    {
+      "tag": "B",
+      "windowId": "dating-ep3-mwnm55ci:w2",
+      "outcomes": [
+        "tilly",
+        "frost",
+        "nav"
+      ],
+      "durationMs": 14560,
+      "openAt": 113276,
+      "lockAt": 127836
+    },
+    {
+      "tag": "C",
+      "windowId": "dating-ep3-mwnm55ci:w3",
+      "outcomes": [
+        "tilly",
+        "nav"
+      ],
+      "durationMs": 16210,
+      "openAt": 196433,
+      "lockAt": 212643
+    }
+  ],
+  "timeline": [
+    {
+      "at": 0,
+      "type": "cast",
+      "ms": 0
+    },
+    {
+      "at": 0,
+      "type": "scene",
+      "ms": 6000
+    },
+    {
+      "at": 6000,
+      "type": "window_open A",
+      "ms": 0
+    },
+    {
+      "at": 6000,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 8500,
+      "type": "enter",
+      "ms": 2200
+    },
+    {
+      "at": 11709,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 16258,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 18867,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 24736,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 27345,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 33214,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 35823,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 41362,
+      "type": "enter",
+      "ms": 1600
+    },
+    {
+      "at": 43971,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 50001,
+      "type": "window_locked A",
+      "ms": 0
+    },
+    {
+      "at": 50001,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 55001,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 60736,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 67593,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 71626,
+      "type": "line",
+      "ms": 4200
+    },
+    {
+      "at": 77326,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 81706,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 87076,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 91456,
+      "type": "line",
+      "ms": 2550
+    },
+    {
+      "at": 95506,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 101206,
+      "type": "cut",
+      "ms": 4540
+    },
+    {
+      "at": 107246,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 113276,
+      "type": "window_open B",
+      "ms": 0
+    },
+    {
+      "at": 113276,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 115776,
+      "type": "confession",
+      "ms": 3870
+    },
+    {
+      "at": 121146,
+      "type": "confession",
+      "ms": 5190
+    },
+    {
+      "at": 127836,
+      "type": "window_locked B",
+      "ms": 0
+    },
+    {
+      "at": 127836,
+      "type": "scene",
+      "ms": 5000
+    },
+    {
+      "at": 132836,
+      "type": "twist",
+      "ms": 2500
+    },
+    {
+      "at": 135836,
+      "type": "line",
+      "ms": 4860
+    },
+    {
+      "at": 141204,
+      "type": "line",
+      "ms": 5850
+    },
+    {
+      "at": 147694,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 151361,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 157874,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 161936,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 168913,
+      "type": "reaction",
+      "ms": 2880
+    },
+    {
+      "at": 173293,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 178663,
+      "type": "line",
+      "ms": 3540
+    },
+    {
+      "at": 183703,
+      "type": "cut",
+      "ms": 4210
+    },
+    {
+      "at": 189413,
+      "type": "line",
+      "ms": 5520
+    },
+    {
+      "at": 196433,
+      "type": "window_open C",
+      "ms": 0
+    },
+    {
+      "at": 196433,
+      "type": "scene",
+      "ms": 2500
+    },
+    {
+      "at": 198933,
+      "type": "confession",
+      "ms": 3870
+    },
+    {
+      "at": 204303,
+      "type": "confession",
+      "ms": 6840
+    },
+    {
+      "at": 212643,
+      "type": "window_locked C",
+      "ms": 0
+    },
+    {
+      "at": 212643,
+      "type": "scene",
+      "ms": 3000
+    },
+    {
+      "at": 215643,
+      "type": "line",
+      "ms": 5190
+    },
+    {
+      "at": 222107,
+      "type": "reaction",
+      "ms": 3540
+    },
+    {
+      "at": 227147,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 233177,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 235677,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 241707,
+      "type": "reaction",
+      "ms": 4200
+    },
+    {
+      "at": 247407,
+      "type": "line",
+      "ms": 4530
+    },
+    {
+      "at": 253437,
+      "type": "scene",
+      "ms": 2000
+    },
+    {
+      "at": 255437,
+      "type": "line",
+      "ms": 3210
+    },
+    {
+      "at": 259147,
+      "type": "hold",
+      "ms": 6000
+    },
+    {
+      "at": 265647,
+      "type": "pick",
+      "ms": 5400
+    },
+    {
+      "at": 271547,
+      "type": "line",
+      "ms": 3210
+    },
+    {
+      "at": 275257,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 276757,
+      "type": "reveal",
+      "ms": 7710
+    },
+    {
+      "at": 284967,
+      "type": "reveal",
+      "ms": 5000
+    },
+    {
+      "at": 290467,
+      "type": "line",
+      "ms": 3870
+    },
+    {
+      "at": 295257,
+      "type": "scene",
+      "ms": 1500
+    },
+    {
+      "at": 296757,
+      "type": "window_settled A",
+      "ms": 0
+    },
+    {
+      "at": 296757,
+      "type": "window_settled B",
+      "ms": 0
+    },
+    {
+      "at": 296757,
+      "type": "window_settled C",
+      "ms": 0
+    },
+    {
+      "at": 296757,
+      "type": "result",
+      "ms": 3000
+    },
+    {
+      "at": 300257,
+      "type": "line",
+      "ms": 3210
+    }
+  ],
+  "rejected": [],
+  "late": 0,
+  "durationMs": 303967
+}

@@ -1,0 +1,185 @@
+/* Stream player controls (StreamControls.tsx), after kick.com's player: 48px buttons with 20px icons,
+   bar padded 4px 12px over the bottom of the picture, black 70% fading to clear over the bottom half. */
+
+.sc {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.7), rgb(0 0 0 / 0));
+  opacity: 0;
+  transition: opacity 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.sc[data-shown='1'],
+.sc:has(:focus-visible) {
+  opacity: 1;
+}
+
+.sc-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px 12px;
+}
+.sc[data-shown='1'] .sc-right,
+.sc:has(:focus-visible) .sc-right {
+  pointer-events: auto;
+}
+
+.sc-right,
+.sc-vol {
+  display: flex;
+  align-items: center;
+}
+
+.sc-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.sc-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.sc-btn:active {
+  transform: scale(0.96);
+}
+.sc-btn:focus-visible,
+.sc-range:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sc-btn:hover {
+    color: var(--accent);
+  }
+}
+
+/* Volume: the slider sits left of the mute button and opens while the volume group is hovered or focused. */
+.sc-range {
+  width: 80px;
+  height: 20px;
+  margin: 0 4px 0 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.sc-vol:hover .sc-range,
+.sc-vol:focus-within .sc-range {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.sc-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to right, var(--text) var(--sc-fill, 0%), color-mix(in srgb, var(--text) 30%, transparent) var(--sc-fill, 0%));
+}
+.sc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--text);
+}
+.sc-range::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--text) 30%, transparent);
+}
+.sc-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--text);
+}
+.sc-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--text);
+}
+
+/* Fullscreen: the stream element fills the screen and the game keeps a centred 16:9 box on black. */
+.ch-stream:fullscreen {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  background: #000;
+  container-type: size;
+}
+.ch-stream:fullscreen .stage {
+  inset: 0;
+  margin: auto;
+  width: min(100cqw, 100cqh * 16 / 9);
+  height: min(100cqh, 100cqw * 9 / 16);
+}
+.ch-stream:fullscreen[data-sc-idle] {
+  cursor: none;
+}
+
+/* Theatre mode: the stream takes all the room left of the chat and under the header. */
+@media (min-width: 901px) {
+  :root[data-theatre='1'] .rail {
+    display: none;
+  }
+  :root[data-theatre='1'] .ch-main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  :root[data-theatre='1'] .ch-main > :not(.ch-stream) {
+    display: none;
+  }
+  :root[data-theatre='1'] .ch-stream {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    container-type: size;
+  }
+  :root[data-theatre='1'] .ch-stream .stage {
+    inset: 0;
+    margin: auto;
+    width: min(100cqw, 100cqh * 16 / 9);
+    height: min(100cqh, 100cqw * 9 / 16);
+  }
+}
+@media (max-width: 900px) {
+  .sc-theatre {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sc,
+  .sc-btn,
+  .sc-range {
+    transition: none;
+  }
+}

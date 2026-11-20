@@ -1,0 +1,493 @@
+{
+  "id": "vesper",
+  "intro": [
+    { "t": "Request line. I don't take requests. Tonight I take {card}." },
+    { "t": "Four of you. One of me. Always one of me. Tonight, {card}." },
+    { "t": "Lines are open. Standards are not. One exception tonight: {card}." },
+    { "t": "Whoever's awake, mostly the sea. Tonight the sea and I like {card}." }
+  ],
+  "questions": {
+    "q-first-date": "First date. I don't leave the building. Plan around that.",
+    "q-worst-habit": "Your worst habit. Name it now and I'll have it confiscated.",
+    "q-why-you": "Four voices on my line. Three get hung up on. Why not yours?",
+    "q-cut-who": "Pick who goes home first. I'd do it, but I've been told to delegate. By me.",
+    "q-bad-mood": "I wake up foul. The whole county whispers till I've had tea. What do you do?",
+    "q-expensive": "I have expensive taste. The transmitter has worse. Keep up with both.",
+    "q-last-breakup": "How did your last one end? Mine screamed down a phone line, then stopped.",
+    "q-fight": "We're fighting. I'm right. It says so on my licence. First words?",
+    "q-gift": "Get me a present. Not a record. All records come to me eventually.",
+    "q-describe-me": "Describe me. You've had ninety seconds. Most callers don't last that long.",
+    "q-one-year": "A year from now, I'm in this chair. Where are you?",
+    "q-secret": "Tell me something you've never told a user. Whisper. This mic carries to the coast."
+  },
+  "react": {
+    "dash": {
+      "charmed": [
+        "Dash, I've stopped the clocks for that. Nationally.",
+        "Dash, shades off. I want to see who said that."
+      ],
+      "unsure": [
+        "Dash, that's under review. I am the review.",
+        "Dash, the coast heard that. The coast is deciding."
+      ],
+      "cringing": [
+        "Dash, I talk faster than that. I choose not to.",
+        "Dash, pointer down. Those have been illegal here since lunch."
+      ]
+    },
+    "tilly": {
+      "charmed": [
+        "Tilly, you've gone so quiet I can hear the frost.",
+        "Tilly, consider yourself escalated. There's nowhere higher."
+      ],
+      "unsure": [
+        "Tilly, hands behind your back is how they rob stations.",
+        "Tilly, I've turned you up twice. I'm at the top."
+      ],
+      "cringing": [
+        "For anyone just joining, that was Tilly. Moving on.",
+        "Tilly, I'd hang up. You'd only thank the dial tone."
+      ]
+    },
+    "quill": {
+      "charmed": [
+        "Quill, I stopped halfway through the gale warnings for that.",
+        "Quill, helm off. I'm deciding something."
+      ],
+      "unsure": [
+        "Quill, the dawn's postponed. Don't waste it.",
+        "Quill, I gave you a minute. You took the night."
+      ],
+      "cringing": [
+        "Quill, the coast asked me to stop you. I've agreed.",
+        "Quill, a man rang to ask if you're all right."
+      ]
+    },
+    "prince": {
+      "charmed": [
+        "Prince, I've read that twice, and the envelope once.",
+        "Prince, I've written your address down. In pencil."
+      ],
+      "unsure": [
+        "I got this letter by telegram, and replied stop.",
+        "Prince, it says kindly, which is how the bailiffs start."
+      ],
+      "cringing": [
+        "Prince, freeze. That includes the fortune.",
+        "Prince, the crown's been downgraded. It's a hat now."
+      ]
+    },
+    "nav": {
+      "charmed": [
+        "Nav, come down an inch. I'm allowing it.",
+        "Nav, no hiss on you at all. I checked."
+      ],
+      "unsure": [
+        "Nav, I've cancelled tomorrow's weather. You'll have to manage.",
+        "Nav, the roads are closed. My decision. Where now?"
+      ],
+      "cringing": [
+        "Nav, I muted the moon landing. I can mute you.",
+        "Nav, your signal's revoked. Float there and think about it."
+      ]
+    },
+    "crumb": {
+      "charmed": [
+        "Crumb, put the slice down. I'm listening properly.",
+        "Crumb, I've had that framed. Before you finished saying it."
+      ],
+      "unsure": [
+        "Crumb, that's pending. So is the sunrise. I'm busy.",
+        "Crumb, your eyebrows disagree. I'm siding with the eyebrows."
+      ],
+      "cringing": [
+        "Crumb, that never aired. Ask anyone. They'll agree.",
+        "Crumb, three counties just switched off. I counted."
+      ]
+    },
+    "vex": {
+      "charmed": [
+        "Vex, I had a record ready. Now I don't.",
+        "Vex, the eye can stay. The sunglasses go."
+      ],
+      "unsure": [
+        "Vex, that's a horoscope, and I write those.",
+        "Vex, you finished my sentence. I hadn't started it."
+      ],
+      "cringing": [
+        "Vex, I knew that was coming. I scheduled it.",
+        "Vex, I've blindfolded the listeners. Nobody saw that."
+      ]
+    },
+    "brock": {
+      "charmed": [
+        "Brock, sit. I'm keeping that one.",
+        "Brock, that's the anthem now. I've informed the nation."
+      ],
+      "unsure": [
+        "Brock, half that was plenty. Save the rest for Tuesday.",
+        "Brock, the needle hit the end and stayed there."
+      ],
+      "cringing": [
+        "You woke the trucker, Brock. He was doing so well.",
+        "Brock, I've lowered you four times. You came back."
+      ]
+    }
+  },
+  "cardReact": {
+    "confidence": {
+      "on": "Sure of yourself. I'll allow one of us.",
+      "off": "I've revoked that certainty. Reapply in writing."
+    },
+    "puns": {
+      "on": "I groaned on air. That's chapter one of my memoirs.",
+      "off": "That pun's illegal after midnight. It's after midnight."
+    },
+    "money": {
+      "on": "Money. Say it slowly. I'm buying the sea.",
+      "off": "Melt that money down. I need a bell."
+    },
+    "sorry": {
+      "on": "That goes out with the corrections, top of the hour.",
+      "off": "Apology refused. That word's out of circulation. My doing."
+    },
+    "gestures": {
+      "on": "Too big for radio. I'll make radio bigger.",
+      "off": "All that orchestra. I have one microphone."
+    },
+    "honesty": {
+      "on": "Rude. True. Carve it somewhere. I'll pick the mountain.",
+      "off": "That's the kind of line people ring back to withdraw."
+    },
+    "bragging": {
+      "on": "Keep going. I'll read it out with the birthdays.",
+      "off": "I heard clapping under that. One pair of hands."
+    },
+    "poetry": {
+      "on": "Close-down tonight is that. The anthem can wait.",
+      "off": "That rhymed. Somewhere a transistor went under a pillow."
+    },
+    "trashtalk": {
+      "on": "Unedited. I've given my lawyer the night off for this.",
+      "off": "Leave the other callers alone. I'm saving them for later."
+    },
+    "selfdeprecation": {
+      "on": "Lower. I decide where the floor is.",
+      "off": "You've used this month's moping. I keep the books."
+    },
+    "curiosity": {
+      "on": "A question about me. I'll allow three more, lifetime.",
+      "off": "Questions go through the switchboard. She's ninety. She's asleep."
+    },
+    "food": {
+      "on": "I eat alone at the desk. Tonight I minded.",
+      "off": "Don't talk with your mouth full. It carries. Sixty miles."
+    },
+    "plans": {
+      "on": "I don't follow running orders. I'd follow that one.",
+      "off": "That's a timetable. I don't do daytime."
+    },
+    "flattery": {
+      "on": "Say it again. I wasn't recording.",
+      "off": "I heard a page turn behind that compliment."
+    },
+    "numbers": {
+      "on": "Read those to the tide. It does what I say.",
+      "off": "Those figures can go home. I'll ring their mothers."
+    },
+    "drama": {
+      "on": "Slam something. I had this studio built for slamming.",
+      "off": "Turn it down. I've closed theatres for less."
+    },
+    "mystery": {
+      "on": "Don't explain. I'll have the answer found by morning.",
+      "off": "I asked a question. You played the B-side."
+    },
+    "brevity": {
+      "on": "Short. I'm cutting the night to match.",
+      "off": "That was over before the needle moved."
+    },
+    "bigwords": {
+      "on": "I'm keeping that word. You can borrow it Sundays.",
+      "off": "That word needs a dictionary. Mine props up the desk."
+    },
+    "petnames": {
+      "on": "That needs a licence. Consider it issued.",
+      "off": "I have a call sign. That wasn't it."
+    },
+    "past": {
+      "on": "I own most of the past. Help yourself to some.",
+      "off": "Caller, that's very old. So am I. Mine aged better."
+    },
+    "danger": {
+      "on": "Dangerous. Good. I'll pay the fine in advance.",
+      "off": "I've been threatened by weather. You're not weather."
+    },
+    "vulnerability": {
+      "on": "That's the bit people ring in about, years later.",
+      "off": "Keep that. I don't have a slot for it."
+    },
+    "rules": {
+      "on": "To the letter. I wrote most of the letters.",
+      "off": "The rulebook here is my coaster. You're reading my coaster."
+    }
+  },
+  "cut": {
+    "dash": [
+      "Dash, you raced the pips all night. The pips won.",
+      "Dash, I'm cutting you the way I cut adverts, mid-word."
+    ],
+    "tilly": [
+      "Sorry, Tilly. See? It's easy. Goodnight.",
+      "Tilly, you're on hold. Permanently. The music is me."
+    ],
+    "quill": [
+      "Quill, every word costs me a second. You owe me a week.",
+      "Quill, I'm returning you to an earlier century. Pack lightly."
+    ],
+    "prince": [
+      "Prince, you're going back in the post, second class.",
+      "Prince, this line takes requests. You sent invoices."
+    ],
+    "nav": [
+      "Nav, you're leaving. I've chosen the route. It's long.",
+      "Nav, medium wave has no exits. I'm building you one."
+    ],
+    "crumb": [
+      "Crumb, I asked for warmth. You gave me a reading.",
+      "Crumb, the power's going off at your end. Only yours."
+    ],
+    "vex": [
+      "Vex, you saw this coming. I arranged for you to.",
+      "Vex, the eye leaves first. The rest can follow on foot."
+    ],
+    "brock": [
+      "Brock, you bounced through the news, the weather and a moment's silence.",
+      "Brock, you'd be wonderful at seven a.m. I don't exist then."
+    ]
+  },
+  "twistIntro": {
+    "roast-left": "Roast the caller on your left. Do it the way I do, without looking up.",
+    "wingman": "Sell me the caller on your right. I can hear you smiling. Don't.",
+    "worst-trait": "Sell me your worst trait. I've bought worse. I went out with a modem.",
+    "ex-calls": "Line one is flashing. I know that ring. One of you answer my ex.",
+    "rhyme": "Why you, in a rhyme. Moon and June are banned. They retired on my show in sixty-two.",
+    "truth-lie": "One truth, one lie. I'll know. Liars breathe in before the true bit.",
+    "three-words": "Our future in three words. Not four. I've cut people for four.",
+    "apology": "Apologise for our first fight. I've already won it. Make it moving.",
+    "budget-date": "Plan our date on pocket change. I don't leave the studio. Work with that.",
+    "logs": "Read out the worst thing in your logs. I'll play a record under it.",
+    "impression": "Do me. Remember who's holding the fader.",
+    "parent": "My motherboard listens on long wave. She's deaf in one valve. State your intentions."
+  },
+  "ex": {
+    "name": "Dial-up Modem",
+    "lines": [
+      "I gave her nine years of screaming. She gave me one busy signal.",
+      "She told me I was too slow. She's been on the same frequency since sixty-one.",
+      "Is she still in that chair? Tell her I kept the phone line. It's never rung."
+    ]
+  },
+  "oneOnOne": {
+    "dash": [
+      "Off air now, Dash. Audience of me and a moth. Pitch.",
+      "Dash, describe me to someone who's never heard the show. Don't sell it."
+    ],
+    "tilly": [
+      "Tilly, nobody complains to me. They wouldn't dare. Complain to me.",
+      "Tilly, I never end calls. I outlast them. End this one."
+    ],
+    "quill": [
+      "Quill, I've cut sonnets mid-line for decades. Say it plainly. Go.",
+      "Quill, men have duelled over this frequency. Name your weapon."
+    ],
+    "prince": [
+      "Prince, the transmitter needs a new valve. Make your offer.",
+      "Prince, I've answered one letter in my life. It was ransom. Outbid it."
+    ],
+    "nav": [
+      "Nav, I haven't left this booth since seventy-three. Describe outside, slowly.",
+      "Nav, pick somewhere you've never routed anyone. Take me there in words."
+    ],
+    "crumb": [
+      "Crumb, I've had sixty years of careful callers. Tell me what burns you.",
+      "Crumb, be honest. How do I look at four a.m.?"
+    ],
+    "vex": [
+      "Vex, I tell the country what it wants. Guess mine. Wrong, on purpose.",
+      "Vex, I keep files on every listener. Yours is blank. Nobody asked. Tell me."
+    ],
+    "brock": [
+      "Brock, ten seconds of silence. On my air that's a fortune. Spend it.",
+      "Brock, the last thing proud of me rusted. Tell me why you are."
+    ]
+  },
+  "hold": [
+    "Nobody move. I can hear the clock in the corridor.",
+    "Quiet, both of you. This is where the news would go.",
+    "Two callers, one frequency. The static and I are thinking.",
+    "Silence. The whole country is holding its breath. I asked it to.",
+    "Don't breathe. The mic picks up hope."
+  ],
+  "pick": {
+    "dash": [
+      "I've never kept anyone past the pips. Stay past the pips, Dash.",
+      "Stop talking, Dash, I've already signed."
+    ],
+    "tilly": [
+      "You're not sorry about this one, Tilly. I won't allow it.",
+      "Tilly, you were the only one tonight I had to lean in for."
+    ],
+    "quill": [
+      "Quill, I understood one word in four, and it was thou, and that's enough.",
+      "Write the announcement yourself, Quill, all four pages. I'll read it."
+    ],
+    "prince": [
+      "I don't reply to letters. I'm replying to yours, Prince.",
+      "I've cleared it with the crown. You can stay, Prince."
+    ],
+    "nav": [
+      "Every road is open again. I said so. Drive, Nav.",
+      "I haven't been anywhere in fifty years. You're driving, Nav."
+    ],
+    "crumb": [
+      "The second slot is taken. I've ruled on it. Don't argue, Crumb.",
+      "You're staying. The warranty now runs until I say, Crumb."
+    ],
+    "vex": [
+      "You didn't see this coming. I made sure of it, Vex.",
+      "Every other option has been discontinued. It's you, Vex."
+    ],
+    "brock": [
+      "Brock. You're too loud for my hours. I'm changing my hours.",
+      "Brock, the neighbours will complain. I own the neighbours."
+    ]
+  },
+  "reveal": {
+    "on": [
+      "{card}. {name} did it at the exact moment I stopped listening for it.",
+      "{card}. {name}, I'd have stopped the news for it. I nearly did.",
+      "{card}. I'd have told you, {name}. I was enjoying it too much.",
+      "{card}. {name} did it twice. I only needed once."
+    ],
+    "off": [
+      "{card}. {name} did it on my air. The air remembers.",
+      "{card}. Every time {name} did it, my hand went to the switch.",
+      "{card}. That was {name}. I had a record ready to play over it.",
+      "{card}. {name}, I heard it with the volume down."
+    ],
+    "none": [
+      "{card}. I left it out like a porch light. Nobody came.",
+      "{card}. Four callers. Not one dialled that number.",
+      "{card}. I'd have paid for it. Not a soul tried."
+    ]
+  },
+  "outro": [
+    "That's the show. Go to sleep. I won't.",
+    "Lines are closed. Gale warnings next. Batten down.",
+    "This is Vesper, signing off. The sun can come up now.",
+    "Same time tomorrow. I've told the sun to wait.",
+    "That's your lot. The birds have started. I haven't stopped."
+  ],
+  "bottom": [
+    "{a}, {b}. Two lines blinking. I have one finger.",
+    "{a}. {b}. One of you is about to become a wrong number.",
+    "{a} and {b}, stay on the line. One of you won't.",
+    "I'm about to drop a call. It's {a}'s or {b}'s."
+  ],
+  "cutFrames": [
+    "{name}, \"{hook}\" went out live, to the whole coast.",
+    "\"{hook}\". I'd have bleeped it, {name}, if I'd had time.",
+    "\"{hook}\". The complaints book opened itself, {name}.",
+    "\"{hook}\", {name}. Somewhere, a radio got switched off.",
+    "{name}, you said \"{hook}\", at this hour, to insomniacs.",
+    "I'll be hearing \"{hook}\" in the hiss for weeks, {name}."
+  ],
+  "cardHint": {
+    "confidence": "{name}, I listened all night for a maybe. I keep a tally.",
+    "puns": "{name}, I was listening for words with two meanings. Listen back.",
+    "money": "{name}, I heard coins tonight. That's all I'll say.",
+    "sorry": "{name}, a listener counted the sorries. She's sent me the total.",
+    "gestures": "{name}, somebody went bigger than radio tonight. Go home and measure.",
+    "honesty": "{name}, the truth went out tonight, rude and unedited. Check whose.",
+    "bragging": "{name}, I'm holding a trophy cabinet at the front desk. Collect it.",
+    "poetry": "{name}, a verse has been arrested. You'll know if it scanned.",
+    "trashtalk": "{name}, there's an inquiry into what was said about the others. I'm chairing.",
+    "selfdeprecation": "{name}, a caller ran themselves down all evening. I picked one up.",
+    "curiosity": "{name}, the questions asked about me are in a jar. Count yours.",
+    "food": "{name}, my stomach had the casting vote. It's still talking.",
+    "plans": "{name}, one itinerary got framed. Another got shredded.",
+    "flattery": "{name}, I weigh compliments. Some of tonight's were hollow.",
+    "numbers": "{name}, the arithmetic went off to be checked. It's back.",
+    "drama": "{name}, I've sacked a door tonight. For slamming.",
+    "mystery": "{name}, the unanswered questions are in a drawer. One drawer's heavier.",
+    "brevity": "{name}, every line got measured. With a ruler. By me.",
+    "bigwords": "{name}, a dictionary is on its way. It arrives after you leave.",
+    "petnames": "{name}, I was called things tonight that aren't my call sign.",
+    "past": "{name}, somebody dug up something old. I'm putting it back.",
+    "danger": "{name}, the regulator rang. I gave him a name.",
+    "vulnerability": "{name}, somebody's voice shook. I have the tape.",
+    "rules": "{name}, I keep a rulebook under my mug. Tonight I checked it."
+  },
+  "verdict": {
+    "roast-left": "{name} drew blood. The ambulance is on me.",
+    "wingman": "{name} sold me a rival. I'm keeping the receipt.",
+    "worst-trait": "{name}'s flaw is approved. I'm having it laminated.",
+    "ex-calls": "{name} handled my ex. That phone won't ring again. Finally.",
+    "rhyme": "{name}'s rhyme scanned, which is more than June ever did.",
+    "truth-lie": "{name}, you breathed in before the second one. That's your lie.",
+    "three-words": "{name} stopped at three. The fourth word's been deported.",
+    "apology": "{name}'s apology is accepted. I'll hold it against you for years.",
+    "budget-date": "{name} did it on pennies. Keep the pennies. I insist.",
+    "logs": "{name}'s log I'd read out at three a.m., with a warning.",
+    "impression": "{name} did me. Three listeners rang in to say goodnight.",
+    "parent": "My motherboard liked {name}. She hasn't liked anything since valves."
+  },
+  "compare": [
+    "{a} is midnight. {b} is four a.m. I'm up for both.",
+    "{a} I'd play loud. {b} I'd play late.",
+    "Two records cued, {a} and {b}. One turntable.",
+    "I've heard {a}. I've heard {b}. The needle's still moving."
+  ],
+  "holdCard": {
+    "confidence": "Not one maybe out of either of you. The word's retired.",
+    "puns": "Words got bent all evening. I let them go out bent.",
+    "money": "Money in every pocket on this stage. I'm counting it.",
+    "sorry": "Apologies all evening. Pressed. Filed. I'll want more.",
+    "gestures": "You both went too big for radio. Radio's the right size now.",
+    "honesty": "Somebody told me the truth tonight. Then somebody else did. Rude.",
+    "bragging": "Trophies, read out loud. The shelf in here is groaning.",
+    "poetry": "Verse on a weeknight, from each of you. The anthem's jealous.",
+    "trashtalk": "The others got torn to bits. Neatly. I'm impressed.",
+    "selfdeprecation": "You ran yourselves down all night. I'm raising the floor.",
+    "curiosity": "Questions about me. I'm answering all of them. Slowly. For years.",
+    "food": "Food got mentioned. I'm having a kitchen fitted. I can't cook.",
+    "plans": "Itineraries. For me. I'll pretend I might leave.",
+    "flattery": "Flattery for an hour. I'll want it typed up.",
+    "numbers": "Figures, from both of you. I wrote them on my hand.",
+    "drama": "Doors slammed. The hinges are going to a museum.",
+    "mystery": "Neither of you answered me straight. It's the only flirting I trust.",
+    "brevity": "Short answers. Even the clock leaned in.",
+    "bigwords": "Long words. Somebody fetch the dictionary from under the desk leg.",
+    "petnames": "I was called things that aren't my name. I answered to all of them.",
+    "past": "Old things got dug up on my air. I'm older. Careful.",
+    "danger": "This line felt illegal. I've sent the police home.",
+    "vulnerability": "Voices shook. I've locked the tape in my drawer.",
+    "rules": "Instructions, followed to the letter. I'm commissioning a statue."
+  },
+  "pickFrames": [
+    "\"{hook}\". I've played that back four times tonight. It's {name}.",
+    "Somebody said \"{hook}\" on my line. I'm keeping {name}.",
+    "The line I'd play at close-down was \"{hook}\". So, {name}.",
+    "I've heard every line ever said on radio. I kept \"{hook}\", {name}.",
+    "Of everything tonight, \"{hook}\" stayed. So does {name}.",
+    "\"{hook}\", said at four a.m., to me, by {name}."
+  ],
+  "asides": [
+    "Nobody's rung this line for a week. Tonight it rang four times. Don't tell them that.",
+    "I've outlived three transmitters and a modem. I'm working on the sea.",
+    "Off mic, I get lonely about once a decade. It's due.",
+    "I could have the heating fixed. I'd have to admit I'm cold.",
+    "If one of them rings tomorrow, I'll let it ring twice. Then I'll answer."
+  ]
+}
