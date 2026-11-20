@@ -1,8 +1,8 @@
 {
  "whole": {
-  "lufs": -23.2,
-  "lra": 6.5,
-  "peak": -4
+  "lufs": -22.4,
+  "lra": 6.8,
+  "peak": -3.3
  },
  "phases": [
   {
@@ -37,18 +37,18 @@
    "round": 0,
    "from": 52,
    "seconds": 3,
-   "lufs": -26.6,
+   "lufs": -23.5,
    "lra": 0,
-   "peak": -16
+   "peak": -9.6
   },
   {
    "phase": "race",
    "round": 0,
    "from": 55,
    "seconds": 43,
-   "lufs": -23.4,
-   "lra": 7.9,
-   "peak": -4.8
+   "lufs": -21.1,
+   "lra": 9.6,
+   "peak": -3.3
   },
   {
    "phase": "cut",
@@ -56,17 +56,17 @@
    "from": 98,
    "seconds": 5,
    "lufs": -24.2,
-   "lra": 0.9,
-   "peak": -11.8
+   "lra": 1.8,
+   "peak": -9.8
   },
   {
    "phase": "recap",
    "round": 0,
    "from": 103,
    "seconds": 8,
-   "lufs": -24,
-   "lra": 5.2,
-   "peak": -5.7
+   "lufs": -23.4,
+   "lra": 6.1,
+   "peak": -5
   },
   {
    "phase": "title",
@@ -93,16 +93,16 @@
    "seconds": 3,
    "lufs": -21.8,
    "lra": 0,
-   "peak": -10.6
+   "peak": -9
   },
   {
    "phase": "race",
    "round": 1,
    "from": 144,
    "seconds": 40,
-   "lufs": -23.9,
-   "lra": 8,
-   "peak": -4.3
+   "lufs": -22.4,
+   "lra": 7.1,
+   "peak": -4.2
   },
   {
    "phase": "cut",
@@ -110,16 +110,16 @@
    "from": 184,
    "seconds": 5,
    "lufs": -24.2,
-   "lra": 0.8,
-   "peak": -12.2
+   "lra": 1.6,
+   "peak": -8.9
   },
   {
    "phase": "recap",
    "round": 0,
    "from": 189,
    "seconds": 8,
-   "lufs": -24.9,
-   "lra": 4.1,
+   "lufs": -24.5,
+   "lra": 4.7,
    "peak": -6.8
   },
   {
@@ -145,34 +145,34 @@
    "round": 2,
    "from": 227,
    "seconds": 3,
-   "lufs": -21.9,
+   "lufs": -21.4,
    "lra": 0,
-   "peak": -10.6
+   "peak": -8.6
   },
   {
    "phase": "race",
    "round": 2,
    "from": 230,
    "seconds": 23,
-   "lufs": -20.2,
-   "lra": 5.2,
-   "peak": -4
+   "lufs": -19.7,
+   "lra": 5.5,
+   "peak": -3.9
   },
   {
    "phase": "cut",
    "round": 2,
    "from": 252,
    "seconds": 3,
-   "lufs": -26.2,
-   "lra": 0.8,
-   "peak": -11.4
+   "lufs": -24.1,
+   "lra": 0.1,
+   "peak": -7.6
   },
   {
    "phase": "result",
    "round": 2,
    "from": 256,
    "seconds": 13,
-   "lufs": -21.7,
+   "lufs": -21.5,
    "lra": 2.2,
    "peak": -7.6
   }

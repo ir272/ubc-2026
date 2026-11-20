@@ -281,7 +281,7 @@ function createKit(ctx, volume, bank = {}) {
       // recordings only: the file if there is one, otherwise nothing
       if (fn === 'knock') { if (at - lastKnock >= 0.18) { lastKnock = at; playAny('hit', at, 0.85); } return; }
       if (fn === 'fall') { if (at - lastFall >= 0.4) { lastFall = at; play('fall', at, 0.7); } return; }
-      if (fn === 'win') { if (at - lastWin < 8) return; lastWin = at; if (play('win', at, 1.0)) easeMusic(at, 3.5); play('applause', at + 0.3, 0.9); return; }
+      if (fn === 'win') { if (at - lastWin < 8) return; lastWin = at; const w = play('win', at, 1.0), ap = play('applause', at + 0.3, 0.9); if (w || ap) easeMusic(at, 3.5); return; }
       const file = { pip: 'pip', go: 'go', tick: 'tick', through: 'through', lastPlace: 'last-place', lock: 'lock' }[fn];
       const gain = { pip: 0.7, go: 0.9, tick: 0.5, through: 0.6, lastPlace: 0.9, lock: 1.0 }[fn] ?? 0.7;
       if (file && play(file, at, gain) && (fn === 'lastPlace' || fn === 'lock')) easeMusic(at, 1.2);

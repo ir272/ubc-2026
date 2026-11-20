@@ -488,3 +488,12 @@ with the picture, `docs/with-music-*.mp4`, sent to him. Effects are still his to
 **Disk.** The Mac ran out of space; at the main session's and then the owner's request the folder
 went from 5.0 GB to about 0.15 GB: old captures, the rejected mix's recordings and the Earshot
 install (`.tools/`, 2.4 GB) are gone. Earshot would have to be installed again to rank new sounds.
+
+**Effects are in (04:20).** The owner on the second set: "good: C1, L2, T2, P1, F2, A2 (dkinda
+mid), Hit 3". So: the short race countdown (its first beep on 3, 2 and 1, its long last beep on
+Go), the bell when bets close, "small win" for each Gumble through, "arcade game complete" for the
+last place, the low "funny fail" tone for a fall, moderate applause for the winner, and only the
+third hit sound (the other three are deleted). He picked nothing for the last seconds before bets
+close or for the winner's crowd, so those stay silent. Every effect is set to peak at -6 dBFS and
+is otherwise untouched; the music now eases 3 dB under the applause. Sources and licences in
+`ASSETS.md`.

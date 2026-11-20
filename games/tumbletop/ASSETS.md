@@ -4,10 +4,10 @@ Tumbletop draws the attic, the course, the obstacles, the Gumbles and the graphi
 
 ## Sound in the build (state on 2026-11-20)
 
-Four music tracks and four hit sounds, each approved by the owner by ear or (the hits) not yet
-ruled on. No countdown, bell, chime, jingle or applause yet: he rejected the first set of those and
-has not chosen from the second. A sound with no file is silent; the synthesised stand-ins in
-`web/src/show/sound.js` are switched off.
+Four music tracks and eight effects, every one chosen by the owner by ear from audition clips. The
+last seconds before bets close and the winner's crowd have no sound: he picked none of those
+candidates. A sound with no file is silent; the synthesised stand-ins in `web/src/show/sound.js`
+are switched off.
 
 ### Music: Kevin MacLeod (incompetech.com), Creative Commons Attribution 4.0
 
@@ -29,21 +29,26 @@ level lowered to about -20 LUFS, a 0.05 s fade in and 0.4 s fade out, encoded as
 compressor, equaliser or pitch change. The owner chose them on 2026-11-20 from audition clips
 ("line-up 4, race 7, and five armies are cool. win 1 is good").
 
-### Hits: Kenney, Impact Sounds 1.0, CC0 (https://kenney.nl/assets/impact-sounds)
+### Effects: Mixkit (Mixkit Sound Effects Free License: free for games, no credit required)
 
-| File here | Original file |
-|---|---|
-| `web/src/audio/hit-1.wav` | `impactWood_medium_000.ogg` |
-| `web/src/audio/hit-2.wav` | `impactSoft_heavy_001.ogg` |
-| `web/src/audio/hit-3.wav` | `impactPunch_medium_001.ogg` |
-| `web/src/audio/hit-4.wav` | `impactWood_heavy_002.ogg` |
+The owner's picks on 2026-11-20: "good: C1, L2, T2, P1, F2, A2 (kinda mid), Hit 3".
 
-Converted with ffmpeg to mono 16-bit WAV, peak-normalised, otherwise untouched.
+| File here | Plays when | Mixkit sound | Source |
+|---|---|---|---|
+| `web/src/audio/pip.wav`, `go.wav` | 3, 2, 1 and Go | 926, short race countdown: the first beep cut out for the counts, the last (long) one for Go | https://assets.mixkit.co/active_storage/sfx/926/926.wav |
+| `web/src/audio/lock.wav` | bets close | 592, notification bell | https://assets.mixkit.co/active_storage/sfx/592/592.wav |
+| `web/src/audio/through.wav` | a Gumble gets through | 2020, small win | https://assets.mixkit.co/active_storage/sfx/2020/2020.wav |
+| `web/src/audio/last-place.wav` | the last place is taken | 205, arcade game complete | https://assets.mixkit.co/active_storage/sfx/205/205.wav |
+| `web/src/audio/fall.wav` | a Gumble falls off | 2876, funny fail low tone | https://assets.mixkit.co/active_storage/sfx/2876/2876.wav |
+| `web/src/audio/applause.wav` | the winner | 505, small group moderate applause | https://assets.mixkit.co/active_storage/sfx/505/505.wav |
 
-## Effect candidates still with the owner (not in the build, not in the repository)
+Changes: cut as described, level lowered so each peaks at -6 dBFS (applause -3), 16-bit WAV.
+Nothing else.
 
-Mixkit sound effects (Mixkit Sound Effects Free License, which allows use in games), as audition
-clips in `docs/sounds-round2/` (git-ignored). Whatever he approves gets a row above.
+### Hit: Kenney, Impact Sounds 1.0, CC0 (https://kenney.nl/assets/impact-sounds)
+
+`web/src/audio/hit-3.wav` is `impactPunch_medium_001.ogg`, converted to mono 16-bit WAV and
+peak-normalised. The other three hits were dropped: he picked this one only.
 
 ## Type
 
