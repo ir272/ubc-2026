@@ -1,4 +1,6 @@
 export const UNIT = 1_000_000;
+/** What the site calls its money. A placeholder until the platform has a name: change it here only. */
+export const CURRENCY = 'Play dollars';
 
 /** Base units → "$1,240". Play money is shown in whole dollars; pass cents: true to show cents. */
 export function usd(base: number, opts: { cents?: boolean; sign?: boolean } = {}): string {

@@ -5,7 +5,7 @@ import { createClient, toKey } from '@arena/sdk';
 import { api, type Config } from './api';
 import { SOLANA_RPC } from './env';
 
-const CLUSTERS: Record<string, string> = {
+export const CLUSTERS: Record<string, string> = {
   devnet: 'https://api.devnet.solana.com',
   testnet: 'https://api.testnet.solana.com',
   'mainnet-beta': 'https://api.mainnet-beta.solana.com',
@@ -13,7 +13,7 @@ const CLUSTERS: Record<string, string> = {
   localhost: 'http://127.0.0.1:8899',
 };
 
-async function latestBlockhash(rpc: string): Promise<string> {
+export async function latestBlockhash(rpc: string): Promise<string> {
   const r = await fetch(rpc, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },

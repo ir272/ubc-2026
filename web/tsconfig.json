@@ -12,7 +12,12 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "types": ["vite/client"],
-    "paths": { "@games/*": ["../games/*"] }
+    "paths": {
+      "@games/*": ["../games/*"],
+      "@solana/web3.js": ["../program/sdk/node_modules/@solana/web3.js"],
+      "@solana/spl-token": ["../program/sdk/node_modules/@solana/spl-token"],
+      "buffer": ["../program/sdk/node_modules/buffer"]
+    }
   },
   "include": ["src"]
 }

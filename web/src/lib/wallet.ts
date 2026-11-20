@@ -123,6 +123,23 @@ class Wallet {
     }
   }
 
+  /** "Get free play dollars" in the wallet window: the one-time grant, asked for again by hand. */
+  async topUp(): Promise<'added' | 'already' | 'failed'> {
+    if (FIXTURE) {
+      await new Promise((r) => setTimeout(r, 400));
+      return 'already';
+    }
+    try {
+      const r = await api.faucet(this.owner);
+      this.serverBalance = r.balance;
+      if (r.granted) this.granted = r.granted;
+      this.emit();
+      return r.granted ? 'added' : 'already';
+    } catch {
+      return 'failed';
+    }
+  }
+
   private async faucet() {
     const r = await api.faucet(this.owner);
     if (r.granted) this.granted = r.granted;
@@ -174,6 +191,38 @@ class Wallet {
     this.emit();
   }
 
+  /**
+   * Sends play dollars to another address. Resolves to null when it went through, else a short reason to show.
+   * Solana: a transfer signed with the silent key, fees paid by the runner (POST /relay). Practice: POST /dev/transfer.
+   */
+  async send(to: string, amount: number): Promise<string | null> {
+    to = to.trim();
+    if (!looksLikeAddress(to)) return 'That address doesn’t look right';
+    if (to === this.owner) return 'That’s your own address';
+    if (!(amount > 0)) return 'Enter an amount';
+    if (amount > (this.balance ?? 0)) return 'Not enough balance';
+    try {
+      if (FIXTURE) {
+        await new Promise((r) => setTimeout(r, 500));
+        this.serverBalance = (this.serverBalance ?? 0) - amount;
+      } else {
+        const cfg = await getConfig();
+        if (cfg.chain === 'solana') {
+          const { sendPlaySolana } = await import('./solanaSend');
+          await sendPlaySolana({ seed: this.seed, owner: this.owner, to, amount, cfg });
+          this.serverBalance = (this.serverBalance ?? 0) - amount;
+        } else {
+          this.serverBalance = (await api.devTransfer({ from: this.owner, to, amount })).balance;
+        }
+      }
+      this.emit();
+      if (!FIXTURE) void this.refresh();
+      return null;
+    } catch (e) {
+      return friendly(e);
+    }
+  }
+
   async placeBet(w: WindowView, outcome: number, amount: number): Promise<boolean> {
     const t = this.tickets.get(w.windowId) ?? { windowId: w.windowId, amounts: [], pending: null, error: null };
     if (t.pending) return false;
@@ -218,6 +267,9 @@ class Wallet {
 }
 
 export const wallet = new Wallet();
+
+/** A wallet address as the viewer would paste it: 32 bytes in base58. */
+export const looksLikeAddress = (a: string) => /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(a.trim());
 
 export function useWallet(): Wallet {
   useSyncExternalStore(wallet.subscribe, wallet.getVersion);

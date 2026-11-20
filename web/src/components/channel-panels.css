@@ -3,7 +3,7 @@
 .app .ch-panels { display: grid; gap: 16px; padding: 4px 28px 40px; }
 
 /* About: art on the left at 3:2, the game on the right */
-.app .ab { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); background: var(--card); border-radius: 8px; overflow: hidden; }
+.app .ab { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 1fr); background: var(--card); border-radius: 8px; overflow: hidden; }
 .app .ab-art { aspect-ratio: 3 / 2; background: var(--raised); }
 .app .ab-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .app .ab-text { display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 24px 32px; min-width: 0; }

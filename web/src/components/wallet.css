@@ -1,0 +1,83 @@
+/* The balance dropdown and the wallet window, laid out after duel.com's (measured from Ian's screenshots at half
+   size: window 498 wide with 32 padding, 48 high switch, 136 QR tile, 40 high fields, 42 high dropdown rows).
+   Colours and type are the site's own tokens. No divider lines: parts are set apart by space and by ground. */
+
+/* ───────── balance dropdown ───────── */
+.app .bm { position: absolute; top: calc(100% + 8px); right: 0; z-index: 50; width: 300px; max-width: calc(100vw - 24px); border-radius: 8px; background: var(--raised); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5); overflow: hidden; transform-origin: top right; animation: bm-in 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes bm-in { from { opacity: 0; transform: scale(0.96); } }
+.app .bm-top { display: flex; flex-direction: column; gap: 2px; padding: 16px 16px 12px; }
+.app .bm-cap { font-size: 14px; line-height: 20px; color: var(--text-2); }
+.app .bm-big { font-size: 16px; font-weight: 700; line-height: 22px; }
+.app .bm-row { display: flex; align-items: center; gap: 10px; height: 42px; margin: 0 8px; padding: 0 8px; border-radius: 4px; background: var(--hover); font-size: 15px; }
+.app .bm-name { font-weight: 600; }
+.app .bm-val { margin-left: auto; font-weight: 600; }
+.app .bm-foot { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 52px; margin-top: 8px; border: 0; background: none; color: var(--text-2); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: color 150ms cubic-bezier(0.23, 1, 0.32, 1), background-color 150ms cubic-bezier(0.23, 1, 0.32, 1); }
+.app .bm-foot:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+@media (hover: hover) and (pointer: fine) {
+  .app .bm-foot:hover { color: var(--text); background: var(--hover); }
+}
+
+/* ───────── wallet window ───────── */
+.wlt { width: min(460px, calc(100vw - 24px)); max-height: calc(100vh - 24px); margin: auto; padding: 0; border: 0; border-radius: 8px; background: var(--raised); color: var(--text); box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55); overflow: auto; }
+.wlt:focus { outline: none; }
+.wlt::backdrop { background: rgba(0, 0, 0, 0.6); }
+.wlt[open] { animation: wlt-in 200ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt[open]::backdrop { animation: wlt-fade 200ms cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes wlt-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes wlt-fade { from { opacity: 0; } }
+.wlt-body { padding: 28px 32px 32px; }
+.wlt-head { display: flex; align-items: center; gap: 10px; height: 36px; color: var(--text-2); }
+.wlt-h { color: var(--text); font-size: 20px; font-weight: 700; line-height: 26px; }
+.wlt-x { margin-left: auto; margin-right: -8px; }
+
+.wlt-icon { display: grid; place-items: center; flex: none; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 4px; background: none; color: var(--text-2); cursor: pointer; transition: color 150ms cubic-bezier(0.23, 1, 0.32, 1), background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 120ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt-icon.done { color: var(--accent); }
+.wlt-icon:active { transform: scale(0.94); }
+.wlt-icon:focus-visible, .wlt-tab:focus-visible, .wlt-max:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* the switch: a dark trough, the chosen part raised, the raised plate slides */
+.wlt-tabs { position: relative; display: grid; grid-template-columns: repeat(2, 1fr); height: 48px; margin-top: 22px; padding: 4px; border-radius: 8px; background: var(--bg); }
+.wlt-tab-pill { position: absolute; top: 4px; left: 4px; width: calc(50% - 4px); height: 40px; border-radius: 6px; background: var(--hover); transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt-tab { position: relative; border: 0; border-radius: 6px; background: none; color: var(--text-2); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: color 150ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt-tab[aria-selected='true'] { color: var(--text); }
+
+.wlt-panel { animation: wlt-panel 180ms cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes wlt-panel { from { opacity: 0; transform: translateY(4px); } }
+
+.wlt-qr { width: 136px; height: 136px; margin: 28px auto 6px; padding: 12px; border-radius: 8px; background: #fff; }
+.wlt-qr svg { display: block; width: 100%; height: 100%; fill: #141318; }
+
+.wlt-lab { display: block; margin: 20px 0 8px; color: var(--text-2); font-size: 14px; font-weight: 500; line-height: 20px; }
+.wlt-field { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px; border-radius: 4px; background: var(--bg); font-size: 15px; border: 2px solid transparent; transition: border-color 150ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt-field:has(.wlt-icon) { padding-right: 4px; }
+.wlt-input:focus-within { border-color: var(--accent); }
+.wlt-strong { font-weight: 600; }
+.wlt-dim { color: var(--text-2); }
+.wlt-end { margin-left: auto; }
+.wlt-field > .num.wlt-end { color: var(--text-2); font-weight: 600; }
+.wlt-addr { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-2); font-size: 14px; }
+.wlt-field input { flex: 1; min-width: 0; height: 100%; padding: 0; border: 0; outline: none; background: none; color: var(--text); font: inherit; font-size: 15px; }
+#wlt-to { font-size: 14px; }
+.wlt-field input::placeholder { color: color-mix(in srgb, var(--text-2) 70%, transparent); }
+.wlt-max { height: 28px; padding: 0 10px; border: 0; border-radius: 4px; background: var(--hover); color: var(--text); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 150ms cubic-bezier(0.23, 1, 0.32, 1), transform 120ms cubic-bezier(0.23, 1, 0.32, 1); }
+.wlt-max:active { transform: scale(0.96); }
+.wlt-max:disabled { opacity: 0.5; cursor: default; }
+.wlt-err { min-height: 20px; margin-top: 8px; color: var(--ink-coral, #b58970); font-size: 14px; line-height: 20px; }
+.wlt .wlt-go { margin-top: 24px; }
+.wlt-form .wlt-go { margin-top: 12px; }
+/* the window's main button is gold, as in the mockup */
+.wlt .ink-btn-primary { --ink: var(--ink-gold); }
+.wlt .ink-btn-primary:disabled { --ink: var(--ink-faint); }
+
+@media (hover: hover) and (pointer: fine) {
+  .wlt-icon:hover { color: var(--text); background: var(--hover); }
+  .wlt-tab:hover { color: var(--text); }
+  .wlt-max:hover:not(:disabled) { background: var(--keyline); }
+}
+@media (max-width: 520px) {
+  .wlt-body { padding: 20px 18px 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app .bm, .wlt[open], .wlt[open]::backdrop, .wlt-panel { animation: none; }
+  .wlt-tab-pill, .wlt-icon, .wlt-max, .wlt-field { transition: none; }
+}
