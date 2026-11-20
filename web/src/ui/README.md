@@ -7,6 +7,21 @@ Library site (dev only): http://localhost:5190/ui
 Status on 2026-11-20: built and working. Ian chose this kit over Looseleaf for our theme and wants it grown into a
 real library like Looseleaf. **Wired into the real pages on 2026-11-20** (see "Where it is used" below). Typeface: Shantell Sans, Ian's pick.
 
+## Use it in your own project (MIT)
+
+Nightline is open source under the MIT license (`LICENSE` in this folder). It is plain React and CSS with no other
+dependencies, so you can copy the folder into any React 18 app:
+
+1. Copy `web/src/ui` into your project (for example `src/ui`).
+2. Import the styles once and put the `ink-ui` class on a container: `import './ui/ui.css';` then
+   `<div className="ink-ui">…</div>`.
+3. Use the components: `import { Button, Frame, BetSides, Tabs, Switch, toast, Toaster } from './ui';`
+4. Optional: the typeface is Shantell Sans (`npm install @fontsource-variable/shantell-sans`, then import it once).
+
+Everything works without it except `Moment`, the animation player, which needs Clayzo's own runtime
+(`@clayzo/webgl-player`, under Clayzo's license, not ours). Leave `Moment.tsx` out if you do not use Clayzo. The
+`site/` folder is the documentation site and can be left out too.
+
 ## The library site (`site/`)
 
 `/ui` is a documentation site in the manner of Looseleaf's, built only from the kit. Pages are addressed by hash, so
@@ -161,8 +176,8 @@ sounds while the page is in front. **Ian has not confirmed his takes yet. Do not
 
 Ian's reference for this work is Kevin Ngo (https://x.com/kevin_t_ngo): the technique is after his Looseleaf
 (https://kevintngo.github.io/looseleaf/, MIT), and the animation direction follows his Clayzo UI animations
-(https://x.com/kevin_t_ngo/status/2111974919353544757). Craft rules from Emil Kowalski's `emil-design-eng` skill.
-Motion guidance from Benji Taylor's Stageshow skill (saved as text in `.claude/skills/stageshow/`).
+(https://x.com/kevin_t_ngo/status/2111974919353544757). Interaction craft after Emil Kowalski's design engineering
+writing; motion guidance after Benji Taylor's Stageshow.
 
 Related prototypes, outside `web/`: `prototypes/looseleaf/` (Kevin's real components themed to ink on black, port
 5192) and `prototypes/clayzo/` (Clayzo animations drawn with this kit's ink engine, port 5193).

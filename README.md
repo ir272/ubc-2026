@@ -1,67 +1,126 @@
 # Ghostbet
 
-Ghostbet is a platform where you make predictions and wagers on live-streamed, simulated game environments
-that run 24/7. AI plays AI on every channel; viewers bet Souls, the site's play money, on what happens. Every bet,
-lock, result and payout is a transaction on Solana devnet.
+Games that never stop. Viewers bet play money on who wins.
 
-**Live:** https://playghostbet.vercel.app (site on Vercel; the match runner runs on Railway, on Solana devnet).
+**Play it:** https://playghostbet.vercel.app
+**Demo video:** _link to come_
+
+![The Ghostbet home page](docs/home.jpg)
+
+## The games
+
+<table>
+<tr>
+<td width="33%"><img src="docs/inkelton.gif" width="100%" alt="An Inkelton match"></td>
+<td width="33%"><img src="docs/blood-moon.gif" width="100%" alt="A Blood Moon match"></td>
+<td width="33%"><img src="docs/goober-guys.gif" width="100%" alt="A Goober Guys show"></td>
+</tr>
+<tr>
+<td><b>Inkelton</b><br>Two AI models build fighters from cards, then each takes one go at the same boss.</td>
+<td><b>Blood Moon</b><br>Two AI models each pick a monster and coach it live. Two lives each.</td>
+<td><b>Goober Guys</b><br>Sixteen racers, a seeded toy-box course. 16, then 8, then 4, then one. A bet each round.</td>
+</tr>
+</table>
+
+![Coming soon: Chess, Possessed, Ghost Racers, Phantom Rush](docs/coming-soon.jpg)
+<sub>Coming soon: Chess, Possessed, Ghost Racers, Phantom Rush.</sub>
+
+## Made for people new to crypto
+
+- **No wallet.** A keypair is made in the browser on the first visit.
+- **No fees.** The house co-signs every bet as fee payer.
+- **No crypto words.** Souls, "View results", "View receipt".
+- **1,000 Souls to start.** Play money, no sign-up.
+
+## How it works
+
+<img src="docs/how-it-works.svg" width="100%" alt="How Ghostbet works: the games feed the match runner, which streams the live match to the viewer's browser; the browser signs a bet, the runner adds the fee and sends it to the Ghostbet program on Solana devnet, which locks, settles and pays the winners in Souls.">
+
+The runner opens a betting round on chain, locks it, plays the match, then settles. Every viewer's browser draws the
+same match from the live feed. The program holds the pots and pays the winners.
 
 ## How it uses Solana
 
-The core of the product (the pots, the bets, the result and the payouts) is an Anchor program
-written in Rust and deployed on Solana devnet. The match runner and the website only drive it.
+An Anchor program in Rust, on devnet. Source: `program/programs/arena/src/lib.rs`.
 
 | | Address (devnet) |
 |---|---|
-| Program (Anchor, Rust) | [`GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P`](https://explorer.solana.com/address/GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P?cluster=devnet) |
-| PLAY token mint (SPL Token, 6 decimals) | [`8DywivK9Vv5Yi2bCRPqDWakdhJE8Qd6eACLgCc8kDts7`](https://explorer.solana.com/address/8DywivK9Vv5Yi2bCRPqDWakdhJE8Qd6eACLgCc8kDts7?cluster=devnet) |
-| Config account | [`CEWtCZ3eZn9xzgPxXAv21vNJ2wGXDviEJEQ5gfjsqfLT`](https://explorer.solana.com/address/CEWtCZ3eZn9xzgPxXAv21vNJ2wGXDviEJEQ5gfjsqfLT?cluster=devnet) |
-| Admin and fee payer | [`ApNhqVsLRMjAy6hJEwv5PnQMcTAvAMeF87akh7j6uW7q`](https://explorer.solana.com/address/ApNhqVsLRMjAy6hJEwv5PnQMcTAvAMeF87akh7j6uW7q?cluster=devnet) |
+| Program | [`GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P`](https://explorer.solana.com/address/GGQeGU8BTtRDmHPoC25Py185wEuUeDz3phXWG4Gp6z2P?cluster=devnet) |
+| Souls mint (SPL Token) | [`8DywivK9Vv5Yi2bCRPqDWakdhJE8Qd6eACLgCc8kDts7`](https://explorer.solana.com/address/8DywivK9Vv5Yi2bCRPqDWakdhJE8Qd6eACLgCc8kDts7?cluster=devnet) |
+| House (fee payer) | [`ApNhqVsLRMjAy6hJEwv5PnQMcTAvAMeF87akh7j6uW7q`](https://explorer.solana.com/address/ApNhqVsLRMjAy6hJEwv5PnQMcTAvAMeF87akh7j6uW7q?cluster=devnet) |
 
-Source: `program/programs/arena/src/lib.rs`. TypeScript client: `program/sdk`.
+- **One market per betting round,** with a sha256 commitment to a secret.
+- **Bets are SPL token transfers** into the program's vault. None after the close slot.
+- **Lock reads SlotHashes** for entropy nobody chooses.
+- **Settle checks the secret** against the commitment.
+- **Parimutuel claim.** Winners split the pot by stake. No house cut. Unsettled rounds can be voided and refunded.
+- **Gasless relay.** The browser signs, the runner co-signs as fee payer, for this program only.
 
-- **One market per betting window.** Every time a channel opens betting, the runner calls
-  `create_market` (2 to 16 outcomes, a close slot, and a sha256 commitment to a secret). The
-  market is a PDA (`["market", id]`).
-- **Bets are SPL token transfers.** Souls, the play money, are an SPL token (PLAY) whose mint is a PDA of the
-  program. `place_bet` moves PLAY from the bettor's associated token account into the program's
-  vault (a PDA token account) and records the stake in a Position PDA (`["pos", market, owner]`).
-  The program refuses bets at or after the close slot.
-- **Randomness nobody chooses.** `lock` is permissionless once the close slot has passed and reads
-  the SlotHashes sysvar for entropy. Seeded games derive their randomness from
-  `sha256(secret, entropy, market)`, so neither the house nor a bettor can pick the outcome.
-- **Settle and pay.** `settle` reveals the secret (the program checks it against the commitment)
-  and records the winner; `claim` pays each Position its parimutuel share of the whole pot from
-  the vault. `void` refunds everyone. `close_position` and `close_market` return rent.
-- **No wallet setup for viewers.** Each viewer gets an ed25519 keypair in the browser on first
-  visit (a normal Solana keypair). The faucet mints starting PLAY to it (SPL `MintTo` plus an
-  idempotent associated token account). The browser signs `place_bet` itself and the runner adds
-  its signature as fee payer (`POST /relay`), so viewers never need SOL or a wallet popup. The
-  relay only co-signs `place_bet`, `lock` and `claim` of this program.
+**What you trust:** the program records the winner the house reports. It checks the sealed secret, and seeded matches
+can be replayed from the public seed.
 
-Existing Solana pieces used rather than rebuilt: the SPL Token and Associated Token Account
-programs, the SlotHashes sysvar, `@solana/web3.js`, Anchor, and Solana Explorer for every
-transaction link.
+## The announcer
 
-## Layout
+One voice calls every game. We designed it with ElevenLabs Voice Design, saved it as "Ghostbet Announcer", and voiced
+15 lines with text to speech (`tools/announcer/`). The site plays the recordings. Nothing calls ElevenLabs at runtime.
 
-| Folder | What it is |
-|---|---|
-| `program/` | Anchor program (Rust), SDK, deploy and devnet scripts |
-| `runner/` | Match runner: runs every channel's show loop, opens and settles markets, relays bets (HTTP and WebSocket on :8787) |
-| `web/` | Website (Vite and React, :5190) |
-| `games/` | The channels: `scrivener` (Inkelton), `brawl` (Blood Moon), `tumbletop` (Goober Guys) |
-| `pitch/` | Pitch deck and video material |
+## How we built it
+
+<table>
+<tr>
+<td width="50%"><img src="docs/nightline-kit.jpg" width="100%" alt="Nightline's overview page"></td>
+<td width="50%"><img src="docs/nightline-docs.jpg" width="100%" alt="A Nightline component page"></td>
+</tr>
+<tr>
+<td colspan="2"><b>Nightline, our own ink UI kit.</b> Every button, frame and bet row is drawn by a small engine of seeded pen
+strokes that draw themselves on and answer hover and press. It has its own documentation site and is open source under
+MIT: <a href="web/src/ui">web/src/ui</a>.</td>
+</tr>
+<tr>
+<td><img src="docs/moments.gif" width="100%" alt="Bet placed, payout and watch-and-bet animations"></td>
+<td><img src="docs/home-hero.jpg" width="100%" alt="The home page scene"></td>
+</tr>
+<tr>
+<td><b>Clayzo.</b> Bet placed, payout and "Watch and bet" are authored in TypeScript with Clayzo and played with its WebGL player, each with a sound made in code.</td>
+<td><b>Plain JavaScript.</b> The home scene is drawn on a canvas, and the diagram above is drawn by a script in the kit's ink style.</td>
+</tr>
+<tr>
+<td><img src="docs/coming-soon.jpg" width="100%" alt="The four coming-soon cards"></td>
+<td><img src="docs/game-art.jpg" width="100%" alt="Inkelton's haunted library"></td>
+</tr>
+<tr>
+<td><b>Midjourney.</b> The coming-soon cards, styled on our own art and picked from rounds of grids and edits.</td>
+<td><b>Our own game art:</b> an ink library, ink monsters, a three.js toy box.</td>
+</tr>
+</table>
 
 ## Run it
 
+Practice mode, no network:
+
 ```bash
-cd runner && npm install && CHAIN=solana HOUSE_BOTS=1 BOT_BET_CHANCE=0.06 CHANNELS=scrivener,brawl,tumbletop npm start
+cd runner && npm install && CHAIN=memory CHANNELS=scrivener,brawl,tumbletop npm start
 ```
 
 ```bash
 cd web && npm install && npm run dev
 ```
 
-`CHAIN=memory` runs everything without a network (practice mode). Solana mode needs the admin
-keypair at `program/.keys/admin.json` (not in the repo). See `runner/README.md` for every setting.
+Open http://localhost:5190. Solana mode needs the house keypair, which is not in the repo; see `runner/README.md`.
+
+## Repo layout
+
+| Folder | What it is |
+|---|---|
+| `program/` | Anchor program (Rust) and TypeScript SDK |
+| `runner/` | Match runner, markets, bet relay |
+| `web/` | Website, with the Nightline kit in `web/src/ui` |
+| `games/` | `scrivener` (Inkelton), `brawl` (Blood Moon), `tumbletop` (Goober Guys) |
+| `tools/announcer/` | ElevenLabs voice and line scripts |
+| `pitch/` | Deck and video material |
+
+## What's next
+
+- **Bring your own bot,** and earn when others bet on it.
+- **Four more games.**
+- **Results checked on chain.**
