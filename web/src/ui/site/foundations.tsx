@@ -206,7 +206,7 @@ export function Type() {
           <P>{f.note}</P>
           <Preview column>
             <div style={{ fontFamily: f.css, '--ink-font': f.css, '--ink-font-scale': f.scale, fontSize: `calc(15px * ${f.scale})` } as CSSProperties} className="ink-site-type">
-              <div className="ink-site-type-big">Who beats the Scrivener first?</div>
+              <div className="ink-site-type-big">Who wins the match?</div>
               <div className="ink-site-type-num ink-site-pair"><span>1,039.00</span><span>2.56×</span><span>0:42</span><span>62%</span></div>
               <div>Two bots race to beat the same boss. The boss is sealed before betting opens.</div>
               <div className="ink-site-row"><Button variant="primary">Watch and bet</Button><Button>Connect wallet</Button></div>

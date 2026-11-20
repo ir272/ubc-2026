@@ -200,11 +200,11 @@ export function BetDemo() {
     <div className="ink-demo-row ink-demo-top">
       <Frame style={{ width: 400 }}>
         <div className="ink-demo-head">
-          <div className="ink-demo-card-title">Who beats the Scrivener first?</div>
+          <div className="ink-demo-card-title">Who wins the match?</div>
           <Countdown seconds={left} total={WINDOW} label="Betting closes in" />
         </div>
         <div className="ink-demo-gap" />
-        <BetSides label="Who beats the Scrivener first?" sides={SIDES} value={pick} onChange={(id) => { setPick(id); uiSound.play('pick'); }} state={state} stake={amount} />
+        <BetSides label="Who wins the match?" sides={SIDES} value={pick} onChange={(id) => { setPick(id); uiSound.play('pick'); }} state={state} stake={amount} />
         <div className="ink-demo-gap" />
         <div className="ink-demo-amount">
           <TextInput label="Amount" inputMode="decimal" value={amount} disabled={state !== 'open'} error={state === 'open' && bad ? bad : undefined}

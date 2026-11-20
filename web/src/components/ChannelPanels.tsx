@@ -12,7 +12,7 @@ import './channel-panels.css';
 
 /**
  * The game itself, in two or three sentences. Never how betting works.
- * The Scrivener text is Ian's; the other three are drafts for him to rewrite.
+ * The Inkelton (scrivener) text is Ian's; the other three are drafts for him to rewrite.
  */
 const GAME: Record<string, string> = {
   scrivener: 'In a haunted library, a scribe writes the names of the dead. Two AIs take turns trying to kill it before it finishes theirs. Six strokes and they’re gone.',

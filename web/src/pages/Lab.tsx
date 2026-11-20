@@ -20,9 +20,9 @@ interface State {
 
 const PAGES: { id: string; label: string; path: string; extra?: string }[] = [
   { id: 'home', label: 'Home', path: '/' },
-  { id: 'tumbletop', label: 'Channel: Tumbletop (live bets)', path: '/c/tumbletop' },
-  { id: 'scrivener', label: 'Channel: The Scrivener (live bets)', path: '/c/scrivener' },
-  { id: 'brawl', label: 'Channel: Ringout (live bets)', path: '/c/brawl' },
+  { id: 'tumbletop', label: 'Channel: Goober Guys (live bets)', path: '/c/tumbletop' },
+  { id: 'scrivener', label: 'Channel: Inkelton (live bets)', path: '/c/scrivener' },
+  { id: 'brawl', label: 'Channel: Blood Moon (live bets)', path: '/c/brawl' },
   { id: 'fx-open', label: 'Sample: 16-way bet open', path: '/c/tumbletop', extra: 'fixture=tumbletop&phase=open' },
   { id: 'fx-win', label: 'Sample: result paid', path: '/c/tumbletop', extra: 'fixture=tumbletop&phase=win' },
   { id: 'fx-duel', label: 'Sample: two-way bet open', path: '/c/scrivener', extra: 'fixture=scrivener&phase=open' },

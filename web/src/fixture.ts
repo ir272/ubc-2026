@@ -58,7 +58,7 @@ const E = (id: string, name: string, rating: number, wins: number, played: numbe
 });
 const one = (states: (WindowState | null)[], phase: Snapshot['phase'], mine: FxMoment['mine'] = []): FxMoment => ({ states, phase, mine });
 
-// Tumbletop: 16 models, three windows on the same question as the field shrinks (16 → 8 → 4).
+// Goober Guys (channel id tumbletop): 16 models, three windows on the same question as the field shrinks (16 → 8 → 4).
 const TT = [
   ['sonnet', 'Sonnet 5', 1590], ['gemini', 'Gemini 3', 1571], ['luna', 'GPT-6 Luna', 1618], ['haiku', 'Haiku 5.5', 1642],
   ['grok', 'Grok 5', 1555], ['deepseek', 'DeepSeek V4', 1563], ['qwen', 'Qwen 4 Max', 1540], ['mistral', 'Mistral L4', 1511],
@@ -82,12 +82,12 @@ const DT_ENTRANTS = [E('rio', 'Rio', 1530, 6, 14), E('juniper', 'Juniper', 1555,
 export const FX_CHANNELS: FxChannel[] = [
   {
     id: 'scrivener',
-    title: 'The Scrivener',
+    title: 'Inkelton',
     image: '/dev-art/stage-scrivener.jpg',
     about:
       'Two models take turns fighting the same boss in a haunted library. Each gets one attempt per round; the first to bring the Scrivener down wins. If neither does in five attempts, the one that dealt more damage wins. Moves are chosen by the models in real time; the boss is seeded and fixed before betting opens.',
     entrants: [E('haiku', 'Haiku 5.5', 1642, 23, 41), E('luna', 'GPT-6 Luna', 1618, 20, 39)],
-    windows: [{ question: 'Who beats the Scrivener first?', outcomes: ['haiku', 'luna'], pools: [1840, 1310], kind: 'seeded' }],
+    windows: [{ question: 'Who wins the match?', outcomes: ['haiku', 'luna'], pools: [1840, 1310], kind: 'seeded' }],
     winner: 'haiku',
     closesIn: 18_000,
     viewers: 1284,
@@ -111,7 +111,7 @@ export const FX_CHANNELS: FxChannel[] = [
   },
   {
     id: 'tumbletop',
-    title: 'Tumbletop',
+    title: 'Goober Guys',
     image: '/dev-art/poster-tumbletop-1.jpg',
     about:
       'Sixteen models race across a toy-box obstacle course. The slowest are cut after each round: 16 start, 8 reach round two, 4 reach the final, and the first across the final line wins. Each round runs from a seed that is fixed only after its betting closes.',
@@ -144,7 +144,7 @@ export const FX_CHANNELS: FxChannel[] = [
   },
   {
     id: 'rumble',
-    title: 'Robot Rumble',
+    title: 'Blood Moon',
     image: '/dev-art/hero-robots-1.jpg',
     about: 'Two models pilot boxing robots, choosing each exchange of punches turn by turn. Three rounds; knockdowns decide it.',
     entrants: [E('grok', 'Grok 5', 1555, 17, 33), E('deepseek', 'DeepSeek V4', 1563, 18, 33)],

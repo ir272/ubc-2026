@@ -67,7 +67,7 @@ function SavingButton() {
 
 function SidesExample({ state }: { state: BetState }) {
   const [pick, setPick] = useState<string | null>(state === 'open' ? null : 'haiku');
-  return <div style={{ width: 340 }}><BetSides label="Who beats the Scrivener first?" sides={SIDES} value={pick} onChange={setPick} state={state} stake="25" seed={`ex-${state}`} /></div>;
+  return <div style={{ width: 340 }}><BetSides label="Who wins the match?" sides={SIDES} value={pick} onChange={setPick} state={state} stake="25" seed={`ex-${state}`} /></div>;
 }
 
 function MovingShares() {
@@ -169,7 +169,7 @@ function LoadingExample() {
     <>
       <div style={{ display: 'grid', gap: 10, width: 250, minHeight: 82 }}>
         {ready
-          ? <><ChannelRow id="scrivener" name="The Scrivener" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Robot Rumble" sub="Round 3" viewers="864" /></>
+          ? <><ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" /></>
           : [0, 1].map((i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: 10, alignItems: 'center' }}>
               <Skeleton width={36} height={36} seed={`sk-a${i}`} />
@@ -252,7 +252,7 @@ export const COMPONENTS: Record<string, Doc> = {
     group: 'Forms', title: 'Bet sides',
     lede: 'The sides of a bet as one choice: name, pencil-hatched share of the pot, share and what it pays.',
     preview: <SidesExample state="open" />,
-    usage: `import { BetSides } from './ui';\n\n<BetSides\n  label="Who beats the Scrivener first?"\n  sides={[{ id: 'luna', label: 'Luna', share: 0.62, multiple: 1.58 }, { id: 'haiku', label: 'Haiku', share: 0.38, multiple: 2.56 }]}\n  value={pick}\n  onChange={setPick}\n  state="open"\n/>`,
+    usage: `import { BetSides } from './ui';\n\n<BetSides\n  label="Who wins the match?"\n  sides={[{ id: 'luna', label: 'Luna', share: 0.62, multiple: 1.58 }, { id: 'haiku', label: 'Haiku', share: 0.38, multiple: 2.56 }]}\n  value={pick}\n  onChange={setPick}\n  state="open"\n/>`,
     examples: [
       { title: 'Placing', note: 'Your pick is boxed in gold and the rows are locked while the bet is sent.', node: <SidesExample state="placing" /> },
       { title: 'Placed', note: 'A tick is drawn beside your pick, with your stake.', node: <SidesExample state="placed" /> },
@@ -289,8 +289,8 @@ export const COMPONENTS: Record<string, Doc> = {
   frame: {
     group: 'Layout', title: 'Frame',
     lede: 'The card: four ruled lines that run past the corners and cross.',
-    preview: <Frame style={{ width: 300 }}><strong>The Scrivener</strong><div className="ink-site-dim">Luna vs Haiku</div></Frame>,
-    usage: `import { Frame } from './ui';\n\n<Frame>\n  <h3>The Scrivener</h3>\n</Frame>`,
+    preview: <Frame style={{ width: 300 }}><strong>Inkelton</strong><div className="ink-site-dim">Luna vs Haiku</div></Frame>,
+    usage: `import { Frame } from './ui';\n\n<Frame>\n  <h3>Inkelton</h3>\n</Frame>`,
     examples: [{ title: 'Without the draw-on', note: 'For anything that mounts often, such as rows in a list.', node: <Frame draw={false} style={{ width: 300 }}><div className="ink-site-dim">Simply there.</div></Frame> }],
     props: [['draw', 'boolean', 'true', 'Draw the four rules on when the frame first appears.'], SEED, ['…', 'div props', '', 'className, style and the rest pass through. Padding is 16 px.']],
     a11y: ['The lines are decoration; the frame adds no role. Give its content a heading.'],
@@ -298,7 +298,7 @@ export const COMPONENTS: Record<string, Doc> = {
   'checker-frame': {
     group: 'Layout', title: 'Checker frame',
     lede: 'The chart’s checkered border, with its runs of gold. For the one frame on a page that should feel like the chart’s edge.',
-    preview: <CheckerFrame style={{ width: 380 }}><strong>Who beats the Scrivener first?</strong><div className="ink-site-dim">Luna vs Haiku</div></CheckerFrame>,
+    preview: <CheckerFrame style={{ width: 380 }}><strong>Who wins the match?</strong><div className="ink-site-dim">Luna vs Haiku</div></CheckerFrame>,
     usage: `import { CheckerFrame } from './ui';\n\n<CheckerFrame band={8}>…</CheckerFrame>`,
     props: [['draw', 'boolean', 'true', 'Draw the rules and walk the checks round on first appearance.'], ['band', 'number', '8', 'Thickness of the border in px.'], SEED],
     a11y: ['Decoration only. Use at most one per page.'],
@@ -331,11 +331,11 @@ export const COMPONENTS: Record<string, Doc> = {
   medallion: {
     group: 'Display', title: 'Medallion',
     lede: 'The round frame for a channel’s icon, after the moon medallion on the chart.',
-    preview: <><Medallion size={104} src="/posters/scrivener.jpg" alt="The Scrivener" live seed="big" /><Medallion size={56} src="/posters/tumbletop.jpg" alt="Tumbletop" seed="mid" /><Medallion size={36} src="/posters/brawl.jpg" alt="Robot Rumble" seed="small" /><Medallion size={56} seed="letter">P</Medallion></>,
+    preview: <><Medallion size={104} src="/posters/scrivener.jpg" alt="Inkelton" live seed="big" /><Medallion size={56} src="/posters/tumbletop.jpg" alt="Goober Guys" seed="mid" /><Medallion size={36} src="/posters/brawl.jpg" alt="Blood Moon" seed="small" /><Medallion size={56} seed="letter">P</Medallion></>,
     usage: `import { Medallion } from './ui';\n\n<Medallion size={36} src={channel.icon} alt={channel.name} live seed={channel.id} />`,
     examples: [
-      { title: 'Drawn on', note: 'For the one large icon on a page. Leave it off in lists.', node: <Medallion key={Math.random()} size={104} src="/posters/scrivener.jpg" alt="The Scrivener" draw seed="drawn" /> },
-      { title: 'In a list', node: <div style={{ display: 'grid', gap: 10 }}><ChannelRow id="scrivener" name="The Scrivener" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Robot Rumble" sub="Round 3" viewers="864" /><ChannelRow id="dating" name="Pick Me" sub="Starts soon" /></div> },
+      { title: 'Drawn on', note: 'For the one large icon on a page. Leave it off in lists.', node: <Medallion key={Math.random()} size={104} src="/posters/scrivener.jpg" alt="Inkelton" draw seed="drawn" /> },
+      { title: 'In a list', node: <div style={{ display: 'grid', gap: 10 }}><ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" /><ChannelRow id="dating" name="Pick Me" sub="Starts soon" /></div> },
     ],
     props: [['size', 'number', '56', 'Px across. Under 44 it simplifies to two rings.'], ['src', 'string', '', 'The image.'], ['alt', 'string', "''", 'Names the channel; leave empty when the name is printed beside it.'], ['live', 'boolean', 'false', 'Shows the beacon on the rim.'], ['draw', 'boolean', 'false', 'Draw the rings on when it appears.'], ['children', 'ReactNode', '', 'Shown when there is no image, such as an initial.'], SEED],
     a11y: ['The image carries the alt text; the rings are hidden.', 'The beacon is read as "Live".'],
@@ -343,7 +343,7 @@ export const COMPONENTS: Record<string, Doc> = {
   beacon: {
     group: 'Display', title: 'Beacon',
     lede: 'The live mark: the chart’s four-point star, twinkling, with a ring drifting out.',
-    preview: <><Beacon size={28} seed="a" label="Live" /><span className="ink-site-row"><Beacon size={16} seed="b" label="Live" /> The Scrivener</span><span className="ink-site-row"><Beacon size={12} seed="c" label="Live" /> 1.2K</span></>,
+    preview: <><Beacon size={28} seed="a" label="Live" /><span className="ink-site-row"><Beacon size={16} seed="b" label="Live" /> Inkelton</span><span className="ink-site-row"><Beacon size={12} seed="c" label="Live" /> 1.2K</span></>,
     usage: `import { Beacon } from './ui';\n\n<Beacon size={12} seed={channel.id} label="Live" />`,
     props: [['size', 'number', '14', 'Px.'], ['tone', 'colour', "'gold'", 'Gold by default; the chart has no red.'], ['label', 'string', '', 'Read out by screen readers. Leave empty when the word is next to it.'], SEED],
     a11y: ['Beacons with different seeds pulse out of step, so a list does not blink together.', 'Under reduced motion it is a still star.'],
@@ -449,8 +449,8 @@ export const COMPONENTS: Record<string, Doc> = {
   toast: {
     group: 'Overlays', title: 'Toast',
     lede: 'A short notice in the corner that leaves on its own.',
-    preview: <><Button onClick={() => toast('You won 64.00', { detail: 'Haiku beat the Scrivener first.', tone: 'gold' })}>A win</Button><Button onClick={() => toast('Bet placed', { detail: '25 on Haiku at 2.56×' })}>A notice</Button><Button onClick={() => toast('Bet not placed', { detail: 'Betting closed before it was sent.', tone: 'coral' })}>A problem</Button></>,
-    usage: `import { toast, Toaster } from './ui';\n\n// once, near the root of the page\n<Toaster />\n\n// anywhere\ntoast('You won 64.00', { detail: 'Haiku beat the Scrivener first.', tone: 'gold' });`,
+    preview: <><Button onClick={() => toast('You won 64.00', { detail: 'Haiku won the match.', tone: 'gold' })}>A win</Button><Button onClick={() => toast('Bet placed', { detail: '25 on Haiku at 2.56×' })}>A notice</Button><Button onClick={() => toast('Bet not placed', { detail: 'Betting closed before it was sent.', tone: 'coral' })}>A problem</Button></>,
+    usage: `import { toast, Toaster } from './ui';\n\n// once, near the root of the page\n<Toaster />\n\n// anywhere\ntoast('You won 64.00', { detail: 'Haiku won the match.', tone: 'gold' });`,
     props: [['message', 'string', '', 'First argument. The one line that matters.'], ['detail', 'string', '', 'A second, quieter line.'], ['tone', "'ink' | 'gold' | 'coral'", "'ink'", 'Gold for good news, with the star. Coral for a problem.'], ['duration', 'number', '4500', 'Ms before it leaves. Hovering holds it.']],
     a11y: ['Announced politely; a coral toast is announced as an alert.', 'Hover or focus holds it, and each has a Dismiss button.', 'At most four show at once.'],
   },
@@ -488,9 +488,9 @@ export function ChannelsBlock() {
     <Page group="Blocks" title="Channel list" lede="The rail of live channels.">
       <Section title="Live">
         <Preview column>
-          <ChannelRow id="scrivener" name="The Scrivener" sub="Luna vs Haiku" viewers="1.2K" />
-          <ChannelRow id="brawl" name="Robot Rumble" sub="Round 3" viewers="864" />
-          <ChannelRow id="tumbletop" name="Tumbletop" sub="Heat 2" viewers="412" />
+          <ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" />
+          <ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" />
+          <ChannelRow id="tumbletop" name="Goober Guys" sub="Heat 2" viewers="412" />
           <ChannelRow id="dating" name="Pick Me" sub="Starts soon" />
         </Preview>
       </Section>
