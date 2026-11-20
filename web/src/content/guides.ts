@@ -688,12 +688,12 @@ export const gooberGuys: GameGuide = {
   id: "tumbletop",
   title: "Goober Guys",
   summary:
-    "Sixteen contestants from a house roster of 24 race through a toy attic in three rounds: Round One cuts 16 to 8, Round Two cuts 8 to 4, and the Final has one winner. Nobody steers them: every race is a seeded simulation, and each contestant runs on four permanent stats. Viewers bet on who wins the show.",
+    "Sixteen contestants from a house roster of 24 race through a toy attic in three rounds: Round One cuts 16 to 8, Round Two cuts 8 to 4, and the Final has one winner. Nobody steers them: every race is a seeded simulation, and each contestant runs on four permanent stats. Viewers bet on who wins each round.",
   bets: [
-    "Who wins the show? before Round One: 16 outcomes, open 40 seconds.",
-    "Who wins the show? before Round Two: the 8 still in, open 30 seconds.",
-    "Who wins the show? before the Final: the last 4, open 30 seconds.",
-    "On the stream the clock reads \"Bets open in\", then \"Bets close in\", then \"Bets closed\". Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.",
+    "Who wins Round One? 16 outcomes, open 40 seconds before the round.",
+    "Who wins Round Two? The 8 still in, open 30 seconds before the round.",
+    "Who wins the Final? The last 4, open 30 seconds before the round.",
+    "On the stream the clock reads \"Bets open in\", then \"Bets close in\", then \"Bets closed\". Each window's close produces the seed that runs the round after it. Each bet is paid when its round ends, on the contestant who crosses the line first.",
   ],
   groups: [
     {
@@ -860,6 +860,7 @@ export const gooberGuys: GameGuide = {
     },
   ],
   beforeYouBet: [
+    "Bets are on single rounds. The win rates below are for the whole show, which takes three good rounds in a row.",
     "Upsets are normal: in 2000 test shows the best contestant won 9.0% of the shows it entered and the worst 4.3%, against 6.25% for a pure lottery among 16.",
     "Speed wins shows: the fastest third won 7.3% of shows entered, the slowest third 5.5%. Noodle, Kiwi, Juniper and Ziggy won most often (8.2 to 9.0%); Boop, Taffy and Wobble least (4.3 to 4.9%).",
     "Each round rewards something different. Grip helps in Round One (Bramble, Pemberton and Clementine reached Round Two 58 to 64% of the time; Wobble 34%). Ziggy and Gherkin, the two with nerve 8, reached the Final 31 to 33% of the time, though nerve 7 did not help the same way. The Final is short and the blocks decide a lot.",

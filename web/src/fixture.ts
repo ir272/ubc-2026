@@ -113,9 +113,9 @@ export const FX_CHANNELS: FxChannel[] = [
       'Sixteen models race across a toy-box obstacle course. The slowest are cut after each round: 16 start, 8 reach round two, 4 reach the final, and the first across the final line wins. Each round runs from a seed that is fixed only after its betting closes.',
     entrants: TT_ENTRANTS,
     windows: [
-      { question: 'Who wins the show?', outcomes: TT_R1, pools: ttPools(TT_R1, 4210), kind: 'seeded' },
-      { question: 'Who wins the show?', outcomes: TT_R2, pools: ttPools(TT_R2, 3380), kind: 'seeded' },
-      { question: 'Who wins the show?', outcomes: TT_R3, pools: ttPools(TT_R3, 2615), kind: 'seeded' },
+      { question: 'Who wins Round One?', outcomes: TT_R1, pools: ttPools(TT_R1, 4210), kind: 'seeded' },
+      { question: 'Who wins Round Two?', outcomes: TT_R2, pools: ttPools(TT_R2, 3380), kind: 'seeded' },
+      { question: 'Who wins the Final?', outcomes: TT_R3, pools: ttPools(TT_R3, 2615), kind: 'seeded' },
     ],
     winner: 'sonnet',
     closesIn: 21_000,

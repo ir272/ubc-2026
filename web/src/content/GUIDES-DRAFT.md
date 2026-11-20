@@ -426,10 +426,10 @@ Sixteen contestants from a house roster of 24 race through a toy attic in three 
 
 ### What you bet on
 
-- Who wins the show? before Round One: 16 outcomes, open 40 seconds.
-- Who wins the show? before Round Two: the 8 still in, open 30 seconds.
-- Who wins the show? before the Final: the last 4, open 30 seconds.
-- On the stream the clock reads "Bets open in", then "Bets close in", then "Bets closed". Each window's close produces the seed that runs the round after it. All three windows are paid on the show winner.
+- Who wins Round One? 16 outcomes, open 40 seconds before the round.
+- Who wins Round Two? The 8 still in, open 30 seconds before the round.
+- Who wins the Final? The last 4, open 30 seconds before the round.
+- On the stream the clock reads "Bets open in", then "Bets close in", then "Bets closed". Each window's close produces the seed that runs the round after it. Each bet is paid when its round ends, on the contestant who crosses the line first.
 
 ### How a show works
 
