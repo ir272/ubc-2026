@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ChannelPanels } from '../components/ChannelPanels';
+import '../components/phone-channel.css';
 import { ChatInput, ChatList } from '../components/Chat';
 import { GameStage } from '../components/GameStage';
 import { StreamControls } from '../components/StreamControls';

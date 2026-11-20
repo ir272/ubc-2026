@@ -1,0 +1,39 @@
+/* The game page on phones (Ian's layout, 2026-11-20): the stream full width, then the channel's name row, then the
+   bet panel, then About and the guide, with chat last. On wide screens the bet panel and chat sit in the right
+   column; here the two columns are dissolved (display: contents) so their parts can be put in that order.
+   Kept in its own file so it never touches the shell's rules in styles.css. */
+@media (max-width: 900px) {
+  .app .ch { display: flex; flex-direction: column; height: auto; min-height: 100%; }
+  .app .ch-main, .app .ch-side, .app .ch.chat-closed .ch-side { display: contents; }
+
+  .app .ch-stream { order: 1; }
+  .app .ch-info { order: 2; }
+  .app .ch-side > .pred { order: 3; }
+  .app .ch-panels { order: 4; }
+  .app .chat-head { order: 5; }
+  .app .chat-list { order: 6; }
+  .app .chat-in { order: 7; }
+
+  /* the bet panel: a card across the page with a little air, open on arrival */
+  .app .ch-side > .pred { margin: 4px 12px 16px; }
+  /* thumb-sized targets: amounts, the bet button, each side */
+  .app .pred .ink-btn { min-height: 44px; }
+  .app .pred .ink-side { min-height: 44px; }
+
+  /* chat: its own short scrolling list, so the page still scrolls past it */
+  .app .chat-head { margin-top: 8px; }
+  .app .chat-head .icon-btn { display: none; }
+  .app .chat-list { flex: none; height: auto; min-height: 160px; max-height: 55vh; overscroll-behavior: contain; padding: 8px 16px; }
+  .app .chat-in { padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); }
+  .app .chat-in .chat-send { width: 40px; height: 40px; }
+
+  /* the name row: everything wraps instead of pushing past the edge */
+  .app .ch-info { flex-wrap: wrap; row-gap: 12px; padding: 14px 16px; }
+  .app .ch-actions { width: 100%; flex-wrap: wrap; justify-content: space-between; row-gap: 12px; margin-left: 0; }
+  .app .ch-buttons .ink-btn { min-height: 44px; }
+  /* camera choices (Goober Guys) get their own row that scrolls sideways; Bet now sits under them */
+  .app .ch-buttons { flex: 1 1 auto; min-width: 0; max-width: 100%; flex-wrap: wrap; row-gap: 12px; }
+  .app .ch-buttons .cams { flex: 1 1 100%; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+  .app .ch-buttons .cams button { min-height: 40px; flex: none; }
+  .app .ch-share { width: 44px; height: 44px; }
+}
