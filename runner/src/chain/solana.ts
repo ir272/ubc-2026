@@ -280,11 +280,21 @@ export class SolanaChain implements ChainAdapter {
 
   async lock(market: string) {
     const locked = async () => (await this.market(market)).state !== 'Open';
-    if (!(await locked())) {
+    let m = await this.market(market);
+    if (m.state === 'Open') {
+      // Wait for the close slot by polling getSlot (cheap, its own rate-limit bucket) instead of
+      // re-sending lock and re-reading the market every 500 ms, which floods getAccountInfo on
+      // public RPCs while the slot clock trails wall-clock time.
+      for (let i = 0; i < 60; i++) {
+        const slot = BigInt(await this.connection.getSlot('confirmed'));
+        if (slot > m.closeSlot) break;
+        const wait = Number(m.closeSlot - slot + 1n) * (await this.msPerSlot());
+        await new Promise((r) => setTimeout(r, Math.min(Math.max(wait, 400), 5000)));
+      }
       const sig = await this.sendOnce([this.client.lockIx(market)], locked);
       if (sig) this.report({ kind: 'lock', signature: sig, market });
+      m = await this.market(market);
     }
-    const m = await this.market(market);
     if (m.state !== 'Locked') throw new Error(`lock: market is ${m.state}`);
     return { entropy: Uint8Array.from(m.entropy) };
   }
