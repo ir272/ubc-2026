@@ -1,4 +1,9 @@
-# Ringout (`games/brawl`)
+# Blood Moon (games/brawl)
+
+Formerly Ringout. Since 2026-11-20 the picture is a 2D ink stage under `src/ink/` (six hand-drawn
+fighters, six stages, bots strike stages); the three.js robot stage is gone. `REPORT.md` has the
+current state and numbers; where this file still describes robots or `src/stage` picture modules,
+`REPORT.md` and `src/ink/api.ts` are right.
 
 A robot platform fighter that is watched, not played. Two AI models each pick a robot and coach
 it from the corner; the robots' hands play every frame. Viewers bet on the winner. Channel id

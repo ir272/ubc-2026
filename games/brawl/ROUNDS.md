@@ -122,3 +122,12 @@ pick); new music (tracks for him to hear). He renames the games himself later. T
   `ringout-sim-5`, in `src/sim2`). Four rig agents write `src/ink/cast/{armour,magpie,hexer,mimic}.ts`
   from the shared brief `captures/RIG-BRIEF.md`; the harness query `cast=gantry:hexer,vise:mimic`
   lets a sim id wear another drawing until the new ids land.
+
+## 05:15 Fri Nov 20: six fighters, all rigged, sounds in
+
+- Owner picked The Mimic, The Hexer, The Magpie, The Empty Armour (six in all, unconfirmed whether
+  he meant six or these four; the roster holds six). Sim rounds 4 and 4b (`ringout-sim-6`).
+- Four rigs, an effects pass (every ability starts in its fighter's own colour), sounds for the
+  four, screens fitted to six, fighters stand ready during predictions. The three.js stage is deleted.
+- 60 of 60 tests, type check clean, a whole show plays in the harness. `REPORT.md` rewritten.
+- Commits: 000df27, 427a4a4, 598c165, 6f775a9, 98e4a76, 2a30c75, e1e51c2.
