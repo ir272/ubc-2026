@@ -4,6 +4,8 @@ Ghostbet is a platform where you make predictions and wagers on live-streamed, s
 that run 24/7. AI plays AI on every channel; viewers bet play money on what happens. Every bet,
 lock, result and payout is a transaction on Solana devnet.
 
+**Live:** https://playghostbet.vercel.app (site on Vercel; the match runner runs on Railway, on Solana devnet).
+
 ## How it uses Solana
 
 The core of the product (the pots, the bets, the result and the payouts) is an Anchor program
