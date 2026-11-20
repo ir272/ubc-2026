@@ -23,7 +23,6 @@ export const GAMES: Record<string, GameEntry> = {
   // Real games, each in games/<id>/.
   tumbletop: { load: () => import('@games/tumbletop/index.ts'), assetsBase: '/games/tumbletop/' },
   scrivener: { load: () => import('@games/scrivener/index.ts'), assetsBase: '/games/scrivener/' },
-  dating: { load: () => import('@games/dating/index.ts'), assetsBase: '/games/dating/' },
   brawl: { load: () => import('@games/brawl/index.ts'), assetsBase: '/games/brawl/' },
 };
 

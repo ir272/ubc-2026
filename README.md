@@ -48,13 +48,13 @@ transaction link.
 | `program/` | Anchor program (Rust), SDK, deploy and devnet scripts |
 | `runner/` | Match runner: runs every channel's show loop, opens and settles markets, relays bets (HTTP and WebSocket on :8787) |
 | `web/` | Website (Vite and React, :5190) |
-| `games/` | The channels: `scrivener`, `brawl`, `tumbletop`, `dating` |
+| `games/` | The channels: `scrivener`, `brawl`, `tumbletop` |
 | `pitch/` | Pitch deck and video material |
 
 ## Run it
 
 ```bash
-cd runner && npm install && CHAIN=solana HOUSE_BOTS=1 BOT_BET_CHANCE=0.06 CHANNELS=scrivener,brawl,tumbletop,dating npm start
+cd runner && npm install && CHAIN=solana HOUSE_BOTS=1 BOT_BET_CHANCE=0.06 CHANNELS=scrivener,brawl,tumbletop npm start
 ```
 
 ```bash

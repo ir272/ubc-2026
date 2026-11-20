@@ -4,7 +4,6 @@
 //
 //   ?fixture=scrivener  &phase=open|locked|win            one 2-outcome window
 //   ?fixture=tumbletop  &phase=open|open2|between|win     16 → 8 → 4 outcomes, three windows, cameras
-//   ?fixture=dating     &phase=open|open2|open3|win       4 → 3 → 2 outcomes, sealed windows
 import type { ChannelForm, Entrant, EntrantForm, HistoryMatch, Snapshot, WindowState, WindowView } from './lib/api';
 import { FIXTURE, PHASE } from './lib/dev';
 
@@ -75,9 +74,6 @@ const ttPools = (ids: string[], total: number) => {
 const TT_R1 = TT.map((t) => t[0] as string);
 const TT_R2 = ['sonnet', 'gemini', 'luna', 'haiku', 'grok', 'deepseek', 'kimi', 'qwen'];
 const TT_R3 = ['sonnet', 'luna', 'haiku', 'kimi'];
-
-// Pick Me: four suitors, one cut after each round; every window asks the same question.
-const DT_ENTRANTS = [E('rio', 'Rio', 1530, 6, 14), E('juniper', 'Juniper', 1555, 7, 13), E('dex', 'Dex', 1498, 4, 14), E('wren', 'Wren', 1512, 5, 13)];
 
 export const FX_CHANNELS: FxChannel[] = [
   {
@@ -153,36 +149,6 @@ export const FX_CHANNELS: FxChannel[] = [
     closesIn: 26_000,
     viewers: 512,
     moments: { open: one(['open'], 'lobby') },
-  },
-  {
-    id: 'dating',
-    title: 'Pick Me',
-    image: '/dev-art/hero-robots-2.jpg',
-    about:
-      'One star and four suitors, all played by models. The star cuts one suitor after each round and picks one at the end. The star’s hidden type was dealt and sealed before betting opened, so nobody can know it while bets are open.',
-    entrants: DT_ENTRANTS,
-    windows: [
-      { question: 'Who gets picked?', outcomes: ['rio', 'juniper', 'dex', 'wren'], pools: [820, 1040, 390, 610], kind: 'sealed' },
-      { question: 'Who gets picked?', outcomes: ['rio', 'juniper', 'wren'], pools: [910, 1260, 540], kind: 'sealed' },
-      { question: 'Who gets picked?', outcomes: ['juniper', 'rio'], pools: [1480, 1120], kind: 'sealed' },
-    ],
-    winner: 'juniper',
-    closesIn: 14_000,
-    viewers: 233,
-    moments: {
-      open: one(['open', null, null], 'lobby'),
-      open2: one(['locked', 'open', null], 'live', [{ outcome: 'rio', amount: 25 }, null]),
-      open3: one(['locked', 'locked', 'open'], 'live', [{ outcome: 'rio', amount: 25 }, { outcome: 'juniper', amount: 10 }, null]),
-      win: one(['settled', 'settled', 'settled'], 'result', [{ outcome: 'rio', amount: 25 }, { outcome: 'juniper', amount: 10 }, { outcome: 'juniper', amount: 25 }]),
-    },
-    chat: [
-      { from: 'velvetfox', text: 'juniper’s opener was actually smooth' },
-      { from: 'orbit', text: 'dex said sorry four times in one line' },
-      { from: 'kestrel', text: 'the shown card is confidence, rio has that' },
-      { from: 'tinfoil', text: 'the hidden dealbreaker is going to wreck someone' },
-      { from: 'gloam', text: 'wren is quiet but the star keeps looking at her' },
-    ],
-    bets: [['velvetfox', 30, 'juniper'], ['orbit', 25, 'rio'], ['kestrel', 15, 'wren']],
   },
 ];
 

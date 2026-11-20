@@ -25,7 +25,6 @@ const CHANNELS = [
   { id: 'scrivener', name: 'The Scrivener', sub: 'Luna vs Haiku' },
   { id: 'brawl', name: 'Robot Rumble', sub: 'Round 3' },
   { id: 'tumbletop', name: 'Tumbletop', sub: 'Heat 2' },
-  { id: 'dating', name: 'Pick Me', sub: 'Starts soon' },
 ]
 const CHAT = [
   { name: 'kestrel', tone: 'text-sky', bot: true, text: 'luna opened with the lantern again' },

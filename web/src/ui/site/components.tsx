@@ -335,7 +335,7 @@ export const COMPONENTS: Record<string, Doc> = {
     usage: `import { Medallion } from './ui';\n\n<Medallion size={36} src={channel.icon} alt={channel.name} live seed={channel.id} />`,
     examples: [
       { title: 'Drawn on', note: 'For the one large icon on a page. Leave it off in lists.', node: <Medallion key={Math.random()} size={104} src="/posters/scrivener.jpg" alt="Inkelton" draw seed="drawn" /> },
-      { title: 'In a list', node: <div style={{ display: 'grid', gap: 10 }}><ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" /><ChannelRow id="dating" name="Pick Me" sub="Starts soon" /></div> },
+      { title: 'In a list', node: <div style={{ display: 'grid', gap: 10 }}><ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" /><ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" /></div> },
     ],
     props: [['size', 'number', '56', 'Px across. Under 44 it simplifies to two rings.'], ['src', 'string', '', 'The image.'], ['alt', 'string', "''", 'Names the channel; leave empty when the name is printed beside it.'], ['live', 'boolean', 'false', 'Shows the beacon on the rim.'], ['draw', 'boolean', 'false', 'Draw the rings on when it appears.'], ['children', 'ReactNode', '', 'Shown when there is no image, such as an initial.'], SEED],
     a11y: ['The image carries the alt text; the rings are hidden.', 'The beacon is read as "Live".'],
@@ -491,7 +491,6 @@ export function ChannelsBlock() {
           <ChannelRow id="scrivener" name="Inkelton" sub="Luna vs Haiku" viewers="1.2K" />
           <ChannelRow id="brawl" name="Blood Moon" sub="Round 3" viewers="864" />
           <ChannelRow id="tumbletop" name="Goober Guys" sub="Heat 2" viewers="412" />
-          <ChannelRow id="dating" name="Pick Me" sub="Starts soon" />
         </Preview>
       </Section>
       <Section title="What it is made of"><List items={['Medallion', 'Beacon']} /></Section>

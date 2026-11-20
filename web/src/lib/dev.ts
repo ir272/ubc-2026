@@ -1,7 +1,7 @@
 // Dev-only switches for design work (ignored in production builds). Each is remembered for the tab.
 //   ?stage=still          stream shows a real game frame instead of the placeholder renderer
 //   ?fixture=scrivener    the whole site runs on a coherent sample dataset; no runner needed
-//   ?fixture=tumbletop | dating   multi-outcome, multi-window matches (see src/fixture.ts)
+//   ?fixture=tumbletop    a multi-outcome, multi-window match (see src/fixture.ts)
 //   &phase=open|locked|win|…      which moment of the fixture's match to show
 function flag(name: string): string | null {
   if (!import.meta.env.DEV) return null;

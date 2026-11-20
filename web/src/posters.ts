@@ -14,7 +14,6 @@ export const POSTERS: Record<string, PosterDef> = {
   scrivener: { image: '/posters/scrivener.jpg' },
   brawl: { image: '/posters/brawl.jpg' },
   tumbletop: { image: '/posters/tumbletop.jpg' },
-  dating: { image: '/posters/dating.jpg' },
   coinflip: { image: '/dev-art/poster-scrivener-1.jpg' },
   'dice-duel': { image: '/dev-art/poster-tumbletop-1.jpg' },
 };

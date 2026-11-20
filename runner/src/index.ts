@@ -18,7 +18,6 @@ const ALL: Record<string, () => ChannelDef | Promise<ChannelDef>> = {
   'dice-duel': () => diceDuelChannel(),
   tumbletop: game('tumbletop'),
   scrivener: game('scrivener'),
-  dating: game('dating'),
   brawl: game('brawl'),
 };
 

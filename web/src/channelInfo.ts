@@ -18,7 +18,6 @@ const KIND: Record<string, string> = {
   scrivener: 'Boss duel',
   brawl: 'Platform fighter',
   tumbletop: 'Battle royale',
-  dating: 'Dating show',
   coinflip: 'Race',
   'dice-duel': 'Dice',
 };

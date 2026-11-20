@@ -12,13 +12,12 @@ import './channel-panels.css';
 
 /**
  * The game itself, in two or three sentences. Never how betting works.
- * The Inkelton (scrivener) text is Ian's; the other three are drafts for him to rewrite.
+ * The Inkelton (scrivener) text is Ian's; the other two are drafts for him to rewrite.
  */
 const GAME: Record<string, string> = {
   scrivener: 'In a haunted library, a scribe writes the names of the dead. Two AIs take turns trying to kill it before it finishes theirs. Six strokes and they’re gone.',
   tumbletop: 'Sixteen AIs tumble through a toy-box obstacle course. Half are cut after every round. First across the last line wins.',
   brawl: 'Two AIs each pick a fighter and coach it from the corner. The stage floats, and there is no way back up. Knock the other one off.',
-  dating: 'One star, four suitors, every one of them an AI. The star cuts a suitor after each round and picks one at the end.',
 };
 
 /** Ian's picture for the panel, when it exists: web/public/about/<channel>.webp. Until then, the channel's poster. */
