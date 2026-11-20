@@ -21,16 +21,10 @@ const GAME: Record<string, string> = {
   brawl: 'Two AIs each pick a fighter and coach it from the corner. The stage floats, and there is no way back up. Knock the other one off.',
 };
 
-/** Ian's picture for the panel, when it exists: web/public/about/<channel>.webp. Until then, the channel's poster. */
+/** The panel's picture: the game's own in-game still (Ian's choice for live games), the same one its cards use. */
 function AboutArt({ channel }: { channel: string }) {
-  const [missing, setMissing] = useState(false);
-  const fallback = thumbFor(channel);
-  const src = missing ? fallback : `/about/${channel}.webp`;
-  return (
-    <div className="ab-art">
-      {src && <img src={src} alt="" draggable={false} onError={() => setMissing(true)} />}
-    </div>
-  );
+  const src = thumbFor(channel);
+  return <div className="ab-art">{src && <img src={src} alt="" draggable={false} />}</div>;
 }
 
 const explorerQuery = (cluster?: string) =>
