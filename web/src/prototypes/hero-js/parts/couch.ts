@@ -1,27 +1,39 @@
-// The couch and the two friends (far right, under the tree), plus the things around them: a side table
-// with two steaming mugs and a shelf of books, a bowl of popcorn (and the pieces that missed), a loose
-// cushion, a throw with a fringe, a skateboard pushed under the sofa and a kicked-off pair of shoes.
+// The couch and the mascot pair that watches from it (far right, under the tree), plus the things around
+// them: a side table with two steaming mugs and a shelf of books, a bowl of popcorn (and the pieces that
+// missed), a loose cushion, a throw with a fringe and a skateboard pushed under the sofa.
+// Who sits on the couch is one of three candidate pairs (right/mascots.ts), picked by ?mascot=1, 2 or 3.
 // The heavy line runs once round the sofa's outer edge; cushions, seams and props use the thinner tiers.
-// The seat sags and is shaded under each friend, so they sit in it. The sofa and every prop that never moves are painted once into an offscreen sprite; the
-// friends, the steam and the throw are drawn live. Local frame: origin at the couch's left foot on the
+// The seat sags and is shaded under each sitter, so they sit in it. The sofa and every prop that never moves
+// are painted once into an offscreen sprite; the mascots, the steam and the throw are drawn live. Local frame: origin at the couch's left foot on the
 // ground, x to the right (0..390), y up is negative; the whole group is tipped to the slope of the ground.
 import { BLUE, COUCH, INK, WARM, groundY, wind } from '../engine/layout';
 import type { Part, Pt } from '../engine/types';
-import { BOWL_FROM_CHEERER, drawCheerer, drawPointer, figure, sneaker } from './right/friends';
+import { PAIRS, drawMascot } from './right/mascots';
 import { type C2, LW, TAU, blob, disc, ell, hatch, ink, mixc, mod, rnd, roundRect, sprite, taper, tone, trace } from './right/kit';
+
+/** Ian chose pair 2, the Lop-ear Critters (2026-11-20). ?mascot=1 or 3 still shows the two he passed on. */
+const MASCOT: 1 | 2 | 3 = (() => {
+  if (typeof location === 'undefined') return 2;
+  const v = Number(new URLSearchParams(location.search).get('mascot'));
+  return v === 1 || v === 3 ? v : 2;
+})();
+const PAIR = PAIRS[MASCOT];
 
 const X0 = COUCH.x; // 2330
 const CW = 390;
 const XC = X0 + CW / 2;
 const G = groundY(XC) + 1;
 const SLOPE = Math.atan2(groundY(X0 + CW - 30) - groundY(X0 + 30), CW - 60);
+// where each mascot sits (its base on the seat), and the popcorn bowl between them
 const P_HIP: Pt = [112, -104];
-const C_HIP: Pt = [256, -104];
-const BOWL: Pt = [C_HIP[0] + BOWL_FROM_CHEERER[0], -104];
+const C_HIP: Pt = [266, -104];
+const BOWL: Pt = [193, -104];
+// the popcorn pair would be sitting beside a bowl of their own kind, so that pair gets no bowl
+const HAS_BOWL = MASCOT !== 3;
 
 const OUT = BLUE;
 const LINE = tone(BLUE, 0.74); // form lines inside the sofa's silhouette
-const SILW = 2.3, FORMW = 2.1; // SILW is added outside the edge, so the outer line reads as about 3.3
+const SILW = 2.0, FORMW = 2.0; // SILW is added outside the edge, so the outer line reads as about 3: the mascots' and the TV's weight
 const BODY = tone(BLUE, 0.16);
 const SHADE = tone(BLUE, 0.08);
 const LIT = tone(BLUE, 0.27);
@@ -214,8 +226,9 @@ function paintStatic(c: C2) {
   backCushion(c, 44, 195, 3);
   backCushion(c, 195, 346, 11);
   // each friend throws a shade onto the cushion behind them
-  for (const hx of [P_HIP[0], C_HIP[0]]) {
-    const sh: Pt[] = [[hx - 8, -106], [hx - 6, -134], [hx + 6, -158], [hx + 24, -166], [hx + 40, -154], [hx + 46, -130], [hx + 44, -106]];
+  for (const [hx, m] of [[P_HIP[0], PAIR.big], [C_HIP[0], PAIR.small]] as const) {
+    const w = m.w * 0.5, top = -100 - m.h * 0.86;
+    const sh: Pt[] = [[hx - w * 0.2, -106], [hx - w * 0.1, top + 30], [hx + w * 0.15, top + 8], [hx + w * 0.6, top], [hx + w * 1.0, top + 12], [hx + w * 1.14, top + 36], [hx + w * 1.1, -106]];
     blob(c, sh, tone(BLUE, 0.095), null);
     hatch(c, sh, { angle: -1.15, gap: 5, color: OUT, alpha: 0.2, seed: hx });
   }
@@ -272,7 +285,7 @@ function paintStatic(c: C2) {
   }
 
   // ---- popcorn that missed ----
-  for (const [x, y, r, a] of [[148, -99, 2.6, 0.4], [196, -101.5, 2.3, 1.7], [126, -2, 2.5, 2.6], [137, -1.5, 2.2, 0.9], [229, -100, 2, 3.3]] as const) {
+  if (HAS_BOWL) for (const [x, y, r, a] of [[148, -99, 2.6, 0.4], [196, -101.5, 2.3, 1.7], [126, -2, 2.5, 2.6], [137, -1.5, 2.2, 0.9], [229, -100, 2, 3.3]] as const) {
     const pts: Pt[] = [];
     for (let k = 0; k < 6; k++) {
       const th = (k / 6) * TAU + a;
@@ -282,12 +295,6 @@ function paintStatic(c: C2) {
     blob(c, pts, tone(INK, 0.62), INK, 0.9);
   }
 
-  // ---- kicked-off shoes on the grass ----
-  figure(c, () => {
-    sneaker(c, [330, -12], 0.05, tone(INK, 0.46));
-    sneaker(c, [304, -11.5], -0.06);
-  });
-  ink(c, [[296, -19], [290, -24], [293, -29]], LW.hair, INK, 0.8); // a loose lace
 }
 
 function paintBowl(c: C2) {
@@ -374,20 +381,6 @@ function throwBlanket(c: C2, t: number) {
   }
 }
 
-/** a piece of popcorn tossed up from the bowl now and then, and caught */
-function toss(c: C2, t: number) {
-  const per = 13.7;
-  const k = Math.floor(t / per);
-  const u = (t - k * per - 4 - rnd(k * 5.1) * 3) / 0.9;
-  if (u < 0 || u > 1) return;
-  const x = BOWL[0] + 2 + u * 10, y = BOWL[1] - 30 - Math.sin(u * Math.PI) * 46;
-  c.save();
-  c.translate(x, y);
-  c.rotate(u * 7);
-  blob(c, [[-3, -1], [-1, -3.4], [2.4, -2.4], [3.4, 0.6], [1, 3], [-2.4, 2.2]], tone(INK, 0.7), INK, 1);
-  c.restore();
-}
-
 export const couch: Part = {
   id: 'couch',
   z: 24,
@@ -395,7 +388,7 @@ export const couch: Part = {
   draw(pen, f) {
     const c = pen.ctx;
     const t = f.t;
-    const s = sprite(c, 'right-sofa', X0 - 80, G - 215, CW + 110, 240, paintStatic);
+    const s = sprite(c, 'right-sofa-' + MASCOT, X0 - 80, G - 215, CW + 110, 240, paintStatic);
     c.drawImage(s.cv, X0 - 80, G - 215, s.w, s.h);
     c.save();
     local(c);
@@ -403,13 +396,12 @@ export const couch: Part = {
     steam(c, -19, -95, t, 7);
     c.save();
     c.translate(P_HIP[0], P_HIP[1]);
-    drawPointer(c, t);
+    drawMascot(c, PAIR.big, 'big', t);
     c.restore();
-    paintBowl(c);
-    toss(c, t);
+    if (HAS_BOWL) paintBowl(c);
     c.save();
     c.translate(C_HIP[0], C_HIP[1]);
-    drawCheerer(c, t, X0 + C_HIP[0]);
+    drawMascot(c, PAIR.small, 'small', t);
     c.restore();
     throwBlanket(c, t);
     c.restore();

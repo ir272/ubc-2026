@@ -1,14 +1,15 @@
 // The game playing on the television: a little side-scroller. Three parallax layers (terraced far mountains,
-// mid hills with trees and a tower, the near ground with a grassy edge, strata and a pit), a capped runner who
+// mid hills with trees and a tower, the near ground with a grassy edge, strata and a pit), a Goober Guys contestant who
 // jumps a crate, hops the pit, bounces off a slime, raises a checkpoint flag and collects coins that fill a row
 // of pips. Everything is a tiling function of time, so nothing ever jumps. Drawn in screen-local units
 // (0..330 by 0..270), the caller clips to the glass.
-import { BLUE, GOLD, GREEN, GREEN_LINE, INK, ORANGE, WARM } from '../../engine/layout';
+import { BLUE, GOLD, GREEN, GREEN_LINE, INK, ORANGE } from '../../engine/layout';
 import type { Pt } from '../../engine/types';
 import {
-  GREEN_LIT, GREEN_SHADE, TAU, capsule, clamp01, disc, fillPts, line, mod, rnd, rounded, seg, shape, smooth, taper, tone,
+  GREEN_LIT, GREEN_SHADE, TAU, clamp01, disc, fillPts, line, mod, rnd, rounded, seg, shape, smooth, taper, tone,
   type Ctx,
 } from './kit';
+import { drawCast } from './cast';
 
 export const GAME_BG = '#12211a';
 const SW = 330, SH = 270;
@@ -135,66 +136,6 @@ function star5(cx: number, cy: number, r: number, rot: number, sx = 1): Pt[] {
     out.push([cx + Math.cos(a) * rr * sx, cy + Math.sin(a) * rr]);
   }
   return out;
-}
-
-/** the tiny runner, feet at (x, y): a small filled version of the cap walker, satchel and all */
-function runner(ctx: Ctx, x: number, y: number, t: number, up: number) {
-  const p = t * 2.9 * TAU;
-  const fly = smooth(2, 14, up);
-  const bob = (1 - fly) * 1.4 * Math.abs(Math.sin(p));
-  const hip: Pt = [x, y - 13 - bob];
-  const body = tone(INK, 0.2), dim = tone(INK, 0.6), skin = tone(WARM, 0.55), skinDim = tone(WARM, 0.32);
-  const leg = (sgn: number, isFar: boolean) => {
-    const sw = Math.sin(p) * sgn;
-    const th = (1 - fly) * 0.95 * sw + fly * (sgn > 0 ? 1.1 : -0.5);
-    const kb = (1 - fly) * (0.35 + 0.9 * Math.max(0, Math.cos(p) * sgn)) + fly * (sgn > 0 ? 1.3 : 1.0);
-    const kx = hip[0] + Math.sin(th) * 6.5, ky = hip[1] + Math.cos(th) * 6.5;
-    const fx = kx + Math.sin(th - kb) * 6.5, fy = Math.min(y - 2.2 + fly * 20, ky + Math.cos(th - kb) * 6.5);
-    const st = isFar ? dim : INK, fill = isFar ? tone(INK, 0.1) : body;
-    capsule(ctx, hip[0], hip[1], kx, ky, 2.7, 2.2, fill, st, 1.2);
-    capsule(ctx, kx, ky, fx, fy, 2.2, 1.7, fill, st, 1.2);
-    const fa = th - kb + 1.4, c = Math.cos(fa * 0.5), sn = Math.sin(fa * 0.5) * (fly > 0.3 || fy < y - 4 ? 1 : 0);
-    const B = (bx: number, by: number): Pt => [fx + bx * c - by * sn, fy + bx * sn + by * c];
-    shape(ctx, [B(-2.2, -1.6), B(1.6, -1.8), B(5, 0), B(5.2, 2.2), B(-2.4, 2.2)], isFar ? tone(INK, 0.24) : tone(INK, 0.42), st, 1.1);
-  };
-  const lean = 0.3 - fly * 0.15;
-  const sh: Pt = [hip[0] + Math.sin(lean) * 11, hip[1] - Math.cos(lean) * 11];
-  const arm = (sgn: number, isFar: boolean) => {
-    const a = (1 - fly) * -1.1 * Math.sin(p) * sgn + fly * (sgn > 0 ? 2.4 : -2.2);
-    const ex = sh[0] + Math.sin(a) * 5, ey = sh[1] + 1.5 + Math.cos(a) * 5;
-    const f = a + 1.1, hx = ex + Math.sin(f) * 4.6, hy = ey + Math.cos(f) * 4.6;
-    const st = isFar ? dim : INK;
-    capsule(ctx, ex, ey, hx, hy, 1.7, 1.4, isFar ? skinDim : skin, isFar ? tone(WARM, 0.6) : tone(WARM, 0.95), 1);
-    capsule(ctx, sh[0], sh[1] + 1.5, ex, ey, 2.1, 1.9, isFar ? tone(INK, 0.1) : body, st, 1.2);
-    disc(ctx, hx + Math.sin(f) * 1.2, hy + Math.cos(f) * 1.2, 1.7, isFar ? skinDim : skin, isFar ? tone(WARM, 0.6) : tone(WARM, 0.95), 1);
-  };
-  arm(-1, true);
-  leg(-1, true);
-  // shirt, strap and satchel
-  capsule(ctx, hip[0] + 0.4, hip[1], sh[0], sh[1], 4.4, 4.2, body, INK, 1.4);
-  line(ctx, [[sh[0] + 2.4, sh[1] - 1], [hip[0] - 3, hip[1] - 1]], 1.4, tone(ORANGE, 0.85));
-  const sb = bob * 0.8 + (1 - fly) * 0.8 * Math.sin(p * 2 - 1.2);
-  shape(ctx, [[hip[0] - 6.4, hip[1] - 3 + sb], [hip[0] - 0.6, hip[1] - 3.4 + sb], [hip[0] - 0.4, hip[1] + 2.2 + sb], [hip[0] - 6, hip[1] + 2.4 + sb]], tone(ORANGE, 0.45), ORANGE, 1.1);
-  // head: hair behind, warm face, the cap with its brim and button
-  const hx = sh[0] + 2.2, hy = sh[1] - 6.8;
-  for (let i = 0; i < 3; i++) taper(ctx, [[hx - 5, hy + i * 2], [hx - 9 - i, hy + 2.4 + i * 2.4 + Math.sin(p + i) * 0.8]], 2.4, INK, 1, 0, 0.9);
-  disc(ctx, hx, hy, 6.4, skin, INK, 1.4);
-  shape(ctx, [[hx + 5.6, hy - 0.6], [hx + 8.2, hy + 1], [hx + 5.6, hy + 2.6]], skin, tone(WARM, 0.95), 1);
-  ctx.beginPath();
-  ctx.arc(hx, hy - 0.4, 7, Math.PI * 1.02, TAU * 0.995);
-  ctx.closePath();
-  ctx.fillStyle = tone(INK, 0.6);
-  ctx.fill();
-  ctx.strokeStyle = INK;
-  ctx.lineWidth = 1.3;
-  ctx.lineJoin = 'round';
-  ctx.stroke();
-  shape(ctx, [[hx + 4.4, hy - 2.6], [hx + 11.5, hy - 1.4], [hx + 11.2, hy - 0.2], [hx + 5, hy - 0.6]], tone(INK, 0.8), INK, 1);
-  disc(ctx, hx - 0.4, hy - 7.6, 1.1, ORANGE);
-  disc(ctx, hx + 3.6, hy + 1.2, 0.95, '#0c100b');
-  line(ctx, [[hx + 2.6, hy + 3.6], [hx + 4.2, hy + 4.4], [hx + 5.6, hy + 3.5]], 0.9, '#0c100b');
-  leg(1, false);
-  arm(1, false);
 }
 
 function slime(ctx: Ctx, x: number, y: number, t: number, squash: number) {
@@ -416,18 +357,16 @@ export function drawGame(ctx: Ctx, t: number) {
   const up = air(Xr);
   const inPit = Xr > PIT[0] && Xr < PIT[1];
   const gy = inPit ? 217 : gh(Xr);
-  if (!inPit) disc(ctx, RUN_GX, gy + 1.5, 8 * (1 - 0.5 * clamp01(up / 50)), '#16210f', null, 0, 0.7, 2);
+  if (!inPit) disc(ctx, RUN_GX, gy + 1.5, 13 * (1 - 0.5 * clamp01(up / 50)), '#16210f', null, 0, 0.7, 2.4);
   if (up < 2 && !inPit) {
     for (let i = 0; i < 3; i++) {
-      const u = mod(t * 2.9 * 2 + i / 3, 1);
-      disc(ctx, RUN_GX - 6 - u * 18, gy - 1 - u * 5, 1.2 + u * 2.4, null, GREEN_LINE, 1, 0.55 * (1 - u));
+      const u = mod(t * 3.3 * 2 + i / 3, 1);
+      disc(ctx, RUN_GX - 12 - u * 18, gy - 1 - u * 5, 1.2 + u * 2.4, null, GREEN_LINE, 1, 0.55 * (1 - u));
     }
   }
-  ctx.save();
-  ctx.translate(RUN_GX, gy - up);
-  ctx.scale(1.32, 1.32);
-  runner(ctx, 0, 0, t, up);
-  ctx.restore();
+  // the runner is the Goober Guys contestant, the same one who steps out of the set
+  const fly = smooth(2, 14, up);
+  drawCast(ctx, 'goober', RUN_GX, gy - up, 0.56, { phase: t * 3.3 * TAU, amp: 1 - fly, tuck: fly, act: fly * 0.8, lw: 0.5, shadow: false }, t, (lx) => nearGroundAt(lx, t));
 
   // hearts and the row of coin pips
   const beat = 1 + 0.12 * Math.max(0, Math.sin(t * 4.4)) ** 6;
