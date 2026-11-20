@@ -28,6 +28,11 @@ const CLOSES_PER_TX = 12;
 const OWNERS_CACHE = 2000; // markets whose position owners we remember from claimAll
 const CLOSED_CACHE = 20_000; // closed positions remembered so GET /me still lists recent bets
 
+const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
+const ATA_PROGRAM_ID = 'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL';
+let TOKEN_PROGRAM: Web3.PublicKey;
+let ATA_PROGRAM: Web3.PublicKey;
+
 const runnerDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const num = (x: bigint | number | undefined) => Number(x ?? 0);
 
@@ -126,6 +131,8 @@ export class SolanaChain implements ChainAdapter {
     }
     if (typeof sdk.createClient !== 'function') throw new Error('@arena/sdk does not export createClient');
     const web3 = await loadWeb3();
+    TOKEN_PROGRAM = new web3.PublicKey(TOKEN_PROGRAM_ID);
+    ATA_PROGRAM = new web3.PublicKey(ATA_PROGRAM_ID);
 
     const deployedPath = resolve(process.env.DEPLOYED_PATH ?? resolve(runnerDir, '../program/DEPLOYED.json'));
     const deployed = existsSync(deployedPath) ? JSON.parse(readFileSync(deployedPath, 'utf8')) : sdk.DEPLOYED;
@@ -337,7 +344,13 @@ export class SolanaChain implements ChainAdapter {
     try {
       tx = this.client.checkRelayTx(txBase64, this.admin.publicKey);
     } catch (e) {
-      throw new Error((e as Error).message.startsWith('relay:') ? (e as Error).message : 'could not decode transaction');
+      // Not a bet: maybe a play-dollar transfer to another address (the wallet's Withdraw).
+      const transfer = await this.checkTransferTx(txBase64).catch((err: Error) => {
+        if (err.message.startsWith('relay:')) throw err; // a transfer, refused for a reason worth showing
+        return null;
+      });
+      if (!transfer) throw new Error((e as Error).message.startsWith('relay:') ? (e as Error).message : 'could not decode transaction');
+      tx = transfer;
     }
     if (tx.instructions.length > MAX_RELAY_IXS) throw new Error('relay: too many instructions');
     tx.partialSign(this.admin);
@@ -347,6 +360,43 @@ export class SolanaChain implements ChainAdapter {
     // Only a transaction that succeeded is reported as a bet (a failed one still has a signature).
     if (!res.value.err) this.reportRelayedBets(tx, sig);
     return sig;
+  }
+
+  /**
+   * A viewer sending play dollars to another address, for the fee payer to co-sign. Accepted only as
+   *   [optional] ATA CreateIdempotent(payer = fee payer, ata = recipient's PLAY account, mint = PLAY)
+   *   SPL Token TransferChecked(source = sender's PLAY account, mint = PLAY, destination, owner = sender, decimals 6)
+   * The fee payer may appear only as the rent payer of the create, never in the transfer, so its
+   * signature cannot move anyone's tokens. Returns null for anything else.
+   */
+  private async checkTransferTx(txBase64: string): Promise<Web3.Transaction | null> {
+    const W = this.web3;
+    const tx = W.Transaction.from(Buffer.from(txBase64, 'base64'));
+    const fp = this.admin.publicKey;
+    if (!tx.feePayer || !tx.feePayer.equals(fp)) return null;
+    const ixs = tx.instructions;
+    if (ixs.length < 1 || ixs.length > 2) return null;
+    const mint = new W.PublicKey(this.deployed.mint);
+    const xfer = ixs[ixs.length - 1]!;
+    const d = xfer.data;
+    if (!xfer.programId.equals(TOKEN_PROGRAM) || d.length !== 10 || d[0] !== 12 || d[9] !== 6 || xfer.keys.length !== 4) return null;
+    const [src, m, dst, owner] = xfer.keys.map((k) => k.pubkey) as [Web3.PublicKey, Web3.PublicKey, Web3.PublicKey, Web3.PublicKey];
+    if (!m.equals(mint) || xfer.keys.some((k) => k.pubkey.equals(fp))) return null;
+    if (!src.equals(this.client.playAta(owner)) || src.equals(dst) || d.readBigUInt64LE(1) === 0n) return null;
+    if (ixs.length === 2) {
+      const c = ixs[0]!;
+      if (!c.programId.equals(ATA_PROGRAM) || c.data.length !== 1 || c.data[0] !== 1 || c.keys.length !== 6) return null;
+      const [payer, ata, recipient, cm, sys, tok] = c.keys.map((k) => k.pubkey) as Web3.PublicKey[];
+      if (!payer!.equals(fp) || !ata!.equals(dst) || !cm!.equals(mint) || !ata!.equals(this.client.playAta(recipient!))) return null;
+      if (!sys!.equals(W.SystemProgram.programId) || !tok!.equals(TOKEN_PROGRAM) || recipient!.equals(fp)) return null;
+    } else {
+      // no create: the destination must already be a PLAY token account
+      const info = await this.connection.getAccountInfo(dst);
+      if (!info || !info.owner.equals(TOKEN_PROGRAM) || info.data.length < 32 || !new W.PublicKey(info.data.subarray(0, 32)).equals(mint)) {
+        throw new Error('relay: that address has no play dollars account yet');
+      }
+    }
+    return tx;
   }
 
   /** The place_bet instructions of a relayed transaction, read back from its own bytes. */

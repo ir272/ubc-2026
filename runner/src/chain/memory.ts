@@ -91,6 +91,15 @@ export class MemoryChain implements ChainAdapter {
     p.amounts[outcome]! += amount;
   }
 
+  async transfer(from: string, to: string, amount: number) {
+    if (!Number.isSafeInteger(amount) || amount <= 0) throw new Error('amount must be a positive integer (base units)');
+    if (from === to) throw new Error('cannot send to yourself');
+    const bal = this.balances.get(from) ?? 0;
+    if (bal < amount) throw new Error('insufficient balance');
+    this.balances.set(from, bal - amount);
+    this.balances.set(to, (this.balances.get(to) ?? 0) + amount);
+  }
+
   async lock(market: string) {
     const m = this.m(market);
     if (m.state !== 'Open') throw new Error(`cannot lock: market is ${m.state}`);

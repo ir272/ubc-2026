@@ -41,6 +41,8 @@ export interface ChainAdapter {
   parseOwner(owner: string): string;
   /** Memory chain only: place a bet without a signed transaction (POST /dev/bet). */
   placeBet?(owner: string, market: string, outcome: number, amount: number): Promise<void>;
+  /** Memory chain only: move play dollars between owners without a signed transaction (POST /dev/transfer). */
+  transfer?(from: string, to: string, amount: number): Promise<void>;
   /** House bots: create (or load) a bot account, and bet as it. */
   botAccount(name: string): Promise<string>;
   botBet(owner: string, market: string, outcome: number, amount: number): Promise<void>;

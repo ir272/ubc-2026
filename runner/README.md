@@ -68,6 +68,10 @@ Details and additions:
 - Chat: clients send `{ type: 'chat', name, text }`; text ≤ 280 chars, name ≤ 24, 5-message burst then
   1 per 2 s per connection; names starting with "HouseBot" are reserved.
 - `GET /health`.
+- Play-dollar transfers (the wallet's Withdraw): on Solana, `POST /relay` also accepts a transaction made
+  of an optional ATA `CreateIdempotent` (payer = fee payer, recipient's PLAY account) plus one SPL
+  `TransferChecked` of PLAY signed by the sender; the fee payer may never appear in the transfer. On
+  memory, `POST /dev/transfer { from, to, amount }` → `{ ok, balance }`.
 - Solana only: every window carries `txs` (its confirmed transactions: open, bet, lock, settle, void,
   payout; oldest first, capped at 48, oldest bets dropped first), the feed sends `{ type: 'tx', windowId,
   market, tx }` for each one, `window_open` carries the create_market tx, history windows keep up to 16,

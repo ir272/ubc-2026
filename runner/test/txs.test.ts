@@ -117,3 +117,27 @@ test('capTxs drops the oldest of anything once no bets are left', () => {
   const t = (kind: 'open' | 'payout', signature: string) => ({ kind, signature, at: 0 });
   assert.deepEqual(capTxs([t('open', 'a'), t('payout', 'b'), t('payout', 'c')], 2).map((x) => x.signature), ['b', 'c']);
 });
+
+test('memory chain: POST /dev/transfer moves play dollars and refuses bad requests', async () => {
+  const chain = new MemoryChain();
+  const app = createApp({ chain, channels: [coinflipChannel()], historyDir: null });
+  const port = await app.start(0, '127.0.0.1');
+  const post = (body: unknown) =>
+    fetch(`http://127.0.0.1:${port}/dev/transfer`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }).then(
+      async (r) => ({ status: r.status, body: (await r.json()) as any }),
+    );
+  try {
+    const a = randomPubkey();
+    const b = randomPubkey();
+    await chain.grant(a, 50_000_000);
+    const ok = await post({ from: a, to: b, amount: 20_000_000 });
+    assert.equal(ok.status, 200);
+    assert.equal(ok.body.balance, 30_000_000);
+    assert.equal(await chain.getBalance(b), 20_000_000);
+    assert.equal((await post({ from: a, to: b, amount: 99_000_000 })).status, 400);
+    assert.equal((await post({ from: a, to: a, amount: 1 })).status, 400);
+    assert.equal((await post({ from: a, to: 'nope', amount: 1 })).status, 400);
+  } finally {
+    await app.stop();
+  }
+});

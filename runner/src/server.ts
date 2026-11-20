@@ -204,6 +204,19 @@ export function createApp(o: AppOpts) {
       void hub.refreshAllOpen();
       return json(200, { signature });
     }
+    if (m === 'POST' && p === '/dev/transfer') {
+      if (!chain.transfer) throw new HttpError(404, '/dev/transfer is only available with CHAIN=memory');
+      ipLimit(req, 'devtransfer', 10, 1000);
+      const b = await readJson(req);
+      const from = owner(b.from);
+      const to = owner(b.to);
+      try {
+        await chain.transfer(from, to, Number(b.amount));
+      } catch (e) {
+        throw new HttpError(400, (e as Error).message);
+      }
+      return json(200, { ok: true, balance: await chain.getBalance(from) });
+    }
     if (m === 'POST' && p === '/dev/bet') {
       if (!chain.placeBet) throw new HttpError(404, '/dev/bet is only available with CHAIN=memory');
       ipLimit(req, 'devbet', 20, 200);
