@@ -1,0 +1,23 @@
+# Docker build context is the repo root (runner/Dockerfile). Keep it to what the runner needs.
+**/node_modules
+**/.env
+**/.env.*
+**/.keys
+**/.cache
+**/*.log
+.git
+web
+pitch
+prototypes
+refs
+clips
+games/_parked
+games/*/assets
+games/*/captures
+games/*/shots
+games/*/docs
+games/*/web
+program/target
+program/.anchor
+program/sdk/dist
+runner/data

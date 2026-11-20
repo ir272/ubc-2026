@@ -3,7 +3,8 @@
 // needs @solana/web3.js or the SDK.
 //
 // Env:
-//   ADMIN_KEYPAIR   path to the admin keypair JSON (solana-keygen format). Default ../program/.keys/admin.json
+//   ADMIN_KEYPAIR   path to the admin keypair JSON (solana-keygen format), or that JSON array itself
+//                   (for hosts with secret env vars). Default ../program/.keys/admin.json
 //   DEPLOYED_PATH   path to DEPLOYED.json. Default ../program/DEPLOYED.json, else the SDK's bundled DEPLOYED
 //   SOLANA_RPC      RPC URL. Default: the public endpoint for DEPLOYED.json's cluster
 //   BOT_KEYS        where house-bot keypairs are kept. Default .keys/house-bots.json (gitignored)
@@ -166,9 +167,22 @@ export class SolanaChain implements ChainAdapter {
     const deployedPath = resolve(process.env.DEPLOYED_PATH ?? resolve(runnerDir, '../program/DEPLOYED.json'));
     const deployed = existsSync(deployedPath) ? JSON.parse(readFileSync(deployedPath, 'utf8')) : sdk.DEPLOYED;
     if (!deployed?.programId) throw new Error(`no DEPLOYED.json at ${deployedPath} (and the SDK has none bundled)`);
-    const kpPath = resolve(process.env.ADMIN_KEYPAIR ?? resolve(runnerDir, '../program/.keys/admin.json'));
-    if (!existsSync(kpPath)) throw new Error(`admin keypair not found (set ADMIN_KEYPAIR); looked at ${kpPath}`);
-    const admin = web3.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(readFileSync(kpPath, 'utf8'))));
+    // ADMIN_KEYPAIR is a file path, or (on a host such as Railway) the key file's JSON array itself.
+    // The secret is never logged; a parse error says only that the value is not a key.
+    const kpEnv = process.env.ADMIN_KEYPAIR?.trim();
+    let kpJson: string;
+    if (kpEnv?.startsWith('[')) kpJson = kpEnv;
+    else {
+      const kpPath = resolve(kpEnv || resolve(runnerDir, '../program/.keys/admin.json'));
+      if (!existsSync(kpPath)) throw new Error(`admin keypair not found (set ADMIN_KEYPAIR to a path or the key's JSON array); looked at ${kpPath}`);
+      kpJson = readFileSync(kpPath, 'utf8');
+    }
+    let admin: Web3.Keypair;
+    try {
+      admin = web3.Keypair.fromSecretKey(Uint8Array.from(JSON.parse(kpJson)));
+    } catch {
+      throw new Error('ADMIN_KEYPAIR is not a valid keypair (expected a JSON array of 64 numbers, as in solana-keygen files)');
+    }
     const cluster: string = deployed.cluster ?? 'devnet';
     const rpc =
       process.env.SOLANA_RPC ??

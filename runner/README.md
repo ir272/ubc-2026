@@ -202,3 +202,28 @@ CHAIN=solana node scripts/sweep.ts --void-stale   # also void Open/Locked market
 ```
 
 Markets created by the program before `close_market` existed (316-byte layout) cannot be closed.
+
+## Hosting (Railway)
+
+The runner must run all the time and hold WebSocket connections, so it cannot run on Vercel. It
+deploys from this repo with `runner/Dockerfile` (build context: the repo root; `railway.json` at the
+root points Railway at it, with the health check on `GET /health`). The image builds `program/sdk`
+(its `dist/` is not in git) and copies the game adapters without their art, audio or captures
+(`.dockerignore`). No secret is in the image.
+
+Variables to set on the Railway service (names only; values go in Railway's dashboard, never in git):
+
+| name | value |
+|---|---|
+| `ADMIN_KEYPAIR` | the whole contents of `program/.keys/admin.json` (the JSON array of 64 numbers) |
+| `SOLANA_RPC` | the private devnet RPC URL (Helius) |
+| `OPENROUTER_API_KEY` | the key the AI players of Inkelton and Blood Moon use (same as in `games/*/.env`) |
+
+Already set by the Dockerfile (override only to change them): `CHAIN=solana`,
+`CHANNELS=scrivener,brawl,tumbletop`, `NODE_ENV=production`. Railway provides `PORT`. Optional:
+`BRAIN_BUDGET_USD` / `BRAWL_BUDGET_USD` (AI spend caps per game; the spend file lives in the
+container, so it restarts from zero on each deploy), `TX_PER_SEC`, `POOL_POLL_MS`, `RPC_STATS`.
+House bots stay off unless `HOUSE_BOTS=1`.
+
+The site then needs `VITE_RUNNER_URL=https://<the Railway domain>` at build time (Vercel).
+Only one runner should run against the program at a time: stop the local one when the hosted one is live.
