@@ -117,8 +117,9 @@ function bossPlate(ctx, env, f) {
   // bottom centre, on its own plate
   const w = 1000, x = (W - w) / 2, h = 62, y = H - 16 - h;
   plate(ctx, x, y, w, h);
-  title(ctx, 'THE SCRIVENER', x + 24, y + 40, 23, { align: 'left', color: INK, spacing: 3, weight: 'bold' });
-  const bx = x + 300, bw = w - 300 - 176, by = y + 23, bh = 16;
+  const nm = title(ctx, 'INKELTON', x + 24, y + 40, 23, { align: 'left', color: INK, spacing: 3, weight: 'bold' });
+  // the bar starts just after the name; its right end (the nib, then the figure) stays put
+  const bx = Math.round(x + 24 + nm.width + 26), bw = x + w - 176 - bx, by = y + 23, bh = 16;
   quillBar(ctx, bx, by, bw, bh, frac, lag, {});
   if (rival && !rival.kill) { const mx = bx + bw * rival.left; ctx.fillStyle = SHEET; ctx.fillRect(mx - 4, by - 7, 8, bh + 14); ctx.fillStyle = env.bot(rival.id).accent; ctx.fillRect(mx - 2.5, by - 7, 5, bh + 14); }
   text(ctx, pct, x + w - 20, y + 45, numf(36, 'bold'), { color: INK, align: 'right' });
@@ -398,7 +399,7 @@ function endCard(ctx, env, f) {
   const by = 330, bh = 22;
   quillBar(ctx, L, by, R - L - 70, bh, left, left, {});
   ctx.restore();
-  title(ctx, 'THE SCRIVENER', L, 420, 26, { align: 'left', spacing: 4, weight: 'bold', alpha: ba });
+  title(ctx, 'INKELTON', L, 420, 26, { align: 'left', spacing: 4, weight: 'bold', alpha: ba });
   if (kill && left <= 0.001) title(ctx, 'KILL', R, 426, 48, { align: 'right', color: RED, spacing: 8, weight: 'bold' });
   else text(ctx, `${Math.round(left * 100)}%`, R, 432, numf(64, 'bold'), { color: INK, align: 'right', alpha: ba });
   ctx.restore();
